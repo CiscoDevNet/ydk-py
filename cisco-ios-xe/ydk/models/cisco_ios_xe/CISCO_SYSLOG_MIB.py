@@ -13,6 +13,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class SyslogSeverity(Enum):
     """
     SyslogSeverity (Enum Class)
@@ -143,6 +144,7 @@ class CISCOSYSLOGMIB(Entity):
         self.clogserverconfigtable.parent = self
         self._children_name_map["clogserverconfigtable"] = "clogServerConfigTable"
         self._segment_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOSYSLOGMIB, [], name, value)
@@ -216,13 +218,13 @@ class CISCOSYSLOGMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('clognotificationssent', YLeaf(YType.uint32, 'clogNotificationsSent')),
-                ('clognotificationsenabled', YLeaf(YType.boolean, 'clogNotificationsEnabled')),
-                ('clogmaxseverity', YLeaf(YType.enumeration, 'clogMaxSeverity')),
-                ('clogmsgignores', YLeaf(YType.uint32, 'clogMsgIgnores')),
-                ('clogmsgdrops', YLeaf(YType.uint32, 'clogMsgDrops')),
-                ('clogoriginidtype', YLeaf(YType.enumeration, 'clogOriginIDType')),
-                ('clogoriginid', YLeaf(YType.str, 'clogOriginID')),
+                ('clognotificationssent', (YLeaf(YType.uint32, 'clogNotificationsSent'), ['int'])),
+                ('clognotificationsenabled', (YLeaf(YType.boolean, 'clogNotificationsEnabled'), ['bool'])),
+                ('clogmaxseverity', (YLeaf(YType.enumeration, 'clogMaxSeverity'), [('ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB', 'SyslogSeverity', '')])),
+                ('clogmsgignores', (YLeaf(YType.uint32, 'clogMsgIgnores'), ['int'])),
+                ('clogmsgdrops', (YLeaf(YType.uint32, 'clogMsgDrops'), ['int'])),
+                ('clogoriginidtype', (YLeaf(YType.enumeration, 'clogOriginIDType'), [('ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB', 'CISCOSYSLOGMIB', 'ClogBasic.ClogOriginIDType')])),
+                ('clogoriginid', (YLeaf(YType.str, 'clogOriginID'), ['str'])),
             ])
             self.clognotificationssent = None
             self.clognotificationsenabled = None
@@ -233,6 +235,7 @@ class CISCOSYSLOGMIB(Entity):
             self.clogoriginid = None
             self._segment_path = lambda: "clogBasic"
             self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSYSLOGMIB.ClogBasic, ['clognotificationssent', 'clognotificationsenabled', 'clogmaxseverity', 'clogmsgignores', 'clogmsgdrops', 'clogoriginidtype', 'clogoriginid'], name, value)
@@ -338,13 +341,14 @@ class CISCOSYSLOGMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cloghisttablemaxlength', YLeaf(YType.int32, 'clogHistTableMaxLength')),
-                ('cloghistmsgsflushed', YLeaf(YType.uint32, 'clogHistMsgsFlushed')),
+                ('cloghisttablemaxlength', (YLeaf(YType.int32, 'clogHistTableMaxLength'), ['int'])),
+                ('cloghistmsgsflushed', (YLeaf(YType.uint32, 'clogHistMsgsFlushed'), ['int'])),
             ])
             self.cloghisttablemaxlength = None
             self.cloghistmsgsflushed = None
             self._segment_path = lambda: "clogHistory"
             self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSYSLOGMIB.ClogHistory, ['cloghisttablemaxlength', 'cloghistmsgsflushed'], name, value)
@@ -378,11 +382,12 @@ class CISCOSYSLOGMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('clogmaxservers', YLeaf(YType.uint32, 'clogMaxServers')),
+                ('clogmaxservers', (YLeaf(YType.uint32, 'clogMaxServers'), ['int'])),
             ])
             self.clogmaxservers = None
             self._segment_path = lambda: "clogServer"
             self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSYSLOGMIB.ClogServer, ['clogmaxservers'], name, value)
@@ -420,6 +425,7 @@ class CISCOSYSLOGMIB(Entity):
             self.cloghistoryentry = YList(self)
             self._segment_path = lambda: "clogHistoryTable"
             self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSYSLOGMIB.ClogHistoryTable, [], name, value)
@@ -487,12 +493,12 @@ class CISCOSYSLOGMIB(Entity):
                 self.ylist_key_names = ['cloghistindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cloghistindex', YLeaf(YType.int32, 'clogHistIndex')),
-                    ('cloghistfacility', YLeaf(YType.str, 'clogHistFacility')),
-                    ('cloghistseverity', YLeaf(YType.enumeration, 'clogHistSeverity')),
-                    ('cloghistmsgname', YLeaf(YType.str, 'clogHistMsgName')),
-                    ('cloghistmsgtext', YLeaf(YType.str, 'clogHistMsgText')),
-                    ('cloghisttimestamp', YLeaf(YType.uint32, 'clogHistTimestamp')),
+                    ('cloghistindex', (YLeaf(YType.int32, 'clogHistIndex'), ['int'])),
+                    ('cloghistfacility', (YLeaf(YType.str, 'clogHistFacility'), ['str'])),
+                    ('cloghistseverity', (YLeaf(YType.enumeration, 'clogHistSeverity'), [('ydk.models.cisco_ios_xe.CISCO_SYSLOG_MIB', 'SyslogSeverity', '')])),
+                    ('cloghistmsgname', (YLeaf(YType.str, 'clogHistMsgName'), ['str'])),
+                    ('cloghistmsgtext', (YLeaf(YType.str, 'clogHistMsgText'), ['str'])),
+                    ('cloghisttimestamp', (YLeaf(YType.uint32, 'clogHistTimestamp'), ['int'])),
                 ])
                 self.cloghistindex = None
                 self.cloghistfacility = None
@@ -502,6 +508,7 @@ class CISCOSYSLOGMIB(Entity):
                 self.cloghisttimestamp = None
                 self._segment_path = lambda: "clogHistoryEntry" + "[clogHistIndex='" + str(self.cloghistindex) + "']"
                 self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/clogHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSYSLOGMIB.ClogHistoryTable.ClogHistoryEntry, ['cloghistindex', 'cloghistfacility', 'cloghistseverity', 'cloghistmsgname', 'cloghistmsgtext', 'cloghisttimestamp'], name, value)
@@ -542,6 +549,7 @@ class CISCOSYSLOGMIB(Entity):
             self.clogserverconfigentry = YList(self)
             self._segment_path = lambda: "clogServerConfigTable"
             self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSYSLOGMIB.ClogServerConfigTable, [], name, value)
@@ -586,15 +594,16 @@ class CISCOSYSLOGMIB(Entity):
                 self.ylist_key_names = ['clogserveraddrtype','clogserveraddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clogserveraddrtype', YLeaf(YType.enumeration, 'clogServerAddrType')),
-                    ('clogserveraddr', YLeaf(YType.str, 'clogServerAddr')),
-                    ('clogserverstatus', YLeaf(YType.enumeration, 'clogServerStatus')),
+                    ('clogserveraddrtype', (YLeaf(YType.enumeration, 'clogServerAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('clogserveraddr', (YLeaf(YType.str, 'clogServerAddr'), ['str'])),
+                    ('clogserverstatus', (YLeaf(YType.enumeration, 'clogServerStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.clogserveraddrtype = None
                 self.clogserveraddr = None
                 self.clogserverstatus = None
                 self._segment_path = lambda: "clogServerConfigEntry" + "[clogServerAddrType='" + str(self.clogserveraddrtype) + "']" + "[clogServerAddr='" + str(self.clogserveraddr) + "']"
                 self._absolute_path = lambda: "CISCO-SYSLOG-MIB:CISCO-SYSLOG-MIB/clogServerConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSYSLOGMIB.ClogServerConfigTable.ClogServerConfigEntry, ['clogserveraddrtype', 'clogserveraddr', 'clogserverstatus'], name, value)

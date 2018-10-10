@@ -34,6 +34,11 @@ submodule Cisco-IOS-XE-ipv6 {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
   revision 2017-07-05 {
     description
       "Adding model for ipv6 router ospf *";
@@ -257,6 +262,9 @@ submodule Cisco-IOS-XE-ipv6 {
             "Configure static route for a VPN Routing/Forwarding instance";
           key "name";
           leaf name {
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
             type string;
           }
           uses ipv6-route-grouping;

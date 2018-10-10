@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -38,12 +39,17 @@ class Vrrp(Entity):
     	Interface configuration table
     	**type**\:  :py:class:`Interfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_cfg.Vrrp.Interfaces>`
     
+    .. attribute:: enable
+    
+    	Enable vrrp process
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+    
     
 
     """
 
     _prefix = 'ipv4-vrrp-cfg'
-    _revision = '2017-11-05'
+    _revision = '2018-05-19'
 
     def __init__(self):
         super(Vrrp, self).__init__()
@@ -55,7 +61,10 @@ class Vrrp(Entity):
         self.has_list_ancestor = False
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("logging", ("logging", Vrrp.Logging)), ("interfaces", ("interfaces", Vrrp.Interfaces))])
-        self._leafs = OrderedDict()
+        self._leafs = OrderedDict([
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+        ])
+        self.enable = None
 
         self.logging = Vrrp.Logging()
         self.logging.parent = self
@@ -65,9 +74,10 @@ class Vrrp(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Vrrp, [], name, value)
+        self._perform_setattr(Vrrp, ['enable'], name, value)
 
 
     class Logging(Entity):
@@ -84,7 +94,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-cfg'
-        _revision = '2017-11-05'
+        _revision = '2018-05-19'
 
         def __init__(self):
             super(Vrrp.Logging, self).__init__()
@@ -96,11 +106,12 @@ class Vrrp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('state_change_disable', YLeaf(YType.empty, 'state-change-disable')),
+                ('state_change_disable', (YLeaf(YType.empty, 'state-change-disable'), ['Empty'])),
             ])
             self.state_change_disable = None
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.Logging, ['state_change_disable'], name, value)
@@ -120,7 +131,7 @@ class Vrrp(Entity):
         """
 
         _prefix = 'ipv4-vrrp-cfg'
-        _revision = '2017-11-05'
+        _revision = '2018-05-19'
 
         def __init__(self):
             super(Vrrp.Interfaces, self).__init__()
@@ -136,6 +147,7 @@ class Vrrp(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.Interfaces, [], name, value)
@@ -150,7 +162,7 @@ class Vrrp(Entity):
             	Interface name to configure
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: ipv6
             
@@ -190,7 +202,7 @@ class Vrrp(Entity):
             """
 
             _prefix = 'ipv4-vrrp-cfg'
-            _revision = '2017-11-05'
+            _revision = '2018-05-19'
 
             def __init__(self):
                 super(Vrrp.Interfaces.Interface, self).__init__()
@@ -202,8 +214,8 @@ class Vrrp(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("ipv6", ("ipv6", Vrrp.Interfaces.Interface.Ipv6)), ("delay", ("delay", Vrrp.Interfaces.Interface.Delay)), ("ipv4", ("ipv4", Vrrp.Interfaces.Interface.Ipv4)), ("bfd", ("bfd", Vrrp.Interfaces.Interface.Bfd))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('mac_refresh', YLeaf(YType.uint32, 'mac-refresh')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('mac_refresh', (YLeaf(YType.uint32, 'mac-refresh'), ['int'])),
                 ])
                 self.interface_name = None
                 self.mac_refresh = None
@@ -224,6 +236,7 @@ class Vrrp(Entity):
                 self._children_name_map["bfd"] = "bfd"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-cfg:vrrp/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Interfaces.Interface, ['interface_name', 'mac_refresh'], name, value)
@@ -248,7 +261,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-05-19'
 
                 def __init__(self):
                     super(Vrrp.Interfaces.Interface.Ipv6, self).__init__()
@@ -269,6 +282,7 @@ class Vrrp(Entity):
                     self.slave_virtual_routers.parent = self
                     self._children_name_map["slave_virtual_routers"] = "slave-virtual-routers"
                     self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6, [], name, value)
@@ -288,7 +302,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-05-19'
 
                     def __init__(self):
                         super(Vrrp.Interfaces.Interface.Ipv6.Version3, self).__init__()
@@ -305,6 +319,7 @@ class Vrrp(Entity):
                         self.virtual_routers.parent = self
                         self._children_name_map["virtual_routers"] = "virtual-routers"
                         self._segment_path = lambda: "version3"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3, [], name, value)
@@ -324,7 +339,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-05-19'
 
                         def __init__(self):
                             super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, self).__init__()
@@ -339,6 +354,7 @@ class Vrrp(Entity):
 
                             self.virtual_router = YList(self)
                             self._segment_path = lambda: "virtual-routers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters, [], name, value)
@@ -428,7 +444,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, self).__init__()
@@ -440,12 +456,12 @@ class Vrrp(Entity):
                                 self.ylist_key_names = ['vr_id']
                                 self._child_classes = OrderedDict([("global-ipv6-addresses", ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses)), ("tracks", ("tracks", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks)), ("timer", ("timer", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer)), ("tracked-objects", ("tracked_objects", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects)), ("link-local-ipv6-address", ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address))])
                                 self._leafs = OrderedDict([
-                                    ('vr_id', YLeaf(YType.uint32, 'vr-id')),
-                                    ('bfd', YLeaf(YType.str, 'bfd')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('accept_mode_disable', YLeaf(YType.empty, 'accept-mode-disable')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
+                                    ('vr_id', (YLeaf(YType.uint32, 'vr-id'), ['int'])),
+                                    ('bfd', (YLeaf(YType.str, 'bfd'), ['str','str'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
                                 ])
                                 self.vr_id = None
                                 self.bfd = None
@@ -474,6 +490,7 @@ class Vrrp(Entity):
                                 self.link_local_ipv6_address.parent = self
                                 self._children_name_map["link_local_ipv6_address"] = "link-local-ipv6-address"
                                 self._segment_path = lambda: "virtual-router" + "[vr-id='" + str(self.vr_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'bfd', 'priority', 'accept_mode_disable', 'preempt', 'session_name'], name, value)
@@ -494,7 +511,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, self).__init__()
@@ -509,6 +526,7 @@ class Vrrp(Entity):
 
                                     self.global_ipv6_address = YList(self)
                                     self._segment_path = lambda: "global-ipv6-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses, [], name, value)
@@ -536,7 +554,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
@@ -548,10 +566,11 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['ip_address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
                                         ])
                                         self.ip_address = None
                                         self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + str(self.ip_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
@@ -572,7 +591,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
@@ -587,6 +606,7 @@ class Vrrp(Entity):
 
                                     self.track = YList(self)
                                     self._segment_path = lambda: "tracks"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
@@ -601,7 +621,7 @@ class Vrrp(Entity):
                                     	Object to be tracked, interface name for interfaces
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority
                                     
@@ -617,7 +637,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
@@ -629,12 +649,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority = None
                                         self._segment_path = lambda: "track" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
@@ -643,13 +664,6 @@ class Vrrp(Entity):
                             class Timer(Entity):
                                 """
                                 Set advertisement timer
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\: bool
-                                
-                                	**default value**\: false
                                 
                                 .. attribute:: advertisement_time_in_msec
                                 
@@ -672,16 +686,16 @@ class Vrrp(Entity):
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\: bool
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                	**default value**\: false
+                                	**units**\: millisecond
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
@@ -693,19 +707,18 @@ class Vrrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_msec', YLeaf(YType.boolean, 'in-msec')),
-                                        ('advertisement_time_in_msec', YLeaf(YType.uint32, 'advertisement-time-in-msec')),
-                                        ('advertisement_time_in_sec', YLeaf(YType.uint32, 'advertisement-time-in-sec')),
-                                        ('forced', YLeaf(YType.boolean, 'forced')),
+                                        ('advertisement_time_in_msec', (YLeaf(YType.uint32, 'advertisement-time-in-msec'), ['int'])),
+                                        ('advertisement_time_in_sec', (YLeaf(YType.uint32, 'advertisement-time-in-sec'), ['int'])),
+                                        ('forced', (YLeaf(YType.empty, 'forced'), ['Empty'])),
                                     ])
-                                    self.in_msec = None
                                     self.advertisement_time_in_msec = None
                                     self.advertisement_time_in_sec = None
                                     self.forced = None
                                     self._segment_path = lambda: "timer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
                             class TrackedObjects(Entity):
@@ -723,7 +736,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
@@ -738,6 +751,7 @@ class Vrrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
@@ -768,7 +782,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
@@ -780,12 +794,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -820,7 +835,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, self).__init__()
@@ -832,12 +847,13 @@ class Vrrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                        ('auto_configure', YLeaf(YType.boolean, 'auto-configure')),
+                                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                                        ('auto_configure', (YLeaf(YType.boolean, 'auto-configure'), ['bool'])),
                                     ])
                                     self.ip_address = None
                                     self.auto_configure = None
                                     self._segment_path = lambda: "link-local-ipv6-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.Version3.VirtualRouters.VirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
@@ -857,7 +873,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-05-19'
 
                     def __init__(self):
                         super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, self).__init__()
@@ -872,6 +888,7 @@ class Vrrp(Entity):
 
                         self.slave_virtual_router = YList(self)
                         self._segment_path = lambda: "slave-virtual-routers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters, [], name, value)
@@ -913,7 +930,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-05-19'
 
                         def __init__(self):
                             super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
@@ -925,9 +942,9 @@ class Vrrp(Entity):
                             self.ylist_key_names = ['slave_virtual_router_id']
                             self._child_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_virtual_router_id', YLeaf(YType.uint32, 'slave-virtual-router-id')),
-                                ('follow', YLeaf(YType.str, 'follow')),
-                                ('accept_mode_disable', YLeaf(YType.empty, 'accept-mode-disable')),
+                                ('slave_virtual_router_id', (YLeaf(YType.uint32, 'slave-virtual-router-id'), ['int'])),
+                                ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
+                                ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
                             ])
                             self.slave_virtual_router_id = None
                             self.follow = None
@@ -941,6 +958,7 @@ class Vrrp(Entity):
                             self.global_ipv6_addresses.parent = self
                             self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
                             self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + str(self.slave_virtual_router_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable'], name, value)
@@ -975,7 +993,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, self).__init__()
@@ -987,12 +1005,13 @@ class Vrrp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                    ('auto_configure', YLeaf(YType.boolean, 'auto-configure')),
+                                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                                    ('auto_configure', (YLeaf(YType.boolean, 'auto-configure'), ['bool'])),
                                 ])
                                 self.ip_address = None
                                 self.auto_configure = None
                                 self._segment_path = lambda: "link-local-ipv6-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.LinkLocalIpv6Address, ['ip_address', 'auto_configure'], name, value)
@@ -1013,7 +1032,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, self).__init__()
@@ -1028,6 +1047,7 @@ class Vrrp(Entity):
 
                                 self.global_ipv6_address = YList(self)
                                 self._segment_path = lambda: "global-ipv6-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses, [], name, value)
@@ -1055,7 +1075,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, self).__init__()
@@ -1067,10 +1087,11 @@ class Vrrp(Entity):
                                     self.ylist_key_names = ['ip_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
                                     ])
                                     self.ip_address = None
                                     self._segment_path = lambda: "global-ipv6-address" + "[ip-address='" + str(self.ip_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv6.SlaveVirtualRouters.SlaveVirtualRouter.GlobalIpv6Addresses.GlobalIpv6Address, ['ip_address'], name, value)
@@ -1109,7 +1130,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-05-19'
 
                 def __init__(self):
                     super(Vrrp.Interfaces.Interface.Delay, self).__init__()
@@ -1122,12 +1143,13 @@ class Vrrp(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('min_delay', YLeaf(YType.uint32, 'min-delay')),
-                        ('reload_delay', YLeaf(YType.uint32, 'reload-delay')),
+                        ('min_delay', (YLeaf(YType.uint32, 'min-delay'), ['int'])),
+                        ('reload_delay', (YLeaf(YType.uint32, 'reload-delay'), ['int'])),
                     ])
                     self.min_delay = None
                     self.reload_delay = None
                     self._segment_path = lambda: "delay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Delay, ['min_delay', 'reload_delay'], name, value)
@@ -1157,7 +1179,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-05-19'
 
                 def __init__(self):
                     super(Vrrp.Interfaces.Interface.Ipv4, self).__init__()
@@ -1182,6 +1204,7 @@ class Vrrp(Entity):
                     self.version2.parent = self
                     self._children_name_map["version2"] = "version2"
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4, [], name, value)
@@ -1201,7 +1224,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-05-19'
 
                     def __init__(self):
                         super(Vrrp.Interfaces.Interface.Ipv4.Version3, self).__init__()
@@ -1218,6 +1241,7 @@ class Vrrp(Entity):
                         self.virtual_routers.parent = self
                         self._children_name_map["virtual_routers"] = "virtual-routers"
                         self._segment_path = lambda: "version3"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3, [], name, value)
@@ -1237,7 +1261,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-05-19'
 
                         def __init__(self):
                             super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, self).__init__()
@@ -1252,6 +1276,7 @@ class Vrrp(Entity):
 
                             self.virtual_router = YList(self)
                             self._segment_path = lambda: "virtual-routers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters, [], name, value)
@@ -1337,7 +1362,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, self).__init__()
@@ -1349,13 +1374,13 @@ class Vrrp(Entity):
                                 self.ylist_key_names = ['vr_id']
                                 self._child_classes = OrderedDict([("timer", ("timer", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer)), ("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses)), ("tracked-objects", ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects)), ("tracks", ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks))])
                                 self._leafs = OrderedDict([
-                                    ('vr_id', YLeaf(YType.uint32, 'vr-id')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
-                                    ('bfd', YLeaf(YType.str, 'bfd')),
-                                    ('primary_ipv4_address', YLeaf(YType.str, 'primary-ipv4-address')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('accept_mode_disable', YLeaf(YType.empty, 'accept-mode-disable')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
+                                    ('vr_id', (YLeaf(YType.uint32, 'vr-id'), ['int'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                    ('bfd', (YLeaf(YType.str, 'bfd'), ['str'])),
+                                    ('primary_ipv4_address', (YLeaf(YType.str, 'primary-ipv4-address'), ['str'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                 ])
                                 self.vr_id = None
                                 self.session_name = None
@@ -1381,6 +1406,7 @@ class Vrrp(Entity):
                                 self.tracks.parent = self
                                 self._children_name_map["tracks"] = "tracks"
                                 self._segment_path = lambda: "virtual-router" + "[vr-id='" + str(self.vr_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter, ['vr_id', 'session_name', 'bfd', 'primary_ipv4_address', 'preempt', 'accept_mode_disable', 'priority'], name, value)
@@ -1389,13 +1415,6 @@ class Vrrp(Entity):
                             class Timer(Entity):
                                 """
                                 Set advertisement timer
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\: bool
-                                
-                                	**default value**\: false
                                 
                                 .. attribute:: advertisement_time_in_msec
                                 
@@ -1418,16 +1437,16 @@ class Vrrp(Entity):
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\: bool
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                	**default value**\: false
+                                	**units**\: millisecond
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, self).__init__()
@@ -1439,19 +1458,18 @@ class Vrrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_msec', YLeaf(YType.boolean, 'in-msec')),
-                                        ('advertisement_time_in_msec', YLeaf(YType.uint32, 'advertisement-time-in-msec')),
-                                        ('advertisement_time_in_sec', YLeaf(YType.uint32, 'advertisement-time-in-sec')),
-                                        ('forced', YLeaf(YType.boolean, 'forced')),
+                                        ('advertisement_time_in_msec', (YLeaf(YType.uint32, 'advertisement-time-in-msec'), ['int'])),
+                                        ('advertisement_time_in_sec', (YLeaf(YType.uint32, 'advertisement-time-in-sec'), ['int'])),
+                                        ('forced', (YLeaf(YType.empty, 'forced'), ['Empty'])),
                                     ])
-                                    self.in_msec = None
                                     self.advertisement_time_in_msec = None
                                     self.advertisement_time_in_sec = None
                                     self.forced = None
                                     self._segment_path = lambda: "timer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
                             class SecondaryIpv4Addresses(Entity):
@@ -1468,7 +1486,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
@@ -1483,6 +1501,7 @@ class Vrrp(Entity):
 
                                     self.secondary_ipv4_address = YList(self)
                                     self._segment_path = lambda: "secondary-ipv4-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, [], name, value)
@@ -1504,7 +1523,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -1516,10 +1535,11 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['ip_address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                                         ])
                                         self.ip_address = None
                                         self._segment_path = lambda: "secondary-ipv4-address" + "[ip-address='" + str(self.ip_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
@@ -1540,7 +1560,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
@@ -1555,6 +1575,7 @@ class Vrrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
@@ -1585,7 +1606,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
@@ -1597,12 +1618,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -1623,7 +1645,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, self).__init__()
@@ -1638,6 +1660,7 @@ class Vrrp(Entity):
 
                                     self.track = YList(self)
                                     self._segment_path = lambda: "tracks"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks, [], name, value)
@@ -1652,7 +1675,7 @@ class Vrrp(Entity):
                                     	Object to be tracked, interface name for interfaces
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority
                                     
@@ -1668,7 +1691,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
@@ -1680,12 +1703,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority = None
                                         self._segment_path = lambda: "track" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version3.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
@@ -1705,7 +1729,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-05-19'
 
                     def __init__(self):
                         super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, self).__init__()
@@ -1720,6 +1744,7 @@ class Vrrp(Entity):
 
                         self.slave_virtual_router = YList(self)
                         self._segment_path = lambda: "slave-virtual-routers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters, [], name, value)
@@ -1763,7 +1788,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-05-19'
 
                         def __init__(self):
                             super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, self).__init__()
@@ -1775,10 +1800,10 @@ class Vrrp(Entity):
                             self.ylist_key_names = ['slave_virtual_router_id']
                             self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_virtual_router_id', YLeaf(YType.uint32, 'slave-virtual-router-id')),
-                                ('follow', YLeaf(YType.str, 'follow')),
-                                ('accept_mode_disable', YLeaf(YType.empty, 'accept-mode-disable')),
-                                ('primary_ipv4_address', YLeaf(YType.str, 'primary-ipv4-address')),
+                                ('slave_virtual_router_id', (YLeaf(YType.uint32, 'slave-virtual-router-id'), ['int'])),
+                                ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
+                                ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
+                                ('primary_ipv4_address', (YLeaf(YType.str, 'primary-ipv4-address'), ['str'])),
                             ])
                             self.slave_virtual_router_id = None
                             self.follow = None
@@ -1789,6 +1814,7 @@ class Vrrp(Entity):
                             self.secondary_ipv4_addresses.parent = self
                             self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
                             self._segment_path = lambda: "slave-virtual-router" + "[slave-virtual-router-id='" + str(self.slave_virtual_router_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter, ['slave_virtual_router_id', 'follow', 'accept_mode_disable', 'primary_ipv4_address'], name, value)
@@ -1808,7 +1834,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, self).__init__()
@@ -1823,6 +1849,7 @@ class Vrrp(Entity):
 
                                 self.secondary_ipv4_address = YList(self)
                                 self._segment_path = lambda: "secondary-ipv4-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses, [], name, value)
@@ -1844,7 +1871,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -1856,10 +1883,11 @@ class Vrrp(Entity):
                                     self.ylist_key_names = ['ip_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                                     ])
                                     self.ip_address = None
                                     self._segment_path = lambda: "secondary-ipv4-address" + "[ip-address='" + str(self.ip_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.SlaveVirtualRouters.SlaveVirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
@@ -1879,7 +1907,7 @@ class Vrrp(Entity):
                     """
 
                     _prefix = 'ipv4-vrrp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-05-19'
 
                     def __init__(self):
                         super(Vrrp.Interfaces.Interface.Ipv4.Version2, self).__init__()
@@ -1896,6 +1924,7 @@ class Vrrp(Entity):
                         self.virtual_routers.parent = self
                         self._children_name_map["virtual_routers"] = "virtual-routers"
                         self._segment_path = lambda: "version2"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2, [], name, value)
@@ -1915,7 +1944,7 @@ class Vrrp(Entity):
                         """
 
                         _prefix = 'ipv4-vrrp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-05-19'
 
                         def __init__(self):
                             super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters, self).__init__()
@@ -1930,6 +1959,7 @@ class Vrrp(Entity):
 
                             self.virtual_router = YList(self)
                             self._segment_path = lambda: "virtual-routers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters, [], name, value)
@@ -2020,7 +2050,7 @@ class Vrrp(Entity):
                             """
 
                             _prefix = 'ipv4-vrrp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-05-19'
 
                             def __init__(self):
                                 super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, self).__init__()
@@ -2032,14 +2062,14 @@ class Vrrp(Entity):
                                 self.ylist_key_names = ['vr_id']
                                 self._child_classes = OrderedDict([("timer", ("timer", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer)), ("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses)), ("tracks", ("tracks", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks)), ("tracked-objects", ("tracked_objects", Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects))])
                                 self._leafs = OrderedDict([
-                                    ('vr_id', YLeaf(YType.uint32, 'vr-id')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('primary_ipv4_address', YLeaf(YType.str, 'primary-ipv4-address')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('text_password', YLeaf(YType.str, 'text-password')),
-                                    ('bfd', YLeaf(YType.str, 'bfd')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
-                                    ('accept_mode_disable', YLeaf(YType.empty, 'accept-mode-disable')),
+                                    ('vr_id', (YLeaf(YType.uint32, 'vr-id'), ['int'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('primary_ipv4_address', (YLeaf(YType.str, 'primary-ipv4-address'), ['str'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('text_password', (YLeaf(YType.str, 'text-password'), ['str'])),
+                                    ('bfd', (YLeaf(YType.str, 'bfd'), ['str'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                    ('accept_mode_disable', (YLeaf(YType.empty, 'accept-mode-disable'), ['Empty'])),
                                 ])
                                 self.vr_id = None
                                 self.priority = None
@@ -2066,6 +2096,7 @@ class Vrrp(Entity):
                                 self.tracked_objects.parent = self
                                 self._children_name_map["tracked_objects"] = "tracked-objects"
                                 self._segment_path = lambda: "virtual-router" + "[vr-id='" + str(self.vr_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter, ['vr_id', 'priority', 'primary_ipv4_address', 'preempt', 'text_password', 'bfd', 'session_name', 'accept_mode_disable'], name, value)
@@ -2074,13 +2105,6 @@ class Vrrp(Entity):
                             class Timer(Entity):
                                 """
                                 Set advertisement timer
-                                
-                                .. attribute:: in_msec
-                                
-                                	TRUE \- Advertise time configured in milliseconds, FALSE \- Advertise time configured in seconds
-                                	**type**\: bool
-                                
-                                	**default value**\: false
                                 
                                 .. attribute:: advertisement_time_in_msec
                                 
@@ -2103,16 +2127,16 @@ class Vrrp(Entity):
                                 .. attribute:: forced
                                 
                                 	TRUE \- Force configured timer values to be used, required when configured in milliseconds
-                                	**type**\: bool
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                 
-                                	**default value**\: false
+                                	**units**\: millisecond
                                 
                                 
 
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, self).__init__()
@@ -2124,19 +2148,18 @@ class Vrrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_msec', YLeaf(YType.boolean, 'in-msec')),
-                                        ('advertisement_time_in_msec', YLeaf(YType.uint32, 'advertisement-time-in-msec')),
-                                        ('advertisement_time_in_sec', YLeaf(YType.uint32, 'advertisement-time-in-sec')),
-                                        ('forced', YLeaf(YType.boolean, 'forced')),
+                                        ('advertisement_time_in_msec', (YLeaf(YType.uint32, 'advertisement-time-in-msec'), ['int'])),
+                                        ('advertisement_time_in_sec', (YLeaf(YType.uint32, 'advertisement-time-in-sec'), ['int'])),
+                                        ('forced', (YLeaf(YType.empty, 'forced'), ['Empty'])),
                                     ])
-                                    self.in_msec = None
                                     self.advertisement_time_in_msec = None
                                     self.advertisement_time_in_sec = None
                                     self.forced = None
                                     self._segment_path = lambda: "timer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, ['in_msec', 'advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
+                                    self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Timer, ['advertisement_time_in_msec', 'advertisement_time_in_sec', 'forced'], name, value)
 
 
                             class SecondaryIpv4Addresses(Entity):
@@ -2153,7 +2176,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, self).__init__()
@@ -2168,6 +2191,7 @@ class Vrrp(Entity):
 
                                     self.secondary_ipv4_address = YList(self)
                                     self._segment_path = lambda: "secondary-ipv4-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses, [], name, value)
@@ -2189,7 +2213,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, self).__init__()
@@ -2201,10 +2225,11 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['ip_address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                                         ])
                                         self.ip_address = None
                                         self._segment_path = lambda: "secondary-ipv4-address" + "[ip-address='" + str(self.ip_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.SecondaryIpv4Addresses.SecondaryIpv4Address, ['ip_address'], name, value)
@@ -2225,7 +2250,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks, self).__init__()
@@ -2240,6 +2265,7 @@ class Vrrp(Entity):
 
                                     self.track = YList(self)
                                     self._segment_path = lambda: "tracks"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks, [], name, value)
@@ -2254,7 +2280,7 @@ class Vrrp(Entity):
                                     	Object to be tracked, interface name for interfaces
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority
                                     
@@ -2270,7 +2296,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, self).__init__()
@@ -2282,12 +2308,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority', YLeaf(YType.uint32, 'priority')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority = None
                                         self._segment_path = lambda: "track" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.Tracks.Track, ['interface_name', 'priority'], name, value)
@@ -2308,7 +2335,7 @@ class Vrrp(Entity):
                                 """
 
                                 _prefix = 'ipv4-vrrp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-05-19'
 
                                 def __init__(self):
                                     super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, self).__init__()
@@ -2323,6 +2350,7 @@ class Vrrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects, [], name, value)
@@ -2353,7 +2381,7 @@ class Vrrp(Entity):
                                     """
 
                                     _prefix = 'ipv4-vrrp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-05-19'
 
                                     def __init__(self):
                                         super(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, self).__init__()
@@ -2365,12 +2393,13 @@ class Vrrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrrp.Interfaces.Interface.Ipv4.Version2.VirtualRouters.VirtualRouter.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -2401,7 +2430,7 @@ class Vrrp(Entity):
                 """
 
                 _prefix = 'ipv4-vrrp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-05-19'
 
                 def __init__(self):
                     super(Vrrp.Interfaces.Interface.Bfd, self).__init__()
@@ -2413,12 +2442,13 @@ class Vrrp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
                     self._segment_path = lambda: "bfd"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrrp.Interfaces.Interface.Bfd, ['interval', 'detection_multiplier'], name, value)

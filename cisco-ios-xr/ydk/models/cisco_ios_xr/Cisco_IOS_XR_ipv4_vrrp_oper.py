@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   vrrp\: VRRP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class VrrpBAf(Enum):
@@ -334,6 +335,7 @@ class Vrrp(Entity):
         self.mgo_sessions.parent = self
         self._children_name_map["mgo_sessions"] = "mgo-sessions"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vrrp, [], name, value)
@@ -682,52 +684,52 @@ class Vrrp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ipv4_sessions_master_owner', YLeaf(YType.uint32, 'ipv4-sessions-master-owner')),
-                ('ipv4_sessions_master', YLeaf(YType.uint32, 'ipv4-sessions-master')),
-                ('ipv4_sessions_backup', YLeaf(YType.uint32, 'ipv4-sessions-backup')),
-                ('ipv4_sessions_init', YLeaf(YType.uint32, 'ipv4-sessions-init')),
-                ('ipv4_slaves_master', YLeaf(YType.uint32, 'ipv4-slaves-master')),
-                ('ipv4_slaves_backup', YLeaf(YType.uint32, 'ipv4-slaves-backup')),
-                ('ipv4_slaves_init', YLeaf(YType.uint32, 'ipv4-slaves-init')),
-                ('ipv4_virtual_ip_addresses_master_owner_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-owner-up')),
-                ('ipv4_virtual_ip_addresses_master_owner_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-owner-down')),
-                ('ipv4_virtual_ip_addresses_master_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-up')),
-                ('ipv4_virtual_ip_addresses_master_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-down')),
-                ('ipv4_virtual_ip_addresses_backup_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-backup-up')),
-                ('ipv4_virtual_ip_addresses_backup_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-backup-down')),
-                ('ipv4_virtual_ip_addresses_init_up', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-up')),
-                ('ipv4_virtual_ip_addresses_init_down', YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-down')),
-                ('ipv6_sessions_master_owner', YLeaf(YType.uint32, 'ipv6-sessions-master-owner')),
-                ('ipv6_sessions_master', YLeaf(YType.uint32, 'ipv6-sessions-master')),
-                ('ipv6_sessions_backup', YLeaf(YType.uint32, 'ipv6-sessions-backup')),
-                ('ipv6_sessions_init', YLeaf(YType.uint32, 'ipv6-sessions-init')),
-                ('ipv6_slaves_master', YLeaf(YType.uint32, 'ipv6-slaves-master')),
-                ('ipv6_slaves_backup', YLeaf(YType.uint32, 'ipv6-slaves-backup')),
-                ('ipv6_slaves_init', YLeaf(YType.uint32, 'ipv6-slaves-init')),
-                ('ipv6_virtual_ip_addresses_master_owner_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-owner-up')),
-                ('ipv6_virtual_ip_addresses_master_owner_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-owner-down')),
-                ('ipv6_virtual_ip_addresses_master_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-up')),
-                ('ipv6_virtual_ip_addresses_master_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-down')),
-                ('ipv6_virtual_ip_addresses_backup_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-backup-up')),
-                ('ipv6_virtual_ip_addresses_backup_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-backup-down')),
-                ('ipv6_virtual_ip_addresses_init_up', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-up')),
-                ('ipv6_virtual_ip_addresses_init_down', YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-down')),
-                ('interfaces_ipv4_state_up', YLeaf(YType.uint32, 'interfaces-ipv4-state-up')),
-                ('interfaces_ipv4_state_down', YLeaf(YType.uint32, 'interfaces-ipv4-state-down')),
-                ('tracked_interfaces_ipv4_state_up', YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-up')),
-                ('tracked_interfaces_ipv4_state_down', YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-down')),
-                ('interfaces_ipv6_state_up', YLeaf(YType.uint32, 'interfaces-ipv6-state-up')),
-                ('interfaces_ipv6_state_down', YLeaf(YType.uint32, 'interfaces-ipv6-state-down')),
-                ('tracked_interfaces_ipv6_state_up', YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-up')),
-                ('tracked_interfaces_ipv6_state_down', YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-down')),
-                ('tracked_objects_state_up', YLeaf(YType.uint32, 'tracked-objects-state-up')),
-                ('tracked_objects_state_down', YLeaf(YType.uint32, 'tracked-objects-state-down')),
-                ('bfd_sessions_up', YLeaf(YType.uint32, 'bfd-sessions-up')),
-                ('bfd_sessions_down', YLeaf(YType.uint32, 'bfd-sessions-down')),
-                ('bfd_session_inactive', YLeaf(YType.uint32, 'bfd-session-inactive')),
-                ('ipv6bfd_sessions_up', YLeaf(YType.uint32, 'ipv6bfd-sessions-up')),
-                ('ipv6bfd_sessions_down', YLeaf(YType.uint32, 'ipv6bfd-sessions-down')),
-                ('ipv6bfd_session_inactive', YLeaf(YType.uint32, 'ipv6bfd-session-inactive')),
+                ('ipv4_sessions_master_owner', (YLeaf(YType.uint32, 'ipv4-sessions-master-owner'), ['int'])),
+                ('ipv4_sessions_master', (YLeaf(YType.uint32, 'ipv4-sessions-master'), ['int'])),
+                ('ipv4_sessions_backup', (YLeaf(YType.uint32, 'ipv4-sessions-backup'), ['int'])),
+                ('ipv4_sessions_init', (YLeaf(YType.uint32, 'ipv4-sessions-init'), ['int'])),
+                ('ipv4_slaves_master', (YLeaf(YType.uint32, 'ipv4-slaves-master'), ['int'])),
+                ('ipv4_slaves_backup', (YLeaf(YType.uint32, 'ipv4-slaves-backup'), ['int'])),
+                ('ipv4_slaves_init', (YLeaf(YType.uint32, 'ipv4-slaves-init'), ['int'])),
+                ('ipv4_virtual_ip_addresses_master_owner_up', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-owner-up'), ['int'])),
+                ('ipv4_virtual_ip_addresses_master_owner_down', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-owner-down'), ['int'])),
+                ('ipv4_virtual_ip_addresses_master_up', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-up'), ['int'])),
+                ('ipv4_virtual_ip_addresses_master_down', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-master-down'), ['int'])),
+                ('ipv4_virtual_ip_addresses_backup_up', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-backup-up'), ['int'])),
+                ('ipv4_virtual_ip_addresses_backup_down', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-backup-down'), ['int'])),
+                ('ipv4_virtual_ip_addresses_init_up', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-up'), ['int'])),
+                ('ipv4_virtual_ip_addresses_init_down', (YLeaf(YType.uint32, 'ipv4-virtual-ip-addresses-init-down'), ['int'])),
+                ('ipv6_sessions_master_owner', (YLeaf(YType.uint32, 'ipv6-sessions-master-owner'), ['int'])),
+                ('ipv6_sessions_master', (YLeaf(YType.uint32, 'ipv6-sessions-master'), ['int'])),
+                ('ipv6_sessions_backup', (YLeaf(YType.uint32, 'ipv6-sessions-backup'), ['int'])),
+                ('ipv6_sessions_init', (YLeaf(YType.uint32, 'ipv6-sessions-init'), ['int'])),
+                ('ipv6_slaves_master', (YLeaf(YType.uint32, 'ipv6-slaves-master'), ['int'])),
+                ('ipv6_slaves_backup', (YLeaf(YType.uint32, 'ipv6-slaves-backup'), ['int'])),
+                ('ipv6_slaves_init', (YLeaf(YType.uint32, 'ipv6-slaves-init'), ['int'])),
+                ('ipv6_virtual_ip_addresses_master_owner_up', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-owner-up'), ['int'])),
+                ('ipv6_virtual_ip_addresses_master_owner_down', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-owner-down'), ['int'])),
+                ('ipv6_virtual_ip_addresses_master_up', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-up'), ['int'])),
+                ('ipv6_virtual_ip_addresses_master_down', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-master-down'), ['int'])),
+                ('ipv6_virtual_ip_addresses_backup_up', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-backup-up'), ['int'])),
+                ('ipv6_virtual_ip_addresses_backup_down', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-backup-down'), ['int'])),
+                ('ipv6_virtual_ip_addresses_init_up', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-up'), ['int'])),
+                ('ipv6_virtual_ip_addresses_init_down', (YLeaf(YType.uint32, 'ipv6-virtual-ip-addresses-init-down'), ['int'])),
+                ('interfaces_ipv4_state_up', (YLeaf(YType.uint32, 'interfaces-ipv4-state-up'), ['int'])),
+                ('interfaces_ipv4_state_down', (YLeaf(YType.uint32, 'interfaces-ipv4-state-down'), ['int'])),
+                ('tracked_interfaces_ipv4_state_up', (YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-up'), ['int'])),
+                ('tracked_interfaces_ipv4_state_down', (YLeaf(YType.uint32, 'tracked-interfaces-ipv4-state-down'), ['int'])),
+                ('interfaces_ipv6_state_up', (YLeaf(YType.uint32, 'interfaces-ipv6-state-up'), ['int'])),
+                ('interfaces_ipv6_state_down', (YLeaf(YType.uint32, 'interfaces-ipv6-state-down'), ['int'])),
+                ('tracked_interfaces_ipv6_state_up', (YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-up'), ['int'])),
+                ('tracked_interfaces_ipv6_state_down', (YLeaf(YType.uint32, 'tracked-interfaces-ipv6-state-down'), ['int'])),
+                ('tracked_objects_state_up', (YLeaf(YType.uint32, 'tracked-objects-state-up'), ['int'])),
+                ('tracked_objects_state_down', (YLeaf(YType.uint32, 'tracked-objects-state-down'), ['int'])),
+                ('bfd_sessions_up', (YLeaf(YType.uint32, 'bfd-sessions-up'), ['int'])),
+                ('bfd_sessions_down', (YLeaf(YType.uint32, 'bfd-sessions-down'), ['int'])),
+                ('bfd_session_inactive', (YLeaf(YType.uint32, 'bfd-session-inactive'), ['int'])),
+                ('ipv6bfd_sessions_up', (YLeaf(YType.uint32, 'ipv6bfd-sessions-up'), ['int'])),
+                ('ipv6bfd_sessions_down', (YLeaf(YType.uint32, 'ipv6bfd-sessions-down'), ['int'])),
+                ('ipv6bfd_session_inactive', (YLeaf(YType.uint32, 'ipv6bfd-session-inactive'), ['int'])),
             ])
             self.ipv4_sessions_master_owner = None
             self.ipv4_sessions_master = None
@@ -777,9 +779,10 @@ class Vrrp(Entity):
             self.ipv6bfd_session_inactive = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Vrrp.Summary, ['ipv4_sessions_master_owner', 'ipv4_sessions_master', 'ipv4_sessions_backup', 'ipv4_sessions_init', 'ipv4_slaves_master', 'ipv4_slaves_backup', 'ipv4_slaves_init', 'ipv4_virtual_ip_addresses_master_owner_up', 'ipv4_virtual_ip_addresses_master_owner_down', 'ipv4_virtual_ip_addresses_master_up', 'ipv4_virtual_ip_addresses_master_down', 'ipv4_virtual_ip_addresses_backup_up', 'ipv4_virtual_ip_addresses_backup_down', 'ipv4_virtual_ip_addresses_init_up', 'ipv4_virtual_ip_addresses_init_down', 'ipv6_sessions_master_owner', 'ipv6_sessions_master', 'ipv6_sessions_backup', 'ipv6_sessions_init', 'ipv6_slaves_master', 'ipv6_slaves_backup', 'ipv6_slaves_init', 'ipv6_virtual_ip_addresses_master_owner_up', 'ipv6_virtual_ip_addresses_master_owner_down', 'ipv6_virtual_ip_addresses_master_up', 'ipv6_virtual_ip_addresses_master_down', 'ipv6_virtual_ip_addresses_backup_up', 'ipv6_virtual_ip_addresses_backup_down', 'ipv6_virtual_ip_addresses_init_up', 'ipv6_virtual_ip_addresses_init_down', 'interfaces_ipv4_state_up', 'interfaces_ipv4_state_down', 'tracked_interfaces_ipv4_state_up', 'tracked_interfaces_ipv4_state_down', 'interfaces_ipv6_state_up', 'interfaces_ipv6_state_down', 'tracked_interfaces_ipv6_state_up', 'tracked_interfaces_ipv6_state_down', 'tracked_objects_state_up', 'tracked_objects_state_down', 'bfd_sessions_up', 'bfd_sessions_down', 'bfd_session_inactive', 'ipv6bfd_sessions_up', 'ipv6bfd_sessions_down', 'ipv6bfd_session_inactive'], name, value)
+            self._perform_setattr(Vrrp.Summary, [u'ipv4_sessions_master_owner', u'ipv4_sessions_master', u'ipv4_sessions_backup', u'ipv4_sessions_init', u'ipv4_slaves_master', u'ipv4_slaves_backup', u'ipv4_slaves_init', u'ipv4_virtual_ip_addresses_master_owner_up', u'ipv4_virtual_ip_addresses_master_owner_down', u'ipv4_virtual_ip_addresses_master_up', u'ipv4_virtual_ip_addresses_master_down', u'ipv4_virtual_ip_addresses_backup_up', u'ipv4_virtual_ip_addresses_backup_down', u'ipv4_virtual_ip_addresses_init_up', u'ipv4_virtual_ip_addresses_init_down', u'ipv6_sessions_master_owner', u'ipv6_sessions_master', u'ipv6_sessions_backup', u'ipv6_sessions_init', u'ipv6_slaves_master', u'ipv6_slaves_backup', u'ipv6_slaves_init', u'ipv6_virtual_ip_addresses_master_owner_up', u'ipv6_virtual_ip_addresses_master_owner_down', u'ipv6_virtual_ip_addresses_master_up', u'ipv6_virtual_ip_addresses_master_down', u'ipv6_virtual_ip_addresses_backup_up', u'ipv6_virtual_ip_addresses_backup_down', u'ipv6_virtual_ip_addresses_init_up', u'ipv6_virtual_ip_addresses_init_down', u'interfaces_ipv4_state_up', u'interfaces_ipv4_state_down', u'tracked_interfaces_ipv4_state_up', u'tracked_interfaces_ipv4_state_down', u'interfaces_ipv6_state_up', u'interfaces_ipv6_state_down', u'tracked_interfaces_ipv6_state_up', u'tracked_interfaces_ipv6_state_down', u'tracked_objects_state_up', u'tracked_objects_state_down', u'bfd_sessions_up', u'bfd_sessions_down', u'bfd_session_inactive', u'ipv6bfd_sessions_up', u'ipv6bfd_sessions_down', u'ipv6bfd_session_inactive'], name, value)
 
 
     class Ipv6(Entity):
@@ -832,6 +835,7 @@ class Vrrp(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.Ipv6, [], name, value)
@@ -867,6 +871,7 @@ class Vrrp(Entity):
                 self.track_item = YList(self)
                 self._segment_path = lambda: "track-items"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv6.TrackItems, [], name, value)
@@ -881,7 +886,7 @@ class Vrrp(Entity):
                 	The interface name to track
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id  (key)
                 
@@ -895,14 +900,14 @@ class Vrrp(Entity):
                 	The name of the tracked interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -956,15 +961,15 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name','virtual_router_id','tracked_interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
-                        ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                        ('tracked_item_type', YLeaf(YType.uint16, 'tracked-item-type')),
-                        ('tracked_item_index', YLeaf(YType.str, 'tracked-item-index')),
-                        ('state', YLeaf(YType.uint8, 'state')),
-                        ('priority', YLeaf(YType.uint8, 'priority')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('virtual_router_id', (YLeaf(YType.uint32, 'virtual-router-id'), ['int'])),
+                        ('tracked_interface_name', (YLeaf(YType.str, 'tracked-interface-name'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                        ('tracked_item_type', (YLeaf(YType.uint16, 'tracked-item-type'), ['int'])),
+                        ('tracked_item_index', (YLeaf(YType.str, 'tracked-item-index'), ['str'])),
+                        ('state', (YLeaf(YType.uint8, 'state'), ['int'])),
+                        ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                     ])
                     self.interface_name = None
                     self.virtual_router_id = None
@@ -977,9 +982,10 @@ class Vrrp(Entity):
                     self.priority = None
                     self._segment_path = lambda: "track-item" + "[interface-name='" + str(self.interface_name) + "']" + "[virtual-router-id='" + str(self.virtual_router_id) + "']" + "[tracked-interface-name='" + str(self.tracked_interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/track-items/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
         class VirtualRouters(Entity):
@@ -1012,6 +1018,7 @@ class Vrrp(Entity):
                 self.virtual_router = YList(self)
                 self._segment_path = lambda: "virtual-routers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv6.VirtualRouters, [], name, value)
@@ -1026,7 +1033,7 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id  (key)
                 
@@ -1547,77 +1554,77 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name','virtual_router_id']
                     self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime)), ("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
-                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                        ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                        ('version', YLeaf(YType.uint8, 'version')),
-                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                        ('session_name', YLeaf(YType.str, 'session-name')),
-                        ('slaves', YLeaf(YType.uint32, 'slaves')),
-                        ('is_slave', YLeaf(YType.boolean, 'is-slave')),
-                        ('followed_session_name', YLeaf(YType.str, 'followed-session-name')),
-                        ('secondary_address_count', YLeaf(YType.uint8, 'secondary-address-count')),
-                        ('operational_address_count', YLeaf(YType.uint8, 'operational-address-count')),
-                        ('primary_virtual_ip', YLeaf(YType.str, 'primary-virtual-ip')),
-                        ('configured_down_address_count', YLeaf(YType.uint8, 'configured-down-address-count')),
-                        ('virtual_linklocal_ipv6_address', YLeaf(YType.str, 'virtual-linklocal-ipv6-address')),
-                        ('primary_state', YLeaf(YType.enumeration, 'primary-state')),
-                        ('master_ip_address', YLeaf(YType.str, 'master-ip-address')),
-                        ('master_ipv6_address', YLeaf(YType.str, 'master-ipv6-address')),
-                        ('master_priority', YLeaf(YType.uint8, 'master-priority')),
-                        ('vrrp_state', YLeaf(YType.enumeration, 'vrrp-state')),
-                        ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
-                        ('authentication_string', YLeaf(YType.str, 'authentication-string')),
-                        ('configured_advertize_time', YLeaf(YType.uint32, 'configured-advertize-time')),
-                        ('oper_advertize_time', YLeaf(YType.uint32, 'oper-advertize-time')),
-                        ('min_delay_time', YLeaf(YType.uint32, 'min-delay-time')),
-                        ('reload_delay_time', YLeaf(YType.uint32, 'reload-delay-time')),
-                        ('delay_timer_flag', YLeaf(YType.boolean, 'delay-timer-flag')),
-                        ('delay_timer_secs', YLeaf(YType.uint32, 'delay-timer-secs')),
-                        ('delay_timer_msecs', YLeaf(YType.uint32, 'delay-timer-msecs')),
-                        ('authentication_flag', YLeaf(YType.boolean, 'authentication-flag')),
-                        ('force_timer_flag', YLeaf(YType.boolean, 'force-timer-flag')),
-                        ('preempt_flag', YLeaf(YType.boolean, 'preempt-flag')),
-                        ('ip_address_owner_flag', YLeaf(YType.boolean, 'ip-address-owner-flag')),
-                        ('is_accept_mode', YLeaf(YType.boolean, 'is-accept-mode')),
-                        ('preempt_delay_time', YLeaf(YType.uint16, 'preempt-delay-time')),
-                        ('configured_priority', YLeaf(YType.uint8, 'configured-priority')),
-                        ('operational_priority', YLeaf(YType.uint8, 'operational-priority')),
-                        ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
-                        ('tracked_interface_count', YLeaf(YType.uint32, 'tracked-interface-count')),
-                        ('tracked_interface_up_count', YLeaf(YType.uint32, 'tracked-interface-up-count')),
-                        ('tracked_item_count', YLeaf(YType.uint32, 'tracked-item-count')),
-                        ('tracked_item_up_count', YLeaf(YType.uint32, 'tracked-item-up-count')),
-                        ('time_in_current_state', YLeaf(YType.uint32, 'time-in-current-state')),
-                        ('state_change_count', YLeaf(YType.uint32, 'state-change-count')),
-                        ('time_vrouter_up', YLeaf(YType.uint32, 'time-vrouter-up')),
-                        ('master_count', YLeaf(YType.uint32, 'master-count')),
-                        ('adverts_received_count', YLeaf(YType.uint32, 'adverts-received-count')),
-                        ('advert_interval_error_count', YLeaf(YType.uint32, 'advert-interval-error-count')),
-                        ('adverts_sent_count', YLeaf(YType.uint32, 'adverts-sent-count')),
-                        ('authentication_fail_count', YLeaf(YType.uint32, 'authentication-fail-count')),
-                        ('ttl_error_count', YLeaf(YType.uint32, 'ttl-error-count')),
-                        ('priority_zero_received_count', YLeaf(YType.uint32, 'priority-zero-received-count')),
-                        ('priority_zero_sent_count', YLeaf(YType.uint32, 'priority-zero-sent-count')),
-                        ('invalid_packet_count', YLeaf(YType.uint32, 'invalid-packet-count')),
-                        ('address_list_error_count', YLeaf(YType.uint32, 'address-list-error-count')),
-                        ('invalid_auth_type_count', YLeaf(YType.uint32, 'invalid-auth-type-count')),
-                        ('auth_type_mismatch_count', YLeaf(YType.uint32, 'auth-type-mismatch-count')),
-                        ('pkt_length_errors_count', YLeaf(YType.uint32, 'pkt-length-errors-count')),
-                        ('time_stats_discontinuity', YLeaf(YType.uint32, 'time-stats-discontinuity')),
-                        ('bfd_session_state', YLeaf(YType.enumeration, 'bfd-session-state')),
-                        ('bfd_interval', YLeaf(YType.uint32, 'bfd-interval')),
-                        ('bfd_multiplier', YLeaf(YType.uint32, 'bfd-multiplier')),
-                        ('bfd_cfg_remote_ip', YLeaf(YType.str, 'bfd-cfg-remote-ip')),
-                        ('bfd_configured_remote_ipv6_address', YLeaf(YType.str, 'bfd-configured-remote-ipv6-address')),
-                        ('state_from_checkpoint', YLeaf(YType.boolean, 'state-from-checkpoint')),
-                        ('interface_ipv4_address', YLeaf(YType.str, 'interface-ipv4-address')),
-                        ('interface_ipv6_address', YLeaf(YType.str, 'interface-ipv6-address')),
-                        ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                        ('virtual_mac_address_state', YLeaf(YType.enumeration, 'virtual-mac-address-state')),
-                        ('operational_address', YLeafList(YType.str, 'operational-address')),
-                        ('ipv4_configured_down_address', YLeafList(YType.str, 'ipv4-configured-down-address')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('virtual_router_id', (YLeaf(YType.uint32, 'virtual-router-id'), ['int'])),
+                        ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                        ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                        ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                        ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBAf', '')])),
+                        ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                        ('slaves', (YLeaf(YType.uint32, 'slaves'), ['int'])),
+                        ('is_slave', (YLeaf(YType.boolean, 'is-slave'), ['bool'])),
+                        ('followed_session_name', (YLeaf(YType.str, 'followed-session-name'), ['str'])),
+                        ('secondary_address_count', (YLeaf(YType.uint8, 'secondary-address-count'), ['int'])),
+                        ('operational_address_count', (YLeaf(YType.uint8, 'operational-address-count'), ['int'])),
+                        ('primary_virtual_ip', (YLeaf(YType.str, 'primary-virtual-ip'), ['str'])),
+                        ('configured_down_address_count', (YLeaf(YType.uint8, 'configured-down-address-count'), ['int'])),
+                        ('virtual_linklocal_ipv6_address', (YLeaf(YType.str, 'virtual-linklocal-ipv6-address'), ['str'])),
+                        ('primary_state', (YLeaf(YType.enumeration, 'primary-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpVipState', '')])),
+                        ('master_ip_address', (YLeaf(YType.str, 'master-ip-address'), ['str'])),
+                        ('master_ipv6_address', (YLeaf(YType.str, 'master-ipv6-address'), ['str'])),
+                        ('master_priority', (YLeaf(YType.uint8, 'master-priority'), ['int'])),
+                        ('vrrp_state', (YLeaf(YType.enumeration, 'vrrp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                        ('authentication_type', (YLeaf(YType.enumeration, 'authentication-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpProtAuth', '')])),
+                        ('authentication_string', (YLeaf(YType.str, 'authentication-string'), ['str'])),
+                        ('configured_advertize_time', (YLeaf(YType.uint32, 'configured-advertize-time'), ['int'])),
+                        ('oper_advertize_time', (YLeaf(YType.uint32, 'oper-advertize-time'), ['int'])),
+                        ('min_delay_time', (YLeaf(YType.uint32, 'min-delay-time'), ['int'])),
+                        ('reload_delay_time', (YLeaf(YType.uint32, 'reload-delay-time'), ['int'])),
+                        ('delay_timer_flag', (YLeaf(YType.boolean, 'delay-timer-flag'), ['bool'])),
+                        ('delay_timer_secs', (YLeaf(YType.uint32, 'delay-timer-secs'), ['int'])),
+                        ('delay_timer_msecs', (YLeaf(YType.uint32, 'delay-timer-msecs'), ['int'])),
+                        ('authentication_flag', (YLeaf(YType.boolean, 'authentication-flag'), ['bool'])),
+                        ('force_timer_flag', (YLeaf(YType.boolean, 'force-timer-flag'), ['bool'])),
+                        ('preempt_flag', (YLeaf(YType.boolean, 'preempt-flag'), ['bool'])),
+                        ('ip_address_owner_flag', (YLeaf(YType.boolean, 'ip-address-owner-flag'), ['bool'])),
+                        ('is_accept_mode', (YLeaf(YType.boolean, 'is-accept-mode'), ['bool'])),
+                        ('preempt_delay_time', (YLeaf(YType.uint16, 'preempt-delay-time'), ['int'])),
+                        ('configured_priority', (YLeaf(YType.uint8, 'configured-priority'), ['int'])),
+                        ('operational_priority', (YLeaf(YType.uint8, 'operational-priority'), ['int'])),
+                        ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
+                        ('tracked_interface_count', (YLeaf(YType.uint32, 'tracked-interface-count'), ['int'])),
+                        ('tracked_interface_up_count', (YLeaf(YType.uint32, 'tracked-interface-up-count'), ['int'])),
+                        ('tracked_item_count', (YLeaf(YType.uint32, 'tracked-item-count'), ['int'])),
+                        ('tracked_item_up_count', (YLeaf(YType.uint32, 'tracked-item-up-count'), ['int'])),
+                        ('time_in_current_state', (YLeaf(YType.uint32, 'time-in-current-state'), ['int'])),
+                        ('state_change_count', (YLeaf(YType.uint32, 'state-change-count'), ['int'])),
+                        ('time_vrouter_up', (YLeaf(YType.uint32, 'time-vrouter-up'), ['int'])),
+                        ('master_count', (YLeaf(YType.uint32, 'master-count'), ['int'])),
+                        ('adverts_received_count', (YLeaf(YType.uint32, 'adverts-received-count'), ['int'])),
+                        ('advert_interval_error_count', (YLeaf(YType.uint32, 'advert-interval-error-count'), ['int'])),
+                        ('adverts_sent_count', (YLeaf(YType.uint32, 'adverts-sent-count'), ['int'])),
+                        ('authentication_fail_count', (YLeaf(YType.uint32, 'authentication-fail-count'), ['int'])),
+                        ('ttl_error_count', (YLeaf(YType.uint32, 'ttl-error-count'), ['int'])),
+                        ('priority_zero_received_count', (YLeaf(YType.uint32, 'priority-zero-received-count'), ['int'])),
+                        ('priority_zero_sent_count', (YLeaf(YType.uint32, 'priority-zero-sent-count'), ['int'])),
+                        ('invalid_packet_count', (YLeaf(YType.uint32, 'invalid-packet-count'), ['int'])),
+                        ('address_list_error_count', (YLeaf(YType.uint32, 'address-list-error-count'), ['int'])),
+                        ('invalid_auth_type_count', (YLeaf(YType.uint32, 'invalid-auth-type-count'), ['int'])),
+                        ('auth_type_mismatch_count', (YLeaf(YType.uint32, 'auth-type-mismatch-count'), ['int'])),
+                        ('pkt_length_errors_count', (YLeaf(YType.uint32, 'pkt-length-errors-count'), ['int'])),
+                        ('time_stats_discontinuity', (YLeaf(YType.uint32, 'time-stats-discontinuity'), ['int'])),
+                        ('bfd_session_state', (YLeaf(YType.enumeration, 'bfd-session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBfdSessionState', '')])),
+                        ('bfd_interval', (YLeaf(YType.uint32, 'bfd-interval'), ['int'])),
+                        ('bfd_multiplier', (YLeaf(YType.uint32, 'bfd-multiplier'), ['int'])),
+                        ('bfd_cfg_remote_ip', (YLeaf(YType.str, 'bfd-cfg-remote-ip'), ['str'])),
+                        ('bfd_configured_remote_ipv6_address', (YLeaf(YType.str, 'bfd-configured-remote-ipv6-address'), ['str'])),
+                        ('state_from_checkpoint', (YLeaf(YType.boolean, 'state-from-checkpoint'), ['bool'])),
+                        ('interface_ipv4_address', (YLeaf(YType.str, 'interface-ipv4-address'), ['str'])),
+                        ('interface_ipv6_address', (YLeaf(YType.str, 'interface-ipv6-address'), ['str'])),
+                        ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                        ('virtual_mac_address_state', (YLeaf(YType.enumeration, 'virtual-mac-address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpVmacState', '')])),
+                        ('operational_address', (YLeafList(YType.str, 'operational-address'), ['str'])),
+                        ('ipv4_configured_down_address', (YLeafList(YType.str, 'ipv4-configured-down-address'), ['str'])),
                     ])
                     self.interface_name = None
                     self.virtual_router_id = None
@@ -1705,9 +1712,10 @@ class Vrrp(Entity):
                     self.state_change_history = YList(self)
                     self._segment_path = lambda: "virtual-router" + "[interface-name='" + str(self.interface_name) + "']" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/virtual-routers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', u'interface_name_xr', u'virtual_router_id_xr', u'version', u'address_family', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'secondary_address_count', u'operational_address_count', u'primary_virtual_ip', u'configured_down_address_count', u'virtual_linklocal_ipv6_address', u'primary_state', u'master_ip_address', u'master_ipv6_address', u'master_priority', u'vrrp_state', u'authentication_type', u'authentication_string', u'configured_advertize_time', u'oper_advertize_time', u'min_delay_time', u'reload_delay_time', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'authentication_flag', u'force_timer_flag', u'preempt_flag', u'ip_address_owner_flag', u'is_accept_mode', u'preempt_delay_time', u'configured_priority', u'operational_priority', u'priority_decrement', u'tracked_interface_count', u'tracked_interface_up_count', u'tracked_item_count', u'tracked_item_up_count', u'time_in_current_state', u'state_change_count', u'time_vrouter_up', u'master_count', u'adverts_received_count', u'advert_interval_error_count', u'adverts_sent_count', u'authentication_fail_count', u'ttl_error_count', u'priority_zero_received_count', u'priority_zero_sent_count', u'invalid_packet_count', u'address_list_error_count', u'invalid_auth_type_count', u'auth_type_mismatch_count', u'pkt_length_errors_count', u'time_stats_discontinuity', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'bfd_cfg_remote_ip', u'bfd_configured_remote_ipv6_address', u'state_from_checkpoint', u'interface_ipv4_address', u'interface_ipv6_address', u'virtual_mac_address', u'virtual_mac_address_state', u'operational_address', u'ipv4_configured_down_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -1749,15 +1757,16 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint32, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "resign-sent-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ResignReceivedTime(Entity):
@@ -1799,15 +1808,16 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint32, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "resign-received-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class Ipv6OperationalAddress(Entity):
@@ -1838,13 +1848,14 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.ipv6_address = None
                         self._segment_path = lambda: "ipv6-operational-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
                 class Ipv6ConfiguredDownAddress(Entity):
@@ -1875,13 +1886,14 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.ipv6_address = None
                         self._segment_path = lambda: "ipv6-configured-down-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
                 class TrackItemInfo(Entity):
@@ -1893,7 +1905,7 @@ class Vrrp(Entity):
                     	IM Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: virtual_router_id_xr
                     
@@ -1947,12 +1959,12 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                            ('tracked_item_type', YLeaf(YType.uint16, 'tracked-item-type')),
-                            ('tracked_item_index', YLeaf(YType.str, 'tracked-item-index')),
-                            ('state', YLeaf(YType.uint8, 'state')),
-                            ('priority', YLeaf(YType.uint8, 'priority')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                            ('tracked_item_type', (YLeaf(YType.uint16, 'tracked-item-type'), ['int'])),
+                            ('tracked_item_index', (YLeaf(YType.str, 'tracked-item-index'), ['str'])),
+                            ('state', (YLeaf(YType.uint8, 'state'), ['int'])),
+                            ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                         ])
                         self.interface = None
                         self.virtual_router_id_xr = None
@@ -1961,9 +1973,10 @@ class Vrrp(Entity):
                         self.state = None
                         self.priority = None
                         self._segment_path = lambda: "track-item-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
                 class StateChangeHistory(Entity):
@@ -2007,9 +2020,9 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("time", ("time", Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
-                            ('old_state', YLeaf(YType.enumeration, 'old-state')),
-                            ('new_state', YLeaf(YType.enumeration, 'new-state')),
-                            ('reason', YLeaf(YType.enumeration, 'reason')),
+                            ('old_state', (YLeaf(YType.enumeration, 'old-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                            ('new_state', (YLeaf(YType.enumeration, 'new-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                            ('reason', (YLeaf(YType.enumeration, 'reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpStateChangeReason', '')])),
                         ])
                         self.old_state = None
                         self.new_state = None
@@ -2019,9 +2032,10 @@ class Vrrp(Entity):
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
                         self._segment_path = lambda: "state-change-history"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -2063,15 +2077,16 @@ class Vrrp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                             ])
                             self.seconds = None
                             self.nanoseconds = None
                             self._segment_path = lambda: "time"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Vrrp.Ipv6.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
         class Interfaces(Entity):
@@ -2104,6 +2119,7 @@ class Vrrp(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv6.Interfaces, [], name, value)
@@ -2118,14 +2134,14 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: invalid_checksum_count
                 
@@ -2172,12 +2188,12 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('invalid_checksum_count', YLeaf(YType.uint32, 'invalid-checksum-count')),
-                        ('invalid_version_count', YLeaf(YType.uint32, 'invalid-version-count')),
-                        ('invalid_vrid_count', YLeaf(YType.uint32, 'invalid-vrid-count')),
-                        ('invalid_packet_length_count', YLeaf(YType.uint32, 'invalid-packet-length-count')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('invalid_checksum_count', (YLeaf(YType.uint32, 'invalid-checksum-count'), ['int'])),
+                        ('invalid_version_count', (YLeaf(YType.uint32, 'invalid-version-count'), ['int'])),
+                        ('invalid_vrid_count', (YLeaf(YType.uint32, 'invalid-vrid-count'), ['int'])),
+                        ('invalid_packet_length_count', (YLeaf(YType.uint32, 'invalid-packet-length-count'), ['int'])),
                     ])
                     self.interface_name = None
                     self.interface = None
@@ -2187,9 +2203,10 @@ class Vrrp(Entity):
                     self.invalid_packet_length_count = None
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv6/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
+                    self._perform_setattr(Vrrp.Ipv6.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
     class Ipv4(Entity):
@@ -2242,6 +2259,7 @@ class Vrrp(Entity):
             self._children_name_map["virtual_routers"] = "virtual-routers"
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.Ipv4, [], name, value)
@@ -2277,6 +2295,7 @@ class Vrrp(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv4.Interfaces, [], name, value)
@@ -2291,14 +2310,14 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: invalid_checksum_count
                 
@@ -2345,12 +2364,12 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('invalid_checksum_count', YLeaf(YType.uint32, 'invalid-checksum-count')),
-                        ('invalid_version_count', YLeaf(YType.uint32, 'invalid-version-count')),
-                        ('invalid_vrid_count', YLeaf(YType.uint32, 'invalid-vrid-count')),
-                        ('invalid_packet_length_count', YLeaf(YType.uint32, 'invalid-packet-length-count')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('invalid_checksum_count', (YLeaf(YType.uint32, 'invalid-checksum-count'), ['int'])),
+                        ('invalid_version_count', (YLeaf(YType.uint32, 'invalid-version-count'), ['int'])),
+                        ('invalid_vrid_count', (YLeaf(YType.uint32, 'invalid-vrid-count'), ['int'])),
+                        ('invalid_packet_length_count', (YLeaf(YType.uint32, 'invalid-packet-length-count'), ['int'])),
                     ])
                     self.interface_name = None
                     self.interface = None
@@ -2360,9 +2379,10 @@ class Vrrp(Entity):
                     self.invalid_packet_length_count = None
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', 'interface', 'invalid_checksum_count', 'invalid_version_count', 'invalid_vrid_count', 'invalid_packet_length_count'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.Interfaces.Interface, ['interface_name', u'interface', u'invalid_checksum_count', u'invalid_version_count', u'invalid_vrid_count', u'invalid_packet_length_count'], name, value)
 
 
         class TrackItems(Entity):
@@ -2395,6 +2415,7 @@ class Vrrp(Entity):
                 self.track_item = YList(self)
                 self._segment_path = lambda: "track-items"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv4.TrackItems, [], name, value)
@@ -2409,7 +2430,7 @@ class Vrrp(Entity):
                 	The interface name to track
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id  (key)
                 
@@ -2423,14 +2444,14 @@ class Vrrp(Entity):
                 	The name of the tracked interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface
                 
                 	IM Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id_xr
                 
@@ -2484,15 +2505,15 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name','virtual_router_id','tracked_interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
-                        ('tracked_interface_name', YLeaf(YType.str, 'tracked-interface-name')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                        ('tracked_item_type', YLeaf(YType.uint16, 'tracked-item-type')),
-                        ('tracked_item_index', YLeaf(YType.str, 'tracked-item-index')),
-                        ('state', YLeaf(YType.uint8, 'state')),
-                        ('priority', YLeaf(YType.uint8, 'priority')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('virtual_router_id', (YLeaf(YType.uint32, 'virtual-router-id'), ['int'])),
+                        ('tracked_interface_name', (YLeaf(YType.str, 'tracked-interface-name'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                        ('tracked_item_type', (YLeaf(YType.uint16, 'tracked-item-type'), ['int'])),
+                        ('tracked_item_index', (YLeaf(YType.str, 'tracked-item-index'), ['str'])),
+                        ('state', (YLeaf(YType.uint8, 'state'), ['int'])),
+                        ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                     ])
                     self.interface_name = None
                     self.virtual_router_id = None
@@ -2505,9 +2526,10 @@ class Vrrp(Entity):
                     self.priority = None
                     self._segment_path = lambda: "track-item" + "[interface-name='" + str(self.interface_name) + "']" + "[virtual-router-id='" + str(self.virtual_router_id) + "']" + "[tracked-interface-name='" + str(self.tracked_interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/track-items/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', 'interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.TrackItems.TrackItem, ['interface_name', 'virtual_router_id', 'tracked_interface_name', u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
         class VirtualRouters(Entity):
@@ -2540,6 +2562,7 @@ class Vrrp(Entity):
                 self.virtual_router = YList(self)
                 self._segment_path = lambda: "virtual-routers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrrp.Ipv4.VirtualRouters, [], name, value)
@@ -2554,7 +2577,7 @@ class Vrrp(Entity):
                 	The name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: virtual_router_id  (key)
                 
@@ -3075,77 +3098,77 @@ class Vrrp(Entity):
                     self.ylist_key_names = ['interface_name','virtual_router_id']
                     self._child_classes = OrderedDict([("resign-sent-time", ("resign_sent_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime)), ("resign-received-time", ("resign_received_time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime)), ("ipv6-operational-address", ("ipv6_operational_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress)), ("ipv6-configured-down-address", ("ipv6_configured_down_address", Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress)), ("track-item-info", ("track_item_info", Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo)), ("state-change-history", ("state_change_history", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('virtual_router_id', YLeaf(YType.uint32, 'virtual-router-id')),
-                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                        ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                        ('version', YLeaf(YType.uint8, 'version')),
-                        ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                        ('session_name', YLeaf(YType.str, 'session-name')),
-                        ('slaves', YLeaf(YType.uint32, 'slaves')),
-                        ('is_slave', YLeaf(YType.boolean, 'is-slave')),
-                        ('followed_session_name', YLeaf(YType.str, 'followed-session-name')),
-                        ('secondary_address_count', YLeaf(YType.uint8, 'secondary-address-count')),
-                        ('operational_address_count', YLeaf(YType.uint8, 'operational-address-count')),
-                        ('primary_virtual_ip', YLeaf(YType.str, 'primary-virtual-ip')),
-                        ('configured_down_address_count', YLeaf(YType.uint8, 'configured-down-address-count')),
-                        ('virtual_linklocal_ipv6_address', YLeaf(YType.str, 'virtual-linklocal-ipv6-address')),
-                        ('primary_state', YLeaf(YType.enumeration, 'primary-state')),
-                        ('master_ip_address', YLeaf(YType.str, 'master-ip-address')),
-                        ('master_ipv6_address', YLeaf(YType.str, 'master-ipv6-address')),
-                        ('master_priority', YLeaf(YType.uint8, 'master-priority')),
-                        ('vrrp_state', YLeaf(YType.enumeration, 'vrrp-state')),
-                        ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
-                        ('authentication_string', YLeaf(YType.str, 'authentication-string')),
-                        ('configured_advertize_time', YLeaf(YType.uint32, 'configured-advertize-time')),
-                        ('oper_advertize_time', YLeaf(YType.uint32, 'oper-advertize-time')),
-                        ('min_delay_time', YLeaf(YType.uint32, 'min-delay-time')),
-                        ('reload_delay_time', YLeaf(YType.uint32, 'reload-delay-time')),
-                        ('delay_timer_flag', YLeaf(YType.boolean, 'delay-timer-flag')),
-                        ('delay_timer_secs', YLeaf(YType.uint32, 'delay-timer-secs')),
-                        ('delay_timer_msecs', YLeaf(YType.uint32, 'delay-timer-msecs')),
-                        ('authentication_flag', YLeaf(YType.boolean, 'authentication-flag')),
-                        ('force_timer_flag', YLeaf(YType.boolean, 'force-timer-flag')),
-                        ('preempt_flag', YLeaf(YType.boolean, 'preempt-flag')),
-                        ('ip_address_owner_flag', YLeaf(YType.boolean, 'ip-address-owner-flag')),
-                        ('is_accept_mode', YLeaf(YType.boolean, 'is-accept-mode')),
-                        ('preempt_delay_time', YLeaf(YType.uint16, 'preempt-delay-time')),
-                        ('configured_priority', YLeaf(YType.uint8, 'configured-priority')),
-                        ('operational_priority', YLeaf(YType.uint8, 'operational-priority')),
-                        ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
-                        ('tracked_interface_count', YLeaf(YType.uint32, 'tracked-interface-count')),
-                        ('tracked_interface_up_count', YLeaf(YType.uint32, 'tracked-interface-up-count')),
-                        ('tracked_item_count', YLeaf(YType.uint32, 'tracked-item-count')),
-                        ('tracked_item_up_count', YLeaf(YType.uint32, 'tracked-item-up-count')),
-                        ('time_in_current_state', YLeaf(YType.uint32, 'time-in-current-state')),
-                        ('state_change_count', YLeaf(YType.uint32, 'state-change-count')),
-                        ('time_vrouter_up', YLeaf(YType.uint32, 'time-vrouter-up')),
-                        ('master_count', YLeaf(YType.uint32, 'master-count')),
-                        ('adverts_received_count', YLeaf(YType.uint32, 'adverts-received-count')),
-                        ('advert_interval_error_count', YLeaf(YType.uint32, 'advert-interval-error-count')),
-                        ('adverts_sent_count', YLeaf(YType.uint32, 'adverts-sent-count')),
-                        ('authentication_fail_count', YLeaf(YType.uint32, 'authentication-fail-count')),
-                        ('ttl_error_count', YLeaf(YType.uint32, 'ttl-error-count')),
-                        ('priority_zero_received_count', YLeaf(YType.uint32, 'priority-zero-received-count')),
-                        ('priority_zero_sent_count', YLeaf(YType.uint32, 'priority-zero-sent-count')),
-                        ('invalid_packet_count', YLeaf(YType.uint32, 'invalid-packet-count')),
-                        ('address_list_error_count', YLeaf(YType.uint32, 'address-list-error-count')),
-                        ('invalid_auth_type_count', YLeaf(YType.uint32, 'invalid-auth-type-count')),
-                        ('auth_type_mismatch_count', YLeaf(YType.uint32, 'auth-type-mismatch-count')),
-                        ('pkt_length_errors_count', YLeaf(YType.uint32, 'pkt-length-errors-count')),
-                        ('time_stats_discontinuity', YLeaf(YType.uint32, 'time-stats-discontinuity')),
-                        ('bfd_session_state', YLeaf(YType.enumeration, 'bfd-session-state')),
-                        ('bfd_interval', YLeaf(YType.uint32, 'bfd-interval')),
-                        ('bfd_multiplier', YLeaf(YType.uint32, 'bfd-multiplier')),
-                        ('bfd_cfg_remote_ip', YLeaf(YType.str, 'bfd-cfg-remote-ip')),
-                        ('bfd_configured_remote_ipv6_address', YLeaf(YType.str, 'bfd-configured-remote-ipv6-address')),
-                        ('state_from_checkpoint', YLeaf(YType.boolean, 'state-from-checkpoint')),
-                        ('interface_ipv4_address', YLeaf(YType.str, 'interface-ipv4-address')),
-                        ('interface_ipv6_address', YLeaf(YType.str, 'interface-ipv6-address')),
-                        ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                        ('virtual_mac_address_state', YLeaf(YType.enumeration, 'virtual-mac-address-state')),
-                        ('operational_address', YLeafList(YType.str, 'operational-address')),
-                        ('ipv4_configured_down_address', YLeafList(YType.str, 'ipv4-configured-down-address')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('virtual_router_id', (YLeaf(YType.uint32, 'virtual-router-id'), ['int'])),
+                        ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                        ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                        ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                        ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBAf', '')])),
+                        ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                        ('slaves', (YLeaf(YType.uint32, 'slaves'), ['int'])),
+                        ('is_slave', (YLeaf(YType.boolean, 'is-slave'), ['bool'])),
+                        ('followed_session_name', (YLeaf(YType.str, 'followed-session-name'), ['str'])),
+                        ('secondary_address_count', (YLeaf(YType.uint8, 'secondary-address-count'), ['int'])),
+                        ('operational_address_count', (YLeaf(YType.uint8, 'operational-address-count'), ['int'])),
+                        ('primary_virtual_ip', (YLeaf(YType.str, 'primary-virtual-ip'), ['str'])),
+                        ('configured_down_address_count', (YLeaf(YType.uint8, 'configured-down-address-count'), ['int'])),
+                        ('virtual_linklocal_ipv6_address', (YLeaf(YType.str, 'virtual-linklocal-ipv6-address'), ['str'])),
+                        ('primary_state', (YLeaf(YType.enumeration, 'primary-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpVipState', '')])),
+                        ('master_ip_address', (YLeaf(YType.str, 'master-ip-address'), ['str'])),
+                        ('master_ipv6_address', (YLeaf(YType.str, 'master-ipv6-address'), ['str'])),
+                        ('master_priority', (YLeaf(YType.uint8, 'master-priority'), ['int'])),
+                        ('vrrp_state', (YLeaf(YType.enumeration, 'vrrp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                        ('authentication_type', (YLeaf(YType.enumeration, 'authentication-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpProtAuth', '')])),
+                        ('authentication_string', (YLeaf(YType.str, 'authentication-string'), ['str'])),
+                        ('configured_advertize_time', (YLeaf(YType.uint32, 'configured-advertize-time'), ['int'])),
+                        ('oper_advertize_time', (YLeaf(YType.uint32, 'oper-advertize-time'), ['int'])),
+                        ('min_delay_time', (YLeaf(YType.uint32, 'min-delay-time'), ['int'])),
+                        ('reload_delay_time', (YLeaf(YType.uint32, 'reload-delay-time'), ['int'])),
+                        ('delay_timer_flag', (YLeaf(YType.boolean, 'delay-timer-flag'), ['bool'])),
+                        ('delay_timer_secs', (YLeaf(YType.uint32, 'delay-timer-secs'), ['int'])),
+                        ('delay_timer_msecs', (YLeaf(YType.uint32, 'delay-timer-msecs'), ['int'])),
+                        ('authentication_flag', (YLeaf(YType.boolean, 'authentication-flag'), ['bool'])),
+                        ('force_timer_flag', (YLeaf(YType.boolean, 'force-timer-flag'), ['bool'])),
+                        ('preempt_flag', (YLeaf(YType.boolean, 'preempt-flag'), ['bool'])),
+                        ('ip_address_owner_flag', (YLeaf(YType.boolean, 'ip-address-owner-flag'), ['bool'])),
+                        ('is_accept_mode', (YLeaf(YType.boolean, 'is-accept-mode'), ['bool'])),
+                        ('preempt_delay_time', (YLeaf(YType.uint16, 'preempt-delay-time'), ['int'])),
+                        ('configured_priority', (YLeaf(YType.uint8, 'configured-priority'), ['int'])),
+                        ('operational_priority', (YLeaf(YType.uint8, 'operational-priority'), ['int'])),
+                        ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
+                        ('tracked_interface_count', (YLeaf(YType.uint32, 'tracked-interface-count'), ['int'])),
+                        ('tracked_interface_up_count', (YLeaf(YType.uint32, 'tracked-interface-up-count'), ['int'])),
+                        ('tracked_item_count', (YLeaf(YType.uint32, 'tracked-item-count'), ['int'])),
+                        ('tracked_item_up_count', (YLeaf(YType.uint32, 'tracked-item-up-count'), ['int'])),
+                        ('time_in_current_state', (YLeaf(YType.uint32, 'time-in-current-state'), ['int'])),
+                        ('state_change_count', (YLeaf(YType.uint32, 'state-change-count'), ['int'])),
+                        ('time_vrouter_up', (YLeaf(YType.uint32, 'time-vrouter-up'), ['int'])),
+                        ('master_count', (YLeaf(YType.uint32, 'master-count'), ['int'])),
+                        ('adverts_received_count', (YLeaf(YType.uint32, 'adverts-received-count'), ['int'])),
+                        ('advert_interval_error_count', (YLeaf(YType.uint32, 'advert-interval-error-count'), ['int'])),
+                        ('adverts_sent_count', (YLeaf(YType.uint32, 'adverts-sent-count'), ['int'])),
+                        ('authentication_fail_count', (YLeaf(YType.uint32, 'authentication-fail-count'), ['int'])),
+                        ('ttl_error_count', (YLeaf(YType.uint32, 'ttl-error-count'), ['int'])),
+                        ('priority_zero_received_count', (YLeaf(YType.uint32, 'priority-zero-received-count'), ['int'])),
+                        ('priority_zero_sent_count', (YLeaf(YType.uint32, 'priority-zero-sent-count'), ['int'])),
+                        ('invalid_packet_count', (YLeaf(YType.uint32, 'invalid-packet-count'), ['int'])),
+                        ('address_list_error_count', (YLeaf(YType.uint32, 'address-list-error-count'), ['int'])),
+                        ('invalid_auth_type_count', (YLeaf(YType.uint32, 'invalid-auth-type-count'), ['int'])),
+                        ('auth_type_mismatch_count', (YLeaf(YType.uint32, 'auth-type-mismatch-count'), ['int'])),
+                        ('pkt_length_errors_count', (YLeaf(YType.uint32, 'pkt-length-errors-count'), ['int'])),
+                        ('time_stats_discontinuity', (YLeaf(YType.uint32, 'time-stats-discontinuity'), ['int'])),
+                        ('bfd_session_state', (YLeaf(YType.enumeration, 'bfd-session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBfdSessionState', '')])),
+                        ('bfd_interval', (YLeaf(YType.uint32, 'bfd-interval'), ['int'])),
+                        ('bfd_multiplier', (YLeaf(YType.uint32, 'bfd-multiplier'), ['int'])),
+                        ('bfd_cfg_remote_ip', (YLeaf(YType.str, 'bfd-cfg-remote-ip'), ['str'])),
+                        ('bfd_configured_remote_ipv6_address', (YLeaf(YType.str, 'bfd-configured-remote-ipv6-address'), ['str'])),
+                        ('state_from_checkpoint', (YLeaf(YType.boolean, 'state-from-checkpoint'), ['bool'])),
+                        ('interface_ipv4_address', (YLeaf(YType.str, 'interface-ipv4-address'), ['str'])),
+                        ('interface_ipv6_address', (YLeaf(YType.str, 'interface-ipv6-address'), ['str'])),
+                        ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                        ('virtual_mac_address_state', (YLeaf(YType.enumeration, 'virtual-mac-address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpVmacState', '')])),
+                        ('operational_address', (YLeafList(YType.str, 'operational-address'), ['str'])),
+                        ('ipv4_configured_down_address', (YLeafList(YType.str, 'ipv4-configured-down-address'), ['str'])),
                     ])
                     self.interface_name = None
                     self.virtual_router_id = None
@@ -3233,9 +3256,10 @@ class Vrrp(Entity):
                     self.state_change_history = YList(self)
                     self._segment_path = lambda: "virtual-router" + "[interface-name='" + str(self.interface_name) + "']" + "[virtual-router-id='" + str(self.virtual_router_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/ipv4/virtual-routers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', 'interface_name_xr', 'virtual_router_id_xr', 'version', 'address_family', 'session_name', 'slaves', 'is_slave', 'followed_session_name', 'secondary_address_count', 'operational_address_count', 'primary_virtual_ip', 'configured_down_address_count', 'virtual_linklocal_ipv6_address', 'primary_state', 'master_ip_address', 'master_ipv6_address', 'master_priority', 'vrrp_state', 'authentication_type', 'authentication_string', 'configured_advertize_time', 'oper_advertize_time', 'min_delay_time', 'reload_delay_time', 'delay_timer_flag', 'delay_timer_secs', 'delay_timer_msecs', 'authentication_flag', 'force_timer_flag', 'preempt_flag', 'ip_address_owner_flag', 'is_accept_mode', 'preempt_delay_time', 'configured_priority', 'operational_priority', 'priority_decrement', 'tracked_interface_count', 'tracked_interface_up_count', 'tracked_item_count', 'tracked_item_up_count', 'time_in_current_state', 'state_change_count', 'time_vrouter_up', 'master_count', 'adverts_received_count', 'advert_interval_error_count', 'adverts_sent_count', 'authentication_fail_count', 'ttl_error_count', 'priority_zero_received_count', 'priority_zero_sent_count', 'invalid_packet_count', 'address_list_error_count', 'invalid_auth_type_count', 'auth_type_mismatch_count', 'pkt_length_errors_count', 'time_stats_discontinuity', 'bfd_session_state', 'bfd_interval', 'bfd_multiplier', 'bfd_cfg_remote_ip', 'bfd_configured_remote_ipv6_address', 'state_from_checkpoint', 'interface_ipv4_address', 'interface_ipv6_address', 'virtual_mac_address', 'virtual_mac_address_state', 'operational_address', 'ipv4_configured_down_address'], name, value)
+                    self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter, ['interface_name', 'virtual_router_id', u'interface_name_xr', u'virtual_router_id_xr', u'version', u'address_family', u'session_name', u'slaves', u'is_slave', u'followed_session_name', u'secondary_address_count', u'operational_address_count', u'primary_virtual_ip', u'configured_down_address_count', u'virtual_linklocal_ipv6_address', u'primary_state', u'master_ip_address', u'master_ipv6_address', u'master_priority', u'vrrp_state', u'authentication_type', u'authentication_string', u'configured_advertize_time', u'oper_advertize_time', u'min_delay_time', u'reload_delay_time', u'delay_timer_flag', u'delay_timer_secs', u'delay_timer_msecs', u'authentication_flag', u'force_timer_flag', u'preempt_flag', u'ip_address_owner_flag', u'is_accept_mode', u'preempt_delay_time', u'configured_priority', u'operational_priority', u'priority_decrement', u'tracked_interface_count', u'tracked_interface_up_count', u'tracked_item_count', u'tracked_item_up_count', u'time_in_current_state', u'state_change_count', u'time_vrouter_up', u'master_count', u'adverts_received_count', u'advert_interval_error_count', u'adverts_sent_count', u'authentication_fail_count', u'ttl_error_count', u'priority_zero_received_count', u'priority_zero_sent_count', u'invalid_packet_count', u'address_list_error_count', u'invalid_auth_type_count', u'auth_type_mismatch_count', u'pkt_length_errors_count', u'time_stats_discontinuity', u'bfd_session_state', u'bfd_interval', u'bfd_multiplier', u'bfd_cfg_remote_ip', u'bfd_configured_remote_ipv6_address', u'state_from_checkpoint', u'interface_ipv4_address', u'interface_ipv6_address', u'virtual_mac_address', u'virtual_mac_address_state', u'operational_address', u'ipv4_configured_down_address'], name, value)
 
 
                 class ResignSentTime(Entity):
@@ -3277,15 +3301,16 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint32, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "resign-sent-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignSentTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class ResignReceivedTime(Entity):
@@ -3327,15 +3352,16 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint32, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "resign-received-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, ['seconds', 'nanoseconds'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.ResignReceivedTime, [u'seconds', u'nanoseconds'], name, value)
 
 
                 class Ipv6OperationalAddress(Entity):
@@ -3366,13 +3392,14 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.ipv6_address = None
                         self._segment_path = lambda: "ipv6-operational-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6OperationalAddress, [u'ipv6_address'], name, value)
 
 
                 class Ipv6ConfiguredDownAddress(Entity):
@@ -3403,13 +3430,14 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.ipv6_address = None
                         self._segment_path = lambda: "ipv6-configured-down-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, ['ipv6_address'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.Ipv6ConfiguredDownAddress, [u'ipv6_address'], name, value)
 
 
                 class TrackItemInfo(Entity):
@@ -3421,7 +3449,7 @@ class Vrrp(Entity):
                     	IM Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: virtual_router_id_xr
                     
@@ -3475,12 +3503,12 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('virtual_router_id_xr', YLeaf(YType.uint32, 'virtual-router-id-xr')),
-                            ('tracked_item_type', YLeaf(YType.uint16, 'tracked-item-type')),
-                            ('tracked_item_index', YLeaf(YType.str, 'tracked-item-index')),
-                            ('state', YLeaf(YType.uint8, 'state')),
-                            ('priority', YLeaf(YType.uint8, 'priority')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('virtual_router_id_xr', (YLeaf(YType.uint32, 'virtual-router-id-xr'), ['int'])),
+                            ('tracked_item_type', (YLeaf(YType.uint16, 'tracked-item-type'), ['int'])),
+                            ('tracked_item_index', (YLeaf(YType.str, 'tracked-item-index'), ['str'])),
+                            ('state', (YLeaf(YType.uint8, 'state'), ['int'])),
+                            ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                         ])
                         self.interface = None
                         self.virtual_router_id_xr = None
@@ -3489,9 +3517,10 @@ class Vrrp(Entity):
                         self.state = None
                         self.priority = None
                         self._segment_path = lambda: "track-item-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, ['interface', 'virtual_router_id_xr', 'tracked_item_type', 'tracked_item_index', 'state', 'priority'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.TrackItemInfo, [u'interface', u'virtual_router_id_xr', u'tracked_item_type', u'tracked_item_index', u'state', u'priority'], name, value)
 
 
                 class StateChangeHistory(Entity):
@@ -3535,9 +3564,9 @@ class Vrrp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("time", ("time", Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time))])
                         self._leafs = OrderedDict([
-                            ('old_state', YLeaf(YType.enumeration, 'old-state')),
-                            ('new_state', YLeaf(YType.enumeration, 'new-state')),
-                            ('reason', YLeaf(YType.enumeration, 'reason')),
+                            ('old_state', (YLeaf(YType.enumeration, 'old-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                            ('new_state', (YLeaf(YType.enumeration, 'new-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
+                            ('reason', (YLeaf(YType.enumeration, 'reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpStateChangeReason', '')])),
                         ])
                         self.old_state = None
                         self.new_state = None
@@ -3547,9 +3576,10 @@ class Vrrp(Entity):
                         self.time.parent = self
                         self._children_name_map["time"] = "time"
                         self._segment_path = lambda: "state-change-history"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, ['old_state', 'new_state', 'reason'], name, value)
+                        self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory, [u'old_state', u'new_state', u'reason'], name, value)
 
 
                     class Time(Entity):
@@ -3591,15 +3621,16 @@ class Vrrp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                             ])
                             self.seconds = None
                             self.nanoseconds = None
                             self._segment_path = lambda: "time"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, ['seconds', 'nanoseconds'], name, value)
+                            self._perform_setattr(Vrrp.Ipv4.VirtualRouters.VirtualRouter.StateChangeHistory.Time, [u'seconds', u'nanoseconds'], name, value)
 
 
     class MgoSessions(Entity):
@@ -3632,6 +3663,7 @@ class Vrrp(Entity):
             self.mgo_session = YList(self)
             self._segment_path = lambda: "mgo-sessions"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrrp.MgoSessions, [], name, value)
@@ -3660,7 +3692,7 @@ class Vrrp(Entity):
             	Interface of primary session
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: primary_af_name
             
@@ -3701,12 +3733,12 @@ class Vrrp(Entity):
                 self.ylist_key_names = ['session_name']
                 self._child_classes = OrderedDict([("slave", ("slave", Vrrp.MgoSessions.MgoSession.Slave))])
                 self._leafs = OrderedDict([
-                    ('session_name', YLeaf(YType.str, 'session-name')),
-                    ('primary_session_name', YLeaf(YType.str, 'primary-session-name')),
-                    ('primary_session_interface', YLeaf(YType.str, 'primary-session-interface')),
-                    ('primary_af_name', YLeaf(YType.enumeration, 'primary-af-name')),
-                    ('primary_session_number', YLeaf(YType.uint32, 'primary-session-number')),
-                    ('primary_session_state', YLeaf(YType.enumeration, 'primary-session-state')),
+                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                    ('primary_session_name', (YLeaf(YType.str, 'primary-session-name'), ['str'])),
+                    ('primary_session_interface', (YLeaf(YType.str, 'primary-session-interface'), ['str'])),
+                    ('primary_af_name', (YLeaf(YType.enumeration, 'primary-af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBAf', '')])),
+                    ('primary_session_number', (YLeaf(YType.uint32, 'primary-session-number'), ['int'])),
+                    ('primary_session_state', (YLeaf(YType.enumeration, 'primary-session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_vrrp_oper', 'VrrpBagProtocolState', '')])),
                 ])
                 self.session_name = None
                 self.primary_session_name = None
@@ -3718,9 +3750,10 @@ class Vrrp(Entity):
                 self.slave = YList(self)
                 self._segment_path = lambda: "mgo-session" + "[session-name='" + str(self.session_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-vrrp-oper:vrrp/mgo-sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', 'primary_session_name', 'primary_session_interface', 'primary_af_name', 'primary_session_number', 'primary_session_state'], name, value)
+                self._perform_setattr(Vrrp.MgoSessions.MgoSession, ['session_name', u'primary_session_name', u'primary_session_interface', u'primary_af_name', u'primary_session_number', u'primary_session_state'], name, value)
 
 
             class Slave(Entity):
@@ -3758,15 +3791,16 @@ class Vrrp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('slave_interface', YLeaf(YType.str, 'slave-interface')),
-                        ('slave_virtual_router_id', YLeaf(YType.uint32, 'slave-virtual-router-id')),
+                        ('slave_interface', (YLeaf(YType.str, 'slave-interface'), ['str'])),
+                        ('slave_virtual_router_id', (YLeaf(YType.uint32, 'slave-virtual-router-id'), ['int'])),
                     ])
                     self.slave_interface = None
                     self.slave_virtual_router_id = None
                     self._segment_path = lambda: "slave"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, ['slave_interface', 'slave_virtual_router_id'], name, value)
+                    self._perform_setattr(Vrrp.MgoSessions.MgoSession.Slave, [u'slave_interface', u'slave_virtual_router_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vrrp()

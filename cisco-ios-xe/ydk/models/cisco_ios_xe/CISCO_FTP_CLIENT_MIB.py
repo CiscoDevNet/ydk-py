@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOFTPCLIENTMIB(Entity):
     """
     
@@ -54,6 +55,7 @@ class CISCOFTPCLIENTMIB(Entity):
         self.cfcrequesttable.parent = self
         self._children_name_map["cfcrequesttable"] = "cfcRequestTable"
         self._segment_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOFTPCLIENTMIB, [], name, value)
@@ -108,10 +110,10 @@ class CISCOFTPCLIENTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cfcrequestmaximum', YLeaf(YType.uint32, 'cfcRequestMaximum')),
-                ('cfcrequests', YLeaf(YType.uint32, 'cfcRequests')),
-                ('cfcrequestshigh', YLeaf(YType.uint32, 'cfcRequestsHigh')),
-                ('cfcrequestsbumped', YLeaf(YType.uint32, 'cfcRequestsBumped')),
+                ('cfcrequestmaximum', (YLeaf(YType.uint32, 'cfcRequestMaximum'), ['int'])),
+                ('cfcrequests', (YLeaf(YType.uint32, 'cfcRequests'), ['int'])),
+                ('cfcrequestshigh', (YLeaf(YType.uint32, 'cfcRequestsHigh'), ['int'])),
+                ('cfcrequestsbumped', (YLeaf(YType.uint32, 'cfcRequestsBumped'), ['int'])),
             ])
             self.cfcrequestmaximum = None
             self.cfcrequests = None
@@ -119,6 +121,7 @@ class CISCOFTPCLIENTMIB(Entity):
             self.cfcrequestsbumped = None
             self._segment_path = lambda: "cfcRequest"
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequest, ['cfcrequestmaximum', 'cfcrequests', 'cfcrequestshigh', 'cfcrequestsbumped'], name, value)
@@ -154,6 +157,7 @@ class CISCOFTPCLIENTMIB(Entity):
             self.cfcrequestentry = YList(self)
             self._segment_path = lambda: "cfcRequestTable"
             self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequestTable, [], name, value)
@@ -268,18 +272,18 @@ class CISCOFTPCLIENTMIB(Entity):
                 self.ylist_key_names = ['cfcrequestindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cfcrequestindex', YLeaf(YType.uint32, 'cfcRequestIndex')),
-                    ('cfcrequestoperation', YLeaf(YType.enumeration, 'cfcRequestOperation')),
-                    ('cfcrequestlocalfile', YLeaf(YType.str, 'cfcRequestLocalFile')),
-                    ('cfcrequestremotefile', YLeaf(YType.str, 'cfcRequestRemoteFile')),
-                    ('cfcrequestserver', YLeaf(YType.str, 'cfcRequestServer')),
-                    ('cfcrequestuser', YLeaf(YType.str, 'cfcRequestUser')),
-                    ('cfcrequestpassword', YLeaf(YType.str, 'cfcRequestPassword')),
-                    ('cfcrequestresult', YLeaf(YType.enumeration, 'cfcRequestResult')),
-                    ('cfcrequestcompletiontime', YLeaf(YType.uint32, 'cfcRequestCompletionTime')),
-                    ('cfcrequeststop', YLeaf(YType.enumeration, 'cfcRequestStop')),
-                    ('cfcrequestoperationstate', YLeaf(YType.enumeration, 'cfcRequestOperationState')),
-                    ('cfcrequestentrystatus', YLeaf(YType.enumeration, 'cfcRequestEntryStatus')),
+                    ('cfcrequestindex', (YLeaf(YType.uint32, 'cfcRequestIndex'), ['int'])),
+                    ('cfcrequestoperation', (YLeaf(YType.enumeration, 'cfcRequestOperation'), [('ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB', 'CISCOFTPCLIENTMIB', 'CfcRequestTable.CfcRequestEntry.CfcRequestOperation')])),
+                    ('cfcrequestlocalfile', (YLeaf(YType.str, 'cfcRequestLocalFile'), ['str'])),
+                    ('cfcrequestremotefile', (YLeaf(YType.str, 'cfcRequestRemoteFile'), ['str'])),
+                    ('cfcrequestserver', (YLeaf(YType.str, 'cfcRequestServer'), ['str'])),
+                    ('cfcrequestuser', (YLeaf(YType.str, 'cfcRequestUser'), ['str'])),
+                    ('cfcrequestpassword', (YLeaf(YType.str, 'cfcRequestPassword'), ['str'])),
+                    ('cfcrequestresult', (YLeaf(YType.enumeration, 'cfcRequestResult'), [('ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB', 'CISCOFTPCLIENTMIB', 'CfcRequestTable.CfcRequestEntry.CfcRequestResult')])),
+                    ('cfcrequestcompletiontime', (YLeaf(YType.uint32, 'cfcRequestCompletionTime'), ['int'])),
+                    ('cfcrequeststop', (YLeaf(YType.enumeration, 'cfcRequestStop'), [('ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB', 'CISCOFTPCLIENTMIB', 'CfcRequestTable.CfcRequestEntry.CfcRequestStop')])),
+                    ('cfcrequestoperationstate', (YLeaf(YType.enumeration, 'cfcRequestOperationState'), [('ydk.models.cisco_ios_xe.CISCO_FTP_CLIENT_MIB', 'CISCOFTPCLIENTMIB', 'CfcRequestTable.CfcRequestEntry.CfcRequestOperationState')])),
+                    ('cfcrequestentrystatus', (YLeaf(YType.enumeration, 'cfcRequestEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cfcrequestindex = None
                 self.cfcrequestoperation = None
@@ -295,6 +299,7 @@ class CISCOFTPCLIENTMIB(Entity):
                 self.cfcrequestentrystatus = None
                 self._segment_path = lambda: "cfcRequestEntry" + "[cfcRequestIndex='" + str(self.cfcrequestindex) + "']"
                 self._absolute_path = lambda: "CISCO-FTP-CLIENT-MIB:CISCO-FTP-CLIENT-MIB/cfcRequestTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOFTPCLIENTMIB.CfcRequestTable.CfcRequestEntry, ['cfcrequestindex', 'cfcrequestoperation', 'cfcrequestlocalfile', 'cfcrequestremotefile', 'cfcrequestserver', 'cfcrequestuser', 'cfcrequestpassword', 'cfcrequestresult', 'cfcrequestcompletiontime', 'cfcrequeststop', 'cfcrequestoperationstate', 'cfcrequestentrystatus'], name, value)

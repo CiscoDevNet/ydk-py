@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOCBPTARGETMIB(Entity):
     """
     
@@ -56,6 +57,7 @@ class CISCOCBPTARGETMIB(Entity):
         self.ccbpttargettable.parent = self
         self._children_name_map["ccbpttargettable"] = "ccbptTargetTable"
         self._segment_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOCBPTARGETMIB, [], name, value)
@@ -96,13 +98,14 @@ class CISCOCBPTARGETMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ccbptpolicyidnext', YLeaf(YType.uint32, 'ccbptPolicyIdNext')),
-                ('ccbpttargettablelastchange', YLeaf(YType.uint32, 'ccbptTargetTableLastChange')),
+                ('ccbptpolicyidnext', (YLeaf(YType.uint32, 'ccbptPolicyIdNext'), ['int'])),
+                ('ccbpttargettablelastchange', (YLeaf(YType.uint32, 'ccbptTargetTableLastChange'), ['int'])),
             ])
             self.ccbptpolicyidnext = None
             self.ccbpttargettablelastchange = None
             self._segment_path = lambda: "ccbptTargetAttachCfg"
             self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetAttachCfg, ['ccbptpolicyidnext', 'ccbpttargettablelastchange'], name, value)
@@ -139,6 +142,7 @@ class CISCOCBPTARGETMIB(Entity):
             self.ccbpttargetentry = YList(self)
             self._segment_path = lambda: "ccbptTargetTable"
             self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetTable, [], name, value)
@@ -256,16 +260,16 @@ class CISCOCBPTARGETMIB(Entity):
                 self.ylist_key_names = ['ccbpttargettype','ccbpttargetid','ccbpttargetdir','ccbptpolicysourcetype','ccbptpolicyid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccbpttargettype', YLeaf(YType.enumeration, 'ccbptTargetType')),
-                    ('ccbpttargetid', YLeaf(YType.str, 'ccbptTargetId')),
-                    ('ccbpttargetdir', YLeaf(YType.enumeration, 'ccbptTargetDir')),
-                    ('ccbptpolicysourcetype', YLeaf(YType.enumeration, 'ccbptPolicySourceType')),
-                    ('ccbptpolicyid', YLeaf(YType.uint32, 'ccbptPolicyId')),
-                    ('ccbpttargetstatus', YLeaf(YType.enumeration, 'ccbptTargetStatus')),
-                    ('ccbpttargetstoragetype', YLeaf(YType.enumeration, 'ccbptTargetStorageType')),
-                    ('ccbptpolicymap', YLeaf(YType.str, 'ccbptPolicyMap')),
-                    ('ccbptpolicyinstance', YLeaf(YType.str, 'ccbptPolicyInstance')),
-                    ('ccbptpolicyattachtime', YLeaf(YType.uint32, 'ccbptPolicyAttachTime')),
+                    ('ccbpttargettype', (YLeaf(YType.enumeration, 'ccbptTargetType'), [('ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB', 'CcbptTargetType', '')])),
+                    ('ccbpttargetid', (YLeaf(YType.str, 'ccbptTargetId'), ['str'])),
+                    ('ccbpttargetdir', (YLeaf(YType.enumeration, 'ccbptTargetDir'), [('ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB', 'CcbptTargetDirection', '')])),
+                    ('ccbptpolicysourcetype', (YLeaf(YType.enumeration, 'ccbptPolicySourceType'), [('ydk.models.cisco_ios_xe.CISCO_CBP_TARGET_TC_MIB', 'CcbptPolicySourceType', '')])),
+                    ('ccbptpolicyid', (YLeaf(YType.uint32, 'ccbptPolicyId'), ['int'])),
+                    ('ccbpttargetstatus', (YLeaf(YType.enumeration, 'ccbptTargetStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ccbpttargetstoragetype', (YLeaf(YType.enumeration, 'ccbptTargetStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ccbptpolicymap', (YLeaf(YType.str, 'ccbptPolicyMap'), ['str'])),
+                    ('ccbptpolicyinstance', (YLeaf(YType.str, 'ccbptPolicyInstance'), ['str'])),
+                    ('ccbptpolicyattachtime', (YLeaf(YType.uint32, 'ccbptPolicyAttachTime'), ['int'])),
                 ])
                 self.ccbpttargettype = None
                 self.ccbpttargetid = None
@@ -279,6 +283,7 @@ class CISCOCBPTARGETMIB(Entity):
                 self.ccbptpolicyattachtime = None
                 self._segment_path = lambda: "ccbptTargetEntry" + "[ccbptTargetType='" + str(self.ccbpttargettype) + "']" + "[ccbptTargetId='" + str(self.ccbpttargetid) + "']" + "[ccbptTargetDir='" + str(self.ccbpttargetdir) + "']" + "[ccbptPolicySourceType='" + str(self.ccbptpolicysourcetype) + "']" + "[ccbptPolicyId='" + str(self.ccbptpolicyid) + "']"
                 self._absolute_path = lambda: "CISCO-CBP-TARGET-MIB:CISCO-CBP-TARGET-MIB/ccbptTargetTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCBPTARGETMIB.CcbptTargetTable.CcbptTargetEntry, ['ccbpttargettype', 'ccbpttargetid', 'ccbpttargetdir', 'ccbptpolicysourcetype', 'ccbptpolicyid', 'ccbpttargetstatus', 'ccbpttargetstoragetype', 'ccbptpolicymap', 'ccbptpolicyinstance', 'ccbptpolicyattachtime'], name, value)

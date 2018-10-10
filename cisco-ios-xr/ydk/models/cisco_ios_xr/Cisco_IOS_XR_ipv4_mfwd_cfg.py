@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mfwd\: Multicast routing configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AccountingMode(Enum):
@@ -82,6 +83,7 @@ class Mfwd(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Mfwd, [], name, value)
@@ -128,6 +130,7 @@ class Mfwd(Entity):
             self._children_name_map["ipv4"] = "ipv4"
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Mfwd.DefaultContext, [], name, value)
@@ -222,16 +225,16 @@ class Mfwd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv6.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
-                    ('maximum_checking_disable', YLeaf(YType.empty, 'maximum-checking-disable')),
-                    ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
-                    ('interface_inheritance_disable', YLeaf(YType.empty, 'interface-inheritance-disable')),
-                    ('mofrr_lockout_timer_config', YLeaf(YType.uint32, 'mofrr-lockout-timer-config')),
-                    ('forwarding_latency', YLeaf(YType.uint32, 'forwarding-latency')),
-                    ('mofrr_loss_detection_timer_config', YLeaf(YType.uint32, 'mofrr-loss-detection-timer-config')),
-                    ('multicast_forwarding', YLeaf(YType.empty, 'multicast-forwarding')),
-                    ('log_traps', YLeaf(YType.empty, 'log-traps')),
-                    ('accounting', YLeaf(YType.enumeration, 'accounting')),
+                    ('enable_on_all_interfaces', (YLeaf(YType.empty, 'enable-on-all-interfaces'), ['Empty'])),
+                    ('maximum_checking_disable', (YLeaf(YType.empty, 'maximum-checking-disable'), ['Empty'])),
+                    ('rate_per_route', (YLeaf(YType.empty, 'rate-per-route'), ['Empty'])),
+                    ('interface_inheritance_disable', (YLeaf(YType.empty, 'interface-inheritance-disable'), ['Empty'])),
+                    ('mofrr_lockout_timer_config', (YLeaf(YType.uint32, 'mofrr-lockout-timer-config'), ['int'])),
+                    ('forwarding_latency', (YLeaf(YType.uint32, 'forwarding-latency'), ['int'])),
+                    ('mofrr_loss_detection_timer_config', (YLeaf(YType.uint32, 'mofrr-loss-detection-timer-config'), ['int'])),
+                    ('multicast_forwarding', (YLeaf(YType.empty, 'multicast-forwarding'), ['Empty'])),
+                    ('log_traps', (YLeaf(YType.empty, 'log-traps'), ['Empty'])),
+                    ('accounting', (YLeaf(YType.enumeration, 'accounting'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'AccountingMode', '')])),
                 ])
                 self.enable_on_all_interfaces = None
                 self.maximum_checking_disable = None
@@ -253,6 +256,7 @@ class Mfwd(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mfwd.DefaultContext.Ipv6, ['enable_on_all_interfaces', 'maximum_checking_disable', 'rate_per_route', 'interface_inheritance_disable', 'mofrr_lockout_timer_config', 'forwarding_latency', 'mofrr_loss_detection_timer_config', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
@@ -288,6 +292,7 @@ class Mfwd(Entity):
                     self.static_rpf_rule = YList(self)
                     self._segment_path = lambda: "static-rpf-rules"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv6.StaticRpfRules, [], name, value)
@@ -337,7 +342,7 @@ class Mfwd(Entity):
                     	The name of the RPF interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     	**mandatory**\: True
                     
@@ -358,10 +363,10 @@ class Mfwd(Entity):
                         self.ylist_key_names = ['address','prefix_mask']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
-                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                            ('prefix_mask', (YLeaf(YType.uint32, 'prefix-mask'), ['int'])),
+                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.address = None
                         self.prefix_mask = None
@@ -369,6 +374,7 @@ class Mfwd(Entity):
                         self.interface_name = None
                         self._segment_path = lambda: "static-rpf-rule" + "[address='" + str(self.address) + "']" + "[prefix-mask='" + str(self.prefix_mask) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/static-rpf-rules/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
@@ -404,6 +410,7 @@ class Mfwd(Entity):
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv6.Interfaces, [], name, value)
@@ -418,7 +425,7 @@ class Mfwd(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: ttl_threshold
                     
@@ -456,10 +463,10 @@ class Mfwd(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
-                            ('enable_on_interface', YLeaf(YType.boolean, 'enable-on-interface')),
-                            ('boundary', YLeaf(YType.str, 'boundary')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('ttl_threshold', (YLeaf(YType.uint32, 'ttl-threshold'), ['int'])),
+                            ('enable_on_interface', (YLeaf(YType.boolean, 'enable-on-interface'), ['bool'])),
+                            ('boundary', (YLeaf(YType.str, 'boundary'), ['str'])),
                         ])
                         self.interface_name = None
                         self.ttl_threshold = None
@@ -467,6 +474,7 @@ class Mfwd(Entity):
                         self.boundary = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv6/interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
@@ -566,17 +574,17 @@ class Mfwd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.DefaultContext.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.DefaultContext.Ipv4.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('out_of_memory_handling', YLeaf(YType.empty, 'out-of-memory-handling')),
-                    ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
-                    ('maximum_checking_disable', YLeaf(YType.empty, 'maximum-checking-disable')),
-                    ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
-                    ('interface_inheritance_disable', YLeaf(YType.empty, 'interface-inheritance-disable')),
-                    ('mofrr_lockout_timer_config', YLeaf(YType.uint32, 'mofrr-lockout-timer-config')),
-                    ('forwarding_latency', YLeaf(YType.uint32, 'forwarding-latency')),
-                    ('mofrr_loss_detection_timer_config', YLeaf(YType.uint32, 'mofrr-loss-detection-timer-config')),
-                    ('multicast_forwarding', YLeaf(YType.empty, 'multicast-forwarding')),
-                    ('log_traps', YLeaf(YType.empty, 'log-traps')),
-                    ('accounting', YLeaf(YType.enumeration, 'accounting')),
+                    ('out_of_memory_handling', (YLeaf(YType.empty, 'out-of-memory-handling'), ['Empty'])),
+                    ('enable_on_all_interfaces', (YLeaf(YType.empty, 'enable-on-all-interfaces'), ['Empty'])),
+                    ('maximum_checking_disable', (YLeaf(YType.empty, 'maximum-checking-disable'), ['Empty'])),
+                    ('rate_per_route', (YLeaf(YType.empty, 'rate-per-route'), ['Empty'])),
+                    ('interface_inheritance_disable', (YLeaf(YType.empty, 'interface-inheritance-disable'), ['Empty'])),
+                    ('mofrr_lockout_timer_config', (YLeaf(YType.uint32, 'mofrr-lockout-timer-config'), ['int'])),
+                    ('forwarding_latency', (YLeaf(YType.uint32, 'forwarding-latency'), ['int'])),
+                    ('mofrr_loss_detection_timer_config', (YLeaf(YType.uint32, 'mofrr-loss-detection-timer-config'), ['int'])),
+                    ('multicast_forwarding', (YLeaf(YType.empty, 'multicast-forwarding'), ['Empty'])),
+                    ('log_traps', (YLeaf(YType.empty, 'log-traps'), ['Empty'])),
+                    ('accounting', (YLeaf(YType.enumeration, 'accounting'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'AccountingMode', '')])),
                 ])
                 self.out_of_memory_handling = None
                 self.enable_on_all_interfaces = None
@@ -599,6 +607,7 @@ class Mfwd(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mfwd.DefaultContext.Ipv4, ['out_of_memory_handling', 'enable_on_all_interfaces', 'maximum_checking_disable', 'rate_per_route', 'interface_inheritance_disable', 'mofrr_lockout_timer_config', 'forwarding_latency', 'mofrr_loss_detection_timer_config', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
@@ -634,6 +643,7 @@ class Mfwd(Entity):
                     self.static_rpf_rule = YList(self)
                     self._segment_path = lambda: "static-rpf-rules"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv4.StaticRpfRules, [], name, value)
@@ -683,7 +693,7 @@ class Mfwd(Entity):
                     	The name of the RPF interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     	**mandatory**\: True
                     
@@ -704,10 +714,10 @@ class Mfwd(Entity):
                         self.ylist_key_names = ['address','prefix_mask']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
-                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                            ('prefix_mask', (YLeaf(YType.uint32, 'prefix-mask'), ['int'])),
+                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.address = None
                         self.prefix_mask = None
@@ -715,6 +725,7 @@ class Mfwd(Entity):
                         self.interface_name = None
                         self._segment_path = lambda: "static-rpf-rule" + "[address='" + str(self.address) + "']" + "[prefix-mask='" + str(self.prefix_mask) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/static-rpf-rules/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
@@ -750,6 +761,7 @@ class Mfwd(Entity):
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.DefaultContext.Ipv4.Interfaces, [], name, value)
@@ -764,7 +776,7 @@ class Mfwd(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: ttl_threshold
                     
@@ -802,10 +814,10 @@ class Mfwd(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
-                            ('enable_on_interface', YLeaf(YType.boolean, 'enable-on-interface')),
-                            ('boundary', YLeaf(YType.str, 'boundary')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('ttl_threshold', (YLeaf(YType.uint32, 'ttl-threshold'), ['int'])),
+                            ('enable_on_interface', (YLeaf(YType.boolean, 'enable-on-interface'), ['bool'])),
+                            ('boundary', (YLeaf(YType.str, 'boundary'), ['str'])),
                         ])
                         self.interface_name = None
                         self.ttl_threshold = None
@@ -813,6 +825,7 @@ class Mfwd(Entity):
                         self.boundary = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/default-context/ipv4/interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
@@ -848,6 +861,7 @@ class Mfwd(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Mfwd.Vrfs, [], name, value)
@@ -891,7 +905,7 @@ class Mfwd(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("ipv6", ("ipv6", Mfwd.Vrfs.Vrf.Ipv6)), ("ipv4", ("ipv4", Mfwd.Vrfs.Vrf.Ipv4))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -904,6 +918,7 @@ class Mfwd(Entity):
                 self._children_name_map["ipv4"] = "ipv4"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-mfwd-cfg:mfwd/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mfwd.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -965,11 +980,11 @@ class Mfwd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv6.Interfaces))])
                     self._leafs = OrderedDict([
-                        ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
-                        ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
-                        ('multicast_forwarding', YLeaf(YType.empty, 'multicast-forwarding')),
-                        ('log_traps', YLeaf(YType.empty, 'log-traps')),
-                        ('accounting', YLeaf(YType.enumeration, 'accounting')),
+                        ('enable_on_all_interfaces', (YLeaf(YType.empty, 'enable-on-all-interfaces'), ['Empty'])),
+                        ('rate_per_route', (YLeaf(YType.empty, 'rate-per-route'), ['Empty'])),
+                        ('multicast_forwarding', (YLeaf(YType.empty, 'multicast-forwarding'), ['Empty'])),
+                        ('log_traps', (YLeaf(YType.empty, 'log-traps'), ['Empty'])),
+                        ('accounting', (YLeaf(YType.enumeration, 'accounting'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'AccountingMode', '')])),
                     ])
                     self.enable_on_all_interfaces = None
                     self.rate_per_route = None
@@ -985,6 +1000,7 @@ class Mfwd(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6, ['enable_on_all_interfaces', 'rate_per_route', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
@@ -1019,6 +1035,7 @@ class Mfwd(Entity):
 
                         self.static_rpf_rule = YList(self)
                         self._segment_path = lambda: "static-rpf-rules"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules, [], name, value)
@@ -1068,7 +1085,7 @@ class Mfwd(Entity):
                         	The name of the RPF interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         	**mandatory**\: True
                         
@@ -1089,16 +1106,17 @@ class Mfwd(Entity):
                             self.ylist_key_names = ['address','prefix_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
-                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                ('prefix_mask', (YLeaf(YType.uint32, 'prefix-mask'), ['int'])),
+                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.address = None
                             self.prefix_mask = None
                             self.neighbor_address = None
                             self.interface_name = None
                             self._segment_path = lambda: "static-rpf-rule" + "[address='" + str(self.address) + "']" + "[prefix-mask='" + str(self.prefix_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
@@ -1133,6 +1151,7 @@ class Mfwd(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
@@ -1147,7 +1166,7 @@ class Mfwd(Entity):
                         	Interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: ttl_threshold
                         
@@ -1185,16 +1204,17 @@ class Mfwd(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
-                                ('enable_on_interface', YLeaf(YType.boolean, 'enable-on-interface')),
-                                ('boundary', YLeaf(YType.str, 'boundary')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('ttl_threshold', (YLeaf(YType.uint32, 'ttl-threshold'), ['int'])),
+                                ('enable_on_interface', (YLeaf(YType.boolean, 'enable-on-interface'), ['bool'])),
+                                ('boundary', (YLeaf(YType.str, 'boundary'), ['str'])),
                             ])
                             self.interface_name = None
                             self.ttl_threshold = None
                             self.enable_on_interface = None
                             self.boundary = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)
@@ -1256,11 +1276,11 @@ class Mfwd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("static-rpf-rules", ("static_rpf_rules", Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules)), ("interfaces", ("interfaces", Mfwd.Vrfs.Vrf.Ipv4.Interfaces))])
                     self._leafs = OrderedDict([
-                        ('enable_on_all_interfaces', YLeaf(YType.empty, 'enable-on-all-interfaces')),
-                        ('rate_per_route', YLeaf(YType.empty, 'rate-per-route')),
-                        ('multicast_forwarding', YLeaf(YType.empty, 'multicast-forwarding')),
-                        ('log_traps', YLeaf(YType.empty, 'log-traps')),
-                        ('accounting', YLeaf(YType.enumeration, 'accounting')),
+                        ('enable_on_all_interfaces', (YLeaf(YType.empty, 'enable-on-all-interfaces'), ['Empty'])),
+                        ('rate_per_route', (YLeaf(YType.empty, 'rate-per-route'), ['Empty'])),
+                        ('multicast_forwarding', (YLeaf(YType.empty, 'multicast-forwarding'), ['Empty'])),
+                        ('log_traps', (YLeaf(YType.empty, 'log-traps'), ['Empty'])),
+                        ('accounting', (YLeaf(YType.enumeration, 'accounting'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_mfwd_cfg', 'AccountingMode', '')])),
                     ])
                     self.enable_on_all_interfaces = None
                     self.rate_per_route = None
@@ -1276,6 +1296,7 @@ class Mfwd(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4, ['enable_on_all_interfaces', 'rate_per_route', 'multicast_forwarding', 'log_traps', 'accounting'], name, value)
@@ -1310,6 +1331,7 @@ class Mfwd(Entity):
 
                         self.static_rpf_rule = YList(self)
                         self._segment_path = lambda: "static-rpf-rules"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules, [], name, value)
@@ -1359,7 +1381,7 @@ class Mfwd(Entity):
                         	The name of the RPF interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         	**mandatory**\: True
                         
@@ -1380,16 +1402,17 @@ class Mfwd(Entity):
                             self.ylist_key_names = ['address','prefix_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('prefix_mask', YLeaf(YType.uint32, 'prefix-mask')),
-                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                ('prefix_mask', (YLeaf(YType.uint32, 'prefix-mask'), ['int'])),
+                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.address = None
                             self.prefix_mask = None
                             self.neighbor_address = None
                             self.interface_name = None
                             self._segment_path = lambda: "static-rpf-rule" + "[address='" + str(self.address) + "']" + "[prefix-mask='" + str(self.prefix_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.StaticRpfRules.StaticRpfRule, ['address', 'prefix_mask', 'neighbor_address', 'interface_name'], name, value)
@@ -1424,6 +1447,7 @@ class Mfwd(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
@@ -1438,7 +1462,7 @@ class Mfwd(Entity):
                         	Interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: ttl_threshold
                         
@@ -1476,16 +1500,17 @@ class Mfwd(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('ttl_threshold', YLeaf(YType.uint32, 'ttl-threshold')),
-                                ('enable_on_interface', YLeaf(YType.boolean, 'enable-on-interface')),
-                                ('boundary', YLeaf(YType.str, 'boundary')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('ttl_threshold', (YLeaf(YType.uint32, 'ttl-threshold'), ['int'])),
+                                ('enable_on_interface', (YLeaf(YType.boolean, 'enable-on-interface'), ['bool'])),
+                                ('boundary', (YLeaf(YType.str, 'boundary'), ['str'])),
                             ])
                             self.interface_name = None
                             self.ttl_threshold = None
                             self.enable_on_interface = None
                             self.boundary = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mfwd.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'ttl_threshold', 'enable_on_interface', 'boundary'], name, value)

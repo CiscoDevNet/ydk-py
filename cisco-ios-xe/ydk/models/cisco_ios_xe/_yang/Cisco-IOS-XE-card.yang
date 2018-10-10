@@ -23,40 +23,40 @@ module Cisco-IOS-XE-card {
 
   description
     "Cisco XE Card Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-27 {
+    description
+      "Move top level card to native before controller to keep the sequence.";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
   }
 
   grouping config-card-grouping {
-    container card {
-      description
-        "Configure T1/E1 SPA";
-      leaf type {
-        type enumeration {
-          enum "t1";
-          enum "e1";
-        }
+    leaf type {
+      type enumeration {
+        enum "t1";
+        enum "e1";
       }
-      leaf slot {
-        type uint32;
-      }
-      leaf bay {
-        type uint32;
-      }
+    }
+    leaf slot {
+      type uint32;
+    }
+    leaf bay {
+      type uint32;
     }
   }
 
   /////////////////////////////////////////////////////////
   // native / card
   /////////////////////////////////////////////////////////
-  augment "/ios:native" {
+  augment "/ios:native/ios:card" {
     uses config-card-grouping;
   }
 } //module

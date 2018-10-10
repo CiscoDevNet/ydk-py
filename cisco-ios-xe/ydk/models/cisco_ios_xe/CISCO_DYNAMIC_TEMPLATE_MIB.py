@@ -33,6 +33,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCODYNAMICTEMPLATEMIB(Entity):
     """
     
@@ -146,6 +147,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
         self.cdtsrvtemplatetable.parent = self
         self._children_name_map["cdtsrvtemplatetable"] = "cdtSrvTemplateTable"
         self._segment_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCODYNAMICTEMPLATEMIB, [], name, value)
@@ -184,6 +186,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdttemplateentry = YList(self)
             self._segment_path = lambda: "cdtTemplateTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable, [], name, value)
@@ -259,12 +262,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdttemplatestatus', YLeaf(YType.enumeration, 'cdtTemplateStatus')),
-                    ('cdttemplatestorage', YLeaf(YType.enumeration, 'cdtTemplateStorage')),
-                    ('cdttemplatetype', YLeaf(YType.enumeration, 'cdtTemplateType')),
-                    ('cdttemplatesrc', YLeaf(YType.enumeration, 'cdtTemplateSrc')),
-                    ('cdttemplateusagecount', YLeaf(YType.uint32, 'cdtTemplateUsageCount')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdttemplatestatus', (YLeaf(YType.enumeration, 'cdtTemplateStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cdttemplatestorage', (YLeaf(YType.enumeration, 'cdtTemplateStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cdttemplatetype', (YLeaf(YType.enumeration, 'cdtTemplateType'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB', 'DynamicTemplateType', '')])),
+                    ('cdttemplatesrc', (YLeaf(YType.enumeration, 'cdtTemplateSrc'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtTemplateTable.CdtTemplateEntry.CdtTemplateSrc')])),
+                    ('cdttemplateusagecount', (YLeaf(YType.uint32, 'cdtTemplateUsageCount'), ['int'])),
                 ])
                 self.cdttemplatename = None
                 self.cdttemplatestatus = None
@@ -274,6 +277,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdttemplateusagecount = None
                 self._segment_path = lambda: "cdtTemplateEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTable.CdtTemplateEntry, ['cdttemplatename', 'cdttemplatestatus', 'cdttemplatestorage', 'cdttemplatetype', 'cdttemplatesrc', 'cdttemplateusagecount'], name, value)
@@ -371,6 +375,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdttemplatetargetentry = YList(self)
             self._segment_path = lambda: "cdtTemplateTargetTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable, [], name, value)
@@ -425,10 +430,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatetargettype','cdttemplatetargetid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatetargettype', YLeaf(YType.enumeration, 'cdtTemplateTargetType')),
-                    ('cdttemplatetargetid', YLeaf(YType.str, 'cdtTemplateTargetId')),
-                    ('cdttemplatetargetstatus', YLeaf(YType.enumeration, 'cdtTemplateTargetStatus')),
-                    ('cdttemplatetargetstorage', YLeaf(YType.enumeration, 'cdtTemplateTargetStorage')),
+                    ('cdttemplatetargettype', (YLeaf(YType.enumeration, 'cdtTemplateTargetType'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB', 'DynamicTemplateTargetType', '')])),
+                    ('cdttemplatetargetid', (YLeaf(YType.str, 'cdtTemplateTargetId'), ['str'])),
+                    ('cdttemplatetargetstatus', (YLeaf(YType.enumeration, 'cdtTemplateTargetStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cdttemplatetargetstorage', (YLeaf(YType.enumeration, 'cdtTemplateTargetStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.cdttemplatetargettype = None
                 self.cdttemplatetargetid = None
@@ -436,6 +441,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdttemplatetargetstorage = None
                 self._segment_path = lambda: "cdtTemplateTargetEntry" + "[cdtTemplateTargetType='" + str(self.cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + str(self.cdttemplatetargetid) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateTargetTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateTargetTable.CdtTemplateTargetEntry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplatetargetstatus', 'cdttemplatetargetstorage'], name, value)
@@ -476,6 +482,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdttemplateassociationentry = YList(self)
             self._segment_path = lambda: "cdtTemplateAssociationTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable, [], name, value)
@@ -545,10 +552,10 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatetargettype','cdttemplatetargetid','cdttemplateassociationname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatetargettype', YLeaf(YType.enumeration, 'cdtTemplateTargetType')),
-                    ('cdttemplatetargetid', YLeaf(YType.str, 'cdtTemplateTargetId')),
-                    ('cdttemplateassociationname', YLeaf(YType.str, 'cdtTemplateAssociationName')),
-                    ('cdttemplateassociationprecedence', YLeaf(YType.uint32, 'cdtTemplateAssociationPrecedence')),
+                    ('cdttemplatetargettype', (YLeaf(YType.enumeration, 'cdtTemplateTargetType'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB', 'DynamicTemplateTargetType', '')])),
+                    ('cdttemplatetargetid', (YLeaf(YType.str, 'cdtTemplateTargetId'), ['str'])),
+                    ('cdttemplateassociationname', (YLeaf(YType.str, 'cdtTemplateAssociationName'), ['str'])),
+                    ('cdttemplateassociationprecedence', (YLeaf(YType.uint32, 'cdtTemplateAssociationPrecedence'), ['int'])),
                 ])
                 self.cdttemplatetargettype = None
                 self.cdttemplatetargetid = None
@@ -556,6 +563,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdttemplateassociationprecedence = None
                 self._segment_path = lambda: "cdtTemplateAssociationEntry" + "[cdtTemplateTargetType='" + str(self.cdttemplatetargettype) + "']" + "[cdtTemplateTargetId='" + str(self.cdttemplatetargetid) + "']" + "[cdtTemplateAssociationName='" + str(self.cdttemplateassociationname) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateAssociationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateAssociationTable.CdtTemplateAssociationEntry, ['cdttemplatetargettype', 'cdttemplatetargetid', 'cdttemplateassociationname', 'cdttemplateassociationprecedence'], name, value)
@@ -596,6 +604,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdttemplateusageentry = YList(self)
             self._segment_path = lambda: "cdtTemplateUsageTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable, [], name, value)
@@ -657,15 +666,16 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename','cdttemplateusagetargettype','cdttemplateusagetargetid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdttemplateusagetargettype', YLeaf(YType.enumeration, 'cdtTemplateUsageTargetType')),
-                    ('cdttemplateusagetargetid', YLeaf(YType.str, 'cdtTemplateUsageTargetId')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdttemplateusagetargettype', (YLeaf(YType.enumeration, 'cdtTemplateUsageTargetType'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_TC_MIB', 'DynamicTemplateTargetType', '')])),
+                    ('cdttemplateusagetargetid', (YLeaf(YType.str, 'cdtTemplateUsageTargetId'), ['str'])),
                 ])
                 self.cdttemplatename = None
                 self.cdttemplateusagetargettype = None
                 self.cdttemplateusagetargetid = None
                 self._segment_path = lambda: "cdtTemplateUsageEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']" + "[cdtTemplateUsageTargetType='" + str(self.cdttemplateusagetargettype) + "']" + "[cdtTemplateUsageTargetId='" + str(self.cdttemplateusagetargetid) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateUsageTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateUsageTable.CdtTemplateUsageEntry, ['cdttemplatename', 'cdttemplateusagetargettype', 'cdttemplateusagetargetid'], name, value)
@@ -714,6 +724,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdttemplatecommonentry = YList(self)
             self._segment_path = lambda: "cdtTemplateCommonTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable, [], name, value)
@@ -856,22 +867,22 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtcommonvalid', YLeaf(YType.bits, 'cdtCommonValid')),
-                    ('cdtcommondescr', YLeaf(YType.str, 'cdtCommonDescr')),
-                    ('cdtcommonkeepaliveint', YLeaf(YType.uint32, 'cdtCommonKeepaliveInt')),
-                    ('cdtcommonkeepaliveretries', YLeaf(YType.uint32, 'cdtCommonKeepaliveRetries')),
-                    ('cdtcommonvrf', YLeaf(YType.str, 'cdtCommonVrf')),
-                    ('cdtcommonaddrpool', YLeaf(YType.str, 'cdtCommonAddrPool')),
-                    ('cdtcommonipv4accessgroup', YLeaf(YType.str, 'cdtCommonIpv4AccessGroup')),
-                    ('cdtcommonipv4unreachables', YLeaf(YType.boolean, 'cdtCommonIpv4Unreachables')),
-                    ('cdtcommonipv6accessgroup', YLeaf(YType.str, 'cdtCommonIpv6AccessGroup')),
-                    ('cdtcommonipv6unreachables', YLeaf(YType.boolean, 'cdtCommonIpv6Unreachables')),
-                    ('cdtcommonsrvsubcontrol', YLeaf(YType.str, 'cdtCommonSrvSubControl')),
-                    ('cdtcommonsrvredirect', YLeaf(YType.str, 'cdtCommonSrvRedirect')),
-                    ('cdtcommonsrvacct', YLeaf(YType.str, 'cdtCommonSrvAcct')),
-                    ('cdtcommonsrvqos', YLeaf(YType.str, 'cdtCommonSrvQos')),
-                    ('cdtcommonsrvnetflow', YLeaf(YType.str, 'cdtCommonSrvNetflow')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtcommonvalid', (YLeaf(YType.bits, 'cdtCommonValid'), ['Bits'])),
+                    ('cdtcommondescr', (YLeaf(YType.str, 'cdtCommonDescr'), ['str'])),
+                    ('cdtcommonkeepaliveint', (YLeaf(YType.uint32, 'cdtCommonKeepaliveInt'), ['int'])),
+                    ('cdtcommonkeepaliveretries', (YLeaf(YType.uint32, 'cdtCommonKeepaliveRetries'), ['int'])),
+                    ('cdtcommonvrf', (YLeaf(YType.str, 'cdtCommonVrf'), ['str'])),
+                    ('cdtcommonaddrpool', (YLeaf(YType.str, 'cdtCommonAddrPool'), ['str'])),
+                    ('cdtcommonipv4accessgroup', (YLeaf(YType.str, 'cdtCommonIpv4AccessGroup'), ['str'])),
+                    ('cdtcommonipv4unreachables', (YLeaf(YType.boolean, 'cdtCommonIpv4Unreachables'), ['bool'])),
+                    ('cdtcommonipv6accessgroup', (YLeaf(YType.str, 'cdtCommonIpv6AccessGroup'), ['str'])),
+                    ('cdtcommonipv6unreachables', (YLeaf(YType.boolean, 'cdtCommonIpv6Unreachables'), ['bool'])),
+                    ('cdtcommonsrvsubcontrol', (YLeaf(YType.str, 'cdtCommonSrvSubControl'), ['str'])),
+                    ('cdtcommonsrvredirect', (YLeaf(YType.str, 'cdtCommonSrvRedirect'), ['str'])),
+                    ('cdtcommonsrvacct', (YLeaf(YType.str, 'cdtCommonSrvAcct'), ['str'])),
+                    ('cdtcommonsrvqos', (YLeaf(YType.str, 'cdtCommonSrvQos'), ['str'])),
+                    ('cdtcommonsrvnetflow', (YLeaf(YType.str, 'cdtCommonSrvNetflow'), ['str'])),
                 ])
                 self.cdttemplatename = None
                 self.cdtcommonvalid = Bits()
@@ -891,6 +902,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtcommonsrvnetflow = None
                 self._segment_path = lambda: "cdtTemplateCommonEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtTemplateCommonTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtTemplateCommonTable.CdtTemplateCommonEntry, ['cdttemplatename', 'cdtcommonvalid', 'cdtcommondescr', 'cdtcommonkeepaliveint', 'cdtcommonkeepaliveretries', 'cdtcommonvrf', 'cdtcommonaddrpool', 'cdtcommonipv4accessgroup', 'cdtcommonipv4unreachables', 'cdtcommonipv6accessgroup', 'cdtcommonipv6unreachables', 'cdtcommonsrvsubcontrol', 'cdtcommonsrvredirect', 'cdtcommonsrvacct', 'cdtcommonsrvqos', 'cdtcommonsrvnetflow'], name, value)
@@ -936,6 +948,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdtiftemplateentry = YList(self)
             self._segment_path = lambda: "cdtIfTemplateTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable, [], name, value)
@@ -1187,37 +1200,37 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtifvalid', YLeaf(YType.bits, 'cdtIfValid')),
-                    ('cdtifmtu', YLeaf(YType.uint32, 'cdtIfMtu')),
-                    ('cdtifcdpenable', YLeaf(YType.boolean, 'cdtIfCdpEnable')),
-                    ('cdtifflowmonitor', YLeaf(YType.str, 'cdtIfFlowMonitor')),
-                    ('cdtifipv4unnumbered', YLeaf(YType.int32, 'cdtIfIpv4Unnumbered')),
-                    ('cdtifipv4subenable', YLeaf(YType.boolean, 'cdtIfIpv4SubEnable')),
-                    ('cdtifipv4mtu', YLeaf(YType.uint32, 'cdtIfIpv4Mtu')),
-                    ('cdtifipv4tcpmssadjust', YLeaf(YType.uint32, 'cdtIfIpv4TcpMssAdjust')),
-                    ('cdtifipv4verifyunirpf', YLeaf(YType.enumeration, 'cdtIfIpv4VerifyUniRpf')),
-                    ('cdtifipv4verifyunirpfacl', YLeaf(YType.str, 'cdtIfIpv4VerifyUniRpfAcl')),
-                    ('cdtifipv4verifyunirpfopts', YLeaf(YType.bits, 'cdtIfIpv4VerifyUniRpfOpts')),
-                    ('cdtifipv6enable', YLeaf(YType.boolean, 'cdtIfIpv6Enable')),
-                    ('cdtifipv6subenable', YLeaf(YType.boolean, 'cdtIfIpv6SubEnable')),
-                    ('cdtifipv6tcpmssadjust', YLeaf(YType.uint32, 'cdtIfIpv6TcpMssAdjust')),
-                    ('cdtifipv6verifyunirpf', YLeaf(YType.enumeration, 'cdtIfIpv6VerifyUniRpf')),
-                    ('cdtifipv6verifyunirpfacl', YLeaf(YType.str, 'cdtIfIpv6VerifyUniRpfAcl')),
-                    ('cdtifipv6verifyunirpfopts', YLeaf(YType.bits, 'cdtIfIpv6VerifyUniRpfOpts')),
-                    ('cdtifipv6ndprefix', YLeaf(YType.str, 'cdtIfIpv6NdPrefix')),
-                    ('cdtifipv6ndprefixlength', YLeaf(YType.uint32, 'cdtIfIpv6NdPrefixLength')),
-                    ('cdtifipv6ndvalidlife', YLeaf(YType.uint32, 'cdtIfIpv6NdValidLife')),
-                    ('cdtifipv6ndpreferredlife', YLeaf(YType.uint32, 'cdtIfIpv6NdPreferredLife')),
-                    ('cdtifipv6ndopts', YLeaf(YType.bits, 'cdtIfIpv6NdOpts')),
-                    ('cdtifipv6nddadattempts', YLeaf(YType.uint32, 'cdtIfIpv6NdDadAttempts')),
-                    ('cdtifipv6ndnsinterval', YLeaf(YType.uint32, 'cdtIfIpv6NdNsInterval')),
-                    ('cdtifipv6ndreachabletime', YLeaf(YType.uint32, 'cdtIfIpv6NdReachableTime')),
-                    ('cdtifipv6ndraintervalunits', YLeaf(YType.enumeration, 'cdtIfIpv6NdRaIntervalUnits')),
-                    ('cdtifipv6ndraintervalmax', YLeaf(YType.uint32, 'cdtIfIpv6NdRaIntervalMax')),
-                    ('cdtifipv6ndraintervalmin', YLeaf(YType.uint32, 'cdtIfIpv6NdRaIntervalMin')),
-                    ('cdtifipv6ndralife', YLeaf(YType.uint32, 'cdtIfIpv6NdRaLife')),
-                    ('cdtifipv6ndrouterpreference', YLeaf(YType.enumeration, 'cdtIfIpv6NdRouterPreference')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtifvalid', (YLeaf(YType.bits, 'cdtIfValid'), ['Bits'])),
+                    ('cdtifmtu', (YLeaf(YType.uint32, 'cdtIfMtu'), ['int'])),
+                    ('cdtifcdpenable', (YLeaf(YType.boolean, 'cdtIfCdpEnable'), ['bool'])),
+                    ('cdtifflowmonitor', (YLeaf(YType.str, 'cdtIfFlowMonitor'), ['str'])),
+                    ('cdtifipv4unnumbered', (YLeaf(YType.int32, 'cdtIfIpv4Unnumbered'), ['int'])),
+                    ('cdtifipv4subenable', (YLeaf(YType.boolean, 'cdtIfIpv4SubEnable'), ['bool'])),
+                    ('cdtifipv4mtu', (YLeaf(YType.uint32, 'cdtIfIpv4Mtu'), ['int'])),
+                    ('cdtifipv4tcpmssadjust', (YLeaf(YType.uint32, 'cdtIfIpv4TcpMssAdjust'), ['int'])),
+                    ('cdtifipv4verifyunirpf', (YLeaf(YType.enumeration, 'cdtIfIpv4VerifyUniRpf'), [('ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB', 'UnicastRpfType', '')])),
+                    ('cdtifipv4verifyunirpfacl', (YLeaf(YType.str, 'cdtIfIpv4VerifyUniRpfAcl'), ['str'])),
+                    ('cdtifipv4verifyunirpfopts', (YLeaf(YType.bits, 'cdtIfIpv4VerifyUniRpfOpts'), ['Bits'])),
+                    ('cdtifipv6enable', (YLeaf(YType.boolean, 'cdtIfIpv6Enable'), ['bool'])),
+                    ('cdtifipv6subenable', (YLeaf(YType.boolean, 'cdtIfIpv6SubEnable'), ['bool'])),
+                    ('cdtifipv6tcpmssadjust', (YLeaf(YType.uint32, 'cdtIfIpv6TcpMssAdjust'), ['int'])),
+                    ('cdtifipv6verifyunirpf', (YLeaf(YType.enumeration, 'cdtIfIpv6VerifyUniRpf'), [('ydk.models.cisco_ios_xe.CISCO_IP_URPF_MIB', 'UnicastRpfType', '')])),
+                    ('cdtifipv6verifyunirpfacl', (YLeaf(YType.str, 'cdtIfIpv6VerifyUniRpfAcl'), ['str'])),
+                    ('cdtifipv6verifyunirpfopts', (YLeaf(YType.bits, 'cdtIfIpv6VerifyUniRpfOpts'), ['Bits'])),
+                    ('cdtifipv6ndprefix', (YLeaf(YType.str, 'cdtIfIpv6NdPrefix'), ['str'])),
+                    ('cdtifipv6ndprefixlength', (YLeaf(YType.uint32, 'cdtIfIpv6NdPrefixLength'), ['int'])),
+                    ('cdtifipv6ndvalidlife', (YLeaf(YType.uint32, 'cdtIfIpv6NdValidLife'), ['int'])),
+                    ('cdtifipv6ndpreferredlife', (YLeaf(YType.uint32, 'cdtIfIpv6NdPreferredLife'), ['int'])),
+                    ('cdtifipv6ndopts', (YLeaf(YType.bits, 'cdtIfIpv6NdOpts'), ['Bits'])),
+                    ('cdtifipv6nddadattempts', (YLeaf(YType.uint32, 'cdtIfIpv6NdDadAttempts'), ['int'])),
+                    ('cdtifipv6ndnsinterval', (YLeaf(YType.uint32, 'cdtIfIpv6NdNsInterval'), ['int'])),
+                    ('cdtifipv6ndreachabletime', (YLeaf(YType.uint32, 'cdtIfIpv6NdReachableTime'), ['int'])),
+                    ('cdtifipv6ndraintervalunits', (YLeaf(YType.enumeration, 'cdtIfIpv6NdRaIntervalUnits'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfIpv6NdRaIntervalUnits')])),
+                    ('cdtifipv6ndraintervalmax', (YLeaf(YType.uint32, 'cdtIfIpv6NdRaIntervalMax'), ['int'])),
+                    ('cdtifipv6ndraintervalmin', (YLeaf(YType.uint32, 'cdtIfIpv6NdRaIntervalMin'), ['int'])),
+                    ('cdtifipv6ndralife', (YLeaf(YType.uint32, 'cdtIfIpv6NdRaLife'), ['int'])),
+                    ('cdtifipv6ndrouterpreference', (YLeaf(YType.enumeration, 'cdtIfIpv6NdRouterPreference'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtIfTemplateTable.CdtIfTemplateEntry.CdtIfIpv6NdRouterPreference')])),
                 ])
                 self.cdttemplatename = None
                 self.cdtifvalid = Bits()
@@ -1252,6 +1265,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtifipv6ndrouterpreference = None
                 self._segment_path = lambda: "cdtIfTemplateEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtIfTemplateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtIfTemplateTable.CdtIfTemplateEntry, ['cdttemplatename', 'cdtifvalid', 'cdtifmtu', 'cdtifcdpenable', 'cdtifflowmonitor', 'cdtifipv4unnumbered', 'cdtifipv4subenable', 'cdtifipv4mtu', 'cdtifipv4tcpmssadjust', 'cdtifipv4verifyunirpf', 'cdtifipv4verifyunirpfacl', 'cdtifipv4verifyunirpfopts', 'cdtifipv6enable', 'cdtifipv6subenable', 'cdtifipv6tcpmssadjust', 'cdtifipv6verifyunirpf', 'cdtifipv6verifyunirpfacl', 'cdtifipv6verifyunirpfopts', 'cdtifipv6ndprefix', 'cdtifipv6ndprefixlength', 'cdtifipv6ndvalidlife', 'cdtifipv6ndpreferredlife', 'cdtifipv6ndopts', 'cdtifipv6nddadattempts', 'cdtifipv6ndnsinterval', 'cdtifipv6ndreachabletime', 'cdtifipv6ndraintervalunits', 'cdtifipv6ndraintervalmax', 'cdtifipv6ndraintervalmin', 'cdtifipv6ndralife', 'cdtifipv6ndrouterpreference'], name, value)
@@ -1347,6 +1361,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdtppptemplateentry = YList(self)
             self._segment_path = lambda: "cdtPppTemplateTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable, [], name, value)
@@ -1627,46 +1642,46 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtpppvalid', YLeaf(YType.bits, 'cdtPppValid')),
-                    ('cdtpppaccounting', YLeaf(YType.boolean, 'cdtPppAccounting')),
-                    ('cdtpppauthentication', YLeaf(YType.bits, 'cdtPppAuthentication')),
-                    ('cdtpppauthenticationmethods', YLeaf(YType.str, 'cdtPppAuthenticationMethods')),
-                    ('cdtpppauthorization', YLeaf(YType.boolean, 'cdtPppAuthorization')),
-                    ('cdtppploopbackignore', YLeaf(YType.boolean, 'cdtPppLoopbackIgnore')),
-                    ('cdtpppmaxbadauth', YLeaf(YType.uint32, 'cdtPppMaxBadAuth')),
-                    ('cdtpppmaxconfigure', YLeaf(YType.uint32, 'cdtPppMaxConfigure')),
-                    ('cdtpppmaxfailure', YLeaf(YType.uint32, 'cdtPppMaxFailure')),
-                    ('cdtpppmaxterminate', YLeaf(YType.uint32, 'cdtPppMaxTerminate')),
-                    ('cdtppptimeoutauthentication', YLeaf(YType.uint32, 'cdtPppTimeoutAuthentication')),
-                    ('cdtppptimeoutretry', YLeaf(YType.uint32, 'cdtPppTimeoutRetry')),
-                    ('cdtpppchapopts', YLeaf(YType.bits, 'cdtPppChapOpts')),
-                    ('cdtpppchaphostname', YLeaf(YType.str, 'cdtPppChapHostname')),
-                    ('cdtpppchappassword', YLeaf(YType.str, 'cdtPppChapPassword')),
-                    ('cdtpppmschapv1opts', YLeaf(YType.bits, 'cdtPppMsChapV1Opts')),
-                    ('cdtpppmschapv1hostname', YLeaf(YType.str, 'cdtPppMsChapV1Hostname')),
-                    ('cdtpppmschapv1password', YLeaf(YType.str, 'cdtPppMsChapV1Password')),
-                    ('cdtpppmschapv2opts', YLeaf(YType.bits, 'cdtPppMsChapV2Opts')),
-                    ('cdtpppmschapv2hostname', YLeaf(YType.str, 'cdtPppMsChapV2Hostname')),
-                    ('cdtpppmschapv2password', YLeaf(YType.str, 'cdtPppMsChapV2Password')),
-                    ('cdtppppapopts', YLeaf(YType.bits, 'cdtPppPapOpts')),
-                    ('cdtppppapusername', YLeaf(YType.str, 'cdtPppPapUsername')),
-                    ('cdtppppappassword', YLeaf(YType.str, 'cdtPppPapPassword')),
-                    ('cdtpppeapopts', YLeaf(YType.bits, 'cdtPppEapOpts')),
-                    ('cdtpppeapidentity', YLeaf(YType.str, 'cdtPppEapIdentity')),
-                    ('cdtpppeappassword', YLeaf(YType.str, 'cdtPppEapPassword')),
-                    ('cdtpppipcpaddroption', YLeaf(YType.enumeration, 'cdtPppIpcpAddrOption')),
-                    ('cdtpppipcpdnsoption', YLeaf(YType.enumeration, 'cdtPppIpcpDnsOption')),
-                    ('cdtpppipcpdnsprimary', YLeaf(YType.str, 'cdtPppIpcpDnsPrimary')),
-                    ('cdtpppipcpdnssecondary', YLeaf(YType.str, 'cdtPppIpcpDnsSecondary')),
-                    ('cdtpppipcpwinsoption', YLeaf(YType.enumeration, 'cdtPppIpcpWinsOption')),
-                    ('cdtpppipcpwinsprimary', YLeaf(YType.str, 'cdtPppIpcpWinsPrimary')),
-                    ('cdtpppipcpwinssecondary', YLeaf(YType.str, 'cdtPppIpcpWinsSecondary')),
-                    ('cdtpppipcpmaskoption', YLeaf(YType.enumeration, 'cdtPppIpcpMaskOption')),
-                    ('cdtpppipcpmask', YLeaf(YType.str, 'cdtPppIpcpMask')),
-                    ('cdtppppeerdefipaddropts', YLeaf(YType.bits, 'cdtPppPeerDefIpAddrOpts')),
-                    ('cdtppppeerdefipaddrsrc', YLeaf(YType.enumeration, 'cdtPppPeerDefIpAddrSrc')),
-                    ('cdtppppeerdefipaddr', YLeaf(YType.str, 'cdtPppPeerDefIpAddr')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtpppvalid', (YLeaf(YType.bits, 'cdtPppValid'), ['Bits'])),
+                    ('cdtpppaccounting', (YLeaf(YType.boolean, 'cdtPppAccounting'), ['bool'])),
+                    ('cdtpppauthentication', (YLeaf(YType.bits, 'cdtPppAuthentication'), ['Bits'])),
+                    ('cdtpppauthenticationmethods', (YLeaf(YType.str, 'cdtPppAuthenticationMethods'), ['str'])),
+                    ('cdtpppauthorization', (YLeaf(YType.boolean, 'cdtPppAuthorization'), ['bool'])),
+                    ('cdtppploopbackignore', (YLeaf(YType.boolean, 'cdtPppLoopbackIgnore'), ['bool'])),
+                    ('cdtpppmaxbadauth', (YLeaf(YType.uint32, 'cdtPppMaxBadAuth'), ['int'])),
+                    ('cdtpppmaxconfigure', (YLeaf(YType.uint32, 'cdtPppMaxConfigure'), ['int'])),
+                    ('cdtpppmaxfailure', (YLeaf(YType.uint32, 'cdtPppMaxFailure'), ['int'])),
+                    ('cdtpppmaxterminate', (YLeaf(YType.uint32, 'cdtPppMaxTerminate'), ['int'])),
+                    ('cdtppptimeoutauthentication', (YLeaf(YType.uint32, 'cdtPppTimeoutAuthentication'), ['int'])),
+                    ('cdtppptimeoutretry', (YLeaf(YType.uint32, 'cdtPppTimeoutRetry'), ['int'])),
+                    ('cdtpppchapopts', (YLeaf(YType.bits, 'cdtPppChapOpts'), ['Bits'])),
+                    ('cdtpppchaphostname', (YLeaf(YType.str, 'cdtPppChapHostname'), ['str'])),
+                    ('cdtpppchappassword', (YLeaf(YType.str, 'cdtPppChapPassword'), ['str'])),
+                    ('cdtpppmschapv1opts', (YLeaf(YType.bits, 'cdtPppMsChapV1Opts'), ['Bits'])),
+                    ('cdtpppmschapv1hostname', (YLeaf(YType.str, 'cdtPppMsChapV1Hostname'), ['str'])),
+                    ('cdtpppmschapv1password', (YLeaf(YType.str, 'cdtPppMsChapV1Password'), ['str'])),
+                    ('cdtpppmschapv2opts', (YLeaf(YType.bits, 'cdtPppMsChapV2Opts'), ['Bits'])),
+                    ('cdtpppmschapv2hostname', (YLeaf(YType.str, 'cdtPppMsChapV2Hostname'), ['str'])),
+                    ('cdtpppmschapv2password', (YLeaf(YType.str, 'cdtPppMsChapV2Password'), ['str'])),
+                    ('cdtppppapopts', (YLeaf(YType.bits, 'cdtPppPapOpts'), ['Bits'])),
+                    ('cdtppppapusername', (YLeaf(YType.str, 'cdtPppPapUsername'), ['str'])),
+                    ('cdtppppappassword', (YLeaf(YType.str, 'cdtPppPapPassword'), ['str'])),
+                    ('cdtpppeapopts', (YLeaf(YType.bits, 'cdtPppEapOpts'), ['Bits'])),
+                    ('cdtpppeapidentity', (YLeaf(YType.str, 'cdtPppEapIdentity'), ['str'])),
+                    ('cdtpppeappassword', (YLeaf(YType.str, 'cdtPppEapPassword'), ['str'])),
+                    ('cdtpppipcpaddroption', (YLeaf(YType.enumeration, 'cdtPppIpcpAddrOption'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpAddrOption')])),
+                    ('cdtpppipcpdnsoption', (YLeaf(YType.enumeration, 'cdtPppIpcpDnsOption'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpDnsOption')])),
+                    ('cdtpppipcpdnsprimary', (YLeaf(YType.str, 'cdtPppIpcpDnsPrimary'), ['str'])),
+                    ('cdtpppipcpdnssecondary', (YLeaf(YType.str, 'cdtPppIpcpDnsSecondary'), ['str'])),
+                    ('cdtpppipcpwinsoption', (YLeaf(YType.enumeration, 'cdtPppIpcpWinsOption'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpWinsOption')])),
+                    ('cdtpppipcpwinsprimary', (YLeaf(YType.str, 'cdtPppIpcpWinsPrimary'), ['str'])),
+                    ('cdtpppipcpwinssecondary', (YLeaf(YType.str, 'cdtPppIpcpWinsSecondary'), ['str'])),
+                    ('cdtpppipcpmaskoption', (YLeaf(YType.enumeration, 'cdtPppIpcpMaskOption'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppIpcpMaskOption')])),
+                    ('cdtpppipcpmask', (YLeaf(YType.str, 'cdtPppIpcpMask'), ['str'])),
+                    ('cdtppppeerdefipaddropts', (YLeaf(YType.bits, 'cdtPppPeerDefIpAddrOpts'), ['Bits'])),
+                    ('cdtppppeerdefipaddrsrc', (YLeaf(YType.enumeration, 'cdtPppPeerDefIpAddrSrc'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtPppTemplateTable.CdtPppTemplateEntry.CdtPppPeerDefIpAddrSrc')])),
+                    ('cdtppppeerdefipaddr', (YLeaf(YType.str, 'cdtPppPeerDefIpAddr'), ['str'])),
                 ])
                 self.cdttemplatename = None
                 self.cdtpppvalid = Bits()
@@ -1710,6 +1725,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtppppeerdefipaddr = None
                 self._segment_path = lambda: "cdtPppTemplateEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppTemplateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppTemplateTable.CdtPppTemplateEntry, ['cdttemplatename', 'cdtpppvalid', 'cdtpppaccounting', 'cdtpppauthentication', 'cdtpppauthenticationmethods', 'cdtpppauthorization', 'cdtppploopbackignore', 'cdtpppmaxbadauth', 'cdtpppmaxconfigure', 'cdtpppmaxfailure', 'cdtpppmaxterminate', 'cdtppptimeoutauthentication', 'cdtppptimeoutretry', 'cdtpppchapopts', 'cdtpppchaphostname', 'cdtpppchappassword', 'cdtpppmschapv1opts', 'cdtpppmschapv1hostname', 'cdtpppmschapv1password', 'cdtpppmschapv2opts', 'cdtpppmschapv2hostname', 'cdtpppmschapv2password', 'cdtppppapopts', 'cdtppppapusername', 'cdtppppappassword', 'cdtpppeapopts', 'cdtpppeapidentity', 'cdtpppeappassword', 'cdtpppipcpaddroption', 'cdtpppipcpdnsoption', 'cdtpppipcpdnsprimary', 'cdtpppipcpdnssecondary', 'cdtpppipcpwinsoption', 'cdtpppipcpwinsprimary', 'cdtpppipcpwinssecondary', 'cdtpppipcpmaskoption', 'cdtpppipcpmask', 'cdtppppeerdefipaddropts', 'cdtppppeerdefipaddrsrc', 'cdtppppeerdefipaddr'], name, value)
@@ -2010,6 +2026,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdtppppeeripaddrpoolentry = YList(self)
             self._segment_path = lambda: "cdtPppPeerIpAddrPoolTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable, [], name, value)
@@ -2089,11 +2106,11 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename','cdtppppeeripaddrpoolpriority']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtppppeeripaddrpoolpriority', YLeaf(YType.uint32, 'cdtPppPeerIpAddrPoolPriority')),
-                    ('cdtppppeeripaddrpoolstatus', YLeaf(YType.enumeration, 'cdtPppPeerIpAddrPoolStatus')),
-                    ('cdtppppeeripaddrpoolstorage', YLeaf(YType.enumeration, 'cdtPppPeerIpAddrPoolStorage')),
-                    ('cdtppppeeripaddrpoolname', YLeaf(YType.str, 'cdtPppPeerIpAddrPoolName')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtppppeeripaddrpoolpriority', (YLeaf(YType.uint32, 'cdtPppPeerIpAddrPoolPriority'), ['int'])),
+                    ('cdtppppeeripaddrpoolstatus', (YLeaf(YType.enumeration, 'cdtPppPeerIpAddrPoolStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cdtppppeeripaddrpoolstorage', (YLeaf(YType.enumeration, 'cdtPppPeerIpAddrPoolStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cdtppppeeripaddrpoolname', (YLeaf(YType.str, 'cdtPppPeerIpAddrPoolName'), ['str'])),
                 ])
                 self.cdttemplatename = None
                 self.cdtppppeeripaddrpoolpriority = None
@@ -2102,6 +2119,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtppppeeripaddrpoolname = None
                 self._segment_path = lambda: "cdtPppPeerIpAddrPoolEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']" + "[cdtPppPeerIpAddrPoolPriority='" + str(self.cdtppppeeripaddrpoolpriority) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtPppPeerIpAddrPoolTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtPppPeerIpAddrPoolTable.CdtPppPeerIpAddrPoolEntry, ['cdttemplatename', 'cdtppppeeripaddrpoolpriority', 'cdtppppeeripaddrpoolstatus', 'cdtppppeeripaddrpoolstorage', 'cdtppppeeripaddrpoolname'], name, value)
@@ -2146,6 +2164,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdtethernettemplateentry = YList(self)
             self._segment_path = lambda: "cdtEthernetTemplateTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable, [], name, value)
@@ -2223,12 +2242,12 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtethernetvalid', YLeaf(YType.bits, 'cdtEthernetValid')),
-                    ('cdtethernetbridgedomain', YLeaf(YType.str, 'cdtEthernetBridgeDomain')),
-                    ('cdtethernetpppoeenable', YLeaf(YType.boolean, 'cdtEthernetPppoeEnable')),
-                    ('cdtethernetipv4pointtopoint', YLeaf(YType.boolean, 'cdtEthernetIpv4PointToPoint')),
-                    ('cdtethernetmacaddr', YLeaf(YType.str, 'cdtEthernetMacAddr')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtethernetvalid', (YLeaf(YType.bits, 'cdtEthernetValid'), ['Bits'])),
+                    ('cdtethernetbridgedomain', (YLeaf(YType.str, 'cdtEthernetBridgeDomain'), ['str'])),
+                    ('cdtethernetpppoeenable', (YLeaf(YType.boolean, 'cdtEthernetPppoeEnable'), ['bool'])),
+                    ('cdtethernetipv4pointtopoint', (YLeaf(YType.boolean, 'cdtEthernetIpv4PointToPoint'), ['bool'])),
+                    ('cdtethernetmacaddr', (YLeaf(YType.str, 'cdtEthernetMacAddr'), ['str'])),
                 ])
                 self.cdttemplatename = None
                 self.cdtethernetvalid = Bits()
@@ -2238,6 +2257,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtethernetmacaddr = None
                 self._segment_path = lambda: "cdtEthernetTemplateEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtEthernetTemplateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtEthernetTemplateTable.CdtEthernetTemplateEntry, ['cdttemplatename', 'cdtethernetvalid', 'cdtethernetbridgedomain', 'cdtethernetpppoeenable', 'cdtethernetipv4pointtopoint', 'cdtethernetmacaddr'], name, value)
@@ -2280,6 +2300,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
             self.cdtsrvtemplateentry = YList(self)
             self._segment_path = lambda: "cdtSrvTemplateTable"
             self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable, [], name, value)
@@ -2360,13 +2381,13 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.ylist_key_names = ['cdttemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdttemplatename', YLeaf(YType.str, 'cdtTemplateName')),
-                    ('cdtsrvvalid', YLeaf(YType.bits, 'cdtSrvValid')),
-                    ('cdtsrvnetworksrv', YLeaf(YType.enumeration, 'cdtSrvNetworkSrv')),
-                    ('cdtsrvvpdngroup', YLeaf(YType.str, 'cdtSrvVpdnGroup')),
-                    ('cdtsrvsgsrvgroup', YLeaf(YType.str, 'cdtSrvSgSrvGroup')),
-                    ('cdtsrvsgsrvtype', YLeaf(YType.enumeration, 'cdtSrvSgSrvType')),
-                    ('cdtsrvmulticast', YLeaf(YType.boolean, 'cdtSrvMulticast')),
+                    ('cdttemplatename', (YLeaf(YType.str, 'cdtTemplateName'), ['str'])),
+                    ('cdtsrvvalid', (YLeaf(YType.bits, 'cdtSrvValid'), ['Bits'])),
+                    ('cdtsrvnetworksrv', (YLeaf(YType.enumeration, 'cdtSrvNetworkSrv'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtSrvTemplateTable.CdtSrvTemplateEntry.CdtSrvNetworkSrv')])),
+                    ('cdtsrvvpdngroup', (YLeaf(YType.str, 'cdtSrvVpdnGroup'), ['str'])),
+                    ('cdtsrvsgsrvgroup', (YLeaf(YType.str, 'cdtSrvSgSrvGroup'), ['str'])),
+                    ('cdtsrvsgsrvtype', (YLeaf(YType.enumeration, 'cdtSrvSgSrvType'), [('ydk.models.cisco_ios_xe.CISCO_DYNAMIC_TEMPLATE_MIB', 'CISCODYNAMICTEMPLATEMIB', 'CdtSrvTemplateTable.CdtSrvTemplateEntry.CdtSrvSgSrvType')])),
+                    ('cdtsrvmulticast', (YLeaf(YType.boolean, 'cdtSrvMulticast'), ['bool'])),
                 ])
                 self.cdttemplatename = None
                 self.cdtsrvvalid = Bits()
@@ -2377,6 +2398,7 @@ class CISCODYNAMICTEMPLATEMIB(Entity):
                 self.cdtsrvmulticast = None
                 self._segment_path = lambda: "cdtSrvTemplateEntry" + "[cdtTemplateName='" + str(self.cdttemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-DYNAMIC-TEMPLATE-MIB:CISCO-DYNAMIC-TEMPLATE-MIB/cdtSrvTemplateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODYNAMICTEMPLATEMIB.CdtSrvTemplateTable.CdtSrvTemplateEntry, ['cdttemplatename', 'cdtsrvvalid', 'cdtsrvnetworksrv', 'cdtsrvvpdngroup', 'cdtsrvsgsrvgroup', 'cdtsrvsgsrvtype', 'cdtsrvmulticast'], name, value)

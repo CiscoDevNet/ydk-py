@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CpuUsage(Entity):
     """
     CPU Utilization data
@@ -47,6 +48,7 @@ class CpuUsage(Entity):
         self.cpu_utilization.parent = self
         self._children_name_map["cpu_utilization"] = "cpu-utilization"
         self._segment_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CpuUsage, [], name, value)
@@ -114,10 +116,10 @@ class CpuUsage(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("cpu-usage-processes", ("cpu_usage_processes", CpuUsage.CpuUtilization.CpuUsageProcesses))])
             self._leafs = OrderedDict([
-                ('five_seconds', YLeaf(YType.uint8, 'five-seconds')),
-                ('five_seconds_intr', YLeaf(YType.uint8, 'five-seconds-intr')),
-                ('one_minute', YLeaf(YType.uint8, 'one-minute')),
-                ('five_minutes', YLeaf(YType.uint8, 'five-minutes')),
+                ('five_seconds', (YLeaf(YType.uint8, 'five-seconds'), ['int'])),
+                ('five_seconds_intr', (YLeaf(YType.uint8, 'five-seconds-intr'), ['int'])),
+                ('one_minute', (YLeaf(YType.uint8, 'one-minute'), ['int'])),
+                ('five_minutes', (YLeaf(YType.uint8, 'five-minutes'), ['int'])),
             ])
             self.five_seconds = None
             self.five_seconds_intr = None
@@ -129,6 +131,7 @@ class CpuUsage(Entity):
             self._children_name_map["cpu_usage_processes"] = "cpu-usage-processes"
             self._segment_path = lambda: "cpu-utilization"
             self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CpuUsage.CpuUtilization, ['five_seconds', 'five_seconds_intr', 'one_minute', 'five_minutes'], name, value)
@@ -164,6 +167,7 @@ class CpuUsage(Entity):
                 self.cpu_usage_process = YList(self)
                 self._segment_path = lambda: "cpu-usage-processes"
                 self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CpuUsage.CpuUtilization.CpuUsageProcesses, [], name, value)
@@ -261,15 +265,15 @@ class CpuUsage(Entity):
                     self.ylist_key_names = ['pid','name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pid', YLeaf(YType.uint32, 'pid')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('tty', YLeaf(YType.uint16, 'tty')),
-                        ('total_run_time', YLeaf(YType.uint64, 'total-run-time')),
-                        ('invocation_count', YLeaf(YType.uint32, 'invocation-count')),
-                        ('avg_run_time', YLeaf(YType.uint64, 'avg-run-time')),
-                        ('five_seconds', YLeaf(YType.str, 'five-seconds')),
-                        ('one_minute', YLeaf(YType.str, 'one-minute')),
-                        ('five_minutes', YLeaf(YType.str, 'five-minutes')),
+                        ('pid', (YLeaf(YType.uint32, 'pid'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('tty', (YLeaf(YType.uint16, 'tty'), ['int'])),
+                        ('total_run_time', (YLeaf(YType.uint64, 'total-run-time'), ['int'])),
+                        ('invocation_count', (YLeaf(YType.uint32, 'invocation-count'), ['int'])),
+                        ('avg_run_time', (YLeaf(YType.uint64, 'avg-run-time'), ['int'])),
+                        ('five_seconds', (YLeaf(YType.str, 'five-seconds'), ['Decimal64'])),
+                        ('one_minute', (YLeaf(YType.str, 'one-minute'), ['Decimal64'])),
+                        ('five_minutes', (YLeaf(YType.str, 'five-minutes'), ['Decimal64'])),
                     ])
                     self.pid = None
                     self.name = None
@@ -282,6 +286,7 @@ class CpuUsage(Entity):
                     self.five_minutes = None
                     self._segment_path = lambda: "cpu-usage-process" + "[pid='" + str(self.pid) + "']" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XE-process-cpu-oper:cpu-usage/cpu-utilization/cpu-usage-processes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CpuUsage.CpuUtilization.CpuUsageProcesses.CpuUsageProcess, ['pid', 'name', 'tty', 'total_run_time', 'invocation_count', 'avg_run_time', 'five_seconds', 'one_minute', 'five_minutes'], name, value)

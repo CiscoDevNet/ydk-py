@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   routing\-policy\: Routing policy configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -67,8 +68,8 @@ class RoutingPolicy(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("route-policies", ("route_policies", RoutingPolicy.RoutePolicies)), ("sets", ("sets", RoutingPolicy.Sets)), ("limits", ("limits", RoutingPolicy.Limits))])
         self._leafs = OrderedDict([
-            ('set_exit_as_abort', YLeaf(YType.empty, 'set-exit-as-abort')),
-            ('editor', YLeaf(YType.str, 'editor')),
+            ('set_exit_as_abort', (YLeaf(YType.empty, 'set-exit-as-abort'), ['Empty'])),
+            ('editor', (YLeaf(YType.str, 'editor'), ['str'])),
         ])
         self.set_exit_as_abort = None
         self.editor = None
@@ -85,6 +86,7 @@ class RoutingPolicy(Entity):
         self.limits.parent = self
         self._children_name_map["limits"] = "limits"
         self._segment_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RoutingPolicy, ['set_exit_as_abort', 'editor'], name, value)
@@ -120,6 +122,7 @@ class RoutingPolicy(Entity):
             self.route_policy = YList(self)
             self._segment_path = lambda: "route-policies"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicy.RoutePolicies, [], name, value)
@@ -160,13 +163,14 @@ class RoutingPolicy(Entity):
                 self.ylist_key_names = ['route_policy_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                    ('rpl_route_policy', YLeaf(YType.str, 'rpl-route-policy')),
+                    ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                    ('rpl_route_policy', (YLeaf(YType.str, 'rpl-route-policy'), ['str'])),
                 ])
                 self.route_policy_name = None
                 self.rpl_route_policy = None
                 self._segment_path = lambda: "route-policy" + "[route-policy-name='" + str(self.route_policy_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/route-policies/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.RoutePolicies.RoutePolicy, ['route_policy_name', 'rpl_route_policy'], name, value)
@@ -348,6 +352,7 @@ class RoutingPolicy(Entity):
             self._children_name_map["extended_community_rt_sets"] = "extended-community-rt-sets"
             self._segment_path = lambda: "sets"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicy.Sets, [], name, value)
@@ -383,6 +388,7 @@ class RoutingPolicy(Entity):
                 self.prefix_set = YList(self)
                 self._segment_path = lambda: "prefix-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.PrefixSets, [], name, value)
@@ -423,13 +429,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_prefix_set', YLeaf(YType.str, 'rpl-prefix-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_prefix_set', (YLeaf(YType.str, 'rpl-prefix-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_prefix_set = None
                     self._segment_path = lambda: "prefix-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/prefix-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.PrefixSets.PrefixSet, ['set_name', 'rpl_prefix_set'], name, value)
@@ -465,6 +472,7 @@ class RoutingPolicy(Entity):
                 self.large_community_set = YList(self)
                 self._segment_path = lambda: "large-community-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.LargeCommunitySets, [], name, value)
@@ -505,13 +513,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('large_community_set_as_text', YLeaf(YType.str, 'large-community-set-as-text')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('large_community_set_as_text', (YLeaf(YType.str, 'large-community-set-as-text'), ['str'])),
                     ])
                     self.set_name = None
                     self.large_community_set_as_text = None
                     self._segment_path = lambda: "large-community-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/large-community-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.LargeCommunitySets.LargeCommunitySet, ['set_name', 'large_community_set_as_text'], name, value)
@@ -547,6 +556,7 @@ class RoutingPolicy(Entity):
                 self.mac_set = YList(self)
                 self._segment_path = lambda: "mac-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.MacSets, [], name, value)
@@ -587,13 +597,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('mac_set_as_text', YLeaf(YType.str, 'mac-set-as-text')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('mac_set_as_text', (YLeaf(YType.str, 'mac-set-as-text'), ['str'])),
                     ])
                     self.set_name = None
                     self.mac_set_as_text = None
                     self._segment_path = lambda: "mac-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/mac-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.MacSets.MacSet, ['set_name', 'mac_set_as_text'], name, value)
@@ -629,6 +640,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_opaque_set = YList(self)
                 self._segment_path = lambda: "extended-community-opaque-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets, [], name, value)
@@ -669,13 +681,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_opaque_set', YLeaf(YType.str, 'rpl-extended-community-opaque-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_opaque_set', (YLeaf(YType.str, 'rpl-extended-community-opaque-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_opaque_set = None
                     self._segment_path = lambda: "extended-community-opaque-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-opaque-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityOpaqueSets.ExtendedCommunityOpaqueSet, ['set_name', 'rpl_extended_community_opaque_set'], name, value)
@@ -711,6 +724,7 @@ class RoutingPolicy(Entity):
                 self.ospf_area_set = YList(self)
                 self._segment_path = lambda: "ospf-area-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.OspfAreaSets, [], name, value)
@@ -766,13 +780,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rplospf_area_set', YLeaf(YType.str, 'rplospf-area-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rplospf_area_set', (YLeaf(YType.str, 'rplospf-area-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rplospf_area_set = None
                     self._segment_path = lambda: "ospf-area-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/ospf-area-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.OspfAreaSets.OspfAreaSet, ['set_name', 'rplospf_area_set'], name, value)
@@ -808,6 +823,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_cost_set = YList(self)
                 self._segment_path = lambda: "extended-community-cost-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCostSets, [], name, value)
@@ -848,13 +864,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_cost_set', YLeaf(YType.str, 'rpl-extended-community-cost-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_cost_set', (YLeaf(YType.str, 'rpl-extended-community-cost-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_cost_set = None
                     self._segment_path = lambda: "extended-community-cost-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-cost-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityCostSets.ExtendedCommunityCostSet, ['set_name', 'rpl_extended_community_cost_set'], name, value)
@@ -890,6 +907,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_soo_set = YList(self)
                 self._segment_path = lambda: "extended-community-soo-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySooSets, [], name, value)
@@ -930,13 +948,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_soo_set', YLeaf(YType.str, 'rpl-extended-community-soo-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_soo_set', (YLeaf(YType.str, 'rpl-extended-community-soo-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_soo_set = None
                     self._segment_path = lambda: "extended-community-soo-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-soo-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySooSets.ExtendedCommunitySooSet, ['set_name', 'rpl_extended_community_soo_set'], name, value)
@@ -972,6 +991,7 @@ class RoutingPolicy(Entity):
                 self.esi_set = YList(self)
                 self._segment_path = lambda: "esi-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.EsiSets, [], name, value)
@@ -1012,13 +1032,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('esi_set_as_text', YLeaf(YType.str, 'esi-set-as-text')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('esi_set_as_text', (YLeaf(YType.str, 'esi-set-as-text'), ['str'])),
                     ])
                     self.set_name = None
                     self.esi_set_as_text = None
                     self._segment_path = lambda: "esi-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/esi-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.EsiSets.EsiSet, ['set_name', 'esi_set_as_text'], name, value)
@@ -1054,6 +1075,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_seg_nh_set = YList(self)
                 self._segment_path = lambda: "extended-community-seg-nh-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNhSets, [], name, value)
@@ -1094,13 +1116,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_seg_nh_set', YLeaf(YType.str, 'rpl-extended-community-seg-nh-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_seg_nh_set', (YLeaf(YType.str, 'rpl-extended-community-seg-nh-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_seg_nh_set = None
                     self._segment_path = lambda: "extended-community-seg-nh-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-seg-nh-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunitySegNhSets.ExtendedCommunitySegNhSet, ['set_name', 'rpl_extended_community_seg_nh_set'], name, value)
@@ -1136,6 +1159,7 @@ class RoutingPolicy(Entity):
                 self.rd_set = YList(self)
                 self._segment_path = lambda: "rd-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.RdSets, [], name, value)
@@ -1176,13 +1200,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rplrd_set', YLeaf(YType.str, 'rplrd-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rplrd_set', (YLeaf(YType.str, 'rplrd-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rplrd_set = None
                     self._segment_path = lambda: "rd-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/rd-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.RdSets.RdSet, ['set_name', 'rplrd_set'], name, value)
@@ -1214,11 +1239,12 @@ class RoutingPolicy(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('policy_global_set', YLeaf(YType.str, 'policy-global-set')),
+                    ('policy_global_set', (YLeaf(YType.str, 'policy-global-set'), ['str'])),
                 ])
                 self.policy_global_set = None
                 self._segment_path = lambda: "policy-global-set-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.PolicyGlobalSetTable, ['policy_global_set'], name, value)
@@ -1254,6 +1280,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_bandwidth_set = YList(self)
                 self._segment_path = lambda: "extended-community-bandwidth-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets, [], name, value)
@@ -1294,13 +1321,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_bandwidth_set', YLeaf(YType.str, 'rpl-extended-community-bandwidth-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_bandwidth_set', (YLeaf(YType.str, 'rpl-extended-community-bandwidth-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_bandwidth_set = None
                     self._segment_path = lambda: "extended-community-bandwidth-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-bandwidth-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityBandwidthSets.ExtendedCommunityBandwidthSet, ['set_name', 'rpl_extended_community_bandwidth_set'], name, value)
@@ -1336,6 +1364,7 @@ class RoutingPolicy(Entity):
                 self.community_set = YList(self)
                 self._segment_path = lambda: "community-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.CommunitySets, [], name, value)
@@ -1376,13 +1405,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_community_set', YLeaf(YType.str, 'rpl-community-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_community_set', (YLeaf(YType.str, 'rpl-community-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_community_set = None
                     self._segment_path = lambda: "community-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/community-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.CommunitySets.CommunitySet, ['set_name', 'rpl_community_set'], name, value)
@@ -1418,6 +1448,7 @@ class RoutingPolicy(Entity):
                 self.as_path_set = YList(self)
                 self._segment_path = lambda: "as-path-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.AsPathSets, [], name, value)
@@ -1458,13 +1489,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rplas_path_set', YLeaf(YType.str, 'rplas-path-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rplas_path_set', (YLeaf(YType.str, 'rplas-path-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rplas_path_set = None
                     self._segment_path = lambda: "as-path-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/as-path-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.AsPathSets.AsPathSet, ['set_name', 'rplas_path_set'], name, value)
@@ -1500,6 +1532,7 @@ class RoutingPolicy(Entity):
                 self.tag_set = YList(self)
                 self._segment_path = lambda: "tag-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.TagSets, [], name, value)
@@ -1540,13 +1573,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_tag_set', YLeaf(YType.str, 'rpl-tag-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_tag_set', (YLeaf(YType.str, 'rpl-tag-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_tag_set = None
                     self._segment_path = lambda: "tag-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/tag-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.TagSets.TagSet, ['set_name', 'rpl_tag_set'], name, value)
@@ -1582,6 +1616,7 @@ class RoutingPolicy(Entity):
                 self.etag_set = YList(self)
                 self._segment_path = lambda: "etag-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.EtagSets, [], name, value)
@@ -1622,13 +1657,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('etag_set_as_text', YLeaf(YType.str, 'etag-set-as-text')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('etag_set_as_text', (YLeaf(YType.str, 'etag-set-as-text'), ['str'])),
                     ])
                     self.set_name = None
                     self.etag_set_as_text = None
                     self._segment_path = lambda: "etag-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/etag-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.EtagSets.EtagSet, ['set_name', 'etag_set_as_text'], name, value)
@@ -1664,6 +1700,7 @@ class RoutingPolicy(Entity):
                 self.extended_community_rt_set = YList(self)
                 self._segment_path = lambda: "extended-community-rt-sets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRtSets, [], name, value)
@@ -1704,13 +1741,14 @@ class RoutingPolicy(Entity):
                     self.ylist_key_names = ['set_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('set_name', YLeaf(YType.str, 'set-name')),
-                        ('rpl_extended_community_rt_set', YLeaf(YType.str, 'rpl-extended-community-rt-set')),
+                        ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                        ('rpl_extended_community_rt_set', (YLeaf(YType.str, 'rpl-extended-community-rt-set'), ['str'])),
                     ])
                     self.set_name = None
                     self.rpl_extended_community_rt_set = None
                     self._segment_path = lambda: "extended-community-rt-set" + "[set-name='" + str(self.set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/sets/extended-community-rt-sets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingPolicy.Sets.ExtendedCommunityRtSets.ExtendedCommunityRtSet, ['set_name', 'rpl_extended_community_rt_set'], name, value)
@@ -1755,13 +1793,14 @@ class RoutingPolicy(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('maximum_lines_of_policy', YLeaf(YType.uint32, 'maximum-lines-of-policy')),
-                ('maximum_number_of_policies', YLeaf(YType.uint32, 'maximum-number-of-policies')),
+                ('maximum_lines_of_policy', (YLeaf(YType.uint32, 'maximum-lines-of-policy'), ['int'])),
+                ('maximum_number_of_policies', (YLeaf(YType.uint32, 'maximum-number-of-policies'), ['int'])),
             ])
             self.maximum_lines_of_policy = None
             self.maximum_number_of_policies = None
             self._segment_path = lambda: "limits"
             self._absolute_path = lambda: "Cisco-IOS-XR-policy-repository-cfg:routing-policy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingPolicy.Limits, ['maximum_lines_of_policy', 'maximum_number_of_policies'], name, value)

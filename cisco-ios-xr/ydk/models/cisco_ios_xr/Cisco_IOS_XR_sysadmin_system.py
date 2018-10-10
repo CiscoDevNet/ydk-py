@@ -13,7 +13,7 @@ runtime.
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,6 +23,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -67,6 +68,7 @@ class Mgmt(Entity):
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Mgmt, [], name, value)
@@ -113,16 +115,17 @@ class Mgmt(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('address', YLeaf(YType.str, 'address')),
-                ('subnet_mask_ip', YLeaf(YType.str, 'subnet-mask-ip')),
+                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                ('subnet_mask_ip', (YLeaf(YType.str, 'subnet-mask-ip'), ['str','str'])),
             ])
             self.address = None
             self.subnet_mask_ip = None
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Mgmt.Ipv4, [u'address', u'subnet_mask_ip'], name, value)
+            self._perform_setattr(Mgmt.Ipv4, ['address', 'subnet_mask_ip'], name, value)
 
 
     class Ipv6(Entity):
@@ -160,16 +163,17 @@ class Mgmt(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('address', YLeaf(YType.str, 'address')),
-                ('prefix', YLeaf(YType.uint8, 'prefix')),
+                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                ('prefix', (YLeaf(YType.uint8, 'prefix'), ['int'])),
             ])
             self.address = None
             self.prefix = None
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-system:mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Mgmt.Ipv6, [u'address', u'prefix'], name, value)
+            self._perform_setattr(Mgmt.Ipv6, ['address', 'prefix'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Mgmt()

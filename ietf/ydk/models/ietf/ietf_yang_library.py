@@ -24,6 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ModulesState(Entity):
     """
     Contains YANG module monitoring information.
@@ -58,12 +59,13 @@ class ModulesState(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("module", ("module", ModulesState.Module))])
         self._leafs = OrderedDict([
-            ('module_set_id', YLeaf(YType.str, 'module-set-id')),
+            ('module_set_id', (YLeaf(YType.str, 'module-set-id'), ['str'])),
         ])
         self.module_set_id = None
 
         self.module = YList(self)
         self._segment_path = lambda: "ietf-yang-library:modules-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ModulesState, ['module_set_id'], name, value)
@@ -147,12 +149,12 @@ class ModulesState(Entity):
             self.ylist_key_names = ['name','revision']
             self._child_classes = OrderedDict([("deviation", ("deviation", ModulesState.Module.Deviation)), ("submodule", ("submodule", ModulesState.Module.Submodule))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('revision', YLeaf(YType.str, 'revision')),
-                ('schema', YLeaf(YType.str, 'schema')),
-                ('namespace', YLeaf(YType.str, 'namespace')),
-                ('feature', YLeafList(YType.str, 'feature')),
-                ('conformance_type', YLeaf(YType.enumeration, 'conformance-type')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('revision', (YLeaf(YType.str, 'revision'), ['str','str'])),
+                ('schema', (YLeaf(YType.str, 'schema'), ['str'])),
+                ('namespace', (YLeaf(YType.str, 'namespace'), ['str'])),
+                ('feature', (YLeafList(YType.str, 'feature'), ['str'])),
+                ('conformance_type', (YLeaf(YType.enumeration, 'conformance-type'), [('ydk.models.ietf.ietf_yang_library', 'ModulesState', 'Module.ConformanceType')])),
             ])
             self.name = None
             self.revision = None
@@ -165,6 +167,7 @@ class ModulesState(Entity):
             self.submodule = YList(self)
             self._segment_path = lambda: "module" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
             self._absolute_path = lambda: "ietf-yang-library:modules-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ModulesState.Module, ['name', 'revision', 'schema', 'namespace', 'feature', 'conformance_type'], name, value)
@@ -275,12 +278,13 @@ class ModulesState(Entity):
                 self.ylist_key_names = ['name','revision']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('revision', YLeaf(YType.str, 'revision')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('revision', (YLeaf(YType.str, 'revision'), ['str','str'])),
                 ])
                 self.name = None
                 self.revision = None
                 self._segment_path = lambda: "deviation" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ModulesState.Module.Deviation, ['name', 'revision'], name, value)
@@ -333,14 +337,15 @@ class ModulesState(Entity):
                 self.ylist_key_names = ['name','revision']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('revision', YLeaf(YType.str, 'revision')),
-                    ('schema', YLeaf(YType.str, 'schema')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('revision', (YLeaf(YType.str, 'revision'), ['str','str'])),
+                    ('schema', (YLeaf(YType.str, 'schema'), ['str'])),
                 ])
                 self.name = None
                 self.revision = None
                 self.schema = None
                 self._segment_path = lambda: "submodule" + "[name='" + str(self.name) + "']" + "[revision='" + str(self.revision) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ModulesState.Module.Submodule, ['name', 'revision', 'schema'], name, value)

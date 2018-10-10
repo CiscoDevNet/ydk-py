@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   auto\-rp\: AutoRP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AutorpProtocolMode(Enum):
@@ -82,6 +83,7 @@ class AutoRp(Entity):
         self.active.parent = self
         self._children_name_map["active"] = "active"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AutoRp, [], name, value)
@@ -128,6 +130,7 @@ class AutoRp(Entity):
             self._children_name_map["mapping_agent"] = "mapping-agent"
             self._segment_path = lambda: "standby"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AutoRp.Standby, [], name, value)
@@ -174,6 +177,7 @@ class AutoRp(Entity):
                 self._children_name_map["rps"] = "rps"
                 self._segment_path = lambda: "candidate-rp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AutoRp.Standby.CandidateRp, [], name, value)
@@ -214,16 +218,17 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
-                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                        ('active_sent_packets', (YLeaf(YType.uint32, 'active-sent-packets'), ['int'])),
+                        ('standby_sent_packets', (YLeaf(YType.uint32, 'standby-sent-packets'), ['int'])),
                     ])
                     self.active_sent_packets = None
                     self.standby_sent_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
+                    self._perform_setattr(AutoRp.Standby.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
 
 
             class Rps(Entity):
@@ -256,6 +261,7 @@ class AutoRp(Entity):
                     self.rp = YList(self)
                     self._segment_path = lambda: "rps"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.CandidateRp.Rps, [], name, value)
@@ -270,7 +276,7 @@ class AutoRp(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: protocol_mode
                     
@@ -325,13 +331,13 @@ class AutoRp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('candidate_rp_address', YLeaf(YType.str, 'candidate-rp-address')),
-                            ('ttl', YLeaf(YType.int32, 'ttl')),
-                            ('announce_period', YLeaf(YType.int32, 'announce-period')),
-                            ('protocol_mode_xr', YLeaf(YType.enumeration, 'protocol-mode-xr')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('protocol_mode', (YLeaf(YType.enumeration, 'protocol-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes', 'AutoRpProtocolMode', '')])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('candidate_rp_address', (YLeaf(YType.str, 'candidate-rp-address'), ['str'])),
+                            ('ttl', (YLeaf(YType.int32, 'ttl'), ['int'])),
+                            ('announce_period', (YLeaf(YType.int32, 'announce-period'), ['int'])),
+                            ('protocol_mode_xr', (YLeaf(YType.enumeration, 'protocol-mode-xr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutorpProtocolMode', '')])),
                         ])
                         self.interface_name = None
                         self.protocol_mode = None
@@ -342,9 +348,10 @@ class AutoRp(Entity):
                         self.protocol_mode_xr = None
                         self._segment_path = lambda: "rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/candidate-rp/rps/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
+                        self._perform_setattr(AutoRp.Standby.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
 
 
         class MappingAgent(Entity):
@@ -397,6 +404,7 @@ class AutoRp(Entity):
                 self._children_name_map["summary"] = "summary"
                 self._segment_path = lambda: "mapping-agent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AutoRp.Standby.MappingAgent, [], name, value)
@@ -451,10 +459,10 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
-                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
-                        ('active_received_packets', YLeaf(YType.uint32, 'active-received-packets')),
-                        ('standby_received_packets', YLeaf(YType.uint32, 'standby-received-packets')),
+                        ('active_sent_packets', (YLeaf(YType.uint32, 'active-sent-packets'), ['int'])),
+                        ('standby_sent_packets', (YLeaf(YType.uint32, 'standby-sent-packets'), ['int'])),
+                        ('active_received_packets', (YLeaf(YType.uint32, 'active-received-packets'), ['int'])),
+                        ('standby_received_packets', (YLeaf(YType.uint32, 'standby-received-packets'), ['int'])),
                     ])
                     self.active_sent_packets = None
                     self.standby_sent_packets = None
@@ -462,6 +470,7 @@ class AutoRp(Entity):
                     self.standby_received_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.Traffic, [u'active_sent_packets', u'standby_sent_packets', u'active_received_packets', u'standby_received_packets'], name, value)
@@ -497,6 +506,7 @@ class AutoRp(Entity):
                     self.rp_address = YList(self)
                     self._segment_path = lambda: "rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses, [], name, value)
@@ -558,10 +568,10 @@ class AutoRp(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([("range", ("range", AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range))])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('rp_address_xr', YLeaf(YType.str, 'rp-address-xr')),
-                            ('expiry_time', YLeaf(YType.uint64, 'expiry-time')),
-                            ('pim_version', YLeaf(YType.uint8, 'pim-version')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str'])),
+                            ('rp_address_xr', (YLeaf(YType.str, 'rp-address-xr'), ['str'])),
+                            ('expiry_time', (YLeaf(YType.uint64, 'expiry-time'), ['int'])),
+                            ('pim_version', (YLeaf(YType.uint8, 'pim-version'), ['int'])),
                         ])
                         self.rp_address = None
                         self.rp_address_xr = None
@@ -571,6 +581,7 @@ class AutoRp(Entity):
                         self.range = YList(self)
                         self._segment_path = lambda: "rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress, ['rp_address', u'rp_address_xr', u'expiry_time', u'pim_version'], name, value)
@@ -644,13 +655,13 @@ class AutoRp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
-                                ('is_advertised', YLeaf(YType.boolean, 'is-advertised')),
-                                ('create_type', YLeaf(YType.uint8, 'create-type')),
-                                ('check_point_object_id', YLeaf(YType.uint32, 'check-point-object-id')),
-                                ('uptime', YLeaf(YType.uint64, 'uptime')),
+                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('protocol_mode', (YLeaf(YType.enumeration, 'protocol-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutorpProtocolMode', '')])),
+                                ('is_advertised', (YLeaf(YType.boolean, 'is-advertised'), ['bool'])),
+                                ('create_type', (YLeaf(YType.uint8, 'create-type'), ['int'])),
+                                ('check_point_object_id', (YLeaf(YType.uint32, 'check-point-object-id'), ['int'])),
+                                ('uptime', (YLeaf(YType.uint64, 'uptime'), ['int'])),
                             ])
                             self.prefix = None
                             self.prefix_length = None
@@ -660,6 +671,7 @@ class AutoRp(Entity):
                             self.check_point_object_id = None
                             self.uptime = None
                             self._segment_path = lambda: "range"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AutoRp.Standby.MappingAgent.RpAddresses.RpAddress.Range, [u'prefix', u'prefix_length', u'protocol_mode', u'is_advertised', u'create_type', u'check_point_object_id', u'uptime'], name, value)
@@ -705,15 +717,16 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('is_maximum_disabled', YLeaf(YType.boolean, 'is-maximum-disabled')),
-                        ('cache_limit', YLeaf(YType.uint32, 'cache-limit')),
-                        ('cache_count', YLeaf(YType.uint32, 'cache-count')),
+                        ('is_maximum_disabled', (YLeaf(YType.boolean, 'is-maximum-disabled'), ['bool'])),
+                        ('cache_limit', (YLeaf(YType.uint32, 'cache-limit'), ['int'])),
+                        ('cache_count', (YLeaf(YType.uint32, 'cache-count'), ['int'])),
                     ])
                     self.is_maximum_disabled = None
                     self.cache_limit = None
                     self.cache_count = None
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/standby/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Standby.MappingAgent.Summary, [u'is_maximum_disabled', u'cache_limit', u'cache_count'], name, value)
@@ -760,6 +773,7 @@ class AutoRp(Entity):
             self._children_name_map["mapping_agent"] = "mapping-agent"
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AutoRp.Active, [], name, value)
@@ -806,6 +820,7 @@ class AutoRp(Entity):
                 self._children_name_map["rps"] = "rps"
                 self._segment_path = lambda: "candidate-rp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AutoRp.Active.CandidateRp, [], name, value)
@@ -846,16 +861,17 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
-                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
+                        ('active_sent_packets', (YLeaf(YType.uint32, 'active-sent-packets'), ['int'])),
+                        ('standby_sent_packets', (YLeaf(YType.uint32, 'standby-sent-packets'), ['int'])),
                     ])
                     self.active_sent_packets = None
                     self.standby_sent_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, ['active_sent_packets', 'standby_sent_packets'], name, value)
+                    self._perform_setattr(AutoRp.Active.CandidateRp.Traffic, [u'active_sent_packets', u'standby_sent_packets'], name, value)
 
 
             class Rps(Entity):
@@ -888,6 +904,7 @@ class AutoRp(Entity):
                     self.rp = YList(self)
                     self._segment_path = lambda: "rps"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.CandidateRp.Rps, [], name, value)
@@ -902,7 +919,7 @@ class AutoRp(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: protocol_mode
                     
@@ -957,13 +974,13 @@ class AutoRp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('candidate_rp_address', YLeaf(YType.str, 'candidate-rp-address')),
-                            ('ttl', YLeaf(YType.int32, 'ttl')),
-                            ('announce_period', YLeaf(YType.int32, 'announce-period')),
-                            ('protocol_mode_xr', YLeaf(YType.enumeration, 'protocol-mode-xr')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('protocol_mode', (YLeaf(YType.enumeration, 'protocol-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes', 'AutoRpProtocolMode', '')])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('candidate_rp_address', (YLeaf(YType.str, 'candidate-rp-address'), ['str'])),
+                            ('ttl', (YLeaf(YType.int32, 'ttl'), ['int'])),
+                            ('announce_period', (YLeaf(YType.int32, 'announce-period'), ['int'])),
+                            ('protocol_mode_xr', (YLeaf(YType.enumeration, 'protocol-mode-xr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutorpProtocolMode', '')])),
                         ])
                         self.interface_name = None
                         self.protocol_mode = None
@@ -974,9 +991,10 @@ class AutoRp(Entity):
                         self.protocol_mode_xr = None
                         self._segment_path = lambda: "rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/candidate-rp/rps/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', 'access_list_name', 'candidate_rp_address', 'ttl', 'announce_period', 'protocol_mode_xr'], name, value)
+                        self._perform_setattr(AutoRp.Active.CandidateRp.Rps.Rp, ['interface_name', 'protocol_mode', u'access_list_name', u'candidate_rp_address', u'ttl', u'announce_period', u'protocol_mode_xr'], name, value)
 
 
         class MappingAgent(Entity):
@@ -1029,6 +1047,7 @@ class AutoRp(Entity):
                 self._children_name_map["summary"] = "summary"
                 self._segment_path = lambda: "mapping-agent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AutoRp.Active.MappingAgent, [], name, value)
@@ -1083,10 +1102,10 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('active_sent_packets', YLeaf(YType.uint32, 'active-sent-packets')),
-                        ('standby_sent_packets', YLeaf(YType.uint32, 'standby-sent-packets')),
-                        ('active_received_packets', YLeaf(YType.uint32, 'active-received-packets')),
-                        ('standby_received_packets', YLeaf(YType.uint32, 'standby-received-packets')),
+                        ('active_sent_packets', (YLeaf(YType.uint32, 'active-sent-packets'), ['int'])),
+                        ('standby_sent_packets', (YLeaf(YType.uint32, 'standby-sent-packets'), ['int'])),
+                        ('active_received_packets', (YLeaf(YType.uint32, 'active-received-packets'), ['int'])),
+                        ('standby_received_packets', (YLeaf(YType.uint32, 'standby-received-packets'), ['int'])),
                     ])
                     self.active_sent_packets = None
                     self.standby_sent_packets = None
@@ -1094,6 +1113,7 @@ class AutoRp(Entity):
                     self.standby_received_packets = None
                     self._segment_path = lambda: "traffic"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.MappingAgent.Traffic, [u'active_sent_packets', u'standby_sent_packets', u'active_received_packets', u'standby_received_packets'], name, value)
@@ -1129,6 +1149,7 @@ class AutoRp(Entity):
                     self.rp_address = YList(self)
                     self._segment_path = lambda: "rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses, [], name, value)
@@ -1190,10 +1211,10 @@ class AutoRp(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([("range", ("range", AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range))])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('rp_address_xr', YLeaf(YType.str, 'rp-address-xr')),
-                            ('expiry_time', YLeaf(YType.uint64, 'expiry-time')),
-                            ('pim_version', YLeaf(YType.uint8, 'pim-version')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str'])),
+                            ('rp_address_xr', (YLeaf(YType.str, 'rp-address-xr'), ['str'])),
+                            ('expiry_time', (YLeaf(YType.uint64, 'expiry-time'), ['int'])),
+                            ('pim_version', (YLeaf(YType.uint8, 'pim-version'), ['int'])),
                         ])
                         self.rp_address = None
                         self.rp_address_xr = None
@@ -1203,6 +1224,7 @@ class AutoRp(Entity):
                         self.range = YList(self)
                         self._segment_path = lambda: "rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress, ['rp_address', u'rp_address_xr', u'expiry_time', u'pim_version'], name, value)
@@ -1276,13 +1298,13 @@ class AutoRp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
-                                ('is_advertised', YLeaf(YType.boolean, 'is-advertised')),
-                                ('create_type', YLeaf(YType.uint8, 'create-type')),
-                                ('check_point_object_id', YLeaf(YType.uint32, 'check-point-object-id')),
-                                ('uptime', YLeaf(YType.uint64, 'uptime')),
+                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('protocol_mode', (YLeaf(YType.enumeration, 'protocol-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_oper', 'AutorpProtocolMode', '')])),
+                                ('is_advertised', (YLeaf(YType.boolean, 'is-advertised'), ['bool'])),
+                                ('create_type', (YLeaf(YType.uint8, 'create-type'), ['int'])),
+                                ('check_point_object_id', (YLeaf(YType.uint32, 'check-point-object-id'), ['int'])),
+                                ('uptime', (YLeaf(YType.uint64, 'uptime'), ['int'])),
                             ])
                             self.prefix = None
                             self.prefix_length = None
@@ -1292,6 +1314,7 @@ class AutoRp(Entity):
                             self.check_point_object_id = None
                             self.uptime = None
                             self._segment_path = lambda: "range"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AutoRp.Active.MappingAgent.RpAddresses.RpAddress.Range, [u'prefix', u'prefix_length', u'protocol_mode', u'is_advertised', u'create_type', u'check_point_object_id', u'uptime'], name, value)
@@ -1337,15 +1360,16 @@ class AutoRp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('is_maximum_disabled', YLeaf(YType.boolean, 'is-maximum-disabled')),
-                        ('cache_limit', YLeaf(YType.uint32, 'cache-limit')),
-                        ('cache_count', YLeaf(YType.uint32, 'cache-count')),
+                        ('is_maximum_disabled', (YLeaf(YType.boolean, 'is-maximum-disabled'), ['bool'])),
+                        ('cache_limit', (YLeaf(YType.uint32, 'cache-limit'), ['int'])),
+                        ('cache_count', (YLeaf(YType.uint32, 'cache-count'), ['int'])),
                     ])
                     self.is_maximum_disabled = None
                     self.cache_limit = None
                     self.cache_count = None
                     self._segment_path = lambda: "summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-autorp-oper:auto-rp/active/mapping-agent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AutoRp.Active.MappingAgent.Summary, [u'is_maximum_disabled', u'cache_limit', u'cache_count'], name, value)

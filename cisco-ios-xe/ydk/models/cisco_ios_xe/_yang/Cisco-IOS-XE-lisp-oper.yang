@@ -28,6 +28,16 @@ module Cisco-IOS-XE-lisp-oper {
      Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-20 {
+    description
+      "Added lisp prefix-list";
+    reference "2.2.0";
+  }
+  revision 2018-02-01 {
+    description
+      "New leaf in the Local Database Grouping";
+    reference "2.1.0";
+  }
   revision 2017-10-25 {
     description
       "New leaves in lists:
@@ -280,6 +290,11 @@ module Cisco-IOS-XE-lisp-oper {
         "List of locators";
       uses lisp-ios-xe-oper:lisp-local-dbase-rloc-type;
       uses lisp-ios-xe-oper:lisp-address-type;
+    }
+    leaf is-proxy {
+      type boolean;
+      description
+        "If local database mapping is proxy";
     }
   }
 
@@ -1387,6 +1402,48 @@ module Cisco-IOS-XE-lisp-oper {
     }
   }
 
+  grouping lisp-prefix-list-entry-type {
+    description
+      "Description of prefix list entry";
+    leaf source-has-static {
+      type boolean;
+      description
+        "Is the entry sourced statically";
+    }
+    leaf source-has-rib {
+      type boolean;
+      description
+        "Is the entry sourced from RIB";
+    }
+    leaf source-has-site-reg {
+      type boolean;
+      description
+        "Is the entry sourced from site registration";
+    }
+  }
+
+  grouping lisp-prefix-list-type {
+    description
+      "Description of a prefix-list";
+    leaf name {
+      type string;
+      description
+        "Name of the prefix-list";
+    }
+    leaf count {
+      type uint64;
+      description
+        "Number of entries in the list";
+    }
+    list prefix-list-entry {
+      key "afi prefix";
+      description
+        "List of prefix list entries";
+      uses lisp-ios-xe-oper:lisp-prefix-list-entry-type;
+      uses lisp-ios-xe-oper:lisp-prefix-type;
+    }
+  }
+
   grouping lisp-router-type {
     description
       "Each entry contains operational data of a single LISP router";
@@ -1427,6 +1484,12 @@ module Cisco-IOS-XE-lisp-oper {
          configured on this device";
       uses lisp-ios-xe-oper:lisp-local-rloc-type;
       uses lisp-ios-xe-oper:lisp-address-type;
+    }
+    list prefix-lists {
+      key "name";
+      description
+        "This list represents list of prefix-lists configured on this device";
+      uses lisp-ios-xe-oper:lisp-prefix-list-type;
     }
   }
 

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sla\: SLA prtocol and profile Configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Sla(Entity):
         self.protocols.parent = self
         self._children_name_map["protocols"] = "protocols"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Sla, [], name, value)
@@ -89,6 +91,7 @@ class Sla(Entity):
             self._children_name_map["ethernet"] = "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
             self._segment_path = lambda: "protocols"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sla.Protocols, [], name, value)
@@ -126,6 +129,7 @@ class Sla(Entity):
                 self._children_name_map["profiles"] = "profiles"
                 self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:ethernet"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sla.Protocols.Ethernet, [], name, value)
@@ -161,6 +165,7 @@ class Sla(Entity):
                     self.profile = YList(self)
                     self._segment_path = lambda: "profiles"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles, [], name, value)
@@ -216,8 +221,8 @@ class Sla(Entity):
                         self.ylist_key_names = ['profile_name']
                         self._child_classes = OrderedDict([("statistics", ("statistics", Sla.Protocols.Ethernet.Profiles.Profile.Statistics)), ("schedule", ("schedule", Sla.Protocols.Ethernet.Profiles.Profile.Schedule)), ("probe", ("probe", Sla.Protocols.Ethernet.Profiles.Profile.Probe))])
                         self._leafs = OrderedDict([
-                            ('profile_name', YLeaf(YType.str, 'profile-name')),
-                            ('packet_type', YLeaf(YType.str, 'packet-type')),
+                            ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                            ('packet_type', (YLeaf(YType.str, 'packet-type'), ['str'])),
                         ])
                         self.profile_name = None
                         self.packet_type = None
@@ -234,6 +239,7 @@ class Sla(Entity):
                         self._children_name_map["probe"] = "probe"
                         self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-sla-cfg:sla/protocols/Cisco-IOS-XR-ethernet-cfm-cfg:ethernet/profiles/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile, ['profile_name', 'packet_type'], name, value)
@@ -268,6 +274,7 @@ class Sla(Entity):
 
                             self.statistic = YList(self)
                             self._segment_path = lambda: "statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics, [], name, value)
@@ -288,6 +295,11 @@ class Sla(Entity):
                             	**type**\:  :py:class:`BucketsSize <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize>`
                             
                             	**presence node**\: True
+                            
+                            .. attribute:: actions
+                            
+                            	Thresholds and associated actions for the given statistics type
+                            	**type**\:  :py:class:`Actions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions>`
                             
                             .. attribute:: aggregation
                             
@@ -323,11 +335,11 @@ class Sla(Entity):
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = ['statistic_name']
-                                self._child_classes = OrderedDict([("buckets-size", ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize)), ("aggregation", ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation))])
+                                self._child_classes = OrderedDict([("buckets-size", ("buckets_size", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize)), ("actions", ("actions", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions)), ("aggregation", ("aggregation", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation))])
                                 self._leafs = OrderedDict([
-                                    ('statistic_name', YLeaf(YType.enumeration, 'statistic-name')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('buckets_archive', YLeaf(YType.uint32, 'buckets-archive')),
+                                    ('statistic_name', (YLeaf(YType.enumeration, 'statistic-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaStatisticTypeEnum', '')])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('buckets_archive', (YLeaf(YType.uint32, 'buckets-archive'), ['int'])),
                                 ])
                                 self.statistic_name = None
                                 self.enable = None
@@ -336,9 +348,14 @@ class Sla(Entity):
                                 self.buckets_size = None
                                 self._children_name_map["buckets_size"] = "buckets-size"
 
+                                self.actions = Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions()
+                                self.actions.parent = self
+                                self._children_name_map["actions"] = "actions"
+
                                 self.aggregation = None
                                 self._children_name_map["aggregation"] = "aggregation"
                                 self._segment_path = lambda: "statistic" + "[statistic-name='" + str(self.statistic_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic, ['statistic_name', 'enable', 'buckets_archive'], name, value)
@@ -385,15 +402,123 @@ class Sla(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('buckets_size', YLeaf(YType.uint32, 'buckets-size')),
-                                        ('buckets_size_unit', YLeaf(YType.enumeration, 'buckets-size-unit')),
+                                        ('buckets_size', (YLeaf(YType.uint32, 'buckets-size'), ['int'])),
+                                        ('buckets_size_unit', (YLeaf(YType.enumeration, 'buckets-size-unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBucketsSizeUnitsEnum', '')])),
                                     ])
                                     self.buckets_size = None
                                     self.buckets_size_unit = None
                                     self._segment_path = lambda: "buckets-size"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.BucketsSize, ['buckets_size', 'buckets_size_unit'], name, value)
+
+
+                            class Actions(Entity):
+                                """
+                                Thresholds and associated actions for the
+                                given statistics type
+                                
+                                .. attribute:: action
+                                
+                                	Action to perform when the threshold is crossed
+                                	**type**\: list of  		 :py:class:`Action <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_cfg.Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ethernet-cfm-cfg'
+                                _revision = '2017-10-06'
+
+                                def __init__(self):
+                                    super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, self).__init__()
+
+                                    self.yang_name = "actions"
+                                    self.yang_parent_name = "statistic"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("action", ("action", Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action))])
+                                    self._leafs = OrderedDict()
+
+                                    self.action = YList(self)
+                                    self._segment_path = lambda: "actions"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions, [], name, value)
+
+
+                                class Action(Entity):
+                                    """
+                                    Action to perform when the threshold is
+                                    crossed
+                                    
+                                    .. attribute:: threshold_type  (key)
+                                    
+                                    	Threshold type
+                                    	**type**\:  :py:class:`SlaThresholdTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaThresholdTypeEnum>`
+                                    
+                                    .. attribute:: action_type  (key)
+                                    
+                                    	Action to take when the threshold is crossed
+                                    	**type**\:  :py:class:`SlaActionTypeEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaActionTypeEnum>`
+                                    
+                                    .. attribute:: condition  (key)
+                                    
+                                    	Condition to be met to consider the threshold crossed
+                                    	**type**\:  :py:class:`SlaThresholdConditionEnum <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes.SlaThresholdConditionEnum>`
+                                    
+                                    .. attribute:: threshold_value
+                                    
+                                    	Threshold Value
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..2147483647
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: bin_number
+                                    
+                                    	Bin number in\-and\-above which samples contribute towards a sample\-count threshold (required only when Condition is SampleCount)
+                                    	**type**\: int
+                                    
+                                    	**range:** 2..100
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ethernet-cfm-cfg'
+                                    _revision = '2017-10-06'
+
+                                    def __init__(self):
+                                        super(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, self).__init__()
+
+                                        self.yang_name = "action"
+                                        self.yang_parent_name = "actions"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['threshold_type','action_type','condition']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('threshold_type', (YLeaf(YType.enumeration, 'threshold-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaThresholdTypeEnum', '')])),
+                                            ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaActionTypeEnum', '')])),
+                                            ('condition', (YLeaf(YType.enumeration, 'condition'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaThresholdConditionEnum', '')])),
+                                            ('threshold_value', (YLeaf(YType.uint32, 'threshold-value'), ['int'])),
+                                            ('bin_number', (YLeaf(YType.uint32, 'bin-number'), ['int'])),
+                                        ])
+                                        self.threshold_type = None
+                                        self.action_type = None
+                                        self.condition = None
+                                        self.threshold_value = None
+                                        self.bin_number = None
+                                        self._segment_path = lambda: "action" + "[threshold-type='" + str(self.threshold_type) + "']" + "[action-type='" + str(self.action_type) + "']" + "[condition='" + str(self.condition) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Actions.Action, ['threshold_type', 'action_type', 'condition', 'threshold_value', 'bin_number'], name, value)
 
 
                             class Aggregation(Entity):
@@ -444,14 +569,15 @@ class Sla(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('bins_count', YLeaf(YType.uint32, 'bins-count')),
-                                        ('bins_width', YLeaf(YType.uint32, 'bins-width')),
-                                        ('bins_width_tenths', YLeaf(YType.uint32, 'bins-width-tenths')),
+                                        ('bins_count', (YLeaf(YType.uint32, 'bins-count'), ['int'])),
+                                        ('bins_width', (YLeaf(YType.uint32, 'bins-width'), ['int'])),
+                                        ('bins_width_tenths', (YLeaf(YType.uint32, 'bins-width-tenths'), ['int'])),
                                     ])
                                     self.bins_count = None
                                     self.bins_width = None
                                     self.bins_width_tenths = None
                                     self._segment_path = lambda: "aggregation"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Statistics.Statistic.Aggregation, ['bins_count', 'bins_width', 'bins_width_tenths'], name, value)
@@ -534,14 +660,14 @@ class Sla(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('probe_interval', YLeaf(YType.uint32, 'probe-interval')),
-                                ('probe_interval_day', YLeaf(YType.enumeration, 'probe-interval-day')),
-                                ('probe_interval_unit', YLeaf(YType.enumeration, 'probe-interval-unit')),
-                                ('start_time_hour', YLeaf(YType.uint32, 'start-time-hour')),
-                                ('start_time_minute', YLeaf(YType.uint32, 'start-time-minute')),
-                                ('start_time_second', YLeaf(YType.uint32, 'start-time-second')),
-                                ('probe_duration', YLeaf(YType.uint32, 'probe-duration')),
-                                ('probe_duration_unit', YLeaf(YType.enumeration, 'probe-duration-unit')),
+                                ('probe_interval', (YLeaf(YType.uint32, 'probe-interval'), ['int'])),
+                                ('probe_interval_day', (YLeaf(YType.enumeration, 'probe-interval-day'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalDayEnum', '')])),
+                                ('probe_interval_unit', (YLeaf(YType.enumeration, 'probe-interval-unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeIntervalUnitsEnum', '')])),
+                                ('start_time_hour', (YLeaf(YType.uint32, 'start-time-hour'), ['int'])),
+                                ('start_time_minute', (YLeaf(YType.uint32, 'start-time-minute'), ['int'])),
+                                ('start_time_second', (YLeaf(YType.uint32, 'start-time-second'), ['int'])),
+                                ('probe_duration', (YLeaf(YType.uint32, 'probe-duration'), ['int'])),
+                                ('probe_duration_unit', (YLeaf(YType.enumeration, 'probe-duration-unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaProbeDurationUnitsEnum', '')])),
                             ])
                             self.probe_interval = None
                             self.probe_interval_day = None
@@ -552,6 +678,7 @@ class Sla(Entity):
                             self.probe_duration = None
                             self.probe_duration_unit = None
                             self._segment_path = lambda: "schedule"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Schedule, ['probe_interval', 'probe_interval_day', 'probe_interval_unit', 'start_time_hour', 'start_time_minute', 'start_time_second', 'probe_duration', 'probe_duration_unit'], name, value)
@@ -606,8 +733,8 @@ class Sla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("send", ("send", Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send)), ("packet-size-and-padding", ("packet_size_and_padding", Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding))])
                             self._leafs = OrderedDict([
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('synthetic_loss_calculation_packets', YLeaf(YType.uint32, 'synthetic-loss-calculation-packets')),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('synthetic_loss_calculation_packets', (YLeaf(YType.uint32, 'synthetic-loss-calculation-packets'), ['int'])),
                             ])
                             self.priority = None
                             self.synthetic_loss_calculation_packets = None
@@ -618,6 +745,7 @@ class Sla(Entity):
                             self.packet_size_and_padding = None
                             self._children_name_map["packet_size_and_padding"] = "packet-size-and-padding"
                             self._segment_path = lambda: "probe"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe, ['priority', 'synthetic_loss_calculation_packets'], name, value)
@@ -689,12 +817,12 @@ class Sla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('burst_interval', YLeaf(YType.uint32, 'burst-interval')),
-                                    ('burst_interval_unit', YLeaf(YType.enumeration, 'burst-interval-unit')),
-                                    ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                    ('packet_interval_unit', YLeaf(YType.enumeration, 'packet-interval-unit')),
-                                    ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                    ('send_type', YLeaf(YType.enumeration, 'send-type')),
+                                    ('burst_interval', (YLeaf(YType.uint32, 'burst-interval'), ['int'])),
+                                    ('burst_interval_unit', (YLeaf(YType.enumeration, 'burst-interval-unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaBurstIntervalUnitsEnum', '')])),
+                                    ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                    ('packet_interval_unit', (YLeaf(YType.enumeration, 'packet-interval-unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPacketIntervalUnitsEnum', '')])),
+                                    ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                    ('send_type', (YLeaf(YType.enumeration, 'send-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaSend', '')])),
                                 ])
                                 self.burst_interval = None
                                 self.burst_interval_unit = None
@@ -703,6 +831,7 @@ class Sla(Entity):
                                 self.packet_count = None
                                 self.send_type = None
                                 self._segment_path = lambda: "send"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.Send, ['burst_interval', 'burst_interval_unit', 'packet_interval', 'packet_interval_unit', 'packet_count', 'send_type'], name, value)
@@ -753,14 +882,15 @@ class Sla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('size', YLeaf(YType.uint32, 'size')),
-                                    ('padding_type', YLeaf(YType.enumeration, 'padding-type')),
-                                    ('padding_value', YLeaf(YType.str, 'padding-value')),
+                                    ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                    ('padding_type', (YLeaf(YType.enumeration, 'padding-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_datatypes', 'SlaPaddingPattern', '')])),
+                                    ('padding_value', (YLeaf(YType.str, 'padding-value'), ['str'])),
                                 ])
                                 self.size = None
                                 self.padding_type = None
                                 self.padding_value = None
                                 self._segment_path = lambda: "packet-size-and-padding"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Sla.Protocols.Ethernet.Profiles.Profile.Probe.PacketSizeAndPadding, ['size', 'padding_type', 'padding_value'], name, value)

@@ -14,6 +14,172 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
+class CellwanChv1SimStatus(Enum):
+    """
+    CellwanChv1SimStatus (Enum Class)
+
+    Cellular modem SIM card holder verification (CHV1) status
+
+    .. data:: chv1_verify_disabled = 0
+
+    	SIM card holder verification (CHV1) disabled
+
+    .. data:: chv1_verify_enabled = 1
+
+    	SIM card holder verification (CHV1) enabled
+
+    .. data:: chv1_verify_pending = 2
+
+    	SIM card holder verification (CHV1) pending
+
+    """
+
+    chv1_verify_disabled = Enum.YLeaf(0, "chv1-verify-disabled")
+
+    chv1_verify_enabled = Enum.YLeaf(1, "chv1-verify-enabled")
+
+    chv1_verify_pending = Enum.YLeaf(2, "chv1-verify-pending")
+
+
+class CellwanSimStatus(Enum):
+    """
+    CellwanSimStatus (Enum Class)
+
+    Cellular modem SIM status
+
+    .. data:: sim_status_ok = 0
+
+    	Cellular modem SIM status is inserted
+
+    .. data:: sim_status_not_inserted = 1
+
+    	Cellular modem SIM is not inserted
+
+    .. data:: sim_status_removed = 2
+
+    	Cellular modem SIM is in removed state
+
+    .. data:: sim_status_init_failure = 3
+
+    	Cellular modem SIM is in initialization failure state
+
+    .. data:: sim_status_general_failure = 4
+
+    	Cellular modem SIM is in general failure state
+
+    .. data:: sim_status_locked = 5
+
+    	Cellular modem SIM is in locked state
+
+    .. data:: sim_status_chv1_blocked = 6
+
+    	Cellular modem SIM is in chv1 (Card Holder Verification) blocked state
+
+    .. data:: sim_status_chv2_blocked = 7
+
+    	Cellular modem SIM is in chv2 (Card Holder Verification) blocked state
+
+    .. data:: sim_status_chv1_rejected = 8
+
+    	Cellular modem SIM is in chv1 (Card Holder Verification) rejected state
+
+    .. data:: sim_status_chv2_rejected = 9
+
+    	Cellular modem SIM is in chv2 (Card Holder Verification) rejected state
+
+    .. data:: sim_status_mep_locked = 10
+
+    	Cellular modem SIM is in MEP (Mobile Equipment Personalization) locked state
+
+    .. data:: sim_status_network_reject = 11
+
+    	Cellular modem SIM is in network reject state
+
+    .. data:: sim_status_unknown = 12
+
+    	Cellular modem SIM is in unknown state
+
+    """
+
+    sim_status_ok = Enum.YLeaf(0, "sim-status-ok")
+
+    sim_status_not_inserted = Enum.YLeaf(1, "sim-status-not-inserted")
+
+    sim_status_removed = Enum.YLeaf(2, "sim-status-removed")
+
+    sim_status_init_failure = Enum.YLeaf(3, "sim-status-init-failure")
+
+    sim_status_general_failure = Enum.YLeaf(4, "sim-status-general-failure")
+
+    sim_status_locked = Enum.YLeaf(5, "sim-status-locked")
+
+    sim_status_chv1_blocked = Enum.YLeaf(6, "sim-status-chv1-blocked")
+
+    sim_status_chv2_blocked = Enum.YLeaf(7, "sim-status-chv2-blocked")
+
+    sim_status_chv1_rejected = Enum.YLeaf(8, "sim-status-chv1-rejected")
+
+    sim_status_chv2_rejected = Enum.YLeaf(9, "sim-status-chv2-rejected")
+
+    sim_status_mep_locked = Enum.YLeaf(10, "sim-status-mep-locked")
+
+    sim_status_network_reject = Enum.YLeaf(11, "sim-status-network-reject")
+
+    sim_status_unknown = Enum.YLeaf(12, "sim-status-unknown")
+
+
+class CellwanSimUserOp(Enum):
+    """
+    CellwanSimUserOp (Enum Class)
+
+    Cellular modem SIM user operation status
+
+    .. data:: sim_user_op_none = 0
+
+    	Cellular modem SIM user operation is in None state
+
+    .. data:: sim_user_op_chv1 = 1
+
+    	Cellular modem SIM user is in CHV1 (Card Holder Verification) state
+
+    .. data:: sim_user_op_chv2 = 2
+
+    	Cellular modem SIM user is in CHV2 (Card Holder Verification) state
+
+    .. data:: sim_user_op_unblock_chv1 = 3
+
+    	Cellular modem SIM user is in Unblocked CHV1 (Card Holder Verification) state
+
+    .. data:: sim_user_op_unblock_chv2 = 4
+
+    	Cellular modem SIM user is in Unblocked CHV2 (Card Holder Verification) state
+
+    .. data:: sim_user_op_mep = 5
+
+    	Cellular modem SIM user is in MEP (Mobile Equipment Personalization) state
+
+    .. data:: sim_user_op_unknown = 6
+
+    	Cellular modem SIM user operation is in Unknown state
+
+    """
+
+    sim_user_op_none = Enum.YLeaf(0, "sim-user-op-none")
+
+    sim_user_op_chv1 = Enum.YLeaf(1, "sim-user-op-chv1")
+
+    sim_user_op_chv2 = Enum.YLeaf(2, "sim-user-op-chv2")
+
+    sim_user_op_unblock_chv1 = Enum.YLeaf(3, "sim-user-op-unblock-chv1")
+
+    sim_user_op_unblock_chv2 = Enum.YLeaf(4, "sim-user-op-unblock-chv2")
+
+    sim_user_op_mep = Enum.YLeaf(5, "sim-user-op-mep")
+
+    sim_user_op_unknown = Enum.YLeaf(6, "sim-user-op-unknown")
+
+
 class CwRadioPowerStatus(Enum):
     """
     CwRadioPowerStatus (Enum Class)
@@ -63,6 +229,126 @@ class CwRadioPowerStatus(Enum):
     radio_power_mode_off = Enum.YLeaf(5, "radio-power-mode-off")
 
     radio_power_mode_persistent_low_power = Enum.YLeaf(6, "radio-power-mode-persistent-low-power")
+
+
+class CwanGpsFeatureState(Enum):
+    """
+    CwanGpsFeatureState (Enum Class)
+
+    Cellular modem GPS feature state status
+
+    .. data:: gps_disabled = 0
+
+    	Cellular modem GPS feature state is Disabled
+
+    .. data:: gps_enabled = 1
+
+    	Cellular modem GPS feature state is Enabled
+
+    """
+
+    gps_disabled = Enum.YLeaf(0, "gps-disabled")
+
+    gps_enabled = Enum.YLeaf(1, "gps-enabled")
+
+
+class CwanGpsModeSelected(Enum):
+    """
+    CwanGpsModeSelected (Enum Class)
+
+    Cellular modem GPS mode selection status
+
+    .. data:: gps_mode_disable = 0
+
+    	Cellular modem GPS mode is disabled
+
+    .. data:: gps_mode_standalone = 1
+
+    	Cellular modem GPS mode is standalone
+
+    .. data:: gps_mode_mbased = 2
+
+    	Cellular modem GPS mode is ms-based
+
+    .. data:: gps_mode_msassist = 3
+
+    	Cellular modem GPS mode is ms-assist
+
+    """
+
+    gps_mode_disable = Enum.YLeaf(0, "gps-mode-disable")
+
+    gps_mode_standalone = Enum.YLeaf(1, "gps-mode-standalone")
+
+    gps_mode_mbased = Enum.YLeaf(2, "gps-mode-mbased")
+
+    gps_mode_msassist = Enum.YLeaf(3, "gps-mode-msassist")
+
+
+class CwanGpsPortSelected(Enum):
+    """
+    CwanGpsPortSelected (Enum Class)
+
+    Cellular modem GPS port selection status
+
+    .. data:: dedicated_gps_port = 0
+
+    	Cellular modem dedicated GPS port selected
+
+    .. data:: div_gps_port = 1
+
+    	Cellular modem DIV port selected for GPS
+
+    .. data:: voltage_no_bias_gps_port = 2
+
+    	Cellular modem voltage no-bias port selected for GPS
+
+    .. data:: gps_port_none = 3
+
+    	Cellular modem none port selected for GPS
+
+    """
+
+    dedicated_gps_port = Enum.YLeaf(0, "dedicated-gps-port")
+
+    div_gps_port = Enum.YLeaf(1, "div-gps-port")
+
+    voltage_no_bias_gps_port = Enum.YLeaf(2, "voltage-no-bias-gps-port")
+
+    gps_port_none = Enum.YLeaf(3, "gps-port-none")
+
+
+class CwanGpsState(Enum):
+    """
+    CwanGpsState (Enum Class)
+
+    Cellular modem GPS state
+
+    .. data:: gps_state_disabled = 1
+
+    	Cellular modem is in GPS disabled state
+
+    .. data:: gps_state_acquiring = 2
+
+    	Cellular modem is in GPS acquiring state
+
+    .. data:: gps_state_enabled = 3
+
+    	Cellular modem is in GPS enabled state
+
+    .. data:: gps_loc_error = 4
+
+    	Cellular modem is in GPS location error state
+
+    """
+
+    gps_state_disabled = Enum.YLeaf(1, "gps-state-disabled")
+
+    gps_state_acquiring = Enum.YLeaf(2, "gps-state-acquiring")
+
+    gps_state_enabled = Enum.YLeaf(3, "gps-state-enabled")
+
+    gps_loc_error = Enum.YLeaf(4, "gps-loc-error")
 
 
 class LteCa(Enum):
@@ -763,12 +1049,27 @@ class CellwanOperData(Entity):
     	Cellwan modem connection data
     	**type**\: list of  		 :py:class:`CellwanConnection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanConnection>`
     
+    .. attribute:: cellwan_security
+    
+    	Cellwan modem sim security data
+    	**type**\: list of  		 :py:class:`CellwanSecurity <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanSecurity>`
+    
+    .. attribute:: cellwan_sms
+    
+    	Cellwan modem sms data
+    	**type**\: list of  		 :py:class:`CellwanSms <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanSms>`
+    
+    .. attribute:: cellwan_gps
+    
+    	Cellwan modem gps data
+    	**type**\: list of  		 :py:class:`CellwanGps <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanOperData.CellwanGps>`
+    
     
 
     """
 
     _prefix = 'cellwan-ios-xe-oper'
-    _revision = '2018-05-01'
+    _revision = '2018-09-04'
 
     def __init__(self):
         super(CellwanOperData, self).__init__()
@@ -779,14 +1080,18 @@ class CellwanOperData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("cellwan-hardware", ("cellwan_hardware", CellwanOperData.CellwanHardware)), ("cellwan-radio", ("cellwan_radio", CellwanOperData.CellwanRadio)), ("cellwan-network", ("cellwan_network", CellwanOperData.CellwanNetwork)), ("cellwan-connection", ("cellwan_connection", CellwanOperData.CellwanConnection))])
+        self._child_classes = OrderedDict([("cellwan-hardware", ("cellwan_hardware", CellwanOperData.CellwanHardware)), ("cellwan-radio", ("cellwan_radio", CellwanOperData.CellwanRadio)), ("cellwan-network", ("cellwan_network", CellwanOperData.CellwanNetwork)), ("cellwan-connection", ("cellwan_connection", CellwanOperData.CellwanConnection)), ("cellwan-security", ("cellwan_security", CellwanOperData.CellwanSecurity)), ("cellwan-sms", ("cellwan_sms", CellwanOperData.CellwanSms)), ("cellwan-gps", ("cellwan_gps", CellwanOperData.CellwanGps))])
         self._leafs = OrderedDict()
 
         self.cellwan_hardware = YList(self)
         self.cellwan_radio = YList(self)
         self.cellwan_network = YList(self)
         self.cellwan_connection = YList(self)
+        self.cellwan_security = YList(self)
+        self.cellwan_sms = YList(self)
+        self.cellwan_gps = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CellwanOperData, [], name, value)
@@ -883,7 +1188,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-05-01'
+        _revision = '2018-09-04'
 
         def __init__(self):
             super(CellwanOperData.CellwanHardware, self).__init__()
@@ -895,22 +1200,22 @@ class CellwanOperData(Entity):
             self.ylist_key_names = ['cellular_interface']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
-                ('cellular_firmware_version', YLeaf(YType.str, 'cellular-firmware-version')),
-                ('cellular_firmware_build_time', YLeaf(YType.str, 'cellular-firmware-build-time')),
-                ('cellular_hardware_version', YLeaf(YType.str, 'cellular-hardware-version')),
-                ('cellular_device_model', YLeaf(YType.str, 'cellular-device-model')),
-                ('cellular_imsi', YLeaf(YType.str, 'cellular-imsi')),
-                ('cellular_imei', YLeaf(YType.str, 'cellular-imei')),
-                ('cellular_iccid', YLeaf(YType.str, 'cellular-iccid')),
-                ('cellular_msisdn', YLeaf(YType.str, 'cellular-msisdn')),
-                ('cellular_fsn', YLeaf(YType.str, 'cellular-fsn')),
-                ('cellular_modem_status', YLeaf(YType.enumeration, 'cellular-modem-status')),
-                ('cellular_modem_temperature', YLeaf(YType.int16, 'cellular-modem-temperature')),
-                ('cellular_pri_skuid', YLeaf(YType.str, 'cellular-pri-skuid')),
-                ('cellular_pri_version', YLeaf(YType.str, 'cellular-pri-version')),
-                ('cellular_carrier', YLeaf(YType.str, 'cellular-carrier')),
-                ('cellular_oem_pri_version', YLeaf(YType.str, 'cellular-oem-pri-version')),
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('cellular_firmware_version', (YLeaf(YType.str, 'cellular-firmware-version'), ['str'])),
+                ('cellular_firmware_build_time', (YLeaf(YType.str, 'cellular-firmware-build-time'), ['str'])),
+                ('cellular_hardware_version', (YLeaf(YType.str, 'cellular-hardware-version'), ['str'])),
+                ('cellular_device_model', (YLeaf(YType.str, 'cellular-device-model'), ['str'])),
+                ('cellular_imsi', (YLeaf(YType.str, 'cellular-imsi'), ['str'])),
+                ('cellular_imei', (YLeaf(YType.str, 'cellular-imei'), ['str'])),
+                ('cellular_iccid', (YLeaf(YType.str, 'cellular-iccid'), ['str'])),
+                ('cellular_msisdn', (YLeaf(YType.str, 'cellular-msisdn'), ['str'])),
+                ('cellular_fsn', (YLeaf(YType.str, 'cellular-fsn'), ['str'])),
+                ('cellular_modem_status', (YLeaf(YType.enumeration, 'cellular-modem-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'ModemStatus', '')])),
+                ('cellular_modem_temperature', (YLeaf(YType.int16, 'cellular-modem-temperature'), ['int'])),
+                ('cellular_pri_skuid', (YLeaf(YType.str, 'cellular-pri-skuid'), ['str'])),
+                ('cellular_pri_version', (YLeaf(YType.str, 'cellular-pri-version'), ['str'])),
+                ('cellular_carrier', (YLeaf(YType.str, 'cellular-carrier'), ['str'])),
+                ('cellular_oem_pri_version', (YLeaf(YType.str, 'cellular-oem-pri-version'), ['str'])),
             ])
             self.cellular_interface = None
             self.cellular_firmware_version = None
@@ -930,6 +1235,7 @@ class CellwanOperData(Entity):
             self.cellular_oem_pri_version = None
             self._segment_path = lambda: "cellwan-hardware" + "[cellular-interface='" + str(self.cellular_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CellwanOperData.CellwanHardware, ['cellular_interface', 'cellular_firmware_version', 'cellular_firmware_build_time', 'cellular_hardware_version', 'cellular_device_model', 'cellular_imsi', 'cellular_imei', 'cellular_iccid', 'cellular_msisdn', 'cellular_fsn', 'cellular_modem_status', 'cellular_modem_temperature', 'cellular_pri_skuid', 'cellular_pri_version', 'cellular_carrier', 'cellular_oem_pri_version'], name, value)
@@ -1023,7 +1329,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-05-01'
+        _revision = '2018-09-04'
 
         def __init__(self):
             super(CellwanOperData.CellwanRadio, self).__init__()
@@ -1035,19 +1341,19 @@ class CellwanOperData(Entity):
             self.ylist_key_names = ['cellular_interface']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
-                ('technology', YLeaf(YType.enumeration, 'technology')),
-                ('radio_power_mode', YLeaf(YType.enumeration, 'radio-power-mode')),
-                ('radio_rx_channel', YLeaf(YType.uint32, 'radio-rx-channel')),
-                ('radio_tx_channel', YLeaf(YType.uint32, 'radio-tx-channel')),
-                ('radio_band', YLeaf(YType.uint32, 'radio-band')),
-                ('bandwidth', YLeaf(YType.enumeration, 'bandwidth')),
-                ('radio_rssi', YLeaf(YType.int16, 'radio-rssi')),
-                ('radio_rsrp', YLeaf(YType.int16, 'radio-rsrp')),
-                ('radio_rsrq', YLeaf(YType.int8, 'radio-rsrq')),
-                ('radio_snr', YLeaf(YType.str, 'radio-snr')),
-                ('radio_rat_preference', YLeaf(YType.enumeration, 'radio-rat-preference')),
-                ('radio_rat_selected', YLeaf(YType.enumeration, 'radio-rat-selected')),
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('technology', (YLeaf(YType.enumeration, 'technology'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'ModemTechnology', '')])),
+                ('radio_power_mode', (YLeaf(YType.enumeration, 'radio-power-mode'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CwRadioPowerStatus', '')])),
+                ('radio_rx_channel', (YLeaf(YType.uint32, 'radio-rx-channel'), ['int'])),
+                ('radio_tx_channel', (YLeaf(YType.uint32, 'radio-tx-channel'), ['int'])),
+                ('radio_band', (YLeaf(YType.uint32, 'radio-band'), ['int'])),
+                ('bandwidth', (YLeaf(YType.enumeration, 'bandwidth'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'RadioBandwidth', '')])),
+                ('radio_rssi', (YLeaf(YType.int16, 'radio-rssi'), ['int'])),
+                ('radio_rsrp', (YLeaf(YType.int16, 'radio-rsrp'), ['int'])),
+                ('radio_rsrq', (YLeaf(YType.int8, 'radio-rsrq'), ['int'])),
+                ('radio_snr', (YLeaf(YType.str, 'radio-snr'), ['Decimal64'])),
+                ('radio_rat_preference', (YLeaf(YType.enumeration, 'radio-rat-preference'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'RatPreference', '')])),
+                ('radio_rat_selected', (YLeaf(YType.enumeration, 'radio-rat-selected'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'RatTechnology', '')])),
             ])
             self.cellular_interface = None
             self.technology = None
@@ -1064,6 +1370,7 @@ class CellwanOperData(Entity):
             self.radio_rat_selected = None
             self._segment_path = lambda: "cellwan-radio" + "[cellular-interface='" + str(self.cellular_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CellwanOperData.CellwanRadio, ['cellular_interface', 'technology', 'radio_power_mode', 'radio_rx_channel', 'radio_tx_channel', 'radio_band', 'bandwidth', 'radio_rssi', 'radio_rsrp', 'radio_rsrq', 'radio_snr', 'radio_rat_preference', 'radio_rat_selected'], name, value)
@@ -1201,7 +1508,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-05-01'
+        _revision = '2018-09-04'
 
         def __init__(self):
             super(CellwanOperData.CellwanNetwork, self).__init__()
@@ -1213,27 +1520,27 @@ class CellwanOperData(Entity):
             self.ylist_key_names = ['cellular_interface']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
-                ('cellular_modem_time', YLeaf(YType.str, 'cellular-modem-time')),
-                ('radio_access_technology_selected', YLeaf(YType.enumeration, 'radio-access-technology-selected')),
-                ('current_service_status', YLeaf(YType.enumeration, 'current-service-status')),
-                ('current_system_identifier', YLeaf(YType.uint16, 'current-system-identifier')),
-                ('current_network_identifier', YLeaf(YType.uint16, 'current-network-identifier')),
-                ('current_service_type', YLeaf(YType.enumeration, 'current-service-type')),
-                ('current_roaming_status', YLeaf(YType.str, 'current-roaming-status')),
-                ('network_selection_mode', YLeaf(YType.str, 'network-selection-mode')),
-                ('network_name', YLeaf(YType.str, 'network-name')),
-                ('mobile_country_code', YLeaf(YType.uint16, 'mobile-country-code')),
-                ('mobile_network_code', YLeaf(YType.uint16, 'mobile-network-code')),
-                ('packet_switch_domain_state', YLeaf(YType.str, 'packet-switch-domain-state')),
-                ('lte_carrier_aggregation', YLeaf(YType.enumeration, 'lte-carrier-aggregation')),
-                ('registration_state', YLeaf(YType.enumeration, 'registration-state')),
-                ('emm_state', YLeaf(YType.str, 'emm-state')),
-                ('emm_substate', YLeaf(YType.str, 'emm-substate')),
-                ('location_area_code', YLeaf(YType.uint16, 'location-area-code')),
-                ('tracking_area_code', YLeaf(YType.uint16, 'tracking-area-code')),
-                ('cell_id', YLeaf(YType.uint64, 'cell-id')),
-                ('negotiated_network_mtu', YLeaf(YType.uint16, 'negotiated-network-mtu')),
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('cellular_modem_time', (YLeaf(YType.str, 'cellular-modem-time'), ['str'])),
+                ('radio_access_technology_selected', (YLeaf(YType.enumeration, 'radio-access-technology-selected'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'RatTechnology', '')])),
+                ('current_service_status', (YLeaf(YType.enumeration, 'current-service-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'ServiceStatus', '')])),
+                ('current_system_identifier', (YLeaf(YType.uint16, 'current-system-identifier'), ['int'])),
+                ('current_network_identifier', (YLeaf(YType.uint16, 'current-network-identifier'), ['int'])),
+                ('current_service_type', (YLeaf(YType.enumeration, 'current-service-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'ModemService', '')])),
+                ('current_roaming_status', (YLeaf(YType.str, 'current-roaming-status'), ['str'])),
+                ('network_selection_mode', (YLeaf(YType.str, 'network-selection-mode'), ['str'])),
+                ('network_name', (YLeaf(YType.str, 'network-name'), ['str'])),
+                ('mobile_country_code', (YLeaf(YType.uint16, 'mobile-country-code'), ['int'])),
+                ('mobile_network_code', (YLeaf(YType.uint16, 'mobile-network-code'), ['int'])),
+                ('packet_switch_domain_state', (YLeaf(YType.str, 'packet-switch-domain-state'), ['str'])),
+                ('lte_carrier_aggregation', (YLeaf(YType.enumeration, 'lte-carrier-aggregation'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'LteCa', '')])),
+                ('registration_state', (YLeaf(YType.enumeration, 'registration-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'RegState', '')])),
+                ('emm_state', (YLeaf(YType.str, 'emm-state'), ['str'])),
+                ('emm_substate', (YLeaf(YType.str, 'emm-substate'), ['str'])),
+                ('location_area_code', (YLeaf(YType.uint16, 'location-area-code'), ['int'])),
+                ('tracking_area_code', (YLeaf(YType.uint16, 'tracking-area-code'), ['int'])),
+                ('cell_id', (YLeaf(YType.uint64, 'cell-id'), ['int'])),
+                ('negotiated_network_mtu', (YLeaf(YType.uint16, 'negotiated-network-mtu'), ['int'])),
             ])
             self.cellular_interface = None
             self.cellular_modem_time = None
@@ -1258,6 +1565,7 @@ class CellwanOperData(Entity):
             self.negotiated_network_mtu = None
             self._segment_path = lambda: "cellwan-network" + "[cellular-interface='" + str(self.cellular_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CellwanOperData.CellwanNetwork, ['cellular_interface', 'cellular_modem_time', 'radio_access_technology_selected', 'current_service_status', 'current_system_identifier', 'current_network_identifier', 'current_service_type', 'current_roaming_status', 'network_selection_mode', 'network_name', 'mobile_country_code', 'mobile_network_code', 'packet_switch_domain_state', 'lte_carrier_aggregation', 'registration_state', 'emm_state', 'emm_substate', 'location_area_code', 'tracking_area_code', 'cell_id', 'negotiated_network_mtu'], name, value)
@@ -1400,7 +1708,7 @@ class CellwanOperData(Entity):
         """
 
         _prefix = 'cellwan-ios-xe-oper'
-        _revision = '2018-05-01'
+        _revision = '2018-09-04'
 
         def __init__(self):
             super(CellwanOperData.CellwanConnection, self).__init__()
@@ -1412,20 +1720,20 @@ class CellwanOperData(Entity):
             self.ylist_key_names = ['cellular_interface']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cellular_interface', YLeaf(YType.str, 'cellular-interface')),
-                ('active_profile', YLeaf(YType.uint64, 'active-profile')),
-                ('cellular_packet_status', YLeaf(YType.enumeration, 'cellular-packet-status')),
-                ('tx_packets', YLeaf(YType.uint64, 'tx-packets')),
-                ('rx_packets', YLeaf(YType.uint64, 'rx-packets')),
-                ('tx_bytes', YLeaf(YType.uint64, 'tx-bytes')),
-                ('rx_bytes', YLeaf(YType.uint64, 'rx-bytes')),
-                ('ipv4_addr', YLeaf(YType.str, 'ipv4-addr')),
-                ('ipv6_addr', YLeaf(YType.str, 'ipv6-addr')),
-                ('ipv4_dns_pri', YLeaf(YType.str, 'ipv4-dns-pri')),
-                ('ipv4_dns_sec', YLeaf(YType.str, 'ipv4-dns-sec')),
-                ('ipv6_dns_pri', YLeaf(YType.str, 'ipv6-dns-pri')),
-                ('ipv6_dns_sec', YLeaf(YType.str, 'ipv6-dns-sec')),
-                ('scope', YLeaf(YType.enumeration, 'scope')),
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('active_profile', (YLeaf(YType.uint64, 'active-profile'), ['int'])),
+                ('cellular_packet_status', (YLeaf(YType.enumeration, 'cellular-packet-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'PacketSessStatus', '')])),
+                ('tx_packets', (YLeaf(YType.uint64, 'tx-packets'), ['int'])),
+                ('rx_packets', (YLeaf(YType.uint64, 'rx-packets'), ['int'])),
+                ('tx_bytes', (YLeaf(YType.uint64, 'tx-bytes'), ['int'])),
+                ('rx_bytes', (YLeaf(YType.uint64, 'rx-bytes'), ['int'])),
+                ('ipv4_addr', (YLeaf(YType.str, 'ipv4-addr'), ['str','str'])),
+                ('ipv6_addr', (YLeaf(YType.str, 'ipv6-addr'), ['str','str'])),
+                ('ipv4_dns_pri', (YLeaf(YType.str, 'ipv4-dns-pri'), ['str','str'])),
+                ('ipv4_dns_sec', (YLeaf(YType.str, 'ipv4-dns-sec'), ['str','str'])),
+                ('ipv6_dns_pri', (YLeaf(YType.str, 'ipv6-dns-pri'), ['str','str'])),
+                ('ipv6_dns_sec', (YLeaf(YType.str, 'ipv6-dns-sec'), ['str','str'])),
+                ('scope', (YLeaf(YType.enumeration, 'scope'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'ProfileScope', '')])),
             ])
             self.cellular_interface = None
             self.active_profile = None
@@ -1443,9 +1751,337 @@ class CellwanOperData(Entity):
             self.scope = None
             self._segment_path = lambda: "cellwan-connection" + "[cellular-interface='" + str(self.cellular_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CellwanOperData.CellwanConnection, ['cellular_interface', 'active_profile', 'cellular_packet_status', 'tx_packets', 'rx_packets', 'tx_bytes', 'rx_bytes', 'ipv4_addr', 'ipv6_addr', 'ipv4_dns_pri', 'ipv4_dns_sec', 'ipv6_dns_pri', 'ipv6_dns_sec', 'scope'], name, value)
+
+
+    class CellwanSecurity(Entity):
+        """
+        Cellwan modem sim security data
+        
+        .. attribute:: cellular_interface  (key)
+        
+        	Cellular interface
+        	**type**\: str
+        
+        .. attribute:: active_sim
+        
+        	Cellular modem active SIM slot status
+        	**type**\: int
+        
+        	**range:** \-128..127
+        
+        .. attribute:: sim_num_switchover
+        
+        	Cellular modem SIM switchover attempts
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: chv1_status
+        
+        	Cellular SIM Card Holder Verification (CHV1) status
+        	**type**\:  :py:class:`CellwanChv1SimStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanChv1SimStatus>`
+        
+        .. attribute:: sim_status
+        
+        	Cellular SIM status
+        	**type**\:  :py:class:`CellwanSimStatus <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanSimStatus>`
+        
+        .. attribute:: sim_oper
+        
+        	Cellular SIM user operation
+        	**type**\:  :py:class:`CellwanSimUserOp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CellwanSimUserOp>`
+        
+        .. attribute:: num_retries
+        
+        	Cellular SIM number of CHV1 retries remaining
+        	**type**\: int
+        
+        	**range:** \-128..127
+        
+        
+
+        """
+
+        _prefix = 'cellwan-ios-xe-oper'
+        _revision = '2018-09-04'
+
+        def __init__(self):
+            super(CellwanOperData.CellwanSecurity, self).__init__()
+
+            self.yang_name = "cellwan-security"
+            self.yang_parent_name = "cellwan-oper-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['cellular_interface']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('active_sim', (YLeaf(YType.int8, 'active-sim'), ['int'])),
+                ('sim_num_switchover', (YLeaf(YType.uint32, 'sim-num-switchover'), ['int'])),
+                ('chv1_status', (YLeaf(YType.enumeration, 'chv1-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CellwanChv1SimStatus', '')])),
+                ('sim_status', (YLeaf(YType.enumeration, 'sim-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CellwanSimStatus', '')])),
+                ('sim_oper', (YLeaf(YType.enumeration, 'sim-oper'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CellwanSimUserOp', '')])),
+                ('num_retries', (YLeaf(YType.int8, 'num-retries'), ['int'])),
+            ])
+            self.cellular_interface = None
+            self.active_sim = None
+            self.sim_num_switchover = None
+            self.chv1_status = None
+            self.sim_status = None
+            self.sim_oper = None
+            self.num_retries = None
+            self._segment_path = lambda: "cellwan-security" + "[cellular-interface='" + str(self.cellular_interface) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CellwanOperData.CellwanSecurity, ['cellular_interface', 'active_sim', 'sim_num_switchover', 'chv1_status', 'sim_status', 'sim_oper', 'num_retries'], name, value)
+
+
+    class CellwanSms(Entity):
+        """
+        Cellwan modem sms data
+        
+        .. attribute:: cellular_interface  (key)
+        
+        	Cellular interface
+        	**type**\: str
+        
+        .. attribute:: in_sms_count
+        
+        	Number of incoming SMS stored in Cellular modem
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_archived
+        
+        	Number of incoming SMS archived in Cellular modem
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_deleted
+        
+        	Number of incoming SMS deleted in Cellular modem
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_max
+        
+        	Number of SIM/modem SMS record allocated
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_used
+        
+        	Number of SIM/modem SMS record used
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: sms_callback_count
+        
+        	Number of SMS triggerred data callback
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_arch_count
+        
+        	Number of successful archive on in SMS
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: in_sms_arch_error_count
+        
+        	Number of failed archive on in SMS
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: out_sms_count
+        
+        	Number of outgoing SMS successfully sent
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: out_sms_error_count
+        
+        	Number of outgoing SMS send failure
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: out_sms_pending
+        
+        	Number of outgoing SMS pending
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: out_sms_arch_count
+        
+        	Number of successful archive out in SMS
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: out_sms_arch_error_count
+        
+        	Number of failed archive on out SMS
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        
+
+        """
+
+        _prefix = 'cellwan-ios-xe-oper'
+        _revision = '2018-09-04'
+
+        def __init__(self):
+            super(CellwanOperData.CellwanSms, self).__init__()
+
+            self.yang_name = "cellwan-sms"
+            self.yang_parent_name = "cellwan-oper-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['cellular_interface']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('in_sms_count', (YLeaf(YType.uint16, 'in-sms-count'), ['int'])),
+                ('in_sms_archived', (YLeaf(YType.uint16, 'in-sms-archived'), ['int'])),
+                ('in_sms_deleted', (YLeaf(YType.uint16, 'in-sms-deleted'), ['int'])),
+                ('in_sms_max', (YLeaf(YType.uint16, 'in-sms-max'), ['int'])),
+                ('in_sms_used', (YLeaf(YType.uint16, 'in-sms-used'), ['int'])),
+                ('sms_callback_count', (YLeaf(YType.uint16, 'sms-callback-count'), ['int'])),
+                ('in_sms_arch_count', (YLeaf(YType.uint16, 'in-sms-arch-count'), ['int'])),
+                ('in_sms_arch_error_count', (YLeaf(YType.uint16, 'in-sms-arch-error-count'), ['int'])),
+                ('out_sms_count', (YLeaf(YType.uint16, 'out-sms-count'), ['int'])),
+                ('out_sms_error_count', (YLeaf(YType.uint16, 'out-sms-error-count'), ['int'])),
+                ('out_sms_pending', (YLeaf(YType.uint16, 'out-sms-pending'), ['int'])),
+                ('out_sms_arch_count', (YLeaf(YType.uint16, 'out-sms-arch-count'), ['int'])),
+                ('out_sms_arch_error_count', (YLeaf(YType.uint16, 'out-sms-arch-error-count'), ['int'])),
+            ])
+            self.cellular_interface = None
+            self.in_sms_count = None
+            self.in_sms_archived = None
+            self.in_sms_deleted = None
+            self.in_sms_max = None
+            self.in_sms_used = None
+            self.sms_callback_count = None
+            self.in_sms_arch_count = None
+            self.in_sms_arch_error_count = None
+            self.out_sms_count = None
+            self.out_sms_error_count = None
+            self.out_sms_pending = None
+            self.out_sms_arch_count = None
+            self.out_sms_arch_error_count = None
+            self._segment_path = lambda: "cellwan-sms" + "[cellular-interface='" + str(self.cellular_interface) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CellwanOperData.CellwanSms, ['cellular_interface', 'in_sms_count', 'in_sms_archived', 'in_sms_deleted', 'in_sms_max', 'in_sms_used', 'sms_callback_count', 'in_sms_arch_count', 'in_sms_arch_error_count', 'out_sms_count', 'out_sms_error_count', 'out_sms_pending', 'out_sms_arch_count', 'out_sms_arch_error_count'], name, value)
+
+
+    class CellwanGps(Entity):
+        """
+        Cellwan modem gps data
+        
+        .. attribute:: cellular_interface  (key)
+        
+        	Cellular interface
+        	**type**\: str
+        
+        .. attribute:: gps_feature_state
+        
+        	Cellular modem GPS feature state status
+        	**type**\:  :py:class:`CwanGpsFeatureState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsFeatureState>`
+        
+        .. attribute:: port_selected
+        
+        	Cellular modem GPS port selection status
+        	**type**\:  :py:class:`CwanGpsPortSelected <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsPortSelected>`
+        
+        .. attribute:: state
+        
+        	Cellular modem GPS state status
+        	**type**\:  :py:class:`CwanGpsState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsState>`
+        
+        .. attribute:: mode_selected
+        
+        	Cellular modem GPS mode selection status
+        	**type**\:  :py:class:`CwanGpsModeSelected <ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper.CwanGpsModeSelected>`
+        
+        .. attribute:: latitude
+        
+        	Cellular modem GPS latitude details
+        	**type**\: str
+        
+        .. attribute:: longitude
+        
+        	Cellular modem GPS longitude details
+        	**type**\: str
+        
+        .. attribute:: timestamp
+        
+        	Cellular modem GPS timestamp details
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        
+
+        """
+
+        _prefix = 'cellwan-ios-xe-oper'
+        _revision = '2018-09-04'
+
+        def __init__(self):
+            super(CellwanOperData.CellwanGps, self).__init__()
+
+            self.yang_name = "cellwan-gps"
+            self.yang_parent_name = "cellwan-oper-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['cellular_interface']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('cellular_interface', (YLeaf(YType.str, 'cellular-interface'), ['str'])),
+                ('gps_feature_state', (YLeaf(YType.enumeration, 'gps-feature-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CwanGpsFeatureState', '')])),
+                ('port_selected', (YLeaf(YType.enumeration, 'port-selected'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CwanGpsPortSelected', '')])),
+                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CwanGpsState', '')])),
+                ('mode_selected', (YLeaf(YType.enumeration, 'mode-selected'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cellwan_oper', 'CwanGpsModeSelected', '')])),
+                ('latitude', (YLeaf(YType.str, 'latitude'), ['str'])),
+                ('longitude', (YLeaf(YType.str, 'longitude'), ['str'])),
+                ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+            ])
+            self.cellular_interface = None
+            self.gps_feature_state = None
+            self.port_selected = None
+            self.state = None
+            self.mode_selected = None
+            self.latitude = None
+            self.longitude = None
+            self.timestamp = None
+            self._segment_path = lambda: "cellwan-gps" + "[cellular-interface='" + str(self.cellular_interface) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-cellwan-oper:cellwan-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CellwanOperData.CellwanGps, ['cellular_interface', 'gps_feature_state', 'port_selected', 'state', 'mode_selected', 'latitude', 'longitude', 'timestamp'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CellwanOperData()

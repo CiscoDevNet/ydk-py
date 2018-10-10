@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG definitions
 for NAT operational data.
-Copyright (c) 2017 by Cisco Systems, Inc.
+Copyright (c) 2017\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -36,7 +37,7 @@ class NatData(Entity):
     """
 
     _prefix = 'nat-ios-xe-oper'
-    _revision = '2017-11-01'
+    _revision = '2018-03-17'
 
     def __init__(self):
         super(NatData, self).__init__()
@@ -55,6 +56,7 @@ class NatData(Entity):
 
         self.ip_nat_translation = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-nat-oper:nat-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NatData, [], name, value)
@@ -223,7 +225,7 @@ class NatData(Entity):
         """
 
         _prefix = 'nat-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-03-17'
 
         def __init__(self):
             super(NatData.IpNatStatistics, self).__init__()
@@ -236,28 +238,28 @@ class NatData(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('initialized', YLeaf(YType.boolean, 'initialized')),
-                ('entries', YLeaf(YType.uint64, 'entries')),
-                ('statics', YLeaf(YType.uint64, 'statics')),
-                ('statics_sorted', YLeafList(YType.uint64, 'statics-sorted')),
-                ('flows', YLeaf(YType.uint64, 'flows')),
-                ('insides', YLeaf(YType.uint64, 'insides')),
-                ('outsides', YLeaf(YType.uint64, 'outsides')),
-                ('entry_timeouts', YLeaf(YType.uint64, 'entry-timeouts')),
-                ('hits', YLeaf(YType.uint64, 'hits')),
-                ('misses', YLeaf(YType.uint64, 'misses')),
-                ('interrupt_switched', YLeaf(YType.uint64, 'interrupt-switched')),
-                ('packets_punted', YLeaf(YType.uint64, 'packets-punted')),
-                ('frag_pak_count', YLeaf(YType.uint64, 'frag-pak-count')),
-                ('pool_stats_drop', YLeaf(YType.uint64, 'pool-stats-drop')),
-                ('mapping_stats_drop', YLeaf(YType.uint64, 'mapping-stats-drop')),
-                ('portlist_req_fail', YLeaf(YType.uint64, 'portlist-req-fail')),
-                ('ipalias_add_fail', YLeaf(YType.uint64, 'ipalias-add-fail')),
-                ('limit_entry_add_fail', YLeaf(YType.uint64, 'limit-entry-add-fail')),
-                ('in2out_drops', YLeaf(YType.uint64, 'in2out-drops')),
-                ('out2in_drops', YLeaf(YType.uint64, 'out2in-drops')),
-                ('mib_addr_binds', YLeaf(YType.uint32, 'mib-addr-binds')),
-                ('mib_addport_binds', YLeaf(YType.uint32, 'mib-addport-binds')),
+                ('initialized', (YLeaf(YType.boolean, 'initialized'), ['bool'])),
+                ('entries', (YLeaf(YType.uint64, 'entries'), ['int'])),
+                ('statics', (YLeaf(YType.uint64, 'statics'), ['int'])),
+                ('statics_sorted', (YLeafList(YType.uint64, 'statics-sorted'), ['int'])),
+                ('flows', (YLeaf(YType.uint64, 'flows'), ['int'])),
+                ('insides', (YLeaf(YType.uint64, 'insides'), ['int'])),
+                ('outsides', (YLeaf(YType.uint64, 'outsides'), ['int'])),
+                ('entry_timeouts', (YLeaf(YType.uint64, 'entry-timeouts'), ['int'])),
+                ('hits', (YLeaf(YType.uint64, 'hits'), ['int'])),
+                ('misses', (YLeaf(YType.uint64, 'misses'), ['int'])),
+                ('interrupt_switched', (YLeaf(YType.uint64, 'interrupt-switched'), ['int'])),
+                ('packets_punted', (YLeaf(YType.uint64, 'packets-punted'), ['int'])),
+                ('frag_pak_count', (YLeaf(YType.uint64, 'frag-pak-count'), ['int'])),
+                ('pool_stats_drop', (YLeaf(YType.uint64, 'pool-stats-drop'), ['int'])),
+                ('mapping_stats_drop', (YLeaf(YType.uint64, 'mapping-stats-drop'), ['int'])),
+                ('portlist_req_fail', (YLeaf(YType.uint64, 'portlist-req-fail'), ['int'])),
+                ('ipalias_add_fail', (YLeaf(YType.uint64, 'ipalias-add-fail'), ['int'])),
+                ('limit_entry_add_fail', (YLeaf(YType.uint64, 'limit-entry-add-fail'), ['int'])),
+                ('in2out_drops', (YLeaf(YType.uint64, 'in2out-drops'), ['int'])),
+                ('out2in_drops', (YLeaf(YType.uint64, 'out2in-drops'), ['int'])),
+                ('mib_addr_binds', (YLeaf(YType.uint32, 'mib-addr-binds'), ['int'])),
+                ('mib_addport_binds', (YLeaf(YType.uint32, 'mib-addport-binds'), ['int'])),
             ])
             self.initialized = None
             self.entries = None
@@ -283,6 +285,7 @@ class NatData(Entity):
             self.mib_addport_binds = None
             self._segment_path = lambda: "ip-nat-statistics"
             self._absolute_path = lambda: "Cisco-IOS-XE-nat-oper:nat-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NatData.IpNatStatistics, ['initialized', 'entries', 'statics', 'statics_sorted', 'flows', 'insides', 'outsides', 'entry_timeouts', 'hits', 'misses', 'interrupt_switched', 'packets_punted', 'frag_pak_count', 'pool_stats_drop', 'mapping_stats_drop', 'portlist_req_fail', 'ipalias_add_fail', 'limit_entry_add_fail', 'in2out_drops', 'out2in_drops', 'mib_addr_binds', 'mib_addport_binds'], name, value)
@@ -376,12 +379,17 @@ class NatData(Entity):
         
         	**range:** 0..255
         
+        .. attribute:: vrf_name
+        
+        	Virtual Routing and Forwarding name
+        	**type**\: str
+        
         
 
         """
 
         _prefix = 'nat-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-03-17'
 
         def __init__(self):
             super(NatData.IpNatTranslation, self).__init__()
@@ -393,18 +401,19 @@ class NatData(Entity):
             self.ylist_key_names = ['inside_local_addr','outside_local_addr','inside_local_port','outside_local_port','vrfid','protocol']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('inside_local_addr', YLeaf(YType.str, 'inside-local-addr')),
-                ('outside_local_addr', YLeaf(YType.str, 'outside-local-addr')),
-                ('inside_local_port', YLeaf(YType.uint16, 'inside-local-port')),
-                ('outside_local_port', YLeaf(YType.uint16, 'outside-local-port')),
-                ('vrfid', YLeaf(YType.uint16, 'vrfid')),
-                ('protocol', YLeaf(YType.uint8, 'protocol')),
-                ('inside_global_addr', YLeaf(YType.str, 'inside-global-addr')),
-                ('outside_global_addr', YLeaf(YType.str, 'outside-global-addr')),
-                ('inside_global_port', YLeaf(YType.uint16, 'inside-global-port')),
-                ('outside_global_port', YLeaf(YType.uint16, 'outside-global-port')),
-                ('flags', YLeaf(YType.uint32, 'flags')),
-                ('application_type', YLeaf(YType.uint8, 'application-type')),
+                ('inside_local_addr', (YLeaf(YType.str, 'inside-local-addr'), ['str'])),
+                ('outside_local_addr', (YLeaf(YType.str, 'outside-local-addr'), ['str'])),
+                ('inside_local_port', (YLeaf(YType.uint16, 'inside-local-port'), ['int'])),
+                ('outside_local_port', (YLeaf(YType.uint16, 'outside-local-port'), ['int'])),
+                ('vrfid', (YLeaf(YType.uint16, 'vrfid'), ['int'])),
+                ('protocol', (YLeaf(YType.uint8, 'protocol'), ['int'])),
+                ('inside_global_addr', (YLeaf(YType.str, 'inside-global-addr'), ['str'])),
+                ('outside_global_addr', (YLeaf(YType.str, 'outside-global-addr'), ['str'])),
+                ('inside_global_port', (YLeaf(YType.uint16, 'inside-global-port'), ['int'])),
+                ('outside_global_port', (YLeaf(YType.uint16, 'outside-global-port'), ['int'])),
+                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
+                ('application_type', (YLeaf(YType.uint8, 'application-type'), ['int'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
             ])
             self.inside_local_addr = None
             self.outside_local_addr = None
@@ -418,11 +427,13 @@ class NatData(Entity):
             self.outside_global_port = None
             self.flags = None
             self.application_type = None
+            self.vrf_name = None
             self._segment_path = lambda: "ip-nat-translation" + "[inside-local-addr='" + str(self.inside_local_addr) + "']" + "[outside-local-addr='" + str(self.outside_local_addr) + "']" + "[inside-local-port='" + str(self.inside_local_port) + "']" + "[outside-local-port='" + str(self.outside_local_port) + "']" + "[vrfid='" + str(self.vrfid) + "']" + "[protocol='" + str(self.protocol) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-nat-oper:nat-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NatData.IpNatTranslation, ['inside_local_addr', 'outside_local_addr', 'inside_local_port', 'outside_local_port', 'vrfid', 'protocol', 'inside_global_addr', 'outside_global_addr', 'inside_global_port', 'outside_global_port', 'flags', 'application_type'], name, value)
+            self._perform_setattr(NatData.IpNatTranslation, ['inside_local_addr', 'outside_local_addr', 'inside_local_port', 'outside_local_port', 'vrfid', 'protocol', 'inside_global_addr', 'outside_global_addr', 'inside_global_port', 'outside_global_port', 'flags', 'application_type', 'vrf_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NatData()

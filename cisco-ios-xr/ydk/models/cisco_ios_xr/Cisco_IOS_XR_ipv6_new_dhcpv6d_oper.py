@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   dhcpv6\: IPV6 DHCPD operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BagDhcpv6dFsmState(Enum):
@@ -358,7 +359,7 @@ class Dhcpv6(Entity):
     """
 
     _prefix = 'ipv6-new-dhcpv6d-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-12-06'
 
     def __init__(self):
         super(Dhcpv6, self).__init__()
@@ -380,6 +381,7 @@ class Dhcpv6(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Dhcpv6, [], name, value)
@@ -468,7 +470,7 @@ class Dhcpv6(Entity):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-12-06'
 
         def __init__(self):
             super(Dhcpv6.IssuStatus, self).__init__()
@@ -480,16 +482,16 @@ class Dhcpv6(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('process_start_time', YLeaf(YType.uint64, 'process-start-time')),
-                ('issu_sync_complete_time', YLeaf(YType.uint64, 'issu-sync-complete-time')),
-                ('issu_sync_start_time', YLeaf(YType.uint64, 'issu-sync-start-time')),
-                ('issu_ready_time', YLeaf(YType.uint64, 'issu-ready-time')),
-                ('big_bang_time', YLeaf(YType.uint64, 'big-bang-time')),
-                ('primary_role_time', YLeaf(YType.uint64, 'primary-role-time')),
-                ('issu_ready_issu_mgr_connection', YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection')),
-                ('role', YLeaf(YType.enumeration, 'role')),
-                ('phase', YLeaf(YType.enumeration, 'phase')),
-                ('version', YLeaf(YType.enumeration, 'version')),
+                ('process_start_time', (YLeaf(YType.uint64, 'process-start-time'), ['int'])),
+                ('issu_sync_complete_time', (YLeaf(YType.uint64, 'issu-sync-complete-time'), ['int'])),
+                ('issu_sync_start_time', (YLeaf(YType.uint64, 'issu-sync-start-time'), ['int'])),
+                ('issu_ready_time', (YLeaf(YType.uint64, 'issu-ready-time'), ['int'])),
+                ('big_bang_time', (YLeaf(YType.uint64, 'big-bang-time'), ['int'])),
+                ('primary_role_time', (YLeaf(YType.uint64, 'primary-role-time'), ['int'])),
+                ('issu_ready_issu_mgr_connection', (YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection'), ['bool'])),
+                ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6IssuRole', '')])),
+                ('phase', (YLeaf(YType.enumeration, 'phase'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'DhcpIssuPhase', '')])),
+                ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'Dhcpv6IssuVersion', '')])),
             ])
             self.process_start_time = None
             self.issu_sync_complete_time = None
@@ -503,6 +505,7 @@ class Dhcpv6(Entity):
             self.version = None
             self._segment_path = lambda: "issu-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.IssuStatus, ['process_start_time', 'issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'issu_ready_issu_mgr_connection', 'role', 'phase', 'version'], name, value)
@@ -522,7 +525,7 @@ class Dhcpv6(Entity):
         """
 
         _prefix = 'ipv6-new-dhcpv6d-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-12-06'
 
         def __init__(self):
             super(Dhcpv6.Nodes, self).__init__()
@@ -538,6 +541,7 @@ class Dhcpv6(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.Nodes, [], name, value)
@@ -579,7 +583,7 @@ class Dhcpv6(Entity):
             """
 
             _prefix = 'ipv6-new-dhcpv6d-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-12-06'
 
             def __init__(self):
                 super(Dhcpv6.Nodes.Node, self).__init__()
@@ -591,7 +595,7 @@ class Dhcpv6(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("proxy", ("proxy", Dhcpv6.Nodes.Node.Proxy)), ("base", ("base", Dhcpv6.Nodes.Node.Base)), ("server", ("server", Dhcpv6.Nodes.Node.Server)), ("relay", ("relay", Dhcpv6.Nodes.Node.Relay))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -612,6 +616,7 @@ class Dhcpv6(Entity):
                 self._children_name_map["relay"] = "relay"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-oper:dhcpv6/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Dhcpv6.Nodes.Node, ['node_name'], name, value)
@@ -651,7 +656,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-12-06'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Proxy, self).__init__()
@@ -684,6 +689,7 @@ class Dhcpv6(Entity):
                     self.binding.parent = self
                     self._children_name_map["binding"] = "binding"
                     self._segment_path = lambda: "proxy"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy, [], name, value)
@@ -703,7 +709,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Vrfs, self).__init__()
@@ -718,6 +724,7 @@ class Dhcpv6(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs, [], name, value)
@@ -744,7 +751,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, self).__init__()
@@ -756,7 +763,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -764,6 +771,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -863,7 +871,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, self).__init__()
@@ -944,6 +952,7 @@ class Dhcpv6(Entity):
                                 self.lease_query_data.parent = self
                                 self._children_name_map["lease_query_data"] = "lease-query-data"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, [], name, value)
@@ -979,7 +988,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -991,14 +1000,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1034,7 +1044,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -1046,14 +1056,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1089,7 +1100,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -1101,14 +1112,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1144,7 +1156,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -1156,14 +1168,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1199,7 +1212,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -1211,14 +1224,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1254,7 +1268,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -1266,14 +1280,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1309,7 +1324,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -1321,14 +1336,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1364,7 +1380,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -1376,14 +1392,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1419,7 +1436,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -1431,14 +1448,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1474,7 +1492,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -1486,14 +1504,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1529,7 +1548,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -1541,14 +1560,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1584,7 +1604,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -1596,14 +1616,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1639,7 +1660,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -1651,14 +1672,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1694,7 +1716,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -1706,14 +1728,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1749,7 +1772,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -1761,14 +1784,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1804,7 +1828,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -1816,14 +1840,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1859,7 +1884,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
@@ -1871,14 +1896,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -1898,7 +1924,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Profiles, self).__init__()
@@ -1913,6 +1939,7 @@ class Dhcpv6(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles, [], name, value)
@@ -1934,6 +1961,11 @@ class Dhcpv6(Entity):
                         	DHCPV6 throttle table
                         	**type**\:  :py:class:`ThrottleInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos>`
                         
+                        .. attribute:: proxy_classes
+                        
+                        	IPv6 DHCP proxy class table
+                        	**type**\:  :py:class:`ProxyClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses>`
+                        
                         .. attribute:: info
                         
                         	IPv6 DHCP proxy profile Info
@@ -1944,7 +1976,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, self).__init__()
@@ -1954,9 +1986,9 @@ class Dhcpv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['profile_name']
-                            self._child_classes = OrderedDict([("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos)), ("info", ("info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info))])
+                            self._child_classes = OrderedDict([("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos)), ("proxy-classes", ("proxy_classes", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses)), ("info", ("info", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info))])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                             ])
                             self.profile_name = None
 
@@ -1964,10 +1996,15 @@ class Dhcpv6(Entity):
                             self.throttle_infos.parent = self
                             self._children_name_map["throttle_infos"] = "throttle-infos"
 
+                            self.proxy_classes = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses()
+                            self.proxy_classes.parent = self
+                            self._children_name_map["proxy_classes"] = "proxy-classes"
+
                             self.info = Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info()
                             self.info.parent = self
                             self._children_name_map["info"] = "info"
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile, ['profile_name'], name, value)
@@ -1987,7 +2024,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, self).__init__()
@@ -2002,6 +2039,7 @@ class Dhcpv6(Entity):
 
                                 self.throttle_info = YList(self)
                                 self._segment_path = lambda: "throttle-infos"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos, [], name, value)
@@ -2053,7 +2091,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
@@ -2065,11 +2103,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = ['mac_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                        ('binding_chaddr', YLeaf(YType.str, 'binding-chaddr')),
-                                        ('ifname', YLeaf(YType.str, 'ifname')),
-                                        ('state', YLeaf(YType.uint32, 'state')),
-                                        ('time_left', YLeaf(YType.uint32, 'time-left')),
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                        ('binding_chaddr', (YLeaf(YType.str, 'binding-chaddr'), ['str'])),
+                                        ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                                        ('state', (YLeaf(YType.uint32, 'state'), ['int'])),
+                                        ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
                                     ])
                                     self.mac_address = None
                                     self.binding_chaddr = None
@@ -2077,9 +2115,110 @@ class Dhcpv6(Entity):
                                     self.state = None
                                     self.time_left = None
                                     self._segment_path = lambda: "throttle-info" + "[mac-address='" + str(self.mac_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
+
+
+                        class ProxyClasses(Entity):
+                            """
+                            IPv6 DHCP proxy class table
+                            
+                            .. attribute:: proxy_class
+                            
+                            	IPv6 DHCP proxy class profile
+                            	**type**\: list of  		 :py:class:`ProxyClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-oper'
+                            _revision = '2017-12-06'
+
+                            def __init__(self):
+                                super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, self).__init__()
+
+                                self.yang_name = "proxy-classes"
+                                self.yang_parent_name = "profile"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("proxy-class", ("proxy_class", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass))])
+                                self._leafs = OrderedDict()
+
+                                self.proxy_class = YList(self)
+                                self._segment_path = lambda: "proxy-classes"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses, [], name, value)
+
+
+                            class ProxyClass(Entity):
+                                """
+                                IPv6 DHCP proxy class profile
+                                
+                                .. attribute:: class_name  (key)
+                                
+                                	Class name
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: class_name_xr
+                                
+                                	Class name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: profile_helper_address
+                                
+                                	Helper addresses
+                                	**type**\: list of str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: vrf_name
+                                
+                                	VRF names
+                                	**type**\: list of str
+                                
+                                	**length:** 0..33
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-new-dhcpv6d-oper'
+                                _revision = '2017-12-06'
+
+                                def __init__(self):
+                                    super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, self).__init__()
+
+                                    self.yang_name = "proxy-class"
+                                    self.yang_parent_name = "proxy-classes"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['class_name']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                        ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                                        ('profile_helper_address', (YLeafList(YType.str, 'profile-helper-address'), ['str'])),
+                                        ('vrf_name', (YLeafList(YType.str, 'vrf-name'), ['str'])),
+                                    ])
+                                    self.class_name = None
+                                    self.class_name_xr = None
+                                    self.profile_helper_address = []
+                                    self.vrf_name = []
+                                    self._segment_path = lambda: "proxy-class" + "[class-name='" + str(self.class_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.ProxyClasses.ProxyClass, ['class_name', 'class_name_xr', 'profile_helper_address', 'vrf_name'], name, value)
 
 
                         class Info(Entity):
@@ -2153,7 +2292,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, self).__init__()
@@ -2165,13 +2304,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("interface-id-references", ("interface_id_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences)), ("vrf-references", ("vrf_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences)), ("interface-references", ("interface_references", Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences))])
                                 self._leafs = OrderedDict([
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                    ('profile_link_address', YLeaf(YType.str, 'profile-link-address')),
-                                    ('proxy_profile_linkaddress_from_ra_enable', YLeaf(YType.boolean, 'proxy-profile-linkaddress-from-ra-enable')),
-                                    ('profile_helper_address', YLeafList(YType.str, 'profile-helper-address')),
-                                    ('vrf_name', YLeafList(YType.str, 'vrf-name')),
-                                    ('interface_name', YLeafList(YType.str, 'interface-name')),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('profile_link_address', (YLeaf(YType.str, 'profile-link-address'), ['str'])),
+                                    ('proxy_profile_linkaddress_from_ra_enable', (YLeaf(YType.boolean, 'proxy-profile-linkaddress-from-ra-enable'), ['bool'])),
+                                    ('profile_helper_address', (YLeafList(YType.str, 'profile-helper-address'), ['str'])),
+                                    ('vrf_name', (YLeafList(YType.str, 'vrf-name'), ['str'])),
+                                    ('interface_name', (YLeafList(YType.str, 'interface-name'), ['str'])),
                                 ])
                                 self.profile_name = None
                                 self.remote_id = None
@@ -2193,6 +2332,7 @@ class Dhcpv6(Entity):
                                 self.interface_references.parent = self
                                 self._children_name_map["interface_references"] = "interface-references"
                                 self._segment_path = lambda: "info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info, ['profile_name', 'remote_id', 'profile_link_address', 'proxy_profile_linkaddress_from_ra_enable', 'profile_helper_address', 'vrf_name', 'interface_name'], name, value)
@@ -2212,7 +2352,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, self).__init__()
@@ -2227,6 +2367,7 @@ class Dhcpv6(Entity):
 
                                     self.ipv6_dhcpv6d_proxy_iid_reference = YList(self)
                                     self._segment_path = lambda: "interface-id-references"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences, [], name, value)
@@ -2255,7 +2396,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, self).__init__()
@@ -2267,12 +2408,13 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('proxy_iid_interface_name', YLeaf(YType.str, 'proxy-iid-interface-name')),
-                                            ('proxy_interface_id', YLeaf(YType.str, 'proxy-interface-id')),
+                                            ('proxy_iid_interface_name', (YLeaf(YType.str, 'proxy-iid-interface-name'), ['str'])),
+                                            ('proxy_interface_id', (YLeaf(YType.str, 'proxy-interface-id'), ['str'])),
                                         ])
                                         self.proxy_iid_interface_name = None
                                         self.proxy_interface_id = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-iid-reference"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceIdReferences.Ipv6Dhcpv6dProxyIidReference, ['proxy_iid_interface_name', 'proxy_interface_id'], name, value)
@@ -2292,7 +2434,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, self).__init__()
@@ -2307,6 +2449,7 @@ class Dhcpv6(Entity):
 
                                     self.ipv6_dhcpv6d_proxy_vrf_reference = YList(self)
                                     self._segment_path = lambda: "vrf-references"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences, [], name, value)
@@ -2328,7 +2471,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, self).__init__()
@@ -2340,10 +2483,11 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('proxy_reference_vrf_name', YLeaf(YType.str, 'proxy-reference-vrf-name')),
+                                            ('proxy_reference_vrf_name', (YLeaf(YType.str, 'proxy-reference-vrf-name'), ['str'])),
                                         ])
                                         self.proxy_reference_vrf_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-vrf-reference"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.VrfReferences.Ipv6Dhcpv6dProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
@@ -2363,7 +2507,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, self).__init__()
@@ -2378,6 +2522,7 @@ class Dhcpv6(Entity):
 
                                     self.ipv6_dhcpv6d_proxy_interface_reference = YList(self)
                                     self._segment_path = lambda: "interface-references"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences, [], name, value)
@@ -2399,7 +2544,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, self).__init__()
@@ -2411,10 +2556,11 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('proxy_reference_interface_name', YLeaf(YType.str, 'proxy-reference-interface-name')),
+                                            ('proxy_reference_interface_name', (YLeaf(YType.str, 'proxy-reference-interface-name'), ['str'])),
                                         ])
                                         self.proxy_reference_interface_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-proxy-interface-reference"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
@@ -2434,7 +2580,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Interfaces, self).__init__()
@@ -2449,6 +2595,7 @@ class Dhcpv6(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces, [], name, value)
@@ -2535,7 +2682,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, self).__init__()
@@ -2547,18 +2694,18 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('proxy_vrf_name', YLeaf(YType.str, 'proxy-vrf-name')),
-                                ('proxy_interface_mode', YLeaf(YType.enumeration, 'proxy-interface-mode')),
-                                ('is_proxy_interface_ambiguous', YLeaf(YType.uint32, 'is-proxy-interface-ambiguous')),
-                                ('proxy_interface_profile_name', YLeaf(YType.str, 'proxy-interface-profile-name')),
-                                ('proxy_interface_lease_limit_type', YLeaf(YType.enumeration, 'proxy-interface-lease-limit-type')),
-                                ('proxy_interface_lease_limits', YLeaf(YType.uint32, 'proxy-interface-lease-limits')),
-                                ('srg_role', YLeaf(YType.enumeration, 'srg-role')),
-                                ('serg_role', YLeaf(YType.enumeration, 'serg-role')),
-                                ('mac_throttle', YLeaf(YType.boolean, 'mac-throttle')),
-                                ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
-                                ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('proxy_vrf_name', (YLeaf(YType.str, 'proxy-vrf-name'), ['str'])),
+                                ('proxy_interface_mode', (YLeaf(YType.enumeration, 'proxy-interface-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dSubMode', '')])),
+                                ('is_proxy_interface_ambiguous', (YLeaf(YType.uint32, 'is-proxy-interface-ambiguous'), ['int'])),
+                                ('proxy_interface_profile_name', (YLeaf(YType.str, 'proxy-interface-profile-name'), ['str'])),
+                                ('proxy_interface_lease_limit_type', (YLeaf(YType.enumeration, 'proxy-interface-lease-limit-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'LeaseLimit', '')])),
+                                ('proxy_interface_lease_limits', (YLeaf(YType.uint32, 'proxy-interface-lease-limits'), ['int'])),
+                                ('srg_role', (YLeaf(YType.enumeration, 'srg-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIntfSrgRole', '')])),
+                                ('serg_role', (YLeaf(YType.enumeration, 'serg-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIntfSergRole', '')])),
+                                ('mac_throttle', (YLeaf(YType.boolean, 'mac-throttle'), ['bool'])),
+                                ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
                             ])
                             self.interface_name = None
                             self.proxy_vrf_name = None
@@ -2573,6 +2720,7 @@ class Dhcpv6(Entity):
                             self.srg_vrf_name = None
                             self.srgp2p = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Interfaces.Interface, ['interface_name', 'proxy_vrf_name', 'proxy_interface_mode', 'is_proxy_interface_ambiguous', 'proxy_interface_profile_name', 'proxy_interface_lease_limit_type', 'proxy_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
@@ -2592,7 +2740,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Statistics, self).__init__()
@@ -2607,6 +2755,7 @@ class Dhcpv6(Entity):
 
                         self.ipv6_dhcpv6d_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics, [], name, value)
@@ -2633,7 +2782,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, self).__init__()
@@ -2645,7 +2794,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -2653,6 +2802,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv6-dhcpv6d-proxy-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat, ['vrf_name'], name, value)
@@ -2688,7 +2838,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, self).__init__()
@@ -2700,14 +2850,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Statistics.Ipv6Dhcpv6dProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -2732,7 +2883,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Proxy.Binding, self).__init__()
@@ -2753,6 +2904,7 @@ class Dhcpv6(Entity):
                         self.summary.parent = self
                         self._children_name_map["summary"] = "summary"
                         self._segment_path = lambda: "binding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding, [], name, value)
@@ -2772,7 +2924,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, self).__init__()
@@ -2787,6 +2939,7 @@ class Dhcpv6(Entity):
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients, [], name, value)
@@ -2851,7 +3004,7 @@ class Dhcpv6(Entity):
                             	DHCPV6 access interface to client
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: access_vrf_name
                             
@@ -3001,7 +3154,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, self).__init__()
@@ -3013,35 +3166,35 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['client_id']
                                 self._child_classes = OrderedDict([("ia-id-pd", ("ia_id_pd", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd))])
                                 self._leafs = OrderedDict([
-                                    ('client_id', YLeaf(YType.str, 'client-id')),
-                                    ('duid', YLeaf(YType.str, 'duid')),
-                                    ('client_flag', YLeaf(YType.uint32, 'client-flag')),
-                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('ia_id_p_ds', YLeaf(YType.uint32, 'ia-id-p-ds')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
-                                    ('proxy_binding_tags', YLeaf(YType.uint8, 'proxy-binding-tags')),
-                                    ('proxy_binding_outer_tag', YLeaf(YType.uint32, 'proxy-binding-outer-tag')),
-                                    ('proxy_binding_inner_tag', YLeaf(YType.uint32, 'proxy-binding-inner-tag')),
-                                    ('class_name', YLeaf(YType.str, 'class-name')),
-                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
-                                    ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
-                                    ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
-                                    ('tx_interface_id', YLeaf(YType.str, 'tx-interface-id')),
-                                    ('server_ipv6_address', YLeaf(YType.str, 'server-ipv6-address')),
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('framed_ipv6_prefix', YLeaf(YType.str, 'framed-ipv6-prefix')),
-                                    ('framed_prefix_length', YLeaf(YType.uint8, 'framed-prefix-length')),
-                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
-                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
-                                    ('srg_intf_role', YLeaf(YType.uint32, 'srg-intf-role')),
-                                    ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
-                                    ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
-                                    ('serg_state', YLeaf(YType.uint32, 'serg-state')),
-                                    ('serg_intf_role', YLeaf(YType.uint32, 'serg-intf-role')),
+                                    ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                                    ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                    ('client_flag', (YLeaf(YType.uint32, 'client-flag'), ['int'])),
+                                    ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('ia_id_p_ds', (YLeaf(YType.uint32, 'ia-id-p-ds'), ['int'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('access_vrf_name', (YLeaf(YType.str, 'access-vrf-name'), ['str'])),
+                                    ('proxy_binding_tags', (YLeaf(YType.uint8, 'proxy-binding-tags'), ['int'])),
+                                    ('proxy_binding_outer_tag', (YLeaf(YType.uint32, 'proxy-binding-outer-tag'), ['int'])),
+                                    ('proxy_binding_inner_tag', (YLeaf(YType.uint32, 'proxy-binding-inner-tag'), ['int'])),
+                                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                    ('rx_remote_id', (YLeaf(YType.str, 'rx-remote-id'), ['str'])),
+                                    ('tx_remote_id', (YLeaf(YType.str, 'tx-remote-id'), ['str'])),
+                                    ('rx_interface_id', (YLeaf(YType.str, 'rx-interface-id'), ['str'])),
+                                    ('tx_interface_id', (YLeaf(YType.str, 'tx-interface-id'), ['str'])),
+                                    ('server_ipv6_address', (YLeaf(YType.str, 'server-ipv6-address'), ['str'])),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('framed_ipv6_prefix', (YLeaf(YType.str, 'framed-ipv6-prefix'), ['str'])),
+                                    ('framed_prefix_length', (YLeaf(YType.uint8, 'framed-prefix-length'), ['int'])),
+                                    ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
+                                    ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('srg_intf_role', (YLeaf(YType.uint32, 'srg-intf-role'), ['int'])),
+                                    ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
+                                    ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                    ('serg_state', (YLeaf(YType.uint32, 'serg-state'), ['int'])),
+                                    ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
                                 ])
                                 self.client_id = None
                                 self.duid = None
@@ -3077,6 +3230,7 @@ class Dhcpv6(Entity):
                                 self.ia_id_pd.parent = self
                                 self._children_name_map["ia_id_pd"] = "ia-id-pd"
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'duid', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'interface_name', 'access_vrf_name', 'proxy_binding_tags', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'class_name', 'pool_name', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id', 'server_ipv6_address', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'serg_state', 'serg_intf_role'], name, value)
@@ -3096,7 +3250,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, self).__init__()
@@ -3111,6 +3265,7 @@ class Dhcpv6(Entity):
 
                                     self.bag_dhcpv6d_ia_id_pd_info = YList(self)
                                     self._segment_path = lambda: "ia-id-pd"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd, [], name, value)
@@ -3161,7 +3316,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
@@ -3173,11 +3328,11 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses))])
                                         self._leafs = OrderedDict([
-                                            ('ia_type', YLeaf(YType.enumeration, 'ia-type')),
-                                            ('ia_id', YLeaf(YType.uint32, 'ia-id')),
-                                            ('flags', YLeaf(YType.uint32, 'flags')),
-                                            ('total_address', YLeaf(YType.uint16, 'total-address')),
-                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                            ('ia_type', (YLeaf(YType.enumeration, 'ia-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId', '')])),
+                                            ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
+                                            ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
+                                            ('total_address', (YLeaf(YType.uint16, 'total-address'), ['int'])),
+                                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dFsmState', '')])),
                                         ])
                                         self.ia_type = None
                                         self.ia_id = None
@@ -3189,6 +3344,7 @@ class Dhcpv6(Entity):
                                         self.addresses.parent = self
                                         self._children_name_map["addresses"] = "addresses"
                                         self._segment_path = lambda: "bag-dhcpv6d-ia-id-pd-info"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
@@ -3208,7 +3364,7 @@ class Dhcpv6(Entity):
                                         """
 
                                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-12-06'
 
                                         def __init__(self):
                                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
@@ -3223,6 +3379,7 @@ class Dhcpv6(Entity):
 
                                             self.bag_dhcpv6d_addr_attrb = YList(self)
                                             self._segment_path = lambda: "addresses"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, [], name, value)
@@ -3269,7 +3426,7 @@ class Dhcpv6(Entity):
                                             """
 
                                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-12-06'
 
                                             def __init__(self):
                                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
@@ -3281,16 +3438,17 @@ class Dhcpv6(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
+                                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                                    ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                                                    ('remaining_lease_time', (YLeaf(YType.uint32, 'remaining-lease-time'), ['int'])),
                                                 ])
                                                 self.prefix = None
                                                 self.prefix_length = None
                                                 self.lease_time = None
                                                 self.remaining_lease_time = None
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
@@ -3322,7 +3480,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, self).__init__()
@@ -3334,7 +3492,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("iana", ("iana", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana)), ("iapd", ("iapd", Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd))])
                             self._leafs = OrderedDict([
-                                ('clients', YLeaf(YType.uint32, 'clients')),
+                                ('clients', (YLeaf(YType.uint32, 'clients'), ['int'])),
                             ])
                             self.clients = None
 
@@ -3346,6 +3504,7 @@ class Dhcpv6(Entity):
                             self.iapd.parent = self
                             self._children_name_map["iapd"] = "iapd"
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary, ['clients'], name, value)
@@ -3409,7 +3568,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, self).__init__()
@@ -3421,13 +3580,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
-                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
-                                    ('msg_waiting_clients', YLeaf(YType.uint32, 'msg-waiting-clients')),
-                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
-                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
-                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                    ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                    ('dpm_waiting_clients', (YLeaf(YType.uint32, 'dpm-waiting-clients'), ['int'])),
+                                    ('daps_waiting_clients', (YLeaf(YType.uint32, 'daps-waiting-clients'), ['int'])),
+                                    ('msg_waiting_clients', (YLeaf(YType.uint32, 'msg-waiting-clients'), ['int'])),
+                                    ('iedge_waiting_clients', (YLeaf(YType.uint32, 'iedge-waiting-clients'), ['int'])),
+                                    ('rib_waiting_clients', (YLeaf(YType.uint32, 'rib-waiting-clients'), ['int'])),
+                                    ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
                                 ])
                                 self.initializing_clients = None
                                 self.dpm_waiting_clients = None
@@ -3437,6 +3596,7 @@ class Dhcpv6(Entity):
                                 self.rib_waiting_clients = None
                                 self.bound_clients = None
                                 self._segment_path = lambda: "iana"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
@@ -3500,7 +3660,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, self).__init__()
@@ -3512,13 +3672,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
-                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
-                                    ('msg_waiting_clients', YLeaf(YType.uint32, 'msg-waiting-clients')),
-                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
-                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
-                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                    ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                    ('dpm_waiting_clients', (YLeaf(YType.uint32, 'dpm-waiting-clients'), ['int'])),
+                                    ('daps_waiting_clients', (YLeaf(YType.uint32, 'daps-waiting-clients'), ['int'])),
+                                    ('msg_waiting_clients', (YLeaf(YType.uint32, 'msg-waiting-clients'), ['int'])),
+                                    ('iedge_waiting_clients', (YLeaf(YType.uint32, 'iedge-waiting-clients'), ['int'])),
+                                    ('rib_waiting_clients', (YLeaf(YType.uint32, 'rib-waiting-clients'), ['int'])),
+                                    ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
                                 ])
                                 self.initializing_clients = None
                                 self.dpm_waiting_clients = None
@@ -3528,6 +3688,7 @@ class Dhcpv6(Entity):
                                 self.rib_waiting_clients = None
                                 self.bound_clients = None
                                 self._segment_path = lambda: "iapd"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Proxy.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'msg_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
@@ -3552,7 +3713,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-12-06'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Base, self).__init__()
@@ -3573,6 +3734,7 @@ class Dhcpv6(Entity):
                     self.addr_bindings.parent = self
                     self._children_name_map["addr_bindings"] = "addr-bindings"
                     self._segment_path = lambda: "base"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Base, [], name, value)
@@ -3701,7 +3863,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Base.Database, self).__init__()
@@ -3713,22 +3875,22 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('configured', YLeaf(YType.boolean, 'configured')),
-                            ('version', YLeaf(YType.uint32, 'version')),
-                            ('full_file_write_interval', YLeaf(YType.uint32, 'full-file-write-interval')),
-                            ('last_full_write_file_name', YLeaf(YType.str, 'last-full-write-file-name')),
-                            ('last_full_write_time', YLeaf(YType.uint32, 'last-full-write-time')),
-                            ('full_file_write_count', YLeaf(YType.uint32, 'full-file-write-count')),
-                            ('failed_full_file_write_count', YLeaf(YType.uint32, 'failed-full-file-write-count')),
-                            ('full_file_record_count', YLeaf(YType.uint32, 'full-file-record-count')),
-                            ('last_full_file_write_error_timestamp', YLeaf(YType.uint32, 'last-full-file-write-error-timestamp')),
-                            ('incremental_file_write_interval', YLeaf(YType.uint32, 'incremental-file-write-interval')),
-                            ('last_incremental_write_file_name', YLeaf(YType.str, 'last-incremental-write-file-name')),
-                            ('last_incremental_write_time', YLeaf(YType.uint32, 'last-incremental-write-time')),
-                            ('incremental_file_write_count', YLeaf(YType.uint32, 'incremental-file-write-count')),
-                            ('failed_incremental_file_write_count', YLeaf(YType.uint32, 'failed-incremental-file-write-count')),
-                            ('incremental_file_record_count', YLeaf(YType.uint32, 'incremental-file-record-count')),
-                            ('last_incremental_file_write_error_timestamp', YLeaf(YType.uint32, 'last-incremental-file-write-error-timestamp')),
+                            ('configured', (YLeaf(YType.boolean, 'configured'), ['bool'])),
+                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                            ('full_file_write_interval', (YLeaf(YType.uint32, 'full-file-write-interval'), ['int'])),
+                            ('last_full_write_file_name', (YLeaf(YType.str, 'last-full-write-file-name'), ['str'])),
+                            ('last_full_write_time', (YLeaf(YType.uint32, 'last-full-write-time'), ['int'])),
+                            ('full_file_write_count', (YLeaf(YType.uint32, 'full-file-write-count'), ['int'])),
+                            ('failed_full_file_write_count', (YLeaf(YType.uint32, 'failed-full-file-write-count'), ['int'])),
+                            ('full_file_record_count', (YLeaf(YType.uint32, 'full-file-record-count'), ['int'])),
+                            ('last_full_file_write_error_timestamp', (YLeaf(YType.uint32, 'last-full-file-write-error-timestamp'), ['int'])),
+                            ('incremental_file_write_interval', (YLeaf(YType.uint32, 'incremental-file-write-interval'), ['int'])),
+                            ('last_incremental_write_file_name', (YLeaf(YType.str, 'last-incremental-write-file-name'), ['str'])),
+                            ('last_incremental_write_time', (YLeaf(YType.uint32, 'last-incremental-write-time'), ['int'])),
+                            ('incremental_file_write_count', (YLeaf(YType.uint32, 'incremental-file-write-count'), ['int'])),
+                            ('failed_incremental_file_write_count', (YLeaf(YType.uint32, 'failed-incremental-file-write-count'), ['int'])),
+                            ('incremental_file_record_count', (YLeaf(YType.uint32, 'incremental-file-record-count'), ['int'])),
+                            ('last_incremental_file_write_error_timestamp', (YLeaf(YType.uint32, 'last-incremental-file-write-error-timestamp'), ['int'])),
                         ])
                         self.configured = None
                         self.version = None
@@ -3747,6 +3909,7 @@ class Dhcpv6(Entity):
                         self.incremental_file_record_count = None
                         self.last_incremental_file_write_error_timestamp = None
                         self._segment_path = lambda: "database"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
@@ -3766,7 +3929,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Base.AddrBindings, self).__init__()
@@ -3781,6 +3944,7 @@ class Dhcpv6(Entity):
 
                         self.addr_binding = YList(self)
                         self._segment_path = lambda: "addr-bindings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings, [], name, value)
@@ -3865,7 +4029,7 @@ class Dhcpv6(Entity):
                         	DHCPV6 access interface to client
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: access_vrf_name
                         
@@ -3968,7 +4132,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, self).__init__()
@@ -3980,31 +4144,31 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['addr_string']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('addr_string', YLeaf(YType.str, 'addr-string')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('server_ipv6_address', YLeaf(YType.str, 'server-ipv6-address')),
-                                ('reply_server_ipv6_address', YLeaf(YType.str, 'reply-server-ipv6-address')),
-                                ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                                ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
-                                ('base_binding_tags', YLeaf(YType.uint8, 'base-binding-tags')),
-                                ('base_binding_outer_tag', YLeaf(YType.uint32, 'base-binding-outer-tag')),
-                                ('base_binding_inner_tag', YLeaf(YType.uint32, 'base-binding-inner-tag')),
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
-                                ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                                ('old_subscriber_label', YLeaf(YType.uint32, 'old-subscriber-label')),
-                                ('rx_client_duid', YLeaf(YType.str, 'rx-client-duid')),
-                                ('tx_client_uid', YLeaf(YType.str, 'tx-client-uid')),
-                                ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
-                                ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
-                                ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
-                                ('tx_interface_id', YLeaf(YType.str, 'tx-interface-id')),
+                                ('addr_string', (YLeaf(YType.str, 'addr-string'), ['str'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('server_vrf_name', (YLeaf(YType.str, 'server-vrf-name'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('server_ipv6_address', (YLeaf(YType.str, 'server-ipv6-address'), ['str'])),
+                                ('reply_server_ipv6_address', (YLeaf(YType.str, 'reply-server-ipv6-address'), ['str'])),
+                                ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                                ('remaining_lease_time', (YLeaf(YType.uint32, 'remaining-lease-time'), ['int'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dFsmState', '')])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('access_vrf_name', (YLeaf(YType.str, 'access-vrf-name'), ['str'])),
+                                ('base_binding_tags', (YLeaf(YType.uint8, 'base-binding-tags'), ['int'])),
+                                ('base_binding_outer_tag', (YLeaf(YType.uint32, 'base-binding-outer-tag'), ['int'])),
+                                ('base_binding_inner_tag', (YLeaf(YType.uint32, 'base-binding-inner-tag'), ['int'])),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
+                                ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                ('old_subscriber_label', (YLeaf(YType.uint32, 'old-subscriber-label'), ['int'])),
+                                ('rx_client_duid', (YLeaf(YType.str, 'rx-client-duid'), ['str'])),
+                                ('tx_client_uid', (YLeaf(YType.str, 'tx-client-uid'), ['str'])),
+                                ('rx_remote_id', (YLeaf(YType.str, 'rx-remote-id'), ['str'])),
+                                ('tx_remote_id', (YLeaf(YType.str, 'tx-remote-id'), ['str'])),
+                                ('rx_interface_id', (YLeaf(YType.str, 'rx-interface-id'), ['str'])),
+                                ('tx_interface_id', (YLeaf(YType.str, 'tx-interface-id'), ['str'])),
                             ])
                             self.addr_string = None
                             self.mac_address = None
@@ -4032,6 +4196,7 @@ class Dhcpv6(Entity):
                             self.rx_interface_id = None
                             self.tx_interface_id = None
                             self._segment_path = lambda: "addr-binding" + "[addr-string='" + str(self.addr_string) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Base.AddrBindings.AddrBinding, ['addr_string', 'mac_address', 'vrf_name', 'server_vrf_name', 'ipv6_address', 'server_ipv6_address', 'reply_server_ipv6_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'base_binding_tags', 'base_binding_outer_tag', 'base_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'rx_client_duid', 'tx_client_uid', 'rx_remote_id', 'tx_remote_id', 'rx_interface_id', 'tx_interface_id'], name, value)
@@ -4076,7 +4241,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-12-06'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Server, self).__init__()
@@ -4113,6 +4278,7 @@ class Dhcpv6(Entity):
                     self.binding_options.parent = self
                     self._children_name_map["binding_options"] = "binding-options"
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Server, [], name, value)
@@ -4137,7 +4303,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Binding, self).__init__()
@@ -4158,6 +4324,7 @@ class Dhcpv6(Entity):
                         self.clients.parent = self
                         self._children_name_map["clients"] = "clients"
                         self._segment_path = lambda: "binding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding, [], name, value)
@@ -4189,7 +4356,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Binding.Summary, self).__init__()
@@ -4201,7 +4368,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("iana", ("iana", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana)), ("iapd", ("iapd", Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd))])
                             self._leafs = OrderedDict([
-                                ('clients', YLeaf(YType.uint32, 'clients')),
+                                ('clients', (YLeaf(YType.uint32, 'clients'), ['int'])),
                             ])
                             self.clients = None
 
@@ -4213,6 +4380,7 @@ class Dhcpv6(Entity):
                             self.iapd.parent = self
                             self._children_name_map["iapd"] = "iapd"
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary, ['clients'], name, value)
@@ -4276,7 +4444,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, self).__init__()
@@ -4288,13 +4456,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
-                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
-                                    ('request_waiting_clients', YLeaf(YType.uint32, 'request-waiting-clients')),
-                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
-                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
-                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                    ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                    ('dpm_waiting_clients', (YLeaf(YType.uint32, 'dpm-waiting-clients'), ['int'])),
+                                    ('daps_waiting_clients', (YLeaf(YType.uint32, 'daps-waiting-clients'), ['int'])),
+                                    ('request_waiting_clients', (YLeaf(YType.uint32, 'request-waiting-clients'), ['int'])),
+                                    ('iedge_waiting_clients', (YLeaf(YType.uint32, 'iedge-waiting-clients'), ['int'])),
+                                    ('rib_waiting_clients', (YLeaf(YType.uint32, 'rib-waiting-clients'), ['int'])),
+                                    ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
                                 ])
                                 self.initializing_clients = None
                                 self.dpm_waiting_clients = None
@@ -4304,6 +4472,7 @@ class Dhcpv6(Entity):
                                 self.rib_waiting_clients = None
                                 self.bound_clients = None
                                 self._segment_path = lambda: "iana"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iana, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
@@ -4367,7 +4536,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, self).__init__()
@@ -4379,13 +4548,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                    ('dpm_waiting_clients', YLeaf(YType.uint32, 'dpm-waiting-clients')),
-                                    ('daps_waiting_clients', YLeaf(YType.uint32, 'daps-waiting-clients')),
-                                    ('request_waiting_clients', YLeaf(YType.uint32, 'request-waiting-clients')),
-                                    ('iedge_waiting_clients', YLeaf(YType.uint32, 'iedge-waiting-clients')),
-                                    ('rib_waiting_clients', YLeaf(YType.uint32, 'rib-waiting-clients')),
-                                    ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
+                                    ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                    ('dpm_waiting_clients', (YLeaf(YType.uint32, 'dpm-waiting-clients'), ['int'])),
+                                    ('daps_waiting_clients', (YLeaf(YType.uint32, 'daps-waiting-clients'), ['int'])),
+                                    ('request_waiting_clients', (YLeaf(YType.uint32, 'request-waiting-clients'), ['int'])),
+                                    ('iedge_waiting_clients', (YLeaf(YType.uint32, 'iedge-waiting-clients'), ['int'])),
+                                    ('rib_waiting_clients', (YLeaf(YType.uint32, 'rib-waiting-clients'), ['int'])),
+                                    ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
                                 ])
                                 self.initializing_clients = None
                                 self.dpm_waiting_clients = None
@@ -4395,6 +4564,7 @@ class Dhcpv6(Entity):
                                 self.rib_waiting_clients = None
                                 self.bound_clients = None
                                 self._segment_path = lambda: "iapd"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Summary.Iapd, ['initializing_clients', 'dpm_waiting_clients', 'daps_waiting_clients', 'request_waiting_clients', 'iedge_waiting_clients', 'rib_waiting_clients', 'bound_clients'], name, value)
@@ -4414,7 +4584,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Binding.Clients, self).__init__()
@@ -4429,6 +4599,7 @@ class Dhcpv6(Entity):
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients, [], name, value)
@@ -4507,7 +4678,7 @@ class Dhcpv6(Entity):
                             	DHCPV6 access interface to client
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: access_vrf_name
                             
@@ -4657,7 +4828,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, self).__init__()
@@ -4669,37 +4840,37 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['client_id']
                                 self._child_classes = OrderedDict([("ia-id-pd", ("ia_id_pd", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd))])
                                 self._leafs = OrderedDict([
-                                    ('client_id', YLeaf(YType.str, 'client-id')),
-                                    ('duid', YLeaf(YType.str, 'duid')),
-                                    ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
-                                    ('client_flag', YLeaf(YType.uint32, 'client-flag')),
-                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('ia_id_p_ds', YLeaf(YType.uint32, 'ia-id-p-ds')),
-                                    ('link_local_address', YLeaf(YType.str, 'link-local-address')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
-                                    ('server_binding_tags', YLeaf(YType.uint8, 'server-binding-tags')),
-                                    ('server_binding_outer_tag', YLeaf(YType.uint32, 'server-binding-outer-tag')),
-                                    ('server_binding_inner_tag', YLeaf(YType.uint32, 'server-binding-inner-tag')),
-                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('framed_ipv6_prefix', YLeaf(YType.str, 'framed-ipv6-prefix')),
-                                    ('framed_prefix_length', YLeaf(YType.uint8, 'framed-prefix-length')),
-                                    ('class_name', YLeaf(YType.str, 'class-name')),
-                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
-                                    ('rx_interface_id', YLeaf(YType.str, 'rx-interface-id')),
-                                    ('prefix_pool_name', YLeaf(YType.str, 'prefix-pool-name')),
-                                    ('address_pool_name', YLeaf(YType.str, 'address-pool-name')),
-                                    ('dns_server_count', YLeaf(YType.uint32, 'dns-server-count')),
-                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
-                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
-                                    ('srg_intf_role', YLeaf(YType.uint32, 'srg-intf-role')),
-                                    ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
-                                    ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
-                                    ('sesrg_state', YLeaf(YType.uint32, 'sesrg-state')),
-                                    ('serg_intf_role', YLeaf(YType.uint32, 'serg-intf-role')),
+                                    ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                                    ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                    ('client_id_xr', (YLeaf(YType.uint32, 'client-id-xr'), ['int'])),
+                                    ('client_flag', (YLeaf(YType.uint32, 'client-flag'), ['int'])),
+                                    ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('ia_id_p_ds', (YLeaf(YType.uint32, 'ia-id-p-ds'), ['int'])),
+                                    ('link_local_address', (YLeaf(YType.str, 'link-local-address'), ['str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('access_vrf_name', (YLeaf(YType.str, 'access-vrf-name'), ['str'])),
+                                    ('server_binding_tags', (YLeaf(YType.uint8, 'server-binding-tags'), ['int'])),
+                                    ('server_binding_outer_tag', (YLeaf(YType.uint32, 'server-binding-outer-tag'), ['int'])),
+                                    ('server_binding_inner_tag', (YLeaf(YType.uint32, 'server-binding-inner-tag'), ['int'])),
+                                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('framed_ipv6_prefix', (YLeaf(YType.str, 'framed-ipv6-prefix'), ['str'])),
+                                    ('framed_prefix_length', (YLeaf(YType.uint8, 'framed-prefix-length'), ['int'])),
+                                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                    ('rx_remote_id', (YLeaf(YType.str, 'rx-remote-id'), ['str'])),
+                                    ('rx_interface_id', (YLeaf(YType.str, 'rx-interface-id'), ['str'])),
+                                    ('prefix_pool_name', (YLeaf(YType.str, 'prefix-pool-name'), ['str'])),
+                                    ('address_pool_name', (YLeaf(YType.str, 'address-pool-name'), ['str'])),
+                                    ('dns_server_count', (YLeaf(YType.uint32, 'dns-server-count'), ['int'])),
+                                    ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
+                                    ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('srg_intf_role', (YLeaf(YType.uint32, 'srg-intf-role'), ['int'])),
+                                    ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
+                                    ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                    ('sesrg_state', (YLeaf(YType.uint32, 'sesrg-state'), ['int'])),
+                                    ('serg_intf_role', (YLeaf(YType.uint32, 'serg-intf-role'), ['int'])),
                                 ])
                                 self.client_id = None
                                 self.duid = None
@@ -4737,6 +4908,7 @@ class Dhcpv6(Entity):
                                 self.ia_id_pd.parent = self
                                 self._children_name_map["ia_id_pd"] = "ia-id-pd"
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'client_flag', 'subscriber_label', 'vrf_name', 'mac_address', 'ia_id_p_ds', 'link_local_address', 'interface_name', 'access_vrf_name', 'server_binding_tags', 'server_binding_outer_tag', 'server_binding_inner_tag', 'pool_name', 'profile_name', 'framed_ipv6_prefix', 'framed_prefix_length', 'class_name', 'rx_remote_id', 'rx_interface_id', 'prefix_pool_name', 'address_pool_name', 'dns_server_count', 'is_nak_next_renew', 'srg_state', 'srg_intf_role', 'srgp2p', 'srg_vrf_name', 'sesrg_state', 'serg_intf_role'], name, value)
@@ -4756,7 +4928,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, self).__init__()
@@ -4771,6 +4943,7 @@ class Dhcpv6(Entity):
 
                                     self.bag_dhcpv6d_ia_id_pd_info = YList(self)
                                     self._segment_path = lambda: "ia-id-pd"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd, [], name, value)
@@ -4821,7 +4994,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, self).__init__()
@@ -4833,11 +5006,11 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("addresses", ("addresses", Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses))])
                                         self._leafs = OrderedDict([
-                                            ('ia_type', YLeaf(YType.enumeration, 'ia-type')),
-                                            ('ia_id', YLeaf(YType.uint32, 'ia-id')),
-                                            ('flags', YLeaf(YType.uint32, 'flags')),
-                                            ('total_address', YLeaf(YType.uint16, 'total-address')),
-                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                            ('ia_type', (YLeaf(YType.enumeration, 'ia-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIaId', '')])),
+                                            ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
+                                            ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
+                                            ('total_address', (YLeaf(YType.uint16, 'total-address'), ['int'])),
+                                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dFsmState', '')])),
                                         ])
                                         self.ia_type = None
                                         self.ia_id = None
@@ -4849,6 +5022,7 @@ class Dhcpv6(Entity):
                                         self.addresses.parent = self
                                         self._children_name_map["addresses"] = "addresses"
                                         self._segment_path = lambda: "bag-dhcpv6d-ia-id-pd-info"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo, ['ia_type', 'ia_id', 'flags', 'total_address', 'state'], name, value)
@@ -4868,7 +5042,7 @@ class Dhcpv6(Entity):
                                         """
 
                                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-12-06'
 
                                         def __init__(self):
                                             super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, self).__init__()
@@ -4883,6 +5057,7 @@ class Dhcpv6(Entity):
 
                                             self.bag_dhcpv6d_addr_attrb = YList(self)
                                             self._segment_path = lambda: "addresses"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses, [], name, value)
@@ -4929,7 +5104,7 @@ class Dhcpv6(Entity):
                                             """
 
                                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-12-06'
 
                                             def __init__(self):
                                                 super(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, self).__init__()
@@ -4941,16 +5116,17 @@ class Dhcpv6(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
+                                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                                    ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                                                    ('remaining_lease_time', (YLeaf(YType.uint32, 'remaining-lease-time'), ['int'])),
                                                 ])
                                                 self.prefix = None
                                                 self.prefix_length = None
                                                 self.lease_time = None
                                                 self.remaining_lease_time = None
                                                 self._segment_path = lambda: "bag-dhcpv6d-addr-attrb"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Binding.Clients.Client.IaIdPd.BagDhcpv6dIaIdPdInfo.Addresses.BagDhcpv6dAddrAttrb, ['prefix', 'prefix_length', 'lease_time', 'remaining_lease_time'], name, value)
@@ -4970,7 +5146,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Vrfs, self).__init__()
@@ -4985,6 +5161,7 @@ class Dhcpv6(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs, [], name, value)
@@ -5011,7 +5188,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, self).__init__()
@@ -5023,7 +5200,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -5031,6 +5208,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -5130,7 +5308,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, self).__init__()
@@ -5211,6 +5389,7 @@ class Dhcpv6(Entity):
                                 self.lease_query_data.parent = self
                                 self._children_name_map["lease_query_data"] = "lease-query-data"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics, [], name, value)
@@ -5246,7 +5425,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -5258,14 +5437,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5301,7 +5481,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -5313,14 +5493,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5356,7 +5537,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -5368,14 +5549,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5411,7 +5593,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -5423,14 +5605,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5466,7 +5649,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -5478,14 +5661,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5521,7 +5705,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -5533,14 +5717,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5576,7 +5761,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -5588,14 +5773,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5631,7 +5817,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -5643,14 +5829,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5686,7 +5873,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -5698,14 +5885,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5741,7 +5929,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -5753,14 +5941,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5796,7 +5985,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -5808,14 +5997,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5851,7 +6041,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -5863,14 +6053,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5906,7 +6097,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -5918,14 +6109,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -5961,7 +6153,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -5973,14 +6165,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -6016,7 +6209,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -6028,14 +6221,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -6071,7 +6265,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -6083,14 +6277,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -6126,7 +6321,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
@@ -6138,14 +6333,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -6165,7 +6361,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Profiles, self).__init__()
@@ -6180,6 +6376,7 @@ class Dhcpv6(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles, [], name, value)
@@ -6206,12 +6403,17 @@ class Dhcpv6(Entity):
                         	DHCPV6 throttle table
                         	**type**\:  :py:class:`ThrottleInfos <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos>`
                         
+                        .. attribute:: server_classes
+                        
+                        	IPv6 DHCP server class table
+                        	**type**\:  :py:class:`ServerClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses>`
+                        
                         
 
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Profiles.Profile, self).__init__()
@@ -6221,9 +6423,9 @@ class Dhcpv6(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['profile_name']
-                            self._child_classes = OrderedDict([("info", ("info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info)), ("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos))])
+                            self._child_classes = OrderedDict([("info", ("info", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info)), ("throttle-infos", ("throttle_infos", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos)), ("server-classes", ("server_classes", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses))])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                             ])
                             self.profile_name = None
 
@@ -6234,7 +6436,12 @@ class Dhcpv6(Entity):
                             self.throttle_infos = Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos()
                             self.throttle_infos.parent = self
                             self._children_name_map["throttle_infos"] = "throttle-infos"
+
+                            self.server_classes = Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses()
+                            self.server_classes.parent = self
+                            self._children_name_map["server_classes"] = "server-classes"
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile, ['profile_name'], name, value)
@@ -6320,7 +6527,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, self).__init__()
@@ -6332,15 +6539,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("lease", ("lease", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease)), ("interface-references", ("interface_references", Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences))])
                                 self._leafs = OrderedDict([
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('profile_allowed_duid_type', YLeaf(YType.uint16, 'profile-allowed-duid-type')),
-                                    ('domain_name', YLeaf(YType.str, 'domain-name')),
-                                    ('profile_dns', YLeaf(YType.uint8, 'profile-dns')),
-                                    ('aftr_name', YLeaf(YType.str, 'aftr-name')),
-                                    ('framed_addr_pool_name', YLeaf(YType.str, 'framed-addr-pool-name')),
-                                    ('delegated_prefix_pool_name', YLeaf(YType.str, 'delegated-prefix-pool-name')),
-                                    ('rapid_commit', YLeaf(YType.boolean, 'rapid-commit')),
-                                    ('profile_dns_address', YLeafList(YType.str, 'profile-dns-address')),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('profile_allowed_duid_type', (YLeaf(YType.uint16, 'profile-allowed-duid-type'), ['int'])),
+                                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                    ('profile_dns', (YLeaf(YType.uint8, 'profile-dns'), ['int'])),
+                                    ('aftr_name', (YLeaf(YType.str, 'aftr-name'), ['str'])),
+                                    ('framed_addr_pool_name', (YLeaf(YType.str, 'framed-addr-pool-name'), ['str'])),
+                                    ('delegated_prefix_pool_name', (YLeaf(YType.str, 'delegated-prefix-pool-name'), ['str'])),
+                                    ('rapid_commit', (YLeaf(YType.boolean, 'rapid-commit'), ['bool'])),
+                                    ('profile_dns_address', (YLeafList(YType.str, 'profile-dns-address'), ['str'])),
                                 ])
                                 self.profile_name = None
                                 self.profile_allowed_duid_type = None
@@ -6360,6 +6567,7 @@ class Dhcpv6(Entity):
                                 self.interface_references.parent = self
                                 self._children_name_map["interface_references"] = "interface-references"
                                 self._segment_path = lambda: "info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info, ['profile_name', 'profile_allowed_duid_type', 'domain_name', 'profile_dns', 'aftr_name', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'rapid_commit', 'profile_dns_address'], name, value)
@@ -6390,7 +6598,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, self).__init__()
@@ -6402,12 +6610,13 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                        ('time', YLeaf(YType.str, 'time')),
+                                        ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                        ('time', (YLeaf(YType.str, 'time'), ['str'])),
                                     ])
                                     self.seconds = None
                                     self.time = None
                                     self._segment_path = lambda: "lease"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.Lease, ['seconds', 'time'], name, value)
@@ -6427,7 +6636,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, self).__init__()
@@ -6442,6 +6651,7 @@ class Dhcpv6(Entity):
 
                                     self.ipv6_dhcpv6d_server_interface_reference = YList(self)
                                     self._segment_path = lambda: "interface-references"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences, [], name, value)
@@ -6463,7 +6673,7 @@ class Dhcpv6(Entity):
                                     """
 
                                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-12-06'
 
                                     def __init__(self):
                                         super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, self).__init__()
@@ -6475,10 +6685,11 @@ class Dhcpv6(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('server_reference_interface_name', YLeaf(YType.str, 'server-reference-interface-name')),
+                                            ('server_reference_interface_name', (YLeaf(YType.str, 'server-reference-interface-name'), ['str'])),
                                         ])
                                         self.server_reference_interface_name = None
                                         self._segment_path = lambda: "ipv6-dhcpv6d-server-interface-reference"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.Info.InterfaceReferences.Ipv6Dhcpv6dServerInterfaceReference, ['server_reference_interface_name'], name, value)
@@ -6498,7 +6709,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, self).__init__()
@@ -6513,6 +6724,7 @@ class Dhcpv6(Entity):
 
                                 self.throttle_info = YList(self)
                                 self._segment_path = lambda: "throttle-infos"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos, [], name, value)
@@ -6564,7 +6776,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, self).__init__()
@@ -6576,11 +6788,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = ['mac_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                        ('binding_chaddr', YLeaf(YType.str, 'binding-chaddr')),
-                                        ('ifname', YLeaf(YType.str, 'ifname')),
-                                        ('state', YLeaf(YType.uint32, 'state')),
-                                        ('time_left', YLeaf(YType.uint32, 'time-left')),
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                        ('binding_chaddr', (YLeaf(YType.str, 'binding-chaddr'), ['str'])),
+                                        ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                                        ('state', (YLeaf(YType.uint32, 'state'), ['int'])),
+                                        ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
                                     ])
                                     self.mac_address = None
                                     self.binding_chaddr = None
@@ -6588,9 +6800,137 @@ class Dhcpv6(Entity):
                                     self.state = None
                                     self.time_left = None
                                     self._segment_path = lambda: "throttle-info" + "[mac-address='" + str(self.mac_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ThrottleInfos.ThrottleInfo, ['mac_address', 'binding_chaddr', 'ifname', 'state', 'time_left'], name, value)
+
+
+                        class ServerClasses(Entity):
+                            """
+                            IPv6 DHCP server class table
+                            
+                            .. attribute:: server_class
+                            
+                            	IPv6 DHCP server class profile
+                            	**type**\: list of  		 :py:class:`ServerClass <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper.Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ipv6-new-dhcpv6d-oper'
+                            _revision = '2017-12-06'
+
+                            def __init__(self):
+                                super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, self).__init__()
+
+                                self.yang_name = "server-classes"
+                                self.yang_parent_name = "profile"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("server-class", ("server_class", Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass))])
+                                self._leafs = OrderedDict()
+
+                                self.server_class = YList(self)
+                                self._segment_path = lambda: "server-classes"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses, [], name, value)
+
+
+                            class ServerClass(Entity):
+                                """
+                                IPv6 DHCP server class profile
+                                
+                                .. attribute:: class_name  (key)
+                                
+                                	Class name
+                                	**type**\: str
+                                
+                                	**pattern:** [\\w\\\-\\.\:,\_@#%$\\+=\\\|;]+
+                                
+                                .. attribute:: class_name_xr
+                                
+                                	Class name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: domain_name
+                                
+                                	Server domain name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: profile_dns
+                                
+                                	DNS address count
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: framed_addr_pool_name
+                                
+                                	Server framed address pool name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: delegated_prefix_pool_name
+                                
+                                	Server delegated prefix pool name
+                                	**type**\: str
+                                
+                                	**length:** 0..65
+                                
+                                .. attribute:: profile_dns_address
+                                
+                                	DNS addresses
+                                	**type**\: list of str
+                                
+                                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                                
+                                
+
+                                """
+
+                                _prefix = 'ipv6-new-dhcpv6d-oper'
+                                _revision = '2017-12-06'
+
+                                def __init__(self):
+                                    super(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, self).__init__()
+
+                                    self.yang_name = "server-class"
+                                    self.yang_parent_name = "server-classes"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['class_name']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                        ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                                        ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                        ('profile_dns', (YLeaf(YType.uint8, 'profile-dns'), ['int'])),
+                                        ('framed_addr_pool_name', (YLeaf(YType.str, 'framed-addr-pool-name'), ['str'])),
+                                        ('delegated_prefix_pool_name', (YLeaf(YType.str, 'delegated-prefix-pool-name'), ['str'])),
+                                        ('profile_dns_address', (YLeafList(YType.str, 'profile-dns-address'), ['str'])),
+                                    ])
+                                    self.class_name = None
+                                    self.class_name_xr = None
+                                    self.domain_name = None
+                                    self.profile_dns = None
+                                    self.framed_addr_pool_name = None
+                                    self.delegated_prefix_pool_name = None
+                                    self.profile_dns_address = []
+                                    self._segment_path = lambda: "server-class" + "[class-name='" + str(self.class_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Dhcpv6.Nodes.Node.Server.Profiles.Profile.ServerClasses.ServerClass, ['class_name', 'class_name_xr', 'domain_name', 'profile_dns', 'framed_addr_pool_name', 'delegated_prefix_pool_name', 'profile_dns_address'], name, value)
 
 
                 class Interfaces(Entity):
@@ -6607,7 +6947,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Interfaces, self).__init__()
@@ -6622,6 +6962,7 @@ class Dhcpv6(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces, [], name, value)
@@ -6708,7 +7049,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, self).__init__()
@@ -6720,18 +7061,18 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
-                                ('server_interface_mode', YLeaf(YType.enumeration, 'server-interface-mode')),
-                                ('is_server_interface_ambiguous', YLeaf(YType.uint32, 'is-server-interface-ambiguous')),
-                                ('server_interface_profile_name', YLeaf(YType.str, 'server-interface-profile-name')),
-                                ('server_interface_lease_limit_type', YLeaf(YType.enumeration, 'server-interface-lease-limit-type')),
-                                ('server_interface_lease_limits', YLeaf(YType.uint32, 'server-interface-lease-limits')),
-                                ('srg_role', YLeaf(YType.enumeration, 'srg-role')),
-                                ('serg_role', YLeaf(YType.enumeration, 'serg-role')),
-                                ('mac_throttle', YLeaf(YType.boolean, 'mac-throttle')),
-                                ('srg_vrf_name', YLeaf(YType.str, 'srg-vrf-name')),
-                                ('srgp2p', YLeaf(YType.boolean, 'srgp2p')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('server_vrf_name', (YLeaf(YType.str, 'server-vrf-name'), ['str'])),
+                                ('server_interface_mode', (YLeaf(YType.enumeration, 'server-interface-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dSubMode', '')])),
+                                ('is_server_interface_ambiguous', (YLeaf(YType.uint32, 'is-server-interface-ambiguous'), ['int'])),
+                                ('server_interface_profile_name', (YLeaf(YType.str, 'server-interface-profile-name'), ['str'])),
+                                ('server_interface_lease_limit_type', (YLeaf(YType.enumeration, 'server-interface-lease-limit-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'LeaseLimit', '')])),
+                                ('server_interface_lease_limits', (YLeaf(YType.uint32, 'server-interface-lease-limits'), ['int'])),
+                                ('srg_role', (YLeaf(YType.enumeration, 'srg-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIntfSrgRole', '')])),
+                                ('serg_role', (YLeaf(YType.enumeration, 'serg-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_oper', 'BagDhcpv6dIntfSergRole', '')])),
+                                ('mac_throttle', (YLeaf(YType.boolean, 'mac-throttle'), ['bool'])),
+                                ('srg_vrf_name', (YLeaf(YType.str, 'srg-vrf-name'), ['str'])),
+                                ('srgp2p', (YLeaf(YType.boolean, 'srgp2p'), ['bool'])),
                             ])
                             self.interface_name = None
                             self.server_vrf_name = None
@@ -6746,6 +7087,7 @@ class Dhcpv6(Entity):
                             self.srg_vrf_name = None
                             self.srgp2p = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Interfaces.Interface, ['interface_name', 'server_vrf_name', 'server_interface_mode', 'is_server_interface_ambiguous', 'server_interface_profile_name', 'server_interface_lease_limit_type', 'server_interface_lease_limits', 'srg_role', 'serg_role', 'mac_throttle', 'srg_vrf_name', 'srgp2p'], name, value)
@@ -6765,7 +7107,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.Statistics, self).__init__()
@@ -6780,6 +7122,7 @@ class Dhcpv6(Entity):
 
                         self.ipv6_dhcpv6d_server_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics, [], name, value)
@@ -6806,7 +7149,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, self).__init__()
@@ -6818,7 +7161,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -6826,6 +7169,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv6-dhcpv6d-server-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat, ['vrf_name'], name, value)
@@ -6861,7 +7205,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, self).__init__()
@@ -6873,14 +7217,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.Statistics.Ipv6Dhcpv6dServerStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -6905,7 +7250,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Server.BindingOptions, self).__init__()
@@ -6926,6 +7271,7 @@ class Dhcpv6(Entity):
                         self.duid_bind_options.parent = self
                         self._children_name_map["duid_bind_options"] = "duid-bind-options"
                         self._segment_path = lambda: "binding-options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions, [], name, value)
@@ -6945,7 +7291,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, self).__init__()
@@ -6960,6 +7306,7 @@ class Dhcpv6(Entity):
 
                             self.mac_bind_option = YList(self)
                             self._segment_path = lambda: "mac-bind-options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions, [], name, value)
@@ -7010,7 +7357,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, self).__init__()
@@ -7022,12 +7369,12 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['mac_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
-                                    ('duid_xr', YLeaf(YType.str, 'duid-xr')),
-                                    ('dns_count', YLeaf(YType.uint8, 'dns-count')),
-                                    ('opt17', YLeaf(YType.str, 'opt17')),
-                                    ('dns_address', YLeafList(YType.str, 'dns-address')),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('mac_address_xr', (YLeaf(YType.str, 'mac-address-xr'), ['str'])),
+                                    ('duid_xr', (YLeaf(YType.str, 'duid-xr'), ['str'])),
+                                    ('dns_count', (YLeaf(YType.uint8, 'dns-count'), ['int'])),
+                                    ('opt17', (YLeaf(YType.str, 'opt17'), ['str'])),
+                                    ('dns_address', (YLeafList(YType.str, 'dns-address'), ['str'])),
                                 ])
                                 self.mac_address = None
                                 self.mac_address_xr = None
@@ -7036,6 +7383,7 @@ class Dhcpv6(Entity):
                                 self.opt17 = None
                                 self.dns_address = []
                                 self._segment_path = lambda: "mac-bind-option" + "[mac-address='" + str(self.mac_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.MacBindOptions.MacBindOption, ['mac_address', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
@@ -7055,7 +7403,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, self).__init__()
@@ -7070,6 +7418,7 @@ class Dhcpv6(Entity):
 
                             self.duid_bind_option = YList(self)
                             self._segment_path = lambda: "duid-bind-options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions, [], name, value)
@@ -7120,7 +7469,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, self).__init__()
@@ -7132,12 +7481,12 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['duid']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('duid', YLeaf(YType.str, 'duid')),
-                                    ('mac_address_xr', YLeaf(YType.str, 'mac-address-xr')),
-                                    ('duid_xr', YLeaf(YType.str, 'duid-xr')),
-                                    ('dns_count', YLeaf(YType.uint8, 'dns-count')),
-                                    ('opt17', YLeaf(YType.str, 'opt17')),
-                                    ('dns_address', YLeafList(YType.str, 'dns-address')),
+                                    ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                    ('mac_address_xr', (YLeaf(YType.str, 'mac-address-xr'), ['str'])),
+                                    ('duid_xr', (YLeaf(YType.str, 'duid-xr'), ['str'])),
+                                    ('dns_count', (YLeaf(YType.uint8, 'dns-count'), ['int'])),
+                                    ('opt17', (YLeaf(YType.str, 'opt17'), ['str'])),
+                                    ('dns_address', (YLeafList(YType.str, 'dns-address'), ['str'])),
                                 ])
                                 self.duid = None
                                 self.mac_address_xr = None
@@ -7146,6 +7495,7 @@ class Dhcpv6(Entity):
                                 self.opt17 = None
                                 self.dns_address = []
                                 self._segment_path = lambda: "duid-bind-option" + "[duid='" + str(self.duid) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Server.BindingOptions.DuidBindOptions.DuidBindOption, ['duid', 'mac_address_xr', 'duid_xr', 'dns_count', 'opt17', 'dns_address'], name, value)
@@ -7175,7 +7525,7 @@ class Dhcpv6(Entity):
                 """
 
                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-12-06'
 
                 def __init__(self):
                     super(Dhcpv6.Nodes.Node.Relay, self).__init__()
@@ -7200,6 +7550,7 @@ class Dhcpv6(Entity):
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
                     self._segment_path = lambda: "relay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay, [], name, value)
@@ -7219,7 +7570,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Statistics, self).__init__()
@@ -7234,6 +7585,7 @@ class Dhcpv6(Entity):
 
                         self.ipv6_dhcpv6d_relay_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics, [], name, value)
@@ -7260,7 +7612,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, self).__init__()
@@ -7272,7 +7624,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -7280,6 +7632,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv6-dhcpv6d-relay-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat, ['vrf_name'], name, value)
@@ -7315,7 +7668,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, self).__init__()
@@ -7327,14 +7680,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Statistics.Ipv6Dhcpv6dRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -7359,7 +7713,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Binding, self).__init__()
@@ -7380,6 +7734,7 @@ class Dhcpv6(Entity):
                         self.clients.parent = self
                         self._children_name_map["clients"] = "clients"
                         self._segment_path = lambda: "binding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding, [], name, value)
@@ -7401,7 +7756,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Binding.Summary, self).__init__()
@@ -7413,10 +7768,11 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('clients', YLeaf(YType.uint32, 'clients')),
+                                ('clients', (YLeaf(YType.uint32, 'clients'), ['int'])),
                             ])
                             self.clients = None
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Summary, ['clients'], name, value)
@@ -7436,7 +7792,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Binding.Clients, self).__init__()
@@ -7451,6 +7807,7 @@ class Dhcpv6(Entity):
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients, [], name, value)
@@ -7547,7 +7904,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, self).__init__()
@@ -7559,18 +7916,18 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['client_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('client_id', YLeaf(YType.str, 'client-id')),
-                                    ('duid', YLeaf(YType.str, 'duid')),
-                                    ('client_id_xr', YLeaf(YType.uint32, 'client-id-xr')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
-                                    ('rem_life_time', YLeaf(YType.uint32, 'rem-life-time')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('next_hop_addr', YLeaf(YType.str, 'next-hop-addr')),
-                                    ('ia_id', YLeaf(YType.uint32, 'ia-id')),
-                                    ('relay_profile_name', YLeaf(YType.str, 'relay-profile-name')),
+                                    ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                                    ('duid', (YLeaf(YType.str, 'duid'), ['str'])),
+                                    ('client_id_xr', (YLeaf(YType.uint32, 'client-id-xr'), ['int'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
+                                    ('rem_life_time', (YLeaf(YType.uint32, 'rem-life-time'), ['int'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('next_hop_addr', (YLeaf(YType.str, 'next-hop-addr'), ['str'])),
+                                    ('ia_id', (YLeaf(YType.uint32, 'ia-id'), ['int'])),
+                                    ('relay_profile_name', (YLeaf(YType.str, 'relay-profile-name'), ['str'])),
                                 ])
                                 self.client_id = None
                                 self.duid = None
@@ -7585,6 +7942,7 @@ class Dhcpv6(Entity):
                                 self.ia_id = None
                                 self.relay_profile_name = None
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Binding.Clients.Client, ['client_id', 'duid', 'client_id_xr', 'prefix_length', 'prefix', 'vrf_name', 'lifetime', 'rem_life_time', 'interface_name', 'next_hop_addr', 'ia_id', 'relay_profile_name'], name, value)
@@ -7604,7 +7962,7 @@ class Dhcpv6(Entity):
                     """
 
                     _prefix = 'ipv6-new-dhcpv6d-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-12-06'
 
                     def __init__(self):
                         super(Dhcpv6.Nodes.Node.Relay.Vrfs, self).__init__()
@@ -7619,6 +7977,7 @@ class Dhcpv6(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs, [], name, value)
@@ -7645,7 +8004,7 @@ class Dhcpv6(Entity):
                         """
 
                         _prefix = 'ipv6-new-dhcpv6d-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-12-06'
 
                         def __init__(self):
                             super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, self).__init__()
@@ -7657,7 +8016,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -7665,6 +8024,7 @@ class Dhcpv6(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -7764,7 +8124,7 @@ class Dhcpv6(Entity):
                             """
 
                             _prefix = 'ipv6-new-dhcpv6d-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-12-06'
 
                             def __init__(self):
                                 super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, self).__init__()
@@ -7845,6 +8205,7 @@ class Dhcpv6(Entity):
                                 self.lease_query_data.parent = self
                                 self._children_name_map["lease_query_data"] = "lease-query-data"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics, [], name, value)
@@ -7880,7 +8241,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, self).__init__()
@@ -7892,14 +8253,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "solicit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Solicit, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -7935,7 +8297,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, self).__init__()
@@ -7947,14 +8309,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "advertise"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Advertise, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -7990,7 +8353,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, self).__init__()
@@ -8002,14 +8365,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8045,7 +8409,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, self).__init__()
@@ -8057,14 +8421,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8100,7 +8465,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, self).__init__()
@@ -8112,14 +8477,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "confirm"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Confirm, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8155,7 +8521,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, self).__init__()
@@ -8167,14 +8533,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8210,7 +8577,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, self).__init__()
@@ -8222,14 +8589,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "renew"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Renew, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8265,7 +8633,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, self).__init__()
@@ -8277,14 +8645,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "rebind"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Rebind, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8320,7 +8689,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, self).__init__()
@@ -8332,14 +8701,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8375,7 +8745,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, self).__init__()
@@ -8387,14 +8757,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "reconfig"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Reconfig, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8430,7 +8801,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, self).__init__()
@@ -8442,14 +8813,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8485,7 +8857,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, self).__init__()
@@ -8497,14 +8869,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-forward"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayForward, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8540,7 +8913,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, self).__init__()
@@ -8552,14 +8925,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "relay-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.RelayReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8595,7 +8969,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, self).__init__()
@@ -8607,14 +8981,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8650,7 +9025,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, self).__init__()
@@ -8662,14 +9037,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8705,7 +9081,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, self).__init__()
@@ -8717,14 +9093,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-done"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryDone, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
@@ -8760,7 +9137,7 @@ class Dhcpv6(Entity):
                                 """
 
                                 _prefix = 'ipv6-new-dhcpv6d-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-12-06'
 
                                 def __init__(self):
                                     super(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, self).__init__()
@@ -8772,14 +9149,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query-data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Nodes.Node.Relay.Vrfs.Vrf.Statistics.LeaseQueryData, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)

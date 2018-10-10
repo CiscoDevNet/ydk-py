@@ -15,6 +15,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiiAdminState(Enum):
     """
     CiiAdminState (Enum Class)
@@ -365,6 +366,7 @@ class CISCOIETFISISMIB(Entity):
         self.ciilsptlvtable.parent = self
         self._children_name_map["ciilsptlvtable"] = "ciiLSPTLVTable"
         self._segment_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFISISMIB, [], name, value)
@@ -470,17 +472,17 @@ class CISCOIETFISISMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciisysversion', YLeaf(YType.enumeration, 'ciiSysVersion')),
-                ('ciisystype', YLeaf(YType.enumeration, 'ciiSysType')),
-                ('ciisysid', YLeaf(YType.str, 'ciiSysID')),
-                ('ciisysmaxpathsplits', YLeaf(YType.int32, 'ciiSysMaxPathSplits')),
-                ('ciisysmaxlspgenint', YLeaf(YType.int32, 'ciiSysMaxLSPGenInt')),
-                ('ciisyspolleshellorate', YLeaf(YType.uint32, 'ciiSysPollESHelloRate')),
-                ('ciisyswaittime', YLeaf(YType.uint32, 'ciiSysWaitTime')),
-                ('ciisysadminstate', YLeaf(YType.enumeration, 'ciiSysAdminState')),
-                ('ciisysl2tol1leaking', YLeaf(YType.boolean, 'ciiSysL2toL1Leaking')),
-                ('ciisysmaxage', YLeaf(YType.uint32, 'ciiSysMaxAge')),
-                ('ciisysreceivelspbuffersize', YLeaf(YType.uint32, 'ciiSysReceiveLSPBufferSize')),
+                ('ciisysversion', (YLeaf(YType.enumeration, 'ciiSysVersion'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiSysObject.CiiSysVersion')])),
+                ('ciisystype', (YLeaf(YType.enumeration, 'ciiSysType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiSysObject.CiiSysType')])),
+                ('ciisysid', (YLeaf(YType.str, 'ciiSysID'), ['str'])),
+                ('ciisysmaxpathsplits', (YLeaf(YType.int32, 'ciiSysMaxPathSplits'), ['int'])),
+                ('ciisysmaxlspgenint', (YLeaf(YType.int32, 'ciiSysMaxLSPGenInt'), ['int'])),
+                ('ciisyspolleshellorate', (YLeaf(YType.uint32, 'ciiSysPollESHelloRate'), ['int'])),
+                ('ciisyswaittime', (YLeaf(YType.uint32, 'ciiSysWaitTime'), ['int'])),
+                ('ciisysadminstate', (YLeaf(YType.enumeration, 'ciiSysAdminState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiAdminState', '')])),
+                ('ciisysl2tol1leaking', (YLeaf(YType.boolean, 'ciiSysL2toL1Leaking'), ['bool'])),
+                ('ciisysmaxage', (YLeaf(YType.uint32, 'ciiSysMaxAge'), ['int'])),
+                ('ciisysreceivelspbuffersize', (YLeaf(YType.uint32, 'ciiSysReceiveLSPBufferSize'), ['int'])),
             ])
             self.ciisysversion = None
             self.ciisystype = None
@@ -495,6 +497,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciisysreceivelspbuffersize = None
             self._segment_path = lambda: "ciiSysObject"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiSysObject, ['ciisysversion', 'ciisystype', 'ciisysid', 'ciisysmaxpathsplits', 'ciisysmaxlspgenint', 'ciisyspolleshellorate', 'ciisyswaittime', 'ciisysadminstate', 'ciisysl2tol1leaking', 'ciisysmaxage', 'ciisysreceivelspbuffersize'], name, value)
@@ -572,11 +575,12 @@ class CISCOIETFISISMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciinextcircindex', YLeaf(YType.uint32, 'ciiNextCircIndex')),
+                ('ciinextcircindex', (YLeaf(YType.uint32, 'ciiNextCircIndex'), ['int'])),
             ])
             self.ciinextcircindex = None
             self._segment_path = lambda: "ciiCirc"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiCirc, ['ciinextcircindex'], name, value)
@@ -613,6 +617,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciimanareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiManAreaAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiManAreaAddrTable, [], name, value)
@@ -652,13 +657,14 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciimanareaaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciimanareaaddr', YLeaf(YType.str, 'ciiManAreaAddr')),
-                    ('ciimanareaaddrexiststate', YLeaf(YType.enumeration, 'ciiManAreaAddrExistState')),
+                    ('ciimanareaaddr', (YLeaf(YType.str, 'ciiManAreaAddr'), ['str'])),
+                    ('ciimanareaaddrexiststate', (YLeaf(YType.enumeration, 'ciiManAreaAddrExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ciimanareaaddr = None
                 self.ciimanareaaddrexiststate = None
                 self._segment_path = lambda: "ciiManAreaAddrEntry" + "[ciiManAreaAddr='" + str(self.ciimanareaaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiManAreaAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiManAreaAddrTable.CiiManAreaAddrEntry, ['ciimanareaaddr', 'ciimanareaaddrexiststate'], name, value)
@@ -697,6 +703,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiAreaAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiAreaAddrTable, [], name, value)
@@ -732,11 +739,12 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciiareaaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciiareaaddr', YLeaf(YType.str, 'ciiAreaAddr')),
+                    ('ciiareaaddr', (YLeaf(YType.str, 'ciiAreaAddr'), ['str'])),
                 ])
                 self.ciiareaaddr = None
                 self._segment_path = lambda: "ciiAreaAddrEntry" + "[ciiAreaAddr='" + str(self.ciiareaaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiAreaAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiAreaAddrTable.CiiAreaAddrEntry, ['ciiareaaddr'], name, value)
@@ -773,6 +781,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciisysprotsuppentry = YList(self)
             self._segment_path = lambda: "ciiSysProtSuppTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiSysProtSuppTable, [], name, value)
@@ -810,13 +819,14 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciisysprotsuppprotocol']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciisysprotsuppprotocol', YLeaf(YType.enumeration, 'ciiSysProtSuppProtocol')),
-                    ('ciisysprotsuppexiststate', YLeaf(YType.enumeration, 'ciiSysProtSuppExistState')),
+                    ('ciisysprotsuppprotocol', (YLeaf(YType.enumeration, 'ciiSysProtSuppProtocol'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiSupportedProtocol', '')])),
+                    ('ciisysprotsuppexiststate', (YLeaf(YType.enumeration, 'ciiSysProtSuppExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ciisysprotsuppprotocol = None
                 self.ciisysprotsuppexiststate = None
                 self._segment_path = lambda: "ciiSysProtSuppEntry" + "[ciiSysProtSuppProtocol='" + str(self.ciisysprotsuppprotocol) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysProtSuppTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiSysProtSuppTable.CiiSysProtSuppEntry, ['ciisysprotsuppprotocol', 'ciisysprotsuppexiststate'], name, value)
@@ -859,6 +869,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciisummaddrentry = YList(self)
             self._segment_path = lambda: "ciiSummAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiSummAddrTable, [], name, value)
@@ -923,12 +934,12 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciisummaddresstype','ciisummaddress','ciisummaddrprefixlen']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciisummaddresstype', YLeaf(YType.enumeration, 'ciiSummAddressType')),
-                    ('ciisummaddress', YLeaf(YType.str, 'ciiSummAddress')),
-                    ('ciisummaddrprefixlen', YLeaf(YType.uint32, 'ciiSummAddrPrefixLen')),
-                    ('ciisummaddrexiststate', YLeaf(YType.enumeration, 'ciiSummAddrExistState')),
-                    ('ciisummaddrmetric', YLeaf(YType.int32, 'ciiSummAddrMetric')),
-                    ('ciisummaddrfullmetric', YLeaf(YType.uint32, 'ciiSummAddrFullMetric')),
+                    ('ciisummaddresstype', (YLeaf(YType.enumeration, 'ciiSummAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciisummaddress', (YLeaf(YType.str, 'ciiSummAddress'), ['str'])),
+                    ('ciisummaddrprefixlen', (YLeaf(YType.uint32, 'ciiSummAddrPrefixLen'), ['int'])),
+                    ('ciisummaddrexiststate', (YLeaf(YType.enumeration, 'ciiSummAddrExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciisummaddrmetric', (YLeaf(YType.int32, 'ciiSummAddrMetric'), ['int'])),
+                    ('ciisummaddrfullmetric', (YLeaf(YType.uint32, 'ciiSummAddrFullMetric'), ['int'])),
                 ])
                 self.ciisummaddresstype = None
                 self.ciisummaddress = None
@@ -938,6 +949,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciisummaddrfullmetric = None
                 self._segment_path = lambda: "ciiSummAddrEntry" + "[ciiSummAddressType='" + str(self.ciisummaddresstype) + "']" + "[ciiSummAddress='" + str(self.ciisummaddress) + "']" + "[ciiSummAddrPrefixLen='" + str(self.ciisummaddrprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSummAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiSummAddrTable.CiiSummAddrEntry, ['ciisummaddresstype', 'ciisummaddress', 'ciisummaddrprefixlen', 'ciisummaddrexiststate', 'ciisummaddrmetric', 'ciisummaddrfullmetric'], name, value)
@@ -981,6 +993,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiredistributeaddrentry = YList(self)
             self._segment_path = lambda: "ciiRedistributeAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiRedistributeAddrTable, [], name, value)
@@ -1032,10 +1045,10 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciiredistributeaddrtype','ciiredistributeaddraddress','ciiredistributeaddrprefixlen']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciiredistributeaddrtype', YLeaf(YType.enumeration, 'ciiRedistributeAddrType')),
-                    ('ciiredistributeaddraddress', YLeaf(YType.str, 'ciiRedistributeAddrAddress')),
-                    ('ciiredistributeaddrprefixlen', YLeaf(YType.uint32, 'ciiRedistributeAddrPrefixLen')),
-                    ('ciiredistributeaddrexiststate', YLeaf(YType.enumeration, 'ciiRedistributeAddrExistState')),
+                    ('ciiredistributeaddrtype', (YLeaf(YType.enumeration, 'ciiRedistributeAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciiredistributeaddraddress', (YLeaf(YType.str, 'ciiRedistributeAddrAddress'), ['str'])),
+                    ('ciiredistributeaddrprefixlen', (YLeaf(YType.uint32, 'ciiRedistributeAddrPrefixLen'), ['int'])),
+                    ('ciiredistributeaddrexiststate', (YLeaf(YType.enumeration, 'ciiRedistributeAddrExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ciiredistributeaddrtype = None
                 self.ciiredistributeaddraddress = None
@@ -1043,6 +1056,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiredistributeaddrexiststate = None
                 self._segment_path = lambda: "ciiRedistributeAddrEntry" + "[ciiRedistributeAddrType='" + str(self.ciiredistributeaddrtype) + "']" + "[ciiRedistributeAddrAddress='" + str(self.ciiredistributeaddraddress) + "']" + "[ciiRedistributeAddrPrefixLen='" + str(self.ciiredistributeaddrprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRedistributeAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiRedistributeAddrTable.CiiRedistributeAddrEntry, ['ciiredistributeaddrtype', 'ciiredistributeaddraddress', 'ciiredistributeaddrprefixlen', 'ciiredistributeaddrexiststate'], name, value)
@@ -1078,6 +1092,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciirouterentry = YList(self)
             self._segment_path = lambda: "ciiRouterTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiRouterTable, [], name, value)
@@ -1129,10 +1144,10 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciiroutersysid','ciirouterlevel']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciiroutersysid', YLeaf(YType.str, 'ciiRouterSysID')),
-                    ('ciirouterlevel', YLeaf(YType.enumeration, 'ciiRouterLevel')),
-                    ('ciirouterhostname', YLeaf(YType.str, 'ciiRouterHostName')),
-                    ('ciirouterid', YLeaf(YType.uint32, 'ciiRouterID')),
+                    ('ciiroutersysid', (YLeaf(YType.str, 'ciiRouterSysID'), ['str'])),
+                    ('ciirouterlevel', (YLeaf(YType.enumeration, 'ciiRouterLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiISLevel', '')])),
+                    ('ciirouterhostname', (YLeaf(YType.str, 'ciiRouterHostName'), ['str'])),
+                    ('ciirouterid', (YLeaf(YType.uint32, 'ciiRouterID'), ['int'])),
                 ])
                 self.ciiroutersysid = None
                 self.ciirouterlevel = None
@@ -1140,6 +1155,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciirouterid = None
                 self._segment_path = lambda: "ciiRouterEntry" + "[ciiRouterSysID='" + str(self.ciiroutersysid) + "']" + "[ciiRouterLevel='" + str(self.ciirouterlevel) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRouterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiRouterTable.CiiRouterEntry, ['ciiroutersysid', 'ciirouterlevel', 'ciirouterhostname', 'ciirouterid'], name, value)
@@ -1175,6 +1191,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciisyslevelentry = YList(self)
             self._segment_path = lambda: "ciiSysLevelTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiSysLevelTable, [], name, value)
@@ -1254,15 +1271,15 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciisyslevelindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciisyslevelindex', YLeaf(YType.enumeration, 'ciiSysLevelIndex')),
-                    ('ciisysleveloriglspbuffsize', YLeaf(YType.int32, 'ciiSysLevelOrigLSPBuffSize')),
-                    ('ciisyslevelminlspgenint', YLeaf(YType.uint32, 'ciiSysLevelMinLSPGenInt')),
-                    ('ciisysleveloverloadstate', YLeaf(YType.enumeration, 'ciiSysLevelOverloadState')),
-                    ('ciisyslevelsetoverload', YLeaf(YType.boolean, 'ciiSysLevelSetOverload')),
-                    ('ciisyslevelsetoverloaduntil', YLeaf(YType.uint32, 'ciiSysLevelSetOverloadUntil')),
-                    ('ciisyslevelmetricstyle', YLeaf(YType.enumeration, 'ciiSysLevelMetricStyle')),
-                    ('ciisyslevelspfconsiders', YLeaf(YType.enumeration, 'ciiSysLevelSPFConsiders')),
-                    ('ciisyslevelteenabled', YLeaf(YType.boolean, 'ciiSysLevelTEEnabled')),
+                    ('ciisyslevelindex', (YLeaf(YType.enumeration, 'ciiSysLevelIndex'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiSysLevelTable.CiiSysLevelEntry.CiiSysLevelIndex')])),
+                    ('ciisysleveloriglspbuffsize', (YLeaf(YType.int32, 'ciiSysLevelOrigLSPBuffSize'), ['int'])),
+                    ('ciisyslevelminlspgenint', (YLeaf(YType.uint32, 'ciiSysLevelMinLSPGenInt'), ['int'])),
+                    ('ciisysleveloverloadstate', (YLeaf(YType.enumeration, 'ciiSysLevelOverloadState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiLevelState', '')])),
+                    ('ciisyslevelsetoverload', (YLeaf(YType.boolean, 'ciiSysLevelSetOverload'), ['bool'])),
+                    ('ciisyslevelsetoverloaduntil', (YLeaf(YType.uint32, 'ciiSysLevelSetOverloadUntil'), ['int'])),
+                    ('ciisyslevelmetricstyle', (YLeaf(YType.enumeration, 'ciiSysLevelMetricStyle'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiMetricStyle', '')])),
+                    ('ciisyslevelspfconsiders', (YLeaf(YType.enumeration, 'ciiSysLevelSPFConsiders'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiMetricStyle', '')])),
+                    ('ciisyslevelteenabled', (YLeaf(YType.boolean, 'ciiSysLevelTEEnabled'), ['bool'])),
                 ])
                 self.ciisyslevelindex = None
                 self.ciisysleveloriglspbuffsize = None
@@ -1275,6 +1292,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciisyslevelteenabled = None
                 self._segment_path = lambda: "ciiSysLevelEntry" + "[ciiSysLevelIndex='" + str(self.ciisyslevelindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSysLevelTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiSysLevelTable.CiiSysLevelEntry, ['ciisyslevelindex', 'ciisysleveloriglspbuffsize', 'ciisyslevelminlspgenint', 'ciisysleveloverloadstate', 'ciisyslevelsetoverload', 'ciisyslevelsetoverloaduntil', 'ciisyslevelmetricstyle', 'ciisyslevelspfconsiders', 'ciisyslevelteenabled'], name, value)
@@ -1328,6 +1346,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciicircentry = YList(self)
             self._segment_path = lambda: "ciiCircTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiCircTable, [], name, value)
@@ -1442,21 +1461,21 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.int32, 'ciiCircIndex')),
-                    ('ciicircifindex', YLeaf(YType.int32, 'ciiCircIfIndex')),
-                    ('ciicircifsubindex', YLeaf(YType.int32, 'ciiCircIfSubIndex')),
-                    ('ciicircadminstate', YLeaf(YType.enumeration, 'ciiCircAdminState')),
-                    ('ciicircexiststate', YLeaf(YType.enumeration, 'ciiCircExistState')),
-                    ('ciicirctype', YLeaf(YType.enumeration, 'ciiCircType')),
-                    ('ciicircextdomain', YLeaf(YType.boolean, 'ciiCircExtDomain')),
-                    ('ciicirclevel', YLeaf(YType.enumeration, 'ciiCircLevel')),
-                    ('ciicircpassivecircuit', YLeaf(YType.boolean, 'ciiCircPassiveCircuit')),
-                    ('ciicircmeshgroupenabled', YLeaf(YType.enumeration, 'ciiCircMeshGroupEnabled')),
-                    ('ciicircmeshgroup', YLeaf(YType.uint32, 'ciiCircMeshGroup')),
-                    ('ciicircsmallhellos', YLeaf(YType.boolean, 'ciiCircSmallHellos')),
-                    ('ciicirclastuptime', YLeaf(YType.uint32, 'ciiCircLastUpTime')),
-                    ('ciicirc3wayenabled', YLeaf(YType.boolean, 'ciiCirc3WayEnabled')),
-                    ('ciicircextendedcircid', YLeaf(YType.uint32, 'ciiCircExtendedCircID')),
+                    ('ciicircindex', (YLeaf(YType.int32, 'ciiCircIndex'), ['int'])),
+                    ('ciicircifindex', (YLeaf(YType.int32, 'ciiCircIfIndex'), ['int'])),
+                    ('ciicircifsubindex', (YLeaf(YType.int32, 'ciiCircIfSubIndex'), ['int'])),
+                    ('ciicircadminstate', (YLeaf(YType.enumeration, 'ciiCircAdminState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiAdminState', '')])),
+                    ('ciicircexiststate', (YLeaf(YType.enumeration, 'ciiCircExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciicirctype', (YLeaf(YType.enumeration, 'ciiCircType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiCircTable.CiiCircEntry.CiiCircType')])),
+                    ('ciicircextdomain', (YLeaf(YType.boolean, 'ciiCircExtDomain'), ['bool'])),
+                    ('ciicirclevel', (YLeaf(YType.enumeration, 'ciiCircLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiCircTable.CiiCircEntry.CiiCircLevel')])),
+                    ('ciicircpassivecircuit', (YLeaf(YType.boolean, 'ciiCircPassiveCircuit'), ['bool'])),
+                    ('ciicircmeshgroupenabled', (YLeaf(YType.enumeration, 'ciiCircMeshGroupEnabled'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiCircTable.CiiCircEntry.CiiCircMeshGroupEnabled')])),
+                    ('ciicircmeshgroup', (YLeaf(YType.uint32, 'ciiCircMeshGroup'), ['int'])),
+                    ('ciicircsmallhellos', (YLeaf(YType.boolean, 'ciiCircSmallHellos'), ['bool'])),
+                    ('ciicirclastuptime', (YLeaf(YType.uint32, 'ciiCircLastUpTime'), ['int'])),
+                    ('ciicirc3wayenabled', (YLeaf(YType.boolean, 'ciiCirc3WayEnabled'), ['bool'])),
+                    ('ciicircextendedcircid', (YLeaf(YType.uint32, 'ciiCircExtendedCircID'), ['int'])),
                 ])
                 self.ciicircindex = None
                 self.ciicircifindex = None
@@ -1475,6 +1494,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciicircextendedcircid = None
                 self._segment_path = lambda: "ciiCircEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiCircTable.CiiCircEntry, ['ciicircindex', 'ciicircifindex', 'ciicircifsubindex', 'ciicircadminstate', 'ciicircexiststate', 'ciicirctype', 'ciicircextdomain', 'ciicirclevel', 'ciicircpassivecircuit', 'ciicircmeshgroupenabled', 'ciicircmeshgroup', 'ciicircsmallhellos', 'ciicirclastuptime', 'ciicirc3wayenabled', 'ciicircextendedcircid'], name, value)
@@ -1601,6 +1621,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciicirclevelentry = YList(self)
             self._segment_path = lambda: "ciiCircLevelTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiCircLevelTable, [], name, value)
@@ -1745,21 +1766,21 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciicirclevelindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciicirclevelindex', YLeaf(YType.enumeration, 'ciiCircLevelIndex')),
-                    ('ciicirclevelmetric', YLeaf(YType.int32, 'ciiCircLevelMetric')),
-                    ('ciicirclevelwidemetric', YLeaf(YType.uint32, 'ciiCircLevelWideMetric')),
-                    ('ciicirclevelispriority', YLeaf(YType.int32, 'ciiCircLevelISPriority')),
-                    ('ciicirclevelidoctet', YLeaf(YType.int32, 'ciiCircLevelIDOctet')),
-                    ('ciicirclevelid', YLeaf(YType.str, 'ciiCircLevelID')),
-                    ('ciicircleveldesis', YLeaf(YType.str, 'ciiCircLevelDesIS')),
-                    ('ciicirclevelhellomultiplier', YLeaf(YType.int32, 'ciiCircLevelHelloMultiplier')),
-                    ('ciicirclevelhellotimer', YLeaf(YType.int32, 'ciiCircLevelHelloTimer')),
-                    ('ciicircleveldrhellotimer', YLeaf(YType.int32, 'ciiCircLevelDRHelloTimer')),
-                    ('ciicirclevellspthrottle', YLeaf(YType.uint32, 'ciiCircLevelLSPThrottle')),
-                    ('ciicirclevelminlspretransint', YLeaf(YType.int32, 'ciiCircLevelMinLSPRetransInt')),
-                    ('ciicirclevelcsnpinterval', YLeaf(YType.int32, 'ciiCircLevelCSNPInterval')),
-                    ('ciicirclevelpartsnpinterval', YLeaf(YType.int32, 'ciiCircLevelPartSNPInterval')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciicirclevelindex', (YLeaf(YType.enumeration, 'ciiCircLevelIndex'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiCircLevelTable.CiiCircLevelEntry.CiiCircLevelIndex')])),
+                    ('ciicirclevelmetric', (YLeaf(YType.int32, 'ciiCircLevelMetric'), ['int'])),
+                    ('ciicirclevelwidemetric', (YLeaf(YType.uint32, 'ciiCircLevelWideMetric'), ['int'])),
+                    ('ciicirclevelispriority', (YLeaf(YType.int32, 'ciiCircLevelISPriority'), ['int'])),
+                    ('ciicirclevelidoctet', (YLeaf(YType.int32, 'ciiCircLevelIDOctet'), ['int'])),
+                    ('ciicirclevelid', (YLeaf(YType.str, 'ciiCircLevelID'), ['str'])),
+                    ('ciicircleveldesis', (YLeaf(YType.str, 'ciiCircLevelDesIS'), ['str'])),
+                    ('ciicirclevelhellomultiplier', (YLeaf(YType.int32, 'ciiCircLevelHelloMultiplier'), ['int'])),
+                    ('ciicirclevelhellotimer', (YLeaf(YType.int32, 'ciiCircLevelHelloTimer'), ['int'])),
+                    ('ciicircleveldrhellotimer', (YLeaf(YType.int32, 'ciiCircLevelDRHelloTimer'), ['int'])),
+                    ('ciicirclevellspthrottle', (YLeaf(YType.uint32, 'ciiCircLevelLSPThrottle'), ['int'])),
+                    ('ciicirclevelminlspretransint', (YLeaf(YType.int32, 'ciiCircLevelMinLSPRetransInt'), ['int'])),
+                    ('ciicirclevelcsnpinterval', (YLeaf(YType.int32, 'ciiCircLevelCSNPInterval'), ['int'])),
+                    ('ciicirclevelpartsnpinterval', (YLeaf(YType.int32, 'ciiCircLevelPartSNPInterval'), ['int'])),
                 ])
                 self.ciicircindex = None
                 self.ciicirclevelindex = None
@@ -1778,6 +1799,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciicirclevelpartsnpinterval = None
                 self._segment_path = lambda: "ciiCircLevelEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiCircLevelIndex='" + str(self.ciicirclevelindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircLevelTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiCircLevelTable.CiiCircLevelEntry, ['ciicircindex', 'ciicirclevelindex', 'ciicirclevelmetric', 'ciicirclevelwidemetric', 'ciicirclevelispriority', 'ciicirclevelidoctet', 'ciicirclevelid', 'ciicircleveldesis', 'ciicirclevelhellomultiplier', 'ciicirclevelhellotimer', 'ciicircleveldrhellotimer', 'ciicirclevellspthrottle', 'ciicirclevelminlspretransint', 'ciicirclevelcsnpinterval', 'ciicirclevelpartsnpinterval'], name, value)
@@ -1830,6 +1852,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciisystemcounterentry = YList(self)
             self._segment_path = lambda: "ciiSystemCounterTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiSystemCounterTable, [], name, value)
@@ -1955,19 +1978,19 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciisysstatlevel']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciisysstatlevel', YLeaf(YType.enumeration, 'ciiSysStatLevel')),
-                    ('ciisysstatcorrlsps', YLeaf(YType.uint32, 'ciiSysStatCorrLSPs')),
-                    ('ciisysstatauthtypefails', YLeaf(YType.uint32, 'ciiSysStatAuthTypeFails')),
-                    ('ciisysstatauthfails', YLeaf(YType.uint32, 'ciiSysStatAuthFails')),
-                    ('ciisysstatlspdbaseoloads', YLeaf(YType.uint32, 'ciiSysStatLSPDbaseOloads')),
-                    ('ciisysstatmanaddrdropfromareas', YLeaf(YType.uint32, 'ciiSysStatManAddrDropFromAreas')),
-                    ('ciisysstatattmpttoexmaxseqnums', YLeaf(YType.uint32, 'ciiSysStatAttmptToExMaxSeqNums')),
-                    ('ciisysstatseqnumskips', YLeaf(YType.uint32, 'ciiSysStatSeqNumSkips')),
-                    ('ciisysstatownlsppurges', YLeaf(YType.uint32, 'ciiSysStatOwnLSPPurges')),
-                    ('ciisysstatidfieldlenmismatches', YLeaf(YType.uint32, 'ciiSysStatIDFieldLenMismatches')),
-                    ('ciisysstatpartchanges', YLeaf(YType.uint32, 'ciiSysStatPartChanges')),
-                    ('ciisysstatspfruns', YLeaf(YType.uint32, 'ciiSysStatSPFRuns')),
-                    ('ciisysstatlsperrors', YLeaf(YType.uint32, 'ciiSysStatLSPErrors')),
+                    ('ciisysstatlevel', (YLeaf(YType.enumeration, 'ciiSysStatLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiSystemCounterTable.CiiSystemCounterEntry.CiiSysStatLevel')])),
+                    ('ciisysstatcorrlsps', (YLeaf(YType.uint32, 'ciiSysStatCorrLSPs'), ['int'])),
+                    ('ciisysstatauthtypefails', (YLeaf(YType.uint32, 'ciiSysStatAuthTypeFails'), ['int'])),
+                    ('ciisysstatauthfails', (YLeaf(YType.uint32, 'ciiSysStatAuthFails'), ['int'])),
+                    ('ciisysstatlspdbaseoloads', (YLeaf(YType.uint32, 'ciiSysStatLSPDbaseOloads'), ['int'])),
+                    ('ciisysstatmanaddrdropfromareas', (YLeaf(YType.uint32, 'ciiSysStatManAddrDropFromAreas'), ['int'])),
+                    ('ciisysstatattmpttoexmaxseqnums', (YLeaf(YType.uint32, 'ciiSysStatAttmptToExMaxSeqNums'), ['int'])),
+                    ('ciisysstatseqnumskips', (YLeaf(YType.uint32, 'ciiSysStatSeqNumSkips'), ['int'])),
+                    ('ciisysstatownlsppurges', (YLeaf(YType.uint32, 'ciiSysStatOwnLSPPurges'), ['int'])),
+                    ('ciisysstatidfieldlenmismatches', (YLeaf(YType.uint32, 'ciiSysStatIDFieldLenMismatches'), ['int'])),
+                    ('ciisysstatpartchanges', (YLeaf(YType.uint32, 'ciiSysStatPartChanges'), ['int'])),
+                    ('ciisysstatspfruns', (YLeaf(YType.uint32, 'ciiSysStatSPFRuns'), ['int'])),
+                    ('ciisysstatlsperrors', (YLeaf(YType.uint32, 'ciiSysStatLSPErrors'), ['int'])),
                 ])
                 self.ciisysstatlevel = None
                 self.ciisysstatcorrlsps = None
@@ -1984,6 +2007,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciisysstatlsperrors = None
                 self._segment_path = lambda: "ciiSystemCounterEntry" + "[ciiSysStatLevel='" + str(self.ciisysstatlevel) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiSystemCounterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiSystemCounterTable.CiiSystemCounterEntry, ['ciisysstatlevel', 'ciisysstatcorrlsps', 'ciisysstatauthtypefails', 'ciisysstatauthfails', 'ciisysstatlspdbaseoloads', 'ciisysstatmanaddrdropfromareas', 'ciisysstatattmpttoexmaxseqnums', 'ciisysstatseqnumskips', 'ciisysstatownlsppurges', 'ciisysstatidfieldlenmismatches', 'ciisysstatpartchanges', 'ciisysstatspfruns', 'ciisysstatlsperrors'], name, value)
@@ -2037,6 +2061,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciicircuitcounterentry = YList(self)
             self._segment_path = lambda: "ciiCircuitCounterTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiCircuitCounterTable, [], name, value)
@@ -2143,17 +2168,17 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciicircuittype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciicircuittype', YLeaf(YType.enumeration, 'ciiCircuitType')),
-                    ('ciicircadjchanges', YLeaf(YType.uint32, 'ciiCircAdjChanges')),
-                    ('ciicircnumadj', YLeaf(YType.uint32, 'ciiCircNumAdj')),
-                    ('ciicircinitfails', YLeaf(YType.uint32, 'ciiCircInitFails')),
-                    ('ciicircrejadjs', YLeaf(YType.uint32, 'ciiCircRejAdjs')),
-                    ('ciicircidfieldlenmismatches', YLeaf(YType.uint32, 'ciiCircIDFieldLenMismatches')),
-                    ('ciicircmaxareaaddrmismatches', YLeaf(YType.uint32, 'ciiCircMaxAreaAddrMismatches')),
-                    ('ciicircauthtypefails', YLeaf(YType.uint32, 'ciiCircAuthTypeFails')),
-                    ('ciicircauthfails', YLeaf(YType.uint32, 'ciiCircAuthFails')),
-                    ('ciicirclandesischanges', YLeaf(YType.uint32, 'ciiCircLANDesISChanges')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciicircuittype', (YLeaf(YType.enumeration, 'ciiCircuitType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiCircuitCounterTable.CiiCircuitCounterEntry.CiiCircuitType')])),
+                    ('ciicircadjchanges', (YLeaf(YType.uint32, 'ciiCircAdjChanges'), ['int'])),
+                    ('ciicircnumadj', (YLeaf(YType.uint32, 'ciiCircNumAdj'), ['int'])),
+                    ('ciicircinitfails', (YLeaf(YType.uint32, 'ciiCircInitFails'), ['int'])),
+                    ('ciicircrejadjs', (YLeaf(YType.uint32, 'ciiCircRejAdjs'), ['int'])),
+                    ('ciicircidfieldlenmismatches', (YLeaf(YType.uint32, 'ciiCircIDFieldLenMismatches'), ['int'])),
+                    ('ciicircmaxareaaddrmismatches', (YLeaf(YType.uint32, 'ciiCircMaxAreaAddrMismatches'), ['int'])),
+                    ('ciicircauthtypefails', (YLeaf(YType.uint32, 'ciiCircAuthTypeFails'), ['int'])),
+                    ('ciicircauthfails', (YLeaf(YType.uint32, 'ciiCircAuthFails'), ['int'])),
+                    ('ciicirclandesischanges', (YLeaf(YType.uint32, 'ciiCircLANDesISChanges'), ['int'])),
                 ])
                 self.ciicircindex = None
                 self.ciicircuittype = None
@@ -2168,6 +2193,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciicirclandesischanges = None
                 self._segment_path = lambda: "ciiCircuitCounterEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiCircuitType='" + str(self.ciicircuittype) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiCircuitCounterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiCircuitCounterTable.CiiCircuitCounterEntry, ['ciicircindex', 'ciicircuittype', 'ciicircadjchanges', 'ciicircnumadj', 'ciicircinitfails', 'ciicircrejadjs', 'ciicircidfieldlenmismatches', 'ciicircmaxareaaddrmismatches', 'ciicircauthtypefails', 'ciicircauthfails', 'ciicirclandesischanges'], name, value)
@@ -2235,6 +2261,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciipacketcounterentry = YList(self)
             self._segment_path = lambda: "ciiPacketCounterTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiPacketCounterTable, [], name, value)
@@ -2344,16 +2371,16 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciipacketcountlevel','ciipacketcountdirection']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciipacketcountlevel', YLeaf(YType.enumeration, 'ciiPacketCountLevel')),
-                    ('ciipacketcountdirection', YLeaf(YType.enumeration, 'ciiPacketCountDirection')),
-                    ('ciipacketcountiihellos', YLeaf(YType.uint32, 'ciiPacketCountIIHellos')),
-                    ('ciipacketcountishellos', YLeaf(YType.uint32, 'ciiPacketCountISHellos')),
-                    ('ciipacketcounteshellos', YLeaf(YType.uint32, 'ciiPacketCountESHellos')),
-                    ('ciipacketcountlsps', YLeaf(YType.uint32, 'ciiPacketCountLSPs')),
-                    ('ciipacketcountcsnps', YLeaf(YType.uint32, 'ciiPacketCountCSNPs')),
-                    ('ciipacketcountpsnps', YLeaf(YType.uint32, 'ciiPacketCountPSNPs')),
-                    ('ciipacketcountunknowns', YLeaf(YType.uint32, 'ciiPacketCountUnknowns')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciipacketcountlevel', (YLeaf(YType.enumeration, 'ciiPacketCountLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiPacketCounterTable.CiiPacketCounterEntry.CiiPacketCountLevel')])),
+                    ('ciipacketcountdirection', (YLeaf(YType.enumeration, 'ciiPacketCountDirection'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiPacketCounterTable.CiiPacketCounterEntry.CiiPacketCountDirection')])),
+                    ('ciipacketcountiihellos', (YLeaf(YType.uint32, 'ciiPacketCountIIHellos'), ['int'])),
+                    ('ciipacketcountishellos', (YLeaf(YType.uint32, 'ciiPacketCountISHellos'), ['int'])),
+                    ('ciipacketcounteshellos', (YLeaf(YType.uint32, 'ciiPacketCountESHellos'), ['int'])),
+                    ('ciipacketcountlsps', (YLeaf(YType.uint32, 'ciiPacketCountLSPs'), ['int'])),
+                    ('ciipacketcountcsnps', (YLeaf(YType.uint32, 'ciiPacketCountCSNPs'), ['int'])),
+                    ('ciipacketcountpsnps', (YLeaf(YType.uint32, 'ciiPacketCountPSNPs'), ['int'])),
+                    ('ciipacketcountunknowns', (YLeaf(YType.uint32, 'ciiPacketCountUnknowns'), ['int'])),
                 ])
                 self.ciicircindex = None
                 self.ciipacketcountlevel = None
@@ -2367,6 +2394,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciipacketcountunknowns = None
                 self._segment_path = lambda: "ciiPacketCounterEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiPacketCountLevel='" + str(self.ciipacketcountlevel) + "']" + "[ciiPacketCountDirection='" + str(self.ciipacketcountdirection) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiPacketCounterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiPacketCounterTable.CiiPacketCounterEntry, ['ciicircindex', 'ciipacketcountlevel', 'ciipacketcountdirection', 'ciipacketcountiihellos', 'ciipacketcountishellos', 'ciipacketcounteshellos', 'ciipacketcountlsps', 'ciipacketcountcsnps', 'ciipacketcountpsnps', 'ciipacketcountunknowns'], name, value)
@@ -2436,6 +2464,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiisadjentry = YList(self)
             self._segment_path = lambda: "ciiISAdjTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiISAdjTable, [], name, value)
@@ -2545,18 +2574,18 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciiisadjindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciiisadjindex', YLeaf(YType.int32, 'ciiISAdjIndex')),
-                    ('ciiisadjstate', YLeaf(YType.enumeration, 'ciiISAdjState')),
-                    ('ciiisadj3waystate', YLeaf(YType.enumeration, 'ciiISAdj3WayState')),
-                    ('ciiisadjneighsnpaaddress', YLeaf(YType.str, 'ciiISAdjNeighSNPAAddress')),
-                    ('ciiisadjneighsystype', YLeaf(YType.enumeration, 'ciiISAdjNeighSysType')),
-                    ('ciiisadjneighsysid', YLeaf(YType.str, 'ciiISAdjNeighSysID')),
-                    ('ciiisadjnbrextendedcircid', YLeaf(YType.uint32, 'ciiISAdjNbrExtendedCircID')),
-                    ('ciiisadjusage', YLeaf(YType.enumeration, 'ciiISAdjUsage')),
-                    ('ciiisadjholdtimer', YLeaf(YType.uint32, 'ciiISAdjHoldTimer')),
-                    ('ciiisadjneighpriority', YLeaf(YType.int32, 'ciiISAdjNeighPriority')),
-                    ('ciiisadjlastuptime', YLeaf(YType.uint32, 'ciiISAdjLastUpTime')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciiisadjindex', (YLeaf(YType.int32, 'ciiISAdjIndex'), ['int'])),
+                    ('ciiisadjstate', (YLeaf(YType.enumeration, 'ciiISAdjState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiISAdjTable.CiiISAdjEntry.CiiISAdjState')])),
+                    ('ciiisadj3waystate', (YLeaf(YType.enumeration, 'ciiISAdj3WayState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiISAdjTable.CiiISAdjEntry.CiiISAdj3WayState')])),
+                    ('ciiisadjneighsnpaaddress', (YLeaf(YType.str, 'ciiISAdjNeighSNPAAddress'), ['str'])),
+                    ('ciiisadjneighsystype', (YLeaf(YType.enumeration, 'ciiISAdjNeighSysType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiISAdjTable.CiiISAdjEntry.CiiISAdjNeighSysType')])),
+                    ('ciiisadjneighsysid', (YLeaf(YType.str, 'ciiISAdjNeighSysID'), ['str'])),
+                    ('ciiisadjnbrextendedcircid', (YLeaf(YType.uint32, 'ciiISAdjNbrExtendedCircID'), ['int'])),
+                    ('ciiisadjusage', (YLeaf(YType.enumeration, 'ciiISAdjUsage'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiISAdjTable.CiiISAdjEntry.CiiISAdjUsage')])),
+                    ('ciiisadjholdtimer', (YLeaf(YType.uint32, 'ciiISAdjHoldTimer'), ['int'])),
+                    ('ciiisadjneighpriority', (YLeaf(YType.int32, 'ciiISAdjNeighPriority'), ['int'])),
+                    ('ciiisadjlastuptime', (YLeaf(YType.uint32, 'ciiISAdjLastUpTime'), ['int'])),
                 ])
                 self.ciicircindex = None
                 self.ciiisadjindex = None
@@ -2572,6 +2601,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiisadjlastuptime = None
                 self._segment_path = lambda: "ciiISAdjEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiISAdjTable.CiiISAdjEntry, ['ciicircindex', 'ciiisadjindex', 'ciiisadjstate', 'ciiisadj3waystate', 'ciiisadjneighsnpaaddress', 'ciiisadjneighsystype', 'ciiisadjneighsysid', 'ciiisadjnbrextendedcircid', 'ciiisadjusage', 'ciiisadjholdtimer', 'ciiisadjneighpriority', 'ciiisadjlastuptime'], name, value)
@@ -2717,6 +2747,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiisadjareaaddrentry = YList(self)
             self._segment_path = lambda: "ciiISAdjAreaAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiISAdjAreaAddrTable, [], name, value)
@@ -2776,10 +2807,10 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjareaaddrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
-                    ('ciiisadjareaaddrindex', YLeaf(YType.int32, 'ciiISAdjAreaAddrIndex')),
-                    ('ciiisadjareaaddress', YLeaf(YType.str, 'ciiISAdjAreaAddress')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciiisadjindex', (YLeaf(YType.str, 'ciiISAdjIndex'), ['int'])),
+                    ('ciiisadjareaaddrindex', (YLeaf(YType.int32, 'ciiISAdjAreaAddrIndex'), ['int'])),
+                    ('ciiisadjareaaddress', (YLeaf(YType.str, 'ciiISAdjAreaAddress'), ['str'])),
                 ])
                 self.ciicircindex = None
                 self.ciiisadjindex = None
@@ -2787,6 +2818,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiisadjareaaddress = None
                 self._segment_path = lambda: "ciiISAdjAreaAddrEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjAreaAddrIndex='" + str(self.ciiisadjareaaddrindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjAreaAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiISAdjAreaAddrTable.CiiISAdjAreaAddrEntry, ['ciicircindex', 'ciiisadjindex', 'ciiisadjareaaddrindex', 'ciiisadjareaaddress'], name, value)
@@ -2824,6 +2856,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiisadjipaddrentry = YList(self)
             self._segment_path = lambda: "ciiISAdjIPAddrTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiISAdjIPAddrTable, [], name, value)
@@ -2888,11 +2921,11 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjipaddrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
-                    ('ciiisadjipaddrindex', YLeaf(YType.int32, 'ciiISAdjIPAddrIndex')),
-                    ('ciiisadjipaddrtype', YLeaf(YType.enumeration, 'ciiISAdjIPAddrType')),
-                    ('ciiisadjipaddraddress', YLeaf(YType.str, 'ciiISAdjIPAddrAddress')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciiisadjindex', (YLeaf(YType.str, 'ciiISAdjIndex'), ['int'])),
+                    ('ciiisadjipaddrindex', (YLeaf(YType.int32, 'ciiISAdjIPAddrIndex'), ['int'])),
+                    ('ciiisadjipaddrtype', (YLeaf(YType.enumeration, 'ciiISAdjIPAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciiisadjipaddraddress', (YLeaf(YType.str, 'ciiISAdjIPAddrAddress'), ['str'])),
                 ])
                 self.ciicircindex = None
                 self.ciiisadjindex = None
@@ -2901,6 +2934,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiisadjipaddraddress = None
                 self._segment_path = lambda: "ciiISAdjIPAddrEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjIPAddrIndex='" + str(self.ciiisadjipaddrindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjIPAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiISAdjIPAddrTable.CiiISAdjIPAddrEntry, ['ciicircindex', 'ciiisadjindex', 'ciiisadjipaddrindex', 'ciiisadjipaddrtype', 'ciiisadjipaddraddress'], name, value)
@@ -2938,6 +2972,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiisadjprotsuppentry = YList(self)
             self._segment_path = lambda: "ciiISAdjProtSuppTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiISAdjProtSuppTable, [], name, value)
@@ -2989,15 +3024,16 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciiisadjindex','ciiisadjprotsuppprotocol']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciiisadjindex', YLeaf(YType.str, 'ciiISAdjIndex')),
-                    ('ciiisadjprotsuppprotocol', YLeaf(YType.enumeration, 'ciiISAdjProtSuppProtocol')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciiisadjindex', (YLeaf(YType.str, 'ciiISAdjIndex'), ['int'])),
+                    ('ciiisadjprotsuppprotocol', (YLeaf(YType.enumeration, 'ciiISAdjProtSuppProtocol'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiSupportedProtocol', '')])),
                 ])
                 self.ciicircindex = None
                 self.ciiisadjindex = None
                 self.ciiisadjprotsuppprotocol = None
                 self._segment_path = lambda: "ciiISAdjProtSuppEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiISAdjIndex='" + str(self.ciiisadjindex) + "']" + "[ciiISAdjProtSuppProtocol='" + str(self.ciiisadjprotsuppprotocol) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiISAdjProtSuppTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiISAdjProtSuppTable.CiiISAdjProtSuppEntry, ['ciicircindex', 'ciiisadjindex', 'ciiisadjprotsuppprotocol'], name, value)
@@ -3034,6 +3070,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiraentry = YList(self)
             self._segment_path = lambda: "ciiRATable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiRATable, [], name, value)
@@ -3137,18 +3174,18 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciicircindex','ciiraindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciicircindex', YLeaf(YType.str, 'ciiCircIndex')),
-                    ('ciiraindex', YLeaf(YType.int32, 'ciiRAIndex')),
-                    ('ciiraexiststate', YLeaf(YType.enumeration, 'ciiRAExistState')),
-                    ('ciiraadminstate', YLeaf(YType.enumeration, 'ciiRAAdminState')),
-                    ('ciiraaddrprefix', YLeaf(YType.str, 'ciiRAAddrPrefix')),
-                    ('ciiramaptype', YLeaf(YType.enumeration, 'ciiRAMapType')),
-                    ('ciirametric', YLeaf(YType.int32, 'ciiRAMetric')),
-                    ('ciirametrictype', YLeaf(YType.enumeration, 'ciiRAMetricType')),
-                    ('ciirasnpaaddress', YLeaf(YType.str, 'ciiRASNPAAddress')),
-                    ('ciirasnpamask', YLeaf(YType.str, 'ciiRASNPAMask')),
-                    ('ciirasnpaprefix', YLeaf(YType.str, 'ciiRASNPAPrefix')),
-                    ('ciiratype', YLeaf(YType.enumeration, 'ciiRAType')),
+                    ('ciicircindex', (YLeaf(YType.str, 'ciiCircIndex'), ['int'])),
+                    ('ciiraindex', (YLeaf(YType.int32, 'ciiRAIndex'), ['int'])),
+                    ('ciiraexiststate', (YLeaf(YType.enumeration, 'ciiRAExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciiraadminstate', (YLeaf(YType.enumeration, 'ciiRAAdminState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiAdminState', '')])),
+                    ('ciiraaddrprefix', (YLeaf(YType.str, 'ciiRAAddrPrefix'), ['str'])),
+                    ('ciiramaptype', (YLeaf(YType.enumeration, 'ciiRAMapType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiRATable.CiiRAEntry.CiiRAMapType')])),
+                    ('ciirametric', (YLeaf(YType.int32, 'ciiRAMetric'), ['int'])),
+                    ('ciirametrictype', (YLeaf(YType.enumeration, 'ciiRAMetricType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiMetricType', '')])),
+                    ('ciirasnpaaddress', (YLeaf(YType.str, 'ciiRASNPAAddress'), ['str'])),
+                    ('ciirasnpamask', (YLeaf(YType.str, 'ciiRASNPAMask'), ['str'])),
+                    ('ciirasnpaprefix', (YLeaf(YType.str, 'ciiRASNPAPrefix'), ['str'])),
+                    ('ciiratype', (YLeaf(YType.enumeration, 'ciiRAType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiRATable.CiiRAEntry.CiiRAType')])),
                 ])
                 self.ciicircindex = None
                 self.ciiraindex = None
@@ -3164,6 +3201,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiratype = None
                 self._segment_path = lambda: "ciiRAEntry" + "[ciiCircIndex='" + str(self.ciicircindex) + "']" + "[ciiRAIndex='" + str(self.ciiraindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiRATable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiRATable.CiiRAEntry, ['ciicircindex', 'ciiraindex', 'ciiraexiststate', 'ciiraadminstate', 'ciiraaddrprefix', 'ciiramaptype', 'ciirametric', 'ciirametrictype', 'ciirasnpaaddress', 'ciirasnpamask', 'ciirasnpaprefix', 'ciiratype'], name, value)
@@ -3305,6 +3343,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciiipraentry = YList(self)
             self._segment_path = lambda: "ciiIPRATable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiIPRATable, [], name, value)
@@ -3419,20 +3458,20 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciiipradesttype','ciiipradest','ciiipradestprefixlen','ciiipranexthopindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciiipradesttype', YLeaf(YType.enumeration, 'ciiIPRADestType')),
-                    ('ciiipradest', YLeaf(YType.str, 'ciiIPRADest')),
-                    ('ciiipradestprefixlen', YLeaf(YType.uint32, 'ciiIPRADestPrefixLen')),
-                    ('ciiipranexthopindex', YLeaf(YType.int32, 'ciiIPRANextHopIndex')),
-                    ('ciiipranexthoptype', YLeaf(YType.enumeration, 'ciiIPRANextHopType')),
-                    ('ciiipranexthop', YLeaf(YType.str, 'ciiIPRANextHop')),
-                    ('ciiipratype', YLeaf(YType.enumeration, 'ciiIPRAType')),
-                    ('ciiipraexiststate', YLeaf(YType.enumeration, 'ciiIPRAExistState')),
-                    ('ciiipraadminstate', YLeaf(YType.enumeration, 'ciiIPRAAdminState')),
-                    ('ciiiprametric', YLeaf(YType.int32, 'ciiIPRAMetric')),
-                    ('ciiiprametrictype', YLeaf(YType.enumeration, 'ciiIPRAMetricType')),
-                    ('ciiiprafullmetric', YLeaf(YType.uint32, 'ciiIPRAFullMetric')),
-                    ('ciiiprasnpaaddress', YLeaf(YType.str, 'ciiIPRASNPAAddress')),
-                    ('ciiiprasourcetype', YLeaf(YType.enumeration, 'ciiIPRASourceType')),
+                    ('ciiipradesttype', (YLeaf(YType.enumeration, 'ciiIPRADestType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciiipradest', (YLeaf(YType.str, 'ciiIPRADest'), ['str'])),
+                    ('ciiipradestprefixlen', (YLeaf(YType.uint32, 'ciiIPRADestPrefixLen'), ['int'])),
+                    ('ciiipranexthopindex', (YLeaf(YType.int32, 'ciiIPRANextHopIndex'), ['int'])),
+                    ('ciiipranexthoptype', (YLeaf(YType.enumeration, 'ciiIPRANextHopType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciiipranexthop', (YLeaf(YType.str, 'ciiIPRANextHop'), ['str'])),
+                    ('ciiipratype', (YLeaf(YType.enumeration, 'ciiIPRAType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiIPRATable.CiiIPRAEntry.CiiIPRAType')])),
+                    ('ciiipraexiststate', (YLeaf(YType.enumeration, 'ciiIPRAExistState'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciiipraadminstate', (YLeaf(YType.enumeration, 'ciiIPRAAdminState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiAdminState', '')])),
+                    ('ciiiprametric', (YLeaf(YType.int32, 'ciiIPRAMetric'), ['int'])),
+                    ('ciiiprametrictype', (YLeaf(YType.enumeration, 'ciiIPRAMetricType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiMetricType', '')])),
+                    ('ciiiprafullmetric', (YLeaf(YType.uint32, 'ciiIPRAFullMetric'), ['int'])),
+                    ('ciiiprasnpaaddress', (YLeaf(YType.str, 'ciiIPRASNPAAddress'), ['str'])),
+                    ('ciiiprasourcetype', (YLeaf(YType.enumeration, 'ciiIPRASourceType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CISCOIETFISISMIB', 'CiiIPRATable.CiiIPRAEntry.CiiIPRASourceType')])),
                 ])
                 self.ciiipradesttype = None
                 self.ciiipradest = None
@@ -3450,6 +3489,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciiiprasourcetype = None
                 self._segment_path = lambda: "ciiIPRAEntry" + "[ciiIPRADestType='" + str(self.ciiipradesttype) + "']" + "[ciiIPRADest='" + str(self.ciiipradest) + "']" + "[ciiIPRADestPrefixLen='" + str(self.ciiipradestprefixlen) + "']" + "[ciiIPRANextHopIndex='" + str(self.ciiipranexthopindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiIPRATable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiIPRATable.CiiIPRAEntry, ['ciiipradesttype', 'ciiipradest', 'ciiipradestprefixlen', 'ciiipranexthopindex', 'ciiipranexthoptype', 'ciiipranexthop', 'ciiipratype', 'ciiipraexiststate', 'ciiipraadminstate', 'ciiiprametric', 'ciiiprametrictype', 'ciiiprafullmetric', 'ciiiprasnpaaddress', 'ciiiprasourcetype'], name, value)
@@ -3559,6 +3599,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciilspsummaryentry = YList(self)
             self._segment_path = lambda: "ciiLSPSummaryTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiLSPSummaryTable, [], name, value)
@@ -3640,14 +3681,14 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciilsplevel','ciilspid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciilsplevel', YLeaf(YType.enumeration, 'ciiLSPLevel')),
-                    ('ciilspid', YLeaf(YType.str, 'ciiLSPID')),
-                    ('ciilspseq', YLeaf(YType.uint32, 'ciiLSPSeq')),
-                    ('ciilspzerolife', YLeaf(YType.boolean, 'ciiLSPZeroLife')),
-                    ('ciilspchecksum', YLeaf(YType.uint32, 'ciiLSPChecksum')),
-                    ('ciilsplifetimeremain', YLeaf(YType.uint32, 'ciiLSPLifetimeRemain')),
-                    ('ciilsppdulength', YLeaf(YType.uint32, 'ciiLSPPDULength')),
-                    ('ciilspattributes', YLeaf(YType.uint32, 'ciiLSPAttributes')),
+                    ('ciilsplevel', (YLeaf(YType.enumeration, 'ciiLSPLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiISLevel', '')])),
+                    ('ciilspid', (YLeaf(YType.str, 'ciiLSPID'), ['str'])),
+                    ('ciilspseq', (YLeaf(YType.uint32, 'ciiLSPSeq'), ['int'])),
+                    ('ciilspzerolife', (YLeaf(YType.boolean, 'ciiLSPZeroLife'), ['bool'])),
+                    ('ciilspchecksum', (YLeaf(YType.uint32, 'ciiLSPChecksum'), ['int'])),
+                    ('ciilsplifetimeremain', (YLeaf(YType.uint32, 'ciiLSPLifetimeRemain'), ['int'])),
+                    ('ciilsppdulength', (YLeaf(YType.uint32, 'ciiLSPPDULength'), ['int'])),
+                    ('ciilspattributes', (YLeaf(YType.uint32, 'ciiLSPAttributes'), ['int'])),
                 ])
                 self.ciilsplevel = None
                 self.ciilspid = None
@@ -3659,6 +3700,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciilspattributes = None
                 self._segment_path = lambda: "ciiLSPSummaryEntry" + "[ciiLSPLevel='" + str(self.ciilsplevel) + "']" + "[ciiLSPID='" + str(self.ciilspid) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPSummaryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiLSPSummaryTable.CiiLSPSummaryEntry, ['ciilsplevel', 'ciilspid', 'ciilspseq', 'ciilspzerolife', 'ciilspchecksum', 'ciilsplifetimeremain', 'ciilsppdulength', 'ciilspattributes'], name, value)
@@ -3694,6 +3736,7 @@ class CISCOIETFISISMIB(Entity):
             self.ciilsptlventry = YList(self)
             self._segment_path = lambda: "ciiLSPTLVTable"
             self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFISISMIB.CiiLSPTLVTable, [], name, value)
@@ -3777,14 +3820,14 @@ class CISCOIETFISISMIB(Entity):
                 self.ylist_key_names = ['ciilsplevel','ciilspid','ciilsptlvindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciilsplevel', YLeaf(YType.enumeration, 'ciiLSPLevel')),
-                    ('ciilspid', YLeaf(YType.str, 'ciiLSPID')),
-                    ('ciilsptlvindex', YLeaf(YType.uint32, 'ciiLSPTLVIndex')),
-                    ('ciilsptlvseq', YLeaf(YType.uint32, 'ciiLSPTLVSeq')),
-                    ('ciilsptlvchecksum', YLeaf(YType.uint32, 'ciiLSPTLVChecksum')),
-                    ('ciilsptlvtype', YLeaf(YType.uint32, 'ciiLSPTLVType')),
-                    ('ciilsptlvlen', YLeaf(YType.uint32, 'ciiLSPTLVLen')),
-                    ('ciilsptlvvalue', YLeaf(YType.str, 'ciiLSPTLVValue')),
+                    ('ciilsplevel', (YLeaf(YType.enumeration, 'ciiLSPLevel'), [('ydk.models.cisco_ios_xe.CISCO_IETF_ISIS_MIB', 'CiiISLevel', '')])),
+                    ('ciilspid', (YLeaf(YType.str, 'ciiLSPID'), ['str'])),
+                    ('ciilsptlvindex', (YLeaf(YType.uint32, 'ciiLSPTLVIndex'), ['int'])),
+                    ('ciilsptlvseq', (YLeaf(YType.uint32, 'ciiLSPTLVSeq'), ['int'])),
+                    ('ciilsptlvchecksum', (YLeaf(YType.uint32, 'ciiLSPTLVChecksum'), ['int'])),
+                    ('ciilsptlvtype', (YLeaf(YType.uint32, 'ciiLSPTLVType'), ['int'])),
+                    ('ciilsptlvlen', (YLeaf(YType.uint32, 'ciiLSPTLVLen'), ['int'])),
+                    ('ciilsptlvvalue', (YLeaf(YType.str, 'ciiLSPTLVValue'), ['str'])),
                 ])
                 self.ciilsplevel = None
                 self.ciilspid = None
@@ -3796,6 +3839,7 @@ class CISCOIETFISISMIB(Entity):
                 self.ciilsptlvvalue = None
                 self._segment_path = lambda: "ciiLSPTLVEntry" + "[ciiLSPLevel='" + str(self.ciilsplevel) + "']" + "[ciiLSPID='" + str(self.ciilspid) + "']" + "[ciiLSPTLVIndex='" + str(self.ciilsptlvindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ISIS-MIB:CISCO-IETF-ISIS-MIB/ciiLSPTLVTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFISISMIB.CiiLSPTLVTable.CiiLSPTLVEntry, ['ciilsplevel', 'ciilspid', 'ciilsptlvindex', 'ciilsptlvseq', 'ciilsptlvchecksum', 'ciilsptlvtype', 'ciilsptlvlen', 'ciilsptlvvalue'], name, value)

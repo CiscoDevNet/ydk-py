@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ConfdState(Entity):
     """
     
@@ -118,11 +119,11 @@ class ConfdState(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("smp", ("smp", ConfdState.Smp)), ("ha", ("ha", ConfdState.Ha)), ("loaded-data-models", ("loaded_data_models", ConfdState.LoadedDataModels)), ("netconf", ("netconf", ConfdState.Netconf)), ("cli", ("cli", ConfdState.Cli)), ("webui", ("webui", ConfdState.Webui)), ("rest", ("rest", ConfdState.Rest)), ("snmp", ("snmp", ConfdState.Snmp)), ("internal", ("internal", ConfdState.Internal))])
         self._leafs = OrderedDict([
-            ('version', YLeaf(YType.str, 'version')),
-            ('epoll', YLeaf(YType.boolean, 'epoll')),
-            ('daemon_status', YLeaf(YType.enumeration, 'daemon-status')),
-            ('read_only_mode', YLeaf(YType.empty, 'read-only-mode')),
-            ('upgrade_mode', YLeaf(YType.empty, 'upgrade-mode')),
+            ('version', (YLeaf(YType.str, 'version'), ['str'])),
+            ('epoll', (YLeaf(YType.boolean, 'epoll'), ['bool'])),
+            ('daemon_status', (YLeaf(YType.enumeration, 'daemon-status'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'DaemonStatus')])),
+            ('read_only_mode', (YLeaf(YType.empty, 'read-only-mode'), ['Empty'])),
+            ('upgrade_mode', (YLeaf(YType.empty, 'upgrade-mode'), ['Empty'])),
         ])
         self.version = None
         self.epoll = None
@@ -159,6 +160,7 @@ class ConfdState(Entity):
         self.internal.parent = self
         self._children_name_map["internal"] = "internal"
         self._segment_path = lambda: "tailf-confd-monitoring:confd-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ConfdState, ['version', 'epoll', 'daemon_status', 'read_only_mode', 'upgrade_mode'], name, value)
@@ -232,11 +234,12 @@ class ConfdState(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('number_of_threads', YLeaf(YType.uint16, 'number-of-threads')),
+                ('number_of_threads', (YLeaf(YType.uint16, 'number-of-threads'), ['int'])),
             ])
             self.number_of_threads = None
             self._segment_path = lambda: "smp"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Smp, ['number_of_threads'], name, value)
@@ -291,11 +294,11 @@ class ConfdState(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('mode', YLeaf(YType.enumeration, 'mode')),
-                ('node_id', YLeaf(YType.str, 'node-id')),
-                ('master_node_id', YLeaf(YType.str, 'master-node-id')),
-                ('connected_slave', YLeafList(YType.str, 'connected-slave')),
-                ('pending_slave', YLeafList(YType.str, 'pending-slave')),
+                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Ha.Mode')])),
+                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                ('master_node_id', (YLeaf(YType.str, 'master-node-id'), ['str'])),
+                ('connected_slave', (YLeafList(YType.str, 'connected-slave'), ['str'])),
+                ('pending_slave', (YLeafList(YType.str, 'pending-slave'), ['str'])),
             ])
             self.mode = None
             self.node_id = None
@@ -304,6 +307,7 @@ class ConfdState(Entity):
             self.pending_slave = []
             self._segment_path = lambda: "ha"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Ha, ['mode', 'node_id', 'master_node_id', 'connected_slave', 'pending_slave'], name, value)
@@ -364,6 +368,7 @@ class ConfdState(Entity):
             self.data_model = YList(self)
             self._segment_path = lambda: "loaded-data-models"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.LoadedDataModels, [], name, value)
@@ -428,12 +433,12 @@ class ConfdState(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('revision', YLeaf(YType.str, 'revision')),
-                    ('namespace', YLeaf(YType.str, 'namespace')),
-                    ('prefix', YLeaf(YType.str, 'prefix')),
-                    ('exported_to_all', YLeaf(YType.empty, 'exported-to-all')),
-                    ('exported_to', YLeafList(YType.str, 'exported-to')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('revision', (YLeaf(YType.str, 'revision'), ['str'])),
+                    ('namespace', (YLeaf(YType.str, 'namespace'), ['str'])),
+                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                    ('exported_to_all', (YLeaf(YType.empty, 'exported-to-all'), ['Empty'])),
+                    ('exported_to', (YLeafList(YType.str, 'exported-to'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'LoadedDataModels.DataModel.ExportedTo'),'str'])),
                 ])
                 self.name = None
                 self.revision = None
@@ -443,6 +448,7 @@ class ConfdState(Entity):
                 self.exported_to = []
                 self._segment_path = lambda: "data-model" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/loaded-data-models/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.LoadedDataModels.DataModel, ['name', 'revision', 'namespace', 'prefix', 'exported_to_all', 'exported_to'], name, value)
@@ -514,6 +520,7 @@ class ConfdState(Entity):
             self._children_name_map["listen"] = "listen"
             self._segment_path = lambda: "netconf"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Netconf, [], name, value)
@@ -559,6 +566,7 @@ class ConfdState(Entity):
                 self.ssh = YList(self)
                 self._segment_path = lambda: "listen"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/netconf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Netconf.Listen, [], name, value)
@@ -605,13 +613,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/netconf/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Netconf.Listen.Tcp, ['ip', 'port'], name, value)
@@ -658,13 +667,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "ssh"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/netconf/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Netconf.Listen.Ssh, ['ip', 'port'], name, value)
@@ -705,6 +715,7 @@ class ConfdState(Entity):
             self._children_name_map["listen"] = "listen"
             self._segment_path = lambda: "cli"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Cli, [], name, value)
@@ -747,6 +758,7 @@ class ConfdState(Entity):
                 self.ssh = YList(self)
                 self._segment_path = lambda: "listen"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/cli/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Cli.Listen, [], name, value)
@@ -793,13 +805,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "ssh"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/cli/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Cli.Listen.Ssh, ['ip', 'port'], name, value)
@@ -840,6 +853,7 @@ class ConfdState(Entity):
             self._children_name_map["listen"] = "listen"
             self._segment_path = lambda: "webui"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Webui, [], name, value)
@@ -881,6 +895,7 @@ class ConfdState(Entity):
                 self.ssl = YList(self)
                 self._segment_path = lambda: "listen"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/webui/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Webui.Listen, [], name, value)
@@ -927,13 +942,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/webui/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Webui.Listen.Tcp, ['ip', 'port'], name, value)
@@ -980,13 +996,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "ssl"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/webui/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Webui.Listen.Ssl, ['ip', 'port'], name, value)
@@ -1027,6 +1044,7 @@ class ConfdState(Entity):
             self._children_name_map["listen"] = "listen"
             self._segment_path = lambda: "rest"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Rest, [], name, value)
@@ -1068,6 +1086,7 @@ class ConfdState(Entity):
                 self.ssl = YList(self)
                 self._segment_path = lambda: "listen"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Rest.Listen, [], name, value)
@@ -1114,13 +1133,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "tcp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Rest.Listen.Tcp, ['ip', 'port'], name, value)
@@ -1167,13 +1187,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "ssl"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/rest/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Rest.Listen.Ssl, ['ip', 'port'], name, value)
@@ -1225,8 +1246,8 @@ class ConfdState(Entity):
             self._child_classes = OrderedDict([("listen", ("listen", ConfdState.Snmp.Listen)), ("version", ("version", ConfdState.Snmp.Version))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('mib', YLeafList(YType.str, 'mib')),
-                ('engine_id', YLeaf(YType.str, 'engine-id')),
+                ('mib', (YLeafList(YType.str, 'mib'), ['str'])),
+                ('engine_id', (YLeaf(YType.str, 'engine-id'), ['str'])),
             ])
             self.mib = []
             self.engine_id = None
@@ -1240,6 +1261,7 @@ class ConfdState(Entity):
             self._children_name_map["version"] = "version"
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Snmp, ['mib', 'engine_id'], name, value)
@@ -1275,6 +1297,7 @@ class ConfdState(Entity):
                 self.udp = YList(self)
                 self._segment_path = lambda: "listen"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/snmp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Snmp.Listen, [], name, value)
@@ -1321,13 +1344,14 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                     ])
                     self.ip = None
                     self.port = None
                     self._segment_path = lambda: "udp"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/snmp/listen/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Snmp.Listen.Udp, ['ip', 'port'], name, value)
@@ -1369,15 +1393,16 @@ class ConfdState(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('v1', YLeaf(YType.empty, 'v1')),
-                    ('v2c', YLeaf(YType.empty, 'v2c')),
-                    ('v3', YLeaf(YType.empty, 'v3')),
+                    ('v1', (YLeaf(YType.empty, 'v1'), ['Empty'])),
+                    ('v2c', (YLeaf(YType.empty, 'v2c'), ['Empty'])),
+                    ('v3', (YLeaf(YType.empty, 'v3'), ['Empty'])),
                 ])
                 self.v1 = None
                 self.v2c = None
                 self.v3 = None
                 self._segment_path = lambda: "version"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/snmp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Snmp.Version, ['v1', 'v2c', 'v3'], name, value)
@@ -1424,6 +1449,7 @@ class ConfdState(Entity):
             self._children_name_map["cdb"] = "cdb"
             self._segment_path = lambda: "internal"
             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ConfdState.Internal, [], name, value)
@@ -1542,6 +1568,7 @@ class ConfdState(Entity):
                 self.notification_stream_replay = YList(self)
                 self._segment_path = lambda: "callpoints"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Internal.Callpoints, [], name, value)
@@ -1598,10 +1625,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Callpoint.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Callpoint.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -1615,6 +1642,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "callpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint, ['id', 'path', 'file', 'error'], name, value)
@@ -1685,14 +1713,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Callpoint.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Daemon, ['id', 'name', 'error'], name, value)
@@ -1758,9 +1787,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Callpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -1770,6 +1799,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range, ['lower', 'upper', 'default'], name, value)
@@ -1813,14 +1843,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Callpoint.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.Callpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -1896,10 +1927,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Validationpoint.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Validationpoint.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -1913,6 +1944,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "validationpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint, ['id', 'path', 'file', 'error'], name, value)
@@ -1983,14 +2015,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Validationpoint.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Daemon, ['id', 'name', 'error'], name, value)
@@ -2056,9 +2089,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -2068,6 +2101,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range, ['lower', 'upper', 'default'], name, value)
@@ -2111,14 +2145,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Validationpoint.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.Validationpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -2194,10 +2229,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Actionpoint.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Actionpoint.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -2211,6 +2246,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "actionpoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint, ['id', 'path', 'file', 'error'], name, value)
@@ -2281,14 +2317,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Actionpoint.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Daemon, ['id', 'name', 'error'], name, value)
@@ -2354,9 +2391,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -2366,6 +2403,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range, ['lower', 'upper', 'default'], name, value)
@@ -2409,14 +2447,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Actionpoint.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.Actionpoint.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -2492,10 +2531,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.SnmpInformCallback.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpInformCallback.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -2509,6 +2548,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "snmp-inform-callback" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback, ['id', 'path', 'file', 'error'], name, value)
@@ -2579,14 +2619,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpInformCallback.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Daemon, ['id', 'name', 'error'], name, value)
@@ -2652,9 +2693,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -2664,6 +2705,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range, ['lower', 'upper', 'default'], name, value)
@@ -2707,14 +2749,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpInformCallback.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.SnmpInformCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -2790,10 +2833,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpNotificationSubscription.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -2807,6 +2850,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "snmp-notification-subscription" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription, ['id', 'path', 'file', 'error'], name, value)
@@ -2877,14 +2921,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpNotificationSubscription.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Daemon, ['id', 'name', 'error'], name, value)
@@ -2950,9 +2995,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -2962,6 +3007,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range, ['lower', 'upper', 'default'], name, value)
@@ -3005,14 +3051,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.SnmpNotificationSubscription.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -3088,10 +3135,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.ErrorFormattingCallback.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -3105,6 +3152,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "error-formatting-callback" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback, ['id', 'path', 'file', 'error'], name, value)
@@ -3175,14 +3223,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.ErrorFormattingCallback.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Daemon, ['id', 'name', 'error'], name, value)
@@ -3248,9 +3297,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -3260,6 +3309,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range, ['lower', 'upper', 'default'], name, value)
@@ -3303,14 +3353,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.ErrorFormattingCallback.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.ErrorFormattingCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -3386,10 +3437,10 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.Typepoint.Range))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Typepoint.Error')])),
                     ])
                     self.id = None
                     self.path = None
@@ -3403,6 +3454,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "typepoint" + "[id='" + str(self.id) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint, ['id', 'path', 'file', 'error'], name, value)
@@ -3473,14 +3525,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Typepoint.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Daemon, ['id', 'name', 'error'], name, value)
@@ -3546,9 +3599,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.Typepoint.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -3558,6 +3611,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range, ['lower', 'upper', 'default'], name, value)
@@ -3601,14 +3655,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.Typepoint.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.Typepoint.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -3689,11 +3744,11 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('replay_support', YLeaf(YType.enumeration, 'replay-support')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('replay_support', (YLeaf(YType.enumeration, 'replay-support'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.NotificationStreamReplay.ReplaySupport')])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.NotificationStreamReplay.Error')])),
                     ])
                     self.name = None
                     self.replay_support = None
@@ -3708,6 +3763,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "notification-stream-replay" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay, ['name', 'replay_support', 'path', 'file', 'error'], name, value)
@@ -3797,14 +3853,15 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.NotificationStreamReplay.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Daemon, ['id', 'name', 'error'], name, value)
@@ -3870,9 +3927,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -3882,6 +3939,7 @@ class ConfdState(Entity):
                         self.daemon.parent = self
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range, ['lower', 'upper', 'default'], name, value)
@@ -3925,14 +3983,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.NotificationStreamReplay.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.NotificationStreamReplay.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -4011,10 +4070,10 @@ class ConfdState(Entity):
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.AuthenticationCallback.Range))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthenticationCallback.Error')])),
                     ])
                     self.enabled = None
                     self.path = None
@@ -4028,6 +4087,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "authentication-callback"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback, ['enabled', 'path', 'file', 'error'], name, value)
@@ -4098,15 +4158,16 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthenticationCallback.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Daemon, ['id', 'name', 'error'], name, value)
@@ -4172,9 +4233,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -4185,6 +4246,7 @@ class ConfdState(Entity):
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range, ['lower', 'upper', 'default'], name, value)
@@ -4228,15 +4290,16 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthenticationCallback.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
                             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authentication-callback/range/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.AuthenticationCallback.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -4315,10 +4378,10 @@ class ConfdState(Entity):
                     self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon)), ("range", ("range", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('file', YLeaf(YType.str, 'file')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('file', (YLeaf(YType.str, 'file'), ['str'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthorizationCallbacks.Error')])),
                     ])
                     self.enabled = None
                     self.path = None
@@ -4332,6 +4395,7 @@ class ConfdState(Entity):
                     self.range = YList(self)
                     self._segment_path = lambda: "authorization-callbacks"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks, ['enabled', 'path', 'file', 'error'], name, value)
@@ -4402,15 +4466,16 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthorizationCallbacks.Daemon.Error')])),
                         ])
                         self.id = None
                         self.name = None
                         self.error = None
                         self._segment_path = lambda: "daemon"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Daemon, ['id', 'name', 'error'], name, value)
@@ -4476,9 +4541,9 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("daemon", ("daemon", ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon))])
                         self._leafs = OrderedDict([
-                            ('lower', YLeaf(YType.str, 'lower')),
-                            ('upper', YLeaf(YType.str, 'upper')),
-                            ('default', YLeaf(YType.empty, 'default')),
+                            ('lower', (YLeaf(YType.str, 'lower'), ['str'])),
+                            ('upper', (YLeaf(YType.str, 'upper'), ['str'])),
+                            ('default', (YLeaf(YType.empty, 'default'), ['Empty'])),
                         ])
                         self.lower = None
                         self.upper = None
@@ -4489,6 +4554,7 @@ class ConfdState(Entity):
                         self._children_name_map["daemon"] = "daemon"
                         self._segment_path = lambda: "range"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range, ['lower', 'upper', 'default'], name, value)
@@ -4532,15 +4598,16 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint32, 'id')),
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('error', YLeaf(YType.enumeration, 'error')),
+                                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Callpoints.AuthorizationCallbacks.Range.Daemon.Error')])),
                             ])
                             self.id = None
                             self.name = None
                             self.error = None
                             self._segment_path = lambda: "daemon"
                             self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/callpoints/authorization-callbacks/range/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Callpoints.AuthorizationCallbacks.Range.Daemon, ['id', 'name', 'error'], name, value)
@@ -4601,6 +4668,7 @@ class ConfdState(Entity):
                 self.client = YList(self)
                 self._segment_path = lambda: "cdb"
                 self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ConfdState.Internal.Cdb, [], name, value)
@@ -4697,16 +4765,16 @@ class ConfdState(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("pending-subscription-sync", ("pending_subscription_sync", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync)), ("pending-notification-queue", ("pending_notification_queue", ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.enumeration, 'name')),
-                        ('transaction_id', YLeaf(YType.str, 'transaction-id')),
-                        ('write_queue', YLeaf(YType.uint32, 'write-queue')),
-                        ('filename', YLeaf(YType.str, 'filename')),
-                        ('disk_size', YLeaf(YType.uint64, 'disk-size')),
-                        ('ram_size', YLeaf(YType.uint64, 'ram-size')),
-                        ('read_locks', YLeaf(YType.uint32, 'read-locks')),
-                        ('write_lock_set', YLeaf(YType.boolean, 'write-lock-set')),
-                        ('subscription_lock_set', YLeaf(YType.boolean, 'subscription-lock-set')),
-                        ('waiting_for_replication_sync', YLeaf(YType.boolean, 'waiting-for-replication-sync')),
+                        ('name', (YLeaf(YType.enumeration, 'name'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.DatastoreName')])),
+                        ('transaction_id', (YLeaf(YType.str, 'transaction-id'), ['str'])),
+                        ('write_queue', (YLeaf(YType.uint32, 'write-queue'), ['int'])),
+                        ('filename', (YLeaf(YType.str, 'filename'), ['str'])),
+                        ('disk_size', (YLeaf(YType.uint64, 'disk-size'), ['int'])),
+                        ('ram_size', (YLeaf(YType.uint64, 'ram-size'), ['int'])),
+                        ('read_locks', (YLeaf(YType.uint32, 'read-locks'), ['int'])),
+                        ('write_lock_set', (YLeaf(YType.boolean, 'write-lock-set'), ['bool'])),
+                        ('subscription_lock_set', (YLeaf(YType.boolean, 'subscription-lock-set'), ['bool'])),
+                        ('waiting_for_replication_sync', (YLeaf(YType.boolean, 'waiting-for-replication-sync'), ['bool'])),
                     ])
                     self.name = None
                     self.transaction_id = None
@@ -4725,6 +4793,7 @@ class ConfdState(Entity):
                     self.pending_notification_queue = YList(self)
                     self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/cdb/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Cdb.Datastore, ['name', 'transaction_id', 'write_queue', 'filename', 'disk_size', 'ram_size', 'read_locks', 'write_lock_set', 'subscription_lock_set', 'waiting_for_replication_sync'], name, value)
@@ -4779,14 +4848,15 @@ class ConfdState(Entity):
                         self._child_classes = OrderedDict([("notification", ("notification", ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification))])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('priority', YLeaf(YType.int32, 'priority')),
-                            ('time_remaining', YLeaf(YType.str, 'time-remaining')),
+                            ('priority', (YLeaf(YType.int32, 'priority'), ['int'])),
+                            ('time_remaining', (YLeaf(YType.str, 'time-remaining'), ['int',('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Cdb.Datastore.PendingSubscriptionSync.TimeRemaining')])),
                         ])
                         self.priority = None
                         self.time_remaining = None
 
                         self.notification = YList(self)
                         self._segment_path = lambda: "pending-subscription-sync"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync, ['priority', 'time_remaining'], name, value)
@@ -4848,12 +4918,13 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('client_name', YLeaf(YType.str, 'client-name')),
-                                ('subscription_ids', YLeafList(YType.uint32, 'subscription-ids')),
+                                ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
+                                ('subscription_ids', (YLeafList(YType.uint32, 'subscription-ids'), ['int'])),
                             ])
                             self.client_name = None
                             self.subscription_ids = []
                             self._segment_path = lambda: "notification"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingSubscriptionSync.Notification, ['client_name', 'subscription_ids'], name, value)
@@ -4890,6 +4961,7 @@ class ConfdState(Entity):
 
                         self.notification = YList(self)
                         self._segment_path = lambda: "pending-notification-queue"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue, [], name, value)
@@ -4935,14 +5007,15 @@ class ConfdState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('priority', YLeaf(YType.int32, 'priority')),
-                                ('client_name', YLeaf(YType.str, 'client-name')),
-                                ('subscription_ids', YLeafList(YType.uint32, 'subscription-ids')),
+                                ('priority', (YLeaf(YType.int32, 'priority'), ['int'])),
+                                ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
+                                ('subscription_ids', (YLeafList(YType.uint32, 'subscription-ids'), ['int'])),
                             ])
                             self.priority = None
                             self.client_name = None
                             self.subscription_ids = []
                             self._segment_path = lambda: "notification"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ConfdState.Internal.Cdb.Datastore.PendingNotificationQueue.Notification, ['priority', 'client_name', 'subscription_ids'], name, value)
@@ -5003,11 +5076,11 @@ class ConfdState(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("subscription", ("subscription", ConfdState.Internal.Cdb.Client.Subscription))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('info', YLeaf(YType.str, 'info')),
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('datastore', YLeaf(YType.str, 'datastore')),
-                        ('lock', YLeaf(YType.enumeration, 'lock')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('info', (YLeaf(YType.str, 'info'), ['str'])),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Cdb.Client.Type')])),
+                        ('datastore', (YLeaf(YType.str, 'datastore'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.DatastoreName'),('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Cdb.Client.Datastore')])),
+                        ('lock', (YLeaf(YType.enumeration, 'lock'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Cdb.Client.Lock')])),
                     ])
                     self.name = None
                     self.info = None
@@ -5018,6 +5091,7 @@ class ConfdState(Entity):
                     self.subscription = YList(self)
                     self._segment_path = lambda: "client"
                     self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/cdb/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ConfdState.Internal.Cdb.Client, ['name', 'info', 'type', 'datastore', 'lock'], name, value)
@@ -5165,12 +5239,12 @@ class ConfdState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('datastore', YLeaf(YType.enumeration, 'datastore')),
-                            ('twophase', YLeaf(YType.empty, 'twophase')),
-                            ('priority', YLeaf(YType.int32, 'priority')),
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('path', YLeaf(YType.str, 'path')),
-                            ('error', YLeaf(YType.enumeration, 'error')),
+                            ('datastore', (YLeaf(YType.enumeration, 'datastore'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.DatastoreName')])),
+                            ('twophase', (YLeaf(YType.empty, 'twophase'), ['Empty'])),
+                            ('priority', (YLeaf(YType.int32, 'priority'), ['int'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                            ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xe.tailf_confd_monitoring', 'ConfdState', 'Internal.Cdb.Client.Subscription.Error')])),
                         ])
                         self.datastore = None
                         self.twophase = None
@@ -5180,6 +5254,7 @@ class ConfdState(Entity):
                         self.error = None
                         self._segment_path = lambda: "subscription"
                         self._absolute_path = lambda: "tailf-confd-monitoring:confd-state/internal/cdb/client/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ConfdState.Internal.Cdb.Client.Subscription, ['datastore', 'twophase', 'priority', 'id', 'path', 'error'], name, value)

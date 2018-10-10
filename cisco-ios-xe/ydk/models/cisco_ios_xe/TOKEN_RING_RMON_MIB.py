@@ -10,6 +10,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class EntryStatus(Enum):
     """
     EntryStatus (Enum Class)
@@ -146,6 +147,7 @@ class TOKENRINGRMONMIB(Entity):
         self.sourceroutingstatstable.parent = self
         self._children_name_map["sourceroutingstatstable"] = "sourceRoutingStatsTable"
         self._segment_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TOKENRINGRMONMIB, [], name, value)
@@ -186,6 +188,7 @@ class TOKENRINGRMONMIB(Entity):
             self.tokenringmlstatsentry = YList(self)
             self._segment_path = lambda: "tokenRingMLStatsTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable, [], name, value)
@@ -411,35 +414,35 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['tokenringmlstatsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tokenringmlstatsindex', YLeaf(YType.int32, 'tokenRingMLStatsIndex')),
-                    ('tokenringmlstatsdatasource', YLeaf(YType.str, 'tokenRingMLStatsDataSource')),
-                    ('tokenringmlstatsdropevents', YLeaf(YType.uint32, 'tokenRingMLStatsDropEvents')),
-                    ('tokenringmlstatsmacoctets', YLeaf(YType.uint32, 'tokenRingMLStatsMacOctets')),
-                    ('tokenringmlstatsmacpkts', YLeaf(YType.uint32, 'tokenRingMLStatsMacPkts')),
-                    ('tokenringmlstatsringpurgeevents', YLeaf(YType.uint32, 'tokenRingMLStatsRingPurgeEvents')),
-                    ('tokenringmlstatsringpurgepkts', YLeaf(YType.uint32, 'tokenRingMLStatsRingPurgePkts')),
-                    ('tokenringmlstatsbeaconevents', YLeaf(YType.uint32, 'tokenRingMLStatsBeaconEvents')),
-                    ('tokenringmlstatsbeacontime', YLeaf(YType.int32, 'tokenRingMLStatsBeaconTime')),
-                    ('tokenringmlstatsbeaconpkts', YLeaf(YType.uint32, 'tokenRingMLStatsBeaconPkts')),
-                    ('tokenringmlstatsclaimtokenevents', YLeaf(YType.uint32, 'tokenRingMLStatsClaimTokenEvents')),
-                    ('tokenringmlstatsclaimtokenpkts', YLeaf(YType.uint32, 'tokenRingMLStatsClaimTokenPkts')),
-                    ('tokenringmlstatsnaunchanges', YLeaf(YType.uint32, 'tokenRingMLStatsNAUNChanges')),
-                    ('tokenringmlstatslineerrors', YLeaf(YType.uint32, 'tokenRingMLStatsLineErrors')),
-                    ('tokenringmlstatsinternalerrors', YLeaf(YType.uint32, 'tokenRingMLStatsInternalErrors')),
-                    ('tokenringmlstatsbursterrors', YLeaf(YType.uint32, 'tokenRingMLStatsBurstErrors')),
-                    ('tokenringmlstatsacerrors', YLeaf(YType.uint32, 'tokenRingMLStatsACErrors')),
-                    ('tokenringmlstatsaborterrors', YLeaf(YType.uint32, 'tokenRingMLStatsAbortErrors')),
-                    ('tokenringmlstatslostframeerrors', YLeaf(YType.uint32, 'tokenRingMLStatsLostFrameErrors')),
-                    ('tokenringmlstatscongestionerrors', YLeaf(YType.uint32, 'tokenRingMLStatsCongestionErrors')),
-                    ('tokenringmlstatsframecopiederrors', YLeaf(YType.uint32, 'tokenRingMLStatsFrameCopiedErrors')),
-                    ('tokenringmlstatsfrequencyerrors', YLeaf(YType.uint32, 'tokenRingMLStatsFrequencyErrors')),
-                    ('tokenringmlstatstokenerrors', YLeaf(YType.uint32, 'tokenRingMLStatsTokenErrors')),
-                    ('tokenringmlstatssofterrorreports', YLeaf(YType.uint32, 'tokenRingMLStatsSoftErrorReports')),
-                    ('tokenringmlstatsringpollevents', YLeaf(YType.uint32, 'tokenRingMLStatsRingPollEvents')),
-                    ('tokenringmlstatsowner', YLeaf(YType.str, 'tokenRingMLStatsOwner')),
-                    ('tokenringmlstatsstatus', YLeaf(YType.enumeration, 'tokenRingMLStatsStatus')),
-                    ('tokenringmlstatsdroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:tokenRingMLStatsDroppedFrames')),
-                    ('tokenringmlstatscreatetime', YLeaf(YType.uint32, 'RMON2-MIB:tokenRingMLStatsCreateTime')),
+                    ('tokenringmlstatsindex', (YLeaf(YType.int32, 'tokenRingMLStatsIndex'), ['int'])),
+                    ('tokenringmlstatsdatasource', (YLeaf(YType.str, 'tokenRingMLStatsDataSource'), ['str'])),
+                    ('tokenringmlstatsdropevents', (YLeaf(YType.uint32, 'tokenRingMLStatsDropEvents'), ['int'])),
+                    ('tokenringmlstatsmacoctets', (YLeaf(YType.uint32, 'tokenRingMLStatsMacOctets'), ['int'])),
+                    ('tokenringmlstatsmacpkts', (YLeaf(YType.uint32, 'tokenRingMLStatsMacPkts'), ['int'])),
+                    ('tokenringmlstatsringpurgeevents', (YLeaf(YType.uint32, 'tokenRingMLStatsRingPurgeEvents'), ['int'])),
+                    ('tokenringmlstatsringpurgepkts', (YLeaf(YType.uint32, 'tokenRingMLStatsRingPurgePkts'), ['int'])),
+                    ('tokenringmlstatsbeaconevents', (YLeaf(YType.uint32, 'tokenRingMLStatsBeaconEvents'), ['int'])),
+                    ('tokenringmlstatsbeacontime', (YLeaf(YType.int32, 'tokenRingMLStatsBeaconTime'), ['int'])),
+                    ('tokenringmlstatsbeaconpkts', (YLeaf(YType.uint32, 'tokenRingMLStatsBeaconPkts'), ['int'])),
+                    ('tokenringmlstatsclaimtokenevents', (YLeaf(YType.uint32, 'tokenRingMLStatsClaimTokenEvents'), ['int'])),
+                    ('tokenringmlstatsclaimtokenpkts', (YLeaf(YType.uint32, 'tokenRingMLStatsClaimTokenPkts'), ['int'])),
+                    ('tokenringmlstatsnaunchanges', (YLeaf(YType.uint32, 'tokenRingMLStatsNAUNChanges'), ['int'])),
+                    ('tokenringmlstatslineerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsLineErrors'), ['int'])),
+                    ('tokenringmlstatsinternalerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsInternalErrors'), ['int'])),
+                    ('tokenringmlstatsbursterrors', (YLeaf(YType.uint32, 'tokenRingMLStatsBurstErrors'), ['int'])),
+                    ('tokenringmlstatsacerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsACErrors'), ['int'])),
+                    ('tokenringmlstatsaborterrors', (YLeaf(YType.uint32, 'tokenRingMLStatsAbortErrors'), ['int'])),
+                    ('tokenringmlstatslostframeerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsLostFrameErrors'), ['int'])),
+                    ('tokenringmlstatscongestionerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsCongestionErrors'), ['int'])),
+                    ('tokenringmlstatsframecopiederrors', (YLeaf(YType.uint32, 'tokenRingMLStatsFrameCopiedErrors'), ['int'])),
+                    ('tokenringmlstatsfrequencyerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsFrequencyErrors'), ['int'])),
+                    ('tokenringmlstatstokenerrors', (YLeaf(YType.uint32, 'tokenRingMLStatsTokenErrors'), ['int'])),
+                    ('tokenringmlstatssofterrorreports', (YLeaf(YType.uint32, 'tokenRingMLStatsSoftErrorReports'), ['int'])),
+                    ('tokenringmlstatsringpollevents', (YLeaf(YType.uint32, 'tokenRingMLStatsRingPollEvents'), ['int'])),
+                    ('tokenringmlstatsowner', (YLeaf(YType.str, 'tokenRingMLStatsOwner'), ['str'])),
+                    ('tokenringmlstatsstatus', (YLeaf(YType.enumeration, 'tokenRingMLStatsStatus'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'EntryStatus', '')])),
+                    ('tokenringmlstatsdroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:tokenRingMLStatsDroppedFrames'), ['int'])),
+                    ('tokenringmlstatscreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:tokenRingMLStatsCreateTime'), ['int'])),
                 ])
                 self.tokenringmlstatsindex = None
                 self.tokenringmlstatsdatasource = None
@@ -472,6 +475,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.tokenringmlstatscreatetime = None
                 self._segment_path = lambda: "tokenRingMLStatsEntry" + "[tokenRingMLStatsIndex='" + str(self.tokenringmlstatsindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLStatsTable.TokenRingMLStatsEntry, [u'tokenringmlstatsindex', u'tokenringmlstatsdatasource', u'tokenringmlstatsdropevents', u'tokenringmlstatsmacoctets', u'tokenringmlstatsmacpkts', u'tokenringmlstatsringpurgeevents', u'tokenringmlstatsringpurgepkts', u'tokenringmlstatsbeaconevents', u'tokenringmlstatsbeacontime', u'tokenringmlstatsbeaconpkts', u'tokenringmlstatsclaimtokenevents', u'tokenringmlstatsclaimtokenpkts', u'tokenringmlstatsnaunchanges', u'tokenringmlstatslineerrors', u'tokenringmlstatsinternalerrors', u'tokenringmlstatsbursterrors', u'tokenringmlstatsacerrors', u'tokenringmlstatsaborterrors', u'tokenringmlstatslostframeerrors', u'tokenringmlstatscongestionerrors', u'tokenringmlstatsframecopiederrors', u'tokenringmlstatsfrequencyerrors', u'tokenringmlstatstokenerrors', u'tokenringmlstatssofterrorreports', u'tokenringmlstatsringpollevents', u'tokenringmlstatsowner', u'tokenringmlstatsstatus', u'tokenringmlstatsdroppedframes', u'tokenringmlstatscreatetime'], name, value)
@@ -507,6 +511,7 @@ class TOKENRINGRMONMIB(Entity):
             self.tokenringpstatsentry = YList(self)
             self._segment_path = lambda: "tokenRingPStatsTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable, [], name, value)
@@ -677,27 +682,27 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['tokenringpstatsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tokenringpstatsindex', YLeaf(YType.int32, 'tokenRingPStatsIndex')),
-                    ('tokenringpstatsdatasource', YLeaf(YType.str, 'tokenRingPStatsDataSource')),
-                    ('tokenringpstatsdropevents', YLeaf(YType.uint32, 'tokenRingPStatsDropEvents')),
-                    ('tokenringpstatsdataoctets', YLeaf(YType.uint32, 'tokenRingPStatsDataOctets')),
-                    ('tokenringpstatsdatapkts', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts')),
-                    ('tokenringpstatsdatabroadcastpkts', YLeaf(YType.uint32, 'tokenRingPStatsDataBroadcastPkts')),
-                    ('tokenringpstatsdatamulticastpkts', YLeaf(YType.uint32, 'tokenRingPStatsDataMulticastPkts')),
-                    ('tokenringpstatsdatapkts18to63octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts18to63Octets')),
-                    ('tokenringpstatsdatapkts64to127octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts64to127Octets')),
-                    ('tokenringpstatsdatapkts128to255octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts128to255Octets')),
-                    ('tokenringpstatsdatapkts256to511octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts256to511Octets')),
-                    ('tokenringpstatsdatapkts512to1023octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts512to1023Octets')),
-                    ('tokenringpstatsdatapkts1024to2047octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts1024to2047Octets')),
-                    ('tokenringpstatsdatapkts2048to4095octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts2048to4095Octets')),
-                    ('tokenringpstatsdatapkts4096to8191octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts4096to8191Octets')),
-                    ('tokenringpstatsdatapkts8192to18000octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPkts8192to18000Octets')),
-                    ('tokenringpstatsdatapktsgreaterthan18000octets', YLeaf(YType.uint32, 'tokenRingPStatsDataPktsGreaterThan18000Octets')),
-                    ('tokenringpstatsowner', YLeaf(YType.str, 'tokenRingPStatsOwner')),
-                    ('tokenringpstatsstatus', YLeaf(YType.enumeration, 'tokenRingPStatsStatus')),
-                    ('tokenringpstatsdroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:tokenRingPStatsDroppedFrames')),
-                    ('tokenringpstatscreatetime', YLeaf(YType.uint32, 'RMON2-MIB:tokenRingPStatsCreateTime')),
+                    ('tokenringpstatsindex', (YLeaf(YType.int32, 'tokenRingPStatsIndex'), ['int'])),
+                    ('tokenringpstatsdatasource', (YLeaf(YType.str, 'tokenRingPStatsDataSource'), ['str'])),
+                    ('tokenringpstatsdropevents', (YLeaf(YType.uint32, 'tokenRingPStatsDropEvents'), ['int'])),
+                    ('tokenringpstatsdataoctets', (YLeaf(YType.uint32, 'tokenRingPStatsDataOctets'), ['int'])),
+                    ('tokenringpstatsdatapkts', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts'), ['int'])),
+                    ('tokenringpstatsdatabroadcastpkts', (YLeaf(YType.uint32, 'tokenRingPStatsDataBroadcastPkts'), ['int'])),
+                    ('tokenringpstatsdatamulticastpkts', (YLeaf(YType.uint32, 'tokenRingPStatsDataMulticastPkts'), ['int'])),
+                    ('tokenringpstatsdatapkts18to63octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts18to63Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts64to127octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts64to127Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts128to255octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts128to255Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts256to511octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts256to511Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts512to1023octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts512to1023Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts1024to2047octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts1024to2047Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts2048to4095octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts2048to4095Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts4096to8191octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts4096to8191Octets'), ['int'])),
+                    ('tokenringpstatsdatapkts8192to18000octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPkts8192to18000Octets'), ['int'])),
+                    ('tokenringpstatsdatapktsgreaterthan18000octets', (YLeaf(YType.uint32, 'tokenRingPStatsDataPktsGreaterThan18000Octets'), ['int'])),
+                    ('tokenringpstatsowner', (YLeaf(YType.str, 'tokenRingPStatsOwner'), ['str'])),
+                    ('tokenringpstatsstatus', (YLeaf(YType.enumeration, 'tokenRingPStatsStatus'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'EntryStatus', '')])),
+                    ('tokenringpstatsdroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:tokenRingPStatsDroppedFrames'), ['int'])),
+                    ('tokenringpstatscreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:tokenRingPStatsCreateTime'), ['int'])),
                 ])
                 self.tokenringpstatsindex = None
                 self.tokenringpstatsdatasource = None
@@ -722,6 +727,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.tokenringpstatscreatetime = None
                 self._segment_path = lambda: "tokenRingPStatsEntry" + "[tokenRingPStatsIndex='" + str(self.tokenringpstatsindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingPStatsTable.TokenRingPStatsEntry, [u'tokenringpstatsindex', u'tokenringpstatsdatasource', u'tokenringpstatsdropevents', u'tokenringpstatsdataoctets', u'tokenringpstatsdatapkts', u'tokenringpstatsdatabroadcastpkts', u'tokenringpstatsdatamulticastpkts', u'tokenringpstatsdatapkts18to63octets', u'tokenringpstatsdatapkts64to127octets', u'tokenringpstatsdatapkts128to255octets', u'tokenringpstatsdatapkts256to511octets', u'tokenringpstatsdatapkts512to1023octets', u'tokenringpstatsdatapkts1024to2047octets', u'tokenringpstatsdatapkts2048to4095octets', u'tokenringpstatsdatapkts4096to8191octets', u'tokenringpstatsdatapkts8192to18000octets', u'tokenringpstatsdatapktsgreaterthan18000octets', u'tokenringpstatsowner', u'tokenringpstatsstatus', u'tokenringpstatsdroppedframes', u'tokenringpstatscreatetime'], name, value)
@@ -762,6 +768,7 @@ class TOKENRINGRMONMIB(Entity):
             self.tokenringmlhistoryentry = YList(self)
             self._segment_path = lambda: "tokenRingMLHistoryTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable, [], name, value)
@@ -977,33 +984,33 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['tokenringmlhistoryindex','tokenringmlhistorysampleindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tokenringmlhistoryindex', YLeaf(YType.int32, 'tokenRingMLHistoryIndex')),
-                    ('tokenringmlhistorysampleindex', YLeaf(YType.int32, 'tokenRingMLHistorySampleIndex')),
-                    ('tokenringmlhistoryintervalstart', YLeaf(YType.uint32, 'tokenRingMLHistoryIntervalStart')),
-                    ('tokenringmlhistorydropevents', YLeaf(YType.uint32, 'tokenRingMLHistoryDropEvents')),
-                    ('tokenringmlhistorymacoctets', YLeaf(YType.uint32, 'tokenRingMLHistoryMacOctets')),
-                    ('tokenringmlhistorymacpkts', YLeaf(YType.uint32, 'tokenRingMLHistoryMacPkts')),
-                    ('tokenringmlhistoryringpurgeevents', YLeaf(YType.uint32, 'tokenRingMLHistoryRingPurgeEvents')),
-                    ('tokenringmlhistoryringpurgepkts', YLeaf(YType.uint32, 'tokenRingMLHistoryRingPurgePkts')),
-                    ('tokenringmlhistorybeaconevents', YLeaf(YType.uint32, 'tokenRingMLHistoryBeaconEvents')),
-                    ('tokenringmlhistorybeacontime', YLeaf(YType.int32, 'tokenRingMLHistoryBeaconTime')),
-                    ('tokenringmlhistorybeaconpkts', YLeaf(YType.uint32, 'tokenRingMLHistoryBeaconPkts')),
-                    ('tokenringmlhistoryclaimtokenevents', YLeaf(YType.uint32, 'tokenRingMLHistoryClaimTokenEvents')),
-                    ('tokenringmlhistoryclaimtokenpkts', YLeaf(YType.uint32, 'tokenRingMLHistoryClaimTokenPkts')),
-                    ('tokenringmlhistorynaunchanges', YLeaf(YType.uint32, 'tokenRingMLHistoryNAUNChanges')),
-                    ('tokenringmlhistorylineerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryLineErrors')),
-                    ('tokenringmlhistoryinternalerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryInternalErrors')),
-                    ('tokenringmlhistorybursterrors', YLeaf(YType.uint32, 'tokenRingMLHistoryBurstErrors')),
-                    ('tokenringmlhistoryacerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryACErrors')),
-                    ('tokenringmlhistoryaborterrors', YLeaf(YType.uint32, 'tokenRingMLHistoryAbortErrors')),
-                    ('tokenringmlhistorylostframeerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryLostFrameErrors')),
-                    ('tokenringmlhistorycongestionerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryCongestionErrors')),
-                    ('tokenringmlhistoryframecopiederrors', YLeaf(YType.uint32, 'tokenRingMLHistoryFrameCopiedErrors')),
-                    ('tokenringmlhistoryfrequencyerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryFrequencyErrors')),
-                    ('tokenringmlhistorytokenerrors', YLeaf(YType.uint32, 'tokenRingMLHistoryTokenErrors')),
-                    ('tokenringmlhistorysofterrorreports', YLeaf(YType.uint32, 'tokenRingMLHistorySoftErrorReports')),
-                    ('tokenringmlhistoryringpollevents', YLeaf(YType.uint32, 'tokenRingMLHistoryRingPollEvents')),
-                    ('tokenringmlhistoryactivestations', YLeaf(YType.int32, 'tokenRingMLHistoryActiveStations')),
+                    ('tokenringmlhistoryindex', (YLeaf(YType.int32, 'tokenRingMLHistoryIndex'), ['int'])),
+                    ('tokenringmlhistorysampleindex', (YLeaf(YType.int32, 'tokenRingMLHistorySampleIndex'), ['int'])),
+                    ('tokenringmlhistoryintervalstart', (YLeaf(YType.uint32, 'tokenRingMLHistoryIntervalStart'), ['int'])),
+                    ('tokenringmlhistorydropevents', (YLeaf(YType.uint32, 'tokenRingMLHistoryDropEvents'), ['int'])),
+                    ('tokenringmlhistorymacoctets', (YLeaf(YType.uint32, 'tokenRingMLHistoryMacOctets'), ['int'])),
+                    ('tokenringmlhistorymacpkts', (YLeaf(YType.uint32, 'tokenRingMLHistoryMacPkts'), ['int'])),
+                    ('tokenringmlhistoryringpurgeevents', (YLeaf(YType.uint32, 'tokenRingMLHistoryRingPurgeEvents'), ['int'])),
+                    ('tokenringmlhistoryringpurgepkts', (YLeaf(YType.uint32, 'tokenRingMLHistoryRingPurgePkts'), ['int'])),
+                    ('tokenringmlhistorybeaconevents', (YLeaf(YType.uint32, 'tokenRingMLHistoryBeaconEvents'), ['int'])),
+                    ('tokenringmlhistorybeacontime', (YLeaf(YType.int32, 'tokenRingMLHistoryBeaconTime'), ['int'])),
+                    ('tokenringmlhistorybeaconpkts', (YLeaf(YType.uint32, 'tokenRingMLHistoryBeaconPkts'), ['int'])),
+                    ('tokenringmlhistoryclaimtokenevents', (YLeaf(YType.uint32, 'tokenRingMLHistoryClaimTokenEvents'), ['int'])),
+                    ('tokenringmlhistoryclaimtokenpkts', (YLeaf(YType.uint32, 'tokenRingMLHistoryClaimTokenPkts'), ['int'])),
+                    ('tokenringmlhistorynaunchanges', (YLeaf(YType.uint32, 'tokenRingMLHistoryNAUNChanges'), ['int'])),
+                    ('tokenringmlhistorylineerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryLineErrors'), ['int'])),
+                    ('tokenringmlhistoryinternalerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryInternalErrors'), ['int'])),
+                    ('tokenringmlhistorybursterrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryBurstErrors'), ['int'])),
+                    ('tokenringmlhistoryacerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryACErrors'), ['int'])),
+                    ('tokenringmlhistoryaborterrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryAbortErrors'), ['int'])),
+                    ('tokenringmlhistorylostframeerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryLostFrameErrors'), ['int'])),
+                    ('tokenringmlhistorycongestionerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryCongestionErrors'), ['int'])),
+                    ('tokenringmlhistoryframecopiederrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryFrameCopiedErrors'), ['int'])),
+                    ('tokenringmlhistoryfrequencyerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryFrequencyErrors'), ['int'])),
+                    ('tokenringmlhistorytokenerrors', (YLeaf(YType.uint32, 'tokenRingMLHistoryTokenErrors'), ['int'])),
+                    ('tokenringmlhistorysofterrorreports', (YLeaf(YType.uint32, 'tokenRingMLHistorySoftErrorReports'), ['int'])),
+                    ('tokenringmlhistoryringpollevents', (YLeaf(YType.uint32, 'tokenRingMLHistoryRingPollEvents'), ['int'])),
+                    ('tokenringmlhistoryactivestations', (YLeaf(YType.int32, 'tokenRingMLHistoryActiveStations'), ['int'])),
                 ])
                 self.tokenringmlhistoryindex = None
                 self.tokenringmlhistorysampleindex = None
@@ -1034,6 +1041,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.tokenringmlhistoryactivestations = None
                 self._segment_path = lambda: "tokenRingMLHistoryEntry" + "[tokenRingMLHistoryIndex='" + str(self.tokenringmlhistoryindex) + "']" + "[tokenRingMLHistorySampleIndex='" + str(self.tokenringmlhistorysampleindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingMLHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingMLHistoryTable.TokenRingMLHistoryEntry, [u'tokenringmlhistoryindex', u'tokenringmlhistorysampleindex', u'tokenringmlhistoryintervalstart', u'tokenringmlhistorydropevents', u'tokenringmlhistorymacoctets', u'tokenringmlhistorymacpkts', u'tokenringmlhistoryringpurgeevents', u'tokenringmlhistoryringpurgepkts', u'tokenringmlhistorybeaconevents', u'tokenringmlhistorybeacontime', u'tokenringmlhistorybeaconpkts', u'tokenringmlhistoryclaimtokenevents', u'tokenringmlhistoryclaimtokenpkts', u'tokenringmlhistorynaunchanges', u'tokenringmlhistorylineerrors', u'tokenringmlhistoryinternalerrors', u'tokenringmlhistorybursterrors', u'tokenringmlhistoryacerrors', u'tokenringmlhistoryaborterrors', u'tokenringmlhistorylostframeerrors', u'tokenringmlhistorycongestionerrors', u'tokenringmlhistoryframecopiederrors', u'tokenringmlhistoryfrequencyerrors', u'tokenringmlhistorytokenerrors', u'tokenringmlhistorysofterrorreports', u'tokenringmlhistoryringpollevents', u'tokenringmlhistoryactivestations'], name, value)
@@ -1069,6 +1077,7 @@ class TOKENRINGRMONMIB(Entity):
             self.tokenringphistoryentry = YList(self)
             self._segment_path = lambda: "tokenRingPHistoryTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable, [], name, value)
@@ -1221,24 +1230,24 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['tokenringphistoryindex','tokenringphistorysampleindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tokenringphistoryindex', YLeaf(YType.int32, 'tokenRingPHistoryIndex')),
-                    ('tokenringphistorysampleindex', YLeaf(YType.int32, 'tokenRingPHistorySampleIndex')),
-                    ('tokenringphistoryintervalstart', YLeaf(YType.uint32, 'tokenRingPHistoryIntervalStart')),
-                    ('tokenringphistorydropevents', YLeaf(YType.uint32, 'tokenRingPHistoryDropEvents')),
-                    ('tokenringphistorydataoctets', YLeaf(YType.uint32, 'tokenRingPHistoryDataOctets')),
-                    ('tokenringphistorydatapkts', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts')),
-                    ('tokenringphistorydatabroadcastpkts', YLeaf(YType.uint32, 'tokenRingPHistoryDataBroadcastPkts')),
-                    ('tokenringphistorydatamulticastpkts', YLeaf(YType.uint32, 'tokenRingPHistoryDataMulticastPkts')),
-                    ('tokenringphistorydatapkts18to63octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts18to63Octets')),
-                    ('tokenringphistorydatapkts64to127octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts64to127Octets')),
-                    ('tokenringphistorydatapkts128to255octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts128to255Octets')),
-                    ('tokenringphistorydatapkts256to511octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts256to511Octets')),
-                    ('tokenringphistorydatapkts512to1023octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts512to1023Octets')),
-                    ('tokenringphistorydatapkts1024to2047octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts1024to2047Octets')),
-                    ('tokenringphistorydatapkts2048to4095octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts2048to4095Octets')),
-                    ('tokenringphistorydatapkts4096to8191octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts4096to8191Octets')),
-                    ('tokenringphistorydatapkts8192to18000octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts8192to18000Octets')),
-                    ('tokenringphistorydatapktsgreaterthan18000octets', YLeaf(YType.uint32, 'tokenRingPHistoryDataPktsGreaterThan18000Octets')),
+                    ('tokenringphistoryindex', (YLeaf(YType.int32, 'tokenRingPHistoryIndex'), ['int'])),
+                    ('tokenringphistorysampleindex', (YLeaf(YType.int32, 'tokenRingPHistorySampleIndex'), ['int'])),
+                    ('tokenringphistoryintervalstart', (YLeaf(YType.uint32, 'tokenRingPHistoryIntervalStart'), ['int'])),
+                    ('tokenringphistorydropevents', (YLeaf(YType.uint32, 'tokenRingPHistoryDropEvents'), ['int'])),
+                    ('tokenringphistorydataoctets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataOctets'), ['int'])),
+                    ('tokenringphistorydatapkts', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts'), ['int'])),
+                    ('tokenringphistorydatabroadcastpkts', (YLeaf(YType.uint32, 'tokenRingPHistoryDataBroadcastPkts'), ['int'])),
+                    ('tokenringphistorydatamulticastpkts', (YLeaf(YType.uint32, 'tokenRingPHistoryDataMulticastPkts'), ['int'])),
+                    ('tokenringphistorydatapkts18to63octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts18to63Octets'), ['int'])),
+                    ('tokenringphistorydatapkts64to127octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts64to127Octets'), ['int'])),
+                    ('tokenringphistorydatapkts128to255octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts128to255Octets'), ['int'])),
+                    ('tokenringphistorydatapkts256to511octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts256to511Octets'), ['int'])),
+                    ('tokenringphistorydatapkts512to1023octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts512to1023Octets'), ['int'])),
+                    ('tokenringphistorydatapkts1024to2047octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts1024to2047Octets'), ['int'])),
+                    ('tokenringphistorydatapkts2048to4095octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts2048to4095Octets'), ['int'])),
+                    ('tokenringphistorydatapkts4096to8191octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts4096to8191Octets'), ['int'])),
+                    ('tokenringphistorydatapkts8192to18000octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPkts8192to18000Octets'), ['int'])),
+                    ('tokenringphistorydatapktsgreaterthan18000octets', (YLeaf(YType.uint32, 'tokenRingPHistoryDataPktsGreaterThan18000Octets'), ['int'])),
                 ])
                 self.tokenringphistoryindex = None
                 self.tokenringphistorysampleindex = None
@@ -1260,6 +1269,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.tokenringphistorydatapktsgreaterthan18000octets = None
                 self._segment_path = lambda: "tokenRingPHistoryEntry" + "[tokenRingPHistoryIndex='" + str(self.tokenringphistoryindex) + "']" + "[tokenRingPHistorySampleIndex='" + str(self.tokenringphistorysampleindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/tokenRingPHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.TokenRingPHistoryTable.TokenRingPHistoryEntry, [u'tokenringphistoryindex', u'tokenringphistorysampleindex', u'tokenringphistoryintervalstart', u'tokenringphistorydropevents', u'tokenringphistorydataoctets', u'tokenringphistorydatapkts', u'tokenringphistorydatabroadcastpkts', u'tokenringphistorydatamulticastpkts', u'tokenringphistorydatapkts18to63octets', u'tokenringphistorydatapkts64to127octets', u'tokenringphistorydatapkts128to255octets', u'tokenringphistorydatapkts256to511octets', u'tokenringphistorydatapkts512to1023octets', u'tokenringphistorydatapkts1024to2047octets', u'tokenringphistorydatapkts2048to4095octets', u'tokenringphistorydatapkts4096to8191octets', u'tokenringphistorydatapkts8192to18000octets', u'tokenringphistorydatapktsgreaterthan18000octets'], name, value)
@@ -1294,6 +1304,7 @@ class TOKENRINGRMONMIB(Entity):
             self.ringstationcontrolentry = YList(self)
             self._segment_path = lambda: "ringStationControlTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable, [], name, value)
@@ -1399,18 +1410,18 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['ringstationcontrolifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ringstationcontrolifindex', YLeaf(YType.int32, 'ringStationControlIfIndex')),
-                    ('ringstationcontroltablesize', YLeaf(YType.int32, 'ringStationControlTableSize')),
-                    ('ringstationcontrolactivestations', YLeaf(YType.int32, 'ringStationControlActiveStations')),
-                    ('ringstationcontrolringstate', YLeaf(YType.enumeration, 'ringStationControlRingState')),
-                    ('ringstationcontrolbeaconsender', YLeaf(YType.str, 'ringStationControlBeaconSender')),
-                    ('ringstationcontrolbeaconnaun', YLeaf(YType.str, 'ringStationControlBeaconNAUN')),
-                    ('ringstationcontrolactivemonitor', YLeaf(YType.str, 'ringStationControlActiveMonitor')),
-                    ('ringstationcontrolorderchanges', YLeaf(YType.uint32, 'ringStationControlOrderChanges')),
-                    ('ringstationcontrolowner', YLeaf(YType.str, 'ringStationControlOwner')),
-                    ('ringstationcontrolstatus', YLeaf(YType.enumeration, 'ringStationControlStatus')),
-                    ('ringstationcontroldroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:ringStationControlDroppedFrames')),
-                    ('ringstationcontrolcreatetime', YLeaf(YType.uint32, 'RMON2-MIB:ringStationControlCreateTime')),
+                    ('ringstationcontrolifindex', (YLeaf(YType.int32, 'ringStationControlIfIndex'), ['int'])),
+                    ('ringstationcontroltablesize', (YLeaf(YType.int32, 'ringStationControlTableSize'), ['int'])),
+                    ('ringstationcontrolactivestations', (YLeaf(YType.int32, 'ringStationControlActiveStations'), ['int'])),
+                    ('ringstationcontrolringstate', (YLeaf(YType.enumeration, 'ringStationControlRingState'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'TOKENRINGRMONMIB', 'RingStationControlTable.RingStationControlEntry.RingStationControlRingState')])),
+                    ('ringstationcontrolbeaconsender', (YLeaf(YType.str, 'ringStationControlBeaconSender'), ['str'])),
+                    ('ringstationcontrolbeaconnaun', (YLeaf(YType.str, 'ringStationControlBeaconNAUN'), ['str'])),
+                    ('ringstationcontrolactivemonitor', (YLeaf(YType.str, 'ringStationControlActiveMonitor'), ['str'])),
+                    ('ringstationcontrolorderchanges', (YLeaf(YType.uint32, 'ringStationControlOrderChanges'), ['int'])),
+                    ('ringstationcontrolowner', (YLeaf(YType.str, 'ringStationControlOwner'), ['str'])),
+                    ('ringstationcontrolstatus', (YLeaf(YType.enumeration, 'ringStationControlStatus'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'EntryStatus', '')])),
+                    ('ringstationcontroldroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:ringStationControlDroppedFrames'), ['int'])),
+                    ('ringstationcontrolcreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:ringStationControlCreateTime'), ['int'])),
                 ])
                 self.ringstationcontrolifindex = None
                 self.ringstationcontroltablesize = None
@@ -1426,6 +1437,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.ringstationcontrolcreatetime = None
                 self._segment_path = lambda: "ringStationControlEntry" + "[ringStationControlIfIndex='" + str(self.ringstationcontrolifindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationControlTable.RingStationControlEntry, [u'ringstationcontrolifindex', u'ringstationcontroltablesize', u'ringstationcontrolactivestations', u'ringstationcontrolringstate', u'ringstationcontrolbeaconsender', u'ringstationcontrolbeaconnaun', u'ringstationcontrolactivemonitor', u'ringstationcontrolorderchanges', u'ringstationcontrolowner', u'ringstationcontrolstatus', u'ringstationcontroldroppedframes', u'ringstationcontrolcreatetime'], name, value)
@@ -1505,6 +1517,7 @@ class TOKENRINGRMONMIB(Entity):
             self.ringstationentry = YList(self)
             self._segment_path = lambda: "ringStationTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.RingStationTable, [], name, value)
@@ -1684,28 +1697,28 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['ringstationifindex','ringstationmacaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ringstationifindex', YLeaf(YType.int32, 'ringStationIfIndex')),
-                    ('ringstationmacaddress', YLeaf(YType.str, 'ringStationMacAddress')),
-                    ('ringstationlastnaun', YLeaf(YType.str, 'ringStationLastNAUN')),
-                    ('ringstationstationstatus', YLeaf(YType.enumeration, 'ringStationStationStatus')),
-                    ('ringstationlastentertime', YLeaf(YType.uint32, 'ringStationLastEnterTime')),
-                    ('ringstationlastexittime', YLeaf(YType.uint32, 'ringStationLastExitTime')),
-                    ('ringstationduplicateaddresses', YLeaf(YType.uint32, 'ringStationDuplicateAddresses')),
-                    ('ringstationinlineerrors', YLeaf(YType.uint32, 'ringStationInLineErrors')),
-                    ('ringstationoutlineerrors', YLeaf(YType.uint32, 'ringStationOutLineErrors')),
-                    ('ringstationinternalerrors', YLeaf(YType.uint32, 'ringStationInternalErrors')),
-                    ('ringstationinbursterrors', YLeaf(YType.uint32, 'ringStationInBurstErrors')),
-                    ('ringstationoutbursterrors', YLeaf(YType.uint32, 'ringStationOutBurstErrors')),
-                    ('ringstationacerrors', YLeaf(YType.uint32, 'ringStationACErrors')),
-                    ('ringstationaborterrors', YLeaf(YType.uint32, 'ringStationAbortErrors')),
-                    ('ringstationlostframeerrors', YLeaf(YType.uint32, 'ringStationLostFrameErrors')),
-                    ('ringstationcongestionerrors', YLeaf(YType.uint32, 'ringStationCongestionErrors')),
-                    ('ringstationframecopiederrors', YLeaf(YType.uint32, 'ringStationFrameCopiedErrors')),
-                    ('ringstationfrequencyerrors', YLeaf(YType.uint32, 'ringStationFrequencyErrors')),
-                    ('ringstationtokenerrors', YLeaf(YType.uint32, 'ringStationTokenErrors')),
-                    ('ringstationinbeaconerrors', YLeaf(YType.uint32, 'ringStationInBeaconErrors')),
-                    ('ringstationoutbeaconerrors', YLeaf(YType.uint32, 'ringStationOutBeaconErrors')),
-                    ('ringstationinsertions', YLeaf(YType.uint32, 'ringStationInsertions')),
+                    ('ringstationifindex', (YLeaf(YType.int32, 'ringStationIfIndex'), ['int'])),
+                    ('ringstationmacaddress', (YLeaf(YType.str, 'ringStationMacAddress'), ['str'])),
+                    ('ringstationlastnaun', (YLeaf(YType.str, 'ringStationLastNAUN'), ['str'])),
+                    ('ringstationstationstatus', (YLeaf(YType.enumeration, 'ringStationStationStatus'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'TOKENRINGRMONMIB', 'RingStationTable.RingStationEntry.RingStationStationStatus')])),
+                    ('ringstationlastentertime', (YLeaf(YType.uint32, 'ringStationLastEnterTime'), ['int'])),
+                    ('ringstationlastexittime', (YLeaf(YType.uint32, 'ringStationLastExitTime'), ['int'])),
+                    ('ringstationduplicateaddresses', (YLeaf(YType.uint32, 'ringStationDuplicateAddresses'), ['int'])),
+                    ('ringstationinlineerrors', (YLeaf(YType.uint32, 'ringStationInLineErrors'), ['int'])),
+                    ('ringstationoutlineerrors', (YLeaf(YType.uint32, 'ringStationOutLineErrors'), ['int'])),
+                    ('ringstationinternalerrors', (YLeaf(YType.uint32, 'ringStationInternalErrors'), ['int'])),
+                    ('ringstationinbursterrors', (YLeaf(YType.uint32, 'ringStationInBurstErrors'), ['int'])),
+                    ('ringstationoutbursterrors', (YLeaf(YType.uint32, 'ringStationOutBurstErrors'), ['int'])),
+                    ('ringstationacerrors', (YLeaf(YType.uint32, 'ringStationACErrors'), ['int'])),
+                    ('ringstationaborterrors', (YLeaf(YType.uint32, 'ringStationAbortErrors'), ['int'])),
+                    ('ringstationlostframeerrors', (YLeaf(YType.uint32, 'ringStationLostFrameErrors'), ['int'])),
+                    ('ringstationcongestionerrors', (YLeaf(YType.uint32, 'ringStationCongestionErrors'), ['int'])),
+                    ('ringstationframecopiederrors', (YLeaf(YType.uint32, 'ringStationFrameCopiedErrors'), ['int'])),
+                    ('ringstationfrequencyerrors', (YLeaf(YType.uint32, 'ringStationFrequencyErrors'), ['int'])),
+                    ('ringstationtokenerrors', (YLeaf(YType.uint32, 'ringStationTokenErrors'), ['int'])),
+                    ('ringstationinbeaconerrors', (YLeaf(YType.uint32, 'ringStationInBeaconErrors'), ['int'])),
+                    ('ringstationoutbeaconerrors', (YLeaf(YType.uint32, 'ringStationOutBeaconErrors'), ['int'])),
+                    ('ringstationinsertions', (YLeaf(YType.uint32, 'ringStationInsertions'), ['int'])),
                 ])
                 self.ringstationifindex = None
                 self.ringstationmacaddress = None
@@ -1731,6 +1744,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.ringstationinsertions = None
                 self._segment_path = lambda: "ringStationEntry" + "[ringStationIfIndex='" + str(self.ringstationifindex) + "']" + "[ringStationMacAddress='" + str(self.ringstationmacaddress) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationTable.RingStationEntry, [u'ringstationifindex', u'ringstationmacaddress', u'ringstationlastnaun', u'ringstationstationstatus', u'ringstationlastentertime', u'ringstationlastexittime', u'ringstationduplicateaddresses', u'ringstationinlineerrors', u'ringstationoutlineerrors', u'ringstationinternalerrors', u'ringstationinbursterrors', u'ringstationoutbursterrors', u'ringstationacerrors', u'ringstationaborterrors', u'ringstationlostframeerrors', u'ringstationcongestionerrors', u'ringstationframecopiederrors', u'ringstationfrequencyerrors', u'ringstationtokenerrors', u'ringstationinbeaconerrors', u'ringstationoutbeaconerrors', u'ringstationinsertions'], name, value)
@@ -1787,6 +1801,7 @@ class TOKENRINGRMONMIB(Entity):
             self.ringstationorderentry = YList(self)
             self._segment_path = lambda: "ringStationOrderTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable, [], name, value)
@@ -1842,15 +1857,16 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['ringstationorderifindex','ringstationorderorderindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ringstationorderifindex', YLeaf(YType.int32, 'ringStationOrderIfIndex')),
-                    ('ringstationorderorderindex', YLeaf(YType.int32, 'ringStationOrderOrderIndex')),
-                    ('ringstationordermacaddress', YLeaf(YType.str, 'ringStationOrderMacAddress')),
+                    ('ringstationorderifindex', (YLeaf(YType.int32, 'ringStationOrderIfIndex'), ['int'])),
+                    ('ringstationorderorderindex', (YLeaf(YType.int32, 'ringStationOrderOrderIndex'), ['int'])),
+                    ('ringstationordermacaddress', (YLeaf(YType.str, 'ringStationOrderMacAddress'), ['str'])),
                 ])
                 self.ringstationorderifindex = None
                 self.ringstationorderorderindex = None
                 self.ringstationordermacaddress = None
                 self._segment_path = lambda: "ringStationOrderEntry" + "[ringStationOrderIfIndex='" + str(self.ringstationorderifindex) + "']" + "[ringStationOrderOrderIndex='" + str(self.ringstationorderorderindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationOrderTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationOrderTable.RingStationOrderEntry, [u'ringstationorderifindex', u'ringstationorderorderindex', u'ringstationordermacaddress'], name, value)
@@ -1886,6 +1902,7 @@ class TOKENRINGRMONMIB(Entity):
             self.ringstationconfigcontrolentry = YList(self)
             self._segment_path = lambda: "ringStationConfigControlTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable, [], name, value)
@@ -1937,10 +1954,10 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['ringstationconfigcontrolifindex','ringstationconfigcontrolmacaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ringstationconfigcontrolifindex', YLeaf(YType.int32, 'ringStationConfigControlIfIndex')),
-                    ('ringstationconfigcontrolmacaddress', YLeaf(YType.str, 'ringStationConfigControlMacAddress')),
-                    ('ringstationconfigcontrolremove', YLeaf(YType.enumeration, 'ringStationConfigControlRemove')),
-                    ('ringstationconfigcontrolupdatestats', YLeaf(YType.enumeration, 'ringStationConfigControlUpdateStats')),
+                    ('ringstationconfigcontrolifindex', (YLeaf(YType.int32, 'ringStationConfigControlIfIndex'), ['int'])),
+                    ('ringstationconfigcontrolmacaddress', (YLeaf(YType.str, 'ringStationConfigControlMacAddress'), ['str'])),
+                    ('ringstationconfigcontrolremove', (YLeaf(YType.enumeration, 'ringStationConfigControlRemove'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'TOKENRINGRMONMIB', 'RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlRemove')])),
+                    ('ringstationconfigcontrolupdatestats', (YLeaf(YType.enumeration, 'ringStationConfigControlUpdateStats'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'TOKENRINGRMONMIB', 'RingStationConfigControlTable.RingStationConfigControlEntry.RingStationConfigControlUpdateStats')])),
                 ])
                 self.ringstationconfigcontrolifindex = None
                 self.ringstationconfigcontrolmacaddress = None
@@ -1948,6 +1965,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.ringstationconfigcontrolupdatestats = None
                 self._segment_path = lambda: "ringStationConfigControlEntry" + "[ringStationConfigControlIfIndex='" + str(self.ringstationconfigcontrolifindex) + "']" + "[ringStationConfigControlMacAddress='" + str(self.ringstationconfigcontrolmacaddress) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigControlTable.RingStationConfigControlEntry, [u'ringstationconfigcontrolifindex', u'ringstationconfigcontrolmacaddress', u'ringstationconfigcontrolremove', u'ringstationconfigcontrolupdatestats'], name, value)
@@ -2031,6 +2049,7 @@ class TOKENRINGRMONMIB(Entity):
             self.ringstationconfigentry = YList(self)
             self._segment_path = lambda: "ringStationConfigTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable, [], name, value)
@@ -2107,13 +2126,13 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['ringstationconfigifindex','ringstationconfigmacaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ringstationconfigifindex', YLeaf(YType.int32, 'ringStationConfigIfIndex')),
-                    ('ringstationconfigmacaddress', YLeaf(YType.str, 'ringStationConfigMacAddress')),
-                    ('ringstationconfigupdatetime', YLeaf(YType.uint32, 'ringStationConfigUpdateTime')),
-                    ('ringstationconfiglocation', YLeaf(YType.str, 'ringStationConfigLocation')),
-                    ('ringstationconfigmicrocode', YLeaf(YType.str, 'ringStationConfigMicrocode')),
-                    ('ringstationconfiggroupaddress', YLeaf(YType.str, 'ringStationConfigGroupAddress')),
-                    ('ringstationconfigfunctionaladdress', YLeaf(YType.str, 'ringStationConfigFunctionalAddress')),
+                    ('ringstationconfigifindex', (YLeaf(YType.int32, 'ringStationConfigIfIndex'), ['int'])),
+                    ('ringstationconfigmacaddress', (YLeaf(YType.str, 'ringStationConfigMacAddress'), ['str'])),
+                    ('ringstationconfigupdatetime', (YLeaf(YType.uint32, 'ringStationConfigUpdateTime'), ['int'])),
+                    ('ringstationconfiglocation', (YLeaf(YType.str, 'ringStationConfigLocation'), ['str'])),
+                    ('ringstationconfigmicrocode', (YLeaf(YType.str, 'ringStationConfigMicrocode'), ['str'])),
+                    ('ringstationconfiggroupaddress', (YLeaf(YType.str, 'ringStationConfigGroupAddress'), ['str'])),
+                    ('ringstationconfigfunctionaladdress', (YLeaf(YType.str, 'ringStationConfigFunctionalAddress'), ['str'])),
                 ])
                 self.ringstationconfigifindex = None
                 self.ringstationconfigmacaddress = None
@@ -2124,6 +2143,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.ringstationconfigfunctionaladdress = None
                 self._segment_path = lambda: "ringStationConfigEntry" + "[ringStationConfigIfIndex='" + str(self.ringstationconfigifindex) + "']" + "[ringStationConfigMacAddress='" + str(self.ringstationconfigmacaddress) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/ringStationConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.RingStationConfigTable.RingStationConfigEntry, [u'ringstationconfigifindex', u'ringstationconfigmacaddress', u'ringstationconfigupdatetime', u'ringstationconfiglocation', u'ringstationconfigmicrocode', u'ringstationconfiggroupaddress', u'ringstationconfigfunctionaladdress'], name, value)
@@ -2158,6 +2178,7 @@ class TOKENRINGRMONMIB(Entity):
             self.sourceroutingstatsentry = YList(self)
             self._segment_path = lambda: "sourceRoutingStatsTable"
             self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable, [], name, value)
@@ -2362,32 +2383,32 @@ class TOKENRINGRMONMIB(Entity):
                 self.ylist_key_names = ['sourceroutingstatsifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sourceroutingstatsifindex', YLeaf(YType.int32, 'sourceRoutingStatsIfIndex')),
-                    ('sourceroutingstatsringnumber', YLeaf(YType.int32, 'sourceRoutingStatsRingNumber')),
-                    ('sourceroutingstatsinframes', YLeaf(YType.uint32, 'sourceRoutingStatsInFrames')),
-                    ('sourceroutingstatsoutframes', YLeaf(YType.uint32, 'sourceRoutingStatsOutFrames')),
-                    ('sourceroutingstatsthroughframes', YLeaf(YType.uint32, 'sourceRoutingStatsThroughFrames')),
-                    ('sourceroutingstatsallroutesbroadcastframes', YLeaf(YType.uint32, 'sourceRoutingStatsAllRoutesBroadcastFrames')),
-                    ('sourceroutingstatssingleroutebroadcastframes', YLeaf(YType.uint32, 'sourceRoutingStatsSingleRouteBroadcastFrames')),
-                    ('sourceroutingstatsinoctets', YLeaf(YType.uint32, 'sourceRoutingStatsInOctets')),
-                    ('sourceroutingstatsoutoctets', YLeaf(YType.uint32, 'sourceRoutingStatsOutOctets')),
-                    ('sourceroutingstatsthroughoctets', YLeaf(YType.uint32, 'sourceRoutingStatsThroughOctets')),
-                    ('sourceroutingstatsallroutesbroadcastoctets', YLeaf(YType.uint32, 'sourceRoutingStatsAllRoutesBroadcastOctets')),
-                    ('sourceroutingstatssingleroutesbroadcastoctets', YLeaf(YType.uint32, 'sourceRoutingStatsSingleRoutesBroadcastOctets')),
-                    ('sourceroutingstatslocalllcframes', YLeaf(YType.uint32, 'sourceRoutingStatsLocalLLCFrames')),
-                    ('sourceroutingstats1hopframes', YLeaf(YType.uint32, 'sourceRoutingStats1HopFrames')),
-                    ('sourceroutingstats2hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats2HopsFrames')),
-                    ('sourceroutingstats3hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats3HopsFrames')),
-                    ('sourceroutingstats4hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats4HopsFrames')),
-                    ('sourceroutingstats5hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats5HopsFrames')),
-                    ('sourceroutingstats6hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats6HopsFrames')),
-                    ('sourceroutingstats7hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats7HopsFrames')),
-                    ('sourceroutingstats8hopsframes', YLeaf(YType.uint32, 'sourceRoutingStats8HopsFrames')),
-                    ('sourceroutingstatsmorethan8hopsframes', YLeaf(YType.uint32, 'sourceRoutingStatsMoreThan8HopsFrames')),
-                    ('sourceroutingstatsowner', YLeaf(YType.str, 'sourceRoutingStatsOwner')),
-                    ('sourceroutingstatsstatus', YLeaf(YType.enumeration, 'sourceRoutingStatsStatus')),
-                    ('sourceroutingstatsdroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:sourceRoutingStatsDroppedFrames')),
-                    ('sourceroutingstatscreatetime', YLeaf(YType.uint32, 'RMON2-MIB:sourceRoutingStatsCreateTime')),
+                    ('sourceroutingstatsifindex', (YLeaf(YType.int32, 'sourceRoutingStatsIfIndex'), ['int'])),
+                    ('sourceroutingstatsringnumber', (YLeaf(YType.int32, 'sourceRoutingStatsRingNumber'), ['int'])),
+                    ('sourceroutingstatsinframes', (YLeaf(YType.uint32, 'sourceRoutingStatsInFrames'), ['int'])),
+                    ('sourceroutingstatsoutframes', (YLeaf(YType.uint32, 'sourceRoutingStatsOutFrames'), ['int'])),
+                    ('sourceroutingstatsthroughframes', (YLeaf(YType.uint32, 'sourceRoutingStatsThroughFrames'), ['int'])),
+                    ('sourceroutingstatsallroutesbroadcastframes', (YLeaf(YType.uint32, 'sourceRoutingStatsAllRoutesBroadcastFrames'), ['int'])),
+                    ('sourceroutingstatssingleroutebroadcastframes', (YLeaf(YType.uint32, 'sourceRoutingStatsSingleRouteBroadcastFrames'), ['int'])),
+                    ('sourceroutingstatsinoctets', (YLeaf(YType.uint32, 'sourceRoutingStatsInOctets'), ['int'])),
+                    ('sourceroutingstatsoutoctets', (YLeaf(YType.uint32, 'sourceRoutingStatsOutOctets'), ['int'])),
+                    ('sourceroutingstatsthroughoctets', (YLeaf(YType.uint32, 'sourceRoutingStatsThroughOctets'), ['int'])),
+                    ('sourceroutingstatsallroutesbroadcastoctets', (YLeaf(YType.uint32, 'sourceRoutingStatsAllRoutesBroadcastOctets'), ['int'])),
+                    ('sourceroutingstatssingleroutesbroadcastoctets', (YLeaf(YType.uint32, 'sourceRoutingStatsSingleRoutesBroadcastOctets'), ['int'])),
+                    ('sourceroutingstatslocalllcframes', (YLeaf(YType.uint32, 'sourceRoutingStatsLocalLLCFrames'), ['int'])),
+                    ('sourceroutingstats1hopframes', (YLeaf(YType.uint32, 'sourceRoutingStats1HopFrames'), ['int'])),
+                    ('sourceroutingstats2hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats2HopsFrames'), ['int'])),
+                    ('sourceroutingstats3hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats3HopsFrames'), ['int'])),
+                    ('sourceroutingstats4hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats4HopsFrames'), ['int'])),
+                    ('sourceroutingstats5hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats5HopsFrames'), ['int'])),
+                    ('sourceroutingstats6hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats6HopsFrames'), ['int'])),
+                    ('sourceroutingstats7hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats7HopsFrames'), ['int'])),
+                    ('sourceroutingstats8hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStats8HopsFrames'), ['int'])),
+                    ('sourceroutingstatsmorethan8hopsframes', (YLeaf(YType.uint32, 'sourceRoutingStatsMoreThan8HopsFrames'), ['int'])),
+                    ('sourceroutingstatsowner', (YLeaf(YType.str, 'sourceRoutingStatsOwner'), ['str'])),
+                    ('sourceroutingstatsstatus', (YLeaf(YType.enumeration, 'sourceRoutingStatsStatus'), [('ydk.models.cisco_ios_xe.TOKEN_RING_RMON_MIB', 'EntryStatus', '')])),
+                    ('sourceroutingstatsdroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:sourceRoutingStatsDroppedFrames'), ['int'])),
+                    ('sourceroutingstatscreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:sourceRoutingStatsCreateTime'), ['int'])),
                 ])
                 self.sourceroutingstatsifindex = None
                 self.sourceroutingstatsringnumber = None
@@ -2417,6 +2438,7 @@ class TOKENRINGRMONMIB(Entity):
                 self.sourceroutingstatscreatetime = None
                 self._segment_path = lambda: "sourceRoutingStatsEntry" + "[sourceRoutingStatsIfIndex='" + str(self.sourceroutingstatsifindex) + "']"
                 self._absolute_path = lambda: "TOKEN-RING-RMON-MIB:TOKEN-RING-RMON-MIB/sourceRoutingStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TOKENRINGRMONMIB.SourceRoutingStatsTable.SourceRoutingStatsEntry, [u'sourceroutingstatsifindex', u'sourceroutingstatsringnumber', u'sourceroutingstatsinframes', u'sourceroutingstatsoutframes', u'sourceroutingstatsthroughframes', u'sourceroutingstatsallroutesbroadcastframes', u'sourceroutingstatssingleroutebroadcastframes', u'sourceroutingstatsinoctets', u'sourceroutingstatsoutoctets', u'sourceroutingstatsthroughoctets', u'sourceroutingstatsallroutesbroadcastoctets', u'sourceroutingstatssingleroutesbroadcastoctets', u'sourceroutingstatslocalllcframes', u'sourceroutingstats1hopframes', u'sourceroutingstats2hopsframes', u'sourceroutingstats3hopsframes', u'sourceroutingstats4hopsframes', u'sourceroutingstats5hopsframes', u'sourceroutingstats6hopsframes', u'sourceroutingstats7hopsframes', u'sourceroutingstats8hopsframes', u'sourceroutingstatsmorethan8hopsframes', u'sourceroutingstatsowner', u'sourceroutingstatsstatus', u'sourceroutingstatsdroppedframes', u'sourceroutingstatscreatetime'], name, value)

@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-l2vpn\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EgressFiltering(Enum):
@@ -199,6 +200,7 @@ class EthernetFeatures(Entity):
         self.ether_link_oam.parent = self
         self._children_name_map["ether_link_oam"] = "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"
         self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EthernetFeatures, [], name, value)
@@ -230,11 +232,12 @@ class EthernetFeatures(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('egress_filtering_default_on', YLeaf(YType.empty, 'egress-filtering-default-on')),
+                ('egress_filtering_default_on', (YLeaf(YType.empty, 'egress-filtering-default-on'), ['Empty'])),
             ])
             self.egress_filtering_default_on = None
             self._segment_path = lambda: "egress-filtering"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetFeatures.EgressFiltering, [u'egress_filtering_default_on'], name, value)
@@ -276,7 +279,7 @@ class EthernetFeatures(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("traceroute-cache", ("traceroute_cache", EthernetFeatures.Cfm.TracerouteCache)), ("domains", ("domains", EthernetFeatures.Cfm.Domains))])
             self._leafs = OrderedDict([
-                ('nv_satellite_sla_processing_disable', YLeaf(YType.empty, 'nv-satellite-sla-processing-disable')),
+                ('nv_satellite_sla_processing_disable', (YLeaf(YType.empty, 'nv-satellite-sla-processing-disable'), ['Empty'])),
             ])
             self.nv_satellite_sla_processing_disable = None
 
@@ -289,6 +292,7 @@ class EthernetFeatures(Entity):
             self._children_name_map["domains"] = "domains"
             self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-cfg:cfm"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetFeatures.Cfm, ['nv_satellite_sla_processing_disable'], name, value)
@@ -333,13 +337,14 @@ class EthernetFeatures(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hold_time', YLeaf(YType.uint32, 'hold-time')),
-                    ('cache_size', YLeaf(YType.uint32, 'cache-size')),
+                    ('hold_time', (YLeaf(YType.uint32, 'hold-time'), ['int'])),
+                    ('cache_size', (YLeaf(YType.uint32, 'cache-size'), ['int'])),
                 ])
                 self.hold_time = None
                 self.cache_size = None
                 self._segment_path = lambda: "traceroute-cache"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetFeatures.Cfm.TracerouteCache, ['hold_time', 'cache_size'], name, value)
@@ -375,6 +380,7 @@ class EthernetFeatures(Entity):
                 self.domain = YList(self)
                 self._segment_path = lambda: "domains"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetFeatures.Cfm.Domains, [], name, value)
@@ -419,7 +425,7 @@ class EthernetFeatures(Entity):
                     self.ylist_key_names = ['domain']
                     self._child_classes = OrderedDict([("services", ("services", EthernetFeatures.Cfm.Domains.Domain.Services)), ("domain-properties", ("domain_properties", EthernetFeatures.Cfm.Domains.Domain.DomainProperties))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
                     ])
                     self.domain = None
 
@@ -432,6 +438,7 @@ class EthernetFeatures(Entity):
                     self._children_name_map["domain_properties"] = "domain-properties"
                     self._segment_path = lambda: "domain" + "[domain='" + str(self.domain) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-cfm-cfg:cfm/domains/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain, ['domain'], name, value)
@@ -466,6 +473,7 @@ class EthernetFeatures(Entity):
 
                         self.service = YList(self)
                         self._segment_path = lambda: "services"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services, [], name, value)
@@ -593,16 +601,16 @@ class EthernetFeatures(Entity):
                             self.ylist_key_names = ['service']
                             self._child_classes = OrderedDict([("efd2", ("efd2", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2)), ("continuity-check-interval", ("continuity_check_interval", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval)), ("mip-auto-creation", ("mip_auto_creation", EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation)), ("ais", ("ais", EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais)), ("cross-check", ("cross_check", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck)), ("service-properties", ("service_properties", EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties))])
                             self._leafs = OrderedDict([
-                                ('service', YLeaf(YType.str, 'service')),
-                                ('maximum_meps', YLeaf(YType.uint32, 'maximum-meps')),
-                                ('log_cross_check_errors', YLeaf(YType.empty, 'log-cross-check-errors')),
-                                ('continuity_check_archive_hold_time', YLeaf(YType.uint32, 'continuity-check-archive-hold-time')),
-                                ('tags', YLeaf(YType.uint32, 'tags')),
-                                ('log_continuity_check_state_changes', YLeaf(YType.empty, 'log-continuity-check-state-changes')),
-                                ('log_efd', YLeaf(YType.empty, 'log-efd')),
-                                ('continuity_check_auto_traceroute', YLeaf(YType.empty, 'continuity-check-auto-traceroute')),
-                                ('log_continuity_check_errors', YLeaf(YType.empty, 'log-continuity-check-errors')),
-                                ('log_ais', YLeaf(YType.empty, 'log-ais')),
+                                ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                                ('maximum_meps', (YLeaf(YType.uint32, 'maximum-meps'), ['int'])),
+                                ('log_cross_check_errors', (YLeaf(YType.empty, 'log-cross-check-errors'), ['Empty'])),
+                                ('continuity_check_archive_hold_time', (YLeaf(YType.uint32, 'continuity-check-archive-hold-time'), ['int'])),
+                                ('tags', (YLeaf(YType.uint32, 'tags'), ['int'])),
+                                ('log_continuity_check_state_changes', (YLeaf(YType.empty, 'log-continuity-check-state-changes'), ['Empty'])),
+                                ('log_efd', (YLeaf(YType.empty, 'log-efd'), ['Empty'])),
+                                ('continuity_check_auto_traceroute', (YLeaf(YType.empty, 'continuity-check-auto-traceroute'), ['Empty'])),
+                                ('log_continuity_check_errors', (YLeaf(YType.empty, 'log-continuity-check-errors'), ['Empty'])),
+                                ('log_ais', (YLeaf(YType.empty, 'log-ais'), ['Empty'])),
                             ])
                             self.service = None
                             self.maximum_meps = None
@@ -635,6 +643,7 @@ class EthernetFeatures(Entity):
                             self.service_properties = None
                             self._children_name_map["service_properties"] = "service-properties"
                             self._segment_path = lambda: "service" + "[service='" + str(self.service) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service, ['service', 'maximum_meps', 'log_cross_check_errors', 'continuity_check_archive_hold_time', 'tags', 'log_continuity_check_state_changes', 'log_efd', 'continuity_check_auto_traceroute', 'log_continuity_check_errors', 'log_ais'], name, value)
@@ -677,12 +686,13 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('protection_switching_enable', YLeaf(YType.empty, 'protection-switching-enable')),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('protection_switching_enable', (YLeaf(YType.empty, 'protection-switching-enable'), ['Empty'])),
                                 ])
                                 self.enable = None
                                 self.protection_switching_enable = None
                                 self._segment_path = lambda: "efd2"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Efd2, ['enable', 'protection_switching_enable'], name, value)
@@ -728,12 +738,13 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('ccm_interval', YLeaf(YType.enumeration, 'ccm-interval')),
-                                    ('loss_threshold', YLeaf(YType.uint32, 'loss-threshold')),
+                                    ('ccm_interval', (YLeaf(YType.enumeration, 'ccm-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmCcmInterval', '')])),
+                                    ('loss_threshold', (YLeaf(YType.uint32, 'loss-threshold'), ['int'])),
                                 ])
                                 self.ccm_interval = None
                                 self.loss_threshold = None
                                 self._segment_path = lambda: "continuity-check-interval"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ContinuityCheckInterval, ['ccm_interval', 'loss_threshold'], name, value)
@@ -775,12 +786,13 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('mip_policy', YLeaf(YType.enumeration, 'mip-policy')),
-                                    ('ccm_learning_enable', YLeaf(YType.empty, 'ccm-learning-enable')),
+                                    ('mip_policy', (YLeaf(YType.enumeration, 'mip-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMipPolicy', '')])),
+                                    ('ccm_learning_enable', (YLeaf(YType.empty, 'ccm-learning-enable'), ['Empty'])),
                                 ])
                                 self.mip_policy = None
                                 self.ccm_learning_enable = None
                                 self._segment_path = lambda: "mip-auto-creation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.MipAutoCreation, ['mip_policy', 'ccm_learning_enable'], name, value)
@@ -818,6 +830,7 @@ class EthernetFeatures(Entity):
                                 self.transmission = None
                                 self._children_name_map["transmission"] = "transmission"
                                 self._segment_path = lambda: "ais"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais, [], name, value)
@@ -859,12 +872,13 @@ class EthernetFeatures(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('ais_interval', YLeaf(YType.enumeration, 'ais-interval')),
-                                        ('cos', YLeaf(YType.uint32, 'cos')),
+                                        ('ais_interval', (YLeaf(YType.enumeration, 'ais-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_datatypes', 'CfmAisInterval', '')])),
+                                        ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
                                     ])
                                     self.ais_interval = None
                                     self.cos = None
                                     self._segment_path = lambda: "transmission"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.Ais.Transmission, ['ais_interval', 'cos'], name, value)
@@ -901,7 +915,7 @@ class EthernetFeatures(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("cross-check-meps", ("cross_check_meps", EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps))])
                                 self._leafs = OrderedDict([
-                                    ('auto', YLeaf(YType.empty, 'auto')),
+                                    ('auto', (YLeaf(YType.empty, 'auto'), ['Empty'])),
                                 ])
                                 self.auto = None
 
@@ -909,6 +923,7 @@ class EthernetFeatures(Entity):
                                 self.cross_check_meps.parent = self
                                 self._children_name_map["cross_check_meps"] = "cross-check-meps"
                                 self._segment_path = lambda: "cross-check"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck, ['auto'], name, value)
@@ -943,6 +958,7 @@ class EthernetFeatures(Entity):
 
                                     self.cross_check_mep = YList(self)
                                     self._segment_path = lambda: "cross-check-meps"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps, [], name, value)
@@ -989,14 +1005,15 @@ class EthernetFeatures(Entity):
                                         self.ylist_key_names = ['mep_id']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('mep_id', YLeaf(YType.uint32, 'mep-id')),
-                                            ('enable_mac_address', YLeaf(YType.empty, 'enable-mac-address')),
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                            ('mep_id', (YLeaf(YType.uint32, 'mep-id'), ['int'])),
+                                            ('enable_mac_address', (YLeaf(YType.empty, 'enable-mac-address'), ['Empty'])),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                         ])
                                         self.mep_id = None
                                         self.enable_mac_address = None
                                         self.mac_address = None
                                         self._segment_path = lambda: "cross-check-mep" + "[mep-id='" + str(self.mep_id) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.CrossCheck.CrossCheckMeps.CrossCheckMep, ['mep_id', 'enable_mac_address', 'mac_address'], name, value)
@@ -1112,19 +1129,19 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('service_type', YLeaf(YType.enumeration, 'service-type')),
-                                    ('group_name', YLeaf(YType.str, 'group-name')),
-                                    ('switching_name', YLeaf(YType.str, 'switching-name')),
-                                    ('ce_id', YLeaf(YType.uint32, 'ce-id')),
-                                    ('remote_ce_id', YLeaf(YType.uint32, 'remote-ce-id')),
-                                    ('evi', YLeaf(YType.uint32, 'evi')),
-                                    ('short_ma_name_format', YLeaf(YType.enumeration, 'short-ma-name-format')),
-                                    ('short_ma_name_string', YLeaf(YType.str, 'short-ma-name-string')),
-                                    ('short_ma_name_number', YLeaf(YType.uint32, 'short-ma-name-number')),
-                                    ('short_ma_name_oui', YLeaf(YType.uint32, 'short-ma-name-oui')),
-                                    ('short_ma_name_vpn_index', YLeaf(YType.uint32, 'short-ma-name-vpn-index')),
-                                    ('short_ma_name_icc', YLeaf(YType.str, 'short-ma-name-icc')),
-                                    ('short_ma_name_umc', YLeaf(YType.str, 'short-ma-name-umc')),
+                                    ('service_type', (YLeaf(YType.enumeration, 'service-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmService', '')])),
+                                    ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                                    ('switching_name', (YLeaf(YType.str, 'switching-name'), ['str'])),
+                                    ('ce_id', (YLeaf(YType.uint32, 'ce-id'), ['int'])),
+                                    ('remote_ce_id', (YLeaf(YType.uint32, 'remote-ce-id'), ['int'])),
+                                    ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
+                                    ('short_ma_name_format', (YLeaf(YType.enumeration, 'short-ma-name-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmShortMaNameFormat', '')])),
+                                    ('short_ma_name_string', (YLeaf(YType.str, 'short-ma-name-string'), ['str'])),
+                                    ('short_ma_name_number', (YLeaf(YType.uint32, 'short-ma-name-number'), ['int'])),
+                                    ('short_ma_name_oui', (YLeaf(YType.uint32, 'short-ma-name-oui'), ['int'])),
+                                    ('short_ma_name_vpn_index', (YLeaf(YType.uint32, 'short-ma-name-vpn-index'), ['int'])),
+                                    ('short_ma_name_icc', (YLeaf(YType.str, 'short-ma-name-icc'), ['str'])),
+                                    ('short_ma_name_umc', (YLeaf(YType.str, 'short-ma-name-umc'), ['str'])),
                                 ])
                                 self.service_type = None
                                 self.group_name = None
@@ -1140,6 +1157,7 @@ class EthernetFeatures(Entity):
                                 self.short_ma_name_icc = None
                                 self.short_ma_name_umc = None
                                 self._segment_path = lambda: "service-properties"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.Services.Service.ServiceProperties, ['service_type', 'group_name', 'switching_name', 'ce_id', 'remote_ce_id', 'evi', 'short_ma_name_format', 'short_ma_name_string', 'short_ma_name_number', 'short_ma_name_oui', 'short_ma_name_vpn_index', 'short_ma_name_icc', 'short_ma_name_umc'], name, value)
@@ -1199,11 +1217,11 @@ class EthernetFeatures(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('level', YLeaf(YType.uint32, 'level')),
-                            ('mdid_format', YLeaf(YType.enumeration, 'mdid-format')),
-                            ('mdid_mac_address', YLeaf(YType.str, 'mdid-mac-address')),
-                            ('mdid_number', YLeaf(YType.uint32, 'mdid-number')),
-                            ('mdid_string', YLeaf(YType.str, 'mdid-string')),
+                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                            ('mdid_format', (YLeaf(YType.enumeration, 'mdid-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_cfg', 'CfmMdidFormat', '')])),
+                            ('mdid_mac_address', (YLeaf(YType.str, 'mdid-mac-address'), ['str'])),
+                            ('mdid_number', (YLeaf(YType.uint32, 'mdid-number'), ['int'])),
+                            ('mdid_string', (YLeaf(YType.str, 'mdid-string'), ['str'])),
                         ])
                         self.level = None
                         self.mdid_format = None
@@ -1211,6 +1229,7 @@ class EthernetFeatures(Entity):
                         self.mdid_number = None
                         self.mdid_string = None
                         self._segment_path = lambda: "domain-properties"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.Cfm.Domains.Domain.DomainProperties, ['level', 'mdid_format', 'mdid_mac_address', 'mdid_number', 'mdid_string'], name, value)
@@ -1248,6 +1267,7 @@ class EthernetFeatures(Entity):
             self._children_name_map["profiles"] = "profiles"
             self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetFeatures.EtherLinkOam, [], name, value)
@@ -1283,6 +1303,7 @@ class EthernetFeatures(Entity):
                 self.profile = YList(self)
                 self._segment_path = lambda: "profiles"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles, [], name, value)
@@ -1363,13 +1384,13 @@ class EthernetFeatures(Entity):
                     self.ylist_key_names = ['profile']
                     self._child_classes = OrderedDict([("action", ("action", EthernetFeatures.EtherLinkOam.Profiles.Profile.Action)), ("require-remote", ("require_remote", EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote)), ("link-monitoring", ("link_monitoring", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring))])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
-                        ('mib_retrieval', YLeaf(YType.boolean, 'mib-retrieval')),
-                        ('udlf', YLeaf(YType.boolean, 'udlf')),
-                        ('hello_interval', YLeaf(YType.enumeration, 'hello-interval')),
-                        ('mode', YLeaf(YType.enumeration, 'mode')),
-                        ('remote_loopback', YLeaf(YType.boolean, 'remote-loopback')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
+                        ('mib_retrieval', (YLeaf(YType.boolean, 'mib-retrieval'), ['bool'])),
+                        ('udlf', (YLeaf(YType.boolean, 'udlf'), ['bool'])),
+                        ('hello_interval', (YLeaf(YType.enumeration, 'hello-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamHelloIntervalEnum', '')])),
+                        ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamModeEnum', '')])),
+                        ('remote_loopback', (YLeaf(YType.boolean, 'remote-loopback'), ['bool'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                     ])
                     self.profile = None
                     self.mib_retrieval = None
@@ -1392,6 +1413,7 @@ class EthernetFeatures(Entity):
                     self._children_name_map["link_monitoring"] = "link-monitoring"
                     self._segment_path = lambda: "profile" + "[profile='" + str(self.profile) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-cfg:ethernet-features/Cisco-IOS-XR-ethernet-link-oam-cfg:ether-link-oam/profiles/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile, ['profile', 'mib_retrieval', 'udlf', 'hello_interval', 'mode', 'remote_loopback', 'timeout'], name, value)
@@ -1468,16 +1490,16 @@ class EthernetFeatures(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('dying_gasp', YLeaf(YType.enumeration, 'dying-gasp')),
-                            ('session_up', YLeaf(YType.enumeration, 'session-up')),
-                            ('critical_event', YLeaf(YType.enumeration, 'critical-event')),
-                            ('session_down', YLeaf(YType.enumeration, 'session-down')),
-                            ('discovery_timeout', YLeaf(YType.enumeration, 'discovery-timeout')),
-                            ('high_threshold', YLeaf(YType.enumeration, 'high-threshold')),
-                            ('capabilities_conflict', YLeaf(YType.enumeration, 'capabilities-conflict')),
-                            ('remote_loopback', YLeaf(YType.enumeration, 'remote-loopback')),
-                            ('link_fault', YLeaf(YType.enumeration, 'link-fault')),
-                            ('wiring_conflict', YLeaf(YType.enumeration, 'wiring-conflict')),
+                            ('dying_gasp', (YLeaf(YType.enumeration, 'dying-gasp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum', '')])),
+                            ('session_up', (YLeaf(YType.enumeration, 'session-up'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnum', '')])),
+                            ('critical_event', (YLeaf(YType.enumeration, 'critical-event'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum', '')])),
+                            ('session_down', (YLeaf(YType.enumeration, 'session-down'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd', '')])),
+                            ('discovery_timeout', (YLeaf(YType.enumeration, 'discovery-timeout'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd', '')])),
+                            ('high_threshold', (YLeaf(YType.enumeration, 'high-threshold'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnum', '')])),
+                            ('capabilities_conflict', (YLeaf(YType.enumeration, 'capabilities-conflict'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd', '')])),
+                            ('remote_loopback', (YLeaf(YType.enumeration, 'remote-loopback'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionPrimEnum', '')])),
+                            ('link_fault', (YLeaf(YType.enumeration, 'link-fault'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd', '')])),
+                            ('wiring_conflict', (YLeaf(YType.enumeration, 'wiring-conflict'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamEventActionEnumEfd', '')])),
                         ])
                         self.dying_gasp = None
                         self.session_up = None
@@ -1490,6 +1512,7 @@ class EthernetFeatures(Entity):
                         self.link_fault = None
                         self.wiring_conflict = None
                         self._segment_path = lambda: "action"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.Action, ['dying_gasp', 'session_up', 'critical_event', 'session_down', 'discovery_timeout', 'high_threshold', 'capabilities_conflict', 'remote_loopback', 'link_fault', 'wiring_conflict'], name, value)
@@ -1536,16 +1559,17 @@ class EthernetFeatures(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('mib_retrieval', YLeaf(YType.boolean, 'mib-retrieval')),
-                            ('mode', YLeaf(YType.enumeration, 'mode')),
-                            ('remote_loopback', YLeaf(YType.boolean, 'remote-loopback')),
-                            ('link_monitoring', YLeaf(YType.boolean, 'link-monitoring')),
+                            ('mib_retrieval', (YLeaf(YType.boolean, 'mib-retrieval'), ['bool'])),
+                            ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamRequireModeEnum', '')])),
+                            ('remote_loopback', (YLeaf(YType.boolean, 'remote-loopback'), ['bool'])),
+                            ('link_monitoring', (YLeaf(YType.boolean, 'link-monitoring'), ['bool'])),
                         ])
                         self.mib_retrieval = None
                         self.mode = None
                         self.remote_loopback = None
                         self.link_monitoring = None
                         self._segment_path = lambda: "require-remote"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.RequireRemote, ['mib_retrieval', 'mode', 'remote_loopback', 'link_monitoring'], name, value)
@@ -1597,7 +1621,7 @@ class EthernetFeatures(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("symbol-period", ("symbol_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod)), ("frame-period", ("frame_period", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod)), ("frame-seconds", ("frame_seconds", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds)), ("frame", ("frame", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame))])
                         self._leafs = OrderedDict([
-                            ('monitoring', YLeaf(YType.boolean, 'monitoring')),
+                            ('monitoring', (YLeaf(YType.boolean, 'monitoring'), ['bool'])),
                         ])
                         self.monitoring = None
 
@@ -1617,6 +1641,7 @@ class EthernetFeatures(Entity):
                         self.frame.parent = self
                         self._children_name_map["frame"] = "frame"
                         self._segment_path = lambda: "link-monitoring"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring, ['monitoring'], name, value)
@@ -1663,6 +1688,7 @@ class EthernetFeatures(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "symbol-period"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod, [], name, value)
@@ -1716,14 +1742,15 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('window', YLeaf(YType.uint32, 'window')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
-                                    ('multiplier', YLeaf(YType.enumeration, 'multiplier')),
+                                    ('window', (YLeaf(YType.uint32, 'window'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamWindowUnitsSymbolsEnum', '')])),
+                                    ('multiplier', (YLeaf(YType.enumeration, 'multiplier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
                                 ])
                                 self.window = None
                                 self.units = None
                                 self.multiplier = None
                                 self._segment_path = lambda: "window"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Window, ['window', 'units', 'multiplier'], name, value)
@@ -1786,11 +1813,11 @@ class EthernetFeatures(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
-                                    ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
-                                    ('multiplier_low', YLeaf(YType.enumeration, 'multiplier-low')),
-                                    ('multiplier_high', YLeaf(YType.enumeration, 'multiplier-high')),
+                                    ('threshold_low', (YLeaf(YType.uint32, 'threshold-low'), ['int'])),
+                                    ('threshold_high', (YLeaf(YType.uint32, 'threshold-high'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdUnitsSymbolsEnum', '')])),
+                                    ('multiplier_low', (YLeaf(YType.enumeration, 'multiplier-low'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
+                                    ('multiplier_high', (YLeaf(YType.enumeration, 'multiplier-high'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
                                 ])
                                 self.threshold_low = None
                                 self.threshold_high = None
@@ -1798,6 +1825,7 @@ class EthernetFeatures(Entity):
                                 self.multiplier_low = None
                                 self.multiplier_high = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.SymbolPeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
@@ -1844,6 +1872,7 @@ class EthernetFeatures(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "frame-period"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod, [], name, value)
@@ -1897,14 +1926,15 @@ class EthernetFeatures(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('window', YLeaf(YType.uint32, 'window')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
-                                    ('multiplier', YLeaf(YType.enumeration, 'multiplier')),
+                                    ('window', (YLeaf(YType.uint32, 'window'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamWindowUnitsFramesEnum', '')])),
+                                    ('multiplier', (YLeaf(YType.enumeration, 'multiplier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
                                 ])
                                 self.window = None
                                 self.units = None
                                 self.multiplier = None
                                 self._segment_path = lambda: "window"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Window, ['window', 'units', 'multiplier'], name, value)
@@ -1967,11 +1997,11 @@ class EthernetFeatures(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
-                                    ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
-                                    ('multiplier_low', YLeaf(YType.enumeration, 'multiplier-low')),
-                                    ('multiplier_high', YLeaf(YType.enumeration, 'multiplier-high')),
+                                    ('threshold_low', (YLeaf(YType.uint32, 'threshold-low'), ['int'])),
+                                    ('threshold_high', (YLeaf(YType.uint32, 'threshold-high'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdUnitsFramesEnum', '')])),
+                                    ('multiplier_low', (YLeaf(YType.enumeration, 'multiplier-low'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
+                                    ('multiplier_high', (YLeaf(YType.enumeration, 'multiplier-high'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
                                 ])
                                 self.threshold_low = None
                                 self.threshold_high = None
@@ -1979,6 +2009,7 @@ class EthernetFeatures(Entity):
                                 self.multiplier_low = None
                                 self.multiplier_high = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FramePeriod.Threshold, ['threshold_low', 'threshold_high', 'units', 'multiplier_low', 'multiplier_high'], name, value)
@@ -2021,7 +2052,7 @@ class EthernetFeatures(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold))])
                             self._leafs = OrderedDict([
-                                ('window', YLeaf(YType.uint32, 'window')),
+                                ('window', (YLeaf(YType.uint32, 'window'), ['int'])),
                             ])
                             self.window = None
 
@@ -2029,6 +2060,7 @@ class EthernetFeatures(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "frame-seconds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds, ['window'], name, value)
@@ -2076,12 +2108,13 @@ class EthernetFeatures(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
-                                    ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
+                                    ('threshold_low', (YLeaf(YType.uint32, 'threshold-low'), ['int'])),
+                                    ('threshold_high', (YLeaf(YType.uint32, 'threshold-high'), ['int'])),
                                 ])
                                 self.threshold_low = None
                                 self.threshold_high = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.FrameSeconds.Threshold, ['threshold_low', 'threshold_high'], name, value)
@@ -2124,7 +2157,7 @@ class EthernetFeatures(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold", ("threshold", EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold))])
                             self._leafs = OrderedDict([
-                                ('window', YLeaf(YType.uint32, 'window')),
+                                ('window', (YLeaf(YType.uint32, 'window'), ['int'])),
                             ])
                             self.window = None
 
@@ -2132,6 +2165,7 @@ class EthernetFeatures(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "frame"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame, ['window'], name, value)
@@ -2186,16 +2220,17 @@ class EthernetFeatures(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_low', YLeaf(YType.uint32, 'threshold-low')),
-                                    ('threshold_high', YLeaf(YType.uint32, 'threshold-high')),
-                                    ('multiplier_low', YLeaf(YType.enumeration, 'multiplier-low')),
-                                    ('multiplier_high', YLeaf(YType.enumeration, 'multiplier-high')),
+                                    ('threshold_low', (YLeaf(YType.uint32, 'threshold-low'), ['int'])),
+                                    ('threshold_high', (YLeaf(YType.uint32, 'threshold-high'), ['int'])),
+                                    ('multiplier_low', (YLeaf(YType.enumeration, 'multiplier-low'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
+                                    ('multiplier_high', (YLeaf(YType.enumeration, 'multiplier-high'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_cfg', 'EtherLinkOamThresholdWindowMultiplierEnum', '')])),
                                 ])
                                 self.threshold_low = None
                                 self.threshold_high = None
                                 self.multiplier_low = None
                                 self.multiplier_high = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetFeatures.EtherLinkOam.Profiles.Profile.LinkMonitoring.Frame.Threshold, ['threshold_low', 'threshold_high', 'multiplier_low', 'multiplier_high'], name, value)

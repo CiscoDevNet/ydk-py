@@ -23,6 +23,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class PwOperStateType(Enum):
     """
     PwOperStateType (Enum Class)
@@ -134,8 +135,8 @@ class PwSignalingProtocolType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSignalingProtocolType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-type"):
+        super(PwSignalingProtocolType, self).__init__(ns, pref, tag)
 
 
 class PwLoadBalanceType(Identity):
@@ -149,8 +150,8 @@ class PwLoadBalanceType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLoadBalanceType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-load-balance-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-load-balance-type"):
+        super(PwLoadBalanceType, self).__init__(ns, pref, tag)
 
 
 class PwEncapsulationType(Identity):
@@ -164,8 +165,8 @@ class PwEncapsulationType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwEncapsulationType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encapsulation-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-encapsulation-type"):
+        super(PwEncapsulationType, self).__init__(ns, pref, tag)
 
 
 class PwVcType(Identity):
@@ -179,8 +180,8 @@ class PwVcType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwVcType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type"):
+        super(PwVcType, self).__init__(ns, pref, tag)
 
 
 class PwSequencingType(Identity):
@@ -194,8 +195,8 @@ class PwSequencingType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSequencingType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-type"):
+        super(PwSequencingType, self).__init__(ns, pref, tag)
 
 
 class PseudowireConfig(Entity):
@@ -248,6 +249,7 @@ class PseudowireConfig(Entity):
         self.pw_static_oam_classes.parent = self
         self._children_name_map["pw_static_oam_classes"] = "pw-static-oam-classes"
         self._segment_path = lambda: "cisco-pw:pseudowire-config"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PseudowireConfig, [], name, value)
@@ -317,13 +319,13 @@ class PseudowireConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('pw_grouping', YLeaf(YType.boolean, 'pw-grouping')),
-                ('pw_oam_refresh_transmit', YLeaf(YType.uint32, 'pw-oam-refresh-transmit')),
-                ('pw_status', YLeaf(YType.boolean, 'pw-status')),
-                ('predictive_redundancy', YLeaf(YType.boolean, 'predictive-redundancy')),
-                ('vc_state_notification_enabled', YLeaf(YType.boolean, 'vc-state-notification-enabled')),
-                ('vc_state_notification_batch_size', YLeaf(YType.uint32, 'vc-state-notification-batch-size')),
-                ('vc_state_notification_rate', YLeaf(YType.uint32, 'vc-state-notification-rate')),
+                ('pw_grouping', (YLeaf(YType.boolean, 'pw-grouping'), ['bool'])),
+                ('pw_oam_refresh_transmit', (YLeaf(YType.uint32, 'pw-oam-refresh-transmit'), ['int'])),
+                ('pw_status', (YLeaf(YType.boolean, 'pw-status'), ['bool'])),
+                ('predictive_redundancy', (YLeaf(YType.boolean, 'predictive-redundancy'), ['bool'])),
+                ('vc_state_notification_enabled', (YLeaf(YType.boolean, 'vc-state-notification-enabled'), ['bool'])),
+                ('vc_state_notification_batch_size', (YLeaf(YType.uint32, 'vc-state-notification-batch-size'), ['int'])),
+                ('vc_state_notification_rate', (YLeaf(YType.uint32, 'vc-state-notification-rate'), ['int'])),
             ])
             self.pw_grouping = None
             self.pw_oam_refresh_transmit = None
@@ -334,9 +336,10 @@ class PseudowireConfig(Entity):
             self.vc_state_notification_rate = None
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireConfig.Global, [u'pw_grouping', u'pw_oam_refresh_transmit', u'pw_status', u'predictive_redundancy', u'vc_state_notification_enabled', u'vc_state_notification_batch_size', u'vc_state_notification_rate'], name, value)
+            self._perform_setattr(PseudowireConfig.Global, ['pw_grouping', 'pw_oam_refresh_transmit', 'pw_status', 'predictive_redundancy', 'vc_state_notification_enabled', 'vc_state_notification_batch_size', 'vc_state_notification_rate'], name, value)
 
 
     class PwTemplates(Entity):
@@ -370,6 +373,7 @@ class PseudowireConfig(Entity):
             self.pw_template = YList(self)
             self._segment_path = lambda: "pw-templates"
             self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PseudowireConfig.PwTemplates, [], name, value)
@@ -482,15 +486,15 @@ class PseudowireConfig(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("load-balance", ("load_balance", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance)), ("preferred-path", ("preferred_path", PseudowireConfig.PwTemplates.PwTemplate.PreferredPath)), ("sequencing", ("sequencing", PseudowireConfig.PwTemplates.PwTemplate.Sequencing)), ("vccv", ("vccv", PseudowireConfig.PwTemplates.PwTemplate.Vccv)), ("switchover-delay", ("switchover_delay", PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay)), ("status", ("status", PseudowireConfig.PwTemplates.PwTemplate.Status)), ("port-profile-spec", ("port_profile_spec", PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('encapsulation', YLeaf(YType.identityref, 'encapsulation')),
-                    ('control_word', YLeaf(YType.boolean, 'control-word')),
-                    ('signaling_protocol', YLeaf(YType.identityref, 'signaling-protocol')),
-                    ('vc_type', YLeaf(YType.identityref, 'vc-type')),
-                    ('switching_tlv', YLeaf(YType.boolean, 'switching-tlv')),
-                    ('source_ip', YLeaf(YType.str, 'source-ip')),
-                    ('tag_rewrite_ingress_vlan', YLeaf(YType.uint16, 'tag-rewrite-ingress-vlan')),
-                    ('mac_withdraw', YLeaf(YType.boolean, 'mac-withdraw')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('encapsulation', (YLeaf(YType.identityref, 'encapsulation'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwEncapsulationType')])),
+                    ('control_word', (YLeaf(YType.boolean, 'control-word'), ['bool'])),
+                    ('signaling_protocol', (YLeaf(YType.identityref, 'signaling-protocol'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwSignalingProtocolType')])),
+                    ('vc_type', (YLeaf(YType.identityref, 'vc-type'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwVcType')])),
+                    ('switching_tlv', (YLeaf(YType.boolean, 'switching-tlv'), ['bool'])),
+                    ('source_ip', (YLeaf(YType.str, 'source-ip'), ['str'])),
+                    ('tag_rewrite_ingress_vlan', (YLeaf(YType.uint16, 'tag-rewrite-ingress-vlan'), ['int'])),
+                    ('mac_withdraw', (YLeaf(YType.boolean, 'mac-withdraw'), ['bool'])),
                 ])
                 self.name = None
                 self.encapsulation = None
@@ -531,9 +535,10 @@ class PseudowireConfig(Entity):
                 self._children_name_map["port_profile_spec"] = "port-profile-spec"
                 self._segment_path = lambda: "pw-template" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-templates/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, [u'name', u'encapsulation', u'control_word', u'signaling_protocol', u'vc_type', u'switching_tlv', u'source_ip', u'tag_rewrite_ingress_vlan', u'mac_withdraw'], name, value)
+                self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate, ['name', 'encapsulation', 'control_word', 'signaling_protocol', 'vc_type', 'switching_tlv', 'source_ip', 'tag_rewrite_ingress_vlan', 'mac_withdraw'], name, value)
 
 
             class LoadBalance(Entity):
@@ -574,8 +579,8 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("flow-label", ("flow_label", PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel))])
                     self._leafs = OrderedDict([
-                        ('ethernet', YLeaf(YType.identityref, 'ethernet')),
-                        ('ip', YLeaf(YType.identityref, 'ip')),
+                        ('ethernet', (YLeaf(YType.identityref, 'ethernet'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwLbEthernetType')])),
+                        ('ip', (YLeaf(YType.identityref, 'ip'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwLbIpType')])),
                     ])
                     self.ethernet = None
                     self.ip = None
@@ -584,9 +589,10 @@ class PseudowireConfig(Entity):
                     self.flow_label.parent = self
                     self._children_name_map["flow_label"] = "flow-label"
                     self._segment_path = lambda: "load-balance"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, [u'ethernet', u'ip'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance, ['ethernet', 'ip'], name, value)
 
 
                 class FlowLabel(Entity):
@@ -628,17 +634,18 @@ class PseudowireConfig(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('direction', YLeaf(YType.enumeration, 'direction')),
-                            ('tlv_code_17', YLeaf(YType.boolean, 'tlv-code-17')),
-                            ('static', YLeaf(YType.boolean, 'static')),
+                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PseudowireConfig', 'PwTemplates.PwTemplate.LoadBalance.FlowLabel.Direction')])),
+                            ('tlv_code_17', (YLeaf(YType.boolean, 'tlv-code-17'), ['bool'])),
+                            ('static', (YLeaf(YType.boolean, 'static'), ['bool'])),
                         ])
                         self.direction = None
                         self.tlv_code_17 = None
                         self.static = None
                         self._segment_path = lambda: "flow-label"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, [u'direction', u'tlv_code_17', u'static'], name, value)
+                        self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.LoadBalance.FlowLabel, ['direction', 'tlv_code_17', 'static'], name, value)
 
                     class Direction(Enum):
                         """
@@ -719,19 +726,20 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('hostname', YLeaf(YType.str, 'hostname')),
-                        ('disable_fallback', YLeaf(YType.boolean, 'disable-fallback')),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                        ('hostname', (YLeaf(YType.str, 'hostname'), ['str'])),
+                        ('disable_fallback', (YLeaf(YType.boolean, 'disable-fallback'), ['bool'])),
                     ])
                     self.interface = None
                     self.address = None
                     self.hostname = None
                     self.disable_fallback = None
                     self._segment_path = lambda: "preferred-path"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, [u'interface', u'address', u'hostname', u'disable_fallback'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PreferredPath, ['interface', 'address', 'hostname', 'disable_fallback'], name, value)
 
 
             class Sequencing(Entity):
@@ -767,15 +775,16 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('direction', YLeaf(YType.identityref, 'direction')),
-                        ('resync', YLeaf(YType.int32, 'resync')),
+                        ('direction', (YLeaf(YType.identityref, 'direction'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwSequencingType')])),
+                        ('resync', (YLeaf(YType.int32, 'resync'), ['int'])),
                     ])
                     self.direction = None
                     self.resync = None
                     self._segment_path = lambda: "sequencing"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, [u'direction', u'resync'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Sequencing, ['direction', 'resync'], name, value)
 
 
             class Vccv(Entity):
@@ -804,13 +813,14 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('control_word', YLeaf(YType.boolean, 'control-word')),
+                        ('control_word', (YLeaf(YType.boolean, 'control-word'), ['bool'])),
                     ])
                     self.control_word = None
                     self._segment_path = lambda: "vccv"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, [u'control_word'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Vccv, ['control_word'], name, value)
 
 
             class SwitchoverDelay(Entity):
@@ -856,17 +866,18 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('switchover_timer', YLeaf(YType.uint8, 'switchover-timer')),
-                        ('timer', YLeaf(YType.uint8, 'timer')),
-                        ('never', YLeaf(YType.boolean, 'never')),
+                        ('switchover_timer', (YLeaf(YType.uint8, 'switchover-timer'), ['int'])),
+                        ('timer', (YLeaf(YType.uint8, 'timer'), ['int'])),
+                        ('never', (YLeaf(YType.boolean, 'never'), ['bool'])),
                     ])
                     self.switchover_timer = None
                     self.timer = None
                     self.never = None
                     self._segment_path = lambda: "switchover-delay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, [u'switchover_timer', u'timer', u'never'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.SwitchoverDelay, ['switchover_timer', 'timer', 'never'], name, value)
 
 
             class Status(Entity):
@@ -923,11 +934,11 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('decoupled', YLeaf(YType.boolean, 'decoupled')),
-                        ('disable', YLeaf(YType.boolean, 'disable')),
-                        ('peer_topo_dual_homed', YLeaf(YType.boolean, 'peer-topo-dual-homed')),
-                        ('route_watch_disable', YLeaf(YType.boolean, 'route-watch-disable')),
-                        ('redundancy_master', YLeaf(YType.boolean, 'redundancy-master')),
+                        ('decoupled', (YLeaf(YType.boolean, 'decoupled'), ['bool'])),
+                        ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
+                        ('peer_topo_dual_homed', (YLeaf(YType.boolean, 'peer-topo-dual-homed'), ['bool'])),
+                        ('route_watch_disable', (YLeaf(YType.boolean, 'route-watch-disable'), ['bool'])),
+                        ('redundancy_master', (YLeaf(YType.boolean, 'redundancy-master'), ['bool'])),
                     ])
                     self.decoupled = None
                     self.disable = None
@@ -935,9 +946,10 @@ class PseudowireConfig(Entity):
                     self.route_watch_disable = None
                     self.redundancy_master = None
                     self._segment_path = lambda: "status"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, [u'decoupled', u'disable', u'peer_topo_dual_homed', u'route_watch_disable', u'redundancy_master'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.Status, ['decoupled', 'disable', 'peer_topo_dual_homed', 'route_watch_disable', 'redundancy_master'], name, value)
 
 
             class PortProfileSpec(Entity):
@@ -1001,12 +1013,12 @@ class PseudowireConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('shutdown', YLeaf(YType.boolean, 'shutdown')),
-                        ('shut_force', YLeaf(YType.boolean, 'shut-force')),
-                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                        ('max_ports', YLeaf(YType.uint16, 'max-ports')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('shutdown', (YLeaf(YType.boolean, 'shutdown'), ['bool'])),
+                        ('shut_force', (YLeaf(YType.boolean, 'shut-force'), ['bool'])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('max_ports', (YLeaf(YType.uint16, 'max-ports'), ['int'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                     ])
                     self.description = None
                     self.shutdown = None
@@ -1015,9 +1027,10 @@ class PseudowireConfig(Entity):
                     self.max_ports = None
                     self.enabled = None
                     self._segment_path = lambda: "port-profile-spec"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, [u'description', u'shutdown', u'shut_force', u'mtu', u'max_ports', u'enabled'], name, value)
+                    self._perform_setattr(PseudowireConfig.PwTemplates.PwTemplate.PortProfileSpec, ['description', 'shutdown', 'shut_force', 'mtu', 'max_ports', 'enabled'], name, value)
 
 
     class PwStaticOamClasses(Entity):
@@ -1050,6 +1063,7 @@ class PseudowireConfig(Entity):
             self.pw_static_oam_class = YList(self)
             self._segment_path = lambda: "pw-static-oam-classes"
             self._absolute_path = lambda: "cisco-pw:pseudowire-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PseudowireConfig.PwStaticOamClasses, [], name, value)
@@ -1113,11 +1127,11 @@ class PseudowireConfig(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('ack', YLeaf(YType.boolean, 'ack')),
-                    ('keepalive', YLeaf(YType.uint32, 'keepalive')),
-                    ('timeout_refresh_send', YLeaf(YType.uint32, 'timeout-refresh-send')),
-                    ('timeout_refresh_ack', YLeaf(YType.uint32, 'timeout-refresh-ack')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('ack', (YLeaf(YType.boolean, 'ack'), ['bool'])),
+                    ('keepalive', (YLeaf(YType.uint32, 'keepalive'), ['int'])),
+                    ('timeout_refresh_send', (YLeaf(YType.uint32, 'timeout-refresh-send'), ['int'])),
+                    ('timeout_refresh_ack', (YLeaf(YType.uint32, 'timeout-refresh-ack'), ['int'])),
                 ])
                 self.name = None
                 self.ack = None
@@ -1126,9 +1140,10 @@ class PseudowireConfig(Entity):
                 self.timeout_refresh_ack = None
                 self._segment_path = lambda: "pw-static-oam-class" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "cisco-pw:pseudowire-config/pw-static-oam-classes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, [u'name', u'ack', u'keepalive', u'timeout_refresh_send', u'timeout_refresh_ack'], name, value)
+                self._perform_setattr(PseudowireConfig.PwStaticOamClasses.PwStaticOamClass, ['name', 'ack', 'keepalive', 'timeout_refresh_send', 'timeout_refresh_ack'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireConfig()
@@ -1166,6 +1181,7 @@ class PseudowireState(Entity):
 
         self.pseudowires = YList(self)
         self._segment_path = lambda: "cisco-pw:pseudowire-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PseudowireState, [], name, value)
@@ -1321,25 +1337,25 @@ class PseudowireState(Entity):
             self.ylist_key_names = ['vc_peer_address','vc_id','vc_owner_type','vc_name','vc_index']
             self._child_classes = OrderedDict([("statistics", ("statistics", PseudowireState.Pseudowires.Statistics))])
             self._leafs = OrderedDict([
-                ('vc_peer_address', YLeaf(YType.str, 'vc-peer-address')),
-                ('vc_id', YLeaf(YType.uint32, 'vc-id')),
-                ('vc_owner_type', YLeaf(YType.enumeration, 'vc-owner-type')),
-                ('vc_name', YLeaf(YType.str, 'vc-name')),
-                ('vc_index', YLeaf(YType.uint32, 'vc-index')),
-                ('vc_type', YLeaf(YType.identityref, 'vc-type')),
-                ('vc_owner_name', YLeaf(YType.str, 'vc-owner-name')),
-                ('vc_psn_type', YLeaf(YType.enumeration, 'vc-psn-type')),
-                ('vc_local_group_id', YLeaf(YType.uint32, 'vc-local-group-id')),
-                ('vc_control_word', YLeaf(YType.boolean, 'vc-control-word')),
-                ('vc_local_if_mtu', YLeaf(YType.uint32, 'vc-local-if-mtu')),
-                ('vc_remote_group_id', YLeaf(YType.uint32, 'vc-remote-group-id')),
-                ('vc_remote_control_word', YLeaf(YType.enumeration, 'vc-remote-control-word')),
-                ('vc_remote_if_mtu', YLeaf(YType.uint32, 'vc-remote-if-mtu')),
-                ('vc_outbound_label', YLeaf(YType.uint32, 'vc-outbound-label')),
-                ('vc_inbound_label', YLeaf(YType.uint32, 'vc-inbound-label')),
-                ('vc_oper_status', YLeaf(YType.enumeration, 'vc-oper-status')),
-                ('vc_inbound_oper_status', YLeaf(YType.enumeration, 'vc-inbound-oper-status')),
-                ('vc_outbound_oper_status', YLeaf(YType.enumeration, 'vc-outbound-oper-status')),
+                ('vc_peer_address', (YLeaf(YType.str, 'vc-peer-address'), ['str','str'])),
+                ('vc_id', (YLeaf(YType.uint32, 'vc-id'), ['int'])),
+                ('vc_owner_type', (YLeaf(YType.enumeration, 'vc-owner-type'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PseudowireState', 'Pseudowires.VcOwnerType')])),
+                ('vc_name', (YLeaf(YType.str, 'vc-name'), ['str'])),
+                ('vc_index', (YLeaf(YType.uint32, 'vc-index'), ['int'])),
+                ('vc_type', (YLeaf(YType.identityref, 'vc-type'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwVcType')])),
+                ('vc_owner_name', (YLeaf(YType.str, 'vc-owner-name'), ['str'])),
+                ('vc_psn_type', (YLeaf(YType.enumeration, 'vc-psn-type'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PseudowireState', 'Pseudowires.VcPsnType')])),
+                ('vc_local_group_id', (YLeaf(YType.uint32, 'vc-local-group-id'), ['int'])),
+                ('vc_control_word', (YLeaf(YType.boolean, 'vc-control-word'), ['bool'])),
+                ('vc_local_if_mtu', (YLeaf(YType.uint32, 'vc-local-if-mtu'), ['int'])),
+                ('vc_remote_group_id', (YLeaf(YType.uint32, 'vc-remote-group-id'), ['int'])),
+                ('vc_remote_control_word', (YLeaf(YType.enumeration, 'vc-remote-control-word'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PseudowireState', 'Pseudowires.VcRemoteControlWord')])),
+                ('vc_remote_if_mtu', (YLeaf(YType.uint32, 'vc-remote-if-mtu'), ['int'])),
+                ('vc_outbound_label', (YLeaf(YType.uint32, 'vc-outbound-label'), ['int'])),
+                ('vc_inbound_label', (YLeaf(YType.uint32, 'vc-inbound-label'), ['int'])),
+                ('vc_oper_status', (YLeaf(YType.enumeration, 'vc-oper-status'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwOperStateType', '')])),
+                ('vc_inbound_oper_status', (YLeaf(YType.enumeration, 'vc-inbound-oper-status'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwOperStateType', '')])),
+                ('vc_outbound_oper_status', (YLeaf(YType.enumeration, 'vc-outbound-oper-status'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwOperStateType', '')])),
             ])
             self.vc_peer_address = None
             self.vc_id = None
@@ -1366,9 +1382,10 @@ class PseudowireState(Entity):
             self._children_name_map["statistics"] = "statistics"
             self._segment_path = lambda: "pseudowires" + "[vc-peer-address='" + str(self.vc_peer_address) + "']" + "[vc-id='" + str(self.vc_id) + "']" + "[vc-owner-type='" + str(self.vc_owner_type) + "']" + "[vc-name='" + str(self.vc_name) + "']" + "[vc-index='" + str(self.vc_index) + "']"
             self._absolute_path = lambda: "cisco-pw:pseudowire-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PseudowireState.Pseudowires, [u'vc_peer_address', u'vc_id', u'vc_owner_type', u'vc_name', u'vc_index', u'vc_type', u'vc_owner_name', u'vc_psn_type', u'vc_local_group_id', u'vc_control_word', u'vc_local_if_mtu', u'vc_remote_group_id', u'vc_remote_control_word', u'vc_remote_if_mtu', u'vc_outbound_label', u'vc_inbound_label', u'vc_oper_status', u'vc_inbound_oper_status', u'vc_outbound_oper_status'], name, value)
+            self._perform_setattr(PseudowireState.Pseudowires, ['vc_peer_address', 'vc_id', 'vc_owner_type', 'vc_name', 'vc_index', 'vc_type', 'vc_owner_name', 'vc_psn_type', 'vc_local_group_id', 'vc_control_word', 'vc_local_if_mtu', 'vc_remote_group_id', 'vc_remote_control_word', 'vc_remote_if_mtu', 'vc_outbound_label', 'vc_inbound_label', 'vc_oper_status', 'vc_inbound_oper_status', 'vc_outbound_oper_status'], name, value)
 
         class VcOwnerType(Enum):
             """
@@ -1572,15 +1589,15 @@ class PseudowireState(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vc_create_time', YLeaf(YType.uint32, 'vc-create-time')),
-                    ('vc_up_time', YLeaf(YType.uint32, 'vc-up-time')),
-                    ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
-                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                    ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
-                    ('in_errors', YLeaf(YType.uint64, 'in-errors')),
-                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                    ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
-                    ('out_errors', YLeaf(YType.uint64, 'out-errors')),
+                    ('vc_create_time', (YLeaf(YType.uint32, 'vc-create-time'), ['int'])),
+                    ('vc_up_time', (YLeaf(YType.uint32, 'vc-up-time'), ['int'])),
+                    ('discontinuity_time', (YLeaf(YType.str, 'discontinuity-time'), ['str'])),
+                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                    ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                    ('in_errors', (YLeaf(YType.uint64, 'in-errors'), ['int'])),
+                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                    ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                    ('out_errors', (YLeaf(YType.uint64, 'out-errors'), ['int'])),
                 ])
                 self.vc_create_time = None
                 self.vc_up_time = None
@@ -1592,15 +1609,16 @@ class PseudowireState(Entity):
                 self.out_pkts = None
                 self.out_errors = None
                 self._segment_path = lambda: "statistics"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PseudowireState.Pseudowires.Statistics, [u'vc_create_time', u'vc_up_time', u'discontinuity_time', u'in_octets', u'in_pkts', u'in_errors', u'out_octets', u'out_pkts', u'out_errors'], name, value)
+                self._perform_setattr(PseudowireState.Pseudowires.Statistics, ['vc_create_time', 'vc_up_time', 'discontinuity_time', 'in_octets', 'in_pkts', 'in_errors', 'out_octets', 'out_pkts', 'out_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PseudowireState()
         return self._top_entity
 
-class PwVcTypeEther(Identity):
+class PwVcTypeEther(PwVcType):
     """
     Identity for Ethernet VC type
     
@@ -1611,11 +1629,11 @@ class PwVcTypeEther(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwVcTypeEther, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-ether")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-ether"):
+        super(PwVcTypeEther, self).__init__(ns, pref, tag)
 
 
-class PwSequencingTransmit(Identity):
+class PwSequencingTransmit(PwSequencingType):
     """
     Transmit sequencing option for PW
     
@@ -1626,11 +1644,11 @@ class PwSequencingTransmit(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSequencingTransmit, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-transmit")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-transmit"):
+        super(PwSequencingTransmit, self).__init__(ns, pref, tag)
 
 
-class PwVcTypeVlanPassthrough(Identity):
+class PwVcTypeVlanPassthrough(PwVcType):
     """
     Identity for VLAN passthrough VC type (XR)
     
@@ -1641,11 +1659,11 @@ class PwVcTypeVlanPassthrough(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwVcTypeVlanPassthrough, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan-passthrough")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-vlan-passthrough"):
+        super(PwVcTypeVlanPassthrough, self).__init__(ns, pref, tag)
 
 
-class PwEncapMpls(Identity):
+class PwEncapMpls(PwEncapsulationType):
     """
     Use MPLS for PW encapsulation
     
@@ -1656,11 +1674,11 @@ class PwEncapMpls(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwEncapMpls, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-encap-mpls")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-encap-mpls"):
+        super(PwEncapMpls, self).__init__(ns, pref, tag)
 
 
-class PwLbIpDstIp(Identity):
+class PwLbIpDstIp(PwLoadBalanceType):
     """
     Load\-balancing with IP destination IP field
     
@@ -1671,11 +1689,11 @@ class PwLbIpDstIp(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbIpDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-dst-ip")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-dst-ip"):
+        super(PwLbIpDstIp, self).__init__(ns, pref, tag)
 
 
-class PwSequencingReceive(Identity):
+class PwSequencingReceive(PwSequencingType):
     """
     Receive sequencing option for PW
     
@@ -1686,11 +1704,11 @@ class PwSequencingReceive(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSequencingReceive, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-receive")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-receive"):
+        super(PwSequencingReceive, self).__init__(ns, pref, tag)
 
 
-class PwLbEthernetType(Identity):
+class PwLbEthernetType(PwLoadBalanceType):
     """
     Base type for load\-balancing with ethernet fields
     
@@ -1701,11 +1719,11 @@ class PwLbEthernetType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbEthernetType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ethernet-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ethernet-type"):
+        super(PwLbEthernetType, self).__init__(ns, pref, tag)
 
 
-class PwSignalingProtocolLdp(Identity):
+class PwSignalingProtocolLdp(PwSignalingProtocolType):
     """
     Use MPLS LDP for PW signaling protocol
     
@@ -1716,11 +1734,11 @@ class PwSignalingProtocolLdp(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSignalingProtocolLdp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-ldp")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-ldp"):
+        super(PwSignalingProtocolLdp, self).__init__(ns, pref, tag)
 
 
-class PwSequencingBoth(Identity):
+class PwSequencingBoth(PwSequencingType):
     """
     Receive and Transmit sequencing option for PW
     
@@ -1731,11 +1749,11 @@ class PwSequencingBoth(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSequencingBoth, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-sequencing-both")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-sequencing-both"):
+        super(PwSequencingBoth, self).__init__(ns, pref, tag)
 
 
-class PwVcTypeVlan(Identity):
+class PwVcTypeVlan(PwVcType):
     """
     Identity for VLAN VC type
     
@@ -1746,11 +1764,11 @@ class PwVcTypeVlan(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwVcTypeVlan, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-vc-type-vlan")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-vc-type-vlan"):
+        super(PwVcTypeVlan, self).__init__(ns, pref, tag)
 
 
-class PwLbIpType(Identity):
+class PwLbIpType(PwLoadBalanceType):
     """
     Base type for load\-balancing with IP
     
@@ -1761,11 +1779,11 @@ class PwLbIpType(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbIpType, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-type")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-type"):
+        super(PwLbIpType, self).__init__(ns, pref, tag)
 
 
-class PwSignalingProtocolNone(Identity):
+class PwSignalingProtocolNone(PwSignalingProtocolType):
     """
     No PW signaling protocol
     
@@ -1776,11 +1794,11 @@ class PwSignalingProtocolNone(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSignalingProtocolNone, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-none")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-none"):
+        super(PwSignalingProtocolNone, self).__init__(ns, pref, tag)
 
 
-class PwSignalingProtocolBgp(Identity):
+class PwSignalingProtocolBgp(PwSignalingProtocolType):
     """
     Use BGP for PW signaling protocol
     
@@ -1791,11 +1809,11 @@ class PwSignalingProtocolBgp(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwSignalingProtocolBgp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-signaling-protocol-bgp")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-signaling-protocol-bgp"):
+        super(PwSignalingProtocolBgp, self).__init__(ns, pref, tag)
 
 
-class PwLbIpSrcIp(Identity):
+class PwLbIpSrcIp(PwLbIpType):
     """
     Load\-balancing with IP source IP field
     
@@ -1806,11 +1824,11 @@ class PwLbIpSrcIp(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbIpSrcIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-ip")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-src-ip"):
+        super(PwLbIpSrcIp, self).__init__(ns, pref, tag)
 
 
-class PwLbEthSrcDstMac(Identity):
+class PwLbEthSrcDstMac(PwLbEthernetType):
     """
     Load\-balancing with ethernet source and destination MAC
     fields
@@ -1822,11 +1840,11 @@ class PwLbEthSrcDstMac(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbEthSrcDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-dst-mac")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-src-dst-mac"):
+        super(PwLbEthSrcDstMac, self).__init__(ns, pref, tag)
 
 
-class PwLbEthDstMac(Identity):
+class PwLbEthDstMac(PwLbEthernetType):
     """
     Load\-balancing with ethernet destination MAC field
     
@@ -1837,11 +1855,11 @@ class PwLbEthDstMac(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbEthDstMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-dst-mac")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-dst-mac"):
+        super(PwLbEthDstMac, self).__init__(ns, pref, tag)
 
 
-class PwLbIpSrcDstIp(Identity):
+class PwLbIpSrcDstIp(PwLbIpType):
     """
     Load\-balancing with IP source and destination IP fields
     
@@ -1852,11 +1870,11 @@ class PwLbIpSrcDstIp(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbIpSrcDstIp, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-ip-src-dst-ip")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-ip-src-dst-ip"):
+        super(PwLbIpSrcDstIp, self).__init__(ns, pref, tag)
 
 
-class PwLbEthSrcMac(Identity):
+class PwLbEthSrcMac(PwLbEthernetType):
     """
     Load\-balancing with ethernet source MAC field
     
@@ -1867,7 +1885,7 @@ class PwLbEthSrcMac(Identity):
     _prefix = 'l2vpn-pw'
     _revision = '2016-12-07'
 
-    def __init__(self):
-        super(PwLbEthSrcMac, self).__init__("urn:cisco:params:xml:ns:yang:pw", "cisco-pw", "cisco-pw:pw-lb-eth-src-mac")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pw", pref="cisco-pw", tag="cisco-pw:pw-lb-eth-src-mac"):
+        super(PwLbEthSrcMac, self).__init__(ns, pref, tag)
 
 

@@ -31,12 +31,17 @@ module Cisco-IOS-XE-acl {
 
   description
     "Cisco XE Native Access Control List (ACL) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-31 {
+    description
+      "Updated missing ace rule with dst for IPv4 rolebased";
+  }
+
   revision 2017-08-01 {
     description
       "Removed ordered-by-user for acl lists";
@@ -938,9 +943,9 @@ module Cisco-IOS-XE-acl {
         }
         leaf src-range2 {
           description
-	    "Match only packets in the range of port numbers";
+	       "Match only packets in the range of port numbers";
           type acl-port-type;
-	}
+	    }
       }
     }
     choice destination-choice {
@@ -1006,9 +1011,150 @@ module Cisco-IOS-XE-acl {
 	}
         leaf dst-range2 {
           description
-	    "Match only packets in the range of port numbers";
+	       "Match only packets in the range of port numbers";
           type acl-port-type;
-	}
+	    }
+      }
+    }
+  }
+
+  grouping ipv4-acl-src-addr-port-grouping {
+    choice source-choice {
+      case host-case {
+        leaf source-host {
+	      type ios-types:ip-host;
+        }
+      }
+      case address-case {
+        leaf source-address {
+          type inet:ipv6-address;
+        }
+        leaf source-wildcard-bits {
+	      type inet:ipv6-address;
+        }
+      }
+      case prefix-case {
+        leaf source-prefix {
+          type ios-types:ipv6-prefix;
+        }
+      }
+      case any-case {
+        leaf any {
+          type empty;
+        }
+      }
+    }
+    choice src-port-choice {
+      case src-eq-case {
+        leaf src-eq {
+          description
+            "Match only packets on a given port number";
+          type acl-port-type;
+        }
+      }
+      case src-gt-case {
+        leaf src-gt {
+          description
+            "Match only packets with a greater port number";
+          type acl-port-type;
+        }
+      }
+      case src-lt-case {
+        leaf src-lt {
+          description
+            "Match only packets with a lower port number";
+          type acl-port-type;
+        }
+      }
+      case src-neq-case {
+        leaf src-neq {
+          description
+            "Match only packets not on a given port number";
+          type acl-port-type;
+        }
+      }
+      case src-range-case {
+        leaf src-range1 {
+          description
+            "Match only packets in the range of port numbers";
+          type acl-port-type;
+        }
+        leaf src-range2 {
+          description
+	       "Match only packets in the range of port numbers";
+          type acl-port-type;
+	    }
+      }
+    }
+  }
+
+  grouping ipv4-acl-dst-addr-port-grouping {
+    choice destination-choice {
+      case host-case {
+        leaf destination-host {
+          type ios-types:ip-host;
+        }
+      }
+      case address-case {
+        leaf destination-address {
+          type inet:ipv6-address;
+        }
+        leaf destination-wildcard-bits {
+	      type inet:ipv6-address;
+        }
+      }
+      case prefix-case {
+        leaf destination-prefix {
+          type ios-types:ipv6-prefix;
+        }
+      }
+      case any-case {
+        leaf destination-any {
+	      type empty;
+        }
+      }
+    }
+    choice dst-port-choice {
+      case dst-eq-case {
+        leaf dst-eq {
+          description
+            "Match only packets on a given port number";
+          type acl-port-type;
+        }
+      }
+      case dst-gt-case {
+        leaf dst-gt {
+          description
+            "Match only packets with a greater port number";
+          type acl-port-type;
+        }
+      }
+      case dst-lt-case {
+        leaf dst-lt {
+          description
+            "Match only packets with a lower port number";
+          type acl-port-type;
+        }
+      }
+      case dst-neq-case {
+        leaf dst-neq {
+          description
+            "Match only packets not on a given port number";
+          type acl-port-type;
+        }
+      } 
+
+      case dst-range-case {
+        leaf dst-range1 {
+          description
+           "Match only packets in the range of port numbers";
+          type acl-port-type;
+	    }
+        leaf dst-range2 {
+          description
+	       "Match only packets in the range of port numbers";
+          type acl-port-type;
+	    }
       }
     }
   }
@@ -1016,14 +1162,21 @@ module Cisco-IOS-XE-acl {
   grouping acl-role-src-dst-grouping {
     container src {
       description
-        "Specify packets to reject";
-      uses ipv4-acl-src-dst-addr-port-grouping;
+        "Source port conditions";
+      uses ipv4-acl-src-addr-port-grouping;
       container dst {
         description
-          "Specify packets to forward";
-        uses ipv4-acl-src-dst-addr-port-grouping;
+          "Destination port conditions";
+        uses ipv4-acl-dst-addr-port-grouping;
       }
     }
+
+    container dst {
+        description
+          "Destination port conditions";
+        uses ipv4-acl-dst-addr-port-grouping;
+      }
+
   }
   
   grouping acl-remark-grouping {

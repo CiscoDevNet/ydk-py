@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   perf\-mgmt\: Performance Management configuration & operations
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PmThresholdOp(Enum):
@@ -134,7 +135,7 @@ class PerfMgmt(Entity):
     """
 
     _prefix = 'manageability-perfmgmt-cfg'
-    _revision = '2017-05-01'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(PerfMgmt, self).__init__()
@@ -168,6 +169,7 @@ class PerfMgmt(Entity):
         self.threshold.parent = self
         self._children_name_map["threshold"] = "threshold"
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PerfMgmt, [], name, value)
@@ -199,7 +201,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Resources, self).__init__()
@@ -224,6 +226,7 @@ class PerfMgmt(Entity):
             self._children_name_map["memory_resources"] = "memory-resources"
             self._segment_path = lambda: "resources"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Resources, [], name, value)
@@ -264,7 +267,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Resources.TftpResources, self).__init__()
@@ -277,15 +280,16 @@ class PerfMgmt(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('server_address', YLeaf(YType.str, 'server-address')),
-                    ('directory', YLeaf(YType.str, 'directory')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
+                    ('directory', (YLeaf(YType.str, 'directory'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.server_address = None
                 self.directory = None
                 self.vrf_name = None
                 self._segment_path = lambda: "tftp-resources"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.TftpResources, ['server_address', 'directory', 'vrf_name'], name, value)
@@ -305,7 +309,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Resources.DumpLocal, self).__init__()
@@ -317,11 +321,12 @@ class PerfMgmt(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
                 self._segment_path = lambda: "dump-local"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.DumpLocal, ['enable'], name, value)
@@ -337,7 +342,7 @@ class PerfMgmt(Entity):
             	Maximum limit for memory usage (Kbytes) for data buffers
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**units**\: kilobyte
             
@@ -346,7 +351,7 @@ class PerfMgmt(Entity):
             	Specify a minimum free memory (Kbytes) to be ensured before allowing a collection request
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             	**units**\: kilobyte
             
@@ -355,7 +360,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Resources.MemoryResources, self).__init__()
@@ -367,13 +372,14 @@ class PerfMgmt(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('max_limit', YLeaf(YType.int32, 'max-limit')),
-                    ('min_reserved', YLeaf(YType.int32, 'min-reserved')),
+                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                    ('min_reserved', (YLeaf(YType.uint32, 'min-reserved'), ['int'])),
                 ])
                 self.max_limit = None
                 self.min_reserved = None
                 self._segment_path = lambda: "memory-resources"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/resources/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Resources.MemoryResources, ['max_limit', 'min_reserved'], name, value)
@@ -438,7 +444,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Statistics, self).__init__()
@@ -492,6 +498,7 @@ class PerfMgmt(Entity):
             self._children_name_map["ospfv2_protocol"] = "ospfv2-protocol"
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Statistics, [], name, value)
@@ -512,7 +519,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.GenericCounterInterface, self).__init__()
@@ -530,6 +537,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "generic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface, [], name, value)
@@ -549,7 +557,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.GenericCounterInterface.Templates, self).__init__()
@@ -565,6 +573,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/generic-counter-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface.Templates, [], name, value)
@@ -621,7 +630,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, self).__init__()
@@ -633,12 +642,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -648,6 +657,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/generic-counter-interface/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.GenericCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -667,7 +677,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.ProcessNode, self).__init__()
@@ -685,6 +695,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "process-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.ProcessNode, [], name, value)
@@ -704,7 +715,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.ProcessNode.Templates, self).__init__()
@@ -720,6 +731,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/process-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.ProcessNode.Templates, [], name, value)
@@ -776,7 +788,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.ProcessNode.Templates.Template, self).__init__()
@@ -788,12 +800,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -803,6 +815,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/process-node/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.ProcessNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -822,7 +835,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.BasicCounterInterface, self).__init__()
@@ -840,6 +853,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "basic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface, [], name, value)
@@ -859,7 +873,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.BasicCounterInterface.Templates, self).__init__()
@@ -875,6 +889,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/basic-counter-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface.Templates, [], name, value)
@@ -931,7 +946,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, self).__init__()
@@ -943,12 +958,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -958,6 +973,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/basic-counter-interface/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.BasicCounterInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -977,7 +993,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.Ospfv3Protocol, self).__init__()
@@ -995,6 +1011,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "ospfv3-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol, [], name, value)
@@ -1014,7 +1031,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.Ospfv3Protocol.Templates, self).__init__()
@@ -1030,6 +1047,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv3-protocol/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol.Templates, [], name, value)
@@ -1086,7 +1104,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, self).__init__()
@@ -1098,12 +1116,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1113,6 +1131,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv3-protocol/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv3Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1132,7 +1151,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.CpuNode, self).__init__()
@@ -1150,6 +1169,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "cpu-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.CpuNode, [], name, value)
@@ -1169,7 +1189,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.CpuNode.Templates, self).__init__()
@@ -1185,6 +1205,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/cpu-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.CpuNode.Templates, [], name, value)
@@ -1241,7 +1262,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.CpuNode.Templates.Template, self).__init__()
@@ -1253,12 +1274,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1268,6 +1289,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/cpu-node/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.CpuNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1287,7 +1309,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.DataRateInterface, self).__init__()
@@ -1305,6 +1327,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "data-rate-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.DataRateInterface, [], name, value)
@@ -1324,7 +1347,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.DataRateInterface.Templates, self).__init__()
@@ -1340,6 +1363,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/data-rate-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.DataRateInterface.Templates, [], name, value)
@@ -1396,7 +1420,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.DataRateInterface.Templates.Template, self).__init__()
@@ -1408,12 +1432,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1423,6 +1447,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/data-rate-interface/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.DataRateInterface.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1442,7 +1467,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.MemoryNode, self).__init__()
@@ -1460,6 +1485,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "memory-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.MemoryNode, [], name, value)
@@ -1479,7 +1505,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.MemoryNode.Templates, self).__init__()
@@ -1495,6 +1521,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/memory-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.MemoryNode.Templates, [], name, value)
@@ -1551,7 +1578,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.MemoryNode.Templates.Template, self).__init__()
@@ -1563,12 +1590,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1578,6 +1605,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/memory-node/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.MemoryNode.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1597,7 +1625,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.LdpMpls, self).__init__()
@@ -1615,6 +1643,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "ldp-mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.LdpMpls, [], name, value)
@@ -1634,7 +1663,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.LdpMpls.Templates, self).__init__()
@@ -1650,6 +1679,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ldp-mpls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.LdpMpls.Templates, [], name, value)
@@ -1706,7 +1736,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.LdpMpls.Templates.Template, self).__init__()
@@ -1718,12 +1748,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1733,6 +1763,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ldp-mpls/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.LdpMpls.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1752,7 +1783,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.Bgp, self).__init__()
@@ -1770,6 +1801,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.Bgp, [], name, value)
@@ -1789,7 +1821,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.Bgp.Templates, self).__init__()
@@ -1805,6 +1837,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/bgp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.Bgp.Templates, [], name, value)
@@ -1861,7 +1894,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.Bgp.Templates.Template, self).__init__()
@@ -1873,12 +1906,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -1888,6 +1921,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/bgp/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Bgp.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -1907,7 +1941,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Statistics.Ospfv2Protocol, self).__init__()
@@ -1925,6 +1959,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["templates"] = "templates"
                 self._segment_path = lambda: "ospfv2-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol, [], name, value)
@@ -1944,7 +1979,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Statistics.Ospfv2Protocol.Templates, self).__init__()
@@ -1960,6 +1995,7 @@ class PerfMgmt(Entity):
                     self.template = YList(self)
                     self._segment_path = lambda: "templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv2-protocol/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol.Templates, [], name, value)
@@ -2016,7 +2052,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, self).__init__()
@@ -2028,12 +2064,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('history_persistent', YLeaf(YType.empty, 'history-persistent')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('sample_size', YLeaf(YType.uint32, 'sample-size')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('history_persistent', (YLeaf(YType.empty, 'history-persistent'), ['Empty'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('sample_size', (YLeaf(YType.uint32, 'sample-size'), ['int'])),
                         ])
                         self.template_name = None
                         self.reg_exp_group = None
@@ -2043,6 +2079,7 @@ class PerfMgmt(Entity):
                         self.sample_size = None
                         self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/statistics/ospfv2-protocol/templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Statistics.Ospfv2Protocol.Templates.Template, ['template_name', 'reg_exp_group', 'history_persistent', 'vrf_group', 'sample_interval', 'sample_size'], name, value)
@@ -2073,7 +2110,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Enable, self).__init__()
@@ -2099,6 +2136,7 @@ class PerfMgmt(Entity):
             self._children_name_map["monitor_enable"] = "monitor-enable"
             self._segment_path = lambda: "enable"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Enable, [], name, value)
@@ -2164,7 +2202,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Enable.Threshold, self).__init__()
@@ -2218,6 +2256,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["basic_counter_interface"] = "basic-counter-interface"
                 self._segment_path = lambda: "threshold"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Enable.Threshold, [], name, value)
@@ -2237,7 +2276,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.Ospfv3Protocol, self).__init__()
@@ -2249,11 +2288,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ospfv3-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv3Protocol, ['template_name'], name, value)
@@ -2273,7 +2313,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.Bgp, self).__init__()
@@ -2285,11 +2325,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "bgp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Bgp, ['template_name'], name, value)
@@ -2309,7 +2350,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.DataRateInterface, self).__init__()
@@ -2321,11 +2362,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "data-rate-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.DataRateInterface, ['template_name'], name, value)
@@ -2345,7 +2387,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.Ospfv2Protocol, self).__init__()
@@ -2357,11 +2399,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ospfv2-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.Ospfv2Protocol, ['template_name'], name, value)
@@ -2386,7 +2429,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.MemoryNode, self).__init__()
@@ -2408,6 +2451,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["node_all"] = "node-all"
                     self._segment_path = lambda: "memory-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode, [], name, value)
@@ -2427,7 +2471,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes, self).__init__()
@@ -2443,6 +2487,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.Nodes, [], name, value)
@@ -2469,7 +2514,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, self).__init__()
@@ -2481,13 +2526,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -2507,7 +2553,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, self).__init__()
@@ -2519,11 +2565,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/memory-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.MemoryNode.NodeAll, ['template_name'], name, value)
@@ -2544,7 +2591,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.GenericCounterInterface, self).__init__()
@@ -2556,11 +2603,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "generic-counter-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.GenericCounterInterface, ['template_name'], name, value)
@@ -2585,7 +2633,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.CpuNode, self).__init__()
@@ -2607,6 +2655,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["node_all"] = "node-all"
                     self._segment_path = lambda: "cpu-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode, [], name, value)
@@ -2626,7 +2675,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.CpuNode.Nodes, self).__init__()
@@ -2642,6 +2691,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.Nodes, [], name, value)
@@ -2668,7 +2718,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, self).__init__()
@@ -2680,13 +2730,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -2706,7 +2757,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, self).__init__()
@@ -2718,11 +2769,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/cpu-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.CpuNode.NodeAll, ['template_name'], name, value)
@@ -2742,7 +2794,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.LdpMpls, self).__init__()
@@ -2754,11 +2806,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ldp-mpls"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.LdpMpls, ['template_name'], name, value)
@@ -2783,7 +2836,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.ProcessNode, self).__init__()
@@ -2805,6 +2858,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["node_all"] = "node-all"
                     self._segment_path = lambda: "process-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode, [], name, value)
@@ -2824,7 +2878,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes, self).__init__()
@@ -2840,6 +2894,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.Nodes, [], name, value)
@@ -2866,7 +2921,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, self).__init__()
@@ -2878,13 +2933,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -2904,7 +2960,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, self).__init__()
@@ -2916,11 +2972,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/process-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Threshold.ProcessNode.NodeAll, ['template_name'], name, value)
@@ -2941,7 +2998,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Threshold.BasicCounterInterface, self).__init__()
@@ -2953,11 +3010,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "basic-counter-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/threshold/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Threshold.BasicCounterInterface, ['template_name'], name, value)
@@ -3023,7 +3081,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Enable.Statistics, self).__init__()
@@ -3077,6 +3135,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ldp_mpls"] = "ldp-mpls"
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Enable.Statistics, [], name, value)
@@ -3096,7 +3155,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.GenericCounterInterface, self).__init__()
@@ -3108,11 +3167,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "generic-counter-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.GenericCounterInterface, ['template_name'], name, value)
@@ -3132,7 +3192,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.Bgp, self).__init__()
@@ -3144,11 +3204,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "bgp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Bgp, ['template_name'], name, value)
@@ -3168,7 +3229,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.Ospfv2Protocol, self).__init__()
@@ -3180,11 +3241,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ospfv2-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv2Protocol, ['template_name'], name, value)
@@ -3204,7 +3266,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.Ospfv3Protocol, self).__init__()
@@ -3216,11 +3278,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ospfv3-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.Ospfv3Protocol, ['template_name'], name, value)
@@ -3245,7 +3308,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.CpuNode, self).__init__()
@@ -3267,6 +3330,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["nodes"] = "nodes"
                     self._segment_path = lambda: "cpu-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode, [], name, value)
@@ -3286,7 +3350,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, self).__init__()
@@ -3298,11 +3362,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.NodeAll, ['template_name'], name, value)
@@ -3322,7 +3387,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.CpuNode.Nodes, self).__init__()
@@ -3338,6 +3403,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.Nodes, [], name, value)
@@ -3364,7 +3430,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, self).__init__()
@@ -3376,13 +3442,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/cpu-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.CpuNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -3402,7 +3469,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.BasicCounterInterface, self).__init__()
@@ -3414,11 +3481,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "basic-counter-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.BasicCounterInterface, ['template_name'], name, value)
@@ -3443,7 +3511,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.ProcessNode, self).__init__()
@@ -3465,6 +3533,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["nodes"] = "nodes"
                     self._segment_path = lambda: "process-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode, [], name, value)
@@ -3484,7 +3553,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, self).__init__()
@@ -3496,11 +3565,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.NodeAll, ['template_name'], name, value)
@@ -3520,7 +3590,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes, self).__init__()
@@ -3536,6 +3606,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.Nodes, [], name, value)
@@ -3562,7 +3633,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, self).__init__()
@@ -3574,13 +3645,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/process-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.ProcessNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -3600,7 +3672,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.DataRateInterface, self).__init__()
@@ -3612,11 +3684,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "data-rate-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.DataRateInterface, ['template_name'], name, value)
@@ -3641,7 +3714,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.MemoryNode, self).__init__()
@@ -3663,6 +3736,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["nodes"] = "nodes"
                     self._segment_path = lambda: "memory-node"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode, [], name, value)
@@ -3682,7 +3756,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, self).__init__()
@@ -3694,11 +3768,12 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                         ])
                         self.template_name = None
                         self._segment_path = lambda: "node-all"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.NodeAll, ['template_name'], name, value)
@@ -3718,7 +3793,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes, self).__init__()
@@ -3734,6 +3809,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.Nodes, [], name, value)
@@ -3760,7 +3836,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, self).__init__()
@@ -3772,13 +3848,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/memory-node/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.Statistics.MemoryNode.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -3798,7 +3875,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.Statistics.LdpMpls, self).__init__()
@@ -3810,11 +3887,12 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('template_name', YLeaf(YType.str, 'template-name')),
+                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                     ])
                     self.template_name = None
                     self._segment_path = lambda: "ldp-mpls"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.Statistics.LdpMpls, ['template_name'], name, value)
@@ -3879,7 +3957,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Enable.MonitorEnable, self).__init__()
@@ -3933,6 +4011,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["data_rates"] = "data-rates"
                 self._segment_path = lambda: "monitor-enable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Enable.MonitorEnable, [], name, value)
@@ -3952,7 +4031,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.LdpMpls, self).__init__()
@@ -3970,6 +4049,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["sessions"] = "sessions"
                     self._segment_path = lambda: "ldp-mpls"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls, [], name, value)
@@ -3989,7 +4069,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions, self).__init__()
@@ -4005,6 +4085,7 @@ class PerfMgmt(Entity):
                         self.session = YList(self)
                         self._segment_path = lambda: "sessions"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ldp-mpls/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions, [], name, value)
@@ -4031,7 +4112,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, self).__init__()
@@ -4043,13 +4124,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['session']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('session', YLeaf(YType.str, 'session')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('session', (YLeaf(YType.str, 'session'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.session = None
                             self.template_name = None
                             self._segment_path = lambda: "session" + "[session='" + str(self.session) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ldp-mpls/sessions/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.LdpMpls.Sessions.Session, ['session', 'template_name'], name, value)
@@ -4069,7 +4151,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, self).__init__()
@@ -4087,6 +4169,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["ospf_instances"] = "ospf-instances"
                     self._segment_path = lambda: "ospfv3-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol, [], name, value)
@@ -4106,7 +4189,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances, self).__init__()
@@ -4122,6 +4205,7 @@ class PerfMgmt(Entity):
                         self.ospf_instance = YList(self)
                         self._segment_path = lambda: "ospf-instances"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv3-protocol/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances, [], name, value)
@@ -4148,7 +4232,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, self).__init__()
@@ -4160,13 +4244,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['instance_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instance_name', YLeaf(YType.str, 'instance-name')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.instance_name = None
                             self.template_name = None
                             self._segment_path = lambda: "ospf-instance" + "[instance-name='" + str(self.instance_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv3-protocol/ospf-instances/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv3Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
@@ -4186,7 +4271,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.GenericCounters, self).__init__()
@@ -4204,6 +4289,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "generic-counters"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters, [], name, value)
@@ -4223,7 +4309,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces, self).__init__()
@@ -4239,6 +4325,7 @@ class PerfMgmt(Entity):
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/generic-counters/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces, [], name, value)
@@ -4253,7 +4340,7 @@ class PerfMgmt(Entity):
                         	Interface Name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: template_name
                         
@@ -4265,7 +4352,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, self).__init__()
@@ -4277,13 +4364,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self.template_name = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/generic-counters/interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.GenericCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
@@ -4303,7 +4391,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Process, self).__init__()
@@ -4321,6 +4409,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["process_nodes"] = "process-nodes"
                     self._segment_path = lambda: "process"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process, [], name, value)
@@ -4340,7 +4429,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes, self).__init__()
@@ -4356,6 +4445,7 @@ class PerfMgmt(Entity):
                         self.process_node = YList(self)
                         self._segment_path = lambda: "process-nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes, [], name, value)
@@ -4382,7 +4472,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode, self).__init__()
@@ -4394,7 +4484,7 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([("pids", ("pids", PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids))])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
                             ])
                             self.node_id = None
 
@@ -4403,6 +4493,7 @@ class PerfMgmt(Entity):
                             self._children_name_map["pids"] = "pids"
                             self._segment_path = lambda: "process-node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/process/process-nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode, ['node_id'], name, value)
@@ -4422,7 +4513,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-cfg'
-                            _revision = '2017-05-01'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids, self).__init__()
@@ -4437,6 +4528,7 @@ class PerfMgmt(Entity):
 
                                 self.pid = YList(self)
                                 self._segment_path = lambda: "pids"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids, [], name, value)
@@ -4464,7 +4556,7 @@ class PerfMgmt(Entity):
                                 """
 
                                 _prefix = 'manageability-perfmgmt-cfg'
-                                _revision = '2017-05-01'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, self).__init__()
@@ -4476,12 +4568,13 @@ class PerfMgmt(Entity):
                                     self.ylist_key_names = ['pid']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('pid', YLeaf(YType.uint32, 'pid')),
-                                        ('template_name', YLeaf(YType.str, 'template-name')),
+                                        ('pid', (YLeaf(YType.uint32, 'pid'), ['int'])),
+                                        ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                                     ])
                                     self.pid = None
                                     self.template_name = None
                                     self._segment_path = lambda: "pid" + "[pid='" + str(self.pid) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Process.ProcessNodes.ProcessNode.Pids.Pid, ['pid', 'template_name'], name, value)
@@ -4501,7 +4594,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.BasicCounters, self).__init__()
@@ -4519,6 +4612,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "basic-counters"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters, [], name, value)
@@ -4538,7 +4632,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces, self).__init__()
@@ -4554,6 +4648,7 @@ class PerfMgmt(Entity):
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/basic-counters/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces, [], name, value)
@@ -4568,7 +4663,7 @@ class PerfMgmt(Entity):
                         	Interface Name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: template_name
                         
@@ -4580,7 +4675,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, self).__init__()
@@ -4592,13 +4687,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self.template_name = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/basic-counters/interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.BasicCounters.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
@@ -4618,7 +4714,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Memory, self).__init__()
@@ -4636,6 +4732,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["nodes"] = "nodes"
                     self._segment_path = lambda: "memory"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory, [], name, value)
@@ -4655,7 +4752,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes, self).__init__()
@@ -4671,6 +4768,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/memory/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory.Nodes, [], name, value)
@@ -4697,7 +4795,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, self).__init__()
@@ -4709,13 +4807,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/memory/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Memory.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -4735,7 +4834,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, self).__init__()
@@ -4753,6 +4852,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["ospf_instances"] = "ospf-instances"
                     self._segment_path = lambda: "ospfv2-protocol"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol, [], name, value)
@@ -4772,7 +4872,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances, self).__init__()
@@ -4788,6 +4888,7 @@ class PerfMgmt(Entity):
                         self.ospf_instance = YList(self)
                         self._segment_path = lambda: "ospf-instances"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv2-protocol/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances, [], name, value)
@@ -4814,7 +4915,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, self).__init__()
@@ -4826,13 +4927,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['instance_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instance_name', YLeaf(YType.str, 'instance-name')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.instance_name = None
                             self.template_name = None
                             self._segment_path = lambda: "ospf-instance" + "[instance-name='" + str(self.instance_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/ospfv2-protocol/ospf-instances/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Ospfv2Protocol.OspfInstances.OspfInstance, ['instance_name', 'template_name'], name, value)
@@ -4852,7 +4954,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Cpu, self).__init__()
@@ -4870,6 +4972,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["nodes"] = "nodes"
                     self._segment_path = lambda: "cpu"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu, [], name, value)
@@ -4889,7 +4992,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes, self).__init__()
@@ -4905,6 +5008,7 @@ class PerfMgmt(Entity):
                         self.node = YList(self)
                         self._segment_path = lambda: "nodes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/cpu/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes, [], name, value)
@@ -4931,7 +5035,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, self).__init__()
@@ -4943,13 +5047,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['node_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_id', YLeaf(YType.str, 'node-id')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.node_id = None
                             self.template_name = None
                             self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/cpu/nodes/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Cpu.Nodes.Node, ['node_id', 'template_name'], name, value)
@@ -4969,7 +5074,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.Bgp, self).__init__()
@@ -4987,6 +5092,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["neighbors"] = "neighbors"
                     self._segment_path = lambda: "bgp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp, [], name, value)
@@ -5006,7 +5112,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors, self).__init__()
@@ -5022,6 +5128,7 @@ class PerfMgmt(Entity):
                         self.neighbor = YList(self)
                         self._segment_path = lambda: "neighbors"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/bgp/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors, [], name, value)
@@ -5048,7 +5155,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, self).__init__()
@@ -5060,13 +5167,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['peer_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('peer_address', YLeaf(YType.str, 'peer-address')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.peer_address = None
                             self.template_name = None
                             self._segment_path = lambda: "neighbor" + "[peer-address='" + str(self.peer_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/bgp/neighbors/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.Bgp.Neighbors.Neighbor, ['peer_address', 'template_name'], name, value)
@@ -5086,7 +5194,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Enable.MonitorEnable.DataRates, self).__init__()
@@ -5104,6 +5212,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "data-rates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates, [], name, value)
@@ -5123,7 +5232,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces, self).__init__()
@@ -5139,6 +5248,7 @@ class PerfMgmt(Entity):
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/data-rates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces, [], name, value)
@@ -5153,7 +5263,7 @@ class PerfMgmt(Entity):
                         	Interface Name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: template_name
                         
@@ -5165,7 +5275,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, self).__init__()
@@ -5177,13 +5287,14 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('template_name', YLeaf(YType.str, 'template-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self.template_name = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/enable/monitor-enable/data-rates/interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Enable.MonitorEnable.DataRates.Interfaces.Interface, ['interface_name', 'template_name'], name, value)
@@ -5203,7 +5314,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.RegExpGroups, self).__init__()
@@ -5219,6 +5330,7 @@ class PerfMgmt(Entity):
             self.reg_exp_group = YList(self)
             self._segment_path = lambda: "reg-exp-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.RegExpGroups, [], name, value)
@@ -5245,7 +5357,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.RegExpGroups.RegExpGroup, self).__init__()
@@ -5257,7 +5369,7 @@ class PerfMgmt(Entity):
                 self.ylist_key_names = ['reg_exp_group_name']
                 self._child_classes = OrderedDict([("reg-exps", ("reg_exps", PerfMgmt.RegExpGroups.RegExpGroup.RegExps))])
                 self._leafs = OrderedDict([
-                    ('reg_exp_group_name', YLeaf(YType.str, 'reg-exp-group-name')),
+                    ('reg_exp_group_name', (YLeaf(YType.str, 'reg-exp-group-name'), ['str'])),
                 ])
                 self.reg_exp_group_name = None
 
@@ -5266,6 +5378,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["reg_exps"] = "reg-exps"
                 self._segment_path = lambda: "reg-exp-group" + "[reg-exp-group-name='" + str(self.reg_exp_group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/reg-exp-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup, ['reg_exp_group_name'], name, value)
@@ -5285,7 +5398,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps, self).__init__()
@@ -5300,6 +5413,7 @@ class PerfMgmt(Entity):
 
                     self.reg_exp = YList(self)
                     self._segment_path = lambda: "reg-exps"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup.RegExps, [], name, value)
@@ -5330,7 +5444,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, self).__init__()
@@ -5342,12 +5456,13 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['reg_exp_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('reg_exp_index', YLeaf(YType.uint32, 'reg-exp-index')),
-                            ('reg_exp_string', YLeaf(YType.str, 'reg-exp-string')),
+                            ('reg_exp_index', (YLeaf(YType.uint32, 'reg-exp-index'), ['int'])),
+                            ('reg_exp_string', (YLeaf(YType.str, 'reg-exp-string'), ['str'])),
                         ])
                         self.reg_exp_index = None
                         self.reg_exp_string = None
                         self._segment_path = lambda: "reg-exp" + "[reg-exp-index='" + str(self.reg_exp_index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.RegExpGroups.RegExpGroup.RegExps.RegExp, ['reg_exp_index', 'reg_exp_string'], name, value)
@@ -5412,7 +5527,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-cfg'
-        _revision = '2017-05-01'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Threshold, self).__init__()
@@ -5466,6 +5581,7 @@ class PerfMgmt(Entity):
             self._children_name_map["ospfv3_protocol"] = "ospfv3-protocol"
             self._segment_path = lambda: "threshold"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Threshold, [], name, value)
@@ -5486,7 +5602,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.GenericCounterInterface, self).__init__()
@@ -5504,6 +5620,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["generic_counter_interface_templates"] = "generic-counter-interface-templates"
                 self._segment_path = lambda: "generic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface, [], name, value)
@@ -5523,7 +5640,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates, self).__init__()
@@ -5539,6 +5656,7 @@ class PerfMgmt(Entity):
                     self.generic_counter_interface_template = YList(self)
                     self._segment_path = lambda: "generic-counter-interface-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates, [], name, value)
@@ -5724,7 +5842,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate, self).__init__()
@@ -5736,10 +5854,10 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets)), ("in-ucast-pkts", ("in_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts)), ("out-ucast-pkts", ("out_ucast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts)), ("out-broadcast-pkts", ("out_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts)), ("out-multicast-pkts", ("out_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts)), ("input-overrun", ("input_overrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun)), ("out-octets", ("out_octets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets)), ("output-underrun", ("output_underrun", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops)), ("input-crc", ("input_crc", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc)), ("in-broadcast-pkts", ("in_broadcast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts)), ("in-multicast-pkts", ("in_multicast_pkts", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts)), ("out-packets", ("out_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets)), ("input-unknown-proto", ("input_unknown_proto", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops)), ("input-frame", ("input_frame", PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -5807,6 +5925,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_frame"] = "input-frame"
                         self._segment_path = lambda: "generic-counter-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/generic-counter-interface/generic-counter-interface-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
@@ -5859,7 +5978,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, self).__init__()
@@ -5872,12 +5991,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -5886,6 +6005,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-octets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -5938,7 +6058,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, self).__init__()
@@ -5951,12 +6071,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -5965,6 +6085,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-ucast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6017,7 +6138,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, self).__init__()
@@ -6030,12 +6151,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6044,6 +6165,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-ucast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutUcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6096,7 +6218,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, self).__init__()
@@ -6109,12 +6231,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6123,6 +6245,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-broadcast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6175,7 +6298,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, self).__init__()
@@ -6188,12 +6311,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6202,6 +6325,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-multicast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6255,7 +6379,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, self).__init__()
@@ -6268,12 +6392,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6282,6 +6406,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-overrun"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputOverrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6334,7 +6459,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, self).__init__()
@@ -6347,12 +6472,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6361,6 +6486,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-octets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6414,7 +6540,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, self).__init__()
@@ -6427,12 +6553,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6441,6 +6567,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-underrun"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputUnderrun, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6494,7 +6621,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, self).__init__()
@@ -6507,12 +6634,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6521,6 +6648,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-total-errors"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6573,7 +6701,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
@@ -6586,12 +6714,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6600,6 +6728,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-total-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6653,7 +6782,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, self).__init__()
@@ -6666,12 +6795,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6680,6 +6809,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-crc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputCrc, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6732,7 +6862,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, self).__init__()
@@ -6745,12 +6875,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6759,6 +6889,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-broadcast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InBroadcastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6811,7 +6942,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, self).__init__()
@@ -6824,12 +6955,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6838,6 +6969,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-multicast-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InMulticastPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6890,7 +7022,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, self).__init__()
@@ -6903,12 +7035,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6917,6 +7049,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -6970,7 +7103,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
@@ -6983,12 +7116,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -6997,6 +7130,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-total-errors"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7049,7 +7183,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, self).__init__()
@@ -7062,12 +7196,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7076,6 +7210,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7129,7 +7264,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, self).__init__()
@@ -7142,12 +7277,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7156,6 +7291,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-unknown-proto"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputUnknownProto, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7208,7 +7344,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, self).__init__()
@@ -7221,12 +7357,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7235,6 +7371,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-queue-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7287,7 +7424,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, self).__init__()
@@ -7300,12 +7437,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7314,6 +7451,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-total-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7367,7 +7505,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, self).__init__()
@@ -7380,12 +7518,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7394,6 +7532,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-frame"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.GenericCounterInterface.GenericCounterInterfaceTemplates.GenericCounterInterfaceTemplate.InputFrame, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7413,7 +7552,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.LdpMpls, self).__init__()
@@ -7431,6 +7570,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ldp_mpls_templates"] = "ldp-mpls-templates"
                 self._segment_path = lambda: "ldp-mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.LdpMpls, [], name, value)
@@ -7450,7 +7590,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates, self).__init__()
@@ -7466,6 +7606,7 @@ class PerfMgmt(Entity):
                     self.ldp_mpls_template = YList(self)
                     self._segment_path = lambda: "ldp-mpls-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates, [], name, value)
@@ -7622,7 +7763,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate, self).__init__()
@@ -7634,8 +7775,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("address-withdraw-msgs-rcvd", ("address_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd)), ("label-withdraw-msgs-rcvd", ("label_withdraw_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd)), ("address-withdraw-msgs-sent", ("address_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent)), ("label-withdraw-msgs-sent", ("label_withdraw_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent)), ("notification-msgs-rcvd", ("notification_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd)), ("total-msgs-rcvd", ("total_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd)), ("notification-msgs-sent", ("notification_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent)), ("total-msgs-sent", ("total_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent)), ("label-release-msgs-rcvd", ("label_release_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd)), ("init-msgs-rcvd", ("init_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd)), ("label-release-msgs-sent", ("label_release_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent)), ("init-msgs-sent", ("init_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent)), ("label-mapping-msgs-rcvd", ("label_mapping_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd)), ("keepalive-msgs-rcvd", ("keepalive_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd)), ("label-mapping-msgs-sent", ("label_mapping_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent)), ("keepalive-msgs-sent", ("keepalive_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent)), ("address-msgs-rcvd", ("address_msgs_rcvd", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd)), ("address-msgs-sent", ("address_msgs_sent", PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -7695,6 +7836,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["address_msgs_sent"] = "address-msgs-sent"
                         self._segment_path = lambda: "ldp-mpls-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ldp-mpls/ldp-mpls-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate, ['template_name', 'sample_interval'], name, value)
@@ -7714,14 +7856,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -7747,7 +7889,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, self).__init__()
@@ -7760,12 +7902,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7774,6 +7916,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "address-withdraw-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7793,14 +7936,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -7826,7 +7969,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, self).__init__()
@@ -7839,12 +7982,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7853,6 +7996,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-withdraw-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7872,14 +8016,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -7905,7 +8049,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, self).__init__()
@@ -7918,12 +8062,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -7932,6 +8076,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "address-withdraw-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -7951,14 +8096,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -7984,7 +8129,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, self).__init__()
@@ -7997,12 +8142,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8011,6 +8156,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-withdraw-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelWithdrawMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8030,14 +8176,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8063,7 +8209,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, self).__init__()
@@ -8076,12 +8222,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8090,6 +8236,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "notification-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8142,7 +8289,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, self).__init__()
@@ -8155,12 +8302,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8169,6 +8316,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "total-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8188,14 +8336,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8221,7 +8369,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, self).__init__()
@@ -8234,12 +8382,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8248,6 +8396,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "notification-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.NotificationMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8267,14 +8416,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8300,7 +8449,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, self).__init__()
@@ -8313,12 +8462,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8327,6 +8476,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "total-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.TotalMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8346,14 +8496,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8379,7 +8529,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, self).__init__()
@@ -8392,12 +8542,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8406,6 +8556,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-release-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8425,14 +8576,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8458,7 +8609,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, self).__init__()
@@ -8471,12 +8622,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8485,6 +8636,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "init-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8504,14 +8656,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8537,7 +8689,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, self).__init__()
@@ -8550,12 +8702,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8564,6 +8716,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-release-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelReleaseMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8583,14 +8736,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8616,7 +8769,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, self).__init__()
@@ -8629,12 +8782,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8643,6 +8796,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "init-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.InitMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8662,14 +8816,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8695,7 +8849,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, self).__init__()
@@ -8708,12 +8862,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8722,6 +8876,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-mapping-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8741,14 +8896,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8774,7 +8929,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, self).__init__()
@@ -8787,12 +8942,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8801,6 +8956,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "keepalive-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8820,14 +8976,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8853,7 +9009,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, self).__init__()
@@ -8866,12 +9022,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8880,6 +9036,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "label-mapping-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.LabelMappingMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8899,14 +9056,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -8932,7 +9089,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, self).__init__()
@@ -8945,12 +9102,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -8959,6 +9116,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "keepalive-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.KeepaliveMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -8978,14 +9136,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -9011,7 +9169,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, self).__init__()
@@ -9024,12 +9182,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9038,6 +9196,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "address-msgs-rcvd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsRcvd, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9057,14 +9216,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -9090,7 +9249,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, self).__init__()
@@ -9103,12 +9262,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9117,6 +9276,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "address-msgs-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.LdpMpls.LdpMplsTemplates.LdpMplsTemplate.AddressMsgsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9136,7 +9296,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.BasicCounterInterface, self).__init__()
@@ -9154,6 +9314,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["basic_counter_interface_templates"] = "basic-counter-interface-templates"
                 self._segment_path = lambda: "basic-counter-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface, [], name, value)
@@ -9173,7 +9334,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates, self).__init__()
@@ -9189,6 +9350,7 @@ class PerfMgmt(Entity):
                     self.basic_counter_interface_template = YList(self)
                     self._segment_path = lambda: "basic-counter-interface-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates, [], name, value)
@@ -9304,7 +9466,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate, self).__init__()
@@ -9316,10 +9478,10 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("in-octets", ("in_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets)), ("out-octets", ("out_octets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets)), ("output-queue-drops", ("output_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops)), ("input-total-errors", ("input_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors)), ("output-total-drops", ("output_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops)), ("out-packets", ("out_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets)), ("output-total-errors", ("output_total_errors", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors)), ("in-packets", ("in_packets", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets)), ("input-queue-drops", ("input_queue_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops)), ("input-total-drops", ("input_total_drops", PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -9357,6 +9519,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_total_drops"] = "input-total-drops"
                         self._segment_path = lambda: "basic-counter-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/basic-counter-interface/basic-counter-interface-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
@@ -9409,7 +9572,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, self).__init__()
@@ -9422,12 +9585,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9436,6 +9599,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-octets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9488,7 +9652,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, self).__init__()
@@ -9501,12 +9665,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9515,6 +9679,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-octets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutOctets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9567,7 +9732,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, self).__init__()
@@ -9580,12 +9745,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9594,6 +9759,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-queue-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9647,7 +9813,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, self).__init__()
@@ -9660,12 +9826,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9674,6 +9840,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-total-errors"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9726,7 +9893,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, self).__init__()
@@ -9739,12 +9906,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9753,6 +9920,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-total-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9805,7 +9973,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, self).__init__()
@@ -9818,12 +9986,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9832,6 +10000,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "out-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9885,7 +10054,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, self).__init__()
@@ -9898,12 +10067,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9912,6 +10081,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-total-errors"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.OutputTotalErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -9964,7 +10134,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, self).__init__()
@@ -9977,12 +10147,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -9991,6 +10161,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "in-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10043,7 +10214,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, self).__init__()
@@ -10056,12 +10227,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10070,6 +10241,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-queue-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputQueueDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10122,7 +10294,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, self).__init__()
@@ -10135,12 +10307,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10149,6 +10321,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-total-drops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.BasicCounterInterface.BasicCounterInterfaceTemplates.BasicCounterInterfaceTemplate.InputTotalDrops, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10168,7 +10341,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.Bgp, self).__init__()
@@ -10186,6 +10359,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["bgp_templates"] = "bgp-templates"
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.Bgp, [], name, value)
@@ -10205,7 +10379,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.Bgp.BgpTemplates, self).__init__()
@@ -10221,6 +10395,7 @@ class PerfMgmt(Entity):
                     self.bgp_template = YList(self)
                     self._segment_path = lambda: "bgp-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates, [], name, value)
@@ -10307,7 +10482,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate, self).__init__()
@@ -10319,8 +10494,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("output-update-messages", ("output_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages)), ("errors-received", ("errors_received", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived)), ("conn-established", ("conn_established", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished)), ("output-messages", ("output_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages)), ("conn-dropped", ("conn_dropped", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped)), ("input-update-messages", ("input_update_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages)), ("errors-sent", ("errors_sent", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent)), ("input-messages", ("input_messages", PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -10350,6 +10525,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_messages"] = "input-messages"
                         self._segment_path = lambda: "bgp-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/bgp/bgp-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate, ['template_name', 'sample_interval'], name, value)
@@ -10402,7 +10578,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, self).__init__()
@@ -10415,12 +10591,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10429,6 +10605,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-update-messages"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10481,7 +10658,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, self).__init__()
@@ -10494,12 +10671,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10508,6 +10685,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "errors-received"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsReceived, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10561,7 +10739,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, self).__init__()
@@ -10574,12 +10752,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10588,6 +10766,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "conn-established"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnEstablished, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10640,7 +10819,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, self).__init__()
@@ -10653,12 +10832,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10667,6 +10846,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-messages"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.OutputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10719,7 +10899,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, self).__init__()
@@ -10732,12 +10912,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10746,6 +10926,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "conn-dropped"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ConnDropped, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10798,7 +10979,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, self).__init__()
@@ -10811,12 +10992,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10825,6 +11006,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-update-messages"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputUpdateMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10877,7 +11059,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, self).__init__()
@@ -10890,12 +11072,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10904,6 +11086,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "errors-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.ErrorsSent, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -10956,7 +11139,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, self).__init__()
@@ -10969,12 +11152,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -10983,6 +11166,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-messages"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Bgp.BgpTemplates.BgpTemplate.InputMessages, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11002,7 +11186,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.Ospfv2Protocol, self).__init__()
@@ -11020,6 +11204,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ospfv2_protocol_templates"] = "ospfv2-protocol-templates"
                 self._segment_path = lambda: "ospfv2-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol, [], name, value)
@@ -11039,7 +11224,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates, self).__init__()
@@ -11055,6 +11240,7 @@ class PerfMgmt(Entity):
                     self.ospfv2_protocol_template = YList(self)
                     self._segment_path = lambda: "ospfv2-protocol-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates, [], name, value)
@@ -11232,7 +11418,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate, self).__init__()
@@ -11244,8 +11430,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("checksum-errors", ("checksum_errors", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors)), ("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -11314,6 +11500,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_ls_requests"] = "input-ls-requests"
                         self._segment_path = lambda: "ospfv2-protocol-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv2-protocol/ospfv2-protocol-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate, ['template_name', 'sample_interval'], name, value)
@@ -11367,7 +11554,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, self).__init__()
@@ -11380,12 +11567,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11394,6 +11581,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "checksum-errors"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.ChecksumErrors, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11446,7 +11634,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, self).__init__()
@@ -11459,12 +11647,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11473,6 +11661,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-acks-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11525,7 +11714,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, self).__init__()
@@ -11538,12 +11727,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11552,6 +11741,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-db-ds-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11604,7 +11794,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, self).__init__()
@@ -11617,12 +11807,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11631,6 +11821,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-db-ds-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11683,7 +11874,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, self).__init__()
@@ -11696,12 +11887,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11710,6 +11901,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-updates"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11762,7 +11954,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, self).__init__()
@@ -11775,12 +11967,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11789,6 +11981,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-db-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11841,7 +12034,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
@@ -11854,12 +12047,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11868,6 +12061,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-updates-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11920,7 +12114,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, self).__init__()
@@ -11933,12 +12127,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -11947,6 +12141,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-db-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -11999,7 +12194,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
@@ -12012,12 +12207,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12026,6 +12221,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-updates-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12078,7 +12274,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, self).__init__()
@@ -12091,12 +12287,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12105,6 +12301,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12157,7 +12354,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, self).__init__()
@@ -12170,12 +12367,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12184,6 +12381,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12236,7 +12434,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, self).__init__()
@@ -12249,12 +12447,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12263,6 +12461,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-hello-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12315,7 +12514,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, self).__init__()
@@ -12328,12 +12527,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12342,6 +12541,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-hello-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12394,7 +12594,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, self).__init__()
@@ -12407,12 +12607,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12421,6 +12621,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-ls-requests"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12473,7 +12674,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
@@ -12486,12 +12687,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12500,6 +12701,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-acks-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12552,7 +12754,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, self).__init__()
@@ -12565,12 +12767,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12579,6 +12781,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-acks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12631,7 +12834,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, self).__init__()
@@ -12644,12 +12847,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12658,6 +12861,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-acks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12710,7 +12914,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, self).__init__()
@@ -12723,12 +12927,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12737,6 +12941,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-updates"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12789,7 +12994,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
@@ -12802,12 +13007,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12816,6 +13021,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-ls-requests-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12868,7 +13074,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, self).__init__()
@@ -12881,12 +13087,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12895,6 +13101,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-ls-requests-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12947,7 +13154,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, self).__init__()
@@ -12960,12 +13167,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -12974,6 +13181,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-ls-requests"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv2Protocol.Ospfv2ProtocolTemplates.Ospfv2ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -12993,7 +13201,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.CpuNode, self).__init__()
@@ -13011,6 +13219,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["cpu_node_templates"] = "cpu-node-templates"
                 self._segment_path = lambda: "cpu-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.CpuNode, [], name, value)
@@ -13030,7 +13239,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates, self).__init__()
@@ -13046,6 +13255,7 @@ class PerfMgmt(Entity):
                     self.cpu_node_template = YList(self)
                     self._segment_path = lambda: "cpu-node-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates, [], name, value)
@@ -13091,7 +13301,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate, self).__init__()
@@ -13103,8 +13313,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed)), ("no-processes", ("no_processes", PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -13116,6 +13326,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["no_processes"] = "no-processes"
                         self._segment_path = lambda: "cpu-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/cpu-node/cpu-node-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate, ['template_name', 'sample_interval'], name, value)
@@ -13168,7 +13379,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, self).__init__()
@@ -13181,12 +13392,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13195,6 +13406,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "average-cpu-used"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13214,14 +13426,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -13247,7 +13459,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, self).__init__()
@@ -13260,12 +13472,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13274,6 +13486,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "no-processes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.CpuNode.CpuNodeTemplates.CpuNodeTemplate.NoProcesses, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13293,7 +13506,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.DataRateInterface, self).__init__()
@@ -13311,6 +13524,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["data_rate_interface_templates"] = "data-rate-interface-templates"
                 self._segment_path = lambda: "data-rate-interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.DataRateInterface, [], name, value)
@@ -13330,7 +13544,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates, self).__init__()
@@ -13346,6 +13560,7 @@ class PerfMgmt(Entity):
                     self.data_rate_interface_template = YList(self)
                     self._segment_path = lambda: "data-rate-interface-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates, [], name, value)
@@ -13454,7 +13669,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate, self).__init__()
@@ -13466,10 +13681,10 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("input-data-rate", ("input_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate)), ("bandwidth", ("bandwidth", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth)), ("output-packet-rate", ("output_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate)), ("input-peak-pkts", ("input_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts)), ("output-peak-rate", ("output_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate)), ("output-data-rate", ("output_data_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate)), ("input-packet-rate", ("input_packet_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate)), ("output-peak-pkts", ("output_peak_pkts", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts)), ("input-peak-rate", ("input_peak_rate", PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('reg_exp_group', YLeaf(YType.str, 'reg-exp-group')),
-                            ('vrf_group', YLeaf(YType.str, 'vrf-group')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('reg_exp_group', (YLeaf(YType.str, 'reg-exp-group'), ['str'])),
+                            ('vrf_group', (YLeaf(YType.str, 'vrf-group'), ['str'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -13504,6 +13719,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_peak_rate"] = "input-peak-rate"
                         self._segment_path = lambda: "data-rate-interface-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/data-rate-interface/data-rate-interface-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate, ['template_name', 'sample_interval', 'reg_exp_group', 'vrf_group'], name, value)
@@ -13556,7 +13772,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, self).__init__()
@@ -13569,12 +13785,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13583,6 +13799,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-data-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13635,7 +13852,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, self).__init__()
@@ -13648,12 +13865,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13662,6 +13879,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.Bandwidth, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13714,7 +13932,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, self).__init__()
@@ -13727,12 +13945,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13741,6 +13959,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-packet-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13793,7 +14012,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, self).__init__()
@@ -13806,12 +14025,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13820,6 +14039,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-peak-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13872,7 +14092,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, self).__init__()
@@ -13885,12 +14105,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13899,6 +14119,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-peak-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -13951,7 +14172,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, self).__init__()
@@ -13964,12 +14185,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -13978,6 +14199,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-data-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputDataRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14030,7 +14252,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, self).__init__()
@@ -14043,12 +14265,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14057,6 +14279,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-packet-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPacketRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14109,7 +14332,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, self).__init__()
@@ -14122,12 +14345,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14136,6 +14359,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-peak-pkts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.OutputPeakPkts, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14188,7 +14412,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, self).__init__()
@@ -14201,12 +14425,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14215,6 +14439,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-peak-rate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.DataRateInterface.DataRateInterfaceTemplates.DataRateInterfaceTemplate.InputPeakRate, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14234,7 +14459,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.ProcessNode, self).__init__()
@@ -14252,6 +14477,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["process_node_templates"] = "process-node-templates"
                 self._segment_path = lambda: "process-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.ProcessNode, [], name, value)
@@ -14271,7 +14497,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates, self).__init__()
@@ -14287,6 +14513,7 @@ class PerfMgmt(Entity):
                     self.process_node_template = YList(self)
                     self._segment_path = lambda: "process-node-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates, [], name, value)
@@ -14338,7 +14565,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate, self).__init__()
@@ -14350,8 +14577,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("average-cpu-used", ("average_cpu_used", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed)), ("peak-memory", ("peak_memory", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory)), ("no-threads", ("no_threads", PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -14366,6 +14593,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["no_threads"] = "no-threads"
                         self._segment_path = lambda: "process-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/process-node/process-node-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate, ['template_name', 'sample_interval'], name, value)
@@ -14418,7 +14646,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, self).__init__()
@@ -14431,12 +14659,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14445,6 +14673,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "average-cpu-used"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.AverageCpuUsed, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14464,14 +14693,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -14497,7 +14726,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, self).__init__()
@@ -14510,12 +14739,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14524,6 +14753,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "peak-memory"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14576,7 +14806,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, self).__init__()
@@ -14589,12 +14819,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14603,6 +14833,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "no-threads"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.ProcessNode.ProcessNodeTemplates.ProcessNodeTemplate.NoThreads, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14622,7 +14853,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.MemoryNode, self).__init__()
@@ -14640,6 +14871,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["memory_node_templates"] = "memory-node-templates"
                 self._segment_path = lambda: "memory-node"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.MemoryNode, [], name, value)
@@ -14659,7 +14891,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates, self).__init__()
@@ -14675,6 +14907,7 @@ class PerfMgmt(Entity):
                     self.memory_node_template = YList(self)
                     self._segment_path = lambda: "memory-node-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates, [], name, value)
@@ -14720,7 +14953,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate, self).__init__()
@@ -14732,8 +14965,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("peak-memory", ("peak_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory)), ("curr-memory", ("curr_memory", PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -14745,6 +14978,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["curr_memory"] = "curr-memory"
                         self._segment_path = lambda: "memory-node-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/memory-node/memory-node-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate, ['template_name', 'sample_interval'], name, value)
@@ -14797,7 +15031,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, self).__init__()
@@ -14810,12 +15044,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14824,6 +15058,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "peak-memory"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.PeakMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14843,14 +15078,14 @@ class PerfMgmt(Entity):
                         	Threshold value (or start range value for operator RG)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: end_range_value
                         
                         	Threshold end range value (for operator RG, set to 0 otherwise)
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: percent
                         
@@ -14876,7 +15111,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, self).__init__()
@@ -14889,12 +15124,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.int32, 'value')),
-                                ('end_range_value', YLeaf(YType.int32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -14903,6 +15138,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "curr-memory"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.MemoryNode.MemoryNodeTemplates.MemoryNodeTemplate.CurrMemory, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -14922,7 +15158,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-cfg'
-            _revision = '2017-05-01'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Threshold.Ospfv3Protocol, self).__init__()
@@ -14940,6 +15176,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ospfv3_protocol_templates"] = "ospfv3-protocol-templates"
                 self._segment_path = lambda: "ospfv3-protocol"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol, [], name, value)
@@ -14959,7 +15196,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-cfg'
-                _revision = '2017-05-01'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates, self).__init__()
@@ -14975,6 +15212,7 @@ class PerfMgmt(Entity):
                     self.ospfv3_protocol_template = YList(self)
                     self._segment_path = lambda: "ospfv3-protocol-templates"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates, [], name, value)
@@ -15145,7 +15383,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate, self).__init__()
@@ -15157,8 +15395,8 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['template_name']
                         self._child_classes = OrderedDict([("input-lsa-acks-lsa", ("input_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa)), ("output-db-ds-lsa", ("output_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa)), ("input-db-ds-lsa", ("input_db_ds_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa)), ("input-lsa-updates", ("input_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates)), ("output-db-ds", ("output_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs)), ("output-lsa-updates-lsa", ("output_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa)), ("input-db-ds", ("input_db_ds", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs)), ("input-lsa-updates-lsa", ("input_lsa_updates_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa)), ("output-packets", ("output_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets)), ("input-packets", ("input_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets)), ("output-hello-packets", ("output_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets)), ("input-hello-packets", ("input_hello_packets", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets)), ("output-ls-requests", ("output_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests)), ("output-lsa-acks-lsa", ("output_lsa_acks_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa)), ("output-lsa-acks", ("output_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks)), ("input-lsa-acks", ("input_lsa_acks", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks)), ("output-lsa-updates", ("output_lsa_updates", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates)), ("output-ls-requests-lsa", ("output_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa)), ("input-ls-requests-lsa", ("input_ls_requests_lsa", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa)), ("input-ls-requests", ("input_ls_requests", PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests))])
                         self._leafs = OrderedDict([
-                            ('template_name', YLeaf(YType.str, 'template-name')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.template_name = None
                         self.sample_interval = None
@@ -15224,6 +15462,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["input_ls_requests"] = "input-ls-requests"
                         self._segment_path = lambda: "ospfv3-protocol-template" + "[template-name='" + str(self.template_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-cfg:perf-mgmt/threshold/ospfv3-protocol/ospfv3-protocol-templates/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate, ['template_name', 'sample_interval'], name, value)
@@ -15276,7 +15515,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, self).__init__()
@@ -15289,12 +15528,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15303,6 +15542,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-acks-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15355,7 +15595,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, self).__init__()
@@ -15368,12 +15608,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15382,6 +15622,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-db-ds-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15434,7 +15675,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, self).__init__()
@@ -15447,12 +15688,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15461,6 +15702,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-db-ds-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15513,7 +15755,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, self).__init__()
@@ -15526,12 +15768,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15540,6 +15782,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-updates"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15592,7 +15835,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, self).__init__()
@@ -15605,12 +15848,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15619,6 +15862,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-db-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15671,7 +15915,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, self).__init__()
@@ -15684,12 +15928,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15698,6 +15942,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-updates-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15750,7 +15995,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, self).__init__()
@@ -15763,12 +16008,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15777,6 +16022,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-db-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputDbDs, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15829,7 +16075,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, self).__init__()
@@ -15842,12 +16088,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15856,6 +16102,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-updates-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaUpdatesLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15908,7 +16155,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, self).__init__()
@@ -15921,12 +16168,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -15935,6 +16182,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -15987,7 +16235,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, self).__init__()
@@ -16000,12 +16248,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16014,6 +16262,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16066,7 +16315,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, self).__init__()
@@ -16079,12 +16328,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16093,6 +16342,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-hello-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16145,7 +16395,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, self).__init__()
@@ -16158,12 +16408,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16172,6 +16422,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-hello-packets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputHelloPackets, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16224,7 +16475,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, self).__init__()
@@ -16237,12 +16488,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16251,6 +16502,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-ls-requests"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16303,7 +16555,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, self).__init__()
@@ -16316,12 +16568,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16330,6 +16582,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-acks-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcksLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16382,7 +16635,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, self).__init__()
@@ -16395,12 +16648,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16409,6 +16662,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-acks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16461,7 +16715,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, self).__init__()
@@ -16474,12 +16728,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16488,6 +16742,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-lsa-acks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsaAcks, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16540,7 +16795,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, self).__init__()
@@ -16553,12 +16808,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16567,6 +16822,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-lsa-updates"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsaUpdates, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16619,7 +16875,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, self).__init__()
@@ -16632,12 +16888,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16646,6 +16902,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "output-ls-requests-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.OutputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16698,7 +16955,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, self).__init__()
@@ -16711,12 +16968,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16725,6 +16982,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-ls-requests-lsa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequestsLsa, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)
@@ -16777,7 +17035,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, self).__init__()
@@ -16790,12 +17048,12 @@ class PerfMgmt(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('end_range_value', YLeaf(YType.uint32, 'end-range-value')),
-                                ('percent', YLeaf(YType.boolean, 'percent')),
-                                ('rearm_type', YLeaf(YType.enumeration, 'rearm-type')),
-                                ('rearm_window', YLeaf(YType.uint32, 'rearm-window')),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdOp', '')])),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('end_range_value', (YLeaf(YType.uint32, 'end-range-value'), ['int'])),
+                                ('percent', (YLeaf(YType.boolean, 'percent'), ['bool'])),
+                                ('rearm_type', (YLeaf(YType.enumeration, 'rearm-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_perfmgmt_cfg', 'PmThresholdRearm', '')])),
+                                ('rearm_window', (YLeaf(YType.uint32, 'rearm-window'), ['int'])),
                             ])
                             self.operator = None
                             self.value = None
@@ -16804,6 +17062,7 @@ class PerfMgmt(Entity):
                             self.rearm_type = None
                             self.rearm_window = None
                             self._segment_path = lambda: "input-ls-requests"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Threshold.Ospfv3Protocol.Ospfv3ProtocolTemplates.Ospfv3ProtocolTemplate.InputLsRequests, ['operator', 'value', 'end_range_value', 'percent', 'rearm_type', 'rearm_window'], name, value)

@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG definitions
 for PPP and PPPoE operational data.
-Copyright (c) 2017 by Cisco Systems, Inc.
+Copyright (c) 2017\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PppIosAuthType(Enum):
@@ -109,7 +110,7 @@ class PppData(Entity):
     """
 
     _prefix = 'ppp-ios-xe-oper'
-    _revision = '2017-11-01'
+    _revision = '2018-02-19'
 
     def __init__(self):
         super(PppData, self).__init__()
@@ -131,6 +132,7 @@ class PppData(Entity):
 
         self.ppp_interface = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PppData, [], name, value)
@@ -155,7 +157,7 @@ class PppData(Entity):
         """
 
         _prefix = 'ppp-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-02-19'
 
         def __init__(self):
             super(PppData.PppInterface, self).__init__()
@@ -167,13 +169,14 @@ class PppData(Entity):
             self.ylist_key_names = ['phy_ifname']
             self._child_classes = OrderedDict([("ppp-va", ("ppp_va", PppData.PppInterface.PppVa))])
             self._leafs = OrderedDict([
-                ('phy_ifname', YLeaf(YType.str, 'phy-ifname')),
+                ('phy_ifname', (YLeaf(YType.str, 'phy-ifname'), ['str'])),
             ])
             self.phy_ifname = None
 
             self.ppp_va = YList(self)
             self._segment_path = lambda: "ppp-interface" + "[phy-ifname='" + str(self.phy_ifname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PppData.PppInterface, ['phy_ifname'], name, value)
@@ -262,7 +265,7 @@ class PppData(Entity):
             """
 
             _prefix = 'ppp-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-02-19'
 
             def __init__(self):
                 super(PppData.PppInterface.PppVa, self).__init__()
@@ -274,14 +277,14 @@ class PppData(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('va_ifname', YLeaf(YType.str, 'va-ifname')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('interface_ip', YLeaf(YType.str, 'interface-ip')),
-                    ('gateway_ip', YLeaf(YType.str, 'gateway-ip')),
-                    ('primary_dns_ip', YLeaf(YType.str, 'primary-dns-ip')),
-                    ('secondary_dns_ip', YLeaf(YType.str, 'secondary-dns-ip')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                    ('auth_type', YLeaf(YType.enumeration, 'auth-type')),
+                    ('va_ifname', (YLeaf(YType.str, 'va-ifname'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('interface_ip', (YLeaf(YType.str, 'interface-ip'), ['str','str'])),
+                    ('gateway_ip', (YLeaf(YType.str, 'gateway-ip'), ['str','str'])),
+                    ('primary_dns_ip', (YLeaf(YType.str, 'primary-dns-ip'), ['str','str'])),
+                    ('secondary_dns_ip', (YLeaf(YType.str, 'secondary-dns-ip'), ['str','str'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                    ('auth_type', (YLeaf(YType.enumeration, 'auth-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper', 'PppIosAuthType', '')])),
                 ])
                 self.va_ifname = None
                 self.vrf_name = None
@@ -292,6 +295,7 @@ class PppData(Entity):
                 self.mtu = None
                 self.auth_type = None
                 self._segment_path = lambda: "ppp-va"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PppData.PppInterface.PppVa, ['va_ifname', 'vrf_name', 'interface_ip', 'gateway_ip', 'primary_dns_ip', 'secondary_dns_ip', 'mtu', 'auth_type'], name, value)
@@ -329,7 +333,7 @@ class PppData(Entity):
         """
 
         _prefix = 'ppp-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-02-19'
 
         def __init__(self):
             super(PppData.PppStatistics, self).__init__()
@@ -342,15 +346,16 @@ class PppData(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('ppp_lcp_pkts', YLeaf(YType.uint32, 'ppp-lcp-pkts')),
-                ('ppp_ipcp_pkts', YLeaf(YType.uint32, 'ppp-ipcp-pkts')),
-                ('ppp_ccp_pkts', YLeaf(YType.uint32, 'ppp-ccp-pkts')),
+                ('ppp_lcp_pkts', (YLeaf(YType.uint32, 'ppp-lcp-pkts'), ['int'])),
+                ('ppp_ipcp_pkts', (YLeaf(YType.uint32, 'ppp-ipcp-pkts'), ['int'])),
+                ('ppp_ccp_pkts', (YLeaf(YType.uint32, 'ppp-ccp-pkts'), ['int'])),
             ])
             self.ppp_lcp_pkts = None
             self.ppp_ipcp_pkts = None
             self.ppp_ccp_pkts = None
             self._segment_path = lambda: "ppp-statistics"
             self._absolute_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PppData.PppStatistics, ['ppp_lcp_pkts', 'ppp_ipcp_pkts', 'ppp_ccp_pkts'], name, value)
@@ -384,7 +389,7 @@ class PppData(Entity):
         """
 
         _prefix = 'ppp-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-02-19'
 
         def __init__(self):
             super(PppData.Pppoe, self).__init__()
@@ -397,7 +402,7 @@ class PppData(Entity):
             self._child_classes = OrderedDict([("pppoe-session-list", ("pppoe_session_list", PppData.Pppoe.PppoeSessionList)), ("pppoe-statistics", ("pppoe_statistics", PppData.Pppoe.PppoeStatistics))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('role', YLeaf(YType.enumeration, 'role')),
+                ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_ppp_oper', 'PppoeOperationalRole', '')])),
             ])
             self.role = None
 
@@ -407,6 +412,7 @@ class PppData(Entity):
             self.pppoe_session_list = YList(self)
             self._segment_path = lambda: "pppoe"
             self._absolute_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PppData.Pppoe, ['role'], name, value)
@@ -431,7 +437,7 @@ class PppData(Entity):
             """
 
             _prefix = 'ppp-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-02-19'
 
             def __init__(self):
                 super(PppData.Pppoe.PppoeSessionList, self).__init__()
@@ -443,13 +449,14 @@ class PppData(Entity):
                 self.ylist_key_names = ['ifname']
                 self._child_classes = OrderedDict([("session", ("session", PppData.Pppoe.PppoeSessionList.Session))])
                 self._leafs = OrderedDict([
-                    ('ifname', YLeaf(YType.str, 'ifname')),
+                    ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
                 ])
                 self.ifname = None
 
                 self.session = YList(self)
                 self._segment_path = lambda: "pppoe-session-list" + "[ifname='" + str(self.ifname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data/pppoe/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PppData.Pppoe.PppoeSessionList, ['ifname'], name, value)
@@ -542,7 +549,7 @@ class PppData(Entity):
                 """
 
                 _prefix = 'ppp-ios-xe-oper'
-                _revision = '2017-11-01'
+                _revision = '2018-02-19'
 
                 def __init__(self):
                     super(PppData.Pppoe.PppoeSessionList.Session, self).__init__()
@@ -554,18 +561,18 @@ class PppData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('session_id', YLeaf(YType.uint16, 'session-id')),
-                        ('lmac', YLeaf(YType.str, 'lmac')),
-                        ('rmac', YLeaf(YType.str, 'rmac')),
-                        ('va_ifname', YLeaf(YType.str, 'va-ifname')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('dot1q_qinq_outer_vlan', YLeaf(YType.uint16, 'dot1q-qinq-outer-vlan')),
-                        ('dot1q_qinq_inner_vlan', YLeaf(YType.uint16, 'dot1q-qinq-inner-vlan')),
-                        ('service_name', YLeaf(YType.str, 'service-name')),
-                        ('in_packet', YLeaf(YType.uint32, 'in-packet')),
-                        ('out_packet', YLeaf(YType.uint32, 'out-packet')),
-                        ('in_bytes', YLeaf(YType.uint64, 'in-bytes')),
-                        ('out_bytes', YLeaf(YType.uint64, 'out-bytes')),
+                        ('session_id', (YLeaf(YType.uint16, 'session-id'), ['int'])),
+                        ('lmac', (YLeaf(YType.str, 'lmac'), ['str'])),
+                        ('rmac', (YLeaf(YType.str, 'rmac'), ['str'])),
+                        ('va_ifname', (YLeaf(YType.str, 'va-ifname'), ['str'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('dot1q_qinq_outer_vlan', (YLeaf(YType.uint16, 'dot1q-qinq-outer-vlan'), ['int'])),
+                        ('dot1q_qinq_inner_vlan', (YLeaf(YType.uint16, 'dot1q-qinq-inner-vlan'), ['int'])),
+                        ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                        ('in_packet', (YLeaf(YType.uint32, 'in-packet'), ['int'])),
+                        ('out_packet', (YLeaf(YType.uint32, 'out-packet'), ['int'])),
+                        ('in_bytes', (YLeaf(YType.uint64, 'in-bytes'), ['int'])),
+                        ('out_bytes', (YLeaf(YType.uint64, 'out-bytes'), ['int'])),
                     ])
                     self.session_id = None
                     self.lmac = None
@@ -580,6 +587,7 @@ class PppData(Entity):
                     self.in_bytes = None
                     self.out_bytes = None
                     self._segment_path = lambda: "session"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppData.Pppoe.PppoeSessionList.Session, ['session_id', 'lmac', 'rmac', 'va_ifname', 'vrf_name', 'dot1q_qinq_outer_vlan', 'dot1q_qinq_inner_vlan', 'service_name', 'in_packet', 'out_packet', 'in_bytes', 'out_bytes'], name, value)
@@ -617,6 +625,20 @@ class PppData(Entity):
             
             	**range:** 0..4294967295
             
+            .. attribute:: pppoe_padt_pkts
+            
+            	PPPoE active discovery terminate pkts
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: invalid_discovery_pkts
+            
+            	PPPoE invalid discovery pkts
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             This class is a :ref:`presence class<presence-class>`
@@ -624,7 +646,7 @@ class PppData(Entity):
             """
 
             _prefix = 'ppp-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-02-19'
 
             def __init__(self):
                 super(PppData.Pppoe.PppoeStatistics, self).__init__()
@@ -637,20 +659,25 @@ class PppData(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('pppoe_padi_pkts', YLeaf(YType.uint32, 'pppoe-padi-pkts')),
-                    ('pppoe_pado_pkts', YLeaf(YType.uint32, 'pppoe-pado-pkts')),
-                    ('pppoe_padr_pkts', YLeaf(YType.uint32, 'pppoe-padr-pkts')),
-                    ('pppoe_pads_pkts', YLeaf(YType.uint32, 'pppoe-pads-pkts')),
+                    ('pppoe_padi_pkts', (YLeaf(YType.uint32, 'pppoe-padi-pkts'), ['int'])),
+                    ('pppoe_pado_pkts', (YLeaf(YType.uint32, 'pppoe-pado-pkts'), ['int'])),
+                    ('pppoe_padr_pkts', (YLeaf(YType.uint32, 'pppoe-padr-pkts'), ['int'])),
+                    ('pppoe_pads_pkts', (YLeaf(YType.uint32, 'pppoe-pads-pkts'), ['int'])),
+                    ('pppoe_padt_pkts', (YLeaf(YType.uint32, 'pppoe-padt-pkts'), ['int'])),
+                    ('invalid_discovery_pkts', (YLeaf(YType.uint32, 'invalid-discovery-pkts'), ['int'])),
                 ])
                 self.pppoe_padi_pkts = None
                 self.pppoe_pado_pkts = None
                 self.pppoe_padr_pkts = None
                 self.pppoe_pads_pkts = None
+                self.pppoe_padt_pkts = None
+                self.invalid_discovery_pkts = None
                 self._segment_path = lambda: "pppoe-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XE-ppp-oper:ppp-data/pppoe/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PppData.Pppoe.PppoeStatistics, ['pppoe_padi_pkts', 'pppoe_pado_pkts', 'pppoe_padr_pkts', 'pppoe_pads_pkts'], name, value)
+                self._perform_setattr(PppData.Pppoe.PppoeStatistics, ['pppoe_padi_pkts', 'pppoe_pado_pkts', 'pppoe_padr_pkts', 'pppoe_pads_pkts', 'pppoe_padt_pkts', 'invalid_discovery_pkts'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PppData()

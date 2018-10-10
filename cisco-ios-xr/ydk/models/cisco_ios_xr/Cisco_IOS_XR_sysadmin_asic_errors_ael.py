@@ -11,6 +11,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class AsicErrors(Entity):
     """
     
@@ -48,7 +49,7 @@ class AsicErrors(Entity):
         self.ylist_key_names = ['device_name']
         self._child_classes = OrderedDict([("instance", ("instance", AsicErrors.Instance)), ("show-all-instances", ("show_all_instances", AsicErrors.ShowAllInstances))])
         self._leafs = OrderedDict([
-            ('device_name', YLeaf(YType.str, 'device-name')),
+            ('device_name', (YLeaf(YType.str, 'device-name'), ['str'])),
         ])
         self.device_name = None
 
@@ -58,6 +59,7 @@ class AsicErrors(Entity):
 
         self.instance = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-asic-errors-ael:asic-errors" + "[device-name='" + str(self.device_name) + "']"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AsicErrors, ['device_name'], name, value)
@@ -181,7 +183,7 @@ class AsicErrors(Entity):
             self.ylist_key_names = ['instance_num']
             self._child_classes = OrderedDict([("sbe", ("sbe", AsicErrors.Instance.Sbe)), ("mbe", ("mbe", AsicErrors.Instance.Mbe)), ("parity", ("parity", AsicErrors.Instance.Parity)), ("generic", ("generic", AsicErrors.Instance.Generic)), ("crc", ("crc", AsicErrors.Instance.Crc)), ("reset", ("reset", AsicErrors.Instance.Reset)), ("barrier", ("barrier", AsicErrors.Instance.Barrier)), ("unexpected", ("unexpected", AsicErrors.Instance.Unexpected)), ("link", ("link", AsicErrors.Instance.Link)), ("oor-thresh", ("oor_thresh", AsicErrors.Instance.OorThresh)), ("bp", ("bp", AsicErrors.Instance.Bp)), ("io", ("io", AsicErrors.Instance.Io)), ("ucode", ("ucode", AsicErrors.Instance.Ucode)), ("config", ("config", AsicErrors.Instance.Config)), ("indirect", ("indirect", AsicErrors.Instance.Indirect)), ("nonerr", ("nonerr", AsicErrors.Instance.Nonerr)), ("summary", ("summary", AsicErrors.Instance.Summary)), ("all", ("all", AsicErrors.Instance.All))])
             self._leafs = OrderedDict([
-                ('instance_num', YLeaf(YType.uint32, 'instance-num')),
+                ('instance_num', (YLeaf(YType.uint32, 'instance-num'), ['int'])),
             ])
             self.instance_num = None
 
@@ -257,6 +259,7 @@ class AsicErrors(Entity):
             self.all.parent = self
             self._children_name_map["all"] = "all"
             self._segment_path = lambda: "instance" + "[instance-num='" + str(self.instance_num) + "']"
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AsicErrors.Instance, ['instance_num'], name, value)
@@ -291,6 +294,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "sbe"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Sbe, [], name, value)
@@ -305,7 +309,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -329,12 +333,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Sbe.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Sbe.Location, ['location_name'], name, value)
@@ -366,10 +371,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Sbe.Location.LogLst, ['log_line'], name, value)
@@ -404,6 +410,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "mbe"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Mbe, [], name, value)
@@ -418,7 +425,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -442,12 +449,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Mbe.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Mbe.Location, ['location_name'], name, value)
@@ -479,10 +487,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Mbe.Location.LogLst, ['log_line'], name, value)
@@ -517,6 +526,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "parity"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Parity, [], name, value)
@@ -531,7 +541,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -555,12 +565,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Parity.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Parity.Location, ['location_name'], name, value)
@@ -592,10 +603,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Parity.Location.LogLst, ['log_line'], name, value)
@@ -630,6 +642,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "generic"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Generic, [], name, value)
@@ -644,7 +657,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -668,12 +681,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Generic.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Generic.Location, ['location_name'], name, value)
@@ -705,10 +719,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Generic.Location.LogLst, ['log_line'], name, value)
@@ -743,6 +758,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "crc"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Crc, [], name, value)
@@ -757,7 +773,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -781,12 +797,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Crc.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Crc.Location, ['location_name'], name, value)
@@ -818,10 +835,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Crc.Location.LogLst, ['log_line'], name, value)
@@ -856,6 +874,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "reset"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Reset, [], name, value)
@@ -870,7 +889,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -894,12 +913,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Reset.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Reset.Location, ['location_name'], name, value)
@@ -931,10 +951,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Reset.Location.LogLst, ['log_line'], name, value)
@@ -969,6 +990,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "barrier"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Barrier, [], name, value)
@@ -983,7 +1005,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1007,12 +1029,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Barrier.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Barrier.Location, ['location_name'], name, value)
@@ -1044,10 +1067,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Barrier.Location.LogLst, ['log_line'], name, value)
@@ -1082,6 +1106,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "unexpected"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Unexpected, [], name, value)
@@ -1096,7 +1121,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1120,12 +1145,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Unexpected.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Unexpected.Location, ['location_name'], name, value)
@@ -1157,10 +1183,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Unexpected.Location.LogLst, ['log_line'], name, value)
@@ -1195,6 +1222,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "link"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Link, [], name, value)
@@ -1209,7 +1237,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1233,12 +1261,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Link.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Link.Location, ['location_name'], name, value)
@@ -1270,10 +1299,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Link.Location.LogLst, ['log_line'], name, value)
@@ -1308,6 +1338,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "oor-thresh"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.OorThresh, [], name, value)
@@ -1322,7 +1353,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1346,12 +1377,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.OorThresh.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.OorThresh.Location, ['location_name'], name, value)
@@ -1383,10 +1415,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.OorThresh.Location.LogLst, ['log_line'], name, value)
@@ -1421,6 +1454,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "bp"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Bp, [], name, value)
@@ -1435,7 +1469,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1459,12 +1493,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Bp.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Bp.Location, ['location_name'], name, value)
@@ -1496,10 +1531,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Bp.Location.LogLst, ['log_line'], name, value)
@@ -1534,6 +1570,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "io"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Io, [], name, value)
@@ -1548,7 +1585,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1572,12 +1609,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Io.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Io.Location, ['location_name'], name, value)
@@ -1609,10 +1647,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Io.Location.LogLst, ['log_line'], name, value)
@@ -1647,6 +1686,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "ucode"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Ucode, [], name, value)
@@ -1661,7 +1701,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1685,12 +1725,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Ucode.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Ucode.Location, ['location_name'], name, value)
@@ -1722,10 +1763,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Ucode.Location.LogLst, ['log_line'], name, value)
@@ -1760,6 +1802,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "config"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Config, [], name, value)
@@ -1774,7 +1817,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1798,12 +1841,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Config.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Config.Location, ['location_name'], name, value)
@@ -1835,10 +1879,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Config.Location.LogLst, ['log_line'], name, value)
@@ -1873,6 +1918,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "indirect"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Indirect, [], name, value)
@@ -1887,7 +1933,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -1911,12 +1957,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Indirect.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Indirect.Location, ['location_name'], name, value)
@@ -1948,10 +1995,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Indirect.Location.LogLst, ['log_line'], name, value)
@@ -1986,6 +2034,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "nonerr"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Nonerr, [], name, value)
@@ -2000,7 +2049,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2024,12 +2073,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Nonerr.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Nonerr.Location, ['location_name'], name, value)
@@ -2061,10 +2111,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Nonerr.Location.LogLst, ['log_line'], name, value)
@@ -2099,6 +2150,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "summary"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.Summary, [], name, value)
@@ -2113,7 +2165,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2137,12 +2189,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.Summary.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.Summary.Location, ['location_name'], name, value)
@@ -2174,10 +2227,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.Summary.Location.LogLst, ['log_line'], name, value)
@@ -2221,6 +2275,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "all"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.Instance.All, [], name, value)
@@ -2255,6 +2310,7 @@ class AsicErrors(Entity):
 
                     self.location = YList(self)
                     self._segment_path = lambda: "history"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.All.History, [], name, value)
@@ -2269,7 +2325,7 @@ class AsicErrors(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: log_lst
                     
@@ -2293,12 +2349,13 @@ class AsicErrors(Entity):
                         self.ylist_key_names = ['location_name']
                         self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.History.Location.LogLst))])
                         self._leafs = OrderedDict([
-                            ('location_name', YLeaf(YType.str, 'location-name')),
+                            ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                         ])
                         self.location_name = None
 
                         self.log_lst = YList(self)
                         self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.All.History.Location, ['location_name'], name, value)
@@ -2330,10 +2387,11 @@ class AsicErrors(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('log_line', YLeaf(YType.str, 'log-line')),
+                                ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                             ])
                             self.log_line = None
                             self._segment_path = lambda: "log-lst"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AsicErrors.Instance.All.History.Location.LogLst, ['log_line'], name, value)
@@ -2348,7 +2406,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2372,12 +2430,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.Instance.All.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.Instance.All.Location, ['location_name'], name, value)
@@ -2409,10 +2468,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.Instance.All.Location.LogLst, ['log_line'], name, value)
@@ -2602,6 +2662,7 @@ class AsicErrors(Entity):
             self.all.parent = self
             self._children_name_map["all"] = "all"
             self._segment_path = lambda: "show-all-instances"
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AsicErrors.ShowAllInstances, [], name, value)
@@ -2636,6 +2697,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "sbe"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Sbe, [], name, value)
@@ -2650,7 +2712,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2674,12 +2736,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Sbe.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Sbe.Location, ['location_name'], name, value)
@@ -2711,10 +2774,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Sbe.Location.LogLst, ['log_line'], name, value)
@@ -2749,6 +2813,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "mbe"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Mbe, [], name, value)
@@ -2763,7 +2828,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2787,12 +2852,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Mbe.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Mbe.Location, ['location_name'], name, value)
@@ -2824,10 +2890,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Mbe.Location.LogLst, ['log_line'], name, value)
@@ -2862,6 +2929,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "parity"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Parity, [], name, value)
@@ -2876,7 +2944,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -2900,12 +2968,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Parity.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Parity.Location, ['location_name'], name, value)
@@ -2937,10 +3006,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Parity.Location.LogLst, ['log_line'], name, value)
@@ -2975,6 +3045,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "generic"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Generic, [], name, value)
@@ -2989,7 +3060,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3013,12 +3084,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Generic.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Generic.Location, ['location_name'], name, value)
@@ -3050,10 +3122,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Generic.Location.LogLst, ['log_line'], name, value)
@@ -3088,6 +3161,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "crc"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Crc, [], name, value)
@@ -3102,7 +3176,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3126,12 +3200,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Crc.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Crc.Location, ['location_name'], name, value)
@@ -3163,10 +3238,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Crc.Location.LogLst, ['log_line'], name, value)
@@ -3201,6 +3277,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "reset"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Reset, [], name, value)
@@ -3215,7 +3292,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3239,12 +3316,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Reset.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Reset.Location, ['location_name'], name, value)
@@ -3276,10 +3354,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Reset.Location.LogLst, ['log_line'], name, value)
@@ -3314,6 +3393,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "barrier"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Barrier, [], name, value)
@@ -3328,7 +3408,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3352,12 +3432,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Barrier.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Barrier.Location, ['location_name'], name, value)
@@ -3389,10 +3470,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Barrier.Location.LogLst, ['log_line'], name, value)
@@ -3427,6 +3509,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "unexpected"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Unexpected, [], name, value)
@@ -3441,7 +3524,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3465,12 +3548,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Unexpected.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Unexpected.Location, ['location_name'], name, value)
@@ -3502,10 +3586,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Unexpected.Location.LogLst, ['log_line'], name, value)
@@ -3540,6 +3625,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "link"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Link, [], name, value)
@@ -3554,7 +3640,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3578,12 +3664,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Link.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Link.Location, ['location_name'], name, value)
@@ -3615,10 +3702,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Link.Location.LogLst, ['log_line'], name, value)
@@ -3653,6 +3741,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "oor-thresh"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.OorThresh, [], name, value)
@@ -3667,7 +3756,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3691,12 +3780,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.OorThresh.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.OorThresh.Location, ['location_name'], name, value)
@@ -3728,10 +3818,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.OorThresh.Location.LogLst, ['log_line'], name, value)
@@ -3766,6 +3857,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "bp"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Bp, [], name, value)
@@ -3780,7 +3872,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3804,12 +3896,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Bp.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Bp.Location, ['location_name'], name, value)
@@ -3841,10 +3934,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Bp.Location.LogLst, ['log_line'], name, value)
@@ -3879,6 +3973,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "io"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Io, [], name, value)
@@ -3893,7 +3988,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -3917,12 +4012,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Io.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Io.Location, ['location_name'], name, value)
@@ -3954,10 +4050,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Io.Location.LogLst, ['log_line'], name, value)
@@ -3992,6 +4089,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "ucode"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Ucode, [], name, value)
@@ -4006,7 +4104,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4030,12 +4128,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Ucode.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Ucode.Location, ['location_name'], name, value)
@@ -4067,10 +4166,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Ucode.Location.LogLst, ['log_line'], name, value)
@@ -4105,6 +4205,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "config"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Config, [], name, value)
@@ -4119,7 +4220,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4143,12 +4244,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Config.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Config.Location, ['location_name'], name, value)
@@ -4180,10 +4282,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Config.Location.LogLst, ['log_line'], name, value)
@@ -4218,6 +4321,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "indirect"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Indirect, [], name, value)
@@ -4232,7 +4336,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4256,12 +4360,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Indirect.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Indirect.Location, ['location_name'], name, value)
@@ -4293,10 +4398,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Indirect.Location.LogLst, ['log_line'], name, value)
@@ -4331,6 +4437,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "nonerr"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Nonerr, [], name, value)
@@ -4345,7 +4452,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4369,12 +4476,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Nonerr.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Nonerr.Location, ['location_name'], name, value)
@@ -4406,10 +4514,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Nonerr.Location.LogLst, ['log_line'], name, value)
@@ -4444,6 +4553,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "summary"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.Summary, [], name, value)
@@ -4458,7 +4568,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4482,12 +4592,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.Summary.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.Summary.Location, ['location_name'], name, value)
@@ -4519,10 +4630,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.Summary.Location.LogLst, ['log_line'], name, value)
@@ -4557,6 +4669,7 @@ class AsicErrors(Entity):
 
                 self.location = YList(self)
                 self._segment_path = lambda: "all"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AsicErrors.ShowAllInstances.All, [], name, value)
@@ -4571,7 +4684,7 @@ class AsicErrors(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: log_lst
                 
@@ -4595,12 +4708,13 @@ class AsicErrors(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("log-lst", ("log_lst", AsicErrors.ShowAllInstances.All.Location.LogLst))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location-name')),
+                        ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.log_lst = YList(self)
                     self._segment_path = lambda: "location" + "[location-name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AsicErrors.ShowAllInstances.All.Location, ['location_name'], name, value)
@@ -4632,10 +4746,11 @@ class AsicErrors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('log_line', YLeaf(YType.str, 'log-line')),
+                            ('log_line', (YLeaf(YType.str, 'log-line'), ['str'])),
                         ])
                         self.log_line = None
                         self._segment_path = lambda: "log-lst"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AsicErrors.ShowAllInstances.All.Location.LogLst, ['log_line'], name, value)

@@ -8,7 +8,7 @@ for the following management objects\:
   subscriber\: Subscriber operational data
   iedge\-license\-manager\: iedge license manager
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AaaAuthService(Enum):
@@ -929,6 +930,7 @@ class Subscriber(Entity):
         self.session.parent = self
         self._children_name_map["session"] = "session"
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Subscriber, [], name, value)
@@ -966,6 +968,7 @@ class Subscriber(Entity):
             self._children_name_map["nodes"] = "nodes"
             self._segment_path = lambda: "manager"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Subscriber.Manager, [], name, value)
@@ -1001,6 +1004,7 @@ class Subscriber(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Subscriber.Manager.Nodes, [], name, value)
@@ -1040,7 +1044,7 @@ class Subscriber(Entity):
                     self.ylist_key_names = ['node_name']
                     self._child_classes = OrderedDict([("statistics", ("statistics", Subscriber.Manager.Nodes.Node.Statistics))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                     ])
                     self.node_name = None
 
@@ -1049,6 +1053,7 @@ class Subscriber(Entity):
                     self._children_name_map["statistics"] = "statistics"
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/manager/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Subscriber.Manager.Nodes.Node, ['node_name'], name, value)
@@ -1103,6 +1108,7 @@ class Subscriber(Entity):
                         self.srg.parent = self
                         self._children_name_map["srg"] = "srg"
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics, [], name, value)
@@ -1238,6 +1244,7 @@ class Subscriber(Entity):
                             self.aggregate_change_of_authorization.parent = self
                             self._children_name_map["aggregate_change_of_authorization"] = "aggregate-change-of-authorization"
                             self._segment_path = lambda: "aaa"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa, [], name, value)
@@ -1329,11 +1336,11 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight))])
                                 self._leafs = OrderedDict([
-                                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                                    ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
-                                    ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
-                                    ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
-                                    ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                    ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                                    ('started_sessions', (YLeaf(YType.uint64, 'started-sessions'), ['int'])),
+                                    ('stopped_sessions', (YLeaf(YType.uint64, 'stopped-sessions'), ['int'])),
+                                    ('policy_plane_errored_requests', (YLeaf(YType.uint64, 'policy-plane-errored-requests'), ['int'])),
+                                    ('policy_plane_unknown_requests', (YLeaf(YType.uint64, 'policy-plane-unknown-requests'), ['int'])),
                                 ])
                                 self.active_sessions = None
                                 self.started_sessions = None
@@ -1365,9 +1372,10 @@ class Subscriber(Entity):
                                 self.interim_inflight.parent = self
                                 self._children_name_map["interim_inflight"] = "interim-inflight"
                                 self._segment_path = lambda: "aggregate-accounting"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
 
 
                             class Start(Entity):
@@ -1433,12 +1441,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -1447,9 +1455,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "start"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Stop(Entity):
@@ -1515,12 +1524,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -1529,9 +1538,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "stop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Interim(Entity):
@@ -1597,12 +1607,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -1611,9 +1621,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "interim"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class PassThrough(Entity):
@@ -1679,12 +1690,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -1693,9 +1704,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "pass-through"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Update(Entity):
@@ -1761,12 +1773,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -1775,9 +1787,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "update"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class InterimInflight(Entity):
@@ -1843,12 +1856,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
-                                        ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
-                                        ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
-                                        ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
-                                        ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                        ('quota_exhausts', (YLeaf(YType.uint32, 'quota-exhausts'), ['int'])),
+                                        ('denied_requests', (YLeaf(YType.uint32, 'denied-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint32, 'accepted-requests'), ['int'])),
+                                        ('total_quota_of_requests', (YLeaf(YType.uint32, 'total-quota-of-requests'), ['int'])),
+                                        ('remaining_quota_of_requests', (YLeaf(YType.uint32, 'remaining-quota-of-requests'), ['int'])),
+                                        ('low_water_mark_quota_of_requests', (YLeaf(YType.uint32, 'low-water-mark-quota-of-requests'), ['int'])),
                                     ])
                                     self.quota_exhausts = None
                                     self.denied_requests = None
@@ -1857,9 +1870,10 @@ class Subscriber(Entity):
                                     self.remaining_quota_of_requests = None
                                     self.low_water_mark_quota_of_requests = None
                                     self._segment_path = lambda: "interim-inflight"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
                         class Authentication(Entity):
@@ -1939,14 +1953,14 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                    ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                    ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                    ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                    ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                    ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                    ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
                                 self.accepted_requests = None
@@ -1957,9 +1971,10 @@ class Subscriber(Entity):
                                 self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "authentication"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                         class AggregateMobility(Entity):
@@ -2011,19 +2026,20 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
-                                    ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
-                                    ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
-                                    ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                    ('send_request_successes', (YLeaf(YType.uint64, 'send-request-successes'), ['int'])),
+                                    ('send_request_failures', (YLeaf(YType.uint64, 'send-request-failures'), ['int'])),
+                                    ('receive_response_successes', (YLeaf(YType.uint64, 'receive-response-successes'), ['int'])),
+                                    ('receive_response_failures', (YLeaf(YType.uint64, 'receive-response-failures'), ['int'])),
                                 ])
                                 self.send_request_successes = None
                                 self.send_request_failures = None
                                 self.receive_response_successes = None
                                 self.receive_response_failures = None
                                 self._segment_path = lambda: "aggregate-mobility"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateMobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
                         class AggregateAuthentication(Entity):
@@ -2103,14 +2119,14 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                    ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                    ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                    ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                    ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                    ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                    ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
                                 self.accepted_requests = None
@@ -2121,9 +2137,10 @@ class Subscriber(Entity):
                                 self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authentication"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthentication, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                         class AccountingStatsAll(Entity):
@@ -2194,6 +2211,7 @@ class Subscriber(Entity):
                                 self.mobility_statistics.parent = self
                                 self._children_name_map["mobility_statistics"] = "mobility-statistics"
                                 self._segment_path = lambda: "accounting-stats-all"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll, [], name, value)
@@ -2285,11 +2303,11 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight))])
                                     self._leafs = OrderedDict([
-                                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                                        ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
-                                        ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
-                                        ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
-                                        ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                        ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                                        ('started_sessions', (YLeaf(YType.uint64, 'started-sessions'), ['int'])),
+                                        ('stopped_sessions', (YLeaf(YType.uint64, 'stopped-sessions'), ['int'])),
+                                        ('policy_plane_errored_requests', (YLeaf(YType.uint64, 'policy-plane-errored-requests'), ['int'])),
+                                        ('policy_plane_unknown_requests', (YLeaf(YType.uint64, 'policy-plane-unknown-requests'), ['int'])),
                                     ])
                                     self.active_sessions = None
                                     self.started_sessions = None
@@ -2321,9 +2339,10 @@ class Subscriber(Entity):
                                     self.interim_inflight.parent = self
                                     self._children_name_map["interim_inflight"] = "interim-inflight"
                                     self._segment_path = lambda: "accounting-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
 
 
                                 class Start(Entity):
@@ -2389,12 +2408,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -2403,9 +2422,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "start"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Stop(Entity):
@@ -2471,12 +2491,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -2485,9 +2505,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "stop"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Interim(Entity):
@@ -2553,12 +2574,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -2567,9 +2588,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "interim"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class PassThrough(Entity):
@@ -2635,12 +2657,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -2649,9 +2671,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "pass-through"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Update(Entity):
@@ -2717,12 +2740,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -2731,9 +2754,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "update"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class InterimInflight(Entity):
@@ -2799,12 +2823,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
-                                            ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
-                                            ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
-                                            ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
-                                            ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
-                                            ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                            ('quota_exhausts', (YLeaf(YType.uint32, 'quota-exhausts'), ['int'])),
+                                            ('denied_requests', (YLeaf(YType.uint32, 'denied-requests'), ['int'])),
+                                            ('accepted_requests', (YLeaf(YType.uint32, 'accepted-requests'), ['int'])),
+                                            ('total_quota_of_requests', (YLeaf(YType.uint32, 'total-quota-of-requests'), ['int'])),
+                                            ('remaining_quota_of_requests', (YLeaf(YType.uint32, 'remaining-quota-of-requests'), ['int'])),
+                                            ('low_water_mark_quota_of_requests', (YLeaf(YType.uint32, 'low-water-mark-quota-of-requests'), ['int'])),
                                         ])
                                         self.quota_exhausts = None
                                         self.denied_requests = None
@@ -2813,9 +2837,10 @@ class Subscriber(Entity):
                                         self.remaining_quota_of_requests = None
                                         self.low_water_mark_quota_of_requests = None
                                         self._segment_path = lambda: "interim-inflight"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
                             class AuthenticationStatistics(Entity):
@@ -2895,14 +2920,14 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                        ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                        ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                        ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                        ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                        ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
                                     self.accepted_requests = None
@@ -2913,9 +2938,10 @@ class Subscriber(Entity):
                                     self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                             class AuthorizationStatistics(Entity):
@@ -2995,14 +3021,14 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                        ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                        ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                        ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                        ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                        ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
                                     self.accepted_requests = None
@@ -3013,9 +3039,10 @@ class Subscriber(Entity):
                                     self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                             class ChangeOfAuthorizationStatistics(Entity):
@@ -3149,16 +3176,16 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
                                     self._leafs = OrderedDict([
-                                        ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
-                                        ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
-                                        ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
-                                        ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
-                                        ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
-                                        ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
-                                        ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
-                                        ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
-                                        ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
-                                        ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                        ('unknown_account_cmd_resps', (YLeaf(YType.uint64, 'unknown-account-cmd-resps'), ['int'])),
+                                        ('unknown_service_cmd_resps', (YLeaf(YType.uint64, 'unknown-service-cmd-resps'), ['int'])),
+                                        ('unknown_cmd_resps', (YLeaf(YType.uint64, 'unknown-cmd-resps'), ['int'])),
+                                        ('attr_list_retrieve_failure_resps', (YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps'), ['int'])),
+                                        ('resp_send_failure', (YLeaf(YType.uint64, 'resp-send-failure'), ['int'])),
+                                        ('internal_err_resps', (YLeaf(YType.uint64, 'internal-err-resps'), ['int'])),
+                                        ('service_profile_push_failure_resps', (YLeaf(YType.uint64, 'service-profile-push-failure-resps'), ['int'])),
+                                        ('no_cmd_resps', (YLeaf(YType.uint64, 'no-cmd-resps'), ['int'])),
+                                        ('no_session_found_resps', (YLeaf(YType.uint64, 'no-session-found-resps'), ['int'])),
+                                        ('no_session_peer_resps', (YLeaf(YType.uint64, 'no-session-peer-resps'), ['int'])),
                                     ])
                                     self.unknown_account_cmd_resps = None
                                     self.unknown_service_cmd_resps = None
@@ -3203,9 +3230,10 @@ class Subscriber(Entity):
                                     self.service_multi.parent = self
                                     self._children_name_map["service_multi"] = "service-multi"
                                     self._segment_path = lambda: "change-of-authorization-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
 
 
                                 class AccountLogon(Entity):
@@ -3250,17 +3278,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class AccountLogoff(Entity):
@@ -3305,17 +3334,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logoff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class AccountUpdate(Entity):
@@ -3360,17 +3390,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-update"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SessionDisconnect(Entity):
@@ -3415,17 +3446,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "session-disconnect"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceLogon(Entity):
@@ -3470,17 +3502,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceLogoff(Entity):
@@ -3525,17 +3558,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logoff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceModify(Entity):
@@ -3580,17 +3614,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-modify"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class ServiceMulti(Entity):
@@ -3635,17 +3670,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "service-multi"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class MobilityStatistics(Entity):
@@ -3697,19 +3733,20 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
-                                        ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
-                                        ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
-                                        ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                        ('send_request_successes', (YLeaf(YType.uint64, 'send-request-successes'), ['int'])),
+                                        ('send_request_failures', (YLeaf(YType.uint64, 'send-request-failures'), ['int'])),
+                                        ('receive_response_successes', (YLeaf(YType.uint64, 'receive-response-successes'), ['int'])),
+                                        ('receive_response_failures', (YLeaf(YType.uint64, 'receive-response-failures'), ['int'])),
                                     ])
                                     self.send_request_successes = None
                                     self.send_request_failures = None
                                     self.receive_response_successes = None
                                     self.receive_response_failures = None
                                     self._segment_path = lambda: "mobility-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
                         class ChangeOfAuthorization(Entity):
@@ -3843,16 +3880,16 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti))])
                                 self._leafs = OrderedDict([
-                                    ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
-                                    ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
-                                    ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
-                                    ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
-                                    ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
-                                    ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
-                                    ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
-                                    ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
-                                    ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
-                                    ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                    ('unknown_account_cmd_resps', (YLeaf(YType.uint64, 'unknown-account-cmd-resps'), ['int'])),
+                                    ('unknown_service_cmd_resps', (YLeaf(YType.uint64, 'unknown-service-cmd-resps'), ['int'])),
+                                    ('unknown_cmd_resps', (YLeaf(YType.uint64, 'unknown-cmd-resps'), ['int'])),
+                                    ('attr_list_retrieve_failure_resps', (YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps'), ['int'])),
+                                    ('resp_send_failure', (YLeaf(YType.uint64, 'resp-send-failure'), ['int'])),
+                                    ('internal_err_resps', (YLeaf(YType.uint64, 'internal-err-resps'), ['int'])),
+                                    ('service_profile_push_failure_resps', (YLeaf(YType.uint64, 'service-profile-push-failure-resps'), ['int'])),
+                                    ('no_cmd_resps', (YLeaf(YType.uint64, 'no-cmd-resps'), ['int'])),
+                                    ('no_session_found_resps', (YLeaf(YType.uint64, 'no-session-found-resps'), ['int'])),
+                                    ('no_session_peer_resps', (YLeaf(YType.uint64, 'no-session-peer-resps'), ['int'])),
                                 ])
                                 self.unknown_account_cmd_resps = None
                                 self.unknown_service_cmd_resps = None
@@ -3897,9 +3934,10 @@ class Subscriber(Entity):
                                 self.service_multi.parent = self
                                 self._children_name_map["service_multi"] = "service-multi"
                                 self._segment_path = lambda: "change-of-authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
 
 
                             class AccountLogon(Entity):
@@ -3944,17 +3982,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logon"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class AccountLogoff(Entity):
@@ -3999,17 +4038,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logoff"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class AccountUpdate(Entity):
@@ -4054,17 +4094,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-update"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SessionDisconnect(Entity):
@@ -4109,17 +4150,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "session-disconnect"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceLogon(Entity):
@@ -4164,17 +4206,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logon"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceLogoff(Entity):
@@ -4219,17 +4262,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logoff"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceModify(Entity):
@@ -4274,17 +4318,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-modify"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class ServiceMulti(Entity):
@@ -4329,17 +4374,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "service-multi"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.ChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                         class Authorization(Entity):
@@ -4419,14 +4465,14 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                    ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                    ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                    ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                    ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                    ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                    ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
                                 self.accepted_requests = None
@@ -4437,9 +4483,10 @@ class Subscriber(Entity):
                                 self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Authorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                         class AggregateAuthorization(Entity):
@@ -4519,14 +4566,14 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                    ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                    ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                    ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                    ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                    ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                    ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                    ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                    ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                    ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                    ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                    ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                    ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                    ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                    ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                    ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                 ])
                                 self.sent_requests = None
                                 self.accepted_requests = None
@@ -4537,9 +4584,10 @@ class Subscriber(Entity):
                                 self.incomplete_requests = None
                                 self.terminated_requests = None
                                 self._segment_path = lambda: "aggregate-authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAuthorization, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                         class AggregateAccountingStatsAll(Entity):
@@ -4610,6 +4658,7 @@ class Subscriber(Entity):
                                 self.mobility_statistics.parent = self
                                 self._children_name_map["mobility_statistics"] = "mobility-statistics"
                                 self._segment_path = lambda: "aggregate-accounting-stats-all"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll, [], name, value)
@@ -4701,11 +4750,11 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight))])
                                     self._leafs = OrderedDict([
-                                        ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                                        ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
-                                        ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
-                                        ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
-                                        ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                        ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                                        ('started_sessions', (YLeaf(YType.uint64, 'started-sessions'), ['int'])),
+                                        ('stopped_sessions', (YLeaf(YType.uint64, 'stopped-sessions'), ['int'])),
+                                        ('policy_plane_errored_requests', (YLeaf(YType.uint64, 'policy-plane-errored-requests'), ['int'])),
+                                        ('policy_plane_unknown_requests', (YLeaf(YType.uint64, 'policy-plane-unknown-requests'), ['int'])),
                                     ])
                                     self.active_sessions = None
                                     self.started_sessions = None
@@ -4737,9 +4786,10 @@ class Subscriber(Entity):
                                     self.interim_inflight.parent = self
                                     self._children_name_map["interim_inflight"] = "interim-inflight"
                                     self._segment_path = lambda: "accounting-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
 
 
                                 class Start(Entity):
@@ -4805,12 +4855,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -4819,9 +4869,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "start"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Stop(Entity):
@@ -4887,12 +4938,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -4901,9 +4952,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "stop"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Interim(Entity):
@@ -4969,12 +5021,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -4983,9 +5035,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "interim"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class PassThrough(Entity):
@@ -5051,12 +5104,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -5065,9 +5118,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "pass-through"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class Update(Entity):
@@ -5133,12 +5187,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                            ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                            ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                            ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                            ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                            ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                            ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                            ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                            ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.errored_requests = None
@@ -5147,9 +5201,10 @@ class Subscriber(Entity):
                                         self.aaa_succeeded_responses = None
                                         self.aaa_failed_responses = None
                                         self._segment_path = lambda: "update"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                                 class InterimInflight(Entity):
@@ -5215,12 +5270,12 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
-                                            ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
-                                            ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
-                                            ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
-                                            ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
-                                            ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                            ('quota_exhausts', (YLeaf(YType.uint32, 'quota-exhausts'), ['int'])),
+                                            ('denied_requests', (YLeaf(YType.uint32, 'denied-requests'), ['int'])),
+                                            ('accepted_requests', (YLeaf(YType.uint32, 'accepted-requests'), ['int'])),
+                                            ('total_quota_of_requests', (YLeaf(YType.uint32, 'total-quota-of-requests'), ['int'])),
+                                            ('remaining_quota_of_requests', (YLeaf(YType.uint32, 'remaining-quota-of-requests'), ['int'])),
+                                            ('low_water_mark_quota_of_requests', (YLeaf(YType.uint32, 'low-water-mark-quota-of-requests'), ['int'])),
                                         ])
                                         self.quota_exhausts = None
                                         self.denied_requests = None
@@ -5229,9 +5284,10 @@ class Subscriber(Entity):
                                         self.remaining_quota_of_requests = None
                                         self.low_water_mark_quota_of_requests = None
                                         self._segment_path = lambda: "interim-inflight"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AccountingStatistics.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
                             class AuthenticationStatistics(Entity):
@@ -5311,14 +5367,14 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                        ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                        ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                        ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                        ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                        ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
                                     self.accepted_requests = None
@@ -5329,9 +5385,10 @@ class Subscriber(Entity):
                                     self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authentication-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthenticationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                             class AuthorizationStatistics(Entity):
@@ -5411,14 +5468,14 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sent_requests', YLeaf(YType.uint64, 'sent-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint64, 'accepted-requests')),
-                                        ('successful_requests', YLeaf(YType.uint64, 'successful-requests')),
-                                        ('rejected_requests', YLeaf(YType.uint64, 'rejected-requests')),
-                                        ('unreachable_requests', YLeaf(YType.uint64, 'unreachable-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('incomplete_requests', YLeaf(YType.uint64, 'incomplete-requests')),
-                                        ('terminated_requests', YLeaf(YType.uint64, 'terminated-requests')),
+                                        ('sent_requests', (YLeaf(YType.uint64, 'sent-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint64, 'accepted-requests'), ['int'])),
+                                        ('successful_requests', (YLeaf(YType.uint64, 'successful-requests'), ['int'])),
+                                        ('rejected_requests', (YLeaf(YType.uint64, 'rejected-requests'), ['int'])),
+                                        ('unreachable_requests', (YLeaf(YType.uint64, 'unreachable-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('incomplete_requests', (YLeaf(YType.uint64, 'incomplete-requests'), ['int'])),
+                                        ('terminated_requests', (YLeaf(YType.uint64, 'terminated-requests'), ['int'])),
                                     ])
                                     self.sent_requests = None
                                     self.accepted_requests = None
@@ -5429,9 +5486,10 @@ class Subscriber(Entity):
                                     self.incomplete_requests = None
                                     self.terminated_requests = None
                                     self._segment_path = lambda: "authorization-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, ['sent_requests', 'accepted_requests', 'successful_requests', 'rejected_requests', 'unreachable_requests', 'errored_requests', 'incomplete_requests', 'terminated_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.AuthorizationStatistics, [u'sent_requests', u'accepted_requests', u'successful_requests', u'rejected_requests', u'unreachable_requests', u'errored_requests', u'incomplete_requests', u'terminated_requests'], name, value)
 
 
                             class ChangeOfAuthorizationStatistics(Entity):
@@ -5565,16 +5623,16 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti))])
                                     self._leafs = OrderedDict([
-                                        ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
-                                        ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
-                                        ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
-                                        ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
-                                        ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
-                                        ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
-                                        ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
-                                        ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
-                                        ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
-                                        ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                        ('unknown_account_cmd_resps', (YLeaf(YType.uint64, 'unknown-account-cmd-resps'), ['int'])),
+                                        ('unknown_service_cmd_resps', (YLeaf(YType.uint64, 'unknown-service-cmd-resps'), ['int'])),
+                                        ('unknown_cmd_resps', (YLeaf(YType.uint64, 'unknown-cmd-resps'), ['int'])),
+                                        ('attr_list_retrieve_failure_resps', (YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps'), ['int'])),
+                                        ('resp_send_failure', (YLeaf(YType.uint64, 'resp-send-failure'), ['int'])),
+                                        ('internal_err_resps', (YLeaf(YType.uint64, 'internal-err-resps'), ['int'])),
+                                        ('service_profile_push_failure_resps', (YLeaf(YType.uint64, 'service-profile-push-failure-resps'), ['int'])),
+                                        ('no_cmd_resps', (YLeaf(YType.uint64, 'no-cmd-resps'), ['int'])),
+                                        ('no_session_found_resps', (YLeaf(YType.uint64, 'no-session-found-resps'), ['int'])),
+                                        ('no_session_peer_resps', (YLeaf(YType.uint64, 'no-session-peer-resps'), ['int'])),
                                     ])
                                     self.unknown_account_cmd_resps = None
                                     self.unknown_service_cmd_resps = None
@@ -5619,9 +5677,10 @@ class Subscriber(Entity):
                                     self.service_multi.parent = self
                                     self._children_name_map["service_multi"] = "service-multi"
                                     self._segment_path = lambda: "change-of-authorization-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
 
 
                                 class AccountLogon(Entity):
@@ -5666,17 +5725,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class AccountLogoff(Entity):
@@ -5721,17 +5781,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-logoff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class AccountUpdate(Entity):
@@ -5776,17 +5837,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "account-update"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SessionDisconnect(Entity):
@@ -5831,17 +5893,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "session-disconnect"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceLogon(Entity):
@@ -5886,17 +5949,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceLogoff(Entity):
@@ -5941,17 +6005,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-logoff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class SingleServiceModify(Entity):
@@ -5996,17 +6061,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "single-service-modify"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                                 class ServiceMulti(Entity):
@@ -6051,17 +6117,18 @@ class Subscriber(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                            ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                            ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                            ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                            ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                            ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                         ])
                                         self.received_requests = None
                                         self.acknowledged_requests = None
                                         self.non_acknowledged_requests = None
                                         self._segment_path = lambda: "service-multi"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                        self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.ChangeOfAuthorizationStatistics.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class MobilityStatistics(Entity):
@@ -6113,19 +6180,20 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
-                                        ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
-                                        ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
-                                        ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                        ('send_request_successes', (YLeaf(YType.uint64, 'send-request-successes'), ['int'])),
+                                        ('send_request_failures', (YLeaf(YType.uint64, 'send-request-failures'), ['int'])),
+                                        ('receive_response_successes', (YLeaf(YType.uint64, 'receive-response-successes'), ['int'])),
+                                        ('receive_response_failures', (YLeaf(YType.uint64, 'receive-response-failures'), ['int'])),
                                     ])
                                     self.send_request_successes = None
                                     self.send_request_failures = None
                                     self.receive_response_successes = None
                                     self.receive_response_failures = None
                                     self._segment_path = lambda: "mobility-statistics"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateAccountingStatsAll.MobilityStatistics, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
                         class Accounting(Entity):
@@ -6214,11 +6282,11 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("start", ("start", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start)), ("stop", ("stop", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop)), ("interim", ("interim", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim)), ("pass-through", ("pass_through", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough)), ("update", ("update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update)), ("interim-inflight", ("interim_inflight", Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight))])
                                 self._leafs = OrderedDict([
-                                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                                    ('started_sessions', YLeaf(YType.uint64, 'started-sessions')),
-                                    ('stopped_sessions', YLeaf(YType.uint64, 'stopped-sessions')),
-                                    ('policy_plane_errored_requests', YLeaf(YType.uint64, 'policy-plane-errored-requests')),
-                                    ('policy_plane_unknown_requests', YLeaf(YType.uint64, 'policy-plane-unknown-requests')),
+                                    ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                                    ('started_sessions', (YLeaf(YType.uint64, 'started-sessions'), ['int'])),
+                                    ('stopped_sessions', (YLeaf(YType.uint64, 'stopped-sessions'), ['int'])),
+                                    ('policy_plane_errored_requests', (YLeaf(YType.uint64, 'policy-plane-errored-requests'), ['int'])),
+                                    ('policy_plane_unknown_requests', (YLeaf(YType.uint64, 'policy-plane-unknown-requests'), ['int'])),
                                 ])
                                 self.active_sessions = None
                                 self.started_sessions = None
@@ -6250,9 +6318,10 @@ class Subscriber(Entity):
                                 self.interim_inflight.parent = self
                                 self._children_name_map["interim_inflight"] = "interim-inflight"
                                 self._segment_path = lambda: "accounting"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, ['active_sessions', 'started_sessions', 'stopped_sessions', 'policy_plane_errored_requests', 'policy_plane_unknown_requests'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting, [u'active_sessions', u'started_sessions', u'stopped_sessions', u'policy_plane_errored_requests', u'policy_plane_unknown_requests'], name, value)
 
 
                             class Start(Entity):
@@ -6318,12 +6387,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -6332,9 +6401,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "start"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Start, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Stop(Entity):
@@ -6400,12 +6470,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -6414,9 +6484,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "stop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Stop, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Interim(Entity):
@@ -6482,12 +6553,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -6496,9 +6567,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "interim"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Interim, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class PassThrough(Entity):
@@ -6564,12 +6636,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -6578,9 +6650,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "pass-through"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.PassThrough, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class Update(Entity):
@@ -6646,12 +6719,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('errored_requests', YLeaf(YType.uint64, 'errored-requests')),
-                                        ('aaa_errored_requests', YLeaf(YType.uint64, 'aaa-errored-requests')),
-                                        ('aaa_sent_requests', YLeaf(YType.uint64, 'aaa-sent-requests')),
-                                        ('aaa_succeeded_responses', YLeaf(YType.uint64, 'aaa-succeeded-responses')),
-                                        ('aaa_failed_responses', YLeaf(YType.uint64, 'aaa-failed-responses')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('errored_requests', (YLeaf(YType.uint64, 'errored-requests'), ['int'])),
+                                        ('aaa_errored_requests', (YLeaf(YType.uint64, 'aaa-errored-requests'), ['int'])),
+                                        ('aaa_sent_requests', (YLeaf(YType.uint64, 'aaa-sent-requests'), ['int'])),
+                                        ('aaa_succeeded_responses', (YLeaf(YType.uint64, 'aaa-succeeded-responses'), ['int'])),
+                                        ('aaa_failed_responses', (YLeaf(YType.uint64, 'aaa-failed-responses'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.errored_requests = None
@@ -6660,9 +6733,10 @@ class Subscriber(Entity):
                                     self.aaa_succeeded_responses = None
                                     self.aaa_failed_responses = None
                                     self._segment_path = lambda: "update"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, ['received_requests', 'errored_requests', 'aaa_errored_requests', 'aaa_sent_requests', 'aaa_succeeded_responses', 'aaa_failed_responses'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.Update, [u'received_requests', u'errored_requests', u'aaa_errored_requests', u'aaa_sent_requests', u'aaa_succeeded_responses', u'aaa_failed_responses'], name, value)
 
 
                             class InterimInflight(Entity):
@@ -6728,12 +6802,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('quota_exhausts', YLeaf(YType.uint32, 'quota-exhausts')),
-                                        ('denied_requests', YLeaf(YType.uint32, 'denied-requests')),
-                                        ('accepted_requests', YLeaf(YType.uint32, 'accepted-requests')),
-                                        ('total_quota_of_requests', YLeaf(YType.uint32, 'total-quota-of-requests')),
-                                        ('remaining_quota_of_requests', YLeaf(YType.uint32, 'remaining-quota-of-requests')),
-                                        ('low_water_mark_quota_of_requests', YLeaf(YType.uint32, 'low-water-mark-quota-of-requests')),
+                                        ('quota_exhausts', (YLeaf(YType.uint32, 'quota-exhausts'), ['int'])),
+                                        ('denied_requests', (YLeaf(YType.uint32, 'denied-requests'), ['int'])),
+                                        ('accepted_requests', (YLeaf(YType.uint32, 'accepted-requests'), ['int'])),
+                                        ('total_quota_of_requests', (YLeaf(YType.uint32, 'total-quota-of-requests'), ['int'])),
+                                        ('remaining_quota_of_requests', (YLeaf(YType.uint32, 'remaining-quota-of-requests'), ['int'])),
+                                        ('low_water_mark_quota_of_requests', (YLeaf(YType.uint32, 'low-water-mark-quota-of-requests'), ['int'])),
                                     ])
                                     self.quota_exhausts = None
                                     self.denied_requests = None
@@ -6742,9 +6816,10 @@ class Subscriber(Entity):
                                     self.remaining_quota_of_requests = None
                                     self.low_water_mark_quota_of_requests = None
                                     self._segment_path = lambda: "interim-inflight"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, ['quota_exhausts', 'denied_requests', 'accepted_requests', 'total_quota_of_requests', 'remaining_quota_of_requests', 'low_water_mark_quota_of_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Accounting.InterimInflight, [u'quota_exhausts', u'denied_requests', u'accepted_requests', u'total_quota_of_requests', u'remaining_quota_of_requests', u'low_water_mark_quota_of_requests'], name, value)
 
 
                         class Mobility(Entity):
@@ -6796,19 +6871,20 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('send_request_successes', YLeaf(YType.uint64, 'send-request-successes')),
-                                    ('send_request_failures', YLeaf(YType.uint64, 'send-request-failures')),
-                                    ('receive_response_successes', YLeaf(YType.uint64, 'receive-response-successes')),
-                                    ('receive_response_failures', YLeaf(YType.uint64, 'receive-response-failures')),
+                                    ('send_request_successes', (YLeaf(YType.uint64, 'send-request-successes'), ['int'])),
+                                    ('send_request_failures', (YLeaf(YType.uint64, 'send-request-failures'), ['int'])),
+                                    ('receive_response_successes', (YLeaf(YType.uint64, 'receive-response-successes'), ['int'])),
+                                    ('receive_response_failures', (YLeaf(YType.uint64, 'receive-response-failures'), ['int'])),
                                 ])
                                 self.send_request_successes = None
                                 self.send_request_failures = None
                                 self.receive_response_successes = None
                                 self.receive_response_failures = None
                                 self._segment_path = lambda: "mobility"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, ['send_request_successes', 'send_request_failures', 'receive_response_successes', 'receive_response_failures'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.Mobility, [u'send_request_successes', u'send_request_failures', u'receive_response_successes', u'receive_response_failures'], name, value)
 
 
                         class AggregateChangeOfAuthorization(Entity):
@@ -6943,16 +7019,16 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("account-logon", ("account_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon)), ("account-logoff", ("account_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff)), ("account-update", ("account_update", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate)), ("session-disconnect", ("session_disconnect", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect)), ("single-service-logon", ("single_service_logon", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon)), ("single-service-logoff", ("single_service_logoff", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff)), ("single-service-modify", ("single_service_modify", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify)), ("service-multi", ("service_multi", Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti))])
                                 self._leafs = OrderedDict([
-                                    ('unknown_account_cmd_resps', YLeaf(YType.uint64, 'unknown-account-cmd-resps')),
-                                    ('unknown_service_cmd_resps', YLeaf(YType.uint64, 'unknown-service-cmd-resps')),
-                                    ('unknown_cmd_resps', YLeaf(YType.uint64, 'unknown-cmd-resps')),
-                                    ('attr_list_retrieve_failure_resps', YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps')),
-                                    ('resp_send_failure', YLeaf(YType.uint64, 'resp-send-failure')),
-                                    ('internal_err_resps', YLeaf(YType.uint64, 'internal-err-resps')),
-                                    ('service_profile_push_failure_resps', YLeaf(YType.uint64, 'service-profile-push-failure-resps')),
-                                    ('no_cmd_resps', YLeaf(YType.uint64, 'no-cmd-resps')),
-                                    ('no_session_found_resps', YLeaf(YType.uint64, 'no-session-found-resps')),
-                                    ('no_session_peer_resps', YLeaf(YType.uint64, 'no-session-peer-resps')),
+                                    ('unknown_account_cmd_resps', (YLeaf(YType.uint64, 'unknown-account-cmd-resps'), ['int'])),
+                                    ('unknown_service_cmd_resps', (YLeaf(YType.uint64, 'unknown-service-cmd-resps'), ['int'])),
+                                    ('unknown_cmd_resps', (YLeaf(YType.uint64, 'unknown-cmd-resps'), ['int'])),
+                                    ('attr_list_retrieve_failure_resps', (YLeaf(YType.uint64, 'attr-list-retrieve-failure-resps'), ['int'])),
+                                    ('resp_send_failure', (YLeaf(YType.uint64, 'resp-send-failure'), ['int'])),
+                                    ('internal_err_resps', (YLeaf(YType.uint64, 'internal-err-resps'), ['int'])),
+                                    ('service_profile_push_failure_resps', (YLeaf(YType.uint64, 'service-profile-push-failure-resps'), ['int'])),
+                                    ('no_cmd_resps', (YLeaf(YType.uint64, 'no-cmd-resps'), ['int'])),
+                                    ('no_session_found_resps', (YLeaf(YType.uint64, 'no-session-found-resps'), ['int'])),
+                                    ('no_session_peer_resps', (YLeaf(YType.uint64, 'no-session-peer-resps'), ['int'])),
                                 ])
                                 self.unknown_account_cmd_resps = None
                                 self.unknown_service_cmd_resps = None
@@ -6997,9 +7073,10 @@ class Subscriber(Entity):
                                 self.service_multi.parent = self
                                 self._children_name_map["service_multi"] = "service-multi"
                                 self._segment_path = lambda: "aggregate-change-of-authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, ['unknown_account_cmd_resps', 'unknown_service_cmd_resps', 'unknown_cmd_resps', 'attr_list_retrieve_failure_resps', 'resp_send_failure', 'internal_err_resps', 'service_profile_push_failure_resps', 'no_cmd_resps', 'no_session_found_resps', 'no_session_peer_resps'], name, value)
+                                self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization, [u'unknown_account_cmd_resps', u'unknown_service_cmd_resps', u'unknown_cmd_resps', u'attr_list_retrieve_failure_resps', u'resp_send_failure', u'internal_err_resps', u'service_profile_push_failure_resps', u'no_cmd_resps', u'no_session_found_resps', u'no_session_peer_resps'], name, value)
 
 
                             class AccountLogon(Entity):
@@ -7044,17 +7121,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logon"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class AccountLogoff(Entity):
@@ -7099,17 +7177,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-logoff"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class AccountUpdate(Entity):
@@ -7154,17 +7233,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "account-update"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.AccountUpdate, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SessionDisconnect(Entity):
@@ -7209,17 +7289,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "session-disconnect"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SessionDisconnect, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceLogon(Entity):
@@ -7264,17 +7345,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logon"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogon, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceLogoff(Entity):
@@ -7319,17 +7401,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-logoff"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceLogoff, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class SingleServiceModify(Entity):
@@ -7374,17 +7457,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "single-service-modify"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.SingleServiceModify, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                             class ServiceMulti(Entity):
@@ -7429,17 +7513,18 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_requests', YLeaf(YType.uint64, 'received-requests')),
-                                        ('acknowledged_requests', YLeaf(YType.uint64, 'acknowledged-requests')),
-                                        ('non_acknowledged_requests', YLeaf(YType.uint64, 'non-acknowledged-requests')),
+                                        ('received_requests', (YLeaf(YType.uint64, 'received-requests'), ['int'])),
+                                        ('acknowledged_requests', (YLeaf(YType.uint64, 'acknowledged-requests'), ['int'])),
+                                        ('non_acknowledged_requests', (YLeaf(YType.uint64, 'non-acknowledged-requests'), ['int'])),
                                     ])
                                     self.received_requests = None
                                     self.acknowledged_requests = None
                                     self.non_acknowledged_requests = None
                                     self._segment_path = lambda: "service-multi"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, ['received_requests', 'acknowledged_requests', 'non_acknowledged_requests'], name, value)
+                                    self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Aaa.AggregateChangeOfAuthorization.ServiceMulti, [u'received_requests', u'acknowledged_requests', u'non_acknowledged_requests'], name, value)
 
 
                     class AggregateSummary(Entity):
@@ -7596,25 +7681,25 @@ class Subscriber(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('no_subscriber_control_policy_on_interface', YLeaf(YType.uint64, 'no-subscriber-control-policy-on-interface')),
-                                ('no_class_match_in_start_request', YLeaf(YType.uint64, 'no-class-match-in-start-request')),
-                                ('nas_port_attribute_format_warnings', YLeaf(YType.uint64, 'nas-port-attribute-format-warnings')),
-                                ('nas_port_id_attribute_format_warnings', YLeaf(YType.uint64, 'nas-port-id-attribute-format-warnings')),
-                                ('destination_station_id_attribute_format_warnings', YLeaf(YType.uint64, 'destination-station-id-attribute-format-warnings')),
-                                ('calling_station_id_attribute_format_warnings', YLeaf(YType.uint64, 'calling-station-id-attribute-format-warnings')),
-                                ('username_attribute_format_warnings', YLeaf(YType.uint64, 'username-attribute-format-warnings')),
-                                ('install_user_profiles', YLeaf(YType.uint64, 'install-user-profiles')),
-                                ('user_profile_install_errors', YLeaf(YType.uint64, 'user-profile-install-errors')),
-                                ('user_profile_removals', YLeaf(YType.uint64, 'user-profile-removals')),
-                                ('user_profile_errors', YLeaf(YType.uint64, 'user-profile-errors')),
-                                ('sess_disc_quota_exhausts', YLeaf(YType.uint64, 'sess-disc-quota-exhausts')),
-                                ('sess_disc_no_quota', YLeaf(YType.uint64, 'sess-disc-no-quota')),
-                                ('sess_disc_quota_avail', YLeaf(YType.uint64, 'sess-disc-quota-avail')),
-                                ('sess_disc_recon_ip', YLeaf(YType.uint64, 'sess-disc-recon-ip')),
-                                ('sess_disc_none_started', YLeaf(YType.uint64, 'sess-disc-none-started')),
-                                ('sess_disc_quota', YLeaf(YType.uint32, 'sess-disc-quota')),
-                                ('sess_disc_quota_remaining', YLeaf(YType.uint32, 'sess-disc-quota-remaining')),
-                                ('sess_disc_q_count', YLeaf(YType.uint32, 'sess-disc-q-count')),
+                                ('no_subscriber_control_policy_on_interface', (YLeaf(YType.uint64, 'no-subscriber-control-policy-on-interface'), ['int'])),
+                                ('no_class_match_in_start_request', (YLeaf(YType.uint64, 'no-class-match-in-start-request'), ['int'])),
+                                ('nas_port_attribute_format_warnings', (YLeaf(YType.uint64, 'nas-port-attribute-format-warnings'), ['int'])),
+                                ('nas_port_id_attribute_format_warnings', (YLeaf(YType.uint64, 'nas-port-id-attribute-format-warnings'), ['int'])),
+                                ('destination_station_id_attribute_format_warnings', (YLeaf(YType.uint64, 'destination-station-id-attribute-format-warnings'), ['int'])),
+                                ('calling_station_id_attribute_format_warnings', (YLeaf(YType.uint64, 'calling-station-id-attribute-format-warnings'), ['int'])),
+                                ('username_attribute_format_warnings', (YLeaf(YType.uint64, 'username-attribute-format-warnings'), ['int'])),
+                                ('install_user_profiles', (YLeaf(YType.uint64, 'install-user-profiles'), ['int'])),
+                                ('user_profile_install_errors', (YLeaf(YType.uint64, 'user-profile-install-errors'), ['int'])),
+                                ('user_profile_removals', (YLeaf(YType.uint64, 'user-profile-removals'), ['int'])),
+                                ('user_profile_errors', (YLeaf(YType.uint64, 'user-profile-errors'), ['int'])),
+                                ('sess_disc_quota_exhausts', (YLeaf(YType.uint64, 'sess-disc-quota-exhausts'), ['int'])),
+                                ('sess_disc_no_quota', (YLeaf(YType.uint64, 'sess-disc-no-quota'), ['int'])),
+                                ('sess_disc_quota_avail', (YLeaf(YType.uint64, 'sess-disc-quota-avail'), ['int'])),
+                                ('sess_disc_recon_ip', (YLeaf(YType.uint64, 'sess-disc-recon-ip'), ['int'])),
+                                ('sess_disc_none_started', (YLeaf(YType.uint64, 'sess-disc-none-started'), ['int'])),
+                                ('sess_disc_quota', (YLeaf(YType.uint32, 'sess-disc-quota'), ['int'])),
+                                ('sess_disc_quota_remaining', (YLeaf(YType.uint32, 'sess-disc-quota-remaining'), ['int'])),
+                                ('sess_disc_q_count', (YLeaf(YType.uint32, 'sess-disc-q-count'), ['int'])),
                             ])
                             self.no_subscriber_control_policy_on_interface = None
                             self.no_class_match_in_start_request = None
@@ -7636,9 +7721,10 @@ class Subscriber(Entity):
                             self.sess_disc_quota_remaining = None
                             self.sess_disc_q_count = None
                             self._segment_path = lambda: "aggregate-summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, ['no_subscriber_control_policy_on_interface', 'no_class_match_in_start_request', 'nas_port_attribute_format_warnings', 'nas_port_id_attribute_format_warnings', 'destination_station_id_attribute_format_warnings', 'calling_station_id_attribute_format_warnings', 'username_attribute_format_warnings', 'install_user_profiles', 'user_profile_install_errors', 'user_profile_removals', 'user_profile_errors', 'sess_disc_quota_exhausts', 'sess_disc_no_quota', 'sess_disc_quota_avail', 'sess_disc_recon_ip', 'sess_disc_none_started', 'sess_disc_quota', 'sess_disc_quota_remaining', 'sess_disc_q_count'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.AggregateSummary, [u'no_subscriber_control_policy_on_interface', u'no_class_match_in_start_request', u'nas_port_attribute_format_warnings', u'nas_port_id_attribute_format_warnings', u'destination_station_id_attribute_format_warnings', u'calling_station_id_attribute_format_warnings', u'username_attribute_format_warnings', u'install_user_profiles', u'user_profile_install_errors', u'user_profile_removals', u'user_profile_errors', u'sess_disc_quota_exhausts', u'sess_disc_no_quota', u'sess_disc_quota_avail', u'sess_disc_recon_ip', u'sess_disc_none_started', u'sess_disc_quota', u'sess_disc_quota_remaining', u'sess_disc_q_count'], name, value)
 
 
                     class Srg(Entity):
@@ -7979,6 +8065,13 @@ class Subscriber(Entity):
                         
                         	**range:** 0..4294967295
                         
+                        .. attribute:: total_master_eoms_pending_cleared
+                        
+                        	Total No of times Master EOMS Pending Cleared
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         .. attribute:: last_pause_period
                         
                         	Amount of time paused during last flow control window
@@ -8024,58 +8117,59 @@ class Subscriber(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('txlist_send_triggered', YLeaf(YType.uint32, 'txlist-send-triggered')),
-                                ('txlist_send_failed', YLeaf(YType.uint32, 'txlist-send-failed')),
-                                ('txlist_send_failed_notactive', YLeaf(YType.uint32, 'txlist-send-failed-notactive')),
-                                ('actual_txlist_sent', YLeaf(YType.uint32, 'actual-txlist-sent')),
-                                ('alreadyin_txlist', YLeaf(YType.uint32, 'alreadyin-txlist')),
-                                ('txlist_encode', YLeaf(YType.uint32, 'txlist-encode')),
-                                ('txlist_encode_fail', YLeaf(YType.uint32, 'txlist-encode-fail')),
-                                ('create_update_encode', YLeaf(YType.uint32, 'create-update-encode')),
-                                ('delete_encode', YLeaf(YType.uint32, 'delete-encode')),
-                                ('create_upd_clean_callback', YLeaf(YType.uint32, 'create-upd-clean-callback')),
-                                ('delete_clean_callback', YLeaf(YType.uint32, 'delete-clean-callback')),
-                                ('slave_recv_entry', YLeaf(YType.uint32, 'slave-recv-entry')),
-                                ('slave_decode_fail', YLeaf(YType.uint32, 'slave-decode-fail')),
-                                ('slave_create_update', YLeaf(YType.uint32, 'slave-create-update')),
-                                ('slave_delete', YLeaf(YType.uint32, 'slave-delete')),
-                                ('srg_context_malloc', YLeaf(YType.uint32, 'srg-context-malloc')),
-                                ('srg_context_free', YLeaf(YType.uint32, 'srg-context-free')),
-                                ('sod_count', YLeaf(YType.uint32, 'sod-count')),
-                                ('eod_count', YLeaf(YType.uint32, 'eod-count')),
-                                ('sod_eod_replay_req_count', YLeaf(YType.uint32, 'sod-eod-replay-req-count')),
-                                ('sod_eod_dirty_mark_count', YLeaf(YType.uint32, 'sod-eod-dirty-mark-count')),
-                                ('sod_eod_dirty_delete_count', YLeaf(YType.uint32, 'sod-eod-dirty-delete-count')),
-                                ('ack_to_srg', YLeaf(YType.uint32, 'ack-to-srg')),
-                                ('nack_to_srg', YLeaf(YType.uint32, 'nack-to-srg')),
-                                ('nack_to_srg_fail_cnt', YLeaf(YType.uint32, 'nack-to-srg-fail-cnt')),
-                                ('txlist_remove_all', YLeaf(YType.uint32, 'txlist-remove-all')),
-                                ('txlist_del_sync', YLeaf(YType.uint32, 'txlist-del-sync')),
-                                ('txlist_del_sync_notlinked', YLeaf(YType.uint32, 'txlist-del-sync-notlinked')),
-                                ('txlist_del_app', YLeaf(YType.uint32, 'txlist-del-app')),
-                                ('txlist_del_app_notlinked', YLeaf(YType.uint32, 'txlist-del-app-notlinked')),
-                                ('txlist_clean_invalid_state', YLeaf(YType.uint32, 'txlist-clean-invalid-state')),
-                                ('txlist_remove_all_internal_error', YLeaf(YType.uint32, 'txlist-remove-all-internal-error')),
-                                ('is_srg_flow_control_enabled', YLeaf(YType.boolean, 'is-srg-flow-control-enabled')),
-                                ('max_inflight_sessoin_count', YLeaf(YType.uint32, 'max-inflight-sessoin-count')),
-                                ('flow_control_resume_threshold', YLeaf(YType.uint32, 'flow-control-resume-threshold')),
-                                ('inflight_session_count', YLeaf(YType.uint32, 'inflight-session-count')),
-                                ('inflight_add_count', YLeaf(YType.uint32, 'inflight-add-count')),
-                                ('inflight_under_run_count', YLeaf(YType.uint32, 'inflight-under-run-count')),
-                                ('inflight_alloc_fails', YLeaf(YType.uint32, 'inflight-alloc-fails')),
-                                ('inflight_insert_failures', YLeaf(YType.uint32, 'inflight-insert-failures')),
-                                ('inflight_deletes', YLeaf(YType.uint32, 'inflight-deletes')),
-                                ('inflight_not_found', YLeaf(YType.uint32, 'inflight-not-found')),
-                                ('inflight_delete_failures', YLeaf(YType.uint32, 'inflight-delete-failures')),
-                                ('total_pause_count', YLeaf(YType.uint32, 'total-pause-count')),
-                                ('total_resume_count', YLeaf(YType.uint32, 'total-resume-count')),
-                                ('total_dont_send_to_txlist', YLeaf(YType.uint32, 'total-dont-send-to-txlist')),
-                                ('total_srg_not_master', YLeaf(YType.uint32, 'total-srg-not-master')),
-                                ('total_master_eoms_pending', YLeaf(YType.uint32, 'total-master-eoms-pending')),
-                                ('last_pause_period', YLeaf(YType.uint64, 'last-pause-period')),
-                                ('total_pause_time', YLeaf(YType.uint64, 'total-pause-time')),
-                                ('last_pause_time', YLeaf(YType.uint64, 'last-pause-time')),
-                                ('last_resume_time', YLeaf(YType.uint64, 'last-resume-time')),
+                                ('txlist_send_triggered', (YLeaf(YType.uint32, 'txlist-send-triggered'), ['int'])),
+                                ('txlist_send_failed', (YLeaf(YType.uint32, 'txlist-send-failed'), ['int'])),
+                                ('txlist_send_failed_notactive', (YLeaf(YType.uint32, 'txlist-send-failed-notactive'), ['int'])),
+                                ('actual_txlist_sent', (YLeaf(YType.uint32, 'actual-txlist-sent'), ['int'])),
+                                ('alreadyin_txlist', (YLeaf(YType.uint32, 'alreadyin-txlist'), ['int'])),
+                                ('txlist_encode', (YLeaf(YType.uint32, 'txlist-encode'), ['int'])),
+                                ('txlist_encode_fail', (YLeaf(YType.uint32, 'txlist-encode-fail'), ['int'])),
+                                ('create_update_encode', (YLeaf(YType.uint32, 'create-update-encode'), ['int'])),
+                                ('delete_encode', (YLeaf(YType.uint32, 'delete-encode'), ['int'])),
+                                ('create_upd_clean_callback', (YLeaf(YType.uint32, 'create-upd-clean-callback'), ['int'])),
+                                ('delete_clean_callback', (YLeaf(YType.uint32, 'delete-clean-callback'), ['int'])),
+                                ('slave_recv_entry', (YLeaf(YType.uint32, 'slave-recv-entry'), ['int'])),
+                                ('slave_decode_fail', (YLeaf(YType.uint32, 'slave-decode-fail'), ['int'])),
+                                ('slave_create_update', (YLeaf(YType.uint32, 'slave-create-update'), ['int'])),
+                                ('slave_delete', (YLeaf(YType.uint32, 'slave-delete'), ['int'])),
+                                ('srg_context_malloc', (YLeaf(YType.uint32, 'srg-context-malloc'), ['int'])),
+                                ('srg_context_free', (YLeaf(YType.uint32, 'srg-context-free'), ['int'])),
+                                ('sod_count', (YLeaf(YType.uint32, 'sod-count'), ['int'])),
+                                ('eod_count', (YLeaf(YType.uint32, 'eod-count'), ['int'])),
+                                ('sod_eod_replay_req_count', (YLeaf(YType.uint32, 'sod-eod-replay-req-count'), ['int'])),
+                                ('sod_eod_dirty_mark_count', (YLeaf(YType.uint32, 'sod-eod-dirty-mark-count'), ['int'])),
+                                ('sod_eod_dirty_delete_count', (YLeaf(YType.uint32, 'sod-eod-dirty-delete-count'), ['int'])),
+                                ('ack_to_srg', (YLeaf(YType.uint32, 'ack-to-srg'), ['int'])),
+                                ('nack_to_srg', (YLeaf(YType.uint32, 'nack-to-srg'), ['int'])),
+                                ('nack_to_srg_fail_cnt', (YLeaf(YType.uint32, 'nack-to-srg-fail-cnt'), ['int'])),
+                                ('txlist_remove_all', (YLeaf(YType.uint32, 'txlist-remove-all'), ['int'])),
+                                ('txlist_del_sync', (YLeaf(YType.uint32, 'txlist-del-sync'), ['int'])),
+                                ('txlist_del_sync_notlinked', (YLeaf(YType.uint32, 'txlist-del-sync-notlinked'), ['int'])),
+                                ('txlist_del_app', (YLeaf(YType.uint32, 'txlist-del-app'), ['int'])),
+                                ('txlist_del_app_notlinked', (YLeaf(YType.uint32, 'txlist-del-app-notlinked'), ['int'])),
+                                ('txlist_clean_invalid_state', (YLeaf(YType.uint32, 'txlist-clean-invalid-state'), ['int'])),
+                                ('txlist_remove_all_internal_error', (YLeaf(YType.uint32, 'txlist-remove-all-internal-error'), ['int'])),
+                                ('is_srg_flow_control_enabled', (YLeaf(YType.boolean, 'is-srg-flow-control-enabled'), ['bool'])),
+                                ('max_inflight_sessoin_count', (YLeaf(YType.uint32, 'max-inflight-sessoin-count'), ['int'])),
+                                ('flow_control_resume_threshold', (YLeaf(YType.uint32, 'flow-control-resume-threshold'), ['int'])),
+                                ('inflight_session_count', (YLeaf(YType.uint32, 'inflight-session-count'), ['int'])),
+                                ('inflight_add_count', (YLeaf(YType.uint32, 'inflight-add-count'), ['int'])),
+                                ('inflight_under_run_count', (YLeaf(YType.uint32, 'inflight-under-run-count'), ['int'])),
+                                ('inflight_alloc_fails', (YLeaf(YType.uint32, 'inflight-alloc-fails'), ['int'])),
+                                ('inflight_insert_failures', (YLeaf(YType.uint32, 'inflight-insert-failures'), ['int'])),
+                                ('inflight_deletes', (YLeaf(YType.uint32, 'inflight-deletes'), ['int'])),
+                                ('inflight_not_found', (YLeaf(YType.uint32, 'inflight-not-found'), ['int'])),
+                                ('inflight_delete_failures', (YLeaf(YType.uint32, 'inflight-delete-failures'), ['int'])),
+                                ('total_pause_count', (YLeaf(YType.uint32, 'total-pause-count'), ['int'])),
+                                ('total_resume_count', (YLeaf(YType.uint32, 'total-resume-count'), ['int'])),
+                                ('total_dont_send_to_txlist', (YLeaf(YType.uint32, 'total-dont-send-to-txlist'), ['int'])),
+                                ('total_srg_not_master', (YLeaf(YType.uint32, 'total-srg-not-master'), ['int'])),
+                                ('total_master_eoms_pending', (YLeaf(YType.uint32, 'total-master-eoms-pending'), ['int'])),
+                                ('total_master_eoms_pending_cleared', (YLeaf(YType.uint32, 'total-master-eoms-pending-cleared'), ['int'])),
+                                ('last_pause_period', (YLeaf(YType.uint64, 'last-pause-period'), ['int'])),
+                                ('total_pause_time', (YLeaf(YType.uint64, 'total-pause-time'), ['int'])),
+                                ('last_pause_time', (YLeaf(YType.uint64, 'last-pause-time'), ['int'])),
+                                ('last_resume_time', (YLeaf(YType.uint64, 'last-resume-time'), ['int'])),
                             ])
                             self.txlist_send_triggered = None
                             self.txlist_send_failed = None
@@ -8125,14 +8219,16 @@ class Subscriber(Entity):
                             self.total_dont_send_to_txlist = None
                             self.total_srg_not_master = None
                             self.total_master_eoms_pending = None
+                            self.total_master_eoms_pending_cleared = None
                             self.last_pause_period = None
                             self.total_pause_time = None
                             self.last_pause_time = None
                             self.last_resume_time = None
                             self._segment_path = lambda: "srg"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, ['txlist_send_triggered', 'txlist_send_failed', 'txlist_send_failed_notactive', 'actual_txlist_sent', 'alreadyin_txlist', 'txlist_encode', 'txlist_encode_fail', 'create_update_encode', 'delete_encode', 'create_upd_clean_callback', 'delete_clean_callback', 'slave_recv_entry', 'slave_decode_fail', 'slave_create_update', 'slave_delete', 'srg_context_malloc', 'srg_context_free', 'sod_count', 'eod_count', 'sod_eod_replay_req_count', 'sod_eod_dirty_mark_count', 'sod_eod_dirty_delete_count', 'ack_to_srg', 'nack_to_srg', 'nack_to_srg_fail_cnt', 'txlist_remove_all', 'txlist_del_sync', 'txlist_del_sync_notlinked', 'txlist_del_app', 'txlist_del_app_notlinked', 'txlist_clean_invalid_state', 'txlist_remove_all_internal_error', 'is_srg_flow_control_enabled', 'max_inflight_sessoin_count', 'flow_control_resume_threshold', 'inflight_session_count', 'inflight_add_count', 'inflight_under_run_count', 'inflight_alloc_fails', 'inflight_insert_failures', 'inflight_deletes', 'inflight_not_found', 'inflight_delete_failures', 'total_pause_count', 'total_resume_count', 'total_dont_send_to_txlist', 'total_srg_not_master', 'total_master_eoms_pending', 'last_pause_period', 'total_pause_time', 'last_pause_time', 'last_resume_time'], name, value)
+                            self._perform_setattr(Subscriber.Manager.Nodes.Node.Statistics.Srg, [u'txlist_send_triggered', u'txlist_send_failed', u'txlist_send_failed_notactive', u'actual_txlist_sent', u'alreadyin_txlist', u'txlist_encode', u'txlist_encode_fail', u'create_update_encode', u'delete_encode', u'create_upd_clean_callback', u'delete_clean_callback', u'slave_recv_entry', u'slave_decode_fail', u'slave_create_update', u'slave_delete', u'srg_context_malloc', u'srg_context_free', u'sod_count', u'eod_count', u'sod_eod_replay_req_count', u'sod_eod_dirty_mark_count', u'sod_eod_dirty_delete_count', u'ack_to_srg', u'nack_to_srg', u'nack_to_srg_fail_cnt', u'txlist_remove_all', u'txlist_del_sync', u'txlist_del_sync_notlinked', u'txlist_del_app', u'txlist_del_app_notlinked', u'txlist_clean_invalid_state', u'txlist_remove_all_internal_error', u'is_srg_flow_control_enabled', u'max_inflight_sessoin_count', u'flow_control_resume_threshold', u'inflight_session_count', u'inflight_add_count', u'inflight_under_run_count', u'inflight_alloc_fails', u'inflight_insert_failures', u'inflight_deletes', u'inflight_not_found', u'inflight_delete_failures', u'total_pause_count', u'total_resume_count', u'total_dont_send_to_txlist', u'total_srg_not_master', u'total_master_eoms_pending', u'total_master_eoms_pending_cleared', u'last_pause_period', u'total_pause_time', u'last_pause_time', u'last_resume_time'], name, value)
 
 
     class Session(Entity):
@@ -8167,6 +8263,7 @@ class Subscriber(Entity):
             self._children_name_map["nodes"] = "nodes"
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Subscriber.Session, [], name, value)
@@ -8202,6 +8299,7 @@ class Subscriber(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Subscriber.Session.Nodes, [], name, value)
@@ -8301,7 +8399,7 @@ class Subscriber(Entity):
                     self.ylist_key_names = ['node_name']
                     self._child_classes = OrderedDict([("author-summaries", ("author_summaries", Subscriber.Session.Nodes.Node.AuthorSummaries)), ("summary", ("summary", Subscriber.Session.Nodes.Node.Summary)), ("mac-summaries", ("mac_summaries", Subscriber.Session.Nodes.Node.MacSummaries)), ("interface-summaries", ("interface_summaries", Subscriber.Session.Nodes.Node.InterfaceSummaries)), ("authentication-summaries", ("authentication_summaries", Subscriber.Session.Nodes.Node.AuthenticationSummaries)), ("state-summaries", ("state_summaries", Subscriber.Session.Nodes.Node.StateSummaries)), ("ipv4-address-vrf-summaries", ("ipv4_address_vrf_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries)), ("address-family-summaries", ("address_family_summaries", Subscriber.Session.Nodes.Node.AddressFamilySummaries)), ("username-summaries", ("username_summaries", Subscriber.Session.Nodes.Node.UsernameSummaries)), ("access-interface-summaries", ("access_interface_summaries", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries)), ("ipv4-address-summaries", ("ipv4_address_summaries", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries)), ("vrf-summaries", ("vrf_summaries", Subscriber.Session.Nodes.Node.VrfSummaries)), ("sessions", ("sessions", Subscriber.Session.Nodes.Node.Sessions))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                     ])
                     self.node_name = None
 
@@ -8358,6 +8456,7 @@ class Subscriber(Entity):
                     self._children_name_map["sessions"] = "sessions"
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:subscriber/session/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Subscriber.Session.Nodes.Node, ['node_name'], name, value)
@@ -8393,6 +8492,7 @@ class Subscriber(Entity):
 
                         self.author_summary = YList(self)
                         self._segment_path = lambda: "author-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries, [], name, value)
@@ -8434,7 +8534,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['author_state']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('author_state', YLeaf(YType.enumeration, 'author-state')),
+                                ('author_state', (YLeaf(YType.enumeration, 'author-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAuthorStateFilterFlag', '')])),
                             ])
                             self.author_state = None
 
@@ -8446,6 +8546,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "author-summary" + "[author-state='" + str(self.author_state) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary, ['author_state'], name, value)
@@ -8500,6 +8601,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr, [], name, value)
@@ -8575,13 +8677,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -8591,6 +8693,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -8666,13 +8769,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -8682,6 +8785,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -8757,13 +8861,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -8773,6 +8877,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -8827,6 +8932,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr, [], name, value)
@@ -8895,12 +9001,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -8909,6 +9015,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -8977,12 +9084,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -8991,6 +9098,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -9059,12 +9167,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -9073,6 +9181,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthorSummaries.AuthorSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -9118,6 +9227,7 @@ class Subscriber(Entity):
                         self.address_family_xr.parent = self
                         self._children_name_map["address_family_xr"] = "address-family-xr"
                         self._segment_path = lambda: "summary"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Summary, [], name, value)
@@ -9172,6 +9282,7 @@ class Subscriber(Entity):
                             self.ip_subscriber_packet.parent = self
                             self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                             self._segment_path = lambda: "state-xr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr, [], name, value)
@@ -9247,13 +9358,13 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                    ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                    ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                    ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                    ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                    ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                    ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                 ])
                                 self.initialized_sessions = None
                                 self.connecting_sessions = None
@@ -9263,6 +9374,7 @@ class Subscriber(Entity):
                                 self.disconnecting_sessions = None
                                 self.end_sessions = None
                                 self._segment_path = lambda: "pppoe"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -9338,13 +9450,13 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                    ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                    ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                    ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                    ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                    ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                    ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                 ])
                                 self.initialized_sessions = None
                                 self.connecting_sessions = None
@@ -9354,6 +9466,7 @@ class Subscriber(Entity):
                                 self.disconnecting_sessions = None
                                 self.end_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -9429,13 +9542,13 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                    ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                    ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                    ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                    ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                    ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                    ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                    ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                    ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                    ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                    ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                    ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                    ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                    ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                 ])
                                 self.initialized_sessions = None
                                 self.connecting_sessions = None
@@ -9445,6 +9558,7 @@ class Subscriber(Entity):
                                 self.disconnecting_sessions = None
                                 self.end_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-packet"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -9499,6 +9613,7 @@ class Subscriber(Entity):
                             self.ip_subscriber_packet.parent = self
                             self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                             self._segment_path = lambda: "address-family-xr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr, [], name, value)
@@ -9567,12 +9682,12 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                    ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                    ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                    ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                    ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                    ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                 ])
                                 self.in_progress_sessions = None
                                 self.ipv4_only_sessions = None
@@ -9581,6 +9696,7 @@ class Subscriber(Entity):
                                 self.dual_up_sessions = None
                                 self.lac_sessions = None
                                 self._segment_path = lambda: "pppoe"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -9649,12 +9765,12 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                    ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                    ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                    ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                    ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                    ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                 ])
                                 self.in_progress_sessions = None
                                 self.ipv4_only_sessions = None
@@ -9663,6 +9779,7 @@ class Subscriber(Entity):
                                 self.dual_up_sessions = None
                                 self.lac_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -9731,12 +9848,12 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                    ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                    ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                    ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                    ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                    ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                    ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                    ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                    ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                    ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                    ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                    ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                 ])
                                 self.in_progress_sessions = None
                                 self.ipv4_only_sessions = None
@@ -9745,6 +9862,7 @@ class Subscriber(Entity):
                                 self.dual_up_sessions = None
                                 self.lac_sessions = None
                                 self._segment_path = lambda: "ip-subscriber-packet"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Summary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -9779,6 +9897,7 @@ class Subscriber(Entity):
 
                         self.mac_summary = YList(self)
                         self._segment_path = lambda: "mac-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries, [], name, value)
@@ -9822,7 +9941,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['mac_address']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                             ])
                             self.mac_address = None
 
@@ -9834,6 +9953,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "mac-summary" + "[mac-address='" + str(self.mac_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary, ['mac_address'], name, value)
@@ -9888,6 +10008,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr, [], name, value)
@@ -9963,13 +10084,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -9979,6 +10100,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10054,13 +10176,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -10070,6 +10192,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10145,13 +10268,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -10161,6 +10284,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10215,6 +10339,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr, [], name, value)
@@ -10283,12 +10408,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -10297,6 +10422,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -10365,12 +10491,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -10379,6 +10505,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -10447,12 +10574,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -10461,6 +10588,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.MacSummaries.MacSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -10495,6 +10623,7 @@ class Subscriber(Entity):
 
                         self.interface_summary = YList(self)
                         self._segment_path = lambda: "interface-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries, [], name, value)
@@ -10509,7 +10638,7 @@ class Subscriber(Entity):
                         	Interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: state_xr
                         
@@ -10538,7 +10667,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
 
@@ -10550,6 +10679,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary, ['interface_name'], name, value)
@@ -10604,6 +10734,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr, [], name, value)
@@ -10679,13 +10810,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -10695,6 +10826,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10770,13 +10902,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -10786,6 +10918,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10861,13 +10994,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -10877,6 +11010,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -10931,6 +11065,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr, [], name, value)
@@ -10999,12 +11134,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11013,6 +11148,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11081,12 +11217,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11095,6 +11231,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11163,12 +11300,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11177,6 +11314,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.InterfaceSummaries.InterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11212,6 +11350,7 @@ class Subscriber(Entity):
 
                         self.authentication_summary = YList(self)
                         self._segment_path = lambda: "authentication-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries, [], name, value)
@@ -11253,7 +11392,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['authentication_state']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('authentication_state', YLeaf(YType.enumeration, 'authentication-state')),
+                                ('authentication_state', (YLeaf(YType.enumeration, 'authentication-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAuthenStateFilterFlag', '')])),
                             ])
                             self.authentication_state = None
 
@@ -11265,6 +11404,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "authentication-summary" + "[authentication-state='" + str(self.authentication_state) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary, ['authentication_state'], name, value)
@@ -11319,6 +11459,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr, [], name, value)
@@ -11394,13 +11535,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -11410,6 +11551,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -11485,13 +11627,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -11501,6 +11643,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -11576,13 +11719,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -11592,6 +11735,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -11646,6 +11790,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr, [], name, value)
@@ -11714,12 +11859,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11728,6 +11873,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11796,12 +11942,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11810,6 +11956,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11878,12 +12025,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -11892,6 +12039,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AuthenticationSummaries.AuthenticationSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -11926,6 +12074,7 @@ class Subscriber(Entity):
 
                         self.state_summary = YList(self)
                         self._segment_path = lambda: "state-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries, [], name, value)
@@ -11967,7 +12116,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['state']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('state', YLeaf(YType.enumeration, 'state')),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberStateFilterFlag', '')])),
                             ])
                             self.state = None
 
@@ -11979,6 +12128,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "state-summary" + "[state='" + str(self.state) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary, ['state'], name, value)
@@ -12033,6 +12183,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr, [], name, value)
@@ -12108,13 +12259,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -12124,6 +12275,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -12199,13 +12351,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -12215,6 +12367,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -12290,13 +12443,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -12306,6 +12459,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -12360,6 +12514,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr, [], name, value)
@@ -12428,12 +12583,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -12442,6 +12597,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -12510,12 +12666,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -12524,6 +12680,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -12592,12 +12749,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -12606,6 +12763,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.StateSummaries.StateSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -12641,6 +12799,7 @@ class Subscriber(Entity):
 
                         self.ipv4_address_vrf_summary = YList(self)
                         self._segment_path = lambda: "ipv4-address-vrf-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries, [], name, value)
@@ -12691,8 +12850,8 @@ class Subscriber(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('address', YLeaf(YType.str, 'address')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                             ])
                             self.vrf_name = None
                             self.address = None
@@ -12705,6 +12864,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "ipv4-address-vrf-summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary, ['vrf_name', 'address'], name, value)
@@ -12759,6 +12919,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr, [], name, value)
@@ -12834,13 +12995,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -12850,6 +13011,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -12925,13 +13087,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -12941,6 +13103,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -13016,13 +13179,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -13032,6 +13195,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -13086,6 +13250,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr, [], name, value)
@@ -13154,12 +13319,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -13168,6 +13333,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -13236,12 +13402,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -13250,6 +13416,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -13318,12 +13485,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -13332,6 +13499,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressVrfSummaries.Ipv4AddressVrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -13367,6 +13535,7 @@ class Subscriber(Entity):
 
                         self.address_family_summary = YList(self)
                         self._segment_path = lambda: "address-family-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries, [], name, value)
@@ -13408,7 +13577,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['address_family']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'SubscriberAddressFamilyFilterFlag', '')])),
                             ])
                             self.address_family = None
 
@@ -13420,6 +13589,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "address-family-summary" + "[address-family='" + str(self.address_family) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary, ['address_family'], name, value)
@@ -13474,6 +13644,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr, [], name, value)
@@ -13549,13 +13720,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -13565,6 +13736,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -13640,13 +13812,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -13656,6 +13828,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -13731,13 +13904,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -13747,6 +13920,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -13801,6 +13975,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr, [], name, value)
@@ -13869,12 +14044,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -13883,6 +14058,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -13951,12 +14127,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -13965,6 +14141,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -14033,12 +14210,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -14047,6 +14224,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AddressFamilySummaries.AddressFamilySummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -14081,6 +14259,7 @@ class Subscriber(Entity):
 
                         self.username_summary = YList(self)
                         self._segment_path = lambda: "username-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries, [], name, value)
@@ -14124,7 +14303,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['username']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('username', YLeaf(YType.str, 'username')),
+                                ('username', (YLeaf(YType.str, 'username'), ['str'])),
                             ])
                             self.username = None
 
@@ -14136,6 +14315,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "username-summary" + "[username='" + str(self.username) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary, ['username'], name, value)
@@ -14190,6 +14370,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr, [], name, value)
@@ -14265,13 +14446,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -14281,6 +14462,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -14356,13 +14538,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -14372,6 +14554,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -14447,13 +14630,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -14463,6 +14646,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -14517,6 +14701,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr, [], name, value)
@@ -14585,12 +14770,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -14599,6 +14784,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -14667,12 +14853,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -14681,6 +14867,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -14749,12 +14936,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -14763,6 +14950,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.UsernameSummaries.UsernameSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -14798,6 +14986,7 @@ class Subscriber(Entity):
 
                         self.access_interface_summary = YList(self)
                         self._segment_path = lambda: "access-interface-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries, [], name, value)
@@ -14812,7 +15001,7 @@ class Subscriber(Entity):
                         	Interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: state_xr
                         
@@ -14841,7 +15030,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
 
@@ -14853,6 +15042,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "access-interface-summary" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary, ['interface_name'], name, value)
@@ -14907,6 +15097,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr, [], name, value)
@@ -14982,13 +15173,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -14998,6 +15189,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15073,13 +15265,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -15089,6 +15281,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15164,13 +15357,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -15180,6 +15373,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15234,6 +15428,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr, [], name, value)
@@ -15302,12 +15497,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -15316,6 +15511,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -15384,12 +15580,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -15398,6 +15594,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -15466,12 +15663,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -15480,6 +15677,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.AccessInterfaceSummaries.AccessInterfaceSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -15515,6 +15713,7 @@ class Subscriber(Entity):
 
                         self.ipv4_address_summary = YList(self)
                         self._segment_path = lambda: "ipv4-address-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries, [], name, value)
@@ -15558,7 +15757,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['address']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                             ])
                             self.address = None
 
@@ -15570,6 +15769,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "ipv4-address-summary" + "[address='" + str(self.address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary, ['address'], name, value)
@@ -15624,6 +15824,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr, [], name, value)
@@ -15699,13 +15900,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -15715,6 +15916,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15790,13 +15992,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -15806,6 +16008,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15881,13 +16084,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -15897,6 +16100,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -15951,6 +16155,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr, [], name, value)
@@ -16019,12 +16224,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16033,6 +16238,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16101,12 +16307,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16115,6 +16321,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16183,12 +16390,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16197,6 +16404,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Ipv4AddressSummaries.Ipv4AddressSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16231,6 +16439,7 @@ class Subscriber(Entity):
 
                         self.vrf_summary = YList(self)
                         self._segment_path = lambda: "vrf-summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries, [], name, value)
@@ -16274,7 +16483,7 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("state-xr", ("state_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr)), ("address-family-xr", ("address_family_xr", Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -16286,6 +16495,7 @@ class Subscriber(Entity):
                             self.address_family_xr.parent = self
                             self._children_name_map["address_family_xr"] = "address-family-xr"
                             self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary, ['vrf_name'], name, value)
@@ -16340,6 +16550,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "state-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr, [], name, value)
@@ -16415,13 +16626,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -16431,6 +16642,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.Pppoe, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -16506,13 +16718,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -16522,6 +16734,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberDhcp, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -16597,13 +16810,13 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('initialized_sessions', YLeaf(YType.uint32, 'initialized-sessions')),
-                                        ('connecting_sessions', YLeaf(YType.uint32, 'connecting-sessions')),
-                                        ('connected_sessions', YLeaf(YType.uint32, 'connected-sessions')),
-                                        ('activated_sessions', YLeaf(YType.uint32, 'activated-sessions')),
-                                        ('idle_sessions', YLeaf(YType.uint32, 'idle-sessions')),
-                                        ('disconnecting_sessions', YLeaf(YType.uint32, 'disconnecting-sessions')),
-                                        ('end_sessions', YLeaf(YType.uint32, 'end-sessions')),
+                                        ('initialized_sessions', (YLeaf(YType.uint32, 'initialized-sessions'), ['int'])),
+                                        ('connecting_sessions', (YLeaf(YType.uint32, 'connecting-sessions'), ['int'])),
+                                        ('connected_sessions', (YLeaf(YType.uint32, 'connected-sessions'), ['int'])),
+                                        ('activated_sessions', (YLeaf(YType.uint32, 'activated-sessions'), ['int'])),
+                                        ('idle_sessions', (YLeaf(YType.uint32, 'idle-sessions'), ['int'])),
+                                        ('disconnecting_sessions', (YLeaf(YType.uint32, 'disconnecting-sessions'), ['int'])),
+                                        ('end_sessions', (YLeaf(YType.uint32, 'end-sessions'), ['int'])),
                                     ])
                                     self.initialized_sessions = None
                                     self.connecting_sessions = None
@@ -16613,6 +16826,7 @@ class Subscriber(Entity):
                                     self.disconnecting_sessions = None
                                     self.end_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.StateXr.IpSubscriberPacket, [u'initialized_sessions', u'connecting_sessions', u'connected_sessions', u'activated_sessions', u'idle_sessions', u'disconnecting_sessions', u'end_sessions'], name, value)
@@ -16667,6 +16881,7 @@ class Subscriber(Entity):
                                 self.ip_subscriber_packet.parent = self
                                 self._children_name_map["ip_subscriber_packet"] = "ip-subscriber-packet"
                                 self._segment_path = lambda: "address-family-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr, [], name, value)
@@ -16735,12 +16950,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16749,6 +16964,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "pppoe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.Pppoe, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16817,12 +17033,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16831,6 +17047,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-dhcp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberDhcp, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16899,12 +17116,12 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('in_progress_sessions', YLeaf(YType.uint32, 'in-progress-sessions')),
-                                        ('ipv4_only_sessions', YLeaf(YType.uint32, 'ipv4-only-sessions')),
-                                        ('ipv6_only_sessions', YLeaf(YType.uint32, 'ipv6-only-sessions')),
-                                        ('dual_part_up_sessions', YLeaf(YType.uint32, 'dual-part-up-sessions')),
-                                        ('dual_up_sessions', YLeaf(YType.uint32, 'dual-up-sessions')),
-                                        ('lac_sessions', YLeaf(YType.uint32, 'lac-sessions')),
+                                        ('in_progress_sessions', (YLeaf(YType.uint32, 'in-progress-sessions'), ['int'])),
+                                        ('ipv4_only_sessions', (YLeaf(YType.uint32, 'ipv4-only-sessions'), ['int'])),
+                                        ('ipv6_only_sessions', (YLeaf(YType.uint32, 'ipv6-only-sessions'), ['int'])),
+                                        ('dual_part_up_sessions', (YLeaf(YType.uint32, 'dual-part-up-sessions'), ['int'])),
+                                        ('dual_up_sessions', (YLeaf(YType.uint32, 'dual-up-sessions'), ['int'])),
+                                        ('lac_sessions', (YLeaf(YType.uint32, 'lac-sessions'), ['int'])),
                                     ])
                                     self.in_progress_sessions = None
                                     self.ipv4_only_sessions = None
@@ -16913,6 +17130,7 @@ class Subscriber(Entity):
                                     self.dual_up_sessions = None
                                     self.lac_sessions = None
                                     self._segment_path = lambda: "ip-subscriber-packet"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.VrfSummaries.VrfSummary.AddressFamilyXr.IpSubscriberPacket, [u'in_progress_sessions', u'ipv4_only_sessions', u'ipv6_only_sessions', u'dual_part_up_sessions', u'dual_up_sessions', u'lac_sessions'], name, value)
@@ -16947,6 +17165,7 @@ class Subscriber(Entity):
 
                         self.session = YList(self)
                         self._segment_path = lambda: "sessions"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions, [], name, value)
@@ -16993,7 +17212,7 @@ class Subscriber(Entity):
                         	Interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: vrf_name
                         
@@ -17134,7 +17353,7 @@ class Subscriber(Entity):
                         	Access interface name associated with the session
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: pending_callbacks
                         
@@ -17182,39 +17401,39 @@ class Subscriber(Entity):
                             self.ylist_key_names = ['session_id']
                             self._child_classes = OrderedDict([("accounting", ("accounting", Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting)), ("user-profile-attributes", ("user_profile_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes)), ("mobility-attributes", ("mobility_attributes", Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes)), ("session-change-of-authorization", ("session_change_of_authorization", Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization))])
                             self._leafs = OrderedDict([
-                                ('session_id', YLeaf(YType.str, 'session-id')),
-                                ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                                ('pppoe_sub_type', YLeaf(YType.enumeration, 'pppoe-sub-type')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('circuit_id', YLeaf(YType.str, 'circuit-id')),
-                                ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                ('lns_address', YLeaf(YType.str, 'lns-address')),
-                                ('lac_address', YLeaf(YType.str, 'lac-address')),
-                                ('tunnel_client_authentication_id', YLeaf(YType.str, 'tunnel-client-authentication-id')),
-                                ('tunnel_server_authentication_id', YLeaf(YType.str, 'tunnel-server-authentication-id')),
-                                ('session_ip_address', YLeaf(YType.str, 'session-ip-address')),
-                                ('session_ipv6_address', YLeaf(YType.str, 'session-ipv6-address')),
-                                ('session_ipv6_prefix', YLeaf(YType.str, 'session-ipv6-prefix')),
-                                ('delegated_ipv6_prefix', YLeaf(YType.str, 'delegated-ipv6-prefix')),
-                                ('ipv6_interface_id', YLeaf(YType.str, 'ipv6-interface-id')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                ('account_session_id', YLeaf(YType.str, 'account-session-id')),
-                                ('nas_port', YLeaf(YType.str, 'nas-port')),
-                                ('username', YLeaf(YType.str, 'username')),
-                                ('clientname', YLeaf(YType.str, 'clientname')),
-                                ('formattedname', YLeaf(YType.str, 'formattedname')),
-                                ('is_session_authentic', YLeaf(YType.boolean, 'is-session-authentic')),
-                                ('is_session_author', YLeaf(YType.boolean, 'is-session-author')),
-                                ('session_state', YLeaf(YType.enumeration, 'session-state')),
-                                ('session_creation_time', YLeaf(YType.str, 'session-creation-time')),
-                                ('idle_state_change_time', YLeaf(YType.str, 'idle-state-change-time')),
-                                ('total_session_idle_time', YLeaf(YType.uint32, 'total-session-idle-time')),
-                                ('access_interface_name', YLeaf(YType.str, 'access-interface-name')),
-                                ('pending_callbacks', YLeaf(YType.uint64, 'pending-callbacks')),
-                                ('af_up_status', YLeaf(YType.uint32, 'af-up-status')),
-                                ('session_ipv4_state', YLeaf(YType.enumeration, 'session-ipv4-state')),
-                                ('session_ipv6_state', YLeaf(YType.enumeration, 'session-ipv6-state')),
+                                ('session_id', (YLeaf(YType.str, 'session-id'), ['str'])),
+                                ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSession', '')])),
+                                ('pppoe_sub_type', (YLeaf(YType.enumeration, 'pppoe-sub-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgePppSub', '')])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                ('lns_address', (YLeaf(YType.str, 'lns-address'), ['str'])),
+                                ('lac_address', (YLeaf(YType.str, 'lac-address'), ['str'])),
+                                ('tunnel_client_authentication_id', (YLeaf(YType.str, 'tunnel-client-authentication-id'), ['str'])),
+                                ('tunnel_server_authentication_id', (YLeaf(YType.str, 'tunnel-server-authentication-id'), ['str'])),
+                                ('session_ip_address', (YLeaf(YType.str, 'session-ip-address'), ['str'])),
+                                ('session_ipv6_address', (YLeaf(YType.str, 'session-ipv6-address'), ['str'])),
+                                ('session_ipv6_prefix', (YLeaf(YType.str, 'session-ipv6-prefix'), ['str'])),
+                                ('delegated_ipv6_prefix', (YLeaf(YType.str, 'delegated-ipv6-prefix'), ['str'])),
+                                ('ipv6_interface_id', (YLeaf(YType.str, 'ipv6-interface-id'), ['str'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                ('account_session_id', (YLeaf(YType.str, 'account-session-id'), ['str'])),
+                                ('nas_port', (YLeaf(YType.str, 'nas-port'), ['str'])),
+                                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                                ('clientname', (YLeaf(YType.str, 'clientname'), ['str'])),
+                                ('formattedname', (YLeaf(YType.str, 'formattedname'), ['str'])),
+                                ('is_session_authentic', (YLeaf(YType.boolean, 'is-session-authentic'), ['bool'])),
+                                ('is_session_author', (YLeaf(YType.boolean, 'is-session-author'), ['bool'])),
+                                ('session_state', (YLeaf(YType.enumeration, 'session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionState', '')])),
+                                ('session_creation_time', (YLeaf(YType.str, 'session-creation-time'), ['str'])),
+                                ('idle_state_change_time', (YLeaf(YType.str, 'idle-state-change-time'), ['str'])),
+                                ('total_session_idle_time', (YLeaf(YType.uint32, 'total-session-idle-time'), ['int'])),
+                                ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
+                                ('pending_callbacks', (YLeaf(YType.uint64, 'pending-callbacks'), ['int'])),
+                                ('af_up_status', (YLeaf(YType.uint32, 'af-up-status'), ['int'])),
+                                ('session_ipv4_state', (YLeaf(YType.enumeration, 'session-ipv4-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionAfState', '')])),
+                                ('session_ipv6_state', (YLeaf(YType.enumeration, 'session-ipv6-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'IedgeOperSessionAfState', '')])),
                             ])
                             self.session_id = None
                             self.session_type = None
@@ -17264,6 +17483,7 @@ class Subscriber(Entity):
 
                             self.session_change_of_authorization = YList(self)
                             self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_, ['session_id', u'session_type', u'pppoe_sub_type', u'interface_name', u'vrf_name', u'circuit_id', u'remote_id', u'lns_address', u'lac_address', u'tunnel_client_authentication_id', u'tunnel_server_authentication_id', u'session_ip_address', u'session_ipv6_address', u'session_ipv6_prefix', u'delegated_ipv6_prefix', u'ipv6_interface_id', u'mac_address', u'account_session_id', u'nas_port', u'username', u'clientname', u'formattedname', u'is_session_authentic', u'is_session_author', u'session_state', u'session_creation_time', u'idle_state_change_time', u'total_session_idle_time', u'access_interface_name', u'pending_callbacks', u'af_up_status', u'session_ipv4_state', u'session_ipv6_state'], name, value)
@@ -17298,6 +17518,7 @@ class Subscriber(Entity):
 
                                 self.accounting_session = YList(self)
                                 self._segment_path = lambda: "accounting"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting, [], name, value)
@@ -17419,21 +17640,21 @@ class Subscriber(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('accounting_state_rc', YLeaf(YType.uint32, 'accounting-state-rc')),
-                                        ('accounting_stop_state', YLeaf(YType.uint32, 'accounting-stop-state')),
-                                        ('record_context_name', YLeaf(YType.str, 'record-context-name')),
-                                        ('method_list_name', YLeaf(YType.str, 'method-list-name')),
-                                        ('account_session_id', YLeaf(YType.str, 'account-session-id')),
-                                        ('accounting_start_time', YLeaf(YType.str, 'accounting-start-time')),
-                                        ('is_interim_accounting_enabled', YLeaf(YType.boolean, 'is-interim-accounting-enabled')),
-                                        ('interim_interval', YLeaf(YType.uint32, 'interim-interval')),
-                                        ('last_successful_interim_update_time', YLeaf(YType.str, 'last-successful-interim-update-time')),
-                                        ('next_interim_update_attempt_time', YLeaf(YType.uint32, 'next-interim-update-attempt-time')),
-                                        ('last_interim_update_attempt_time', YLeaf(YType.str, 'last-interim-update-attempt-time')),
-                                        ('sent_interim_updates', YLeaf(YType.uint32, 'sent-interim-updates')),
-                                        ('accepted_interim_updates', YLeaf(YType.uint32, 'accepted-interim-updates')),
-                                        ('rejected_interim_updates', YLeaf(YType.uint32, 'rejected-interim-updates')),
-                                        ('sent_interim_update_failures', YLeaf(YType.uint32, 'sent-interim-update-failures')),
+                                        ('accounting_state_rc', (YLeaf(YType.uint32, 'accounting-state-rc'), ['int'])),
+                                        ('accounting_stop_state', (YLeaf(YType.uint32, 'accounting-stop-state'), ['int'])),
+                                        ('record_context_name', (YLeaf(YType.str, 'record-context-name'), ['str'])),
+                                        ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
+                                        ('account_session_id', (YLeaf(YType.str, 'account-session-id'), ['str'])),
+                                        ('accounting_start_time', (YLeaf(YType.str, 'accounting-start-time'), ['str'])),
+                                        ('is_interim_accounting_enabled', (YLeaf(YType.boolean, 'is-interim-accounting-enabled'), ['bool'])),
+                                        ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
+                                        ('last_successful_interim_update_time', (YLeaf(YType.str, 'last-successful-interim-update-time'), ['str'])),
+                                        ('next_interim_update_attempt_time', (YLeaf(YType.uint32, 'next-interim-update-attempt-time'), ['int'])),
+                                        ('last_interim_update_attempt_time', (YLeaf(YType.str, 'last-interim-update-attempt-time'), ['str'])),
+                                        ('sent_interim_updates', (YLeaf(YType.uint32, 'sent-interim-updates'), ['int'])),
+                                        ('accepted_interim_updates', (YLeaf(YType.uint32, 'accepted-interim-updates'), ['int'])),
+                                        ('rejected_interim_updates', (YLeaf(YType.uint32, 'rejected-interim-updates'), ['int'])),
+                                        ('sent_interim_update_failures', (YLeaf(YType.uint32, 'sent-interim-update-failures'), ['int'])),
                                     ])
                                     self.accounting_state_rc = None
                                     self.accounting_stop_state = None
@@ -17451,6 +17672,7 @@ class Subscriber(Entity):
                                     self.rejected_interim_updates = None
                                     self.sent_interim_update_failures = None
                                     self._segment_path = lambda: "accounting-session"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.Accounting.AccountingSession, [u'accounting_state_rc', u'accounting_stop_state', u'record_context_name', u'method_list_name', u'account_session_id', u'accounting_start_time', u'is_interim_accounting_enabled', u'interim_interval', u'last_successful_interim_update_time', u'next_interim_update_attempt_time', u'last_interim_update_attempt_time', u'sent_interim_updates', u'accepted_interim_updates', u'rejected_interim_updates', u'sent_interim_update_failures'], name, value)
@@ -17726,7 +17948,7 @@ class Subscriber(Entity):
                             	Parent interface name
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: remote_id
                             
@@ -17801,55 +18023,55 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv4mtu', YLeaf(YType.uint32, 'ipv4mtu')),
-                                    ('ipv4_unnumbered', YLeaf(YType.str, 'ipv4-unnumbered')),
-                                    ('authorization_service_type', YLeaf(YType.enumeration, 'authorization-service-type')),
-                                    ('tunnel_client_endpoint', YLeaf(YType.str, 'tunnel-client-endpoint')),
-                                    ('tunnel_server_endpoint', YLeaf(YType.str, 'tunnel-server-endpoint')),
-                                    ('tunnel_tos_setting', YLeaf(YType.uint32, 'tunnel-tos-setting')),
-                                    ('tunnel_medium', YLeaf(YType.enumeration, 'tunnel-medium')),
-                                    ('tunnel_preference', YLeaf(YType.uint32, 'tunnel-preference')),
-                                    ('tunnel_client_authentication_id', YLeaf(YType.str, 'tunnel-client-authentication-id')),
-                                    ('tunnel_protocol', YLeaf(YType.enumeration, 'tunnel-protocol')),
-                                    ('actual_data_rate_upstream', YLeaf(YType.uint32, 'actual-data-rate-upstream')),
-                                    ('actual_data_rate_downstream', YLeaf(YType.uint32, 'actual-data-rate-downstream')),
-                                    ('attainable_data_rate_upstream', YLeaf(YType.uint32, 'attainable-data-rate-upstream')),
-                                    ('attainable_data_rate_downstream', YLeaf(YType.uint32, 'attainable-data-rate-downstream')),
-                                    ('pool_address', YLeaf(YType.str, 'pool-address')),
-                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
-                                    ('connection_receive_speed', YLeaf(YType.uint32, 'connection-receive-speed')),
-                                    ('connection_transmission_speed', YLeaf(YType.uint32, 'connection-transmission-speed')),
-                                    ('destination_station_id', YLeaf(YType.str, 'destination-station-id')),
-                                    ('primary_dns_server_address', YLeaf(YType.str, 'primary-dns-server-address')),
-                                    ('secondary_dns_server_address', YLeaf(YType.str, 'secondary-dns-server-address')),
-                                    ('formatted_calling_station_id', YLeaf(YType.str, 'formatted-calling-station-id')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('interface_type', YLeaf(YType.enumeration, 'interface-type')),
-                                    ('interim_accounting_interval', YLeaf(YType.uint32, 'interim-accounting-interval')),
-                                    ('ingress_access_list', YLeaf(YType.str, 'ingress-access-list')),
-                                    ('egress_access_list', YLeaf(YType.str, 'egress-access-list')),
-                                    ('ip_netmask', YLeaf(YType.str, 'ip-netmask')),
-                                    ('is_interworking_functionality', YLeaf(YType.boolean, 'is-interworking-functionality')),
-                                    ('max_interleaving_delay_downstream', YLeaf(YType.uint32, 'max-interleaving-delay-downstream')),
-                                    ('max_interleaving_delay_upstream', YLeaf(YType.uint32, 'max-interleaving-delay-upstream')),
-                                    ('max_data_rate_upstream', YLeaf(YType.uint32, 'max-data-rate-upstream')),
-                                    ('max_data_rate_downstream', YLeaf(YType.uint32, 'max-data-rate-downstream')),
-                                    ('min_data_rate_downstream', YLeaf(YType.uint32, 'min-data-rate-downstream')),
-                                    ('min_data_rate_downstream_low_power', YLeaf(YType.uint32, 'min-data-rate-downstream-low-power')),
-                                    ('min_data_rate_upstream_low_power', YLeaf(YType.uint32, 'min-data-rate-upstream-low-power')),
-                                    ('primary_net_bios_server_address', YLeaf(YType.str, 'primary-net-bios-server-address')),
-                                    ('secondary_net_bios_server_address', YLeaf(YType.str, 'secondary-net-bios-server-address')),
-                                    ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
-                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                    ('route', YLeaf(YType.str, 'route')),
-                                    ('session_timeout', YLeaf(YType.uint32, 'session-timeout')),
-                                    ('strict_rpf_packets', YLeaf(YType.uint32, 'strict-rpf-packets')),
-                                    ('accounting_session_id', YLeaf(YType.str, 'accounting-session-id')),
-                                    ('upstream_parameterized_qos_policy', YLeaf(YType.str, 'upstream-parameterized-qos-policy')),
-                                    ('downstream_parameterized_qos_policy', YLeaf(YType.str, 'downstream-parameterized-qos-policy')),
-                                    ('upstream_qos_policy', YLeaf(YType.str, 'upstream-qos-policy')),
-                                    ('downstream_qos_policy', YLeaf(YType.str, 'downstream-qos-policy')),
-                                    ('session_termination_cause', YLeaf(YType.enumeration, 'session-termination-cause')),
+                                    ('ipv4mtu', (YLeaf(YType.uint32, 'ipv4mtu'), ['int'])),
+                                    ('ipv4_unnumbered', (YLeaf(YType.str, 'ipv4-unnumbered'), ['str'])),
+                                    ('authorization_service_type', (YLeaf(YType.enumeration, 'authorization-service-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaAuthService', '')])),
+                                    ('tunnel_client_endpoint', (YLeaf(YType.str, 'tunnel-client-endpoint'), ['str'])),
+                                    ('tunnel_server_endpoint', (YLeaf(YType.str, 'tunnel-server-endpoint'), ['str'])),
+                                    ('tunnel_tos_setting', (YLeaf(YType.uint32, 'tunnel-tos-setting'), ['int'])),
+                                    ('tunnel_medium', (YLeaf(YType.enumeration, 'tunnel-medium'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTunnelMedium', '')])),
+                                    ('tunnel_preference', (YLeaf(YType.uint32, 'tunnel-preference'), ['int'])),
+                                    ('tunnel_client_authentication_id', (YLeaf(YType.str, 'tunnel-client-authentication-id'), ['str'])),
+                                    ('tunnel_protocol', (YLeaf(YType.enumeration, 'tunnel-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTunnelProto', '')])),
+                                    ('actual_data_rate_upstream', (YLeaf(YType.uint32, 'actual-data-rate-upstream'), ['int'])),
+                                    ('actual_data_rate_downstream', (YLeaf(YType.uint32, 'actual-data-rate-downstream'), ['int'])),
+                                    ('attainable_data_rate_upstream', (YLeaf(YType.uint32, 'attainable-data-rate-upstream'), ['int'])),
+                                    ('attainable_data_rate_downstream', (YLeaf(YType.uint32, 'attainable-data-rate-downstream'), ['int'])),
+                                    ('pool_address', (YLeaf(YType.str, 'pool-address'), ['str'])),
+                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                    ('connection_receive_speed', (YLeaf(YType.uint32, 'connection-receive-speed'), ['int'])),
+                                    ('connection_transmission_speed', (YLeaf(YType.uint32, 'connection-transmission-speed'), ['int'])),
+                                    ('destination_station_id', (YLeaf(YType.str, 'destination-station-id'), ['str'])),
+                                    ('primary_dns_server_address', (YLeaf(YType.str, 'primary-dns-server-address'), ['str'])),
+                                    ('secondary_dns_server_address', (YLeaf(YType.str, 'secondary-dns-server-address'), ['str'])),
+                                    ('formatted_calling_station_id', (YLeaf(YType.str, 'formatted-calling-station-id'), ['str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('interface_type', (YLeaf(YType.enumeration, 'interface-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaInterface', '')])),
+                                    ('interim_accounting_interval', (YLeaf(YType.uint32, 'interim-accounting-interval'), ['int'])),
+                                    ('ingress_access_list', (YLeaf(YType.str, 'ingress-access-list'), ['str'])),
+                                    ('egress_access_list', (YLeaf(YType.str, 'egress-access-list'), ['str'])),
+                                    ('ip_netmask', (YLeaf(YType.str, 'ip-netmask'), ['str'])),
+                                    ('is_interworking_functionality', (YLeaf(YType.boolean, 'is-interworking-functionality'), ['bool'])),
+                                    ('max_interleaving_delay_downstream', (YLeaf(YType.uint32, 'max-interleaving-delay-downstream'), ['int'])),
+                                    ('max_interleaving_delay_upstream', (YLeaf(YType.uint32, 'max-interleaving-delay-upstream'), ['int'])),
+                                    ('max_data_rate_upstream', (YLeaf(YType.uint32, 'max-data-rate-upstream'), ['int'])),
+                                    ('max_data_rate_downstream', (YLeaf(YType.uint32, 'max-data-rate-downstream'), ['int'])),
+                                    ('min_data_rate_downstream', (YLeaf(YType.uint32, 'min-data-rate-downstream'), ['int'])),
+                                    ('min_data_rate_downstream_low_power', (YLeaf(YType.uint32, 'min-data-rate-downstream-low-power'), ['int'])),
+                                    ('min_data_rate_upstream_low_power', (YLeaf(YType.uint32, 'min-data-rate-upstream-low-power'), ['int'])),
+                                    ('primary_net_bios_server_address', (YLeaf(YType.str, 'primary-net-bios-server-address'), ['str'])),
+                                    ('secondary_net_bios_server_address', (YLeaf(YType.str, 'secondary-net-bios-server-address'), ['str'])),
+                                    ('parent_interface_name', (YLeaf(YType.str, 'parent-interface-name'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('route', (YLeaf(YType.str, 'route'), ['str'])),
+                                    ('session_timeout', (YLeaf(YType.uint32, 'session-timeout'), ['int'])),
+                                    ('strict_rpf_packets', (YLeaf(YType.uint32, 'strict-rpf-packets'), ['int'])),
+                                    ('accounting_session_id', (YLeaf(YType.str, 'accounting-session-id'), ['str'])),
+                                    ('upstream_parameterized_qos_policy', (YLeaf(YType.str, 'upstream-parameterized-qos-policy'), ['str'])),
+                                    ('downstream_parameterized_qos_policy', (YLeaf(YType.str, 'downstream-parameterized-qos-policy'), ['str'])),
+                                    ('upstream_qos_policy', (YLeaf(YType.str, 'upstream-qos-policy'), ['str'])),
+                                    ('downstream_qos_policy', (YLeaf(YType.str, 'downstream-qos-policy'), ['str'])),
+                                    ('session_termination_cause', (YLeaf(YType.enumeration, 'session-termination-cause'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_iedge4710_oper', 'AaaTerminateCause', '')])),
                                 ])
                                 self.ipv4mtu = None
                                 self.ipv4_unnumbered = None
@@ -17901,6 +18123,7 @@ class Subscriber(Entity):
                                 self.downstream_qos_policy = None
                                 self.session_termination_cause = None
                                 self._segment_path = lambda: "user-profile-attributes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.UserProfileAttributes, [u'ipv4mtu', u'ipv4_unnumbered', u'authorization_service_type', u'tunnel_client_endpoint', u'tunnel_server_endpoint', u'tunnel_tos_setting', u'tunnel_medium', u'tunnel_preference', u'tunnel_client_authentication_id', u'tunnel_protocol', u'actual_data_rate_upstream', u'actual_data_rate_downstream', u'attainable_data_rate_upstream', u'attainable_data_rate_downstream', u'pool_address', u'circuit_id', u'connection_receive_speed', u'connection_transmission_speed', u'destination_station_id', u'primary_dns_server_address', u'secondary_dns_server_address', u'formatted_calling_station_id', u'interface_name', u'interface_type', u'interim_accounting_interval', u'ingress_access_list', u'egress_access_list', u'ip_netmask', u'is_interworking_functionality', u'max_interleaving_delay_downstream', u'max_interleaving_delay_upstream', u'max_data_rate_upstream', u'max_data_rate_downstream', u'min_data_rate_downstream', u'min_data_rate_downstream_low_power', u'min_data_rate_upstream_low_power', u'primary_net_bios_server_address', u'secondary_net_bios_server_address', u'parent_interface_name', u'remote_id', u'route', u'session_timeout', u'strict_rpf_packets', u'accounting_session_id', u'upstream_parameterized_qos_policy', u'downstream_parameterized_qos_policy', u'upstream_qos_policy', u'downstream_qos_policy', u'session_termination_cause'], name, value)
@@ -17980,16 +18203,16 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('mpc_protocol', YLeaf(YType.boolean, 'mpc-protocol')),
-                                    ('mobility_ipv4_address', YLeaf(YType.str, 'mobility-ipv4-address')),
-                                    ('mobility_default_ipv4_gateway', YLeaf(YType.str, 'mobility-default-ipv4-gateway')),
-                                    ('mobility_dns_server', YLeaf(YType.str, 'mobility-dns-server')),
-                                    ('mobility_dhcp_server', YLeaf(YType.str, 'mobility-dhcp-server')),
-                                    ('mobility_ipv4_netmask', YLeaf(YType.str, 'mobility-ipv4-netmask')),
-                                    ('domain_name', YLeaf(YType.str, 'domain-name')),
-                                    ('uplink_gre_key', YLeaf(YType.str, 'uplink-gre-key')),
-                                    ('downlink_gre_key', YLeaf(YType.str, 'downlink-gre-key')),
-                                    ('lease_time', YLeaf(YType.str, 'lease-time')),
+                                    ('mpc_protocol', (YLeaf(YType.boolean, 'mpc-protocol'), ['bool'])),
+                                    ('mobility_ipv4_address', (YLeaf(YType.str, 'mobility-ipv4-address'), ['str'])),
+                                    ('mobility_default_ipv4_gateway', (YLeaf(YType.str, 'mobility-default-ipv4-gateway'), ['str'])),
+                                    ('mobility_dns_server', (YLeaf(YType.str, 'mobility-dns-server'), ['str'])),
+                                    ('mobility_dhcp_server', (YLeaf(YType.str, 'mobility-dhcp-server'), ['str'])),
+                                    ('mobility_ipv4_netmask', (YLeaf(YType.str, 'mobility-ipv4-netmask'), ['str'])),
+                                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                    ('uplink_gre_key', (YLeaf(YType.str, 'uplink-gre-key'), ['str'])),
+                                    ('downlink_gre_key', (YLeaf(YType.str, 'downlink-gre-key'), ['str'])),
+                                    ('lease_time', (YLeaf(YType.str, 'lease-time'), ['str'])),
                                 ])
                                 self.mpc_protocol = None
                                 self.mobility_ipv4_address = None
@@ -18002,6 +18225,7 @@ class Subscriber(Entity):
                                 self.downlink_gre_key = None
                                 self.lease_time = None
                                 self._segment_path = lambda: "mobility-attributes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.MobilityAttributes, [u'mpc_protocol', u'mobility_ipv4_address', u'mobility_default_ipv4_gateway', u'mobility_dns_server', u'mobility_dhcp_server', u'mobility_ipv4_netmask', u'domain_name', u'uplink_gre_key', u'downlink_gre_key', u'lease_time'], name, value)
@@ -18057,11 +18281,11 @@ class Subscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request_acked', YLeaf(YType.boolean, 'request-acked')),
-                                    ('request_time', YLeaf(YType.str, 'request-time')),
-                                    ('coa_request_attributes', YLeaf(YType.str, 'coa-request-attributes')),
-                                    ('reply_time', YLeaf(YType.str, 'reply-time')),
-                                    ('coa_reply_attributes', YLeaf(YType.str, 'coa-reply-attributes')),
+                                    ('request_acked', (YLeaf(YType.boolean, 'request-acked'), ['bool'])),
+                                    ('request_time', (YLeaf(YType.str, 'request-time'), ['str'])),
+                                    ('coa_request_attributes', (YLeaf(YType.str, 'coa-request-attributes'), ['str'])),
+                                    ('reply_time', (YLeaf(YType.str, 'reply-time'), ['str'])),
+                                    ('coa_reply_attributes', (YLeaf(YType.str, 'coa-reply-attributes'), ['str'])),
                                 ])
                                 self.request_acked = None
                                 self.request_time = None
@@ -18069,6 +18293,7 @@ class Subscriber(Entity):
                                 self.reply_time = None
                                 self.coa_reply_attributes = None
                                 self._segment_path = lambda: "session-change-of-authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Subscriber.Session.Nodes.Node.Sessions.Session_.SessionChangeOfAuthorization, [u'request_acked', u'request_time', u'coa_request_attributes', u'reply_time', u'coa_reply_attributes'], name, value)
@@ -18109,6 +18334,7 @@ class IedgeLicenseManager(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IedgeLicenseManager, [], name, value)
@@ -18145,6 +18371,7 @@ class IedgeLicenseManager(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IedgeLicenseManager.Nodes, [], name, value)
@@ -18183,7 +18410,7 @@ class IedgeLicenseManager(Entity):
                 self.ylist_key_names = ['nodeid']
                 self._child_classes = OrderedDict([("iedge-license-manager-summary", ("iedge_license_manager_summary", IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary))])
                 self._leafs = OrderedDict([
-                    ('nodeid', YLeaf(YType.str, 'nodeid')),
+                    ('nodeid', (YLeaf(YType.str, 'nodeid'), ['str'])),
                 ])
                 self.nodeid = None
 
@@ -18192,6 +18419,7 @@ class IedgeLicenseManager(Entity):
                 self._children_name_map["iedge_license_manager_summary"] = "iedge-license-manager-summary"
                 self._segment_path = lambda: "node" + "[nodeid='" + str(self.nodeid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-oper:iedge-license-manager/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IedgeLicenseManager.Nodes.Node, ['nodeid'], name, value)
@@ -18246,19 +18474,20 @@ class IedgeLicenseManager(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('session_limit', YLeaf(YType.uint32, 'session-limit')),
-                        ('session_threshold', YLeaf(YType.uint32, 'session-threshold')),
-                        ('session_license_count', YLeaf(YType.uint32, 'session-license-count')),
-                        ('session_count', YLeaf(YType.uint32, 'session-count')),
+                        ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
+                        ('session_threshold', (YLeaf(YType.uint32, 'session-threshold'), ['int'])),
+                        ('session_license_count', (YLeaf(YType.uint32, 'session-license-count'), ['int'])),
+                        ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                     ])
                     self.session_limit = None
                     self.session_threshold = None
                     self.session_license_count = None
                     self.session_count = None
                     self._segment_path = lambda: "iedge-license-manager-summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, ['session_limit', 'session_threshold', 'session_license_count', 'session_count'], name, value)
+                    self._perform_setattr(IedgeLicenseManager.Nodes.Node.IedgeLicenseManagerSummary, [u'session_limit', u'session_threshold', u'session_license_count', u'session_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IedgeLicenseManager()

@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG definitions
 for DHCP Server and Client operational data.
-Copyright (c) 2017 by Cisco Systems, Inc.
+Copyright (c) 2017\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DhcpClientIdType(Enum):
@@ -265,7 +266,7 @@ class DhcpOperData(Entity):
     """
 
     _prefix = 'dhcp-ios-xe-oper'
-    _revision = '2017-11-01'
+    _revision = '2018-02-13'
 
     def __init__(self):
         super(DhcpOperData, self).__init__()
@@ -282,6 +283,7 @@ class DhcpOperData(Entity):
         self.dhcpv4_server_oper = YList(self)
         self.dhcpv4_client_oper = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DhcpOperData, [], name, value)
@@ -349,7 +351,7 @@ class DhcpOperData(Entity):
         """
 
         _prefix = 'dhcp-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-02-13'
 
         def __init__(self):
             super(DhcpOperData.Dhcpv4ServerOper, self).__init__()
@@ -361,14 +363,14 @@ class DhcpOperData(Entity):
             self.ylist_key_names = ['pool_name','client_ip','vrf_name']
             self._child_classes = OrderedDict([("expiration", ("expiration", DhcpOperData.Dhcpv4ServerOper.Expiration))])
             self._leafs = OrderedDict([
-                ('pool_name', YLeaf(YType.str, 'pool-name')),
-                ('client_ip', YLeaf(YType.str, 'client-ip')),
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('client_id_type', YLeaf(YType.enumeration, 'client-id-type')),
-                ('client_id', YLeaf(YType.str, 'client-id')),
-                ('type', YLeaf(YType.enumeration, 'type')),
-                ('state', YLeaf(YType.enumeration, 'state')),
-                ('interface', YLeaf(YType.str, 'interface')),
+                ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                ('client_ip', (YLeaf(YType.str, 'client-ip'), ['str','str'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('client_id_type', (YLeaf(YType.enumeration, 'client-id-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper', 'DhcpClientIdType', '')])),
+                ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper', 'DhcpServerBindingType', '')])),
+                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper', 'DhcpServerBindingState', '')])),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
             ])
             self.pool_name = None
             self.client_ip = None
@@ -384,6 +386,7 @@ class DhcpOperData(Entity):
             self._children_name_map["expiration"] = "expiration"
             self._segment_path = lambda: "dhcpv4-server-oper" + "[pool-name='" + str(self.pool_name) + "']" + "[client-ip='" + str(self.client_ip) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DhcpOperData.Dhcpv4ServerOper, ['pool_name', 'client_ip', 'vrf_name', 'client_id_type', 'client_id', 'type', 'state', 'interface'], name, value)
@@ -410,7 +413,7 @@ class DhcpOperData(Entity):
             """
 
             _prefix = 'dhcp-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-02-13'
 
             def __init__(self):
                 super(DhcpOperData.Dhcpv4ServerOper.Expiration, self).__init__()
@@ -422,12 +425,13 @@ class DhcpOperData(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('time', YLeaf(YType.str, 'time')),
-                    ('infinite', YLeaf(YType.empty, 'infinite')),
+                    ('time', (YLeaf(YType.str, 'time'), ['str'])),
+                    ('infinite', (YLeaf(YType.empty, 'infinite'), ['Empty'])),
                 ])
                 self.time = None
                 self.infinite = None
                 self._segment_path = lambda: "expiration"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DhcpOperData.Dhcpv4ServerOper.Expiration, ['time', 'infinite'], name, value)
@@ -510,16 +514,42 @@ class DhcpOperData(Entity):
         
         	**range:** 0..4294967295
         
-        .. attribute:: dns_list
+        .. attribute:: dns_address
         
-        	DNS list based on index
+        	First DNS address
         	**type**\: union of the below types:
         
-        		**type**\: list of str
+        		**type**\: str
         
         			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
         
-        		**type**\: list of str
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: dns_address_secondary
+        
+        	Secondary DNS address
+        	**type**\: union of the below types:
+        
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: subnet_mask
+        
+        	Subnet mask address
+        	**type**\: union of the below types:
+        
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
         
         			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
         
@@ -528,7 +558,7 @@ class DhcpOperData(Entity):
         """
 
         _prefix = 'dhcp-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-02-13'
 
         def __init__(self):
             super(DhcpOperData.Dhcpv4ClientOper, self).__init__()
@@ -540,15 +570,17 @@ class DhcpOperData(Entity):
             self.ylist_key_names = ['if_name','client_addr','vrf_name']
             self._child_classes = OrderedDict([("lease-expiry", ("lease_expiry", DhcpOperData.Dhcpv4ClientOper.LeaseExpiry))])
             self._leafs = OrderedDict([
-                ('if_name', YLeaf(YType.str, 'if-name')),
-                ('client_addr', YLeaf(YType.str, 'client-addr')),
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('state', YLeaf(YType.enumeration, 'state')),
-                ('lease_server_addr', YLeaf(YType.str, 'lease-server-addr')),
-                ('gateway_addr', YLeaf(YType.str, 'gateway-addr')),
-                ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                ('lease_remaining', YLeaf(YType.uint32, 'lease-remaining')),
-                ('dns_list', YLeafList(YType.str, 'dns-list')),
+                ('if_name', (YLeaf(YType.str, 'if-name'), ['str'])),
+                ('client_addr', (YLeaf(YType.str, 'client-addr'), ['str','str'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_dhcp_oper', 'DhcpClientState', '')])),
+                ('lease_server_addr', (YLeaf(YType.str, 'lease-server-addr'), ['str','str'])),
+                ('gateway_addr', (YLeaf(YType.str, 'gateway-addr'), ['str','str'])),
+                ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                ('lease_remaining', (YLeaf(YType.uint32, 'lease-remaining'), ['int'])),
+                ('dns_address', (YLeaf(YType.str, 'dns-address'), ['str','str'])),
+                ('dns_address_secondary', (YLeaf(YType.str, 'dns-address-secondary'), ['str','str'])),
+                ('subnet_mask', (YLeaf(YType.str, 'subnet-mask'), ['str','str'])),
             ])
             self.if_name = None
             self.client_addr = None
@@ -558,16 +590,19 @@ class DhcpOperData(Entity):
             self.gateway_addr = None
             self.lease_time = None
             self.lease_remaining = None
-            self.dns_list = []
+            self.dns_address = None
+            self.dns_address_secondary = None
+            self.subnet_mask = None
 
             self.lease_expiry = DhcpOperData.Dhcpv4ClientOper.LeaseExpiry()
             self.lease_expiry.parent = self
             self._children_name_map["lease_expiry"] = "lease-expiry"
             self._segment_path = lambda: "dhcpv4-client-oper" + "[if-name='" + str(self.if_name) + "']" + "[client-addr='" + str(self.client_addr) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-dhcp-oper:dhcp-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DhcpOperData.Dhcpv4ClientOper, ['if_name', 'client_addr', 'vrf_name', 'state', 'lease_server_addr', 'gateway_addr', 'lease_time', 'lease_remaining', 'dns_list'], name, value)
+            self._perform_setattr(DhcpOperData.Dhcpv4ClientOper, ['if_name', 'client_addr', 'vrf_name', 'state', 'lease_server_addr', 'gateway_addr', 'lease_time', 'lease_remaining', 'dns_address', 'dns_address_secondary', 'subnet_mask'], name, value)
 
 
         class LeaseExpiry(Entity):
@@ -591,7 +626,7 @@ class DhcpOperData(Entity):
             """
 
             _prefix = 'dhcp-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-02-13'
 
             def __init__(self):
                 super(DhcpOperData.Dhcpv4ClientOper.LeaseExpiry, self).__init__()
@@ -603,12 +638,13 @@ class DhcpOperData(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('time', YLeaf(YType.str, 'time')),
-                    ('infinite', YLeaf(YType.empty, 'infinite')),
+                    ('time', (YLeaf(YType.str, 'time'), ['str'])),
+                    ('infinite', (YLeaf(YType.empty, 'infinite'), ['Empty'])),
                 ])
                 self.time = None
                 self.infinite = None
                 self._segment_path = lambda: "lease-expiry"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DhcpOperData.Dhcpv4ClientOper.LeaseExpiry, ['time', 'infinite'], name, value)

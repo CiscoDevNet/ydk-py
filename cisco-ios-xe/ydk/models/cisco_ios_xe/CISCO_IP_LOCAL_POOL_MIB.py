@@ -38,6 +38,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPLOCALPOOLMIB(Entity):
     """
     
@@ -115,6 +116,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
         self.ciplocalpoolalloctable.parent = self
         self._children_name_map["ciplocalpoolalloctable"] = "cIpLocalPoolAllocTable"
         self._segment_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPLOCALPOOLMIB, [], name, value)
@@ -146,11 +148,12 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciplocalpoolnotificationsenable', YLeaf(YType.boolean, 'cIpLocalPoolNotificationsEnable')),
+                ('ciplocalpoolnotificationsenable', (YLeaf(YType.boolean, 'cIpLocalPoolNotificationsEnable'), ['bool'])),
             ])
             self.ciplocalpoolnotificationsenable = None
             self._segment_path = lambda: "cIpLocalPoolConfig"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfig, ['ciplocalpoolnotificationsenable'], name, value)
@@ -198,6 +201,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ciplocalpoolconfigentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolConfigTable"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable, [], name, value)
@@ -284,15 +288,15 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ylist_key_names = ['ciplocalpoolname','ciplocalpooladdrtype','ciplocalpooladdresslo']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
-                    ('ciplocalpooladdrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAddrType')),
-                    ('ciplocalpooladdresslo', YLeaf(YType.str, 'cIpLocalPoolAddressLo')),
-                    ('ciplocalpooladdresshi', YLeaf(YType.str, 'cIpLocalPoolAddressHi')),
-                    ('ciplocalpoolfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolFreeAddrs')),
-                    ('ciplocalpoolinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolInUseAddrs')),
-                    ('ciplocalpoolgroupcontainedin', YLeaf(YType.str, 'cIpLocalPoolGroupContainedIn')),
-                    ('ciplocalpoolrowstatus', YLeaf(YType.enumeration, 'cIpLocalPoolRowStatus')),
-                    ('ciplocalpoolpriority', YLeaf(YType.uint32, 'cIpLocalPoolPriority')),
+                    ('ciplocalpoolname', (YLeaf(YType.str, 'cIpLocalPoolName'), ['str'])),
+                    ('ciplocalpooladdrtype', (YLeaf(YType.enumeration, 'cIpLocalPoolAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciplocalpooladdresslo', (YLeaf(YType.str, 'cIpLocalPoolAddressLo'), ['str'])),
+                    ('ciplocalpooladdresshi', (YLeaf(YType.str, 'cIpLocalPoolAddressHi'), ['str'])),
+                    ('ciplocalpoolfreeaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolFreeAddrs'), ['int'])),
+                    ('ciplocalpoolinuseaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolInUseAddrs'), ['int'])),
+                    ('ciplocalpoolgroupcontainedin', (YLeaf(YType.str, 'cIpLocalPoolGroupContainedIn'), ['str'])),
+                    ('ciplocalpoolrowstatus', (YLeaf(YType.enumeration, 'cIpLocalPoolRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciplocalpoolpriority', (YLeaf(YType.uint32, 'cIpLocalPoolPriority'), ['int'])),
                 ])
                 self.ciplocalpoolname = None
                 self.ciplocalpooladdrtype = None
@@ -305,6 +309,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ciplocalpoolpriority = None
                 self._segment_path = lambda: "cIpLocalPoolConfigEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']" + "[cIpLocalPoolAddrType='" + str(self.ciplocalpooladdrtype) + "']" + "[cIpLocalPoolAddressLo='" + str(self.ciplocalpooladdresslo) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolConfigTable.CIpLocalPoolConfigEntry, ['ciplocalpoolname', 'ciplocalpooladdrtype', 'ciplocalpooladdresslo', 'ciplocalpooladdresshi', 'ciplocalpoolfreeaddrs', 'ciplocalpoolinuseaddrs', 'ciplocalpoolgroupcontainedin', 'ciplocalpoolrowstatus', 'ciplocalpoolpriority'], name, value)
@@ -354,6 +359,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ciplocalpoolgroupcontainsentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolGroupContainsTable"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable, [], name, value)
@@ -400,13 +406,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ylist_key_names = ['ciplocalpoolgroupname','ciplocalpoolchildindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
-                    ('ciplocalpoolchildindex', YLeaf(YType.str, 'cIpLocalPoolChildIndex')),
+                    ('ciplocalpoolgroupname', (YLeaf(YType.str, 'cIpLocalPoolGroupName'), ['str'])),
+                    ('ciplocalpoolchildindex', (YLeaf(YType.str, 'cIpLocalPoolChildIndex'), ['str'])),
                 ])
                 self.ciplocalpoolgroupname = None
                 self.ciplocalpoolchildindex = None
                 self._segment_path = lambda: "cIpLocalPoolGroupContainsEntry" + "[cIpLocalPoolGroupName='" + str(self.ciplocalpoolgroupname) + "']" + "[cIpLocalPoolChildIndex='" + str(self.ciplocalpoolchildindex) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupContainsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupContainsTable.CIpLocalPoolGroupContainsEntry, ['ciplocalpoolgroupname', 'ciplocalpoolchildindex'], name, value)
@@ -452,6 +459,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ciplocalpoolgroupentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolGroupTable"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable, [], name, value)
@@ -503,15 +511,16 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ylist_key_names = ['ciplocalpoolgroupname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciplocalpoolgroupname', YLeaf(YType.str, 'cIpLocalPoolGroupName')),
-                    ('ciplocalpoolgroupfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolGroupFreeAddrs')),
-                    ('ciplocalpoolgroupinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolGroupInUseAddrs')),
+                    ('ciplocalpoolgroupname', (YLeaf(YType.str, 'cIpLocalPoolGroupName'), ['str'])),
+                    ('ciplocalpoolgroupfreeaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolGroupFreeAddrs'), ['int'])),
+                    ('ciplocalpoolgroupinuseaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolGroupInUseAddrs'), ['int'])),
                 ])
                 self.ciplocalpoolgroupname = None
                 self.ciplocalpoolgroupfreeaddrs = None
                 self.ciplocalpoolgroupinuseaddrs = None
                 self._segment_path = lambda: "cIpLocalPoolGroupEntry" + "[cIpLocalPoolGroupName='" + str(self.ciplocalpoolgroupname) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolGroupTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolGroupTable.CIpLocalPoolGroupEntry, ['ciplocalpoolgroupname', 'ciplocalpoolgroupfreeaddrs', 'ciplocalpoolgroupinuseaddrs'], name, value)
@@ -557,6 +566,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ciplocalpoolstatsentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolStatsTable"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable, [], name, value)
@@ -643,14 +653,14 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ylist_key_names = ['ciplocalpoolname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
-                    ('ciplocalpoolstatfreeaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatFreeAddrs')),
-                    ('ciplocalpoolstatinuseaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrs')),
-                    ('ciplocalpoolstathiwaterusedaddrs', YLeaf(YType.uint32, 'cIpLocalPoolStatHiWaterUsedAddrs')),
-                    ('ciplocalpoolstatinuseaddrthldlo', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldLo')),
-                    ('ciplocalpoolstatinuseaddrthldhi', YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldHi')),
-                    ('ciplocalpoolpercentaddrthldlo', YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldLo')),
-                    ('ciplocalpoolpercentaddrthldhi', YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldHi')),
+                    ('ciplocalpoolname', (YLeaf(YType.str, 'cIpLocalPoolName'), ['str'])),
+                    ('ciplocalpoolstatfreeaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolStatFreeAddrs'), ['int'])),
+                    ('ciplocalpoolstatinuseaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrs'), ['int'])),
+                    ('ciplocalpoolstathiwaterusedaddrs', (YLeaf(YType.uint32, 'cIpLocalPoolStatHiWaterUsedAddrs'), ['int'])),
+                    ('ciplocalpoolstatinuseaddrthldlo', (YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldLo'), ['int'])),
+                    ('ciplocalpoolstatinuseaddrthldhi', (YLeaf(YType.uint32, 'cIpLocalPoolStatInUseAddrThldHi'), ['int'])),
+                    ('ciplocalpoolpercentaddrthldlo', (YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldLo'), ['int'])),
+                    ('ciplocalpoolpercentaddrthldhi', (YLeaf(YType.uint32, 'cIpLocalPoolPercentAddrThldHi'), ['int'])),
                 ])
                 self.ciplocalpoolname = None
                 self.ciplocalpoolstatfreeaddrs = None
@@ -662,6 +672,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ciplocalpoolpercentaddrthldhi = None
                 self._segment_path = lambda: "cIpLocalPoolStatsEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolStatsTable.CIpLocalPoolStatsEntry, ['ciplocalpoolname', 'ciplocalpoolstatfreeaddrs', 'ciplocalpoolstatinuseaddrs', 'ciplocalpoolstathiwaterusedaddrs', 'ciplocalpoolstatinuseaddrthldlo', 'ciplocalpoolstatinuseaddrthldhi', 'ciplocalpoolpercentaddrthldlo', 'ciplocalpoolpercentaddrthldhi'], name, value)
@@ -710,6 +721,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
             self.ciplocalpoolallocentry = YList(self)
             self._segment_path = lambda: "cIpLocalPoolAllocTable"
             self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable, [], name, value)
@@ -771,11 +783,11 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ylist_key_names = ['ciplocalpoolname','ciplocalpoolallocaddrtype','ciplocalpoolallocaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciplocalpoolname', YLeaf(YType.str, 'cIpLocalPoolName')),
-                    ('ciplocalpoolallocaddrtype', YLeaf(YType.enumeration, 'cIpLocalPoolAllocAddrType')),
-                    ('ciplocalpoolallocaddr', YLeaf(YType.str, 'cIpLocalPoolAllocAddr')),
-                    ('ciplocalpoolallocifindex', YLeaf(YType.int32, 'cIpLocalPoolAllocIfIndex')),
-                    ('ciplocalpoolallocuser', YLeaf(YType.str, 'cIpLocalPoolAllocUser')),
+                    ('ciplocalpoolname', (YLeaf(YType.str, 'cIpLocalPoolName'), ['str'])),
+                    ('ciplocalpoolallocaddrtype', (YLeaf(YType.enumeration, 'cIpLocalPoolAllocAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciplocalpoolallocaddr', (YLeaf(YType.str, 'cIpLocalPoolAllocAddr'), ['str'])),
+                    ('ciplocalpoolallocifindex', (YLeaf(YType.int32, 'cIpLocalPoolAllocIfIndex'), ['int'])),
+                    ('ciplocalpoolallocuser', (YLeaf(YType.str, 'cIpLocalPoolAllocUser'), ['str'])),
                 ])
                 self.ciplocalpoolname = None
                 self.ciplocalpoolallocaddrtype = None
@@ -784,6 +796,7 @@ class CISCOIPLOCALPOOLMIB(Entity):
                 self.ciplocalpoolallocuser = None
                 self._segment_path = lambda: "cIpLocalPoolAllocEntry" + "[cIpLocalPoolName='" + str(self.ciplocalpoolname) + "']" + "[cIpLocalPoolAllocAddrType='" + str(self.ciplocalpoolallocaddrtype) + "']" + "[cIpLocalPoolAllocAddr='" + str(self.ciplocalpoolallocaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IP-LOCAL-POOL-MIB:CISCO-IP-LOCAL-POOL-MIB/cIpLocalPoolAllocTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPLOCALPOOLMIB.CIpLocalPoolAllocTable.CIpLocalPoolAllocEntry, ['ciplocalpoolname', 'ciplocalpoolallocaddrtype', 'ciplocalpoolallocaddr', 'ciplocalpoolallocifindex', 'ciplocalpoolallocuser'], name, value)

@@ -8,7 +8,7 @@ for the following management objects\:
   logging\: Logging History data
   syslog\: syslog
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SystemMessageSeverity(Enum):
@@ -125,6 +126,7 @@ class GetSyslog(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -159,6 +161,7 @@ class GetSyslog(Entity):
             self._children_name_map["filters"] = "filters"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetSyslog.Input, [], name, value)
@@ -199,13 +202,14 @@ class GetSyslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('start_time', YLeaf(YType.str, 'start-time')),
-                    ('end_time', YLeaf(YType.str, 'end-time')),
+                    ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                    ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                 ])
                 self.start_time = None
                 self.end_time = None
                 self._segment_path = lambda: "filters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GetSyslog.Input.Filters, ['start_time', 'end_time'], name, value)
@@ -243,6 +247,7 @@ class GetSyslog(Entity):
             self._children_name_map["data"] = "data"
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetSyslog.Output, [], name, value)
@@ -280,6 +285,7 @@ class GetSyslog(Entity):
                 self._children_name_map["syslog"] = "syslog"
                 self._segment_path = lambda: "data"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GetSyslog.Output.Data, [], name, value)
@@ -317,6 +323,7 @@ class GetSyslog(Entity):
                     self._children_name_map["messages"] = "messages"
                     self._segment_path = lambda: "syslog"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(GetSyslog.Output.Data.Syslog, [], name, value)
@@ -352,6 +359,7 @@ class GetSyslog(Entity):
                         self.message = YList(self)
                         self._segment_path = lambda: "messages"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/syslog/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GetSyslog.Output.Data.Syslog.Messages, [], name, value)
@@ -446,18 +454,18 @@ class GetSyslog(Entity):
                             self.ylist_key_names = ['message_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('message_id', YLeaf(YType.uint32, 'message-id')),
-                                ('card_type', YLeaf(YType.str, 'card-type')),
-                                ('node_name', YLeaf(YType.str, 'node-name')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('time_of_day', YLeaf(YType.str, 'time-of-day')),
-                                ('time_zone', YLeaf(YType.str, 'time-zone')),
-                                ('process_name', YLeaf(YType.str, 'process-name')),
-                                ('category', YLeaf(YType.str, 'category')),
-                                ('group', YLeaf(YType.str, 'group')),
-                                ('message_name', YLeaf(YType.str, 'message-name')),
-                                ('severity', YLeaf(YType.enumeration, 'severity')),
-                                ('text', YLeaf(YType.str, 'text')),
+                                ('message_id', (YLeaf(YType.uint32, 'message-id'), ['int'])),
+                                ('card_type', (YLeaf(YType.str, 'card-type'), ['str'])),
+                                ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('time_of_day', (YLeaf(YType.str, 'time-of-day'), ['str'])),
+                                ('time_zone', (YLeaf(YType.str, 'time-zone'), ['str'])),
+                                ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
+                                ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                                ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                                ('message_name', (YLeaf(YType.str, 'message-name'), ['str'])),
+                                ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                                ('text', (YLeaf(YType.str, 'text'), ['str'])),
                             ])
                             self.message_id = None
                             self.card_type = None
@@ -473,9 +481,10 @@ class GetSyslog(Entity):
                             self.text = None
                             self._segment_path = lambda: "message" + "[message-id='" + str(self.message_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:get-syslog/output/data/syslog/messages/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(GetSyslog.Output.Data.Syslog.Messages.Message, ['message_id', 'card_type', 'node_name', 'time_stamp', 'time_of_day', 'time_zone', 'process_name', 'category', 'group', 'message_name', 'severity', 'text'], name, value)
+                            self._perform_setattr(GetSyslog.Output.Data.Syslog.Messages.Message, ['message_id', u'card_type', u'node_name', u'time_stamp', u'time_of_day', u'time_zone', u'process_name', u'category', u'group', u'message_name', u'severity', u'text'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GetSyslog()
@@ -513,6 +522,7 @@ class Logging(Entity):
         self.history.parent = self
         self._children_name_map["history"] = "history"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:logging"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Logging, [], name, value)
@@ -549,13 +559,14 @@ class Logging(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('properties', YLeaf(YType.str, 'properties')),
-                ('message', YLeaf(YType.str, 'message')),
+                ('properties', (YLeaf(YType.str, 'properties'), ['str'])),
+                ('message', (YLeaf(YType.str, 'message'), ['str'])),
             ])
             self.properties = None
             self.message = None
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:logging/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Logging.History, ['properties', 'message'], name, value)
@@ -623,6 +634,7 @@ class Syslog(Entity):
         self.logging_statistics.parent = self
         self._children_name_map["logging_statistics"] = "logging-statistics"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Syslog, [], name, value)
@@ -658,6 +670,7 @@ class Syslog(Entity):
             self.file_log_detail = YList(self)
             self._segment_path = lambda: "logging-files"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.LoggingFiles, [], name, value)
@@ -694,16 +707,17 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('file_path', YLeaf(YType.str, 'file-path')),
-                    ('file_name', YLeaf(YType.str, 'file-name')),
+                    ('file_path', (YLeaf(YType.str, 'file-path'), ['str'])),
+                    ('file_name', (YLeaf(YType.str, 'file-name'), ['str'])),
                 ])
                 self.file_path = None
                 self.file_name = None
                 self._segment_path = lambda: "file-log-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-files/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, ['file_path', 'file_name'], name, value)
+                self._perform_setattr(Syslog.LoggingFiles.FileLogDetail, [u'file_path', u'file_name'], name, value)
 
 
     class AnRemoteServers(Entity):
@@ -736,6 +750,7 @@ class Syslog(Entity):
             self.an_remote_log_server = YList(self)
             self._segment_path = lambda: "an-remote-servers"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.AnRemoteServers, [], name, value)
@@ -782,10 +797,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ip_address', YLeaf(YType.str, 'ip-address')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('vrf_severity', YLeaf(YType.str, 'vrf-severity')),
-                    ('rh_discriminator', YLeaf(YType.str, 'rh-discriminator')),
+                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('vrf_severity', (YLeaf(YType.str, 'vrf-severity'), ['str'])),
+                    ('rh_discriminator', (YLeaf(YType.str, 'rh-discriminator'), ['str'])),
                 ])
                 self.ip_address = None
                 self.vrf_name = None
@@ -793,9 +808,10 @@ class Syslog(Entity):
                 self.rh_discriminator = None
                 self._segment_path = lambda: "an-remote-log-server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/an-remote-servers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, ['ip_address', 'vrf_name', 'vrf_severity', 'rh_discriminator'], name, value)
+                self._perform_setattr(Syslog.AnRemoteServers.AnRemoteLogServer, [u'ip_address', u'vrf_name', u'vrf_severity', u'rh_discriminator'], name, value)
 
 
     class Messages(Entity):
@@ -828,6 +844,7 @@ class Syslog(Entity):
             self.message = YList(self)
             self._segment_path = lambda: "messages"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.Messages, [], name, value)
@@ -922,18 +939,18 @@ class Syslog(Entity):
                 self.ylist_key_names = ['message_id']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('message_id', YLeaf(YType.uint32, 'message-id')),
-                    ('card_type', YLeaf(YType.str, 'card-type')),
-                    ('node_name', YLeaf(YType.str, 'node-name')),
-                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                    ('time_of_day', YLeaf(YType.str, 'time-of-day')),
-                    ('time_zone', YLeaf(YType.str, 'time-zone')),
-                    ('process_name', YLeaf(YType.str, 'process-name')),
-                    ('category', YLeaf(YType.str, 'category')),
-                    ('group', YLeaf(YType.str, 'group')),
-                    ('message_name', YLeaf(YType.str, 'message-name')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('text', YLeaf(YType.str, 'text')),
+                    ('message_id', (YLeaf(YType.uint32, 'message-id'), ['int'])),
+                    ('card_type', (YLeaf(YType.str, 'card-type'), ['str'])),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                    ('time_of_day', (YLeaf(YType.str, 'time-of-day'), ['str'])),
+                    ('time_zone', (YLeaf(YType.str, 'time-zone'), ['str'])),
+                    ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
+                    ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                    ('message_name', (YLeaf(YType.str, 'message-name'), ['str'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                    ('text', (YLeaf(YType.str, 'text'), ['str'])),
                 ])
                 self.message_id = None
                 self.card_type = None
@@ -949,9 +966,10 @@ class Syslog(Entity):
                 self.text = None
                 self._segment_path = lambda: "message" + "[message-id='" + str(self.message_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/messages/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.Messages.Message, ['message_id', 'card_type', 'node_name', 'time_stamp', 'time_of_day', 'time_zone', 'process_name', 'category', 'group', 'message_name', 'severity', 'text'], name, value)
+                self._perform_setattr(Syslog.Messages.Message, ['message_id', u'card_type', u'node_name', u'time_stamp', u'time_of_day', u'time_zone', u'process_name', u'category', u'group', u'message_name', u'severity', u'text'], name, value)
 
 
     class LoggingStatistics(Entity):
@@ -1041,6 +1059,7 @@ class Syslog(Entity):
             self.file_logging_stat = YList(self)
             self._segment_path = lambda: "logging-statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Syslog.LoggingStatistics, [], name, value)
@@ -1093,10 +1112,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
-                    ('drop_count', YLeaf(YType.uint32, 'drop-count')),
-                    ('flush_count', YLeaf(YType.uint32, 'flush-count')),
-                    ('overrun_count', YLeaf(YType.uint32, 'overrun-count')),
+                    ('is_log_enabled', (YLeaf(YType.boolean, 'is-log-enabled'), ['bool'])),
+                    ('drop_count', (YLeaf(YType.uint32, 'drop-count'), ['int'])),
+                    ('flush_count', (YLeaf(YType.uint32, 'flush-count'), ['int'])),
+                    ('overrun_count', (YLeaf(YType.uint32, 'overrun-count'), ['int'])),
                 ])
                 self.is_log_enabled = None
                 self.drop_count = None
@@ -1104,9 +1123,10 @@ class Syslog(Entity):
                 self.overrun_count = None
                 self._segment_path = lambda: "logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, ['is_log_enabled', 'drop_count', 'flush_count', 'overrun_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.LoggingStats, [u'is_log_enabled', u'drop_count', u'flush_count', u'overrun_count'], name, value)
 
 
         class ConsoleLoggingStats(Entity):
@@ -1156,10 +1176,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
-                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                    ('is_log_enabled', (YLeaf(YType.boolean, 'is-log-enabled'), ['bool'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
+                    ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
                 ])
                 self.is_log_enabled = None
                 self.severity = None
@@ -1167,9 +1187,10 @@ class Syslog(Entity):
                 self.buffer_size = None
                 self._segment_path = lambda: "console-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.ConsoleLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
 
 
         class MonitorLoggingStats(Entity):
@@ -1219,10 +1240,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
-                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                    ('is_log_enabled', (YLeaf(YType.boolean, 'is-log-enabled'), ['bool'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
+                    ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
                 ])
                 self.is_log_enabled = None
                 self.severity = None
@@ -1230,9 +1251,10 @@ class Syslog(Entity):
                 self.buffer_size = None
                 self._segment_path = lambda: "monitor-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.MonitorLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
 
 
         class TrapLoggingStats(Entity):
@@ -1282,10 +1304,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
-                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                    ('is_log_enabled', (YLeaf(YType.boolean, 'is-log-enabled'), ['bool'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
+                    ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
                 ])
                 self.is_log_enabled = None
                 self.severity = None
@@ -1293,9 +1315,10 @@ class Syslog(Entity):
                 self.buffer_size = None
                 self._segment_path = lambda: "trap-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.TrapLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
 
 
         class BufferLoggingStats(Entity):
@@ -1345,10 +1368,10 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('is_log_enabled', YLeaf(YType.boolean, 'is-log-enabled')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
-                    ('buffer_size', YLeaf(YType.uint32, 'buffer-size')),
+                    ('is_log_enabled', (YLeaf(YType.boolean, 'is-log-enabled'), ['bool'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_syslog_oper', 'SystemMessageSeverity', '')])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
+                    ('buffer_size', (YLeaf(YType.uint32, 'buffer-size'), ['int'])),
                 ])
                 self.is_log_enabled = None
                 self.severity = None
@@ -1356,9 +1379,10 @@ class Syslog(Entity):
                 self.buffer_size = None
                 self._segment_path = lambda: "buffer-logging-stats"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, ['is_log_enabled', 'severity', 'message_count', 'buffer_size'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.BufferLoggingStats, [u'is_log_enabled', u'severity', u'message_count', u'buffer_size'], name, value)
 
 
         class RemoteLoggingStat(Entity):
@@ -1394,16 +1418,17 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('remote_host_name', (YLeaf(YType.str, 'remote-host-name'), ['str'])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
                 ])
                 self.remote_host_name = None
                 self.message_count = None
                 self._segment_path = lambda: "remote-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.RemoteLoggingStat, [u'remote_host_name', u'message_count'], name, value)
 
 
         class TlsRemoteLoggingStat(Entity):
@@ -1439,16 +1464,17 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('remote_host_name', (YLeaf(YType.str, 'remote-host-name'), ['str'])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
                 ])
                 self.remote_host_name = None
                 self.message_count = None
                 self._segment_path = lambda: "tls-remote-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, ['remote_host_name', 'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.TlsRemoteLoggingStat, [u'remote_host_name', u'message_count'], name, value)
 
 
         class FileLoggingStat(Entity):
@@ -1484,16 +1510,17 @@ class Syslog(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('file_name', YLeaf(YType.str, 'file-name')),
-                    ('message_count', YLeaf(YType.uint32, 'message-count')),
+                    ('file_name', (YLeaf(YType.str, 'file-name'), ['str'])),
+                    ('message_count', (YLeaf(YType.uint32, 'message-count'), ['int'])),
                 ])
                 self.file_name = None
                 self.message_count = None
                 self._segment_path = lambda: "file-logging-stat"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-syslog-oper:syslog/logging-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, ['file_name', 'message_count'], name, value)
+                self._perform_setattr(Syslog.LoggingStatistics.FileLoggingStat, [u'file_name', u'message_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Syslog()

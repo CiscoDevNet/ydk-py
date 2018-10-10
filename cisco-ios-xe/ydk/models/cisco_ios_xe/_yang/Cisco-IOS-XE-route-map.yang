@@ -34,12 +34,20 @@ module Cisco-IOS-XE-route-map {
 
   description
     "Cisco XE Native Route Map Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-08 {
+    description
+      "Add tailf:cli-flat-list-syntax to route-map/match-preference";
+  }
+  revision 2018-01-08 {
+    description
+      "Revise modeling for set metric";
+  }
   revision 2017-07-27 {
     description
       "Add model for set ip next-hop verify-availability \
@@ -333,7 +341,8 @@ module Cisco-IOS-XE-route-map {
               type union {
                 type ios-types:asn-ip-type;
                 type enumeration {
-                  enum "additive";
+                  enum "additive" {
+                  }
                 }
               }
             }
@@ -836,10 +845,62 @@ module Cisco-IOS-XE-route-map {
           }
         }
         // route-map * / set metric
-        leaf metric {
+        container metric {
           description
             "Metric value for destination routing protocol";
-          type string;
+          choice metric-choice {
+            case relative-value {
+              leaf metric-change {
+                description
+                  "+/-<metric>;;Add or subtract metric";
+                type string {
+                  pattern "(\\+|-)\\d{1,10}";
+                }
+              }
+            }
+            case absolute-values {
+              container values {
+                leaf value {
+                  description
+                    "Metric value or Bandwidth in Kbits per second";
+                  type uint32;
+                }
+                leaf delay {
+                  description
+                    "EIGRP delay metric, in 10 microsecond units";
+                  when "../value";
+                  type string {
+                    pattern "(\\+|-)?\\d{1,10}";
+                  }
+                }
+                leaf reliability {
+                  description
+                    "EIGRP reliability metric where 255 is 100% reliable";
+                  when "../delay";
+                  must "../loading and ../MTU";
+                  type uint8;
+                }
+                leaf loading {
+                  description
+                    "EIGRP Effective bandwidth metric (Loading) where 255 is 100% loaded";
+                  when "../delay";
+                  must "../reliability and ../MTU";
+                  type uint8 {
+                    range "1..255";
+                  }
+                }
+                leaf MTU {
+                  description
+                    "EIGRP MTU of the path";
+                  when "../delay";
+                  must "../reliability and ../loading";
+                  type uint32 {
+                    range "1..4294967295";
+                  }
+                }
+              }
+            }
+          }
         }
         leaf metric-type {
           description
@@ -1178,7 +1239,9 @@ module Cisco-IOS-XE-route-map {
           description
             "Local preference for route";
           leaf-list values {
-            type string;
+            type uint32 {
+              range "0..4294967295";
+            }
           }
         }
         container mdt-group {

@@ -21,6 +21,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class MrouteProtocolType(Enum):
     """
     MrouteProtocolType (Enum Class)
@@ -301,11 +302,11 @@ class GroupToRpMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(GroupToRpMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:group-to-rp-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:group-to-rp-mapping-mode"):
+        super(GroupToRpMappingMode, self).__init__(ns, pref, tag)
 
 
-class AsmMappingMode(Identity):
+class AsmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Any\-Source Multicast (ASM) with PIM Sparse Mode.
     
@@ -316,11 +317,11 @@ class AsmMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(AsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:asm-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:asm-mapping-mode"):
+        super(AsmMappingMode, self).__init__(ns, pref, tag)
 
 
-class OtherMappingMode(Identity):
+class OtherMappingMode(GroupToRpMappingMode):
     """
     None of the available modes.
     
@@ -331,11 +332,11 @@ class OtherMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(OtherMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:other-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:other-mapping-mode"):
+        super(OtherMappingMode, self).__init__(ns, pref, tag)
 
 
-class SsmMappingMode(Identity):
+class SsmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Source Specific Mode.
     
@@ -346,11 +347,11 @@ class SsmMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(SsmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:ssm-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:ssm-mapping-mode"):
+        super(SsmMappingMode, self).__init__(ns, pref, tag)
 
 
-class SmMappingMode(Identity):
+class SmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Sparse Mode.
     
@@ -361,11 +362,11 @@ class SmMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(SmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:sm-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:sm-mapping-mode"):
+        super(SmMappingMode, self).__init__(ns, pref, tag)
 
 
-class PimBidirMappingMode(Identity):
+class PimBidirMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Bidirectional PIM.
     
@@ -376,11 +377,11 @@ class PimBidirMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(PimBidirMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:pim-bidir-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:pim-bidir-mapping-mode"):
+        super(PimBidirMappingMode, self).__init__(ns, pref, tag)
 
 
-class DmMappingMode(Identity):
+class DmMappingMode(GroupToRpMappingMode):
     """
     The mapping is for Dense Mode.
     
@@ -391,7 +392,7 @@ class DmMappingMode(Identity):
     _prefix = 'pim'
     _revision = '2014-06-27'
 
-    def __init__(self):
-        super(DmMappingMode, self).__init__("urn:cisco:params:xml:ns:yang:pim", "pim", "pim:dm-mapping-mode")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:pim", pref="pim", tag="pim:dm-mapping-mode"):
+        super(DmMappingMode, self).__init__(ns, pref, tag)
 
 

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   aaa\-nacm\: AAA Nacm Information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -88,6 +89,7 @@ class AaaNacm(Entity):
         self.groups.parent = self
         self._children_name_map["groups"] = "groups"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AaaNacm, [], name, value)
@@ -135,15 +137,16 @@ class AaaNacm(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('denied_operations', YLeaf(YType.int32, 'denied-operations')),
-                ('denied_data_writes', YLeaf(YType.int32, 'denied-data-writes')),
-                ('denied_notifications', YLeaf(YType.int32, 'denied-notifications')),
+                ('denied_operations', (YLeaf(YType.int32, 'denied-operations'), ['int'])),
+                ('denied_data_writes', (YLeaf(YType.int32, 'denied-data-writes'), ['int'])),
+                ('denied_notifications', (YLeaf(YType.int32, 'denied-notifications'), ['int'])),
             ])
             self.denied_operations = None
             self.denied_data_writes = None
             self.denied_notifications = None
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Counters, ['denied_operations', 'denied_data_writes', 'denied_notifications'], name, value)
@@ -179,6 +182,7 @@ class AaaNacm(Entity):
             self.user = YList(self)
             self._segment_path = lambda: "users"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Users, [], name, value)
@@ -224,8 +228,8 @@ class AaaNacm(Entity):
                 self.ylist_key_names = ['user']
                 self._child_classes = OrderedDict([("group-name", ("group_name", AaaNacm.Users.User.GroupName))])
                 self._leafs = OrderedDict([
-                    ('user', YLeaf(YType.str, 'user')),
-                    ('user_name', YLeaf(YType.str, 'user-name')),
+                    ('user', (YLeaf(YType.str, 'user'), ['str'])),
+                    ('user_name', (YLeaf(YType.str, 'user-name'), ['str'])),
                 ])
                 self.user = None
                 self.user_name = None
@@ -233,6 +237,7 @@ class AaaNacm(Entity):
                 self.group_name = YList(self)
                 self._segment_path = lambda: "user" + "[user='" + str(self.user) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/users/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AaaNacm.Users.User, ['user', 'user_name'], name, value)
@@ -266,10 +271,11 @@ class AaaNacm(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
                     self._segment_path = lambda: "group-name"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Users.User.GroupName, ['name'], name, value)
@@ -359,15 +365,15 @@ class AaaNacm(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('groups', YLeaf(YType.int32, 'groups')),
-                ('users', YLeaf(YType.int32, 'users')),
-                ('rulelist', YLeaf(YType.int32, 'rulelist')),
-                ('rules', YLeaf(YType.int32, 'rules')),
-                ('read_default', YLeaf(YType.str, 'read-default')),
-                ('write_default', YLeaf(YType.str, 'write-default')),
-                ('exec_default', YLeaf(YType.str, 'exec-default')),
-                ('enable_nacm', YLeaf(YType.str, 'enable-nacm')),
-                ('enable_external_groups', YLeaf(YType.str, 'enable-external-groups')),
+                ('groups', (YLeaf(YType.int32, 'groups'), ['int'])),
+                ('users', (YLeaf(YType.int32, 'users'), ['int'])),
+                ('rulelist', (YLeaf(YType.int32, 'rulelist'), ['int'])),
+                ('rules', (YLeaf(YType.int32, 'rules'), ['int'])),
+                ('read_default', (YLeaf(YType.str, 'read-default'), ['str'])),
+                ('write_default', (YLeaf(YType.str, 'write-default'), ['str'])),
+                ('exec_default', (YLeaf(YType.str, 'exec-default'), ['str'])),
+                ('enable_nacm', (YLeaf(YType.str, 'enable-nacm'), ['str'])),
+                ('enable_external_groups', (YLeaf(YType.str, 'enable-external-groups'), ['str'])),
             ])
             self.groups = None
             self.users = None
@@ -380,6 +386,7 @@ class AaaNacm(Entity):
             self.enable_external_groups = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Summary, ['groups', 'users', 'rulelist', 'rules', 'read_default', 'write_default', 'exec_default', 'enable_nacm', 'enable_external_groups'], name, value)
@@ -415,6 +422,7 @@ class AaaNacm(Entity):
             self.rule = YList(self)
             self._segment_path = lambda: "rules"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Rules, [], name, value)
@@ -460,8 +468,8 @@ class AaaNacm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("rulelist-rules", ("rulelist_rules", AaaNacm.Rules.Rule.RulelistRules))])
                 self._leafs = OrderedDict([
-                    ('ordering_index', YLeaf(YType.str, 'ordering-index')),
-                    ('rulelist_name', YLeaf(YType.str, 'rulelist-name')),
+                    ('ordering_index', (YLeaf(YType.str, 'ordering-index'), ['str'])),
+                    ('rulelist_name', (YLeaf(YType.str, 'rulelist-name'), ['str'])),
                 ])
                 self.ordering_index = None
                 self.rulelist_name = None
@@ -471,6 +479,7 @@ class AaaNacm(Entity):
                 self._children_name_map["rulelist_rules"] = "rulelist-rules"
                 self._segment_path = lambda: "rule"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AaaNacm.Rules.Rule, ['ordering_index', 'rulelist_name'], name, value)
@@ -506,6 +515,7 @@ class AaaNacm(Entity):
                     self.rulelist_rule = YList(self)
                     self._segment_path = lambda: "rulelist-rules"
                     self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/rule/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Rules.Rule.RulelistRules, [], name, value)
@@ -609,17 +619,17 @@ class AaaNacm(Entity):
                         self.ylist_key_names = ['rule']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rule', YLeaf(YType.str, 'rule')),
-                            ('rule_name', YLeaf(YType.str, 'rule-name')),
-                            ('rule_index', YLeaf(YType.str, 'rule-index')),
-                            ('rulelist_index', YLeaf(YType.str, 'rulelist-index')),
-                            ('module_name', YLeaf(YType.str, 'module-name')),
-                            ('action', YLeaf(YType.str, 'action')),
-                            ('rule_type', YLeaf(YType.str, 'rule-type')),
-                            ('comment', YLeaf(YType.str, 'comment')),
-                            ('access_operations', YLeaf(YType.str, 'access-operations')),
-                            ('rule_value', YLeaf(YType.str, 'rule-value')),
-                            ('hit_count', YLeaf(YType.int32, 'hit-count')),
+                            ('rule', (YLeaf(YType.str, 'rule'), ['str'])),
+                            ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                            ('rule_index', (YLeaf(YType.str, 'rule-index'), ['str'])),
+                            ('rulelist_index', (YLeaf(YType.str, 'rulelist-index'), ['str'])),
+                            ('module_name', (YLeaf(YType.str, 'module-name'), ['str'])),
+                            ('action', (YLeaf(YType.str, 'action'), ['str'])),
+                            ('rule_type', (YLeaf(YType.str, 'rule-type'), ['str'])),
+                            ('comment', (YLeaf(YType.str, 'comment'), ['str'])),
+                            ('access_operations', (YLeaf(YType.str, 'access-operations'), ['str'])),
+                            ('rule_value', (YLeaf(YType.str, 'rule-value'), ['str'])),
+                            ('hit_count', (YLeaf(YType.int32, 'hit-count'), ['int'])),
                         ])
                         self.rule = None
                         self.rule_name = None
@@ -634,6 +644,7 @@ class AaaNacm(Entity):
                         self.hit_count = None
                         self._segment_path = lambda: "rulelist-rule" + "[rule='" + str(self.rule) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/rules/rule/rulelist-rules/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AaaNacm.Rules.Rule.RulelistRules.RulelistRule, ['rule', 'rule_name', 'rule_index', 'rulelist_index', 'module_name', 'action', 'rule_type', 'comment', 'access_operations', 'rule_value', 'hit_count'], name, value)
@@ -669,6 +680,7 @@ class AaaNacm(Entity):
             self.group = YList(self)
             self._segment_path = lambda: "groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaNacm.Groups, [], name, value)
@@ -719,8 +731,8 @@ class AaaNacm(Entity):
                 self.ylist_key_names = ['group']
                 self._child_classes = OrderedDict([("user-name", ("user_name", AaaNacm.Groups.Group.UserName)), ("rule-name", ("rule_name", AaaNacm.Groups.Group.RuleName))])
                 self._leafs = OrderedDict([
-                    ('group', YLeaf(YType.str, 'group')),
-                    ('group_name', YLeaf(YType.str, 'group-name')),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                    ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
                 ])
                 self.group = None
                 self.group_name = None
@@ -729,6 +741,7 @@ class AaaNacm(Entity):
                 self.rule_name = YList(self)
                 self._segment_path = lambda: "group" + "[group='" + str(self.group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-nacm-oper:aaa-nacm/groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AaaNacm.Groups.Group, ['group', 'group_name'], name, value)
@@ -762,10 +775,11 @@ class AaaNacm(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
                     self._segment_path = lambda: "user-name"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Groups.Group.UserName, ['name'], name, value)
@@ -799,10 +813,11 @@ class AaaNacm(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
                     self._segment_path = lambda: "rule-name"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AaaNacm.Groups.Group.RuleName, ['name'], name, value)

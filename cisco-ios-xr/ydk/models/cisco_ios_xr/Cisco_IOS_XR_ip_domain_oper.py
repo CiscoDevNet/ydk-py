@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ip\-domain\: Domain server and host data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ServerDomainLkup(Enum):
@@ -52,8 +53,8 @@ class HostAddressBase(Identity):
     _prefix = 'Cisco-IOS-XR-ip-domain-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(HostAddressBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:Host-address-base")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", pref="Cisco-IOS-XR-ip-domain-oper", tag="Cisco-IOS-XR-ip-domain-oper:Host-address-base"):
+        super(HostAddressBase, self).__init__(ns, pref, tag)
 
 
 class IpDomain(Entity):
@@ -88,6 +89,7 @@ class IpDomain(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpDomain, [], name, value)
@@ -123,6 +125,7 @@ class IpDomain(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpDomain.Vrfs, [], name, value)
@@ -166,7 +169,7 @@ class IpDomain(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("server", ("server", IpDomain.Vrfs.Vrf.Server)), ("hosts", ("hosts", IpDomain.Vrfs.Vrf.Hosts))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -179,6 +182,7 @@ class IpDomain(Entity):
                 self._children_name_map["hosts"] = "hosts"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-oper:ip-domain/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -229,9 +233,9 @@ class IpDomain(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("server-address", ("server_address", IpDomain.Vrfs.Vrf.Server.ServerAddress))])
                     self._leafs = OrderedDict([
-                        ('domain_lookup', YLeaf(YType.enumeration, 'domain-lookup')),
-                        ('domain_name', YLeaf(YType.str, 'domain-name')),
-                        ('domain', YLeafList(YType.str, 'domain')),
+                        ('domain_lookup', (YLeaf(YType.enumeration, 'domain-lookup'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper', 'ServerDomainLkup', '')])),
+                        ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                        ('domain', (YLeafList(YType.str, 'domain'), ['str'])),
                     ])
                     self.domain_lookup = None
                     self.domain_name = None
@@ -239,9 +243,10 @@ class IpDomain(Entity):
 
                     self.server_address = YList(self)
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, [u'domain_lookup', u'domain_name', u'domain'], name, value)
+                    self._perform_setattr(IpDomain.Vrfs.Vrf.Server, ['domain_lookup', 'domain_name', 'domain'], name, value)
 
 
                 class ServerAddress(Entity):
@@ -284,17 +289,18 @@ class IpDomain(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.identityref, 'af-name')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                            ('af_name', (YLeaf(YType.identityref, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase')])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4_address = None
                         self.ipv6_address = None
                         self._segment_path = lambda: "server-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Server.ServerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
             class Hosts(Entity):
@@ -326,6 +332,7 @@ class IpDomain(Entity):
 
                     self.host = YList(self)
                     self._segment_path = lambda: "hosts"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts, [], name, value)
@@ -382,9 +389,9 @@ class IpDomain(Entity):
                         self.ylist_key_names = ['host_name']
                         self._child_classes = OrderedDict([("host-alias-list", ("host_alias_list", IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList)), ("host-address", ("host_address", IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress))])
                         self._leafs = OrderedDict([
-                            ('host_name', YLeaf(YType.str, 'host-name')),
-                            ('af_name', YLeaf(YType.identityref, 'af-name')),
-                            ('age', YLeaf(YType.uint16, 'age')),
+                            ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                            ('af_name', (YLeaf(YType.identityref, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase')])),
+                            ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
                         ])
                         self.host_name = None
                         self.af_name = None
@@ -396,9 +403,10 @@ class IpDomain(Entity):
 
                         self.host_address = YList(self)
                         self._segment_path = lambda: "host" + "[host-name='" + str(self.host_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', u'af_name', u'age'], name, value)
+                        self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host, ['host_name', 'af_name', 'age'], name, value)
 
 
                     class HostAliasList(Entity):
@@ -429,13 +437,14 @@ class IpDomain(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('host_alias', YLeafList(YType.str, 'host-alias')),
+                                ('host_alias', (YLeafList(YType.str, 'host-alias'), ['str'])),
                             ])
                             self.host_alias = []
                             self._segment_path = lambda: "host-alias-list"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, [u'host_alias'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAliasList, ['host_alias'], name, value)
 
 
                     class HostAddress(Entity):
@@ -478,23 +487,24 @@ class IpDomain(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.identityref, 'af-name')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('af_name', (YLeaf(YType.identityref, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_domain_oper', 'HostAddressBase')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self._segment_path = lambda: "host-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(IpDomain.Vrfs.Vrf.Hosts.Host.HostAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = IpDomain()
         return self._top_entity
 
-class Ipv4(Identity):
+class Ipv4(HostAddressBase):
     """
     IPv4 family address
     
@@ -505,11 +515,11 @@ class Ipv4(Identity):
     _prefix = 'Cisco-IOS-XR-ip-domain-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:ipv4")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", pref="Cisco-IOS-XR-ip-domain-oper", tag="Cisco-IOS-XR-ip-domain-oper:ipv4"):
+        super(Ipv4, self).__init__(ns, pref, tag)
 
 
-class Ipv6(Identity):
+class Ipv6(HostAddressBase):
     """
     IPv6 family address
     
@@ -520,7 +530,7 @@ class Ipv6(Identity):
     _prefix = 'Cisco-IOS-XR-ip-domain-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper", "Cisco-IOS-XR-ip-domain-oper:ipv6")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-ip-domain-oper", pref="Cisco-IOS-XR-ip-domain-oper", tag="Cisco-IOS-XR-ip-domain-oper:ipv6"):
+        super(Ipv6, self).__init__(ns, pref, tag)
 
 

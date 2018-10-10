@@ -12,6 +12,8 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
+
 
 class AtmConnCastType(Enum):
     """
@@ -414,7 +416,7 @@ class AtmVorXOperStatus(Enum):
 
 
 
-class AtmClpTransparentNoScr(Identity):
+class AtmClpTransparentNoScr(ObjectIdentity):
     """
     This traffic descriptor type is for the CLP\-
     transparent model and no Sustained Cell Rate.
@@ -443,11 +445,11 @@ class AtmClpTransparentNoScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpTransparentNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentNoScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTransparentNoScr"):
+        super(AtmClpTransparentNoScr, self).__init__(ns, pref, tag)
 
 
-class AtmNoClpScr(Identity):
+class AtmNoClpScr(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
     with Sustained Cell Rate.  The use of the
@@ -467,11 +469,11 @@ class AtmNoClpScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoClpScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpScr"):
+        super(AtmNoClpScr, self).__init__(ns, pref, tag)
 
 
-class AtmClpTransparentScr(Identity):
+class AtmClpTransparentScr(ObjectIdentity):
     """
     This traffic descriptor type is for the CLP\-
     transparent model with Sustained Cell Rate.
@@ -501,11 +503,11 @@ class AtmClpTransparentScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpTransparentScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTransparentScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTransparentScr"):
+        super(AtmClpTransparentScr, self).__init__(ns, pref, tag)
 
 
-class AtmNoClpNoScr(Identity):
+class AtmNoClpNoScr(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
     and no Sustained Cell Rate.  The use of the
@@ -524,11 +526,11 @@ class AtmNoClpNoScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoClpNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpNoScr"):
+        super(AtmNoClpNoScr, self).__init__(ns, pref, tag)
 
 
-class AtmClpNoTaggingScr(Identity):
+class AtmClpNoTaggingScr(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
     Sustained Cell Rate and no tagging.  The use
@@ -548,11 +550,11 @@ class AtmClpNoTaggingScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpNoTaggingScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingScr"):
+        super(AtmClpNoTaggingScr, self).__init__(ns, pref, tag)
 
 
-class AtmNoClpTaggingNoScr(Identity):
+class AtmNoClpTaggingNoScr(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
     with tagging and no Sustained Cell Rate.  The
@@ -575,11 +577,11 @@ class AtmNoClpTaggingNoScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoClpTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpTaggingNoScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpTaggingNoScr"):
+        super(AtmNoClpTaggingNoScr, self).__init__(ns, pref, tag)
 
 
-class AtmClpNoTaggingMcr(Identity):
+class AtmClpNoTaggingMcr(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
     Minimum Cell Rate and no tagging.  The use of
@@ -598,11 +600,11 @@ class AtmClpNoTaggingMcr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpNoTaggingMcr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingMcr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingMcr"):
+        super(AtmClpNoTaggingMcr, self).__init__(ns, pref, tag)
 
 
-class AtmClpNoTaggingScrCdvt(Identity):
+class AtmClpNoTaggingScrCdvt(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
     Sustained Cell Rate and no tagging.  The use
@@ -626,11 +628,11 @@ class AtmClpNoTaggingScrCdvt(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpNoTaggingScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingScrCdvt")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingScrCdvt"):
+        super(AtmClpNoTaggingScrCdvt, self).__init__(ns, pref, tag)
 
 
-class AtmNoTrafficDescriptor(Identity):
+class AtmNoTrafficDescriptor(ObjectIdentity):
     """
     This identifies the no ATM traffic
     descriptor type.  Parameters 1, 2, 3, 4,
@@ -644,11 +646,11 @@ class AtmNoTrafficDescriptor(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoTrafficDescriptor, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoTrafficDescriptor")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoTrafficDescriptor"):
+        super(AtmNoTrafficDescriptor, self).__init__(ns, pref, tag)
 
 
-class AtmClpTaggingNoScr(Identity):
+class AtmClpTaggingNoScr(ObjectIdentity):
     """
     This traffic descriptor is for CLP with
     tagging and no Sustained Cell Rate.  The use
@@ -669,11 +671,11 @@ class AtmClpTaggingNoScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingNoScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTaggingNoScr"):
+        super(AtmClpTaggingNoScr, self).__init__(ns, pref, tag)
 
 
-class AtmNoClpScrCdvt(Identity):
+class AtmNoClpScrCdvt(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
     with Sustained Cell Rate.  The use of the
@@ -701,11 +703,11 @@ class AtmNoClpScrCdvt(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoClpScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpScrCdvt")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpScrCdvt"):
+        super(AtmNoClpScrCdvt, self).__init__(ns, pref, tag)
 
 
-class AtmNoClpNoScrCdvt(Identity):
+class AtmNoClpNoScrCdvt(ObjectIdentity):
     """
     This traffic descriptor type is for no CLP
     and no Sustained Cell Rate.  The use of the
@@ -735,11 +737,11 @@ class AtmNoClpNoScrCdvt(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmNoClpNoScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmNoClpNoScrCdvt")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmNoClpNoScrCdvt"):
+        super(AtmNoClpNoScrCdvt, self).__init__(ns, pref, tag)
 
 
-class AtmClpTaggingScr(Identity):
+class AtmClpTaggingScr(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
     tagging and Sustained Cell Rate.  The use of
@@ -760,11 +762,11 @@ class AtmClpTaggingScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpTaggingScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTaggingScr"):
+        super(AtmClpTaggingScr, self).__init__(ns, pref, tag)
 
 
-class AtmClpNoTaggingNoScr(Identity):
+class AtmClpNoTaggingNoScr(ObjectIdentity):
     """
     This traffic descriptor is for CLP without
     tagging and no Sustained Cell Rate.  The use
@@ -784,11 +786,11 @@ class AtmClpNoTaggingNoScr(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpNoTaggingNoScr, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpNoTaggingNoScr")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpNoTaggingNoScr"):
+        super(AtmClpNoTaggingNoScr, self).__init__(ns, pref, tag)
 
 
-class AtmClpTaggingScrCdvt(Identity):
+class AtmClpTaggingScrCdvt(ObjectIdentity):
     """
     This traffic descriptor type is for CLP with
     tagging and Sustained Cell Rate.  The use of
@@ -813,7 +815,7 @@ class AtmClpTaggingScrCdvt(Identity):
     _prefix = 'ATM-TC-MIB'
     _revision = '1998-10-19'
 
-    def __init__(self):
-        super(AtmClpTaggingScrCdvt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", "ATM-TC-MIB", "ATM-TC-MIB:atmClpTaggingScrCdvt")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:ATM-TC-MIB", pref="ATM-TC-MIB", tag="ATM-TC-MIB:atmClpTaggingScrCdvt"):
+        super(AtmClpTaggingScrCdvt, self).__init__(ns, pref, tag)
 
 

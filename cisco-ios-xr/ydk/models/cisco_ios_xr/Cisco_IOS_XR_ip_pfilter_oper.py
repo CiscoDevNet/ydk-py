@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pfilter\-ma\: Root class of PfilterMa Oper schema
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class PfilterMa(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PfilterMa, [], name, value)
@@ -87,6 +89,7 @@ class PfilterMa(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PfilterMa.Nodes, [], name, value)
@@ -126,7 +129,7 @@ class PfilterMa(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("process", ("process", PfilterMa.Nodes.Node.Process))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -135,6 +138,7 @@ class PfilterMa(Entity):
                 self._children_name_map["process"] = "process"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-pfilter-oper:pfilter-ma/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PfilterMa.Nodes.Node, ['node_name'], name, value)
@@ -180,6 +184,7 @@ class PfilterMa(Entity):
                     self.ipv4.parent = self
                     self._children_name_map["ipv4"] = "ipv4"
                     self._segment_path = lambda: "process"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PfilterMa.Nodes.Node.Process, [], name, value)
@@ -216,6 +221,7 @@ class PfilterMa(Entity):
                         self.acl_info_table.parent = self
                         self._children_name_map["acl_info_table"] = "acl-info-table"
                         self._segment_path = lambda: "ipv6"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6, [], name, value)
@@ -252,6 +258,7 @@ class PfilterMa(Entity):
                             self.interface_infos.parent = self
                             self._children_name_map["interface_infos"] = "interface-infos"
                             self._segment_path = lambda: "acl-info-table"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable, [], name, value)
@@ -286,6 +293,7 @@ class PfilterMa(Entity):
 
                                 self.interface_info = YList(self)
                                 self._segment_path = lambda: "interface-infos"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos, [], name, value)
@@ -300,7 +308,7 @@ class PfilterMa(Entity):
                                 	Name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: acl_info
                                 
@@ -324,15 +332,16 @@ class PfilterMa(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('acl_info', YLeaf(YType.str, 'acl-info')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('acl_info', (YLeaf(YType.str, 'acl-info'), ['str'])),
                                     ])
                                     self.interface_name = None
                                     self.acl_info = None
                                     self._segment_path = lambda: "interface-info" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', 'acl_info'], name, value)
+                                    self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv6.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', u'acl_info'], name, value)
 
 
                 class Ipv4(Entity):
@@ -366,6 +375,7 @@ class PfilterMa(Entity):
                         self.acl_info_table.parent = self
                         self._children_name_map["acl_info_table"] = "acl-info-table"
                         self._segment_path = lambda: "ipv4"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4, [], name, value)
@@ -402,6 +412,7 @@ class PfilterMa(Entity):
                             self.interface_infos.parent = self
                             self._children_name_map["interface_infos"] = "interface-infos"
                             self._segment_path = lambda: "acl-info-table"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable, [], name, value)
@@ -436,6 +447,7 @@ class PfilterMa(Entity):
 
                                 self.interface_info = YList(self)
                                 self._segment_path = lambda: "interface-infos"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos, [], name, value)
@@ -450,7 +462,7 @@ class PfilterMa(Entity):
                                 	Name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: acl_info
                                 
@@ -474,15 +486,16 @@ class PfilterMa(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('acl_info', YLeaf(YType.str, 'acl-info')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('acl_info', (YLeaf(YType.str, 'acl-info'), ['str'])),
                                     ])
                                     self.interface_name = None
                                     self.acl_info = None
                                     self._segment_path = lambda: "interface-info" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', 'acl_info'], name, value)
+                                    self._perform_setattr(PfilterMa.Nodes.Node.Process.Ipv4.AclInfoTable.InterfaceInfos.InterfaceInfo, ['interface_name', u'acl_info'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PfilterMa()

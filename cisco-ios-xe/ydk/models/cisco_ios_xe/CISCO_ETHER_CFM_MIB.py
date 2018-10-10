@@ -53,6 +53,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOETHERCFMMIB(Entity):
     """
     
@@ -94,6 +95,7 @@ class CISCOETHERCFMMIB(Entity):
         self.cethercfmeventtable.parent = self
         self._children_name_map["cethercfmeventtable"] = "cEtherCfmEventTable"
         self._segment_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOETHERCFMMIB, [], name, value)
@@ -127,11 +129,12 @@ class CISCOETHERCFMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cethercfmmaxeventindex', YLeaf(YType.uint32, 'cEtherCfmMaxEventIndex')),
+                ('cethercfmmaxeventindex', (YLeaf(YType.uint32, 'cEtherCfmMaxEventIndex'), ['int'])),
             ])
             self.cethercfmmaxeventindex = None
             self._segment_path = lambda: "cecCfmEvents"
             self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOETHERCFMMIB.CecCfmEvents, [u'cethercfmmaxeventindex'], name, value)
@@ -203,6 +206,7 @@ class CISCOETHERCFMMIB(Entity):
             self.cethercfmevententry = YList(self)
             self._segment_path = lambda: "cEtherCfmEventTable"
             self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOETHERCFMMIB.CEtherCfmEventTable, [], name, value)
@@ -339,23 +343,23 @@ class CISCOETHERCFMMIB(Entity):
                 self.ylist_key_names = ['cethercfmeventdomainindex','cethercfmeventsvlan','cethercfmeventindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cethercfmeventdomainindex', YLeaf(YType.uint32, 'cEtherCfmEventDomainIndex')),
-                    ('cethercfmeventsvlan', YLeaf(YType.int32, 'cEtherCfmEventSvlan')),
-                    ('cethercfmeventindex', YLeaf(YType.uint32, 'cEtherCfmEventIndex')),
-                    ('cethercfmeventdomainname', YLeaf(YType.str, 'cEtherCfmEventDomainName')),
-                    ('cethercfmeventtype', YLeaf(YType.enumeration, 'cEtherCfmEventType')),
-                    ('cethercfmeventlastchange', YLeaf(YType.uint32, 'cEtherCfmEventLastChange')),
-                    ('cethercfmeventserviceid', YLeaf(YType.str, 'cEtherCfmEventServiceId')),
-                    ('cethercfmeventlclmepid', YLeaf(YType.uint32, 'cEtherCfmEventLclMepid')),
-                    ('cethercfmeventlclmacaddress', YLeaf(YType.str, 'cEtherCfmEventLclMacAddress')),
-                    ('cethercfmeventlclmepcount', YLeaf(YType.uint32, 'cEtherCfmEventLclMepCount')),
-                    ('cethercfmeventlclifcount', YLeaf(YType.uint32, 'cEtherCfmEventLclIfCount')),
-                    ('cethercfmeventrmtmepid', YLeaf(YType.uint32, 'cEtherCfmEventRmtMepid')),
-                    ('cethercfmeventrmtmacaddress', YLeaf(YType.str, 'cEtherCfmEventRmtMacAddress')),
-                    ('cethercfmeventrmtportstate', YLeaf(YType.enumeration, 'cEtherCfmEventRmtPortState')),
-                    ('cethercfmeventrmtserviceid', YLeaf(YType.str, 'cEtherCfmEventRmtServiceId')),
-                    ('cethercfmeventcode', YLeaf(YType.enumeration, 'cEtherCfmEventCode')),
-                    ('cethercfmeventdeleterow', YLeaf(YType.enumeration, 'cEtherCfmEventDeleteRow')),
+                    ('cethercfmeventdomainindex', (YLeaf(YType.uint32, 'cEtherCfmEventDomainIndex'), ['int'])),
+                    ('cethercfmeventsvlan', (YLeaf(YType.int32, 'cEtherCfmEventSvlan'), ['int'])),
+                    ('cethercfmeventindex', (YLeaf(YType.uint32, 'cEtherCfmEventIndex'), ['int'])),
+                    ('cethercfmeventdomainname', (YLeaf(YType.str, 'cEtherCfmEventDomainName'), ['str'])),
+                    ('cethercfmeventtype', (YLeaf(YType.enumeration, 'cEtherCfmEventType'), [('ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB', 'CISCOETHERCFMMIB', 'CEtherCfmEventTable.CEtherCfmEventEntry.CEtherCfmEventType')])),
+                    ('cethercfmeventlastchange', (YLeaf(YType.uint32, 'cEtherCfmEventLastChange'), ['int'])),
+                    ('cethercfmeventserviceid', (YLeaf(YType.str, 'cEtherCfmEventServiceId'), ['str'])),
+                    ('cethercfmeventlclmepid', (YLeaf(YType.uint32, 'cEtherCfmEventLclMepid'), ['int'])),
+                    ('cethercfmeventlclmacaddress', (YLeaf(YType.str, 'cEtherCfmEventLclMacAddress'), ['str'])),
+                    ('cethercfmeventlclmepcount', (YLeaf(YType.uint32, 'cEtherCfmEventLclMepCount'), ['int'])),
+                    ('cethercfmeventlclifcount', (YLeaf(YType.uint32, 'cEtherCfmEventLclIfCount'), ['int'])),
+                    ('cethercfmeventrmtmepid', (YLeaf(YType.uint32, 'cEtherCfmEventRmtMepid'), ['int'])),
+                    ('cethercfmeventrmtmacaddress', (YLeaf(YType.str, 'cEtherCfmEventRmtMacAddress'), ['str'])),
+                    ('cethercfmeventrmtportstate', (YLeaf(YType.enumeration, 'cEtherCfmEventRmtPortState'), [('ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB', 'CISCOETHERCFMMIB', 'CEtherCfmEventTable.CEtherCfmEventEntry.CEtherCfmEventRmtPortState')])),
+                    ('cethercfmeventrmtserviceid', (YLeaf(YType.str, 'cEtherCfmEventRmtServiceId'), ['str'])),
+                    ('cethercfmeventcode', (YLeaf(YType.enumeration, 'cEtherCfmEventCode'), [('ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB', 'CISCOETHERCFMMIB', 'CEtherCfmEventTable.CEtherCfmEventEntry.CEtherCfmEventCode')])),
+                    ('cethercfmeventdeleterow', (YLeaf(YType.enumeration, 'cEtherCfmEventDeleteRow'), [('ydk.models.cisco_ios_xe.CISCO_ETHER_CFM_MIB', 'CISCOETHERCFMMIB', 'CEtherCfmEventTable.CEtherCfmEventEntry.CEtherCfmEventDeleteRow')])),
                 ])
                 self.cethercfmeventdomainindex = None
                 self.cethercfmeventsvlan = None
@@ -376,6 +380,7 @@ class CISCOETHERCFMMIB(Entity):
                 self.cethercfmeventdeleterow = None
                 self._segment_path = lambda: "cEtherCfmEventEntry" + "[cEtherCfmEventDomainIndex='" + str(self.cethercfmeventdomainindex) + "']" + "[cEtherCfmEventSvlan='" + str(self.cethercfmeventsvlan) + "']" + "[cEtherCfmEventIndex='" + str(self.cethercfmeventindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHER-CFM-MIB:CISCO-ETHER-CFM-MIB/cEtherCfmEventTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOETHERCFMMIB.CEtherCfmEventTable.CEtherCfmEventEntry, [u'cethercfmeventdomainindex', u'cethercfmeventsvlan', u'cethercfmeventindex', u'cethercfmeventdomainname', u'cethercfmeventtype', u'cethercfmeventlastchange', u'cethercfmeventserviceid', u'cethercfmeventlclmepid', u'cethercfmeventlclmacaddress', u'cethercfmeventlclmepcount', u'cethercfmeventlclifcount', u'cethercfmeventrmtmepid', u'cethercfmeventrmtmacaddress', u'cethercfmeventrmtportstate', u'cethercfmeventrmtserviceid', u'cethercfmeventcode', u'cethercfmeventdeleterow'], name, value)

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   fia\: FIA driver operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AdminState(Enum):
@@ -688,7 +689,7 @@ class Fia(Entity):
     """
 
     _prefix = 'dnx-driver-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-08-29'
 
     def __init__(self):
         super(Fia, self).__init__()
@@ -706,6 +707,7 @@ class Fia(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Fia, [], name, value)
@@ -725,7 +727,7 @@ class Fia(Entity):
         """
 
         _prefix = 'dnx-driver-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-08-29'
 
         def __init__(self):
             super(Fia.Nodes, self).__init__()
@@ -741,6 +743,7 @@ class Fia(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fia.Nodes, [], name, value)
@@ -797,7 +800,7 @@ class Fia(Entity):
             """
 
             _prefix = 'dnx-driver-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-08-29'
 
             def __init__(self):
                 super(Fia.Nodes.Node, self).__init__()
@@ -809,7 +812,7 @@ class Fia(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("rx-link-information", ("rx_link_information", Fia.Nodes.Node.RxLinkInformation)), ("driver-information", ("driver_information", Fia.Nodes.Node.DriverInformation)), ("clear-statistics", ("clear_statistics", Fia.Nodes.Node.ClearStatistics)), ("tx-link-information", ("tx_link_information", Fia.Nodes.Node.TxLinkInformation)), ("diag-shell", ("diag_shell", Fia.Nodes.Node.DiagShell)), ("oir-history", ("oir_history", Fia.Nodes.Node.OirHistory)), ("asic-statistics", ("asic_statistics", Fia.Nodes.Node.AsicStatistics))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -842,6 +845,7 @@ class Fia(Entity):
                 self._children_name_map["asic_statistics"] = "asic-statistics"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-oper:fia/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fia.Nodes.Node, ['node_name'], name, value)
@@ -861,7 +865,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.RxLinkInformation, self).__init__()
@@ -878,6 +882,7 @@ class Fia(Entity):
                     self.link_options.parent = self
                     self._children_name_map["link_options"] = "link-options"
                     self._segment_path = lambda: "rx-link-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.RxLinkInformation, [], name, value)
@@ -897,7 +902,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions, self).__init__()
@@ -912,6 +917,7 @@ class Fia(Entity):
 
                         self.link_option = YList(self)
                         self._segment_path = lambda: "link-options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions, [], name, value)
@@ -938,7 +944,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption, self).__init__()
@@ -950,7 +956,7 @@ class Fia(Entity):
                             self.ylist_key_names = ['option']
                             self._child_classes = OrderedDict([("rx-asic-instances", ("rx_asic_instances", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances))])
                             self._leafs = OrderedDict([
-                                ('option', YLeaf(YType.str, 'option')),
+                                ('option', (YLeaf(YType.str, 'option'), ['str'])),
                             ])
                             self.option = None
 
@@ -958,6 +964,7 @@ class Fia(Entity):
                             self.rx_asic_instances.parent = self
                             self._children_name_map["rx_asic_instances"] = "rx-asic-instances"
                             self._segment_path = lambda: "link-option" + "[option='" + str(self.option) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption, ['option'], name, value)
@@ -977,7 +984,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances, self).__init__()
@@ -992,6 +999,7 @@ class Fia(Entity):
 
                                 self.rx_asic_instance = YList(self)
                                 self._segment_path = lambda: "rx-asic-instances"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances, [], name, value)
@@ -1018,7 +1026,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance, self).__init__()
@@ -1030,7 +1038,7 @@ class Fia(Entity):
                                     self.ylist_key_names = ['instance']
                                     self._child_classes = OrderedDict([("rx-links", ("rx_links", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks))])
                                     self._leafs = OrderedDict([
-                                        ('instance', YLeaf(YType.uint32, 'instance')),
+                                        ('instance', (YLeaf(YType.uint32, 'instance'), ['int'])),
                                     ])
                                     self.instance = None
 
@@ -1038,6 +1046,7 @@ class Fia(Entity):
                                     self.rx_links.parent = self
                                     self._children_name_map["rx_links"] = "rx-links"
                                     self._segment_path = lambda: "rx-asic-instance" + "[instance='" + str(self.instance) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance, ['instance'], name, value)
@@ -1057,7 +1066,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks, self).__init__()
@@ -1072,6 +1081,7 @@ class Fia(Entity):
 
                                         self.rx_link = YList(self)
                                         self._segment_path = lambda: "rx-links"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks, [], name, value)
@@ -1112,7 +1122,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink, self).__init__()
@@ -1124,9 +1134,9 @@ class Fia(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("rx-link", ("rx_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_))])
                                             self._leafs = OrderedDict([
-                                                ('start_number', YLeaf(YType.uint32, 'start-number')),
-                                                ('end_number', YLeaf(YType.uint32, 'end-number')),
-                                                ('status_option', YLeaf(YType.str, 'status-option')),
+                                                ('start_number', (YLeaf(YType.uint32, 'start-number'), ['int'])),
+                                                ('end_number', (YLeaf(YType.uint32, 'end-number'), ['int'])),
+                                                ('status_option', (YLeaf(YType.str, 'status-option'), ['str'])),
                                             ])
                                             self.start_number = None
                                             self.end_number = None
@@ -1134,6 +1144,7 @@ class Fia(Entity):
 
                                             self.rx_link = YList(self)
                                             self._segment_path = lambda: "rx-link"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink, ['start_number', 'end_number', 'status_option'], name, value)
@@ -1148,7 +1159,7 @@ class Fia(Entity):
                                             	Single link
                                             	**type**\: int
                                             
-                                            	**range:** \-2147483648..2147483647
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: this_link
                                             
@@ -1245,7 +1256,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, self).__init__()
@@ -1257,19 +1268,19 @@ class Fia(Entity):
                                                 self.ylist_key_names = ['link']
                                                 self._child_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink)), ("far-end-link-in-hw", ("far_end_link_in_hw", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw)), ("history", ("history", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History))])
                                                 self._leafs = OrderedDict([
-                                                    ('link', YLeaf(YType.int32, 'link')),
-                                                    ('speed', YLeaf(YType.uint32, 'speed')),
-                                                    ('stage', YLeaf(YType.enumeration, 'stage')),
-                                                    ('is_link_valid', YLeaf(YType.boolean, 'is-link-valid')),
-                                                    ('is_conf_pending', YLeaf(YType.boolean, 'is-conf-pending')),
-                                                    ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                                                    ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                                                    ('error_state', YLeaf(YType.enumeration, 'error-state')),
-                                                    ('flags', YLeaf(YType.str, 'flags')),
-                                                    ('flap_cnt', YLeaf(YType.uint32, 'flap-cnt')),
-                                                    ('num_admin_shuts', YLeaf(YType.uint32, 'num-admin-shuts')),
-                                                    ('correctable_errors', YLeaf(YType.uint64, 'correctable-errors')),
-                                                    ('uncorrectable_errors', YLeaf(YType.uint64, 'uncorrectable-errors')),
+                                                    ('link', (YLeaf(YType.uint32, 'link'), ['int'])),
+                                                    ('speed', (YLeaf(YType.uint32, 'speed'), ['int'])),
+                                                    ('stage', (YLeaf(YType.enumeration, 'stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                    ('is_link_valid', (YLeaf(YType.boolean, 'is-link-valid'), ['bool'])),
+                                                    ('is_conf_pending', (YLeaf(YType.boolean, 'is-conf-pending'), ['bool'])),
+                                                    ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                                                    ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'OperState', '')])),
+                                                    ('error_state', (YLeaf(YType.enumeration, 'error-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkErrorState', '')])),
+                                                    ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
+                                                    ('flap_cnt', (YLeaf(YType.uint32, 'flap-cnt'), ['int'])),
+                                                    ('num_admin_shuts', (YLeaf(YType.uint32, 'num-admin-shuts'), ['int'])),
+                                                    ('correctable_errors', (YLeaf(YType.uint64, 'correctable-errors'), ['int'])),
+                                                    ('uncorrectable_errors', (YLeaf(YType.uint64, 'uncorrectable-errors'), ['int'])),
                                                 ])
                                                 self.link = None
                                                 self.speed = None
@@ -1301,9 +1312,10 @@ class Fia(Entity):
                                                 self.history.parent = self
                                                 self._children_name_map["history"] = "history"
                                                 self._segment_path = lambda: "rx-link" + "[link='" + str(self.link) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'admin_state', 'oper_state', 'error_state', 'flags', 'flap_cnt', 'num_admin_shuts', 'correctable_errors', 'uncorrectable_errors'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'admin_state', u'oper_state', u'error_state', u'flags', u'flap_cnt', u'num_admin_shuts', u'correctable_errors', u'uncorrectable_errors'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -1344,7 +1356,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, self).__init__()
@@ -1356,10 +1368,10 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                                                        ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
-                                                        ('link_num', YLeaf(YType.uint32, 'link-num')),
-                                                        ('phy_link_num', YLeaf(YType.uint32, 'phy-link-num')),
+                                                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Link', '')])),
+                                                        ('link_stage', (YLeaf(YType.enumeration, 'link-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                        ('link_num', (YLeaf(YType.uint32, 'link-num'), ['int'])),
+                                                        ('phy_link_num', (YLeaf(YType.uint32, 'phy-link-num'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_stage = None
@@ -1370,9 +1382,10 @@ class Fia(Entity):
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
                                                     self._segment_path = lambda: "this-link"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1415,7 +1428,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, self).__init__()
@@ -1427,11 +1440,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                            ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                            ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                            ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                            ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                            ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                            ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                            ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                            ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                            ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                                         ])
                                                         self.rack_type = None
                                                         self.asic_type = None
@@ -1439,9 +1452,10 @@ class Fia(Entity):
                                                         self.slot_num = None
                                                         self.asic_instance = None
                                                         self._segment_path = lambda: "asic-id"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                             class FarEndLink(Entity):
@@ -1482,7 +1496,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, self).__init__()
@@ -1494,10 +1508,10 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                                                        ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
-                                                        ('link_num', YLeaf(YType.uint32, 'link-num')),
-                                                        ('phy_link_num', YLeaf(YType.uint32, 'phy-link-num')),
+                                                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Link', '')])),
+                                                        ('link_stage', (YLeaf(YType.enumeration, 'link-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                        ('link_num', (YLeaf(YType.uint32, 'link-num'), ['int'])),
+                                                        ('phy_link_num', (YLeaf(YType.uint32, 'phy-link-num'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_stage = None
@@ -1508,9 +1522,10 @@ class Fia(Entity):
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
                                                     self._segment_path = lambda: "far-end-link"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1553,7 +1568,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, self).__init__()
@@ -1565,11 +1580,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                            ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                            ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                            ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                            ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                            ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                            ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                            ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                            ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                            ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                                         ])
                                                         self.rack_type = None
                                                         self.asic_type = None
@@ -1577,9 +1592,10 @@ class Fia(Entity):
                                                         self.slot_num = None
                                                         self.asic_instance = None
                                                         self._segment_path = lambda: "asic-id"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                             class FarEndLinkInHw(Entity):
@@ -1620,7 +1636,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, self).__init__()
@@ -1632,10 +1648,10 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                                                        ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
-                                                        ('link_num', YLeaf(YType.uint32, 'link-num')),
-                                                        ('phy_link_num', YLeaf(YType.uint32, 'phy-link-num')),
+                                                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Link', '')])),
+                                                        ('link_stage', (YLeaf(YType.enumeration, 'link-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                        ('link_num', (YLeaf(YType.uint32, 'link-num'), ['int'])),
+                                                        ('phy_link_num', (YLeaf(YType.uint32, 'phy-link-num'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_stage = None
@@ -1646,9 +1662,10 @@ class Fia(Entity):
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
                                                     self._segment_path = lambda: "far-end-link-in-hw"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -1691,7 +1708,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, self).__init__()
@@ -1703,11 +1720,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                            ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                            ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                            ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                            ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                            ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                            ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                            ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                            ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                            ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                                         ])
                                                         self.rack_type = None
                                                         self.asic_type = None
@@ -1715,9 +1732,10 @@ class Fia(Entity):
                                                         self.slot_num = None
                                                         self.asic_instance = None
                                                         self._segment_path = lambda: "asic-id"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.FarEndLinkInHw.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                             class History(Entity):
@@ -1748,7 +1766,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, self).__init__()
@@ -1760,17 +1778,18 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist))])
                                                     self._leafs = OrderedDict([
-                                                        ('histnum', YLeaf(YType.uint8, 'histnum')),
-                                                        ('start_index', YLeaf(YType.uint8, 'start-index')),
+                                                        ('histnum', (YLeaf(YType.uint8, 'histnum'), ['int'])),
+                                                        ('start_index', (YLeaf(YType.uint8, 'start-index'), ['int'])),
                                                     ])
                                                     self.histnum = None
                                                     self.start_index = None
 
                                                     self.hist = YList(self)
                                                     self._segment_path = lambda: "history"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, ['histnum', 'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History, [u'histnum', u'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -1809,7 +1828,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, self).__init__()
@@ -1821,11 +1840,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                                                            ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                                                            ('error_state', YLeaf(YType.enumeration, 'error-state')),
-                                                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                                                            ('reasons', YLeaf(YType.str, 'reasons')),
+                                                            ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                                                            ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'OperState', '')])),
+                                                            ('error_state', (YLeaf(YType.enumeration, 'error-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkErrorState', '')])),
+                                                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                                                            ('reasons', (YLeaf(YType.str, 'reasons'), ['str'])),
                                                         ])
                                                         self.admin_state = None
                                                         self.oper_state = None
@@ -1833,9 +1852,10 @@ class Fia(Entity):
                                                         self.timestamp = None
                                                         self.reasons = None
                                                         self._segment_path = lambda: "hist"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.RxLinkInformation.LinkOptions.LinkOption.RxAsicInstances.RxAsicInstance.RxLinks.RxLink.RxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
 
 
             class DriverInformation(Entity):
@@ -2112,6 +2132,37 @@ class Fia(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: all_wb_insync
+                
+                	all wb insync
+                	**type**\: bool
+                
+                .. attribute:: all_wb_insync_since
+                
+                	all wb insync since
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: all_startup_wb_insync
+                
+                	all startup wb insync
+                	**type**\: bool
+                
+                .. attribute:: plane_a_bitmap
+                
+                	planeA bitmap
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: plane_b_bitmap
+                
+                	planeB bitmap
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: device_info
                 
                 	device info
@@ -2127,7 +2178,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.DriverInformation, self).__init__()
@@ -2139,50 +2190,55 @@ class Fia(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.DriverInformation.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.DriverInformation.CardInfo))])
                     self._leafs = OrderedDict([
-                        ('drv_version', YLeaf(YType.uint32, 'drv-version')),
-                        ('coeff_major_rev', YLeaf(YType.uint32, 'coeff-major-rev')),
-                        ('coeff_minor_rev', YLeaf(YType.uint32, 'coeff-minor-rev')),
-                        ('functional_role', YLeaf(YType.uint8, 'functional-role')),
-                        ('issu_role', YLeaf(YType.uint8, 'issu-role')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('rack_type', YLeaf(YType.int32, 'rack-type')),
-                        ('rack_num', YLeaf(YType.uint8, 'rack-num')),
-                        ('is_driver_ready', YLeaf(YType.boolean, 'is-driver-ready')),
-                        ('card_avail_mask', YLeaf(YType.uint32, 'card-avail-mask')),
-                        ('asic_avail_mask', YLeaf(YType.uint64, 'asic-avail-mask')),
-                        ('exp_asic_avail_mask', YLeaf(YType.uint64, 'exp-asic-avail-mask')),
-                        ('ucmc_ratio', YLeaf(YType.uint32, 'ucmc-ratio')),
-                        ('asic_oper_notify_to_fsdb_pending_bmap', YLeaf(YType.uint64, 'asic-oper-notify-to-fsdb-pending-bmap')),
-                        ('is_full_fgid_download_req', YLeaf(YType.boolean, 'is-full-fgid-download-req')),
-                        ('is_fgid_download_in_progress', YLeaf(YType.boolean, 'is-fgid-download-in-progress')),
-                        ('is_fgid_download_completed', YLeaf(YType.boolean, 'is-fgid-download-completed')),
-                        ('fsdb_conn_active', YLeaf(YType.boolean, 'fsdb-conn-active')),
-                        ('fgid_conn_active', YLeaf(YType.boolean, 'fgid-conn-active')),
-                        ('issu_mgr_conn_active', YLeaf(YType.boolean, 'issu-mgr-conn-active')),
-                        ('fsdb_reg_active', YLeaf(YType.boolean, 'fsdb-reg-active')),
-                        ('fgid_reg_active', YLeaf(YType.boolean, 'fgid-reg-active')),
-                        ('issu_mgr_reg_active', YLeaf(YType.boolean, 'issu-mgr-reg-active')),
-                        ('num_pm_conn_reqs', YLeaf(YType.uint8, 'num-pm-conn-reqs')),
-                        ('num_fsdb_conn_reqs', YLeaf(YType.uint8, 'num-fsdb-conn-reqs')),
-                        ('num_fgid_conn_reqs', YLeaf(YType.uint8, 'num-fgid-conn-reqs')),
-                        ('num_fstats_conn_reqs', YLeaf(YType.uint8, 'num-fstats-conn-reqs')),
-                        ('num_cm_conn_reqs', YLeaf(YType.uint8, 'num-cm-conn-reqs')),
-                        ('num_issu_mgr_conn_reqs', YLeaf(YType.uint8, 'num-issu-mgr-conn-reqs')),
-                        ('num_peer_fia_conn_reqs', YLeaf(YType.uint8, 'num-peer-fia-conn-reqs')),
-                        ('is_gaspp_registered', YLeaf(YType.boolean, 'is-gaspp-registered')),
-                        ('is_cih_registered', YLeaf(YType.boolean, 'is-cih-registered')),
-                        ('drvr_initial_startup_timestamp', YLeaf(YType.str, 'drvr-initial-startup-timestamp')),
-                        ('drvr_current_startup_timestamp', YLeaf(YType.str, 'drvr-current-startup-timestamp')),
-                        ('num_intf_ports', YLeaf(YType.uint32, 'num-intf-ports')),
-                        ('uc_weight', YLeaf(YType.uint8, 'uc-weight')),
-                        ('respawn_count', YLeaf(YType.uint8, 'respawn-count')),
-                        ('total_asics', YLeaf(YType.uint8, 'total-asics')),
-                        ('issu_ready_ntfy_pending', YLeaf(YType.boolean, 'issu-ready-ntfy-pending')),
-                        ('issu_abort_sent', YLeaf(YType.boolean, 'issu-abort-sent')),
-                        ('issu_abort_rcvd', YLeaf(YType.boolean, 'issu-abort-rcvd')),
-                        ('fabric_mode', YLeaf(YType.uint8, 'fabric-mode')),
-                        ('fc_mode', YLeaf(YType.enumeration, 'fc-mode')),
-                        ('board_rev_id', YLeaf(YType.uint32, 'board-rev-id')),
+                        ('drv_version', (YLeaf(YType.uint32, 'drv-version'), ['int'])),
+                        ('coeff_major_rev', (YLeaf(YType.uint32, 'coeff-major-rev'), ['int'])),
+                        ('coeff_minor_rev', (YLeaf(YType.uint32, 'coeff-minor-rev'), ['int'])),
+                        ('functional_role', (YLeaf(YType.uint8, 'functional-role'), ['int'])),
+                        ('issu_role', (YLeaf(YType.uint8, 'issu-role'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('rack_type', (YLeaf(YType.int32, 'rack-type'), ['int'])),
+                        ('rack_num', (YLeaf(YType.uint8, 'rack-num'), ['int'])),
+                        ('is_driver_ready', (YLeaf(YType.boolean, 'is-driver-ready'), ['bool'])),
+                        ('card_avail_mask', (YLeaf(YType.uint32, 'card-avail-mask'), ['int'])),
+                        ('asic_avail_mask', (YLeaf(YType.uint64, 'asic-avail-mask'), ['int'])),
+                        ('exp_asic_avail_mask', (YLeaf(YType.uint64, 'exp-asic-avail-mask'), ['int'])),
+                        ('ucmc_ratio', (YLeaf(YType.uint32, 'ucmc-ratio'), ['int'])),
+                        ('asic_oper_notify_to_fsdb_pending_bmap', (YLeaf(YType.uint64, 'asic-oper-notify-to-fsdb-pending-bmap'), ['int'])),
+                        ('is_full_fgid_download_req', (YLeaf(YType.boolean, 'is-full-fgid-download-req'), ['bool'])),
+                        ('is_fgid_download_in_progress', (YLeaf(YType.boolean, 'is-fgid-download-in-progress'), ['bool'])),
+                        ('is_fgid_download_completed', (YLeaf(YType.boolean, 'is-fgid-download-completed'), ['bool'])),
+                        ('fsdb_conn_active', (YLeaf(YType.boolean, 'fsdb-conn-active'), ['bool'])),
+                        ('fgid_conn_active', (YLeaf(YType.boolean, 'fgid-conn-active'), ['bool'])),
+                        ('issu_mgr_conn_active', (YLeaf(YType.boolean, 'issu-mgr-conn-active'), ['bool'])),
+                        ('fsdb_reg_active', (YLeaf(YType.boolean, 'fsdb-reg-active'), ['bool'])),
+                        ('fgid_reg_active', (YLeaf(YType.boolean, 'fgid-reg-active'), ['bool'])),
+                        ('issu_mgr_reg_active', (YLeaf(YType.boolean, 'issu-mgr-reg-active'), ['bool'])),
+                        ('num_pm_conn_reqs', (YLeaf(YType.uint8, 'num-pm-conn-reqs'), ['int'])),
+                        ('num_fsdb_conn_reqs', (YLeaf(YType.uint8, 'num-fsdb-conn-reqs'), ['int'])),
+                        ('num_fgid_conn_reqs', (YLeaf(YType.uint8, 'num-fgid-conn-reqs'), ['int'])),
+                        ('num_fstats_conn_reqs', (YLeaf(YType.uint8, 'num-fstats-conn-reqs'), ['int'])),
+                        ('num_cm_conn_reqs', (YLeaf(YType.uint8, 'num-cm-conn-reqs'), ['int'])),
+                        ('num_issu_mgr_conn_reqs', (YLeaf(YType.uint8, 'num-issu-mgr-conn-reqs'), ['int'])),
+                        ('num_peer_fia_conn_reqs', (YLeaf(YType.uint8, 'num-peer-fia-conn-reqs'), ['int'])),
+                        ('is_gaspp_registered', (YLeaf(YType.boolean, 'is-gaspp-registered'), ['bool'])),
+                        ('is_cih_registered', (YLeaf(YType.boolean, 'is-cih-registered'), ['bool'])),
+                        ('drvr_initial_startup_timestamp', (YLeaf(YType.str, 'drvr-initial-startup-timestamp'), ['str'])),
+                        ('drvr_current_startup_timestamp', (YLeaf(YType.str, 'drvr-current-startup-timestamp'), ['str'])),
+                        ('num_intf_ports', (YLeaf(YType.uint32, 'num-intf-ports'), ['int'])),
+                        ('uc_weight', (YLeaf(YType.uint8, 'uc-weight'), ['int'])),
+                        ('respawn_count', (YLeaf(YType.uint8, 'respawn-count'), ['int'])),
+                        ('total_asics', (YLeaf(YType.uint8, 'total-asics'), ['int'])),
+                        ('issu_ready_ntfy_pending', (YLeaf(YType.boolean, 'issu-ready-ntfy-pending'), ['bool'])),
+                        ('issu_abort_sent', (YLeaf(YType.boolean, 'issu-abort-sent'), ['bool'])),
+                        ('issu_abort_rcvd', (YLeaf(YType.boolean, 'issu-abort-rcvd'), ['bool'])),
+                        ('fabric_mode', (YLeaf(YType.uint8, 'fabric-mode'), ['int'])),
+                        ('fc_mode', (YLeaf(YType.enumeration, 'fc-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'FcMode', '')])),
+                        ('board_rev_id', (YLeaf(YType.uint32, 'board-rev-id'), ['int'])),
+                        ('all_wb_insync', (YLeaf(YType.boolean, 'all-wb-insync'), ['bool'])),
+                        ('all_wb_insync_since', (YLeaf(YType.uint32, 'all-wb-insync-since'), ['int'])),
+                        ('all_startup_wb_insync', (YLeaf(YType.boolean, 'all-startup-wb-insync'), ['bool'])),
+                        ('plane_a_bitmap', (YLeaf(YType.uint32, 'plane-a-bitmap'), ['int'])),
+                        ('plane_b_bitmap', (YLeaf(YType.uint32, 'plane-b-bitmap'), ['int'])),
                     ])
                     self.drv_version = None
                     self.coeff_major_rev = None
@@ -2228,13 +2284,19 @@ class Fia(Entity):
                     self.fabric_mode = None
                     self.fc_mode = None
                     self.board_rev_id = None
+                    self.all_wb_insync = None
+                    self.all_wb_insync_since = None
+                    self.all_startup_wb_insync = None
+                    self.plane_a_bitmap = None
+                    self.plane_b_bitmap = None
 
                     self.device_info = YList(self)
                     self.card_info = YList(self)
                     self._segment_path = lambda: "driver-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, ['drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id'], name, value)
+                    self._perform_setattr(Fia.Nodes.Node.DriverInformation, [u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
 
 
                 class DeviceInfo(Entity):
@@ -2309,12 +2371,44 @@ class Fia(Entity):
                     	local switch state
                     	**type**\: bool
                     
+                    .. attribute:: startup_wb_mtime_str
+                    
+                    	startup wb mtime str
+                    	**type**\: str
+                    
+                    .. attribute:: startup_wb_outof_sync
+                    
+                    	startup wb outof sync
+                    	**type**\: bool
+                    
+                    .. attribute:: local_wb_sync_end_str
+                    
+                    	local wb sync end str
+                    	**type**\: str
+                    
+                    .. attribute:: remote_wb_sync_end_str
+                    
+                    	remote wb sync end str
+                    	**type**\: str
+                    
+                    .. attribute:: local_wb_sync_pending
+                    
+                    	local wb sync pending
+                    	**type**\: bool
+                    
+                    .. attribute:: sdk_delay_msec
+                    
+                    	sdk delay msec
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DriverInformation.DeviceInfo, self).__init__()
@@ -2326,17 +2420,23 @@ class Fia(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId))])
                         self._leafs = OrderedDict([
-                            ('is_valid', YLeaf(YType.boolean, 'is-valid')),
-                            ('fapid', YLeaf(YType.uint32, 'fapid')),
-                            ('hotplug_event', YLeaf(YType.uint32, 'hotplug-event')),
-                            ('slice_state', YLeaf(YType.enumeration, 'slice-state')),
-                            ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                            ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                            ('asic_state', YLeaf(YType.enumeration, 'asic-state')),
-                            ('last_init_cause', YLeaf(YType.enumeration, 'last-init-cause')),
-                            ('num_pon_resets', YLeaf(YType.uint32, 'num-pon-resets')),
-                            ('num_hard_resets', YLeaf(YType.uint32, 'num-hard-resets')),
-                            ('local_switch_state', YLeaf(YType.boolean, 'local-switch-state')),
+                            ('is_valid', (YLeaf(YType.boolean, 'is-valid'), ['bool'])),
+                            ('fapid', (YLeaf(YType.uint32, 'fapid'), ['int'])),
+                            ('hotplug_event', (YLeaf(YType.uint32, 'hotplug-event'), ['int'])),
+                            ('slice_state', (YLeaf(YType.enumeration, 'slice-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'SliceState', '')])),
+                            ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                            ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicOperState', '')])),
+                            ('asic_state', (YLeaf(YType.enumeration, 'asic-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicAccessState', '')])),
+                            ('last_init_cause', (YLeaf(YType.enumeration, 'last-init-cause'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicInitMethod', '')])),
+                            ('num_pon_resets', (YLeaf(YType.uint32, 'num-pon-resets'), ['int'])),
+                            ('num_hard_resets', (YLeaf(YType.uint32, 'num-hard-resets'), ['int'])),
+                            ('local_switch_state', (YLeaf(YType.boolean, 'local-switch-state'), ['bool'])),
+                            ('startup_wb_mtime_str', (YLeaf(YType.str, 'startup-wb-mtime-str'), ['str'])),
+                            ('startup_wb_outof_sync', (YLeaf(YType.boolean, 'startup-wb-outof-sync'), ['bool'])),
+                            ('local_wb_sync_end_str', (YLeaf(YType.str, 'local-wb-sync-end-str'), ['str'])),
+                            ('remote_wb_sync_end_str', (YLeaf(YType.str, 'remote-wb-sync-end-str'), ['str'])),
+                            ('local_wb_sync_pending', (YLeaf(YType.boolean, 'local-wb-sync-pending'), ['bool'])),
+                            ('sdk_delay_msec', (YLeaf(YType.uint32, 'sdk-delay-msec'), ['int'])),
                         ])
                         self.is_valid = None
                         self.fapid = None
@@ -2349,14 +2449,21 @@ class Fia(Entity):
                         self.num_pon_resets = None
                         self.num_hard_resets = None
                         self.local_switch_state = None
+                        self.startup_wb_mtime_str = None
+                        self.startup_wb_outof_sync = None
+                        self.local_wb_sync_end_str = None
+                        self.remote_wb_sync_end_str = None
+                        self.local_wb_sync_pending = None
+                        self.sdk_delay_msec = None
 
                         self.asic_id = Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId()
                         self.asic_id.parent = self
                         self._children_name_map["asic_id"] = "asic-id"
                         self._segment_path = lambda: "device-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
 
 
                     class AsicId(Entity):
@@ -2399,7 +2506,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, self).__init__()
@@ -2411,11 +2518,11 @@ class Fia(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                             ])
                             self.rack_type = None
                             self.asic_type = None
@@ -2423,9 +2530,10 @@ class Fia(Entity):
                             self.slot_num = None
                             self.asic_instance = None
                             self._segment_path = lambda: "asic-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                 class CardInfo(Entity):
@@ -2543,7 +2651,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DriverInformation.CardInfo, self).__init__()
@@ -2555,21 +2663,21 @@ class Fia(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer))])
                         self._leafs = OrderedDict([
-                            ('card_type', YLeaf(YType.int32, 'card-type')),
-                            ('card_name', YLeaf(YType.str, 'card-name')),
-                            ('slot_no', YLeaf(YType.int32, 'slot-no')),
-                            ('card_flag', YLeaf(YType.int32, 'card-flag')),
-                            ('evt_flag', YLeaf(YType.int32, 'evt-flag')),
-                            ('reg_flag', YLeaf(YType.int32, 'reg-flag')),
-                            ('instance', YLeaf(YType.int32, 'instance')),
-                            ('card_state', YLeaf(YType.uint8, 'card-state')),
-                            ('exp_num_asics', YLeaf(YType.uint32, 'exp-num-asics')),
-                            ('exp_num_asics_per_fsdb', YLeaf(YType.uint32, 'exp-num-asics-per-fsdb')),
-                            ('is_powered', YLeaf(YType.boolean, 'is-powered')),
-                            ('cxp_avail_bitmap', YLeaf(YType.uint64, 'cxp-avail-bitmap')),
-                            ('num_ilkns_per_asic', YLeaf(YType.uint32, 'num-ilkns-per-asic')),
-                            ('num_local_ports_per_ilkn', YLeaf(YType.uint32, 'num-local-ports-per-ilkn')),
-                            ('num_cos_per_port', YLeaf(YType.uint8, 'num-cos-per-port')),
+                            ('card_type', (YLeaf(YType.int32, 'card-type'), ['int'])),
+                            ('card_name', (YLeaf(YType.str, 'card-name'), ['str'])),
+                            ('slot_no', (YLeaf(YType.int32, 'slot-no'), ['int'])),
+                            ('card_flag', (YLeaf(YType.int32, 'card-flag'), ['int'])),
+                            ('evt_flag', (YLeaf(YType.int32, 'evt-flag'), ['int'])),
+                            ('reg_flag', (YLeaf(YType.int32, 'reg-flag'), ['int'])),
+                            ('instance', (YLeaf(YType.int32, 'instance'), ['int'])),
+                            ('card_state', (YLeaf(YType.uint8, 'card-state'), ['int'])),
+                            ('exp_num_asics', (YLeaf(YType.uint32, 'exp-num-asics'), ['int'])),
+                            ('exp_num_asics_per_fsdb', (YLeaf(YType.uint32, 'exp-num-asics-per-fsdb'), ['int'])),
+                            ('is_powered', (YLeaf(YType.boolean, 'is-powered'), ['bool'])),
+                            ('cxp_avail_bitmap', (YLeaf(YType.uint64, 'cxp-avail-bitmap'), ['int'])),
+                            ('num_ilkns_per_asic', (YLeaf(YType.uint32, 'num-ilkns-per-asic'), ['int'])),
+                            ('num_local_ports_per_ilkn', (YLeaf(YType.uint32, 'num-local-ports-per-ilkn'), ['int'])),
+                            ('num_cos_per_port', (YLeaf(YType.uint8, 'num-cos-per-port'), ['int'])),
                         ])
                         self.card_type = None
                         self.card_name = None
@@ -2591,9 +2699,10 @@ class Fia(Entity):
                         self.oir_circular_buffer.parent = self
                         self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
                         self._segment_path = lambda: "card-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+                        self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
 
 
                     class OirCircularBuffer(Entity):
@@ -2631,7 +2740,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, self).__init__()
@@ -2643,9 +2752,9 @@ class Fia(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo))])
                             self._leafs = OrderedDict([
-                                ('count', YLeaf(YType.int32, 'count')),
-                                ('start', YLeaf(YType.int32, 'start')),
-                                ('end', YLeaf(YType.int32, 'end')),
+                                ('count', (YLeaf(YType.int32, 'count'), ['int'])),
+                                ('start', (YLeaf(YType.int32, 'start'), ['int'])),
+                                ('end', (YLeaf(YType.int32, 'end'), ['int'])),
                             ])
                             self.count = None
                             self.start = None
@@ -2653,9 +2762,10 @@ class Fia(Entity):
 
                             self.fia_oir_info = YList(self)
                             self._segment_path = lambda: "oir-circular-buffer"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+                            self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
 
 
                         class FiaOirInfo(Entity):
@@ -2716,7 +2826,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
@@ -2728,13 +2838,13 @@ class Fia(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('card_flag', YLeaf(YType.int32, 'card-flag')),
-                                    ('card_type', YLeaf(YType.int32, 'card-type')),
-                                    ('reg_flag', YLeaf(YType.int32, 'reg-flag')),
-                                    ('evt_flag', YLeaf(YType.int32, 'evt-flag')),
-                                    ('rack_num', YLeaf(YType.int32, 'rack-num')),
-                                    ('instance', YLeaf(YType.int32, 'instance')),
-                                    ('cur_card_state', YLeaf(YType.int32, 'cur-card-state')),
+                                    ('card_flag', (YLeaf(YType.int32, 'card-flag'), ['int'])),
+                                    ('card_type', (YLeaf(YType.int32, 'card-type'), ['int'])),
+                                    ('reg_flag', (YLeaf(YType.int32, 'reg-flag'), ['int'])),
+                                    ('evt_flag', (YLeaf(YType.int32, 'evt-flag'), ['int'])),
+                                    ('rack_num', (YLeaf(YType.int32, 'rack-num'), ['int'])),
+                                    ('instance', (YLeaf(YType.int32, 'instance'), ['int'])),
+                                    ('cur_card_state', (YLeaf(YType.int32, 'cur-card-state'), ['int'])),
                                 ])
                                 self.card_flag = None
                                 self.card_type = None
@@ -2744,9 +2854,10 @@ class Fia(Entity):
                                 self.instance = None
                                 self.cur_card_state = None
                                 self._segment_path = lambda: "fia-oir-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+                                self._perform_setattr(Fia.Nodes.Node.DriverInformation.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
 
 
             class ClearStatistics(Entity):
@@ -2763,7 +2874,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.ClearStatistics, self).__init__()
@@ -2780,6 +2891,7 @@ class Fia(Entity):
                     self.asic_instances.parent = self
                     self._children_name_map["asic_instances"] = "asic-instances"
                     self._segment_path = lambda: "clear-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.ClearStatistics, [], name, value)
@@ -2800,7 +2912,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.ClearStatistics.AsicInstances, self).__init__()
@@ -2815,6 +2927,7 @@ class Fia(Entity):
 
                         self.asic_instance = YList(self)
                         self._segment_path = lambda: "asic-instances"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances, [], name, value)
@@ -2836,7 +2949,7 @@ class Fia(Entity):
                         	Clear value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         	**mandatory**\: True
                         
@@ -2845,7 +2958,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, self).__init__()
@@ -2857,12 +2970,13 @@ class Fia(Entity):
                             self.ylist_key_names = ['asic_instance']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
-                                ('instance', YLeaf(YType.int32, 'instance')),
+                                ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
+                                ('instance', (YLeaf(YType.uint32, 'instance'), ['int'])),
                             ])
                             self.asic_instance = None
                             self.instance = None
                             self._segment_path = lambda: "asic-instance" + "[asic-instance='" + str(self.asic_instance) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.ClearStatistics.AsicInstances.AsicInstance, ['asic_instance', 'instance'], name, value)
@@ -2882,7 +2996,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.TxLinkInformation, self).__init__()
@@ -2899,6 +3013,7 @@ class Fia(Entity):
                     self.tx_status_option_table.parent = self
                     self._children_name_map["tx_status_option_table"] = "tx-status-option-table"
                     self._segment_path = lambda: "tx-link-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.TxLinkInformation, [], name, value)
@@ -2918,7 +3033,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable, self).__init__()
@@ -2935,6 +3050,7 @@ class Fia(Entity):
                         self.tx_status_option.parent = self
                         self._children_name_map["tx_status_option"] = "tx-status-option"
                         self._segment_path = lambda: "tx-status-option-table"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable, [], name, value)
@@ -2954,7 +3070,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption, self).__init__()
@@ -2971,6 +3087,7 @@ class Fia(Entity):
                             self.tx_asic_instances.parent = self
                             self._children_name_map["tx_asic_instances"] = "tx-asic-instances"
                             self._segment_path = lambda: "tx-status-option"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption, [], name, value)
@@ -2990,7 +3107,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances, self).__init__()
@@ -3005,6 +3122,7 @@ class Fia(Entity):
 
                                 self.tx_asic_instance = YList(self)
                                 self._segment_path = lambda: "tx-asic-instances"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances, [], name, value)
@@ -3031,7 +3149,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance, self).__init__()
@@ -3043,7 +3161,7 @@ class Fia(Entity):
                                     self.ylist_key_names = ['instance']
                                     self._child_classes = OrderedDict([("tx-links", ("tx_links", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks))])
                                     self._leafs = OrderedDict([
-                                        ('instance', YLeaf(YType.uint32, 'instance')),
+                                        ('instance', (YLeaf(YType.uint32, 'instance'), ['int'])),
                                     ])
                                     self.instance = None
 
@@ -3051,6 +3169,7 @@ class Fia(Entity):
                                     self.tx_links.parent = self
                                     self._children_name_map["tx_links"] = "tx-links"
                                     self._segment_path = lambda: "tx-asic-instance" + "[instance='" + str(self.instance) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance, ['instance'], name, value)
@@ -3070,7 +3189,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks, self).__init__()
@@ -3085,6 +3204,7 @@ class Fia(Entity):
 
                                         self.tx_link = YList(self)
                                         self._segment_path = lambda: "tx-links"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks, [], name, value)
@@ -3118,7 +3238,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink, self).__init__()
@@ -3130,14 +3250,15 @@ class Fia(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("tx-link", ("tx_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_))])
                                             self._leafs = OrderedDict([
-                                                ('start_number', YLeaf(YType.uint32, 'start-number')),
-                                                ('end_number', YLeaf(YType.uint32, 'end-number')),
+                                                ('start_number', (YLeaf(YType.uint32, 'start-number'), ['int'])),
+                                                ('end_number', (YLeaf(YType.uint32, 'end-number'), ['int'])),
                                             ])
                                             self.start_number = None
                                             self.end_number = None
 
                                             self.tx_link = YList(self)
                                             self._segment_path = lambda: "tx-link"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink, ['start_number', 'end_number'], name, value)
@@ -3152,7 +3273,7 @@ class Fia(Entity):
                                             	Single Link
                                             	**type**\: int
                                             
-                                            	**range:** \-2147483648..2147483647
+                                            	**range:** 0..4294967295
                                             
                                             .. attribute:: this_link
                                             
@@ -3244,7 +3365,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, self).__init__()
@@ -3256,18 +3377,18 @@ class Fia(Entity):
                                                 self.ylist_key_names = ['link']
                                                 self._child_classes = OrderedDict([("this-link", ("this_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink)), ("far-end-link", ("far_end_link", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink)), ("stats", ("stats", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats)), ("history", ("history", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History))])
                                                 self._leafs = OrderedDict([
-                                                    ('link', YLeaf(YType.int32, 'link')),
-                                                    ('speed', YLeaf(YType.uint32, 'speed')),
-                                                    ('stage', YLeaf(YType.uint8, 'stage')),
-                                                    ('is_link_valid', YLeaf(YType.boolean, 'is-link-valid')),
-                                                    ('is_conf_pending', YLeaf(YType.boolean, 'is-conf-pending')),
-                                                    ('is_power_enabled', YLeaf(YType.boolean, 'is-power-enabled')),
-                                                    ('coeff1', YLeaf(YType.uint32, 'coeff1')),
-                                                    ('coeff2', YLeaf(YType.uint32, 'coeff2')),
-                                                    ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                                                    ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                                                    ('error_state', YLeaf(YType.enumeration, 'error-state')),
-                                                    ('num_admin_shuts', YLeaf(YType.uint32, 'num-admin-shuts')),
+                                                    ('link', (YLeaf(YType.uint32, 'link'), ['int'])),
+                                                    ('speed', (YLeaf(YType.uint32, 'speed'), ['int'])),
+                                                    ('stage', (YLeaf(YType.uint8, 'stage'), ['int'])),
+                                                    ('is_link_valid', (YLeaf(YType.boolean, 'is-link-valid'), ['bool'])),
+                                                    ('is_conf_pending', (YLeaf(YType.boolean, 'is-conf-pending'), ['bool'])),
+                                                    ('is_power_enabled', (YLeaf(YType.boolean, 'is-power-enabled'), ['bool'])),
+                                                    ('coeff1', (YLeaf(YType.uint32, 'coeff1'), ['int'])),
+                                                    ('coeff2', (YLeaf(YType.uint32, 'coeff2'), ['int'])),
+                                                    ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                                                    ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'OperState', '')])),
+                                                    ('error_state', (YLeaf(YType.enumeration, 'error-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkErrorState', '')])),
+                                                    ('num_admin_shuts', (YLeaf(YType.uint32, 'num-admin-shuts'), ['int'])),
                                                 ])
                                                 self.link = None
                                                 self.speed = None
@@ -3298,9 +3419,10 @@ class Fia(Entity):
                                                 self.history.parent = self
                                                 self._children_name_map["history"] = "history"
                                                 self._segment_path = lambda: "tx-link" + "[link='" + str(self.link) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', 'speed', 'stage', 'is_link_valid', 'is_conf_pending', 'is_power_enabled', 'coeff1', 'coeff2', 'admin_state', 'oper_state', 'error_state', 'num_admin_shuts'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_, ['link', u'speed', u'stage', u'is_link_valid', u'is_conf_pending', u'is_power_enabled', u'coeff1', u'coeff2', u'admin_state', u'oper_state', u'error_state', u'num_admin_shuts'], name, value)
 
 
                                             class ThisLink(Entity):
@@ -3341,7 +3463,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, self).__init__()
@@ -3353,10 +3475,10 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                                                        ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
-                                                        ('link_num', YLeaf(YType.uint32, 'link-num')),
-                                                        ('phy_link_num', YLeaf(YType.uint32, 'phy-link-num')),
+                                                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Link', '')])),
+                                                        ('link_stage', (YLeaf(YType.enumeration, 'link-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                        ('link_num', (YLeaf(YType.uint32, 'link-num'), ['int'])),
+                                                        ('phy_link_num', (YLeaf(YType.uint32, 'phy-link-num'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_stage = None
@@ -3367,9 +3489,10 @@ class Fia(Entity):
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
                                                     self._segment_path = lambda: "this-link"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -3412,7 +3535,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, self).__init__()
@@ -3424,11 +3547,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                            ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                            ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                            ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                            ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                            ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                            ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                            ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                            ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                            ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                                         ])
                                                         self.rack_type = None
                                                         self.asic_type = None
@@ -3436,9 +3559,10 @@ class Fia(Entity):
                                                         self.slot_num = None
                                                         self.asic_instance = None
                                                         self._segment_path = lambda: "asic-id"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.ThisLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                             class FarEndLink(Entity):
@@ -3479,7 +3603,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, self).__init__()
@@ -3491,10 +3615,10 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                                                        ('link_stage', YLeaf(YType.enumeration, 'link-stage')),
-                                                        ('link_num', YLeaf(YType.uint32, 'link-num')),
-                                                        ('phy_link_num', YLeaf(YType.uint32, 'phy-link-num')),
+                                                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Link', '')])),
+                                                        ('link_stage', (YLeaf(YType.enumeration, 'link-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkStage', '')])),
+                                                        ('link_num', (YLeaf(YType.uint32, 'link-num'), ['int'])),
+                                                        ('phy_link_num', (YLeaf(YType.uint32, 'phy-link-num'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_stage = None
@@ -3505,9 +3629,10 @@ class Fia(Entity):
                                                     self.asic_id.parent = self
                                                     self._children_name_map["asic_id"] = "asic-id"
                                                     self._segment_path = lambda: "far-end-link"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, ['link_type', 'link_stage', 'link_num', 'phy_link_num'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink, [u'link_type', u'link_stage', u'link_num', u'phy_link_num'], name, value)
 
 
                                                 class AsicId(Entity):
@@ -3550,7 +3675,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, self).__init__()
@@ -3562,11 +3687,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                            ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                            ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                            ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                            ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                            ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                            ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                            ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                            ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                            ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                                         ])
                                                         self.rack_type = None
                                                         self.asic_type = None
@@ -3574,9 +3699,10 @@ class Fia(Entity):
                                                         self.slot_num = None
                                                         self.asic_instance = None
                                                         self._segment_path = lambda: "asic-id"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.FarEndLink.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                             class Stats(Entity):
@@ -3595,7 +3721,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, self).__init__()
@@ -3607,13 +3733,14 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('dummy', YLeaf(YType.uint32, 'dummy')),
+                                                        ('dummy', (YLeaf(YType.uint32, 'dummy'), ['int'])),
                                                     ])
                                                     self.dummy = None
                                                     self._segment_path = lambda: "stats"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, ['dummy'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.Stats, [u'dummy'], name, value)
 
 
                                             class History(Entity):
@@ -3644,7 +3771,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, self).__init__()
@@ -3656,17 +3783,18 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("hist", ("hist", Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist))])
                                                     self._leafs = OrderedDict([
-                                                        ('histnum', YLeaf(YType.uint8, 'histnum')),
-                                                        ('start_index', YLeaf(YType.uint8, 'start-index')),
+                                                        ('histnum', (YLeaf(YType.uint8, 'histnum'), ['int'])),
+                                                        ('start_index', (YLeaf(YType.uint8, 'start-index'), ['int'])),
                                                     ])
                                                     self.histnum = None
                                                     self.start_index = None
 
                                                     self.hist = YList(self)
                                                     self._segment_path = lambda: "history"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, ['histnum', 'start_index'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History, [u'histnum', u'start_index'], name, value)
 
 
                                                 class Hist(Entity):
@@ -3705,7 +3833,7 @@ class Fia(Entity):
                                                     """
 
                                                     _prefix = 'dnx-driver-oper'
-                                                    _revision = '2015-11-09'
+                                                    _revision = '2017-08-29'
 
                                                     def __init__(self):
                                                         super(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, self).__init__()
@@ -3717,11 +3845,11 @@ class Fia(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                                                            ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                                                            ('error_state', YLeaf(YType.enumeration, 'error-state')),
-                                                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                                                            ('reasons', YLeaf(YType.str, 'reasons')),
+                                                            ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                                                            ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'OperState', '')])),
+                                                            ('error_state', (YLeaf(YType.enumeration, 'error-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'LinkErrorState', '')])),
+                                                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                                                            ('reasons', (YLeaf(YType.str, 'reasons'), ['str'])),
                                                         ])
                                                         self.admin_state = None
                                                         self.oper_state = None
@@ -3729,9 +3857,10 @@ class Fia(Entity):
                                                         self.timestamp = None
                                                         self.reasons = None
                                                         self._segment_path = lambda: "hist"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
-                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, ['admin_state', 'oper_state', 'error_state', 'timestamp', 'reasons'], name, value)
+                                                        self._perform_setattr(Fia.Nodes.Node.TxLinkInformation.TxStatusOptionTable.TxStatusOption.TxAsicInstances.TxAsicInstance.TxLinks.TxLink.TxLink_.History.Hist, [u'admin_state', u'oper_state', u'error_state', u'timestamp', u'reasons'], name, value)
 
 
             class DiagShell(Entity):
@@ -3748,7 +3877,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.DiagShell, self).__init__()
@@ -3765,6 +3894,7 @@ class Fia(Entity):
                     self.diag_shell_units.parent = self
                     self._children_name_map["diag_shell_units"] = "diag-shell-units"
                     self._segment_path = lambda: "diag-shell"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.DiagShell, [], name, value)
@@ -3784,7 +3914,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.DiagShell.DiagShellUnits, self).__init__()
@@ -3799,6 +3929,7 @@ class Fia(Entity):
 
                         self.diag_shell_unit = YList(self)
                         self._segment_path = lambda: "diag-shell-units"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits, [], name, value)
@@ -3825,7 +3956,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, self).__init__()
@@ -3837,7 +3968,7 @@ class Fia(Entity):
                             self.ylist_key_names = ['unit']
                             self._child_classes = OrderedDict([("commands", ("commands", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands))])
                             self._leafs = OrderedDict([
-                                ('unit', YLeaf(YType.uint32, 'unit')),
+                                ('unit', (YLeaf(YType.uint32, 'unit'), ['int'])),
                             ])
                             self.unit = None
 
@@ -3845,6 +3976,7 @@ class Fia(Entity):
                             self.commands.parent = self
                             self._children_name_map["commands"] = "commands"
                             self._segment_path = lambda: "diag-shell-unit" + "[unit='" + str(self.unit) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit, ['unit'], name, value)
@@ -3864,7 +3996,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, self).__init__()
@@ -3879,6 +4011,7 @@ class Fia(Entity):
 
                                 self.command = YList(self)
                                 self._segment_path = lambda: "commands"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands, [], name, value)
@@ -3903,7 +4036,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, self).__init__()
@@ -3915,12 +4048,13 @@ class Fia(Entity):
                                     self.ylist_key_names = ['cmd']
                                     self._child_classes = OrderedDict([("output", ("output", Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output))])
                                     self._leafs = OrderedDict([
-                                        ('cmd', YLeaf(YType.str, 'cmd')),
+                                        ('cmd', (YLeaf(YType.str, 'cmd'), ['str'])),
                                     ])
                                     self.cmd = None
 
                                     self.output = YList(self)
                                     self._segment_path = lambda: "command" + "[cmd='" + str(self.cmd) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command, ['cmd'], name, value)
@@ -3947,7 +4081,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, self).__init__()
@@ -3959,15 +4093,16 @@ class Fia(Entity):
                                         self.ylist_key_names = ['output']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('output', YLeaf(YType.str, 'output')),
-                                            ('output_xr', YLeaf(YType.str, 'output-xr')),
+                                            ('output', (YLeaf(YType.str, 'output'), ['str'])),
+                                            ('output_xr', (YLeaf(YType.str, 'output-xr'), ['str'])),
                                         ])
                                         self.output = None
                                         self.output_xr = None
                                         self._segment_path = lambda: "output" + "[output='" + str(self.output) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', 'output_xr'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.DiagShell.DiagShellUnits.DiagShellUnit.Commands.Command.Output, ['output', u'output_xr'], name, value)
 
 
             class OirHistory(Entity):
@@ -3984,7 +4119,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.OirHistory, self).__init__()
@@ -4001,6 +4136,7 @@ class Fia(Entity):
                     self.flags.parent = self
                     self._children_name_map["flags"] = "flags"
                     self._segment_path = lambda: "oir-history"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.OirHistory, [], name, value)
@@ -4020,7 +4156,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.OirHistory.Flags, self).__init__()
@@ -4035,6 +4171,7 @@ class Fia(Entity):
 
                         self.flag = YList(self)
                         self._segment_path = lambda: "flags"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags, [], name, value)
@@ -4049,7 +4186,7 @@ class Fia(Entity):
                         	Flag value
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: slots
                         
@@ -4061,7 +4198,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.OirHistory.Flags.Flag, self).__init__()
@@ -4073,7 +4210,7 @@ class Fia(Entity):
                             self.ylist_key_names = ['flag']
                             self._child_classes = OrderedDict([("slots", ("slots", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots))])
                             self._leafs = OrderedDict([
-                                ('flag', YLeaf(YType.int32, 'flag')),
+                                ('flag', (YLeaf(YType.uint32, 'flag'), ['int'])),
                             ])
                             self.flag = None
 
@@ -4081,6 +4218,7 @@ class Fia(Entity):
                             self.slots.parent = self
                             self._children_name_map["slots"] = "slots"
                             self._segment_path = lambda: "flag" + "[flag='" + str(self.flag) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag, ['flag'], name, value)
@@ -4100,7 +4238,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, self).__init__()
@@ -4115,6 +4253,7 @@ class Fia(Entity):
 
                                 self.slot = YList(self)
                                 self._segment_path = lambda: "slots"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots, [], name, value)
@@ -4129,7 +4268,7 @@ class Fia(Entity):
                                 	Slot number
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: drv_version
                                 
@@ -4401,6 +4540,37 @@ class Fia(Entity):
                                 
                                 	**range:** 0..4294967295
                                 
+                                .. attribute:: all_wb_insync
+                                
+                                	all wb insync
+                                	**type**\: bool
+                                
+                                .. attribute:: all_wb_insync_since
+                                
+                                	all wb insync since
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: all_startup_wb_insync
+                                
+                                	all startup wb insync
+                                	**type**\: bool
+                                
+                                .. attribute:: plane_a_bitmap
+                                
+                                	planeA bitmap
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                .. attribute:: plane_b_bitmap
+                                
+                                	planeB bitmap
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
                                 .. attribute:: device_info
                                 
                                 	device info
@@ -4416,7 +4586,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, self).__init__()
@@ -4428,51 +4598,56 @@ class Fia(Entity):
                                     self.ylist_key_names = ['slot']
                                     self._child_classes = OrderedDict([("device-info", ("device_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo)), ("card-info", ("card_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo))])
                                     self._leafs = OrderedDict([
-                                        ('slot', YLeaf(YType.int32, 'slot')),
-                                        ('drv_version', YLeaf(YType.uint32, 'drv-version')),
-                                        ('coeff_major_rev', YLeaf(YType.uint32, 'coeff-major-rev')),
-                                        ('coeff_minor_rev', YLeaf(YType.uint32, 'coeff-minor-rev')),
-                                        ('functional_role', YLeaf(YType.uint8, 'functional-role')),
-                                        ('issu_role', YLeaf(YType.uint8, 'issu-role')),
-                                        ('node_id', YLeaf(YType.str, 'node-id')),
-                                        ('rack_type', YLeaf(YType.int32, 'rack-type')),
-                                        ('rack_num', YLeaf(YType.uint8, 'rack-num')),
-                                        ('is_driver_ready', YLeaf(YType.boolean, 'is-driver-ready')),
-                                        ('card_avail_mask', YLeaf(YType.uint32, 'card-avail-mask')),
-                                        ('asic_avail_mask', YLeaf(YType.uint64, 'asic-avail-mask')),
-                                        ('exp_asic_avail_mask', YLeaf(YType.uint64, 'exp-asic-avail-mask')),
-                                        ('ucmc_ratio', YLeaf(YType.uint32, 'ucmc-ratio')),
-                                        ('asic_oper_notify_to_fsdb_pending_bmap', YLeaf(YType.uint64, 'asic-oper-notify-to-fsdb-pending-bmap')),
-                                        ('is_full_fgid_download_req', YLeaf(YType.boolean, 'is-full-fgid-download-req')),
-                                        ('is_fgid_download_in_progress', YLeaf(YType.boolean, 'is-fgid-download-in-progress')),
-                                        ('is_fgid_download_completed', YLeaf(YType.boolean, 'is-fgid-download-completed')),
-                                        ('fsdb_conn_active', YLeaf(YType.boolean, 'fsdb-conn-active')),
-                                        ('fgid_conn_active', YLeaf(YType.boolean, 'fgid-conn-active')),
-                                        ('issu_mgr_conn_active', YLeaf(YType.boolean, 'issu-mgr-conn-active')),
-                                        ('fsdb_reg_active', YLeaf(YType.boolean, 'fsdb-reg-active')),
-                                        ('fgid_reg_active', YLeaf(YType.boolean, 'fgid-reg-active')),
-                                        ('issu_mgr_reg_active', YLeaf(YType.boolean, 'issu-mgr-reg-active')),
-                                        ('num_pm_conn_reqs', YLeaf(YType.uint8, 'num-pm-conn-reqs')),
-                                        ('num_fsdb_conn_reqs', YLeaf(YType.uint8, 'num-fsdb-conn-reqs')),
-                                        ('num_fgid_conn_reqs', YLeaf(YType.uint8, 'num-fgid-conn-reqs')),
-                                        ('num_fstats_conn_reqs', YLeaf(YType.uint8, 'num-fstats-conn-reqs')),
-                                        ('num_cm_conn_reqs', YLeaf(YType.uint8, 'num-cm-conn-reqs')),
-                                        ('num_issu_mgr_conn_reqs', YLeaf(YType.uint8, 'num-issu-mgr-conn-reqs')),
-                                        ('num_peer_fia_conn_reqs', YLeaf(YType.uint8, 'num-peer-fia-conn-reqs')),
-                                        ('is_gaspp_registered', YLeaf(YType.boolean, 'is-gaspp-registered')),
-                                        ('is_cih_registered', YLeaf(YType.boolean, 'is-cih-registered')),
-                                        ('drvr_initial_startup_timestamp', YLeaf(YType.str, 'drvr-initial-startup-timestamp')),
-                                        ('drvr_current_startup_timestamp', YLeaf(YType.str, 'drvr-current-startup-timestamp')),
-                                        ('num_intf_ports', YLeaf(YType.uint32, 'num-intf-ports')),
-                                        ('uc_weight', YLeaf(YType.uint8, 'uc-weight')),
-                                        ('respawn_count', YLeaf(YType.uint8, 'respawn-count')),
-                                        ('total_asics', YLeaf(YType.uint8, 'total-asics')),
-                                        ('issu_ready_ntfy_pending', YLeaf(YType.boolean, 'issu-ready-ntfy-pending')),
-                                        ('issu_abort_sent', YLeaf(YType.boolean, 'issu-abort-sent')),
-                                        ('issu_abort_rcvd', YLeaf(YType.boolean, 'issu-abort-rcvd')),
-                                        ('fabric_mode', YLeaf(YType.uint8, 'fabric-mode')),
-                                        ('fc_mode', YLeaf(YType.enumeration, 'fc-mode')),
-                                        ('board_rev_id', YLeaf(YType.uint32, 'board-rev-id')),
+                                        ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
+                                        ('drv_version', (YLeaf(YType.uint32, 'drv-version'), ['int'])),
+                                        ('coeff_major_rev', (YLeaf(YType.uint32, 'coeff-major-rev'), ['int'])),
+                                        ('coeff_minor_rev', (YLeaf(YType.uint32, 'coeff-minor-rev'), ['int'])),
+                                        ('functional_role', (YLeaf(YType.uint8, 'functional-role'), ['int'])),
+                                        ('issu_role', (YLeaf(YType.uint8, 'issu-role'), ['int'])),
+                                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                                        ('rack_type', (YLeaf(YType.int32, 'rack-type'), ['int'])),
+                                        ('rack_num', (YLeaf(YType.uint8, 'rack-num'), ['int'])),
+                                        ('is_driver_ready', (YLeaf(YType.boolean, 'is-driver-ready'), ['bool'])),
+                                        ('card_avail_mask', (YLeaf(YType.uint32, 'card-avail-mask'), ['int'])),
+                                        ('asic_avail_mask', (YLeaf(YType.uint64, 'asic-avail-mask'), ['int'])),
+                                        ('exp_asic_avail_mask', (YLeaf(YType.uint64, 'exp-asic-avail-mask'), ['int'])),
+                                        ('ucmc_ratio', (YLeaf(YType.uint32, 'ucmc-ratio'), ['int'])),
+                                        ('asic_oper_notify_to_fsdb_pending_bmap', (YLeaf(YType.uint64, 'asic-oper-notify-to-fsdb-pending-bmap'), ['int'])),
+                                        ('is_full_fgid_download_req', (YLeaf(YType.boolean, 'is-full-fgid-download-req'), ['bool'])),
+                                        ('is_fgid_download_in_progress', (YLeaf(YType.boolean, 'is-fgid-download-in-progress'), ['bool'])),
+                                        ('is_fgid_download_completed', (YLeaf(YType.boolean, 'is-fgid-download-completed'), ['bool'])),
+                                        ('fsdb_conn_active', (YLeaf(YType.boolean, 'fsdb-conn-active'), ['bool'])),
+                                        ('fgid_conn_active', (YLeaf(YType.boolean, 'fgid-conn-active'), ['bool'])),
+                                        ('issu_mgr_conn_active', (YLeaf(YType.boolean, 'issu-mgr-conn-active'), ['bool'])),
+                                        ('fsdb_reg_active', (YLeaf(YType.boolean, 'fsdb-reg-active'), ['bool'])),
+                                        ('fgid_reg_active', (YLeaf(YType.boolean, 'fgid-reg-active'), ['bool'])),
+                                        ('issu_mgr_reg_active', (YLeaf(YType.boolean, 'issu-mgr-reg-active'), ['bool'])),
+                                        ('num_pm_conn_reqs', (YLeaf(YType.uint8, 'num-pm-conn-reqs'), ['int'])),
+                                        ('num_fsdb_conn_reqs', (YLeaf(YType.uint8, 'num-fsdb-conn-reqs'), ['int'])),
+                                        ('num_fgid_conn_reqs', (YLeaf(YType.uint8, 'num-fgid-conn-reqs'), ['int'])),
+                                        ('num_fstats_conn_reqs', (YLeaf(YType.uint8, 'num-fstats-conn-reqs'), ['int'])),
+                                        ('num_cm_conn_reqs', (YLeaf(YType.uint8, 'num-cm-conn-reqs'), ['int'])),
+                                        ('num_issu_mgr_conn_reqs', (YLeaf(YType.uint8, 'num-issu-mgr-conn-reqs'), ['int'])),
+                                        ('num_peer_fia_conn_reqs', (YLeaf(YType.uint8, 'num-peer-fia-conn-reqs'), ['int'])),
+                                        ('is_gaspp_registered', (YLeaf(YType.boolean, 'is-gaspp-registered'), ['bool'])),
+                                        ('is_cih_registered', (YLeaf(YType.boolean, 'is-cih-registered'), ['bool'])),
+                                        ('drvr_initial_startup_timestamp', (YLeaf(YType.str, 'drvr-initial-startup-timestamp'), ['str'])),
+                                        ('drvr_current_startup_timestamp', (YLeaf(YType.str, 'drvr-current-startup-timestamp'), ['str'])),
+                                        ('num_intf_ports', (YLeaf(YType.uint32, 'num-intf-ports'), ['int'])),
+                                        ('uc_weight', (YLeaf(YType.uint8, 'uc-weight'), ['int'])),
+                                        ('respawn_count', (YLeaf(YType.uint8, 'respawn-count'), ['int'])),
+                                        ('total_asics', (YLeaf(YType.uint8, 'total-asics'), ['int'])),
+                                        ('issu_ready_ntfy_pending', (YLeaf(YType.boolean, 'issu-ready-ntfy-pending'), ['bool'])),
+                                        ('issu_abort_sent', (YLeaf(YType.boolean, 'issu-abort-sent'), ['bool'])),
+                                        ('issu_abort_rcvd', (YLeaf(YType.boolean, 'issu-abort-rcvd'), ['bool'])),
+                                        ('fabric_mode', (YLeaf(YType.uint8, 'fabric-mode'), ['int'])),
+                                        ('fc_mode', (YLeaf(YType.enumeration, 'fc-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'FcMode', '')])),
+                                        ('board_rev_id', (YLeaf(YType.uint32, 'board-rev-id'), ['int'])),
+                                        ('all_wb_insync', (YLeaf(YType.boolean, 'all-wb-insync'), ['bool'])),
+                                        ('all_wb_insync_since', (YLeaf(YType.uint32, 'all-wb-insync-since'), ['int'])),
+                                        ('all_startup_wb_insync', (YLeaf(YType.boolean, 'all-startup-wb-insync'), ['bool'])),
+                                        ('plane_a_bitmap', (YLeaf(YType.uint32, 'plane-a-bitmap'), ['int'])),
+                                        ('plane_b_bitmap', (YLeaf(YType.uint32, 'plane-b-bitmap'), ['int'])),
                                     ])
                                     self.slot = None
                                     self.drv_version = None
@@ -4519,13 +4694,19 @@ class Fia(Entity):
                                     self.fabric_mode = None
                                     self.fc_mode = None
                                     self.board_rev_id = None
+                                    self.all_wb_insync = None
+                                    self.all_wb_insync_since = None
+                                    self.all_startup_wb_insync = None
+                                    self.plane_a_bitmap = None
+                                    self.plane_b_bitmap = None
 
                                     self.device_info = YList(self)
                                     self.card_info = YList(self)
                                     self._segment_path = lambda: "slot" + "[slot='" + str(self.slot) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', 'drv_version', 'coeff_major_rev', 'coeff_minor_rev', 'functional_role', 'issu_role', 'node_id', 'rack_type', 'rack_num', 'is_driver_ready', 'card_avail_mask', 'asic_avail_mask', 'exp_asic_avail_mask', 'ucmc_ratio', 'asic_oper_notify_to_fsdb_pending_bmap', 'is_full_fgid_download_req', 'is_fgid_download_in_progress', 'is_fgid_download_completed', 'fsdb_conn_active', 'fgid_conn_active', 'issu_mgr_conn_active', 'fsdb_reg_active', 'fgid_reg_active', 'issu_mgr_reg_active', 'num_pm_conn_reqs', 'num_fsdb_conn_reqs', 'num_fgid_conn_reqs', 'num_fstats_conn_reqs', 'num_cm_conn_reqs', 'num_issu_mgr_conn_reqs', 'num_peer_fia_conn_reqs', 'is_gaspp_registered', 'is_cih_registered', 'drvr_initial_startup_timestamp', 'drvr_current_startup_timestamp', 'num_intf_ports', 'uc_weight', 'respawn_count', 'total_asics', 'issu_ready_ntfy_pending', 'issu_abort_sent', 'issu_abort_rcvd', 'fabric_mode', 'fc_mode', 'board_rev_id'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot, ['slot', u'drv_version', u'coeff_major_rev', u'coeff_minor_rev', u'functional_role', u'issu_role', u'node_id', u'rack_type', u'rack_num', u'is_driver_ready', u'card_avail_mask', u'asic_avail_mask', u'exp_asic_avail_mask', u'ucmc_ratio', u'asic_oper_notify_to_fsdb_pending_bmap', u'is_full_fgid_download_req', u'is_fgid_download_in_progress', u'is_fgid_download_completed', u'fsdb_conn_active', u'fgid_conn_active', u'issu_mgr_conn_active', u'fsdb_reg_active', u'fgid_reg_active', u'issu_mgr_reg_active', u'num_pm_conn_reqs', u'num_fsdb_conn_reqs', u'num_fgid_conn_reqs', u'num_fstats_conn_reqs', u'num_cm_conn_reqs', u'num_issu_mgr_conn_reqs', u'num_peer_fia_conn_reqs', u'is_gaspp_registered', u'is_cih_registered', u'drvr_initial_startup_timestamp', u'drvr_current_startup_timestamp', u'num_intf_ports', u'uc_weight', u'respawn_count', u'total_asics', u'issu_ready_ntfy_pending', u'issu_abort_sent', u'issu_abort_rcvd', u'fabric_mode', u'fc_mode', u'board_rev_id', u'all_wb_insync', u'all_wb_insync_since', u'all_startup_wb_insync', u'plane_a_bitmap', u'plane_b_bitmap'], name, value)
 
 
                                 class DeviceInfo(Entity):
@@ -4600,12 +4781,44 @@ class Fia(Entity):
                                     	local switch state
                                     	**type**\: bool
                                     
+                                    .. attribute:: startup_wb_mtime_str
+                                    
+                                    	startup wb mtime str
+                                    	**type**\: str
+                                    
+                                    .. attribute:: startup_wb_outof_sync
+                                    
+                                    	startup wb outof sync
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: local_wb_sync_end_str
+                                    
+                                    	local wb sync end str
+                                    	**type**\: str
+                                    
+                                    .. attribute:: remote_wb_sync_end_str
+                                    
+                                    	remote wb sync end str
+                                    	**type**\: str
+                                    
+                                    .. attribute:: local_wb_sync_pending
+                                    
+                                    	local wb sync pending
+                                    	**type**\: bool
+                                    
+                                    .. attribute:: sdk_delay_msec
+                                    
+                                    	sdk delay msec
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
                                     
 
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, self).__init__()
@@ -4617,17 +4830,23 @@ class Fia(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("asic-id", ("asic_id", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId))])
                                         self._leafs = OrderedDict([
-                                            ('is_valid', YLeaf(YType.boolean, 'is-valid')),
-                                            ('fapid', YLeaf(YType.uint32, 'fapid')),
-                                            ('hotplug_event', YLeaf(YType.uint32, 'hotplug-event')),
-                                            ('slice_state', YLeaf(YType.enumeration, 'slice-state')),
-                                            ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                                            ('oper_state', YLeaf(YType.enumeration, 'oper-state')),
-                                            ('asic_state', YLeaf(YType.enumeration, 'asic-state')),
-                                            ('last_init_cause', YLeaf(YType.enumeration, 'last-init-cause')),
-                                            ('num_pon_resets', YLeaf(YType.uint32, 'num-pon-resets')),
-                                            ('num_hard_resets', YLeaf(YType.uint32, 'num-hard-resets')),
-                                            ('local_switch_state', YLeaf(YType.boolean, 'local-switch-state')),
+                                            ('is_valid', (YLeaf(YType.boolean, 'is-valid'), ['bool'])),
+                                            ('fapid', (YLeaf(YType.uint32, 'fapid'), ['int'])),
+                                            ('hotplug_event', (YLeaf(YType.uint32, 'hotplug-event'), ['int'])),
+                                            ('slice_state', (YLeaf(YType.enumeration, 'slice-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'SliceState', '')])),
+                                            ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AdminState', '')])),
+                                            ('oper_state', (YLeaf(YType.enumeration, 'oper-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicOperState', '')])),
+                                            ('asic_state', (YLeaf(YType.enumeration, 'asic-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicAccessState', '')])),
+                                            ('last_init_cause', (YLeaf(YType.enumeration, 'last-init-cause'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'AsicInitMethod', '')])),
+                                            ('num_pon_resets', (YLeaf(YType.uint32, 'num-pon-resets'), ['int'])),
+                                            ('num_hard_resets', (YLeaf(YType.uint32, 'num-hard-resets'), ['int'])),
+                                            ('local_switch_state', (YLeaf(YType.boolean, 'local-switch-state'), ['bool'])),
+                                            ('startup_wb_mtime_str', (YLeaf(YType.str, 'startup-wb-mtime-str'), ['str'])),
+                                            ('startup_wb_outof_sync', (YLeaf(YType.boolean, 'startup-wb-outof-sync'), ['bool'])),
+                                            ('local_wb_sync_end_str', (YLeaf(YType.str, 'local-wb-sync-end-str'), ['str'])),
+                                            ('remote_wb_sync_end_str', (YLeaf(YType.str, 'remote-wb-sync-end-str'), ['str'])),
+                                            ('local_wb_sync_pending', (YLeaf(YType.boolean, 'local-wb-sync-pending'), ['bool'])),
+                                            ('sdk_delay_msec', (YLeaf(YType.uint32, 'sdk-delay-msec'), ['int'])),
                                         ])
                                         self.is_valid = None
                                         self.fapid = None
@@ -4640,14 +4859,21 @@ class Fia(Entity):
                                         self.num_pon_resets = None
                                         self.num_hard_resets = None
                                         self.local_switch_state = None
+                                        self.startup_wb_mtime_str = None
+                                        self.startup_wb_outof_sync = None
+                                        self.local_wb_sync_end_str = None
+                                        self.remote_wb_sync_end_str = None
+                                        self.local_wb_sync_pending = None
+                                        self.sdk_delay_msec = None
 
                                         self.asic_id = Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId()
                                         self.asic_id.parent = self
                                         self._children_name_map["asic_id"] = "asic-id"
                                         self._segment_path = lambda: "device-info"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, ['is_valid', 'fapid', 'hotplug_event', 'slice_state', 'admin_state', 'oper_state', 'asic_state', 'last_init_cause', 'num_pon_resets', 'num_hard_resets', 'local_switch_state'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo, [u'is_valid', u'fapid', u'hotplug_event', u'slice_state', u'admin_state', u'oper_state', u'asic_state', u'last_init_cause', u'num_pon_resets', u'num_hard_resets', u'local_switch_state', u'startup_wb_mtime_str', u'startup_wb_outof_sync', u'local_wb_sync_end_str', u'remote_wb_sync_end_str', u'local_wb_sync_pending', u'sdk_delay_msec'], name, value)
 
 
                                     class AsicId(Entity):
@@ -4690,7 +4916,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, self).__init__()
@@ -4702,11 +4928,11 @@ class Fia(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('rack_type', YLeaf(YType.enumeration, 'rack-type')),
-                                                ('asic_type', YLeaf(YType.enumeration, 'asic-type')),
-                                                ('rack_num', YLeaf(YType.uint32, 'rack-num')),
-                                                ('slot_num', YLeaf(YType.uint32, 'slot-num')),
-                                                ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
+                                                ('rack_type', (YLeaf(YType.enumeration, 'rack-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Rack', '')])),
+                                                ('asic_type', (YLeaf(YType.enumeration, 'asic-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_oper', 'Asic', '')])),
+                                                ('rack_num', (YLeaf(YType.uint32, 'rack-num'), ['int'])),
+                                                ('slot_num', (YLeaf(YType.uint32, 'slot-num'), ['int'])),
+                                                ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
                                             ])
                                             self.rack_type = None
                                             self.asic_type = None
@@ -4714,9 +4940,10 @@ class Fia(Entity):
                                             self.slot_num = None
                                             self.asic_instance = None
                                             self._segment_path = lambda: "asic-id"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, ['rack_type', 'asic_type', 'rack_num', 'slot_num', 'asic_instance'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.DeviceInfo.AsicId, [u'rack_type', u'asic_type', u'rack_num', u'slot_num', u'asic_instance'], name, value)
 
 
                                 class CardInfo(Entity):
@@ -4834,7 +5061,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, self).__init__()
@@ -4846,21 +5073,21 @@ class Fia(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("oir-circular-buffer", ("oir_circular_buffer", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer))])
                                         self._leafs = OrderedDict([
-                                            ('card_type', YLeaf(YType.int32, 'card-type')),
-                                            ('card_name', YLeaf(YType.str, 'card-name')),
-                                            ('slot_no', YLeaf(YType.int32, 'slot-no')),
-                                            ('card_flag', YLeaf(YType.int32, 'card-flag')),
-                                            ('evt_flag', YLeaf(YType.int32, 'evt-flag')),
-                                            ('reg_flag', YLeaf(YType.int32, 'reg-flag')),
-                                            ('instance', YLeaf(YType.int32, 'instance')),
-                                            ('card_state', YLeaf(YType.uint8, 'card-state')),
-                                            ('exp_num_asics', YLeaf(YType.uint32, 'exp-num-asics')),
-                                            ('exp_num_asics_per_fsdb', YLeaf(YType.uint32, 'exp-num-asics-per-fsdb')),
-                                            ('is_powered', YLeaf(YType.boolean, 'is-powered')),
-                                            ('cxp_avail_bitmap', YLeaf(YType.uint64, 'cxp-avail-bitmap')),
-                                            ('num_ilkns_per_asic', YLeaf(YType.uint32, 'num-ilkns-per-asic')),
-                                            ('num_local_ports_per_ilkn', YLeaf(YType.uint32, 'num-local-ports-per-ilkn')),
-                                            ('num_cos_per_port', YLeaf(YType.uint8, 'num-cos-per-port')),
+                                            ('card_type', (YLeaf(YType.int32, 'card-type'), ['int'])),
+                                            ('card_name', (YLeaf(YType.str, 'card-name'), ['str'])),
+                                            ('slot_no', (YLeaf(YType.int32, 'slot-no'), ['int'])),
+                                            ('card_flag', (YLeaf(YType.int32, 'card-flag'), ['int'])),
+                                            ('evt_flag', (YLeaf(YType.int32, 'evt-flag'), ['int'])),
+                                            ('reg_flag', (YLeaf(YType.int32, 'reg-flag'), ['int'])),
+                                            ('instance', (YLeaf(YType.int32, 'instance'), ['int'])),
+                                            ('card_state', (YLeaf(YType.uint8, 'card-state'), ['int'])),
+                                            ('exp_num_asics', (YLeaf(YType.uint32, 'exp-num-asics'), ['int'])),
+                                            ('exp_num_asics_per_fsdb', (YLeaf(YType.uint32, 'exp-num-asics-per-fsdb'), ['int'])),
+                                            ('is_powered', (YLeaf(YType.boolean, 'is-powered'), ['bool'])),
+                                            ('cxp_avail_bitmap', (YLeaf(YType.uint64, 'cxp-avail-bitmap'), ['int'])),
+                                            ('num_ilkns_per_asic', (YLeaf(YType.uint32, 'num-ilkns-per-asic'), ['int'])),
+                                            ('num_local_ports_per_ilkn', (YLeaf(YType.uint32, 'num-local-ports-per-ilkn'), ['int'])),
+                                            ('num_cos_per_port', (YLeaf(YType.uint8, 'num-cos-per-port'), ['int'])),
                                         ])
                                         self.card_type = None
                                         self.card_name = None
@@ -4882,9 +5109,10 @@ class Fia(Entity):
                                         self.oir_circular_buffer.parent = self
                                         self._children_name_map["oir_circular_buffer"] = "oir-circular-buffer"
                                         self._segment_path = lambda: "card-info"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, ['card_type', 'card_name', 'slot_no', 'card_flag', 'evt_flag', 'reg_flag', 'instance', 'card_state', 'exp_num_asics', 'exp_num_asics_per_fsdb', 'is_powered', 'cxp_avail_bitmap', 'num_ilkns_per_asic', 'num_local_ports_per_ilkn', 'num_cos_per_port'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo, [u'card_type', u'card_name', u'slot_no', u'card_flag', u'evt_flag', u'reg_flag', u'instance', u'card_state', u'exp_num_asics', u'exp_num_asics_per_fsdb', u'is_powered', u'cxp_avail_bitmap', u'num_ilkns_per_asic', u'num_local_ports_per_ilkn', u'num_cos_per_port'], name, value)
 
 
                                     class OirCircularBuffer(Entity):
@@ -4922,7 +5150,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, self).__init__()
@@ -4934,9 +5162,9 @@ class Fia(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("fia-oir-info", ("fia_oir_info", Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo))])
                                             self._leafs = OrderedDict([
-                                                ('count', YLeaf(YType.int32, 'count')),
-                                                ('start', YLeaf(YType.int32, 'start')),
-                                                ('end', YLeaf(YType.int32, 'end')),
+                                                ('count', (YLeaf(YType.int32, 'count'), ['int'])),
+                                                ('start', (YLeaf(YType.int32, 'start'), ['int'])),
+                                                ('end', (YLeaf(YType.int32, 'end'), ['int'])),
                                             ])
                                             self.count = None
                                             self.start = None
@@ -4944,9 +5172,10 @@ class Fia(Entity):
 
                                             self.fia_oir_info = YList(self)
                                             self._segment_path = lambda: "oir-circular-buffer"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, ['count', 'start', 'end'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer, [u'count', u'start', u'end'], name, value)
 
 
                                         class FiaOirInfo(Entity):
@@ -5007,7 +5236,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, self).__init__()
@@ -5019,13 +5248,13 @@ class Fia(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('card_flag', YLeaf(YType.int32, 'card-flag')),
-                                                    ('card_type', YLeaf(YType.int32, 'card-type')),
-                                                    ('reg_flag', YLeaf(YType.int32, 'reg-flag')),
-                                                    ('evt_flag', YLeaf(YType.int32, 'evt-flag')),
-                                                    ('rack_num', YLeaf(YType.int32, 'rack-num')),
-                                                    ('instance', YLeaf(YType.int32, 'instance')),
-                                                    ('cur_card_state', YLeaf(YType.int32, 'cur-card-state')),
+                                                    ('card_flag', (YLeaf(YType.int32, 'card-flag'), ['int'])),
+                                                    ('card_type', (YLeaf(YType.int32, 'card-type'), ['int'])),
+                                                    ('reg_flag', (YLeaf(YType.int32, 'reg-flag'), ['int'])),
+                                                    ('evt_flag', (YLeaf(YType.int32, 'evt-flag'), ['int'])),
+                                                    ('rack_num', (YLeaf(YType.int32, 'rack-num'), ['int'])),
+                                                    ('instance', (YLeaf(YType.int32, 'instance'), ['int'])),
+                                                    ('cur_card_state', (YLeaf(YType.int32, 'cur-card-state'), ['int'])),
                                                 ])
                                                 self.card_flag = None
                                                 self.card_type = None
@@ -5035,9 +5264,10 @@ class Fia(Entity):
                                                 self.instance = None
                                                 self.cur_card_state = None
                                                 self._segment_path = lambda: "fia-oir-info"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, ['card_flag', 'card_type', 'reg_flag', 'evt_flag', 'rack_num', 'instance', 'cur_card_state'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.OirHistory.Flags.Flag.Slots.Slot.CardInfo.OirCircularBuffer.FiaOirInfo, [u'card_flag', u'card_type', u'reg_flag', u'evt_flag', u'rack_num', u'instance', u'cur_card_state'], name, value)
 
 
             class AsicStatistics(Entity):
@@ -5054,7 +5284,7 @@ class Fia(Entity):
                 """
 
                 _prefix = 'dnx-driver-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-08-29'
 
                 def __init__(self):
                     super(Fia.Nodes.Node.AsicStatistics, self).__init__()
@@ -5071,6 +5301,7 @@ class Fia(Entity):
                     self.statistics_asic_instances.parent = self
                     self._children_name_map["statistics_asic_instances"] = "statistics-asic-instances"
                     self._segment_path = lambda: "asic-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fia.Nodes.Node.AsicStatistics, [], name, value)
@@ -5090,7 +5321,7 @@ class Fia(Entity):
                     """
 
                     _prefix = 'dnx-driver-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-08-29'
 
                     def __init__(self):
                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, self).__init__()
@@ -5105,6 +5336,7 @@ class Fia(Entity):
 
                         self.statistics_asic_instance = YList(self)
                         self._segment_path = lambda: "statistics-asic-instances"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances, [], name, value)
@@ -5136,7 +5368,7 @@ class Fia(Entity):
                         """
 
                         _prefix = 'dnx-driver-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-08-29'
 
                         def __init__(self):
                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, self).__init__()
@@ -5148,7 +5380,7 @@ class Fia(Entity):
                             self.ylist_key_names = ['instance']
                             self._child_classes = OrderedDict([("pbc-statistics", ("pbc_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics)), ("fmac-statistics", ("fmac_statistics", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics))])
                             self._leafs = OrderedDict([
-                                ('instance', YLeaf(YType.uint32, 'instance')),
+                                ('instance', (YLeaf(YType.uint32, 'instance'), ['int'])),
                             ])
                             self.instance = None
 
@@ -5160,6 +5392,7 @@ class Fia(Entity):
                             self.fmac_statistics.parent = self
                             self._children_name_map["fmac_statistics"] = "fmac-statistics"
                             self._segment_path = lambda: "statistics-asic-instance" + "[instance='" + str(self.instance) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance, ['instance'], name, value)
@@ -5179,7 +5412,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, self).__init__()
@@ -5196,6 +5429,7 @@ class Fia(Entity):
                                 self.pbc_stats.parent = self
                                 self._children_name_map["pbc_stats"] = "pbc-stats"
                                 self._segment_path = lambda: "pbc-statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics, [], name, value)
@@ -5248,7 +5482,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, self).__init__()
@@ -5260,11 +5494,11 @@ class Fia(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("stats-info", ("stats_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo))])
                                     self._leafs = OrderedDict([
-                                        ('valid', YLeaf(YType.boolean, 'valid')),
-                                        ('rack_no', YLeaf(YType.uint32, 'rack-no')),
-                                        ('slot_no', YLeaf(YType.uint32, 'slot-no')),
-                                        ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
-                                        ('chip_ver', YLeaf(YType.uint16, 'chip-ver')),
+                                        ('valid', (YLeaf(YType.boolean, 'valid'), ['bool'])),
+                                        ('rack_no', (YLeaf(YType.uint32, 'rack-no'), ['int'])),
+                                        ('slot_no', (YLeaf(YType.uint32, 'slot-no'), ['int'])),
+                                        ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
+                                        ('chip_ver', (YLeaf(YType.uint16, 'chip-ver'), ['int'])),
                                     ])
                                     self.valid = None
                                     self.rack_no = None
@@ -5276,9 +5510,10 @@ class Fia(Entity):
                                     self.stats_info.parent = self
                                     self._children_name_map["stats_info"] = "stats-info"
                                     self._segment_path = lambda: "pbc-stats"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, ['valid', 'rack_no', 'slot_no', 'asic_instance', 'chip_ver'], name, value)
+                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats, [u'valid', u'rack_no', u'slot_no', u'asic_instance', u'chip_ver'], name, value)
 
 
                                 class StatsInfo(Entity):
@@ -5302,7 +5537,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, self).__init__()
@@ -5314,15 +5549,16 @@ class Fia(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("block-info", ("block_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo))])
                                         self._leafs = OrderedDict([
-                                            ('num_blocks', YLeaf(YType.uint8, 'num-blocks')),
+                                            ('num_blocks', (YLeaf(YType.uint8, 'num-blocks'), ['int'])),
                                         ])
                                         self.num_blocks = None
 
                                         self.block_info = YList(self)
                                         self._segment_path = lambda: "stats-info"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, ['num_blocks'], name, value)
+                                        self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo, [u'num_blocks'], name, value)
 
 
                                     class BlockInfo(Entity):
@@ -5353,7 +5589,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, self).__init__()
@@ -5365,17 +5601,18 @@ class Fia(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("field-info", ("field_info", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo))])
                                             self._leafs = OrderedDict([
-                                                ('block_name', YLeaf(YType.str, 'block-name')),
-                                                ('num_fields', YLeaf(YType.uint8, 'num-fields')),
+                                                ('block_name', (YLeaf(YType.str, 'block-name'), ['str'])),
+                                                ('num_fields', (YLeaf(YType.uint8, 'num-fields'), ['int'])),
                                             ])
                                             self.block_name = None
                                             self.num_fields = None
 
                                             self.field_info = YList(self)
                                             self._segment_path = lambda: "block-info"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, ['block_name', 'num_fields'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo, [u'block_name', u'num_fields'], name, value)
 
 
                                         class FieldInfo(Entity):
@@ -5406,7 +5643,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, self).__init__()
@@ -5418,17 +5655,18 @@ class Fia(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('field_name', YLeaf(YType.str, 'field-name')),
-                                                    ('field_value', YLeaf(YType.uint64, 'field-value')),
-                                                    ('is_ovf', YLeaf(YType.boolean, 'is-ovf')),
+                                                    ('field_name', (YLeaf(YType.str, 'field-name'), ['str'])),
+                                                    ('field_value', (YLeaf(YType.uint64, 'field-value'), ['int'])),
+                                                    ('is_ovf', (YLeaf(YType.boolean, 'is-ovf'), ['bool'])),
                                                 ])
                                                 self.field_name = None
                                                 self.field_value = None
                                                 self.is_ovf = None
                                                 self._segment_path = lambda: "field-info"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, ['field_name', 'field_value', 'is_ovf'], name, value)
+                                                self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.PbcStatistics.PbcStats.StatsInfo.BlockInfo.FieldInfo, [u'field_name', u'field_value', u'is_ovf'], name, value)
 
 
                         class FmacStatistics(Entity):
@@ -5445,7 +5683,7 @@ class Fia(Entity):
                             """
 
                             _prefix = 'dnx-driver-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-08-29'
 
                             def __init__(self):
                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, self).__init__()
@@ -5462,6 +5700,7 @@ class Fia(Entity):
                                 self.fmac_links.parent = self
                                 self._children_name_map["fmac_links"] = "fmac-links"
                                 self._segment_path = lambda: "fmac-statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics, [], name, value)
@@ -5481,7 +5720,7 @@ class Fia(Entity):
                                 """
 
                                 _prefix = 'dnx-driver-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-08-29'
 
                                 def __init__(self):
                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, self).__init__()
@@ -5496,6 +5735,7 @@ class Fia(Entity):
 
                                     self.fmac_link = YList(self)
                                     self._segment_path = lambda: "fmac-links"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks, [], name, value)
@@ -5510,7 +5750,7 @@ class Fia(Entity):
                                     	Link number
                                     	**type**\: int
                                     
-                                    	**range:** \-2147483648..2147483647
+                                    	**range:** 0..4294967295
                                     
                                     .. attribute:: fmac_asic
                                     
@@ -5522,7 +5762,7 @@ class Fia(Entity):
                                     """
 
                                     _prefix = 'dnx-driver-oper'
-                                    _revision = '2015-11-09'
+                                    _revision = '2017-08-29'
 
                                     def __init__(self):
                                         super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, self).__init__()
@@ -5534,12 +5774,13 @@ class Fia(Entity):
                                         self.ylist_key_names = ['link']
                                         self._child_classes = OrderedDict([("fmac-asic", ("fmac_asic", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic))])
                                         self._leafs = OrderedDict([
-                                            ('link', YLeaf(YType.int32, 'link')),
+                                            ('link', (YLeaf(YType.uint32, 'link'), ['int'])),
                                         ])
                                         self.link = None
 
                                         self.fmac_asic = YList(self)
                                         self._segment_path = lambda: "fmac-link" + "[link='" + str(self.link) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink, ['link'], name, value)
@@ -5554,7 +5795,7 @@ class Fia(Entity):
                                         	Single asic
                                         	**type**\: int
                                         
-                                        	**range:** \-2147483648..2147483647
+                                        	**range:** 0..4294967295
                                         
                                         .. attribute:: aggr_stats
                                         
@@ -5609,7 +5850,7 @@ class Fia(Entity):
                                         """
 
                                         _prefix = 'dnx-driver-oper'
-                                        _revision = '2015-11-09'
+                                        _revision = '2017-08-29'
 
                                         def __init__(self):
                                             super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, self).__init__()
@@ -5621,13 +5862,13 @@ class Fia(Entity):
                                             self.ylist_key_names = ['asic']
                                             self._child_classes = OrderedDict([("aggr-stats", ("aggr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats)), ("incr-stats", ("incr_stats", Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats))])
                                             self._leafs = OrderedDict([
-                                                ('asic', YLeaf(YType.int32, 'asic')),
-                                                ('valid', YLeaf(YType.boolean, 'valid')),
-                                                ('rack_no', YLeaf(YType.uint32, 'rack-no')),
-                                                ('slot_no', YLeaf(YType.uint32, 'slot-no')),
-                                                ('asic_instance', YLeaf(YType.uint32, 'asic-instance')),
-                                                ('link_no', YLeaf(YType.uint32, 'link-no')),
-                                                ('link_valid', YLeaf(YType.boolean, 'link-valid')),
+                                                ('asic', (YLeaf(YType.uint32, 'asic'), ['int'])),
+                                                ('valid', (YLeaf(YType.boolean, 'valid'), ['bool'])),
+                                                ('rack_no', (YLeaf(YType.uint32, 'rack-no'), ['int'])),
+                                                ('slot_no', (YLeaf(YType.uint32, 'slot-no'), ['int'])),
+                                                ('asic_instance', (YLeaf(YType.uint32, 'asic-instance'), ['int'])),
+                                                ('link_no', (YLeaf(YType.uint32, 'link-no'), ['int'])),
+                                                ('link_valid', (YLeaf(YType.boolean, 'link-valid'), ['bool'])),
                                             ])
                                             self.asic = None
                                             self.valid = None
@@ -5645,9 +5886,10 @@ class Fia(Entity):
                                             self.incr_stats.parent = self
                                             self._children_name_map["incr_stats"] = "incr-stats"
                                             self._segment_path = lambda: "fmac-asic" + "[asic='" + str(self.asic) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', 'valid', 'rack_no', 'slot_no', 'asic_instance', 'link_no', 'link_valid'], name, value)
+                                            self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic, ['asic', u'valid', u'rack_no', u'slot_no', u'asic_instance', u'link_no', u'link_valid'], name, value)
 
 
                                         class AggrStats(Entity):
@@ -5674,7 +5916,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, self).__init__()
@@ -5699,6 +5941,7 @@ class Fia(Entity):
                                                 self.ovf_status.parent = self
                                                 self._children_name_map["ovf_status"] = "ovf-status"
                                                 self._segment_path = lambda: "aggr-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats, [], name, value)
@@ -5769,7 +6012,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, self).__init__()
@@ -5781,14 +6024,14 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('link_crc_error', YLeaf(YType.uint32, 'link-crc-error')),
-                                                        ('link_size_error', YLeaf(YType.uint32, 'link-size-error')),
-                                                        ('link_mis_align_error', YLeaf(YType.uint32, 'link-mis-align-error')),
-                                                        ('link_code_group_error', YLeaf(YType.uint32, 'link-code-group-error')),
-                                                        ('link_no_sig_lock_error', YLeaf(YType.uint32, 'link-no-sig-lock-error')),
-                                                        ('link_no_sig_accept_error', YLeaf(YType.uint32, 'link-no-sig-accept-error')),
-                                                        ('link_tokens_error', YLeaf(YType.uint32, 'link-tokens-error')),
-                                                        ('error_token_count', YLeaf(YType.uint32, 'error-token-count')),
+                                                        ('link_crc_error', (YLeaf(YType.uint32, 'link-crc-error'), ['int'])),
+                                                        ('link_size_error', (YLeaf(YType.uint32, 'link-size-error'), ['int'])),
+                                                        ('link_mis_align_error', (YLeaf(YType.uint32, 'link-mis-align-error'), ['int'])),
+                                                        ('link_code_group_error', (YLeaf(YType.uint32, 'link-code-group-error'), ['int'])),
+                                                        ('link_no_sig_lock_error', (YLeaf(YType.uint32, 'link-no-sig-lock-error'), ['int'])),
+                                                        ('link_no_sig_accept_error', (YLeaf(YType.uint32, 'link-no-sig-accept-error'), ['int'])),
+                                                        ('link_tokens_error', (YLeaf(YType.uint32, 'link-tokens-error'), ['int'])),
+                                                        ('error_token_count', (YLeaf(YType.uint32, 'error-token-count'), ['int'])),
                                                     ])
                                                     self.link_crc_error = None
                                                     self.link_size_error = None
@@ -5799,9 +6042,10 @@ class Fia(Entity):
                                                     self.link_tokens_error = None
                                                     self.error_token_count = None
                                                     self._segment_path = lambda: "link-error-status"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
 
 
                                             class LinkCounters(Entity):
@@ -5911,7 +6155,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, self).__init__()
@@ -5923,20 +6167,20 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('tx_control_cells_counter', YLeaf(YType.uint64, 'tx-control-cells-counter')),
-                                                        ('tx_data_cell_counter', YLeaf(YType.uint64, 'tx-data-cell-counter')),
-                                                        ('tx_data_byte_counter', YLeaf(YType.uint64, 'tx-data-byte-counter')),
-                                                        ('rx_crc_errors_counter', YLeaf(YType.uint64, 'rx-crc-errors-counter')),
-                                                        ('rx_lfec_fec_correctable_error', YLeaf(YType.uint64, 'rx-lfec-fec-correctable-error')),
-                                                        ('rx_8b_10b_disparity_errors', YLeaf(YType.uint64, 'rx-8b-10b-disparity-errors')),
-                                                        ('rx_control_cells_counter', YLeaf(YType.uint64, 'rx-control-cells-counter')),
-                                                        ('rx_data_cell_counter', YLeaf(YType.uint64, 'rx-data-cell-counter')),
-                                                        ('rx_data_byte_counter', YLeaf(YType.uint64, 'rx-data-byte-counter')),
-                                                        ('rx_dropped_retransmitted_control', YLeaf(YType.uint64, 'rx-dropped-retransmitted-control')),
-                                                        ('tx_asyn_fifo_rate', YLeaf(YType.uint64, 'tx-asyn-fifo-rate')),
-                                                        ('rx_asyn_fifo_rate', YLeaf(YType.uint64, 'rx-asyn-fifo-rate')),
-                                                        ('rx_lfec_fec_uncorrectable_errors', YLeaf(YType.uint64, 'rx-lfec-fec-uncorrectable-errors')),
-                                                        ('rx_8b_10b_code_errors', YLeaf(YType.uint64, 'rx-8b-10b-code-errors')),
+                                                        ('tx_control_cells_counter', (YLeaf(YType.uint64, 'tx-control-cells-counter'), ['int'])),
+                                                        ('tx_data_cell_counter', (YLeaf(YType.uint64, 'tx-data-cell-counter'), ['int'])),
+                                                        ('tx_data_byte_counter', (YLeaf(YType.uint64, 'tx-data-byte-counter'), ['int'])),
+                                                        ('rx_crc_errors_counter', (YLeaf(YType.uint64, 'rx-crc-errors-counter'), ['int'])),
+                                                        ('rx_lfec_fec_correctable_error', (YLeaf(YType.uint64, 'rx-lfec-fec-correctable-error'), ['int'])),
+                                                        ('rx_8b_10b_disparity_errors', (YLeaf(YType.uint64, 'rx-8b-10b-disparity-errors'), ['int'])),
+                                                        ('rx_control_cells_counter', (YLeaf(YType.uint64, 'rx-control-cells-counter'), ['int'])),
+                                                        ('rx_data_cell_counter', (YLeaf(YType.uint64, 'rx-data-cell-counter'), ['int'])),
+                                                        ('rx_data_byte_counter', (YLeaf(YType.uint64, 'rx-data-byte-counter'), ['int'])),
+                                                        ('rx_dropped_retransmitted_control', (YLeaf(YType.uint64, 'rx-dropped-retransmitted-control'), ['int'])),
+                                                        ('tx_asyn_fifo_rate', (YLeaf(YType.uint64, 'tx-asyn-fifo-rate'), ['int'])),
+                                                        ('rx_asyn_fifo_rate', (YLeaf(YType.uint64, 'rx-asyn-fifo-rate'), ['int'])),
+                                                        ('rx_lfec_fec_uncorrectable_errors', (YLeaf(YType.uint64, 'rx-lfec-fec-uncorrectable-errors'), ['int'])),
+                                                        ('rx_8b_10b_code_errors', (YLeaf(YType.uint64, 'rx-8b-10b-code-errors'), ['int'])),
                                                     ])
                                                     self.tx_control_cells_counter = None
                                                     self.tx_data_cell_counter = None
@@ -5953,9 +6197,10 @@ class Fia(Entity):
                                                     self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
                                                     self._segment_path = lambda: "link-counters"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
                                             class OvfStatus(Entity):
@@ -6065,7 +6310,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, self).__init__()
@@ -6077,20 +6322,20 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('tx_control_cells_counter', YLeaf(YType.str, 'tx-control-cells-counter')),
-                                                        ('tx_data_cell_counter', YLeaf(YType.str, 'tx-data-cell-counter')),
-                                                        ('tx_data_byte_counter', YLeaf(YType.str, 'tx-data-byte-counter')),
-                                                        ('rx_crc_errors_counter', YLeaf(YType.str, 'rx-crc-errors-counter')),
-                                                        ('rx_lfec_fec_correctable_error', YLeaf(YType.str, 'rx-lfec-fec-correctable-error')),
-                                                        ('rx_8b_10b_disparity_errors', YLeaf(YType.str, 'rx-8b-10b-disparity-errors')),
-                                                        ('rx_control_cells_counter', YLeaf(YType.str, 'rx-control-cells-counter')),
-                                                        ('rx_data_cell_counter', YLeaf(YType.str, 'rx-data-cell-counter')),
-                                                        ('rx_data_byte_counter', YLeaf(YType.str, 'rx-data-byte-counter')),
-                                                        ('rx_dropped_retransmitted_control', YLeaf(YType.str, 'rx-dropped-retransmitted-control')),
-                                                        ('tx_asyn_fifo_rate', YLeaf(YType.str, 'tx-asyn-fifo-rate')),
-                                                        ('rx_asyn_fifo_rate', YLeaf(YType.str, 'rx-asyn-fifo-rate')),
-                                                        ('rx_lfec_fec_uncorrectable_errors', YLeaf(YType.str, 'rx-lfec-fec-uncorrectable-errors')),
-                                                        ('rx_8b_10b_code_errors', YLeaf(YType.str, 'rx-8b-10b-code-errors')),
+                                                        ('tx_control_cells_counter', (YLeaf(YType.str, 'tx-control-cells-counter'), ['str'])),
+                                                        ('tx_data_cell_counter', (YLeaf(YType.str, 'tx-data-cell-counter'), ['str'])),
+                                                        ('tx_data_byte_counter', (YLeaf(YType.str, 'tx-data-byte-counter'), ['str'])),
+                                                        ('rx_crc_errors_counter', (YLeaf(YType.str, 'rx-crc-errors-counter'), ['str'])),
+                                                        ('rx_lfec_fec_correctable_error', (YLeaf(YType.str, 'rx-lfec-fec-correctable-error'), ['str'])),
+                                                        ('rx_8b_10b_disparity_errors', (YLeaf(YType.str, 'rx-8b-10b-disparity-errors'), ['str'])),
+                                                        ('rx_control_cells_counter', (YLeaf(YType.str, 'rx-control-cells-counter'), ['str'])),
+                                                        ('rx_data_cell_counter', (YLeaf(YType.str, 'rx-data-cell-counter'), ['str'])),
+                                                        ('rx_data_byte_counter', (YLeaf(YType.str, 'rx-data-byte-counter'), ['str'])),
+                                                        ('rx_dropped_retransmitted_control', (YLeaf(YType.str, 'rx-dropped-retransmitted-control'), ['str'])),
+                                                        ('tx_asyn_fifo_rate', (YLeaf(YType.str, 'tx-asyn-fifo-rate'), ['str'])),
+                                                        ('rx_asyn_fifo_rate', (YLeaf(YType.str, 'rx-asyn-fifo-rate'), ['str'])),
+                                                        ('rx_lfec_fec_uncorrectable_errors', (YLeaf(YType.str, 'rx-lfec-fec-uncorrectable-errors'), ['str'])),
+                                                        ('rx_8b_10b_code_errors', (YLeaf(YType.str, 'rx-8b-10b-code-errors'), ['str'])),
                                                     ])
                                                     self.tx_control_cells_counter = None
                                                     self.tx_data_cell_counter = None
@@ -6107,9 +6352,10 @@ class Fia(Entity):
                                                     self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
                                                     self._segment_path = lambda: "ovf-status"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.AggrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
                                         class IncrStats(Entity):
@@ -6136,7 +6382,7 @@ class Fia(Entity):
                                             """
 
                                             _prefix = 'dnx-driver-oper'
-                                            _revision = '2015-11-09'
+                                            _revision = '2017-08-29'
 
                                             def __init__(self):
                                                 super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, self).__init__()
@@ -6161,6 +6407,7 @@ class Fia(Entity):
                                                 self.ovf_status.parent = self
                                                 self._children_name_map["ovf_status"] = "ovf-status"
                                                 self._segment_path = lambda: "incr-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats, [], name, value)
@@ -6231,7 +6478,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, self).__init__()
@@ -6243,14 +6490,14 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('link_crc_error', YLeaf(YType.uint32, 'link-crc-error')),
-                                                        ('link_size_error', YLeaf(YType.uint32, 'link-size-error')),
-                                                        ('link_mis_align_error', YLeaf(YType.uint32, 'link-mis-align-error')),
-                                                        ('link_code_group_error', YLeaf(YType.uint32, 'link-code-group-error')),
-                                                        ('link_no_sig_lock_error', YLeaf(YType.uint32, 'link-no-sig-lock-error')),
-                                                        ('link_no_sig_accept_error', YLeaf(YType.uint32, 'link-no-sig-accept-error')),
-                                                        ('link_tokens_error', YLeaf(YType.uint32, 'link-tokens-error')),
-                                                        ('error_token_count', YLeaf(YType.uint32, 'error-token-count')),
+                                                        ('link_crc_error', (YLeaf(YType.uint32, 'link-crc-error'), ['int'])),
+                                                        ('link_size_error', (YLeaf(YType.uint32, 'link-size-error'), ['int'])),
+                                                        ('link_mis_align_error', (YLeaf(YType.uint32, 'link-mis-align-error'), ['int'])),
+                                                        ('link_code_group_error', (YLeaf(YType.uint32, 'link-code-group-error'), ['int'])),
+                                                        ('link_no_sig_lock_error', (YLeaf(YType.uint32, 'link-no-sig-lock-error'), ['int'])),
+                                                        ('link_no_sig_accept_error', (YLeaf(YType.uint32, 'link-no-sig-accept-error'), ['int'])),
+                                                        ('link_tokens_error', (YLeaf(YType.uint32, 'link-tokens-error'), ['int'])),
+                                                        ('error_token_count', (YLeaf(YType.uint32, 'error-token-count'), ['int'])),
                                                     ])
                                                     self.link_crc_error = None
                                                     self.link_size_error = None
@@ -6261,9 +6508,10 @@ class Fia(Entity):
                                                     self.link_tokens_error = None
                                                     self.error_token_count = None
                                                     self._segment_path = lambda: "link-error-status"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, ['link_crc_error', 'link_size_error', 'link_mis_align_error', 'link_code_group_error', 'link_no_sig_lock_error', 'link_no_sig_accept_error', 'link_tokens_error', 'error_token_count'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkErrorStatus, [u'link_crc_error', u'link_size_error', u'link_mis_align_error', u'link_code_group_error', u'link_no_sig_lock_error', u'link_no_sig_accept_error', u'link_tokens_error', u'error_token_count'], name, value)
 
 
                                             class LinkCounters(Entity):
@@ -6373,7 +6621,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, self).__init__()
@@ -6385,20 +6633,20 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('tx_control_cells_counter', YLeaf(YType.uint64, 'tx-control-cells-counter')),
-                                                        ('tx_data_cell_counter', YLeaf(YType.uint64, 'tx-data-cell-counter')),
-                                                        ('tx_data_byte_counter', YLeaf(YType.uint64, 'tx-data-byte-counter')),
-                                                        ('rx_crc_errors_counter', YLeaf(YType.uint64, 'rx-crc-errors-counter')),
-                                                        ('rx_lfec_fec_correctable_error', YLeaf(YType.uint64, 'rx-lfec-fec-correctable-error')),
-                                                        ('rx_8b_10b_disparity_errors', YLeaf(YType.uint64, 'rx-8b-10b-disparity-errors')),
-                                                        ('rx_control_cells_counter', YLeaf(YType.uint64, 'rx-control-cells-counter')),
-                                                        ('rx_data_cell_counter', YLeaf(YType.uint64, 'rx-data-cell-counter')),
-                                                        ('rx_data_byte_counter', YLeaf(YType.uint64, 'rx-data-byte-counter')),
-                                                        ('rx_dropped_retransmitted_control', YLeaf(YType.uint64, 'rx-dropped-retransmitted-control')),
-                                                        ('tx_asyn_fifo_rate', YLeaf(YType.uint64, 'tx-asyn-fifo-rate')),
-                                                        ('rx_asyn_fifo_rate', YLeaf(YType.uint64, 'rx-asyn-fifo-rate')),
-                                                        ('rx_lfec_fec_uncorrectable_errors', YLeaf(YType.uint64, 'rx-lfec-fec-uncorrectable-errors')),
-                                                        ('rx_8b_10b_code_errors', YLeaf(YType.uint64, 'rx-8b-10b-code-errors')),
+                                                        ('tx_control_cells_counter', (YLeaf(YType.uint64, 'tx-control-cells-counter'), ['int'])),
+                                                        ('tx_data_cell_counter', (YLeaf(YType.uint64, 'tx-data-cell-counter'), ['int'])),
+                                                        ('tx_data_byte_counter', (YLeaf(YType.uint64, 'tx-data-byte-counter'), ['int'])),
+                                                        ('rx_crc_errors_counter', (YLeaf(YType.uint64, 'rx-crc-errors-counter'), ['int'])),
+                                                        ('rx_lfec_fec_correctable_error', (YLeaf(YType.uint64, 'rx-lfec-fec-correctable-error'), ['int'])),
+                                                        ('rx_8b_10b_disparity_errors', (YLeaf(YType.uint64, 'rx-8b-10b-disparity-errors'), ['int'])),
+                                                        ('rx_control_cells_counter', (YLeaf(YType.uint64, 'rx-control-cells-counter'), ['int'])),
+                                                        ('rx_data_cell_counter', (YLeaf(YType.uint64, 'rx-data-cell-counter'), ['int'])),
+                                                        ('rx_data_byte_counter', (YLeaf(YType.uint64, 'rx-data-byte-counter'), ['int'])),
+                                                        ('rx_dropped_retransmitted_control', (YLeaf(YType.uint64, 'rx-dropped-retransmitted-control'), ['int'])),
+                                                        ('tx_asyn_fifo_rate', (YLeaf(YType.uint64, 'tx-asyn-fifo-rate'), ['int'])),
+                                                        ('rx_asyn_fifo_rate', (YLeaf(YType.uint64, 'rx-asyn-fifo-rate'), ['int'])),
+                                                        ('rx_lfec_fec_uncorrectable_errors', (YLeaf(YType.uint64, 'rx-lfec-fec-uncorrectable-errors'), ['int'])),
+                                                        ('rx_8b_10b_code_errors', (YLeaf(YType.uint64, 'rx-8b-10b-code-errors'), ['int'])),
                                                     ])
                                                     self.tx_control_cells_counter = None
                                                     self.tx_data_cell_counter = None
@@ -6415,9 +6663,10 @@ class Fia(Entity):
                                                     self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
                                                     self._segment_path = lambda: "link-counters"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.LinkCounters, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
 
                                             class OvfStatus(Entity):
@@ -6527,7 +6776,7 @@ class Fia(Entity):
                                                 """
 
                                                 _prefix = 'dnx-driver-oper'
-                                                _revision = '2015-11-09'
+                                                _revision = '2017-08-29'
 
                                                 def __init__(self):
                                                     super(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, self).__init__()
@@ -6539,20 +6788,20 @@ class Fia(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('tx_control_cells_counter', YLeaf(YType.str, 'tx-control-cells-counter')),
-                                                        ('tx_data_cell_counter', YLeaf(YType.str, 'tx-data-cell-counter')),
-                                                        ('tx_data_byte_counter', YLeaf(YType.str, 'tx-data-byte-counter')),
-                                                        ('rx_crc_errors_counter', YLeaf(YType.str, 'rx-crc-errors-counter')),
-                                                        ('rx_lfec_fec_correctable_error', YLeaf(YType.str, 'rx-lfec-fec-correctable-error')),
-                                                        ('rx_8b_10b_disparity_errors', YLeaf(YType.str, 'rx-8b-10b-disparity-errors')),
-                                                        ('rx_control_cells_counter', YLeaf(YType.str, 'rx-control-cells-counter')),
-                                                        ('rx_data_cell_counter', YLeaf(YType.str, 'rx-data-cell-counter')),
-                                                        ('rx_data_byte_counter', YLeaf(YType.str, 'rx-data-byte-counter')),
-                                                        ('rx_dropped_retransmitted_control', YLeaf(YType.str, 'rx-dropped-retransmitted-control')),
-                                                        ('tx_asyn_fifo_rate', YLeaf(YType.str, 'tx-asyn-fifo-rate')),
-                                                        ('rx_asyn_fifo_rate', YLeaf(YType.str, 'rx-asyn-fifo-rate')),
-                                                        ('rx_lfec_fec_uncorrectable_errors', YLeaf(YType.str, 'rx-lfec-fec-uncorrectable-errors')),
-                                                        ('rx_8b_10b_code_errors', YLeaf(YType.str, 'rx-8b-10b-code-errors')),
+                                                        ('tx_control_cells_counter', (YLeaf(YType.str, 'tx-control-cells-counter'), ['str'])),
+                                                        ('tx_data_cell_counter', (YLeaf(YType.str, 'tx-data-cell-counter'), ['str'])),
+                                                        ('tx_data_byte_counter', (YLeaf(YType.str, 'tx-data-byte-counter'), ['str'])),
+                                                        ('rx_crc_errors_counter', (YLeaf(YType.str, 'rx-crc-errors-counter'), ['str'])),
+                                                        ('rx_lfec_fec_correctable_error', (YLeaf(YType.str, 'rx-lfec-fec-correctable-error'), ['str'])),
+                                                        ('rx_8b_10b_disparity_errors', (YLeaf(YType.str, 'rx-8b-10b-disparity-errors'), ['str'])),
+                                                        ('rx_control_cells_counter', (YLeaf(YType.str, 'rx-control-cells-counter'), ['str'])),
+                                                        ('rx_data_cell_counter', (YLeaf(YType.str, 'rx-data-cell-counter'), ['str'])),
+                                                        ('rx_data_byte_counter', (YLeaf(YType.str, 'rx-data-byte-counter'), ['str'])),
+                                                        ('rx_dropped_retransmitted_control', (YLeaf(YType.str, 'rx-dropped-retransmitted-control'), ['str'])),
+                                                        ('tx_asyn_fifo_rate', (YLeaf(YType.str, 'tx-asyn-fifo-rate'), ['str'])),
+                                                        ('rx_asyn_fifo_rate', (YLeaf(YType.str, 'rx-asyn-fifo-rate'), ['str'])),
+                                                        ('rx_lfec_fec_uncorrectable_errors', (YLeaf(YType.str, 'rx-lfec-fec-uncorrectable-errors'), ['str'])),
+                                                        ('rx_8b_10b_code_errors', (YLeaf(YType.str, 'rx-8b-10b-code-errors'), ['str'])),
                                                     ])
                                                     self.tx_control_cells_counter = None
                                                     self.tx_data_cell_counter = None
@@ -6569,9 +6818,10 @@ class Fia(Entity):
                                                     self.rx_lfec_fec_uncorrectable_errors = None
                                                     self.rx_8b_10b_code_errors = None
                                                     self._segment_path = lambda: "ovf-status"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, ['tx_control_cells_counter', 'tx_data_cell_counter', 'tx_data_byte_counter', 'rx_crc_errors_counter', 'rx_lfec_fec_correctable_error', 'rx_8b_10b_disparity_errors', 'rx_control_cells_counter', 'rx_data_cell_counter', 'rx_data_byte_counter', 'rx_dropped_retransmitted_control', 'tx_asyn_fifo_rate', 'rx_asyn_fifo_rate', 'rx_lfec_fec_uncorrectable_errors', 'rx_8b_10b_code_errors'], name, value)
+                                                    self._perform_setattr(Fia.Nodes.Node.AsicStatistics.StatisticsAsicInstances.StatisticsAsicInstance.FmacStatistics.FmacLinks.FmacLink.FmacAsic.IncrStats.OvfStatus, [u'tx_control_cells_counter', u'tx_data_cell_counter', u'tx_data_byte_counter', u'rx_crc_errors_counter', u'rx_lfec_fec_correctable_error', u'rx_8b_10b_disparity_errors', u'rx_control_cells_counter', u'rx_data_cell_counter', u'rx_data_byte_counter', u'rx_dropped_retransmitted_control', u'tx_asyn_fifo_rate', u'rx_asyn_fifo_rate', u'rx_lfec_fec_uncorrectable_errors', u'rx_8b_10b_code_errors'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Fia()

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ip\-domain\: IP domain configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class IpDomain(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpDomain, [], name, value)
@@ -87,6 +89,7 @@ class IpDomain(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpDomain.Vrfs, [], name, value)
@@ -138,7 +141,7 @@ class IpDomain(Entity):
             	Specify interface for source address in connections
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: name
             
@@ -162,11 +165,11 @@ class IpDomain(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("ipv6-hosts", ("ipv6_hosts", IpDomain.Vrfs.Vrf.Ipv6Hosts)), ("servers", ("servers", IpDomain.Vrfs.Vrf.Servers)), ("lists", ("lists", IpDomain.Vrfs.Vrf.Lists)), ("ipv4-hosts", ("ipv4_hosts", IpDomain.Vrfs.Vrf.Ipv4Hosts))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('lookup', YLeaf(YType.empty, 'lookup')),
-                    ('multicast_domain', YLeaf(YType.str, 'multicast-domain')),
-                    ('source_interface', YLeaf(YType.str, 'source-interface')),
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('lookup', (YLeaf(YType.empty, 'lookup'), ['Empty'])),
+                    ('multicast_domain', (YLeaf(YType.str, 'multicast-domain'), ['str'])),
+                    ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.lookup = None
@@ -191,6 +194,7 @@ class IpDomain(Entity):
                 self._children_name_map["ipv4_hosts"] = "ipv4-hosts"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-domain-cfg:ip-domain/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpDomain.Vrfs.Vrf, ['vrf_name', 'lookup', 'multicast_domain', 'source_interface', 'name'], name, value)
@@ -225,6 +229,7 @@ class IpDomain(Entity):
 
                     self.ipv6_host = YList(self)
                     self._segment_path = lambda: "ipv6-hosts"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts, [], name, value)
@@ -263,12 +268,13 @@ class IpDomain(Entity):
                         self.ylist_key_names = ['host_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('host_name', YLeaf(YType.str, 'host-name')),
-                            ('address', YLeafList(YType.str, 'address')),
+                            ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                            ('address', (YLeafList(YType.str, 'address'), ['str'])),
                         ])
                         self.host_name = None
                         self.address = []
                         self._segment_path = lambda: "ipv6-host" + "[host-name='" + str(self.host_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv6Hosts.Ipv6Host, ['host_name', 'address'], name, value)
@@ -303,6 +309,7 @@ class IpDomain(Entity):
 
                     self.server = YList(self)
                     self._segment_path = lambda: "servers"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Servers, [], name, value)
@@ -349,12 +356,13 @@ class IpDomain(Entity):
                         self.ylist_key_names = ['order','server_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('order', YLeaf(YType.uint32, 'order')),
-                            ('server_address', YLeaf(YType.str, 'server-address')),
+                            ('order', (YLeaf(YType.uint32, 'order'), ['int'])),
+                            ('server_address', (YLeaf(YType.str, 'server-address'), ['str','str'])),
                         ])
                         self.order = None
                         self.server_address = None
                         self._segment_path = lambda: "server" + "[order='" + str(self.order) + "']" + "[server-address='" + str(self.server_address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Servers.Server, ['order', 'server_address'], name, value)
@@ -390,6 +398,7 @@ class IpDomain(Entity):
 
                     self.list = YList(self)
                     self._segment_path = lambda: "lists"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Lists, [], name, value)
@@ -431,12 +440,13 @@ class IpDomain(Entity):
                         self.ylist_key_names = ['order','list_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('order', YLeaf(YType.uint32, 'order')),
-                            ('list_name', YLeaf(YType.str, 'list-name')),
+                            ('order', (YLeaf(YType.uint32, 'order'), ['int'])),
+                            ('list_name', (YLeaf(YType.str, 'list-name'), ['str'])),
                         ])
                         self.order = None
                         self.list_name = None
                         self._segment_path = lambda: "list" + "[order='" + str(self.order) + "']" + "[list-name='" + str(self.list_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Lists.List, ['order', 'list_name'], name, value)
@@ -471,6 +481,7 @@ class IpDomain(Entity):
 
                     self.ipv4_host = YList(self)
                     self._segment_path = lambda: "ipv4-hosts"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts, [], name, value)
@@ -509,12 +520,13 @@ class IpDomain(Entity):
                         self.ylist_key_names = ['host_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('host_name', YLeaf(YType.str, 'host-name')),
-                            ('address', YLeafList(YType.str, 'address')),
+                            ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                            ('address', (YLeafList(YType.str, 'address'), ['str'])),
                         ])
                         self.host_name = None
                         self.address = []
                         self._segment_path = lambda: "ipv4-host" + "[host-name='" + str(self.host_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpDomain.Vrfs.Vrf.Ipv4Hosts.Ipv4Host, ['host_name', 'address'], name, value)

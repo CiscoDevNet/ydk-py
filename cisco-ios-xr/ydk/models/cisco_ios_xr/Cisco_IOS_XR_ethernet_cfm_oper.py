@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-infra\-sla\-oper
 module with state data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CfmAisDir(Enum):
@@ -2170,6 +2171,7 @@ class Cfm(Entity):
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Cfm, [], name, value)
@@ -2205,6 +2207,7 @@ class Cfm(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Cfm.Nodes, [], name, value)
@@ -2258,7 +2261,7 @@ class Cfm(Entity):
                 self.ylist_key_names = ['node']
                 self._child_classes = OrderedDict([("interface-aises", ("interface_aises", Cfm.Nodes.Node.InterfaceAises)), ("interface-statistics", ("interface_statistics", Cfm.Nodes.Node.InterfaceStatistics)), ("summary", ("summary", Cfm.Nodes.Node.Summary)), ("ccm-learning-databases", ("ccm_learning_databases", Cfm.Nodes.Node.CcmLearningDatabases))])
                 self._leafs = OrderedDict([
-                    ('node', YLeaf(YType.str, 'node')),
+                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                 ])
                 self.node = None
 
@@ -2279,6 +2282,7 @@ class Cfm(Entity):
                 self._children_name_map["ccm_learning_databases"] = "ccm-learning-databases"
                 self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Nodes.Node, ['node'], name, value)
@@ -2313,6 +2317,7 @@ class Cfm(Entity):
 
                     self.interface_ais = YList(self)
                     self._segment_path = lambda: "interface-aises"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Nodes.Node.InterfaceAises, [], name, value)
@@ -2327,7 +2332,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: direction  (key)
                     
@@ -2344,7 +2349,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface_state
                     
@@ -2378,12 +2383,12 @@ class Cfm(Entity):
                         self.ylist_key_names = ['interface_name','direction']
                         self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('direction', YLeaf(YType.enumeration, 'direction')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_state', YLeaf(YType.str, 'interface-state')),
-                            ('interworking_state', YLeaf(YType.enumeration, 'interworking-state')),
-                            ('stp_state', YLeaf(YType.enumeration, 'stp-state')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmAisDir', '')])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_state', (YLeaf(YType.str, 'interface-state'), ['str'])),
+                            ('interworking_state', (YLeaf(YType.enumeration, 'interworking-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwState', '')])),
+                            ('stp_state', (YLeaf(YType.enumeration, 'stp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpState', '')])),
                         ])
                         self.interface_name = None
                         self.direction = None
@@ -2396,6 +2401,7 @@ class Cfm(Entity):
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
                         self._segment_path = lambda: "interface-ais" + "[interface-name='" + str(self.interface_name) + "']" + "[direction='" + str(self.direction) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis, ['interface_name', 'direction', 'interface', 'interface_state', 'interworking_state', 'stp_state'], name, value)
@@ -2464,12 +2470,12 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("defects", ("defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects)), ("last-started", ("last_started", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted))])
                             self._leafs = OrderedDict([
-                                ('direction', YLeaf(YType.enumeration, 'direction')),
-                                ('lowest_level', YLeaf(YType.enumeration, 'lowest-level')),
-                                ('transmission_level', YLeaf(YType.enumeration, 'transmission-level')),
-                                ('transmission_interval', YLeaf(YType.enumeration, 'transmission-interval')),
-                                ('sent_packets', YLeaf(YType.uint32, 'sent-packets')),
-                                ('via_level', YLeafList(YType.enumeration, 'via-level')),
+                                ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection', '')])),
+                                ('lowest_level', (YLeaf(YType.enumeration, 'lowest-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                                ('transmission_level', (YLeaf(YType.enumeration, 'transmission-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                                ('transmission_interval', (YLeaf(YType.enumeration, 'transmission-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval', '')])),
+                                ('sent_packets', (YLeaf(YType.uint32, 'sent-packets'), ['int'])),
+                                ('via_level', (YLeafList(YType.enumeration, 'via-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
                             ])
                             self.direction = None
                             self.lowest_level = None
@@ -2486,6 +2492,7 @@ class Cfm(Entity):
                             self.last_started.parent = self
                             self._children_name_map["last_started"] = "last-started"
                             self._segment_path = lambda: "statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics, ['direction', 'lowest_level', 'transmission_level', 'transmission_interval', 'sent_packets', 'via_level'], name, value)
@@ -2560,13 +2567,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects))])
                                 self._leafs = OrderedDict([
-                                    ('ais_received', YLeaf(YType.boolean, 'ais-received')),
-                                    ('peer_meps_that_timed_out', YLeaf(YType.uint32, 'peer-meps-that-timed-out')),
-                                    ('missing', YLeaf(YType.uint32, 'missing')),
-                                    ('auto_missing', YLeaf(YType.uint32, 'auto-missing')),
-                                    ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                    ('local_port_status', YLeaf(YType.boolean, 'local-port-status')),
-                                    ('peer_port_status', YLeaf(YType.boolean, 'peer-port-status')),
+                                    ('ais_received', (YLeaf(YType.boolean, 'ais-received'), ['bool'])),
+                                    ('peer_meps_that_timed_out', (YLeaf(YType.uint32, 'peer-meps-that-timed-out'), ['int'])),
+                                    ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                    ('auto_missing', (YLeaf(YType.uint32, 'auto-missing'), ['int'])),
+                                    ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                    ('local_port_status', (YLeaf(YType.boolean, 'local-port-status'), ['bool'])),
+                                    ('peer_port_status', (YLeaf(YType.boolean, 'peer-port-status'), ['bool'])),
                                 ])
                                 self.ais_received = None
                                 self.peer_meps_that_timed_out = None
@@ -2580,6 +2587,7 @@ class Cfm(Entity):
                                 self.remote_meps_defects.parent = self
                                 self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
                                 self._segment_path = lambda: "defects"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
@@ -2641,13 +2649,13 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
-                                        ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
-                                        ('invalid_maid', YLeaf(YType.boolean, 'invalid-maid')),
-                                        ('invalid_ccm_interval', YLeaf(YType.boolean, 'invalid-ccm-interval')),
-                                        ('received_our_mac', YLeaf(YType.boolean, 'received-our-mac')),
-                                        ('received_our_mep_id', YLeaf(YType.boolean, 'received-our-mep-id')),
-                                        ('received_rdi', YLeaf(YType.boolean, 'received-rdi')),
+                                        ('loss_threshold_exceeded', (YLeaf(YType.boolean, 'loss-threshold-exceeded'), ['bool'])),
+                                        ('invalid_level', (YLeaf(YType.boolean, 'invalid-level'), ['bool'])),
+                                        ('invalid_maid', (YLeaf(YType.boolean, 'invalid-maid'), ['bool'])),
+                                        ('invalid_ccm_interval', (YLeaf(YType.boolean, 'invalid-ccm-interval'), ['bool'])),
+                                        ('received_our_mac', (YLeaf(YType.boolean, 'received-our-mac'), ['bool'])),
+                                        ('received_our_mep_id', (YLeaf(YType.boolean, 'received-our-mep-id'), ['bool'])),
+                                        ('received_rdi', (YLeaf(YType.boolean, 'received-rdi'), ['bool'])),
                                     ])
                                     self.loss_threshold_exceeded = None
                                     self.invalid_level = None
@@ -2657,6 +2665,7 @@ class Cfm(Entity):
                                     self.received_our_mep_id = None
                                     self.received_rdi = None
                                     self._segment_path = lambda: "remote-meps-defects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
@@ -2701,12 +2710,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                    ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                    ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                    ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                                 ])
                                 self.seconds = None
                                 self.nanoseconds = None
                                 self._segment_path = lambda: "last-started"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Nodes.Node.InterfaceAises.InterfaceAis.Statistics.LastStarted, ['seconds', 'nanoseconds'], name, value)
@@ -2741,6 +2751,7 @@ class Cfm(Entity):
 
                     self.interface_statistic = YList(self)
                     self._segment_path = lambda: "interface-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics, [], name, value)
@@ -2755,7 +2766,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: statistics
                     
@@ -2767,7 +2778,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     
 
@@ -2786,8 +2797,8 @@ class Cfm(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
                         ])
                         self.interface = None
                         self.interface_xr = None
@@ -2796,6 +2807,7 @@ class Cfm(Entity):
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
                         self._segment_path = lambda: "interface-statistic" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic, ['interface', 'interface_xr'], name, value)
@@ -2846,16 +2858,17 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('malformed_packets', YLeaf(YType.uint64, 'malformed-packets')),
-                                ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
-                                ('last_malformed_opcode', YLeaf(YType.enumeration, 'last-malformed-opcode')),
-                                ('last_malformed_reason', YLeaf(YType.enumeration, 'last-malformed-reason')),
+                                ('malformed_packets', (YLeaf(YType.uint64, 'malformed-packets'), ['int'])),
+                                ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
+                                ('last_malformed_opcode', (YLeaf(YType.enumeration, 'last-malformed-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagOpcode', '')])),
+                                ('last_malformed_reason', (YLeaf(YType.enumeration, 'last-malformed-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPktAction', '')])),
                             ])
                             self.malformed_packets = None
                             self.dropped_packets = None
                             self.last_malformed_opcode = None
                             self.last_malformed_reason = None
                             self._segment_path = lambda: "statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Nodes.Node.InterfaceStatistics.InterfaceStatistic.Statistics, ['malformed_packets', 'dropped_packets', 'last_malformed_opcode', 'last_malformed_reason'], name, value)
@@ -3062,32 +3075,32 @@ class Cfm(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('domains', YLeaf(YType.uint32, 'domains')),
-                        ('services', YLeaf(YType.uint32, 'services')),
-                        ('ccm_rate', YLeaf(YType.uint32, 'ccm-rate')),
-                        ('local_meps', YLeaf(YType.uint32, 'local-meps')),
-                        ('operational_local_meps', YLeaf(YType.uint32, 'operational-local-meps')),
-                        ('down_meps', YLeaf(YType.uint32, 'down-meps')),
-                        ('up_meps', YLeaf(YType.uint32, 'up-meps')),
-                        ('offloaded', YLeaf(YType.uint32, 'offloaded')),
-                        ('offloaded_at3_3ms', YLeaf(YType.uint32, 'offloaded-at3-3ms')),
-                        ('offloaded_at10ms', YLeaf(YType.uint32, 'offloaded-at10ms')),
-                        ('disabled_misconfigured', YLeaf(YType.uint32, 'disabled-misconfigured')),
-                        ('disabled_out_of_resources', YLeaf(YType.uint32, 'disabled-out-of-resources')),
-                        ('disabled_operational_error', YLeaf(YType.uint32, 'disabled-operational-error')),
-                        ('peer_meps', YLeaf(YType.uint32, 'peer-meps')),
-                        ('operational_peer_meps', YLeaf(YType.uint32, 'operational-peer-meps')),
-                        ('peer_meps_with_defects', YLeaf(YType.uint32, 'peer-meps-with-defects')),
-                        ('peer_meps_without_defects', YLeaf(YType.uint32, 'peer-meps-without-defects')),
-                        ('peer_meps_timed_out', YLeaf(YType.uint32, 'peer-meps-timed-out')),
-                        ('mips', YLeaf(YType.uint32, 'mips')),
-                        ('interfaces', YLeaf(YType.uint32, 'interfaces')),
-                        ('bridge_domains_and_xconnects', YLeaf(YType.uint32, 'bridge-domains-and-xconnects')),
-                        ('traceroute_cache_entries', YLeaf(YType.uint32, 'traceroute-cache-entries')),
-                        ('traceroute_cache_replies', YLeaf(YType.uint32, 'traceroute-cache-replies')),
-                        ('ccm_learning_db_entries', YLeaf(YType.uint32, 'ccm-learning-db-entries')),
-                        ('issu_role', YLeaf(YType.enumeration, 'issu-role')),
-                        ('bnm_enabled_links', YLeaf(YType.uint32, 'bnm-enabled-links')),
+                        ('domains', (YLeaf(YType.uint32, 'domains'), ['int'])),
+                        ('services', (YLeaf(YType.uint32, 'services'), ['int'])),
+                        ('ccm_rate', (YLeaf(YType.uint32, 'ccm-rate'), ['int'])),
+                        ('local_meps', (YLeaf(YType.uint32, 'local-meps'), ['int'])),
+                        ('operational_local_meps', (YLeaf(YType.uint32, 'operational-local-meps'), ['int'])),
+                        ('down_meps', (YLeaf(YType.uint32, 'down-meps'), ['int'])),
+                        ('up_meps', (YLeaf(YType.uint32, 'up-meps'), ['int'])),
+                        ('offloaded', (YLeaf(YType.uint32, 'offloaded'), ['int'])),
+                        ('offloaded_at3_3ms', (YLeaf(YType.uint32, 'offloaded-at3-3ms'), ['int'])),
+                        ('offloaded_at10ms', (YLeaf(YType.uint32, 'offloaded-at10ms'), ['int'])),
+                        ('disabled_misconfigured', (YLeaf(YType.uint32, 'disabled-misconfigured'), ['int'])),
+                        ('disabled_out_of_resources', (YLeaf(YType.uint32, 'disabled-out-of-resources'), ['int'])),
+                        ('disabled_operational_error', (YLeaf(YType.uint32, 'disabled-operational-error'), ['int'])),
+                        ('peer_meps', (YLeaf(YType.uint32, 'peer-meps'), ['int'])),
+                        ('operational_peer_meps', (YLeaf(YType.uint32, 'operational-peer-meps'), ['int'])),
+                        ('peer_meps_with_defects', (YLeaf(YType.uint32, 'peer-meps-with-defects'), ['int'])),
+                        ('peer_meps_without_defects', (YLeaf(YType.uint32, 'peer-meps-without-defects'), ['int'])),
+                        ('peer_meps_timed_out', (YLeaf(YType.uint32, 'peer-meps-timed-out'), ['int'])),
+                        ('mips', (YLeaf(YType.uint32, 'mips'), ['int'])),
+                        ('interfaces', (YLeaf(YType.uint32, 'interfaces'), ['int'])),
+                        ('bridge_domains_and_xconnects', (YLeaf(YType.uint32, 'bridge-domains-and-xconnects'), ['int'])),
+                        ('traceroute_cache_entries', (YLeaf(YType.uint32, 'traceroute-cache-entries'), ['int'])),
+                        ('traceroute_cache_replies', (YLeaf(YType.uint32, 'traceroute-cache-replies'), ['int'])),
+                        ('ccm_learning_db_entries', (YLeaf(YType.uint32, 'ccm-learning-db-entries'), ['int'])),
+                        ('issu_role', (YLeaf(YType.enumeration, 'issu-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIssuRole', '')])),
+                        ('bnm_enabled_links', (YLeaf(YType.uint32, 'bnm-enabled-links'), ['int'])),
                     ])
                     self.domains = None
                     self.services = None
@@ -3116,6 +3129,7 @@ class Cfm(Entity):
                     self.issu_role = None
                     self.bnm_enabled_links = None
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Nodes.Node.Summary, [u'domains', u'services', u'ccm_rate', u'local_meps', u'operational_local_meps', u'down_meps', u'up_meps', u'offloaded', u'offloaded_at3_3ms', u'offloaded_at10ms', u'disabled_misconfigured', u'disabled_out_of_resources', u'disabled_operational_error', u'peer_meps', u'operational_peer_meps', u'peer_meps_with_defects', u'peer_meps_without_defects', u'peer_meps_timed_out', u'mips', u'interfaces', u'bridge_domains_and_xconnects', u'traceroute_cache_entries', u'traceroute_cache_replies', u'ccm_learning_db_entries', u'issu_role', u'bnm_enabled_links'], name, value)
@@ -3150,6 +3164,7 @@ class Cfm(Entity):
 
                     self.ccm_learning_database = YList(self)
                     self._segment_path = lambda: "ccm-learning-databases"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases, [], name, value)
@@ -3236,16 +3251,16 @@ class Cfm(Entity):
                         self.ylist_key_names = ['domain','service','mac_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('domain', YLeaf(YType.str, 'domain')),
-                            ('service', YLeaf(YType.str, 'service')),
-                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                            ('domain_xr', YLeaf(YType.str, 'domain-xr')),
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('service_xr', YLeaf(YType.str, 'service-xr')),
-                            ('source_mac_address', YLeaf(YType.str, 'source-mac-address')),
-                            ('ingress_interface', YLeaf(YType.uint32, 'ingress-interface')),
-                            ('stale', YLeaf(YType.boolean, 'stale')),
-                            ('ingress_interface_string', YLeaf(YType.str, 'ingress-interface-string')),
+                            ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                            ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ('domain_xr', (YLeaf(YType.str, 'domain-xr'), ['str'])),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('service_xr', (YLeaf(YType.str, 'service-xr'), ['str'])),
+                            ('source_mac_address', (YLeaf(YType.str, 'source-mac-address'), ['str'])),
+                            ('ingress_interface', (YLeaf(YType.uint32, 'ingress-interface'), ['int'])),
+                            ('stale', (YLeaf(YType.boolean, 'stale'), ['bool'])),
+                            ('ingress_interface_string', (YLeaf(YType.str, 'ingress-interface-string'), ['str'])),
                         ])
                         self.domain = None
                         self.service = None
@@ -3258,6 +3273,7 @@ class Cfm(Entity):
                         self.stale = None
                         self.ingress_interface_string = None
                         self._segment_path = lambda: "ccm-learning-database" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mac-address='" + str(self.mac_address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Nodes.Node.CcmLearningDatabases.CcmLearningDatabase, ['domain', 'service', 'mac_address', 'domain_xr', 'level', 'service_xr', 'source_mac_address', 'ingress_interface', 'stale', 'ingress_interface_string'], name, value)
@@ -3349,6 +3365,7 @@ class Cfm(Entity):
             self._children_name_map["peer_me_pv2s"] = "peer-me-pv2s"
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Cfm.Global, [], name, value)
@@ -3384,6 +3401,7 @@ class Cfm(Entity):
                 self.incomplete_traceroute = YList(self)
                 self._segment_path = lambda: "incomplete-traceroutes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes, [], name, value)
@@ -3420,7 +3438,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: transaction_id  (key)
                 
@@ -3460,12 +3478,12 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','mep_id','interface','transaction_id']
                     self._child_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('mep_id', YLeaf(YType.uint32, 'mep-id')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
-                        ('time_left', YLeaf(YType.uint64, 'time-left')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('mep_id', (YLeaf(YType.uint32, 'mep-id'), ['int'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
+                        ('time_left', (YLeaf(YType.uint64, 'time-left'), ['int'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -3479,6 +3497,7 @@ class Cfm(Entity):
                     self._children_name_map["traceroute_information"] = "traceroute-information"
                     self._segment_path = lambda: "incomplete-traceroute" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mep-id='" + str(self.mep_id) + "']" + "[interface='" + str(self.interface) + "']" + "[transaction-id='" + str(self.transaction_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/incomplete-traceroutes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'time_left'], name, value)
@@ -3520,7 +3539,7 @@ class Cfm(Entity):
                     	Source interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: source_mac_address
                     
@@ -3590,18 +3609,18 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("options", ("options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options))])
                         self._leafs = OrderedDict([
-                            ('domain', YLeaf(YType.str, 'domain')),
-                            ('service', YLeaf(YType.str, 'service')),
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('source_mep_id', YLeaf(YType.uint16, 'source-mep-id')),
-                            ('source_interface', YLeaf(YType.str, 'source-interface')),
-                            ('source_mac_address', YLeaf(YType.str, 'source-mac-address')),
-                            ('target_mac_address', YLeaf(YType.str, 'target-mac-address')),
-                            ('directed_mac_address', YLeaf(YType.str, 'directed-mac-address')),
-                            ('target_mep_id', YLeaf(YType.uint16, 'target-mep-id')),
-                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                            ('ttl', YLeaf(YType.uint8, 'ttl')),
-                            ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
+                            ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                            ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('source_mep_id', (YLeaf(YType.uint16, 'source-mep-id'), ['int'])),
+                            ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                            ('source_mac_address', (YLeaf(YType.str, 'source-mac-address'), ['str'])),
+                            ('target_mac_address', (YLeaf(YType.str, 'target-mac-address'), ['str'])),
+                            ('directed_mac_address', (YLeaf(YType.str, 'directed-mac-address'), ['str'])),
+                            ('target_mep_id', (YLeaf(YType.uint16, 'target-mep-id'), ['int'])),
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                            ('ttl', (YLeaf(YType.uint8, 'ttl'), ['int'])),
+                            ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
                         ])
                         self.domain = None
                         self.service = None
@@ -3620,6 +3639,7 @@ class Cfm(Entity):
                         self.options.parent = self
                         self._children_name_map["options"] = "options"
                         self._segment_path = lambda: "traceroute-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
@@ -3661,7 +3681,7 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions))])
                             self._leafs = OrderedDict([
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtMode', '')])),
                             ])
                             self.mode = None
 
@@ -3673,6 +3693,7 @@ class Cfm(Entity):
                             self.exploratory_options.parent = self
                             self._children_name_map["exploratory_options"] = "exploratory-options"
                             self._segment_path = lambda: "options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options, ['mode'], name, value)
@@ -3709,12 +3730,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_auto', YLeaf(YType.boolean, 'is-auto')),
-                                    ('fdb_only', YLeaf(YType.boolean, 'fdb-only')),
+                                    ('is_auto', (YLeaf(YType.boolean, 'is-auto'), ['bool'])),
+                                    ('fdb_only', (YLeaf(YType.boolean, 'fdb-only'), ['bool'])),
                                 ])
                                 self.is_auto = None
                                 self.fdb_only = None
                                 self._segment_path = lambda: "basic-options"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
@@ -3758,14 +3780,15 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('delay_model', YLeaf(YType.enumeration, 'delay-model')),
-                                    ('delay_constant_factor', YLeaf(YType.uint32, 'delay-constant-factor')),
-                                    ('reply_filter', YLeaf(YType.enumeration, 'reply-filter')),
+                                    ('delay_model', (YLeaf(YType.enumeration, 'delay-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel', '')])),
+                                    ('delay_constant_factor', (YLeaf(YType.uint32, 'delay-constant-factor'), ['int'])),
+                                    ('reply_filter', (YLeaf(YType.enumeration, 'reply-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilter', '')])),
                                 ])
                                 self.delay_model = None
                                 self.delay_constant_factor = None
                                 self.reply_filter = None
                                 self._segment_path = lambda: "exploratory-options"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.IncompleteTraceroutes.IncompleteTraceroute.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
@@ -3801,6 +3824,7 @@ class Cfm(Entity):
                 self.maintenance_point = YList(self)
                 self._segment_path = lambda: "maintenance-points"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.MaintenancePoints, [], name, value)
@@ -3830,7 +3854,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: maintenance_point
                 
@@ -3866,11 +3890,11 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','interface']
                     self._child_classes = OrderedDict([("maintenance-point", ("maintenance_point", Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('mep_has_error', YLeaf(YType.boolean, 'mep-has-error')),
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('mep_has_error', (YLeaf(YType.boolean, 'mep-has-error'), ['bool'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -3883,6 +3907,7 @@ class Cfm(Entity):
                     self._children_name_map["maintenance_point"] = "maintenance-point"
                     self._segment_path = lambda: "maintenance-point" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/maintenance-points/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint, ['domain', 'service', 'interface', u'mep_has_error', u'mac_address'], name, value)
@@ -3912,7 +3937,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: maintenance_point_type
                     
@@ -3943,12 +3968,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('domain_name', YLeaf(YType.str, 'domain-name')),
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('service_name', YLeaf(YType.str, 'service-name')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('maintenance_point_type', YLeaf(YType.enumeration, 'maintenance-point-type')),
-                            ('mep_id', YLeaf(YType.uint16, 'mep-id')),
+                            ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('maintenance_point_type', (YLeaf(YType.enumeration, 'maintenance-point-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVariety', '')])),
+                            ('mep_id', (YLeaf(YType.uint16, 'mep-id'), ['int'])),
                         ])
                         self.domain_name = None
                         self.level = None
@@ -3957,6 +3982,7 @@ class Cfm(Entity):
                         self.maintenance_point_type = None
                         self.mep_id = None
                         self._segment_path = lambda: "maintenance-point"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MaintenancePoints.MaintenancePoint.MaintenancePoint_, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
@@ -3992,6 +4018,7 @@ class Cfm(Entity):
                 self.global_configuration_error = YList(self)
                 self._segment_path = lambda: "global-configuration-errors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.GlobalConfigurationErrors, [], name, value)
@@ -4063,13 +4090,13 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service']
                     self._child_classes = OrderedDict([("bridge-domain-id", ("bridge_domain_id", Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('domain_name', YLeaf(YType.str, 'domain-name')),
-                        ('level', YLeaf(YType.enumeration, 'level')),
-                        ('service_name', YLeaf(YType.str, 'service-name')),
-                        ('bridge_domain_is_configured', YLeaf(YType.boolean, 'bridge-domain-is-configured')),
-                        ('l2_fib_download_error', YLeaf(YType.boolean, 'l2-fib-download-error')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                        ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                        ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                        ('bridge_domain_is_configured', (YLeaf(YType.boolean, 'bridge-domain-is-configured'), ['bool'])),
+                        ('l2_fib_download_error', (YLeaf(YType.boolean, 'l2-fib-download-error'), ['bool'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -4084,9 +4111,10 @@ class Cfm(Entity):
                     self._children_name_map["bridge_domain_id"] = "bridge-domain-id"
                     self._segment_path = lambda: "global-configuration-error" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/global-configuration-errors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', u'domain_name', u'level', u'service_name', u'bridge_domain_is_configured', u'l2_fib_download_error'], name, value)
+                    self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError, ['domain', 'service', 'domain_name', 'level', 'service_name', 'bridge_domain_is_configured', 'l2_fib_download_error'], name, value)
 
 
                 class BridgeDomainId(Entity):
@@ -4147,12 +4175,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
-                            ('group', YLeaf(YType.str, 'group')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('ce_id', YLeaf(YType.uint16, 'ce-id')),
-                            ('remote_ce_id', YLeaf(YType.uint16, 'remote-ce-id')),
-                            ('evi', YLeaf(YType.uint32, 'evi')),
+                            ('bridge_domain_id_format', (YLeaf(YType.enumeration, 'bridge-domain-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt', '')])),
+                            ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('ce_id', (YLeaf(YType.uint16, 'ce-id'), ['int'])),
+                            ('remote_ce_id', (YLeaf(YType.uint16, 'remote-ce-id'), ['int'])),
+                            ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
                         ])
                         self.bridge_domain_id_format = None
                         self.group = None
@@ -4161,6 +4189,7 @@ class Cfm(Entity):
                         self.remote_ce_id = None
                         self.evi = None
                         self._segment_path = lambda: "bridge-domain-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.GlobalConfigurationErrors.GlobalConfigurationError.BridgeDomainId, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
@@ -4196,6 +4225,7 @@ class Cfm(Entity):
                 self.mep_configuration_error = YList(self)
                 self._segment_path = lambda: "mep-configuration-errors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.MepConfigurationErrors, [], name, value)
@@ -4225,7 +4255,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: mep
                 
@@ -4322,6 +4352,16 @@ class Cfm(Entity):
                 	The configured MAID format is not supported for hardware offload
                 	**type**\: bool
                 
+                .. attribute:: sman_format_not_supported
+                
+                	The configured SMAN format is not supported for hardware offload
+                	**type**\: bool
+                
+                .. attribute:: mdid_format_not_supported
+                
+                	The configured MDID format is not supported for hardware offload
+                	**type**\: bool
+                
                 .. attribute:: fatal_offload_error
                 
                 	The platform returned a fatal error when passed the offload session
@@ -4396,35 +4436,37 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','interface']
                     self._child_classes = OrderedDict([("mep", ("mep", Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep)), ("service-bridge-domain", ("service_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain)), ("interface-bridge-domain", ("interface_bridge_domain", Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain)), ("satellite-capabilities", ("satellite_capabilities", Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('ccm_interval', YLeaf(YType.enumeration, 'ccm-interval')),
-                        ('no_domain', YLeaf(YType.boolean, 'no-domain')),
-                        ('no_service', YLeaf(YType.boolean, 'no-service')),
-                        ('bridge_domain_mismatch', YLeaf(YType.boolean, 'bridge-domain-mismatch')),
-                        ('level_conflict', YLeaf(YType.boolean, 'level-conflict')),
-                        ('ccm_interval_not_supported', YLeaf(YType.boolean, 'ccm-interval-not-supported')),
-                        ('offload_out_of_resources', YLeaf(YType.boolean, 'offload-out-of-resources')),
-                        ('offload_multiple_local_mep', YLeaf(YType.boolean, 'offload-multiple-local-mep')),
-                        ('offload_no_cross_check', YLeaf(YType.boolean, 'offload-no-cross-check')),
-                        ('offload_multiple_peer_meps', YLeaf(YType.boolean, 'offload-multiple-peer-meps')),
-                        ('offload_mep_direction_not_supported', YLeaf(YType.boolean, 'offload-mep-direction-not-supported')),
-                        ('ais_configured', YLeaf(YType.boolean, 'ais-configured')),
-                        ('bundle_level0', YLeaf(YType.boolean, 'bundle-level0')),
-                        ('bridge_domain_not_in_bd_infra', YLeaf(YType.boolean, 'bridge-domain-not-in-bd-infra')),
-                        ('maid_format_not_supported', YLeaf(YType.boolean, 'maid-format-not-supported')),
-                        ('fatal_offload_error', YLeaf(YType.boolean, 'fatal-offload-error')),
-                        ('satellite_limitation', YLeaf(YType.boolean, 'satellite-limitation')),
-                        ('sla_loopback_operations_disabled', YLeaf(YType.boolean, 'sla-loopback-operations-disabled')),
-                        ('sla_synthetic_loss_operations_disabled', YLeaf(YType.boolean, 'sla-synthetic-loss-operations-disabled')),
-                        ('sla_delay_measurement_operations_disabled', YLeaf(YType.boolean, 'sla-delay-measurement-operations-disabled')),
-                        ('no_valid_mac_address', YLeaf(YType.boolean, 'no-valid-mac-address')),
-                        ('no_interface_type', YLeaf(YType.boolean, 'no-interface-type')),
-                        ('not_in_im', YLeaf(YType.boolean, 'not-in-im')),
-                        ('no_mlacp', YLeaf(YType.boolean, 'no-mlacp')),
-                        ('satellite_error_string', YLeaf(YType.str, 'satellite-error-string')),
-                        ('satellite_id', YLeaf(YType.uint16, 'satellite-id')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('ccm_interval', (YLeaf(YType.enumeration, 'ccm-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval', '')])),
+                        ('no_domain', (YLeaf(YType.boolean, 'no-domain'), ['bool'])),
+                        ('no_service', (YLeaf(YType.boolean, 'no-service'), ['bool'])),
+                        ('bridge_domain_mismatch', (YLeaf(YType.boolean, 'bridge-domain-mismatch'), ['bool'])),
+                        ('level_conflict', (YLeaf(YType.boolean, 'level-conflict'), ['bool'])),
+                        ('ccm_interval_not_supported', (YLeaf(YType.boolean, 'ccm-interval-not-supported'), ['bool'])),
+                        ('offload_out_of_resources', (YLeaf(YType.boolean, 'offload-out-of-resources'), ['bool'])),
+                        ('offload_multiple_local_mep', (YLeaf(YType.boolean, 'offload-multiple-local-mep'), ['bool'])),
+                        ('offload_no_cross_check', (YLeaf(YType.boolean, 'offload-no-cross-check'), ['bool'])),
+                        ('offload_multiple_peer_meps', (YLeaf(YType.boolean, 'offload-multiple-peer-meps'), ['bool'])),
+                        ('offload_mep_direction_not_supported', (YLeaf(YType.boolean, 'offload-mep-direction-not-supported'), ['bool'])),
+                        ('ais_configured', (YLeaf(YType.boolean, 'ais-configured'), ['bool'])),
+                        ('bundle_level0', (YLeaf(YType.boolean, 'bundle-level0'), ['bool'])),
+                        ('bridge_domain_not_in_bd_infra', (YLeaf(YType.boolean, 'bridge-domain-not-in-bd-infra'), ['bool'])),
+                        ('maid_format_not_supported', (YLeaf(YType.boolean, 'maid-format-not-supported'), ['bool'])),
+                        ('sman_format_not_supported', (YLeaf(YType.boolean, 'sman-format-not-supported'), ['bool'])),
+                        ('mdid_format_not_supported', (YLeaf(YType.boolean, 'mdid-format-not-supported'), ['bool'])),
+                        ('fatal_offload_error', (YLeaf(YType.boolean, 'fatal-offload-error'), ['bool'])),
+                        ('satellite_limitation', (YLeaf(YType.boolean, 'satellite-limitation'), ['bool'])),
+                        ('sla_loopback_operations_disabled', (YLeaf(YType.boolean, 'sla-loopback-operations-disabled'), ['bool'])),
+                        ('sla_synthetic_loss_operations_disabled', (YLeaf(YType.boolean, 'sla-synthetic-loss-operations-disabled'), ['bool'])),
+                        ('sla_delay_measurement_operations_disabled', (YLeaf(YType.boolean, 'sla-delay-measurement-operations-disabled'), ['bool'])),
+                        ('no_valid_mac_address', (YLeaf(YType.boolean, 'no-valid-mac-address'), ['bool'])),
+                        ('no_interface_type', (YLeaf(YType.boolean, 'no-interface-type'), ['bool'])),
+                        ('not_in_im', (YLeaf(YType.boolean, 'not-in-im'), ['bool'])),
+                        ('no_mlacp', (YLeaf(YType.boolean, 'no-mlacp'), ['bool'])),
+                        ('satellite_error_string', (YLeaf(YType.str, 'satellite-error-string'), ['str'])),
+                        ('satellite_id', (YLeaf(YType.uint16, 'satellite-id'), ['int'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -4444,6 +4486,8 @@ class Cfm(Entity):
                     self.bundle_level0 = None
                     self.bridge_domain_not_in_bd_infra = None
                     self.maid_format_not_supported = None
+                    self.sman_format_not_supported = None
+                    self.mdid_format_not_supported = None
                     self.fatal_offload_error = None
                     self.satellite_limitation = None
                     self.sla_loopback_operations_disabled = None
@@ -4473,9 +4517,10 @@ class Cfm(Entity):
                     self._children_name_map["satellite_capabilities"] = "satellite-capabilities"
                     self._segment_path = lambda: "mep-configuration-error" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/mep-configuration-errors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', u'ccm_interval', u'no_domain', u'no_service', u'bridge_domain_mismatch', u'level_conflict', u'ccm_interval_not_supported', u'offload_out_of_resources', u'offload_multiple_local_mep', u'offload_no_cross_check', u'offload_multiple_peer_meps', u'offload_mep_direction_not_supported', u'ais_configured', u'bundle_level0', u'bridge_domain_not_in_bd_infra', u'maid_format_not_supported', u'fatal_offload_error', u'satellite_limitation', u'sla_loopback_operations_disabled', u'sla_synthetic_loss_operations_disabled', u'sla_delay_measurement_operations_disabled', u'no_valid_mac_address', u'no_interface_type', u'not_in_im', u'no_mlacp', u'satellite_error_string', u'satellite_id'], name, value)
+                    self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError, ['domain', 'service', 'interface', u'ccm_interval', u'no_domain', u'no_service', u'bridge_domain_mismatch', u'level_conflict', u'ccm_interval_not_supported', u'offload_out_of_resources', u'offload_multiple_local_mep', u'offload_no_cross_check', u'offload_multiple_peer_meps', u'offload_mep_direction_not_supported', u'ais_configured', u'bundle_level0', u'bridge_domain_not_in_bd_infra', u'maid_format_not_supported', u'sman_format_not_supported', u'mdid_format_not_supported', u'fatal_offload_error', u'satellite_limitation', u'sla_loopback_operations_disabled', u'sla_synthetic_loss_operations_disabled', u'sla_delay_measurement_operations_disabled', u'no_valid_mac_address', u'no_interface_type', u'not_in_im', u'no_mlacp', u'satellite_error_string', u'satellite_id'], name, value)
 
 
                 class Mep(Entity):
@@ -4502,7 +4547,7 @@ class Cfm(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: maintenance_point_type
                     
@@ -4533,12 +4578,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('domain_name', YLeaf(YType.str, 'domain-name')),
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('service_name', YLeaf(YType.str, 'service-name')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('maintenance_point_type', YLeaf(YType.enumeration, 'maintenance-point-type')),
-                            ('mep_id', YLeaf(YType.uint16, 'mep-id')),
+                            ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('maintenance_point_type', (YLeaf(YType.enumeration, 'maintenance-point-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmMaMpVariety', '')])),
+                            ('mep_id', (YLeaf(YType.uint16, 'mep-id'), ['int'])),
                         ])
                         self.domain_name = None
                         self.level = None
@@ -4547,6 +4592,7 @@ class Cfm(Entity):
                         self.maintenance_point_type = None
                         self.mep_id = None
                         self._segment_path = lambda: "mep"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.Mep, [u'domain_name', u'level', u'service_name', u'interface', u'maintenance_point_type', u'mep_id'], name, value)
@@ -4610,12 +4656,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
-                            ('group', YLeaf(YType.str, 'group')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('ce_id', YLeaf(YType.uint16, 'ce-id')),
-                            ('remote_ce_id', YLeaf(YType.uint16, 'remote-ce-id')),
-                            ('evi', YLeaf(YType.uint32, 'evi')),
+                            ('bridge_domain_id_format', (YLeaf(YType.enumeration, 'bridge-domain-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt', '')])),
+                            ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('ce_id', (YLeaf(YType.uint16, 'ce-id'), ['int'])),
+                            ('remote_ce_id', (YLeaf(YType.uint16, 'remote-ce-id'), ['int'])),
+                            ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
                         ])
                         self.bridge_domain_id_format = None
                         self.group = None
@@ -4624,6 +4670,7 @@ class Cfm(Entity):
                         self.remote_ce_id = None
                         self.evi = None
                         self._segment_path = lambda: "service-bridge-domain"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.ServiceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
@@ -4686,12 +4733,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bridge_domain_id_format', YLeaf(YType.enumeration, 'bridge-domain-id-format')),
-                            ('group', YLeaf(YType.str, 'group')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('ce_id', YLeaf(YType.uint16, 'ce-id')),
-                            ('remote_ce_id', YLeaf(YType.uint16, 'remote-ce-id')),
-                            ('evi', YLeaf(YType.uint32, 'evi')),
+                            ('bridge_domain_id_format', (YLeaf(YType.enumeration, 'bridge-domain-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagBdidFmt', '')])),
+                            ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('ce_id', (YLeaf(YType.uint16, 'ce-id'), ['int'])),
+                            ('remote_ce_id', (YLeaf(YType.uint16, 'remote-ce-id'), ['int'])),
+                            ('evi', (YLeaf(YType.uint32, 'evi'), ['int'])),
                         ])
                         self.bridge_domain_id_format = None
                         self.group = None
@@ -4700,6 +4747,7 @@ class Cfm(Entity):
                         self.remote_ce_id = None
                         self.evi = None
                         self._segment_path = lambda: "interface-bridge-domain"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.InterfaceBridgeDomain, [u'bridge_domain_id_format', u'group', u'name', u'ce_id', u'remote_ce_id', u'evi'], name, value)
@@ -4754,6 +4802,7 @@ class Cfm(Entity):
                         self.synthetic_loss_measurement.parent = self
                         self._children_name_map["synthetic_loss_measurement"] = "synthetic-loss-measurement"
                         self._segment_path = lambda: "satellite-capabilities"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities, [], name, value)
@@ -4790,12 +4839,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('responder', YLeaf(YType.boolean, 'responder')),
-                                ('controller', YLeaf(YType.boolean, 'controller')),
+                                ('responder', (YLeaf(YType.boolean, 'responder'), ['bool'])),
+                                ('controller', (YLeaf(YType.boolean, 'controller'), ['bool'])),
                             ])
                             self.responder = None
                             self.controller = None
                             self._segment_path = lambda: "loopback"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.Loopback, [u'responder', u'controller'], name, value)
@@ -4832,12 +4882,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('responder', YLeaf(YType.boolean, 'responder')),
-                                ('controller', YLeaf(YType.boolean, 'controller')),
+                                ('responder', (YLeaf(YType.boolean, 'responder'), ['bool'])),
+                                ('controller', (YLeaf(YType.boolean, 'controller'), ['bool'])),
                             ])
                             self.responder = None
                             self.controller = None
                             self._segment_path = lambda: "delay-measurement"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.DelayMeasurement, [u'responder', u'controller'], name, value)
@@ -4874,12 +4925,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('responder', YLeaf(YType.boolean, 'responder')),
-                                ('controller', YLeaf(YType.boolean, 'controller')),
+                                ('responder', (YLeaf(YType.boolean, 'responder'), ['bool'])),
+                                ('controller', (YLeaf(YType.boolean, 'controller'), ['bool'])),
                             ])
                             self.responder = None
                             self.controller = None
                             self._segment_path = lambda: "synthetic-loss-measurement"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.MepConfigurationErrors.MepConfigurationError.SatelliteCapabilities.SyntheticLossMeasurement, [u'responder', u'controller'], name, value)
@@ -4915,6 +4967,7 @@ class Cfm(Entity):
                 self.traceroute_cache = YList(self)
                 self._segment_path = lambda: "traceroute-caches"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.TracerouteCaches, [], name, value)
@@ -4951,7 +5004,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: transaction_id  (key)
                 
@@ -4999,12 +5052,12 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','mep_id','interface','transaction_id']
                     self._child_classes = OrderedDict([("traceroute-information", ("traceroute_information", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation)), ("linktrace-reply", ("linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply)), ("exploratory-linktrace-reply", ("exploratory_linktrace_reply", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('mep_id', YLeaf(YType.uint32, 'mep-id')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
-                        ('replies_dropped', YLeaf(YType.uint32, 'replies-dropped')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('mep_id', (YLeaf(YType.uint32, 'mep-id'), ['int'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
+                        ('replies_dropped', (YLeaf(YType.uint32, 'replies-dropped'), ['int'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -5021,6 +5074,7 @@ class Cfm(Entity):
                     self.exploratory_linktrace_reply = YList(self)
                     self._segment_path = lambda: "traceroute-cache" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mep-id='" + str(self.mep_id) + "']" + "[interface='" + str(self.interface) + "']" + "[transaction-id='" + str(self.transaction_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/traceroute-caches/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache, ['domain', 'service', 'mep_id', 'interface', 'transaction_id', 'replies_dropped'], name, value)
@@ -5062,7 +5116,7 @@ class Cfm(Entity):
                     	Source interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: source_mac_address
                     
@@ -5132,18 +5186,18 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("options", ("options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options))])
                         self._leafs = OrderedDict([
-                            ('domain', YLeaf(YType.str, 'domain')),
-                            ('service', YLeaf(YType.str, 'service')),
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('source_mep_id', YLeaf(YType.uint16, 'source-mep-id')),
-                            ('source_interface', YLeaf(YType.str, 'source-interface')),
-                            ('source_mac_address', YLeaf(YType.str, 'source-mac-address')),
-                            ('target_mac_address', YLeaf(YType.str, 'target-mac-address')),
-                            ('directed_mac_address', YLeaf(YType.str, 'directed-mac-address')),
-                            ('target_mep_id', YLeaf(YType.uint16, 'target-mep-id')),
-                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                            ('ttl', YLeaf(YType.uint8, 'ttl')),
-                            ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
+                            ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                            ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('source_mep_id', (YLeaf(YType.uint16, 'source-mep-id'), ['int'])),
+                            ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                            ('source_mac_address', (YLeaf(YType.str, 'source-mac-address'), ['str'])),
+                            ('target_mac_address', (YLeaf(YType.str, 'target-mac-address'), ['str'])),
+                            ('directed_mac_address', (YLeaf(YType.str, 'directed-mac-address'), ['str'])),
+                            ('target_mep_id', (YLeaf(YType.uint16, 'target-mep-id'), ['int'])),
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                            ('ttl', (YLeaf(YType.uint8, 'ttl'), ['int'])),
+                            ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
                         ])
                         self.domain = None
                         self.service = None
@@ -5162,6 +5216,7 @@ class Cfm(Entity):
                         self.options.parent = self
                         self._children_name_map["options"] = "options"
                         self._segment_path = lambda: "traceroute-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation, ['domain', 'service', 'level', 'source_mep_id', 'source_interface', 'source_mac_address', 'target_mac_address', 'directed_mac_address', 'target_mep_id', 'timestamp', 'ttl', 'transaction_id'], name, value)
@@ -5203,7 +5258,7 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("basic-options", ("basic_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions)), ("exploratory-options", ("exploratory_options", Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions))])
                             self._leafs = OrderedDict([
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLtMode', '')])),
                             ])
                             self.mode = None
 
@@ -5215,6 +5270,7 @@ class Cfm(Entity):
                             self.exploratory_options.parent = self
                             self._children_name_map["exploratory_options"] = "exploratory-options"
                             self._segment_path = lambda: "options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options, ['mode'], name, value)
@@ -5251,12 +5307,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_auto', YLeaf(YType.boolean, 'is-auto')),
-                                    ('fdb_only', YLeaf(YType.boolean, 'fdb-only')),
+                                    ('is_auto', (YLeaf(YType.boolean, 'is-auto'), ['bool'])),
+                                    ('fdb_only', (YLeaf(YType.boolean, 'fdb-only'), ['bool'])),
                                 ])
                                 self.is_auto = None
                                 self.fdb_only = None
                                 self._segment_path = lambda: "basic-options"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.BasicOptions, ['is_auto', 'fdb_only'], name, value)
@@ -5300,14 +5357,15 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('delay_model', YLeaf(YType.enumeration, 'delay-model')),
-                                    ('delay_constant_factor', YLeaf(YType.uint32, 'delay-constant-factor')),
-                                    ('reply_filter', YLeaf(YType.enumeration, 'reply-filter')),
+                                    ('delay_model', (YLeaf(YType.enumeration, 'delay-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel', '')])),
+                                    ('delay_constant_factor', (YLeaf(YType.uint32, 'delay-constant-factor'), ['int'])),
+                                    ('reply_filter', (YLeaf(YType.enumeration, 'reply-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElmReplyFilter', '')])),
                                 ])
                                 self.delay_model = None
                                 self.delay_constant_factor = None
                                 self.reply_filter = None
                                 self._segment_path = lambda: "exploratory-options"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.TracerouteInformation.Options.ExploratoryOptions, ['delay_model', 'delay_constant_factor', 'reply_filter'], name, value)
@@ -5381,7 +5439,7 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId)), ("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv))])
                         self._leafs = OrderedDict([
-                            ('raw_data', YLeaf(YType.str, 'raw-data')),
+                            ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                         ])
                         self.raw_data = None
 
@@ -5412,6 +5470,7 @@ class Cfm(Entity):
                         self.organization_specific_tlv = YList(self)
                         self.unknown_tlv = YList(self)
                         self._segment_path = lambda: "linktrace-reply"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply, ['raw_data'], name, value)
@@ -5484,14 +5543,14 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('level', YLeaf(YType.enumeration, 'level')),
-                                ('version', YLeaf(YType.uint8, 'version')),
-                                ('use_fdb_only', YLeaf(YType.boolean, 'use-fdb-only')),
-                                ('forwarded', YLeaf(YType.boolean, 'forwarded')),
-                                ('terminal_mep', YLeaf(YType.boolean, 'terminal-mep')),
-                                ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
-                                ('ttl', YLeaf(YType.uint8, 'ttl')),
-                                ('relay_action', YLeaf(YType.enumeration, 'relay-action')),
+                                ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                                ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                                ('use_fdb_only', (YLeaf(YType.boolean, 'use-fdb-only'), ['bool'])),
+                                ('forwarded', (YLeaf(YType.boolean, 'forwarded'), ['bool'])),
+                                ('terminal_mep', (YLeaf(YType.boolean, 'terminal-mep'), ['bool'])),
+                                ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
+                                ('ttl', (YLeaf(YType.uint8, 'ttl'), ['int'])),
+                                ('relay_action', (YLeaf(YType.enumeration, 'relay-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRelayAction', '')])),
                             ])
                             self.level = None
                             self.version = None
@@ -5502,6 +5561,7 @@ class Cfm(Entity):
                             self.ttl = None
                             self.relay_action = None
                             self._segment_path = lambda: "header"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.Header, ['level', 'version', 'use_fdb_only', 'forwarded', 'terminal_mep', 'transaction_id', 'ttl', 'relay_action'], name, value)
@@ -5547,8 +5607,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId))])
                             self._leafs = OrderedDict([
-                                ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
-                                ('management_address', YLeaf(YType.str, 'management-address')),
+                                ('management_address_domain', (YLeaf(YType.str, 'management-address-domain'), ['str'])),
+                                ('management_address', (YLeaf(YType.str, 'management-address'), ['str'])),
                             ])
                             self.management_address_domain = None
                             self.management_address = None
@@ -5557,6 +5617,7 @@ class Cfm(Entity):
                             self.chassis_id.parent = self
                             self._children_name_map["chassis_id"] = "chassis-id"
                             self._segment_path = lambda: "sender-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
@@ -5607,9 +5668,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
-                                    ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
-                                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
+                                    ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt', '')])),
+                                    ('chassis_id_type_value', (YLeaf(YType.uint8, 'chassis-id-type-value'), ['int'])),
+                                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
                                 ])
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
@@ -5619,6 +5680,7 @@ class Cfm(Entity):
                                 self.chassis_id_value.parent = self
                                 self._children_name_map["chassis_id_value"] = "chassis-id-value"
                                 self._segment_path = lambda: "chassis-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
@@ -5669,16 +5731,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
-                                        ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
-                                        ('chassis_id_mac', YLeaf(YType.str, 'chassis-id-mac')),
-                                        ('chassis_id_raw', YLeaf(YType.str, 'chassis-id-raw')),
+                                        ('chassis_id_format', (YLeaf(YType.enumeration, 'chassis-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('chassis_id_string', (YLeaf(YType.str, 'chassis-id-string'), ['str'])),
+                                        ('chassis_id_mac', (YLeaf(YType.str, 'chassis-id-mac'), ['str'])),
+                                        ('chassis_id_raw', (YLeaf(YType.str, 'chassis-id-raw'), ['str'])),
                                     ])
                                     self.chassis_id_format = None
                                     self.chassis_id_string = None
                                     self.chassis_id_mac = None
                                     self.chassis_id_raw = None
                                     self._segment_path = lambda: "chassis-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
@@ -5724,6 +5787,7 @@ class Cfm(Entity):
                             self.next_egress_id.parent = self
                             self._children_name_map["next_egress_id"] = "next-egress-id"
                             self._segment_path = lambda: "egress-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId, [], name, value)
@@ -5764,12 +5828,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "last-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.LastEgressId, ['unique_id', 'mac_address'], name, value)
@@ -5810,12 +5875,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "next-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.EgressId.NextEgressId, ['unique_id', 'mac_address'], name, value)
@@ -5859,8 +5925,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId))])
                             self._leafs = OrderedDict([
-                                ('action', YLeaf(YType.enumeration, 'action')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIngressAction', '')])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                             ])
                             self.action = None
                             self.mac_address = None
@@ -5869,6 +5935,7 @@ class Cfm(Entity):
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
                             self._segment_path = lambda: "reply-ingress"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
@@ -5919,9 +5986,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
-                                    ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
+                                    ('port_id_type', (YLeaf(YType.enumeration, 'port-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt', '')])),
+                                    ('port_id_type_value', (YLeaf(YType.uint8, 'port-id-type-value'), ['int'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
                                 ])
                                 self.port_id_type = None
                                 self.port_id_type_value = None
@@ -5931,6 +5998,7 @@ class Cfm(Entity):
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
                                 self._segment_path = lambda: "port-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
@@ -5981,16 +6049,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
-                                        ('port_id_string', YLeaf(YType.str, 'port-id-string')),
-                                        ('port_id_mac', YLeaf(YType.str, 'port-id-mac')),
-                                        ('port_id_raw', YLeaf(YType.str, 'port-id-raw')),
+                                        ('port_id_format', (YLeaf(YType.enumeration, 'port-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('port_id_string', (YLeaf(YType.str, 'port-id-string'), ['str'])),
+                                        ('port_id_mac', (YLeaf(YType.str, 'port-id-mac'), ['str'])),
+                                        ('port_id_raw', (YLeaf(YType.str, 'port-id-raw'), ['str'])),
                                     ])
                                     self.port_id_format = None
                                     self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
                                     self._segment_path = lambda: "port-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
@@ -6034,8 +6103,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId))])
                             self._leafs = OrderedDict([
-                                ('action', YLeaf(YType.enumeration, 'action')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEgressAction', '')])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                             ])
                             self.action = None
                             self.mac_address = None
@@ -6044,6 +6113,7 @@ class Cfm(Entity):
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
                             self._segment_path = lambda: "reply-egress"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
@@ -6094,9 +6164,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
-                                    ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
+                                    ('port_id_type', (YLeaf(YType.enumeration, 'port-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt', '')])),
+                                    ('port_id_type_value', (YLeaf(YType.uint8, 'port-id-type-value'), ['int'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
                                 ])
                                 self.port_id_type = None
                                 self.port_id_type_value = None
@@ -6106,6 +6176,7 @@ class Cfm(Entity):
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
                                 self._segment_path = lambda: "port-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
@@ -6156,16 +6227,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
-                                        ('port_id_string', YLeaf(YType.str, 'port-id-string')),
-                                        ('port_id_mac', YLeaf(YType.str, 'port-id-mac')),
-                                        ('port_id_raw', YLeaf(YType.str, 'port-id-raw')),
+                                        ('port_id_format', (YLeaf(YType.enumeration, 'port-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('port_id_string', (YLeaf(YType.str, 'port-id-string'), ['str'])),
+                                        ('port_id_mac', (YLeaf(YType.str, 'port-id-mac'), ['str'])),
+                                        ('port_id_raw', (YLeaf(YType.str, 'port-id-raw'), ['str'])),
                                     ])
                                     self.port_id_format = None
                                     self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
                                     self._segment_path = lambda: "port-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
@@ -6207,8 +6279,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId))])
                             self._leafs = OrderedDict([
-                                ('last_hop_format', YLeaf(YType.enumeration, 'last-hop-format')),
-                                ('host_name', YLeaf(YType.str, 'host-name')),
+                                ('last_hop_format', (YLeaf(YType.enumeration, 'last-hop-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmt', '')])),
+                                ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
                             ])
                             self.last_hop_format = None
                             self.host_name = None
@@ -6217,6 +6289,7 @@ class Cfm(Entity):
                             self.egress_id.parent = self
                             self._children_name_map["egress_id"] = "egress-id"
                             self._segment_path = lambda: "last-hop"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
@@ -6257,12 +6330,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
@@ -6310,14 +6384,15 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oui', YLeaf(YType.str, 'oui')),
-                                ('subtype', YLeaf(YType.uint8, 'subtype')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                                ('subtype', (YLeaf(YType.uint8, 'subtype'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.oui = None
                             self.subtype = None
                             self.value = None
                             self._segment_path = lambda: "organization-specific-tlv"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
@@ -6358,12 +6433,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('typecode', YLeaf(YType.uint8, 'typecode')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('typecode', (YLeaf(YType.uint8, 'typecode'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.typecode = None
                             self.value = None
                             self._segment_path = lambda: "unknown-tlv"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.LinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
@@ -6432,7 +6508,7 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("header", ("header", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header)), ("sender-id", ("sender_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId)), ("reply-ingress", ("reply_ingress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress)), ("reply-egress", ("reply_egress", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress)), ("last-hop", ("last_hop", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv))])
                         self._leafs = OrderedDict([
-                            ('raw_data', YLeaf(YType.str, 'raw-data')),
+                            ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                         ])
                         self.raw_data = None
 
@@ -6459,6 +6535,7 @@ class Cfm(Entity):
                         self.organization_specific_tlv = YList(self)
                         self.unknown_tlv = YList(self)
                         self._segment_path = lambda: "exploratory-linktrace-reply"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply, ['raw_data'], name, value)
@@ -6545,16 +6622,16 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('level', YLeaf(YType.enumeration, 'level')),
-                                ('version', YLeaf(YType.uint8, 'version')),
-                                ('forwarded', YLeaf(YType.boolean, 'forwarded')),
-                                ('terminal_mep', YLeaf(YType.boolean, 'terminal-mep')),
-                                ('reply_filter_unknown', YLeaf(YType.boolean, 'reply-filter-unknown')),
-                                ('transaction_id', YLeaf(YType.uint32, 'transaction-id')),
-                                ('ttl', YLeaf(YType.uint8, 'ttl')),
-                                ('relay_action', YLeaf(YType.enumeration, 'relay-action')),
-                                ('next_hop_timeout', YLeaf(YType.uint32, 'next-hop-timeout')),
-                                ('delay_model', YLeaf(YType.enumeration, 'delay-model')),
+                                ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                                ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                                ('forwarded', (YLeaf(YType.boolean, 'forwarded'), ['bool'])),
+                                ('terminal_mep', (YLeaf(YType.boolean, 'terminal-mep'), ['bool'])),
+                                ('reply_filter_unknown', (YLeaf(YType.boolean, 'reply-filter-unknown'), ['bool'])),
+                                ('transaction_id', (YLeaf(YType.uint32, 'transaction-id'), ['int'])),
+                                ('ttl', (YLeaf(YType.uint8, 'ttl'), ['int'])),
+                                ('relay_action', (YLeaf(YType.enumeration, 'relay-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrRelayAction', '')])),
+                                ('next_hop_timeout', (YLeaf(YType.uint32, 'next-hop-timeout'), ['int'])),
+                                ('delay_model', (YLeaf(YType.enumeration, 'delay-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmEltDelayModel', '')])),
                             ])
                             self.level = None
                             self.version = None
@@ -6567,6 +6644,7 @@ class Cfm(Entity):
                             self.next_hop_timeout = None
                             self.delay_model = None
                             self._segment_path = lambda: "header"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.Header, ['level', 'version', 'forwarded', 'terminal_mep', 'reply_filter_unknown', 'transaction_id', 'ttl', 'relay_action', 'next_hop_timeout', 'delay_model'], name, value)
@@ -6612,8 +6690,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId))])
                             self._leafs = OrderedDict([
-                                ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
-                                ('management_address', YLeaf(YType.str, 'management-address')),
+                                ('management_address_domain', (YLeaf(YType.str, 'management-address-domain'), ['str'])),
+                                ('management_address', (YLeaf(YType.str, 'management-address'), ['str'])),
                             ])
                             self.management_address_domain = None
                             self.management_address = None
@@ -6622,6 +6700,7 @@ class Cfm(Entity):
                             self.chassis_id.parent = self
                             self._children_name_map["chassis_id"] = "chassis-id"
                             self._segment_path = lambda: "sender-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId, ['management_address_domain', 'management_address'], name, value)
@@ -6672,9 +6751,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
-                                    ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
-                                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
+                                    ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt', '')])),
+                                    ('chassis_id_type_value', (YLeaf(YType.uint8, 'chassis-id-type-value'), ['int'])),
+                                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
                                 ])
                                 self.chassis_id_type = None
                                 self.chassis_id_type_value = None
@@ -6684,6 +6763,7 @@ class Cfm(Entity):
                                 self.chassis_id_value.parent = self
                                 self._children_name_map["chassis_id_value"] = "chassis-id-value"
                                 self._segment_path = lambda: "chassis-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
@@ -6734,16 +6814,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
-                                        ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
-                                        ('chassis_id_mac', YLeaf(YType.str, 'chassis-id-mac')),
-                                        ('chassis_id_raw', YLeaf(YType.str, 'chassis-id-raw')),
+                                        ('chassis_id_format', (YLeaf(YType.enumeration, 'chassis-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('chassis_id_string', (YLeaf(YType.str, 'chassis-id-string'), ['str'])),
+                                        ('chassis_id_mac', (YLeaf(YType.str, 'chassis-id-mac'), ['str'])),
+                                        ('chassis_id_raw', (YLeaf(YType.str, 'chassis-id-raw'), ['str'])),
                                     ])
                                     self.chassis_id_format = None
                                     self.chassis_id_string = None
                                     self.chassis_id_mac = None
                                     self.chassis_id_raw = None
                                     self._segment_path = lambda: "chassis-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
@@ -6797,8 +6878,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId))])
                             self._leafs = OrderedDict([
-                                ('action', YLeaf(YType.enumeration, 'action')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrIngressAction', '')])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                             ])
                             self.action = None
                             self.mac_address = None
@@ -6815,6 +6896,7 @@ class Cfm(Entity):
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
                             self._segment_path = lambda: "reply-ingress"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress, ['action', 'mac_address'], name, value)
@@ -6855,12 +6937,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "last-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.LastEgressId, ['unique_id', 'mac_address'], name, value)
@@ -6901,12 +6984,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "next-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.NextEgressId, ['unique_id', 'mac_address'], name, value)
@@ -6957,9 +7041,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
-                                    ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
+                                    ('port_id_type', (YLeaf(YType.enumeration, 'port-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt', '')])),
+                                    ('port_id_type_value', (YLeaf(YType.uint8, 'port-id-type-value'), ['int'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
                                 ])
                                 self.port_id_type = None
                                 self.port_id_type_value = None
@@ -6969,6 +7053,7 @@ class Cfm(Entity):
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
                                 self._segment_path = lambda: "port-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
@@ -7019,16 +7104,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
-                                        ('port_id_string', YLeaf(YType.str, 'port-id-string')),
-                                        ('port_id_mac', YLeaf(YType.str, 'port-id-mac')),
-                                        ('port_id_raw', YLeaf(YType.str, 'port-id-raw')),
+                                        ('port_id_format', (YLeaf(YType.enumeration, 'port-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('port_id_string', (YLeaf(YType.str, 'port-id-string'), ['str'])),
+                                        ('port_id_mac', (YLeaf(YType.str, 'port-id-mac'), ['str'])),
+                                        ('port_id_raw', (YLeaf(YType.str, 'port-id-raw'), ['str'])),
                                     ])
                                     self.port_id_format = None
                                     self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
                                     self._segment_path = lambda: "port-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyIngress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
@@ -7082,8 +7168,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("last-egress-id", ("last_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId)), ("next-egress-id", ("next_egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId)), ("port-id", ("port_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId))])
                             self._leafs = OrderedDict([
-                                ('action', YLeaf(YType.enumeration, 'action')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmElrEgressAction', '')])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                             ])
                             self.action = None
                             self.mac_address = None
@@ -7100,6 +7186,7 @@ class Cfm(Entity):
                             self.port_id.parent = self
                             self._children_name_map["port_id"] = "port-id"
                             self._segment_path = lambda: "reply-egress"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress, ['action', 'mac_address'], name, value)
@@ -7140,12 +7227,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "last-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.LastEgressId, ['unique_id', 'mac_address'], name, value)
@@ -7186,12 +7274,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "next-egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.NextEgressId, ['unique_id', 'mac_address'], name, value)
@@ -7242,9 +7331,9 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("port-id-value", ("port_id_value", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue))])
                                 self._leafs = OrderedDict([
-                                    ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
-                                    ('port_id_type_value', YLeaf(YType.uint8, 'port-id-type-value')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
+                                    ('port_id_type', (YLeaf(YType.enumeration, 'port-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortIdFmt', '')])),
+                                    ('port_id_type_value', (YLeaf(YType.uint8, 'port-id-type-value'), ['int'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
                                 ])
                                 self.port_id_type = None
                                 self.port_id_type_value = None
@@ -7254,6 +7343,7 @@ class Cfm(Entity):
                                 self.port_id_value.parent = self
                                 self._children_name_map["port_id_value"] = "port-id-value"
                                 self._segment_path = lambda: "port-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId, ['port_id_type', 'port_id_type_value', 'port_id'], name, value)
@@ -7304,16 +7394,17 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('port_id_format', YLeaf(YType.enumeration, 'port-id-format')),
-                                        ('port_id_string', YLeaf(YType.str, 'port-id-string')),
-                                        ('port_id_mac', YLeaf(YType.str, 'port-id-mac')),
-                                        ('port_id_raw', YLeaf(YType.str, 'port-id-raw')),
+                                        ('port_id_format', (YLeaf(YType.enumeration, 'port-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                        ('port_id_string', (YLeaf(YType.str, 'port-id-string'), ['str'])),
+                                        ('port_id_mac', (YLeaf(YType.str, 'port-id-mac'), ['str'])),
+                                        ('port_id_raw', (YLeaf(YType.str, 'port-id-raw'), ['str'])),
                                     ])
                                     self.port_id_format = None
                                     self.port_id_string = None
                                     self.port_id_mac = None
                                     self.port_id_raw = None
                                     self._segment_path = lambda: "port-id-value"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.ReplyEgress.PortId.PortIdValue, ['port_id_format', 'port_id_string', 'port_id_mac', 'port_id_raw'], name, value)
@@ -7355,8 +7446,8 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("egress-id", ("egress_id", Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId))])
                             self._leafs = OrderedDict([
-                                ('last_hop_format', YLeaf(YType.enumeration, 'last-hop-format')),
-                                ('host_name', YLeaf(YType.str, 'host-name')),
+                                ('last_hop_format', (YLeaf(YType.enumeration, 'last-hop-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmLastHopFmt', '')])),
+                                ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
                             ])
                             self.last_hop_format = None
                             self.host_name = None
@@ -7365,6 +7456,7 @@ class Cfm(Entity):
                             self.egress_id.parent = self
                             self._children_name_map["egress_id"] = "egress-id"
                             self._segment_path = lambda: "last-hop"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop, ['last_hop_format', 'host_name'], name, value)
@@ -7405,12 +7497,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unique_id', YLeaf(YType.uint16, 'unique-id')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
+                                    ('unique_id', (YLeaf(YType.uint16, 'unique-id'), ['int'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                                 ])
                                 self.unique_id = None
                                 self.mac_address = None
                                 self._segment_path = lambda: "egress-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.LastHop.EgressId, ['unique_id', 'mac_address'], name, value)
@@ -7458,14 +7551,15 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oui', YLeaf(YType.str, 'oui')),
-                                ('subtype', YLeaf(YType.uint8, 'subtype')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                                ('subtype', (YLeaf(YType.uint8, 'subtype'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.oui = None
                             self.subtype = None
                             self.value = None
                             self._segment_path = lambda: "organization-specific-tlv"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
@@ -7506,12 +7600,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('typecode', YLeaf(YType.uint8, 'typecode')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('typecode', (YLeaf(YType.uint8, 'typecode'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.typecode = None
                             self.value = None
                             self._segment_path = lambda: "unknown-tlv"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.TracerouteCaches.TracerouteCache.ExploratoryLinktraceReply.UnknownTlv, ['typecode', 'value'], name, value)
@@ -7547,6 +7642,7 @@ class Cfm(Entity):
                 self.local_mep = YList(self)
                 self._segment_path = lambda: "local-meps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.LocalMeps, [], name, value)
@@ -7582,7 +7678,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: statistics
                 
@@ -7626,7 +7722,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface_state
                 
@@ -7782,40 +7878,40 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','mep_id','interface']
                     self._child_classes = OrderedDict([("statistics", ("statistics", Cfm.Global.LocalMeps.LocalMep.Statistics)), ("ais-statistics", ("ais_statistics", Cfm.Global.LocalMeps.LocalMep.AisStatistics)), ("defects", ("defects", Cfm.Global.LocalMeps.LocalMep.Defects))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('mep_id', YLeaf(YType.uint32, 'mep-id')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('domain_xr', YLeaf(YType.str, 'domain-xr')),
-                        ('service_xr', YLeaf(YType.str, 'service-xr')),
-                        ('level', YLeaf(YType.enumeration, 'level')),
-                        ('mep_id_xr', YLeaf(YType.uint16, 'mep-id-xr')),
-                        ('interface_xr', YLeaf(YType.str, 'interface-xr')),
-                        ('interface_state', YLeaf(YType.str, 'interface-state')),
-                        ('interworking_state', YLeaf(YType.enumeration, 'interworking-state')),
-                        ('stp_state', YLeaf(YType.enumeration, 'stp-state')),
-                        ('mep_direction', YLeaf(YType.enumeration, 'mep-direction')),
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                        ('peer_meps_detected', YLeaf(YType.uint32, 'peer-meps-detected')),
-                        ('peer_meps_with_errors_detected', YLeaf(YType.uint32, 'peer-meps-with-errors-detected')),
-                        ('remote_defect', YLeaf(YType.boolean, 'remote-defect')),
-                        ('fault_notification_state', YLeaf(YType.enumeration, 'fault-notification-state')),
-                        ('ccm_generation_enabled', YLeaf(YType.boolean, 'ccm-generation-enabled')),
-                        ('ccm_interval', YLeaf(YType.enumeration, 'ccm-interval')),
-                        ('ccm_offload', YLeaf(YType.enumeration, 'ccm-offload')),
-                        ('highest_defect', YLeaf(YType.enumeration, 'highest-defect')),
-                        ('rdi_defect', YLeaf(YType.boolean, 'rdi-defect')),
-                        ('mac_status_defect', YLeaf(YType.boolean, 'mac-status-defect')),
-                        ('peer_mep_ccm_defect', YLeaf(YType.boolean, 'peer-mep-ccm-defect')),
-                        ('error_ccm_defect', YLeaf(YType.boolean, 'error-ccm-defect')),
-                        ('cross_connect_ccm_defect', YLeaf(YType.boolean, 'cross-connect-ccm-defect')),
-                        ('next_lbm_id', YLeaf(YType.uint32, 'next-lbm-id')),
-                        ('next_ltm_id', YLeaf(YType.uint32, 'next-ltm-id')),
-                        ('cos', YLeaf(YType.uint8, 'cos')),
-                        ('efd_triggered', YLeaf(YType.boolean, 'efd-triggered')),
-                        ('standby', YLeaf(YType.boolean, 'standby')),
-                        ('hairpin', YLeaf(YType.boolean, 'hairpin')),
-                        ('defects_ignored', YLeaf(YType.boolean, 'defects-ignored')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('mep_id', (YLeaf(YType.uint32, 'mep-id'), ['int'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('domain_xr', (YLeaf(YType.str, 'domain-xr'), ['str'])),
+                        ('service_xr', (YLeaf(YType.str, 'service-xr'), ['str'])),
+                        ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                        ('mep_id_xr', (YLeaf(YType.uint16, 'mep-id-xr'), ['int'])),
+                        ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
+                        ('interface_state', (YLeaf(YType.str, 'interface-state'), ['str'])),
+                        ('interworking_state', (YLeaf(YType.enumeration, 'interworking-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagIwState', '')])),
+                        ('stp_state', (YLeaf(YType.enumeration, 'stp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagStpState', '')])),
+                        ('mep_direction', (YLeaf(YType.enumeration, 'mep-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection', '')])),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                        ('peer_meps_detected', (YLeaf(YType.uint32, 'peer-meps-detected'), ['int'])),
+                        ('peer_meps_with_errors_detected', (YLeaf(YType.uint32, 'peer-meps-with-errors-detected'), ['int'])),
+                        ('remote_defect', (YLeaf(YType.boolean, 'remote-defect'), ['bool'])),
+                        ('fault_notification_state', (YLeaf(YType.enumeration, 'fault-notification-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepFngState', '')])),
+                        ('ccm_generation_enabled', (YLeaf(YType.boolean, 'ccm-generation-enabled'), ['bool'])),
+                        ('ccm_interval', (YLeaf(YType.enumeration, 'ccm-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval', '')])),
+                        ('ccm_offload', (YLeaf(YType.enumeration, 'ccm-offload'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffload', '')])),
+                        ('highest_defect', (YLeaf(YType.enumeration, 'highest-defect'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmMepDefect', '')])),
+                        ('rdi_defect', (YLeaf(YType.boolean, 'rdi-defect'), ['bool'])),
+                        ('mac_status_defect', (YLeaf(YType.boolean, 'mac-status-defect'), ['bool'])),
+                        ('peer_mep_ccm_defect', (YLeaf(YType.boolean, 'peer-mep-ccm-defect'), ['bool'])),
+                        ('error_ccm_defect', (YLeaf(YType.boolean, 'error-ccm-defect'), ['bool'])),
+                        ('cross_connect_ccm_defect', (YLeaf(YType.boolean, 'cross-connect-ccm-defect'), ['bool'])),
+                        ('next_lbm_id', (YLeaf(YType.uint32, 'next-lbm-id'), ['int'])),
+                        ('next_ltm_id', (YLeaf(YType.uint32, 'next-ltm-id'), ['int'])),
+                        ('cos', (YLeaf(YType.uint8, 'cos'), ['int'])),
+                        ('efd_triggered', (YLeaf(YType.boolean, 'efd-triggered'), ['bool'])),
+                        ('standby', (YLeaf(YType.boolean, 'standby'), ['bool'])),
+                        ('hairpin', (YLeaf(YType.boolean, 'hairpin'), ['bool'])),
+                        ('defects_ignored', (YLeaf(YType.boolean, 'defects-ignored'), ['bool'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -7865,6 +7961,7 @@ class Cfm(Entity):
                     self._children_name_map["defects"] = "defects"
                     self._segment_path = lambda: "local-mep" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[mep-id='" + str(self.mep_id) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/local-meps/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Global.LocalMeps.LocalMep, ['domain', 'service', 'mep_id', 'interface', 'domain_xr', 'service_xr', 'level', 'mep_id_xr', 'interface_xr', 'interface_state', 'interworking_state', 'stp_state', 'mep_direction', 'mac_address', 'peer_meps_detected', 'peer_meps_with_errors_detected', 'remote_defect', 'fault_notification_state', 'ccm_generation_enabled', 'ccm_interval', 'ccm_offload', 'highest_defect', 'rdi_defect', 'mac_status_defect', 'peer_mep_ccm_defect', 'error_ccm_defect', 'cross_connect_ccm_defect', 'next_lbm_id', 'next_ltm_id', 'cos', 'efd_triggered', 'standby', 'hairpin', 'defects_ignored'], name, value)
@@ -8087,34 +8184,34 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ccms_sent', YLeaf(YType.uint64, 'ccms-sent')),
-                            ('ccms_received', YLeaf(YType.uint64, 'ccms-received')),
-                            ('ccms_out_of_sequence', YLeaf(YType.uint64, 'ccms-out-of-sequence')),
-                            ('ccms_discarded', YLeaf(YType.uint64, 'ccms-discarded')),
-                            ('lb_ms_sent', YLeaf(YType.uint64, 'lb-ms-sent')),
-                            ('lb_rs_sent', YLeaf(YType.uint64, 'lb-rs-sent')),
-                            ('lb_rs_received', YLeaf(YType.uint64, 'lb-rs-received')),
-                            ('lb_rs_out_of_sequence', YLeaf(YType.uint64, 'lb-rs-out-of-sequence')),
-                            ('lb_rs_bad_data', YLeaf(YType.uint64, 'lb-rs-bad-data')),
-                            ('lb_ms_received', YLeaf(YType.uint64, 'lb-ms-received')),
-                            ('lt_rs_received_unexpected', YLeaf(YType.uint64, 'lt-rs-received-unexpected')),
-                            ('ai_ss_sent', YLeaf(YType.uint64, 'ai-ss-sent')),
-                            ('ai_ss_received', YLeaf(YType.uint64, 'ai-ss-received')),
-                            ('lc_ks_received', YLeaf(YType.uint64, 'lc-ks-received')),
-                            ('dm_ms_sent', YLeaf(YType.uint64, 'dm-ms-sent')),
-                            ('dm_ms_received', YLeaf(YType.uint64, 'dm-ms-received')),
-                            ('dm_rs_sent', YLeaf(YType.uint64, 'dm-rs-sent')),
-                            ('dm_rs_received', YLeaf(YType.uint64, 'dm-rs-received')),
-                            ('sl_ms_sent', YLeaf(YType.uint64, 'sl-ms-sent')),
-                            ('sl_ms_received', YLeaf(YType.uint64, 'sl-ms-received')),
-                            ('sl_rs_sent', YLeaf(YType.uint64, 'sl-rs-sent')),
-                            ('sl_rs_received', YLeaf(YType.uint64, 'sl-rs-received')),
-                            ('lm_ms_sent', YLeaf(YType.uint64, 'lm-ms-sent')),
-                            ('lm_ms_received', YLeaf(YType.uint64, 'lm-ms-received')),
-                            ('lm_rs_sent', YLeaf(YType.uint64, 'lm-rs-sent')),
-                            ('lm_rs_received', YLeaf(YType.uint64, 'lm-rs-received')),
-                            ('bn_ms_received', YLeaf(YType.uint64, 'bn-ms-received')),
-                            ('bn_ms_discarded', YLeaf(YType.uint64, 'bn-ms-discarded')),
+                            ('ccms_sent', (YLeaf(YType.uint64, 'ccms-sent'), ['int'])),
+                            ('ccms_received', (YLeaf(YType.uint64, 'ccms-received'), ['int'])),
+                            ('ccms_out_of_sequence', (YLeaf(YType.uint64, 'ccms-out-of-sequence'), ['int'])),
+                            ('ccms_discarded', (YLeaf(YType.uint64, 'ccms-discarded'), ['int'])),
+                            ('lb_ms_sent', (YLeaf(YType.uint64, 'lb-ms-sent'), ['int'])),
+                            ('lb_rs_sent', (YLeaf(YType.uint64, 'lb-rs-sent'), ['int'])),
+                            ('lb_rs_received', (YLeaf(YType.uint64, 'lb-rs-received'), ['int'])),
+                            ('lb_rs_out_of_sequence', (YLeaf(YType.uint64, 'lb-rs-out-of-sequence'), ['int'])),
+                            ('lb_rs_bad_data', (YLeaf(YType.uint64, 'lb-rs-bad-data'), ['int'])),
+                            ('lb_ms_received', (YLeaf(YType.uint64, 'lb-ms-received'), ['int'])),
+                            ('lt_rs_received_unexpected', (YLeaf(YType.uint64, 'lt-rs-received-unexpected'), ['int'])),
+                            ('ai_ss_sent', (YLeaf(YType.uint64, 'ai-ss-sent'), ['int'])),
+                            ('ai_ss_received', (YLeaf(YType.uint64, 'ai-ss-received'), ['int'])),
+                            ('lc_ks_received', (YLeaf(YType.uint64, 'lc-ks-received'), ['int'])),
+                            ('dm_ms_sent', (YLeaf(YType.uint64, 'dm-ms-sent'), ['int'])),
+                            ('dm_ms_received', (YLeaf(YType.uint64, 'dm-ms-received'), ['int'])),
+                            ('dm_rs_sent', (YLeaf(YType.uint64, 'dm-rs-sent'), ['int'])),
+                            ('dm_rs_received', (YLeaf(YType.uint64, 'dm-rs-received'), ['int'])),
+                            ('sl_ms_sent', (YLeaf(YType.uint64, 'sl-ms-sent'), ['int'])),
+                            ('sl_ms_received', (YLeaf(YType.uint64, 'sl-ms-received'), ['int'])),
+                            ('sl_rs_sent', (YLeaf(YType.uint64, 'sl-rs-sent'), ['int'])),
+                            ('sl_rs_received', (YLeaf(YType.uint64, 'sl-rs-received'), ['int'])),
+                            ('lm_ms_sent', (YLeaf(YType.uint64, 'lm-ms-sent'), ['int'])),
+                            ('lm_ms_received', (YLeaf(YType.uint64, 'lm-ms-received'), ['int'])),
+                            ('lm_rs_sent', (YLeaf(YType.uint64, 'lm-rs-sent'), ['int'])),
+                            ('lm_rs_received', (YLeaf(YType.uint64, 'lm-rs-received'), ['int'])),
+                            ('bn_ms_received', (YLeaf(YType.uint64, 'bn-ms-received'), ['int'])),
+                            ('bn_ms_discarded', (YLeaf(YType.uint64, 'bn-ms-discarded'), ['int'])),
                         ])
                         self.ccms_sent = None
                         self.ccms_received = None
@@ -8145,6 +8242,7 @@ class Cfm(Entity):
                         self.bn_ms_received = None
                         self.bn_ms_discarded = None
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Statistics, ['ccms_sent', 'ccms_received', 'ccms_out_of_sequence', 'ccms_discarded', 'lb_ms_sent', 'lb_rs_sent', 'lb_rs_received', 'lb_rs_out_of_sequence', 'lb_rs_bad_data', 'lb_ms_received', 'lt_rs_received_unexpected', 'ai_ss_sent', 'ai_ss_received', 'lc_ks_received', 'dm_ms_sent', 'dm_ms_received', 'dm_rs_sent', 'dm_rs_received', 'sl_ms_sent', 'sl_ms_received', 'sl_rs_sent', 'sl_rs_received', 'lm_ms_sent', 'lm_ms_received', 'lm_rs_sent', 'lm_rs_received', 'bn_ms_received', 'bn_ms_discarded'], name, value)
@@ -8213,12 +8311,12 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sending-start", ("sending_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart)), ("receiving-start", ("receiving_start", Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart))])
                         self._leafs = OrderedDict([
-                            ('level', YLeaf(YType.enumeration, 'level')),
-                            ('interval', YLeaf(YType.enumeration, 'interval')),
-                            ('sending_ais', YLeaf(YType.enumeration, 'sending-ais')),
-                            ('receiving_ais', YLeaf(YType.enumeration, 'receiving-ais')),
-                            ('last_interval', YLeaf(YType.enumeration, 'last-interval')),
-                            ('last_mac_address', YLeaf(YType.str, 'last-mac-address')),
+                            ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                            ('interval', (YLeaf(YType.enumeration, 'interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval', '')])),
+                            ('sending_ais', (YLeaf(YType.enumeration, 'sending-ais'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisTransmit', '')])),
+                            ('receiving_ais', (YLeaf(YType.enumeration, 'receiving-ais'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAisReceive', '')])),
+                            ('last_interval', (YLeaf(YType.enumeration, 'last-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagAisInterval', '')])),
+                            ('last_mac_address', (YLeaf(YType.str, 'last-mac-address'), ['str'])),
                         ])
                         self.level = None
                         self.interval = None
@@ -8235,6 +8333,7 @@ class Cfm(Entity):
                         self.receiving_start.parent = self
                         self._children_name_map["receiving_start"] = "receiving-start"
                         self._segment_path = lambda: "ais-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics, ['level', 'interval', 'sending_ais', 'receiving_ais', 'last_interval', 'last_mac_address'], name, value)
@@ -8279,12 +8378,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                             ])
                             self.seconds = None
                             self.nanoseconds = None
                             self._segment_path = lambda: "sending-start"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.SendingStart, ['seconds', 'nanoseconds'], name, value)
@@ -8329,12 +8429,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                             ])
                             self.seconds = None
                             self.nanoseconds = None
                             self._segment_path = lambda: "receiving-start"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.AisStatistics.ReceivingStart, ['seconds', 'nanoseconds'], name, value)
@@ -8409,13 +8510,13 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("remote-meps-defects", ("remote_meps_defects", Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects))])
                         self._leafs = OrderedDict([
-                            ('ais_received', YLeaf(YType.boolean, 'ais-received')),
-                            ('peer_meps_that_timed_out', YLeaf(YType.uint32, 'peer-meps-that-timed-out')),
-                            ('missing', YLeaf(YType.uint32, 'missing')),
-                            ('auto_missing', YLeaf(YType.uint32, 'auto-missing')),
-                            ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                            ('local_port_status', YLeaf(YType.boolean, 'local-port-status')),
-                            ('peer_port_status', YLeaf(YType.boolean, 'peer-port-status')),
+                            ('ais_received', (YLeaf(YType.boolean, 'ais-received'), ['bool'])),
+                            ('peer_meps_that_timed_out', (YLeaf(YType.uint32, 'peer-meps-that-timed-out'), ['int'])),
+                            ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                            ('auto_missing', (YLeaf(YType.uint32, 'auto-missing'), ['int'])),
+                            ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                            ('local_port_status', (YLeaf(YType.boolean, 'local-port-status'), ['bool'])),
+                            ('peer_port_status', (YLeaf(YType.boolean, 'peer-port-status'), ['bool'])),
                         ])
                         self.ais_received = None
                         self.peer_meps_that_timed_out = None
@@ -8429,6 +8530,7 @@ class Cfm(Entity):
                         self.remote_meps_defects.parent = self
                         self._children_name_map["remote_meps_defects"] = "remote-meps-defects"
                         self._segment_path = lambda: "defects"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects, ['ais_received', 'peer_meps_that_timed_out', 'missing', 'auto_missing', 'unexpected', 'local_port_status', 'peer_port_status'], name, value)
@@ -8490,13 +8592,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
-                                ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
-                                ('invalid_maid', YLeaf(YType.boolean, 'invalid-maid')),
-                                ('invalid_ccm_interval', YLeaf(YType.boolean, 'invalid-ccm-interval')),
-                                ('received_our_mac', YLeaf(YType.boolean, 'received-our-mac')),
-                                ('received_our_mep_id', YLeaf(YType.boolean, 'received-our-mep-id')),
-                                ('received_rdi', YLeaf(YType.boolean, 'received-rdi')),
+                                ('loss_threshold_exceeded', (YLeaf(YType.boolean, 'loss-threshold-exceeded'), ['bool'])),
+                                ('invalid_level', (YLeaf(YType.boolean, 'invalid-level'), ['bool'])),
+                                ('invalid_maid', (YLeaf(YType.boolean, 'invalid-maid'), ['bool'])),
+                                ('invalid_ccm_interval', (YLeaf(YType.boolean, 'invalid-ccm-interval'), ['bool'])),
+                                ('received_our_mac', (YLeaf(YType.boolean, 'received-our-mac'), ['bool'])),
+                                ('received_our_mep_id', (YLeaf(YType.boolean, 'received-our-mep-id'), ['bool'])),
+                                ('received_rdi', (YLeaf(YType.boolean, 'received-rdi'), ['bool'])),
                             ])
                             self.loss_threshold_exceeded = None
                             self.invalid_level = None
@@ -8506,6 +8608,7 @@ class Cfm(Entity):
                             self.received_our_mep_id = None
                             self.received_rdi = None
                             self._segment_path = lambda: "remote-meps-defects"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.LocalMeps.LocalMep.Defects.RemoteMepsDefects, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
@@ -8541,6 +8644,7 @@ class Cfm(Entity):
                 self.peer_me_pv2 = YList(self)
                 self._segment_path = lambda: "peer-me-pv2s"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cfm.Global.PeerMePv2s, [], name, value)
@@ -8577,7 +8681,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: peer_mep_id  (key)
                 
@@ -8625,7 +8729,7 @@ class Cfm(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: mep_direction
                 
@@ -8654,19 +8758,19 @@ class Cfm(Entity):
                     self.ylist_key_names = ['domain','service','local_mep_id','interface','peer_mep_id','peer_mac_address']
                     self._child_classes = OrderedDict([("peer-mep", ("peer_mep", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep))])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
-                        ('service', YLeaf(YType.str, 'service')),
-                        ('local_mep_id', YLeaf(YType.uint32, 'local-mep-id')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('peer_mep_id', YLeaf(YType.uint32, 'peer-mep-id')),
-                        ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
-                        ('domain_xr', YLeaf(YType.str, 'domain-xr')),
-                        ('service_xr', YLeaf(YType.str, 'service-xr')),
-                        ('level', YLeaf(YType.enumeration, 'level')),
-                        ('mep_id', YLeaf(YType.uint16, 'mep-id')),
-                        ('interface_xr', YLeaf(YType.str, 'interface-xr')),
-                        ('mep_direction', YLeaf(YType.enumeration, 'mep-direction')),
-                        ('standby', YLeaf(YType.boolean, 'standby')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
+                        ('service', (YLeaf(YType.str, 'service'), ['str'])),
+                        ('local_mep_id', (YLeaf(YType.uint32, 'local-mep-id'), ['int'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('peer_mep_id', (YLeaf(YType.uint32, 'peer-mep-id'), ['int'])),
+                        ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                        ('domain_xr', (YLeaf(YType.str, 'domain-xr'), ['str'])),
+                        ('service_xr', (YLeaf(YType.str, 'service-xr'), ['str'])),
+                        ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                        ('mep_id', (YLeaf(YType.uint16, 'mep-id'), ['int'])),
+                        ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
+                        ('mep_direction', (YLeaf(YType.enumeration, 'mep-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagDirection', '')])),
+                        ('standby', (YLeaf(YType.boolean, 'standby'), ['bool'])),
                     ])
                     self.domain = None
                     self.service = None
@@ -8687,6 +8791,7 @@ class Cfm(Entity):
                     self._children_name_map["peer_mep"] = "peer-mep"
                     self._segment_path = lambda: "peer-me-pv2" + "[domain='" + str(self.domain) + "']" + "[service='" + str(self.service) + "']" + "[local-mep-id='" + str(self.local_mep_id) + "']" + "[interface='" + str(self.interface) + "']" + "[peer-mep-id='" + str(self.peer_mep_id) + "']" + "[peer-mac-address='" + str(self.peer_mac_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-cfm-oper:cfm/global/peer-me-pv2s/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2, ['domain', 'service', 'local_mep_id', 'interface', 'peer_mep_id', 'peer_mac_address', 'domain_xr', 'service_xr', 'level', 'mep_id', 'interface_xr', 'mep_direction', 'standby'], name, value)
@@ -8762,11 +8867,11 @@ class Cfm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("error-state", ("error_state", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState)), ("last-up-down-time", ("last_up_down_time", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime)), ("last-ccm-received", ("last_ccm_received", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived)), ("statistics", ("statistics", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics))])
                         self._leafs = OrderedDict([
-                            ('mep_id', YLeaf(YType.uint16, 'mep-id')),
-                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                            ('cross_check_state', YLeaf(YType.enumeration, 'cross-check-state')),
-                            ('peer_mep_state', YLeaf(YType.enumeration, 'peer-mep-state')),
-                            ('ccm_offload', YLeaf(YType.enumeration, 'ccm-offload')),
+                            ('mep_id', (YLeaf(YType.uint16, 'mep-id'), ['int'])),
+                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ('cross_check_state', (YLeaf(YType.enumeration, 'cross-check-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepXcState', '')])),
+                            ('peer_mep_state', (YLeaf(YType.enumeration, 'peer-mep-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmRmepState', '')])),
+                            ('ccm_offload', (YLeaf(YType.enumeration, 'ccm-offload'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmOffload', '')])),
                         ])
                         self.mep_id = None
                         self.mac_address = None
@@ -8790,6 +8895,7 @@ class Cfm(Entity):
                         self.statistics.parent = self
                         self._children_name_map["statistics"] = "statistics"
                         self._segment_path = lambda: "peer-mep"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep, ['mep_id', 'mac_address', 'cross_check_state', 'peer_mep_state', 'ccm_offload'], name, value)
@@ -8851,13 +8957,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('loss_threshold_exceeded', YLeaf(YType.boolean, 'loss-threshold-exceeded')),
-                                ('invalid_level', YLeaf(YType.boolean, 'invalid-level')),
-                                ('invalid_maid', YLeaf(YType.boolean, 'invalid-maid')),
-                                ('invalid_ccm_interval', YLeaf(YType.boolean, 'invalid-ccm-interval')),
-                                ('received_our_mac', YLeaf(YType.boolean, 'received-our-mac')),
-                                ('received_our_mep_id', YLeaf(YType.boolean, 'received-our-mep-id')),
-                                ('received_rdi', YLeaf(YType.boolean, 'received-rdi')),
+                                ('loss_threshold_exceeded', (YLeaf(YType.boolean, 'loss-threshold-exceeded'), ['bool'])),
+                                ('invalid_level', (YLeaf(YType.boolean, 'invalid-level'), ['bool'])),
+                                ('invalid_maid', (YLeaf(YType.boolean, 'invalid-maid'), ['bool'])),
+                                ('invalid_ccm_interval', (YLeaf(YType.boolean, 'invalid-ccm-interval'), ['bool'])),
+                                ('received_our_mac', (YLeaf(YType.boolean, 'received-our-mac'), ['bool'])),
+                                ('received_our_mep_id', (YLeaf(YType.boolean, 'received-our-mep-id'), ['bool'])),
+                                ('received_rdi', (YLeaf(YType.boolean, 'received-rdi'), ['bool'])),
                             ])
                             self.loss_threshold_exceeded = None
                             self.invalid_level = None
@@ -8867,6 +8973,7 @@ class Cfm(Entity):
                             self.received_our_mep_id = None
                             self.received_rdi = None
                             self._segment_path = lambda: "error-state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.ErrorState, ['loss_threshold_exceeded', 'invalid_level', 'invalid_maid', 'invalid_ccm_interval', 'received_our_mac', 'received_our_mep_id', 'received_rdi'], name, value)
@@ -8912,12 +9019,13 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                             ])
                             self.seconds = None
                             self.nanoseconds = None
                             self._segment_path = lambda: "last-up-down-time"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastUpDownTime, ['seconds', 'nanoseconds'], name, value)
@@ -8991,10 +9099,10 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("header", ("header", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header)), ("sender-id", ("sender_id", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId)), ("mep-name", ("mep_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName)), ("organization-specific-tlv", ("organization_specific_tlv", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv)), ("unknown-tlv", ("unknown_tlv", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv))])
                             self._leafs = OrderedDict([
-                                ('port_status', YLeaf(YType.enumeration, 'port-status')),
-                                ('interface_status', YLeaf(YType.enumeration, 'interface-status')),
-                                ('additional_interface_status', YLeaf(YType.enumeration, 'additional-interface-status')),
-                                ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                ('port_status', (YLeaf(YType.enumeration, 'port-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmPortStatus', '')])),
+                                ('interface_status', (YLeaf(YType.enumeration, 'interface-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIntfStatus', '')])),
+                                ('additional_interface_status', (YLeaf(YType.enumeration, 'additional-interface-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmAddlIntfStatus', '')])),
+                                ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                             ])
                             self.port_status = None
                             self.interface_status = None
@@ -9016,6 +9124,7 @@ class Cfm(Entity):
                             self.organization_specific_tlv = YList(self)
                             self.unknown_tlv = YList(self)
                             self._segment_path = lambda: "last-ccm-received"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived, ['port_status', 'interface_status', 'additional_interface_status', 'raw_data'], name, value)
@@ -9102,14 +9211,14 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("mdid", ("mdid", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid)), ("short-ma-name", ("short_ma_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName))])
                                 self._leafs = OrderedDict([
-                                    ('level', YLeaf(YType.enumeration, 'level')),
-                                    ('version', YLeaf(YType.uint8, 'version')),
-                                    ('interval', YLeaf(YType.enumeration, 'interval')),
-                                    ('rdi', YLeaf(YType.boolean, 'rdi')),
-                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                                    ('mep_id', YLeaf(YType.uint16, 'mep-id')),
-                                    ('mdid_format', YLeaf(YType.uint8, 'mdid-format')),
-                                    ('short_ma_name_format', YLeaf(YType.uint8, 'short-ma-name-format')),
+                                    ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdLevel', '')])),
+                                    ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                                    ('interval', (YLeaf(YType.enumeration, 'interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagCcmInterval', '')])),
+                                    ('rdi', (YLeaf(YType.boolean, 'rdi'), ['bool'])),
+                                    ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                                    ('mep_id', (YLeaf(YType.uint16, 'mep-id'), ['int'])),
+                                    ('mdid_format', (YLeaf(YType.uint8, 'mdid-format'), ['int'])),
+                                    ('short_ma_name_format', (YLeaf(YType.uint8, 'short-ma-name-format'), ['int'])),
                                 ])
                                 self.level = None
                                 self.version = None
@@ -9128,6 +9237,7 @@ class Cfm(Entity):
                                 self.short_ma_name.parent = self
                                 self._children_name_map["short_ma_name"] = "short-ma-name"
                                 self._segment_path = lambda: "header"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header, ['level', 'version', 'interval', 'rdi', 'sequence_number', 'mep_id', 'mdid_format', 'short_ma_name_format'], name, value)
@@ -9181,10 +9291,10 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("mac-name", ("mac_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName))])
                                     self._leafs = OrderedDict([
-                                        ('mdid_format_value', YLeaf(YType.enumeration, 'mdid-format-value')),
-                                        ('dns_like_name', YLeaf(YType.str, 'dns-like-name')),
-                                        ('string_name', YLeaf(YType.str, 'string-name')),
-                                        ('mdid_data', YLeaf(YType.str, 'mdid-data')),
+                                        ('mdid_format_value', (YLeaf(YType.enumeration, 'mdid-format-value'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagMdidFmt', '')])),
+                                        ('dns_like_name', (YLeaf(YType.str, 'dns-like-name'), ['str'])),
+                                        ('string_name', (YLeaf(YType.str, 'string-name'), ['str'])),
+                                        ('mdid_data', (YLeaf(YType.str, 'mdid-data'), ['str'])),
                                     ])
                                     self.mdid_format_value = None
                                     self.dns_like_name = None
@@ -9195,6 +9305,7 @@ class Cfm(Entity):
                                     self.mac_name.parent = self
                                     self._children_name_map["mac_name"] = "mac-name"
                                     self._segment_path = lambda: "mdid"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid, [u'mdid_format_value', u'dns_like_name', u'string_name', u'mdid_data'], name, value)
@@ -9235,12 +9346,13 @@ class Cfm(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('integer', YLeaf(YType.uint16, 'integer')),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('integer', (YLeaf(YType.uint16, 'integer'), ['int'])),
                                         ])
                                         self.mac_address = None
                                         self.integer = None
                                         self._segment_path = lambda: "mac-name"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.Mdid.MacName, [u'mac_address', u'integer'], name, value)
@@ -9308,12 +9420,12 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("vpn-id-name", ("vpn_id_name", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName))])
                                     self._leafs = OrderedDict([
-                                        ('short_ma_name_format_value', YLeaf(YType.enumeration, 'short-ma-name-format-value')),
-                                        ('vlan_id_name', YLeaf(YType.uint16, 'vlan-id-name')),
-                                        ('string_name', YLeaf(YType.str, 'string-name')),
-                                        ('integer_name', YLeaf(YType.uint16, 'integer-name')),
-                                        ('icc_based', YLeaf(YType.str, 'icc-based')),
-                                        ('short_ma_name_data', YLeaf(YType.str, 'short-ma-name-data')),
+                                        ('short_ma_name_format_value', (YLeaf(YType.enumeration, 'short-ma-name-format-value'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmBagSmanFmt', '')])),
+                                        ('vlan_id_name', (YLeaf(YType.uint16, 'vlan-id-name'), ['int'])),
+                                        ('string_name', (YLeaf(YType.str, 'string-name'), ['str'])),
+                                        ('integer_name', (YLeaf(YType.uint16, 'integer-name'), ['int'])),
+                                        ('icc_based', (YLeaf(YType.str, 'icc-based'), ['str'])),
+                                        ('short_ma_name_data', (YLeaf(YType.str, 'short-ma-name-data'), ['str'])),
                                     ])
                                     self.short_ma_name_format_value = None
                                     self.vlan_id_name = None
@@ -9326,6 +9438,7 @@ class Cfm(Entity):
                                     self.vpn_id_name.parent = self
                                     self._children_name_map["vpn_id_name"] = "vpn-id-name"
                                     self._segment_path = lambda: "short-ma-name"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName, [u'short_ma_name_format_value', u'vlan_id_name', u'string_name', u'integer_name', u'icc_based', u'short_ma_name_data'], name, value)
@@ -9366,12 +9479,13 @@ class Cfm(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('oui', YLeaf(YType.uint32, 'oui')),
-                                            ('index', YLeaf(YType.uint32, 'index')),
+                                            ('oui', (YLeaf(YType.uint32, 'oui'), ['int'])),
+                                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
                                         ])
                                         self.oui = None
                                         self.index = None
                                         self._segment_path = lambda: "vpn-id-name"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.Header.ShortMaName.VpnIdName, [u'oui', u'index'], name, value)
@@ -9417,8 +9531,8 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("chassis-id", ("chassis_id", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId))])
                                 self._leafs = OrderedDict([
-                                    ('management_address_domain', YLeaf(YType.str, 'management-address-domain')),
-                                    ('management_address', YLeaf(YType.str, 'management-address')),
+                                    ('management_address_domain', (YLeaf(YType.str, 'management-address-domain'), ['str'])),
+                                    ('management_address', (YLeaf(YType.str, 'management-address'), ['str'])),
                                 ])
                                 self.management_address_domain = None
                                 self.management_address = None
@@ -9427,6 +9541,7 @@ class Cfm(Entity):
                                 self.chassis_id.parent = self
                                 self._children_name_map["chassis_id"] = "chassis-id"
                                 self._segment_path = lambda: "sender-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId, ['management_address_domain', 'management_address'], name, value)
@@ -9477,9 +9592,9 @@ class Cfm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("chassis-id-value", ("chassis_id_value", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue))])
                                     self._leafs = OrderedDict([
-                                        ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
-                                        ('chassis_id_type_value', YLeaf(YType.uint8, 'chassis-id-type-value')),
-                                        ('chassis_id', YLeaf(YType.str, 'chassis-id')),
+                                        ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmChassisIdFmt', '')])),
+                                        ('chassis_id_type_value', (YLeaf(YType.uint8, 'chassis-id-type-value'), ['int'])),
+                                        ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
                                     ])
                                     self.chassis_id_type = None
                                     self.chassis_id_type_value = None
@@ -9489,6 +9604,7 @@ class Cfm(Entity):
                                     self.chassis_id_value.parent = self
                                     self._children_name_map["chassis_id_value"] = "chassis-id-value"
                                     self._segment_path = lambda: "chassis-id"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId, ['chassis_id_type', 'chassis_id_type_value', 'chassis_id'], name, value)
@@ -9539,16 +9655,17 @@ class Cfm(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('chassis_id_format', YLeaf(YType.enumeration, 'chassis-id-format')),
-                                            ('chassis_id_string', YLeaf(YType.str, 'chassis-id-string')),
-                                            ('chassis_id_mac', YLeaf(YType.str, 'chassis-id-mac')),
-                                            ('chassis_id_raw', YLeaf(YType.str, 'chassis-id-raw')),
+                                            ('chassis_id_format', (YLeaf(YType.enumeration, 'chassis-id-format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_cfm_oper', 'CfmPmIdFmt', '')])),
+                                            ('chassis_id_string', (YLeaf(YType.str, 'chassis-id-string'), ['str'])),
+                                            ('chassis_id_mac', (YLeaf(YType.str, 'chassis-id-mac'), ['str'])),
+                                            ('chassis_id_raw', (YLeaf(YType.str, 'chassis-id-raw'), ['str'])),
                                         ])
                                         self.chassis_id_format = None
                                         self.chassis_id_string = None
                                         self.chassis_id_mac = None
                                         self.chassis_id_raw = None
                                         self._segment_path = lambda: "chassis-id-value"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.SenderId.ChassisId.ChassisIdValue, ['chassis_id_format', 'chassis_id_string', 'chassis_id_mac', 'chassis_id_raw'], name, value)
@@ -9580,10 +9697,11 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
                                 self._segment_path = lambda: "mep-name"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.MepName, ['name'], name, value)
@@ -9631,14 +9749,15 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('oui', YLeaf(YType.str, 'oui')),
-                                    ('subtype', YLeaf(YType.uint8, 'subtype')),
-                                    ('value', YLeaf(YType.str, 'value')),
+                                    ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                                    ('subtype', (YLeaf(YType.uint8, 'subtype'), ['int'])),
+                                    ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                 ])
                                 self.oui = None
                                 self.subtype = None
                                 self.value = None
                                 self._segment_path = lambda: "organization-specific-tlv"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.OrganizationSpecificTlv, ['oui', 'subtype', 'value'], name, value)
@@ -9679,12 +9798,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('typecode', YLeaf(YType.uint8, 'typecode')),
-                                    ('value', YLeaf(YType.str, 'value')),
+                                    ('typecode', (YLeaf(YType.uint8, 'typecode'), ['int'])),
+                                    ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                 ])
                                 self.typecode = None
                                 self.value = None
                                 self._segment_path = lambda: "unknown-tlv"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.LastCcmReceived.UnknownTlv, ['typecode', 'value'], name, value)
@@ -9779,15 +9899,15 @@ class Cfm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("last-ccm-received-time", ("last_ccm_received_time", Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime))])
                             self._leafs = OrderedDict([
-                                ('ccms_received', YLeaf(YType.uint64, 'ccms-received')),
-                                ('ccms_wrong_level', YLeaf(YType.uint64, 'ccms-wrong-level')),
-                                ('ccms_invalid_maid', YLeaf(YType.uint64, 'ccms-invalid-maid')),
-                                ('ccms_invalid_interval', YLeaf(YType.uint64, 'ccms-invalid-interval')),
-                                ('ccms_invalid_source_mac_address', YLeaf(YType.uint64, 'ccms-invalid-source-mac-address')),
-                                ('ccms_our_mep_id', YLeaf(YType.uint64, 'ccms-our-mep-id')),
-                                ('ccms_rdi', YLeaf(YType.uint64, 'ccms-rdi')),
-                                ('ccms_out_of_sequence', YLeaf(YType.uint64, 'ccms-out-of-sequence')),
-                                ('last_ccm_sequence_number', YLeaf(YType.uint32, 'last-ccm-sequence-number')),
+                                ('ccms_received', (YLeaf(YType.uint64, 'ccms-received'), ['int'])),
+                                ('ccms_wrong_level', (YLeaf(YType.uint64, 'ccms-wrong-level'), ['int'])),
+                                ('ccms_invalid_maid', (YLeaf(YType.uint64, 'ccms-invalid-maid'), ['int'])),
+                                ('ccms_invalid_interval', (YLeaf(YType.uint64, 'ccms-invalid-interval'), ['int'])),
+                                ('ccms_invalid_source_mac_address', (YLeaf(YType.uint64, 'ccms-invalid-source-mac-address'), ['int'])),
+                                ('ccms_our_mep_id', (YLeaf(YType.uint64, 'ccms-our-mep-id'), ['int'])),
+                                ('ccms_rdi', (YLeaf(YType.uint64, 'ccms-rdi'), ['int'])),
+                                ('ccms_out_of_sequence', (YLeaf(YType.uint64, 'ccms-out-of-sequence'), ['int'])),
+                                ('last_ccm_sequence_number', (YLeaf(YType.uint32, 'last-ccm-sequence-number'), ['int'])),
                             ])
                             self.ccms_received = None
                             self.ccms_wrong_level = None
@@ -9803,6 +9923,7 @@ class Cfm(Entity):
                             self.last_ccm_received_time.parent = self
                             self._children_name_map["last_ccm_received_time"] = "last-ccm-received-time"
                             self._segment_path = lambda: "statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics, ['ccms_received', 'ccms_wrong_level', 'ccms_invalid_maid', 'ccms_invalid_interval', 'ccms_invalid_source_mac_address', 'ccms_our_mep_id', 'ccms_rdi', 'ccms_out_of_sequence', 'last_ccm_sequence_number'], name, value)
@@ -9847,12 +9968,13 @@ class Cfm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('seconds', YLeaf(YType.uint32, 'seconds')),
-                                    ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                                    ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
+                                    ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                                 ])
                                 self.seconds = None
                                 self.nanoseconds = None
                                 self._segment_path = lambda: "last-ccm-received-time"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Cfm.Global.PeerMePv2s.PeerMePv2.PeerMep.Statistics.LastCcmReceivedTime, ['seconds', 'nanoseconds'], name, value)

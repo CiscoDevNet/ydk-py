@@ -22,9 +22,14 @@ module Cisco-IOS-XE-nat-oper {
   description
     "This module contains a collection of YANG definitions
      for NAT operational data.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-03-17 {
+    description
+      "The second generally available version";
+    reference "2.0.0";
+  }
   revision 2017-11-01 {
     description
       "Initial revision";
@@ -215,6 +220,11 @@ module Cisco-IOS-XE-nat-oper {
       type uint8;
       description
         "Application type";
+    }
+    leaf vrf-name {
+      type string;
+      description
+        "Virtual Routing and Forwarding name";
     }
   }
 

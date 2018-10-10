@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ENTITYSTATEMIB(Entity):
     """
     
@@ -48,6 +49,7 @@ class ENTITYSTATEMIB(Entity):
         self.entstatetable.parent = self
         self._children_name_map["entstatetable"] = "entStateTable"
         self._segment_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ENTITYSTATEMIB, [], name, value)
@@ -88,6 +90,7 @@ class ENTITYSTATEMIB(Entity):
             self.entstateentry = YList(self)
             self._segment_path = lambda: "entStateTable"
             self._absolute_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYSTATEMIB.EntStateTable, [], name, value)
@@ -153,13 +156,13 @@ class ENTITYSTATEMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entstatelastchanged', YLeaf(YType.str, 'entStateLastChanged')),
-                    ('entstateadmin', YLeaf(YType.enumeration, 'entStateAdmin')),
-                    ('entstateoper', YLeaf(YType.enumeration, 'entStateOper')),
-                    ('entstateusage', YLeaf(YType.enumeration, 'entStateUsage')),
-                    ('entstatealarm', YLeaf(YType.bits, 'entStateAlarm')),
-                    ('entstatestandby', YLeaf(YType.enumeration, 'entStateStandby')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entstatelastchanged', (YLeaf(YType.str, 'entStateLastChanged'), ['str'])),
+                    ('entstateadmin', (YLeaf(YType.enumeration, 'entStateAdmin'), [('ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB', 'EntityAdminState', '')])),
+                    ('entstateoper', (YLeaf(YType.enumeration, 'entStateOper'), [('ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB', 'EntityOperState', '')])),
+                    ('entstateusage', (YLeaf(YType.enumeration, 'entStateUsage'), [('ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB', 'EntityUsageState', '')])),
+                    ('entstatealarm', (YLeaf(YType.bits, 'entStateAlarm'), ['Bits'])),
+                    ('entstatestandby', (YLeaf(YType.enumeration, 'entStateStandby'), [('ydk.models.cisco_ios_xe.ENTITY_STATE_TC_MIB', 'EntityStandbyStatus', '')])),
                 ])
                 self.entphysicalindex = None
                 self.entstatelastchanged = None
@@ -170,6 +173,7 @@ class ENTITYSTATEMIB(Entity):
                 self.entstatestandby = None
                 self._segment_path = lambda: "entStateEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-STATE-MIB:ENTITY-STATE-MIB/entStateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYSTATEMIB.EntStateTable.EntStateEntry, ['entphysicalindex', 'entstatelastchanged', 'entstateadmin', 'entstateoper', 'entstateusage', 'entstatealarm', 'entstatestandby'], name, value)

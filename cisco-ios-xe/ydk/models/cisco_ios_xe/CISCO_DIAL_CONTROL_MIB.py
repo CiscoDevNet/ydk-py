@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCODIALCONTROLMIB(Entity):
     """
     
@@ -63,6 +64,7 @@ class CISCODIALCONTROLMIB(Entity):
         self.ccallhistoryiectable.parent = self
         self._children_name_map["ccallhistoryiectable"] = "cCallHistoryIecTable"
         self._segment_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCODIALCONTROLMIB, [], name, value)
@@ -94,14 +96,15 @@ class CISCODIALCONTROLMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpeersearchtype', YLeaf(YType.enumeration, 'cPeerSearchType')),
+                ('cpeersearchtype', (YLeaf(YType.enumeration, 'cPeerSearchType'), [('ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB', 'CISCODIALCONTROLMIB', 'CPeerGlobalConfiguration.CPeerSearchType')])),
             ])
             self.cpeersearchtype = None
             self._segment_path = lambda: "cPeerGlobalConfiguration"
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, ['cpeersearchtype'], name, value)
+            self._perform_setattr(CISCODIALCONTROLMIB.CPeerGlobalConfiguration, [u'cpeersearchtype'], name, value)
 
         class CPeerSearchType(Enum):
             """
@@ -172,6 +175,7 @@ class CISCODIALCONTROLMIB(Entity):
             self.ccallhistoryentry = YList(self)
             self._segment_path = lambda: "cCallHistoryTable"
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable, [], name, value)
@@ -326,26 +330,26 @@ class CISCODIALCONTROLMIB(Entity):
                 self.ylist_key_names = ['ccallhistoryindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccallhistoryindex', YLeaf(YType.uint32, 'cCallHistoryIndex')),
-                    ('ccallhistorysetuptime', YLeaf(YType.uint32, 'cCallHistorySetupTime')),
-                    ('ccallhistorypeeraddress', YLeaf(YType.str, 'cCallHistoryPeerAddress')),
-                    ('ccallhistorypeersubaddress', YLeaf(YType.str, 'cCallHistoryPeerSubAddress')),
-                    ('ccallhistorypeerid', YLeaf(YType.int32, 'cCallHistoryPeerId')),
-                    ('ccallhistorypeerifindex', YLeaf(YType.int32, 'cCallHistoryPeerIfIndex')),
-                    ('ccallhistorylogicalifindex', YLeaf(YType.int32, 'cCallHistoryLogicalIfIndex')),
-                    ('ccallhistorydisconnectcause', YLeaf(YType.str, 'cCallHistoryDisconnectCause')),
-                    ('ccallhistorydisconnecttext', YLeaf(YType.str, 'cCallHistoryDisconnectText')),
-                    ('ccallhistoryconnecttime', YLeaf(YType.uint32, 'cCallHistoryConnectTime')),
-                    ('ccallhistorydisconnecttime', YLeaf(YType.uint32, 'cCallHistoryDisconnectTime')),
-                    ('ccallhistorycallorigin', YLeaf(YType.enumeration, 'cCallHistoryCallOrigin')),
-                    ('ccallhistorychargedunits', YLeaf(YType.uint32, 'cCallHistoryChargedUnits')),
-                    ('ccallhistoryinfotype', YLeaf(YType.enumeration, 'cCallHistoryInfoType')),
-                    ('ccallhistorytransmitpackets', YLeaf(YType.uint32, 'cCallHistoryTransmitPackets')),
-                    ('ccallhistorytransmitbytes', YLeaf(YType.uint32, 'cCallHistoryTransmitBytes')),
-                    ('ccallhistoryreceivepackets', YLeaf(YType.uint32, 'cCallHistoryReceivePackets')),
-                    ('ccallhistoryreceivebytes', YLeaf(YType.uint32, 'cCallHistoryReceiveBytes')),
-                    ('ccallhistoryreleasesource', YLeaf(YType.enumeration, 'cCallHistoryReleaseSource')),
-                    ('ccallhistoryreleasesrc', YLeaf(YType.enumeration, 'cCallHistoryReleaseSrc')),
+                    ('ccallhistoryindex', (YLeaf(YType.uint32, 'cCallHistoryIndex'), ['int'])),
+                    ('ccallhistorysetuptime', (YLeaf(YType.uint32, 'cCallHistorySetupTime'), ['int'])),
+                    ('ccallhistorypeeraddress', (YLeaf(YType.str, 'cCallHistoryPeerAddress'), ['str'])),
+                    ('ccallhistorypeersubaddress', (YLeaf(YType.str, 'cCallHistoryPeerSubAddress'), ['str'])),
+                    ('ccallhistorypeerid', (YLeaf(YType.int32, 'cCallHistoryPeerId'), ['int'])),
+                    ('ccallhistorypeerifindex', (YLeaf(YType.int32, 'cCallHistoryPeerIfIndex'), ['int'])),
+                    ('ccallhistorylogicalifindex', (YLeaf(YType.int32, 'cCallHistoryLogicalIfIndex'), ['int'])),
+                    ('ccallhistorydisconnectcause', (YLeaf(YType.str, 'cCallHistoryDisconnectCause'), ['str'])),
+                    ('ccallhistorydisconnecttext', (YLeaf(YType.str, 'cCallHistoryDisconnectText'), ['str'])),
+                    ('ccallhistoryconnecttime', (YLeaf(YType.uint32, 'cCallHistoryConnectTime'), ['int'])),
+                    ('ccallhistorydisconnecttime', (YLeaf(YType.uint32, 'cCallHistoryDisconnectTime'), ['int'])),
+                    ('ccallhistorycallorigin', (YLeaf(YType.enumeration, 'cCallHistoryCallOrigin'), [('ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB', 'CISCODIALCONTROLMIB', 'CCallHistoryTable.CCallHistoryEntry.CCallHistoryCallOrigin')])),
+                    ('ccallhistorychargedunits', (YLeaf(YType.uint32, 'cCallHistoryChargedUnits'), ['int'])),
+                    ('ccallhistoryinfotype', (YLeaf(YType.enumeration, 'cCallHistoryInfoType'), [('ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB', 'CISCODIALCONTROLMIB', 'CCallHistoryTable.CCallHistoryEntry.CCallHistoryInfoType')])),
+                    ('ccallhistorytransmitpackets', (YLeaf(YType.uint32, 'cCallHistoryTransmitPackets'), ['int'])),
+                    ('ccallhistorytransmitbytes', (YLeaf(YType.uint32, 'cCallHistoryTransmitBytes'), ['int'])),
+                    ('ccallhistoryreceivepackets', (YLeaf(YType.uint32, 'cCallHistoryReceivePackets'), ['int'])),
+                    ('ccallhistoryreceivebytes', (YLeaf(YType.uint32, 'cCallHistoryReceiveBytes'), ['int'])),
+                    ('ccallhistoryreleasesource', (YLeaf(YType.enumeration, 'cCallHistoryReleaseSource'), [('ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB', 'CISCODIALCONTROLMIB', 'CCallHistoryTable.CCallHistoryEntry.CCallHistoryReleaseSource')])),
+                    ('ccallhistoryreleasesrc', (YLeaf(YType.enumeration, 'cCallHistoryReleaseSrc'), [('ydk.models.cisco_ios_xe.CISCO_DIAL_CONTROL_MIB', 'CISCODIALCONTROLMIB', 'CCallHistoryTable.CCallHistoryEntry.CCallHistoryReleaseSrc')])),
                 ])
                 self.ccallhistoryindex = None
                 self.ccallhistorysetuptime = None
@@ -369,9 +373,10 @@ class CISCODIALCONTROLMIB(Entity):
                 self.ccallhistoryreleasesrc = None
                 self._segment_path = lambda: "cCallHistoryEntry" + "[cCallHistoryIndex='" + str(self.ccallhistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, ['ccallhistoryindex', 'ccallhistorysetuptime', 'ccallhistorypeeraddress', 'ccallhistorypeersubaddress', 'ccallhistorypeerid', 'ccallhistorypeerifindex', 'ccallhistorylogicalifindex', 'ccallhistorydisconnectcause', 'ccallhistorydisconnecttext', 'ccallhistoryconnecttime', 'ccallhistorydisconnecttime', 'ccallhistorycallorigin', 'ccallhistorychargedunits', 'ccallhistoryinfotype', 'ccallhistorytransmitpackets', 'ccallhistorytransmitbytes', 'ccallhistoryreceivepackets', 'ccallhistoryreceivebytes', 'ccallhistoryreleasesource', 'ccallhistoryreleasesrc'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryTable.CCallHistoryEntry, [u'ccallhistoryindex', u'ccallhistorysetuptime', u'ccallhistorypeeraddress', u'ccallhistorypeersubaddress', u'ccallhistorypeerid', u'ccallhistorypeerifindex', u'ccallhistorylogicalifindex', u'ccallhistorydisconnectcause', u'ccallhistorydisconnecttext', u'ccallhistoryconnecttime', u'ccallhistorydisconnecttime', u'ccallhistorycallorigin', u'ccallhistorychargedunits', u'ccallhistoryinfotype', u'ccallhistorytransmitpackets', u'ccallhistorytransmitbytes', u'ccallhistoryreceivepackets', u'ccallhistoryreceivebytes', u'ccallhistoryreleasesource', u'ccallhistoryreleasesrc'], name, value)
 
             class CCallHistoryCallOrigin(Enum):
                 """
@@ -645,6 +650,7 @@ class CISCODIALCONTROLMIB(Entity):
             self.ccallhistoryiecentry = YList(self)
             self._segment_path = lambda: "cCallHistoryIecTable"
             self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable, [], name, value)
@@ -692,18 +698,19 @@ class CISCODIALCONTROLMIB(Entity):
                 self.ylist_key_names = ['ccallhistoryindex','ccallhistoryiecindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccallhistoryindex', YLeaf(YType.str, 'cCallHistoryIndex')),
-                    ('ccallhistoryiecindex', YLeaf(YType.uint32, 'cCallHistoryIecIndex')),
-                    ('ccallhistoryiec', YLeaf(YType.str, 'cCallHistoryIec')),
+                    ('ccallhistoryindex', (YLeaf(YType.str, 'cCallHistoryIndex'), ['int'])),
+                    ('ccallhistoryiecindex', (YLeaf(YType.uint32, 'cCallHistoryIecIndex'), ['int'])),
+                    ('ccallhistoryiec', (YLeaf(YType.str, 'cCallHistoryIec'), ['str'])),
                 ])
                 self.ccallhistoryindex = None
                 self.ccallhistoryiecindex = None
                 self.ccallhistoryiec = None
                 self._segment_path = lambda: "cCallHistoryIecEntry" + "[cCallHistoryIndex='" + str(self.ccallhistoryindex) + "']" + "[cCallHistoryIecIndex='" + str(self.ccallhistoryiecindex) + "']"
                 self._absolute_path = lambda: "CISCO-DIAL-CONTROL-MIB:CISCO-DIAL-CONTROL-MIB/cCallHistoryIecTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, ['ccallhistoryindex', 'ccallhistoryiecindex', 'ccallhistoryiec'], name, value)
+                self._perform_setattr(CISCODIALCONTROLMIB.CCallHistoryIecTable.CCallHistoryIecEntry, [u'ccallhistoryindex', u'ccallhistoryiecindex', u'ccallhistoryiec'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCODIALCONTROLMIB()

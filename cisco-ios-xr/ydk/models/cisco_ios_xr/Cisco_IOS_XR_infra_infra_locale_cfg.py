@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   locale\: Define the geographical locale
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class LocaleCountry(Enum):
@@ -2332,12 +2333,13 @@ class Locale(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('country', YLeaf(YType.enumeration, 'country')),
-            ('language', YLeaf(YType.enumeration, 'language')),
+            ('country', (YLeaf(YType.enumeration, 'country'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleCountry', '')])),
+            ('language', (YLeaf(YType.enumeration, 'language'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_locale_cfg', 'LocaleLanguage', '')])),
         ])
         self.country = None
         self.language = None
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-locale-cfg:locale"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Locale, ['country', 'language'], name, value)

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   telemetry\-model\-driven\: Telemetry operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MdtDestStateEnum(Enum):
@@ -414,12 +415,17 @@ class TelemetryModelDriven(Entity):
     	Telemetry Sensor Groups
     	**type**\:  :py:class:`SensorGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.SensorGroups>`
     
+    .. attribute:: summary
+    
+    	Telemetry Summary info
+    	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper.TelemetryModelDriven.Summary>`
+    
     
 
     """
 
     _prefix = 'telemetry-model-driven-oper'
-    _revision = '2017-05-05'
+    _revision = '2017-09-27'
 
     def __init__(self):
         super(TelemetryModelDriven, self).__init__()
@@ -430,7 +436,7 @@ class TelemetryModelDriven(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("destinations", ("destinations", TelemetryModelDriven.Destinations)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups))])
+        self._child_classes = OrderedDict([("destinations", ("destinations", TelemetryModelDriven.Destinations)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups)), ("summary", ("summary", TelemetryModelDriven.Summary))])
         self._leafs = OrderedDict()
 
         self.destinations = TelemetryModelDriven.Destinations()
@@ -444,7 +450,12 @@ class TelemetryModelDriven(Entity):
         self.sensor_groups = TelemetryModelDriven.SensorGroups()
         self.sensor_groups.parent = self
         self._children_name_map["sensor_groups"] = "sensor-groups"
+
+        self.summary = TelemetryModelDriven.Summary()
+        self.summary.parent = self
+        self._children_name_map["summary"] = "summary"
         self._segment_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TelemetryModelDriven, [], name, value)
@@ -464,7 +475,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2017-05-05'
+        _revision = '2017-09-27'
 
         def __init__(self):
             super(TelemetryModelDriven.Destinations, self).__init__()
@@ -480,6 +491,7 @@ class TelemetryModelDriven(Entity):
             self.destination = YList(self)
             self._segment_path = lambda: "destinations"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.Destinations, [], name, value)
@@ -518,7 +530,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2017-05-05'
+            _revision = '2017-09-27'
 
             def __init__(self):
                 super(TelemetryModelDriven.Destinations.Destination, self).__init__()
@@ -530,9 +542,9 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['destination_id']
                 self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Destinations.Destination.Destination_))])
                 self._leafs = OrderedDict([
-                    ('destination_id', YLeaf(YType.str, 'destination-id')),
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('configured', YLeaf(YType.uint32, 'configured')),
+                    ('destination_id', (YLeaf(YType.str, 'destination-id'), ['str'])),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('configured', (YLeaf(YType.uint32, 'configured'), ['int'])),
                 ])
                 self.destination_id = None
                 self.id = None
@@ -541,6 +553,7 @@ class TelemetryModelDriven(Entity):
                 self.destination = YList(self)
                 self._segment_path = lambda: "destination" + "[destination-id='" + str(self.destination_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/destinations/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.Destinations.Destination, ['destination_id', u'id', u'configured'], name, value)
@@ -565,7 +578,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2017-05-05'
+                _revision = '2017-09-27'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Destinations.Destination.Destination_, self).__init__()
@@ -584,6 +597,7 @@ class TelemetryModelDriven(Entity):
 
                     self.collection_group = YList(self)
                     self._segment_path = lambda: "destination"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_, [], name, value)
@@ -703,7 +717,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, self).__init__()
@@ -715,22 +729,22 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress))])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.str, 'id')),
-                            ('sub_id_str', YLeaf(YType.str, 'sub-id-str')),
-                            ('dest_port', YLeaf(YType.uint16, 'dest-port')),
-                            ('encoding', YLeaf(YType.enumeration, 'encoding')),
-                            ('transport', YLeaf(YType.enumeration, 'transport')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('udp_mtu', YLeaf(YType.uint32, 'udp-mtu')),
-                            ('tls', YLeaf(YType.uint32, 'tls')),
-                            ('tls_host', YLeaf(YType.str, 'tls-host')),
-                            ('total_num_of_packets_sent', YLeaf(YType.uint64, 'total-num-of-packets-sent')),
-                            ('total_num_of_bytes_sent', YLeaf(YType.uint64, 'total-num-of-bytes-sent')),
-                            ('last_collection_time', YLeaf(YType.uint64, 'last-collection-time')),
-                            ('dscp', YLeaf(YType.uint32, 'dscp')),
-                            ('sub_id', YLeafList(YType.uint64, 'sub-id')),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                            ('sub_id_str', (YLeaf(YType.str, 'sub-id-str'), ['str'])),
+                            ('dest_port', (YLeaf(YType.uint16, 'dest-port'), ['int'])),
+                            ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtEncodingEnum', '')])),
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtTransportEnum', '')])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtDestStateEnum', '')])),
+                            ('udp_mtu', (YLeaf(YType.uint32, 'udp-mtu'), ['int'])),
+                            ('tls', (YLeaf(YType.uint32, 'tls'), ['int'])),
+                            ('tls_host', (YLeaf(YType.str, 'tls-host'), ['str'])),
+                            ('total_num_of_packets_sent', (YLeaf(YType.uint64, 'total-num-of-packets-sent'), ['int'])),
+                            ('total_num_of_bytes_sent', (YLeaf(YType.uint64, 'total-num-of-bytes-sent'), ['int'])),
+                            ('last_collection_time', (YLeaf(YType.uint64, 'last-collection-time'), ['int'])),
+                            ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                            ('sub_id', (YLeafList(YType.uint64, 'sub-id'), ['int'])),
                         ])
                         self.id = None
                         self.sub_id_str = None
@@ -753,6 +767,7 @@ class TelemetryModelDriven(Entity):
                         self.dest_ip_address.parent = self
                         self._children_name_map["dest_ip_address"] = "dest-ip-address"
                         self._segment_path = lambda: "destination"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
@@ -786,7 +801,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2017-05-05'
+                        _revision = '2017-09-27'
 
                         def __init__(self):
                             super(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, self).__init__()
@@ -798,14 +813,15 @@ class TelemetryModelDriven(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_type', YLeaf(YType.enumeration, 'ip-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('ip_type', (YLeaf(YType.enumeration, 'ip-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtIp', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                             ])
                             self.ip_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self._segment_path = lambda: "dest-ip-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.Destination_.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
@@ -926,6 +942,11 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: strict_timer
+                    
+                    	Set if strict timer is ON
+                    	**type**\: bool
+                    
                     .. attribute:: collection_path
                     
                     	Array of information for sensor paths within collection group
@@ -941,7 +962,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, self).__init__()
@@ -953,22 +974,23 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup))])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.uint64, 'id')),
-                            ('cadence', YLeaf(YType.uint32, 'cadence')),
-                            ('total_collections', YLeaf(YType.uint32, 'total-collections')),
-                            ('encoding', YLeaf(YType.enumeration, 'encoding')),
-                            ('last_collection_start_time', YLeaf(YType.uint64, 'last-collection-start-time')),
-                            ('last_collection_end_time', YLeaf(YType.uint64, 'last-collection-end-time')),
-                            ('max_collection_time', YLeaf(YType.uint32, 'max-collection-time')),
-                            ('min_collection_time', YLeaf(YType.uint32, 'min-collection-time')),
-                            ('min_total_time', YLeaf(YType.uint32, 'min-total-time')),
-                            ('max_total_time', YLeaf(YType.uint32, 'max-total-time')),
-                            ('avg_total_time', YLeaf(YType.uint32, 'avg-total-time')),
-                            ('total_other_errors', YLeaf(YType.uint32, 'total-other-errors')),
-                            ('total_on_data_instances', YLeaf(YType.uint32, 'total-on-data-instances')),
-                            ('total_not_ready', YLeaf(YType.uint32, 'total-not-ready')),
-                            ('total_send_errors', YLeaf(YType.uint32, 'total-send-errors')),
-                            ('total_send_drops', YLeaf(YType.uint32, 'total-send-drops')),
+                            ('id', (YLeaf(YType.uint64, 'id'), ['int'])),
+                            ('cadence', (YLeaf(YType.uint32, 'cadence'), ['int'])),
+                            ('total_collections', (YLeaf(YType.uint32, 'total-collections'), ['int'])),
+                            ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtEncodingEnum', '')])),
+                            ('last_collection_start_time', (YLeaf(YType.uint64, 'last-collection-start-time'), ['int'])),
+                            ('last_collection_end_time', (YLeaf(YType.uint64, 'last-collection-end-time'), ['int'])),
+                            ('max_collection_time', (YLeaf(YType.uint32, 'max-collection-time'), ['int'])),
+                            ('min_collection_time', (YLeaf(YType.uint32, 'min-collection-time'), ['int'])),
+                            ('min_total_time', (YLeaf(YType.uint32, 'min-total-time'), ['int'])),
+                            ('max_total_time', (YLeaf(YType.uint32, 'max-total-time'), ['int'])),
+                            ('avg_total_time', (YLeaf(YType.uint32, 'avg-total-time'), ['int'])),
+                            ('total_other_errors', (YLeaf(YType.uint32, 'total-other-errors'), ['int'])),
+                            ('total_on_data_instances', (YLeaf(YType.uint32, 'total-on-data-instances'), ['int'])),
+                            ('total_not_ready', (YLeaf(YType.uint32, 'total-not-ready'), ['int'])),
+                            ('total_send_errors', (YLeaf(YType.uint32, 'total-send-errors'), ['int'])),
+                            ('total_send_drops', (YLeaf(YType.uint32, 'total-send-drops'), ['int'])),
+                            ('strict_timer', (YLeaf(YType.boolean, 'strict-timer'), ['bool'])),
                         ])
                         self.id = None
                         self.cadence = None
@@ -986,13 +1008,15 @@ class TelemetryModelDriven(Entity):
                         self.total_not_ready = None
                         self.total_send_errors = None
                         self.total_send_drops = None
+                        self.strict_timer = None
 
                         self.collection_path = YList(self)
                         self.internal_collection_group = YList(self)
                         self._segment_path = lambda: "collection-group"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops'], name, value)
+                        self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops', u'strict_timer'], name, value)
 
 
                     class CollectionPath(Entity):
@@ -1020,7 +1044,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2017-05-05'
+                        _revision = '2017-09-27'
 
                         def __init__(self):
                             super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, self).__init__()
@@ -1032,14 +1056,15 @@ class TelemetryModelDriven(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path', YLeaf(YType.str, 'path')),
-                                ('state', YLeaf(YType.boolean, 'state')),
-                                ('status_str', YLeaf(YType.str, 'status-str')),
+                                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                ('state', (YLeaf(YType.boolean, 'state'), ['bool'])),
+                                ('status_str', (YLeaf(YType.str, 'status-str'), ['str'])),
                             ])
                             self.path = None
                             self.state = None
                             self.status_str = None
                             self._segment_path = lambda: "collection-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
@@ -1244,7 +1269,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2017-05-05'
+                        _revision = '2017-09-27'
 
                         def __init__(self):
                             super(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, self).__init__()
@@ -1256,33 +1281,33 @@ class TelemetryModelDriven(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path', YLeaf(YType.str, 'path')),
-                                ('cadence', YLeaf(YType.uint64, 'cadence')),
-                                ('total_get_count', YLeaf(YType.uint64, 'total-get-count')),
-                                ('total_list_count', YLeaf(YType.uint64, 'total-list-count')),
-                                ('total_datalist_count', YLeaf(YType.uint64, 'total-datalist-count')),
-                                ('total_finddata_count', YLeaf(YType.uint64, 'total-finddata-count')),
-                                ('total_get_bulk_count', YLeaf(YType.uint64, 'total-get-bulk-count')),
-                                ('total_item_count', YLeaf(YType.uint64, 'total-item-count')),
-                                ('total_get_errors', YLeaf(YType.uint64, 'total-get-errors')),
-                                ('total_list_errors', YLeaf(YType.uint64, 'total-list-errors')),
-                                ('total_datalist_errors', YLeaf(YType.uint64, 'total-datalist-errors')),
-                                ('total_finddata_errors', YLeaf(YType.uint64, 'total-finddata-errors')),
-                                ('total_get_bulk_errors', YLeaf(YType.uint64, 'total-get-bulk-errors')),
-                                ('total_encode_errors', YLeaf(YType.uint64, 'total-encode-errors')),
-                                ('total_encode_notready', YLeaf(YType.uint64, 'total-encode-notready')),
-                                ('total_send_errors', YLeaf(YType.uint64, 'total-send-errors')),
-                                ('total_send_drops', YLeaf(YType.uint64, 'total-send-drops')),
-                                ('total_sent_bytes', YLeaf(YType.uint64, 'total-sent-bytes')),
-                                ('total_send_packets', YLeaf(YType.uint64, 'total-send-packets')),
-                                ('total_send_bytes_dropped', YLeaf(YType.uint64, 'total-send-bytes-dropped')),
-                                ('total_collections', YLeaf(YType.uint64, 'total-collections')),
-                                ('total_collections_missed', YLeaf(YType.uint64, 'total-collections-missed')),
-                                ('max_collection_time', YLeaf(YType.uint64, 'max-collection-time')),
-                                ('min_collection_time', YLeaf(YType.uint64, 'min-collection-time')),
-                                ('avg_collection_time', YLeaf(YType.uint64, 'avg-collection-time')),
-                                ('collection_method', YLeaf(YType.uint64, 'collection-method')),
-                                ('status', YLeaf(YType.enumeration, 'status')),
+                                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                ('cadence', (YLeaf(YType.uint64, 'cadence'), ['int'])),
+                                ('total_get_count', (YLeaf(YType.uint64, 'total-get-count'), ['int'])),
+                                ('total_list_count', (YLeaf(YType.uint64, 'total-list-count'), ['int'])),
+                                ('total_datalist_count', (YLeaf(YType.uint64, 'total-datalist-count'), ['int'])),
+                                ('total_finddata_count', (YLeaf(YType.uint64, 'total-finddata-count'), ['int'])),
+                                ('total_get_bulk_count', (YLeaf(YType.uint64, 'total-get-bulk-count'), ['int'])),
+                                ('total_item_count', (YLeaf(YType.uint64, 'total-item-count'), ['int'])),
+                                ('total_get_errors', (YLeaf(YType.uint64, 'total-get-errors'), ['int'])),
+                                ('total_list_errors', (YLeaf(YType.uint64, 'total-list-errors'), ['int'])),
+                                ('total_datalist_errors', (YLeaf(YType.uint64, 'total-datalist-errors'), ['int'])),
+                                ('total_finddata_errors', (YLeaf(YType.uint64, 'total-finddata-errors'), ['int'])),
+                                ('total_get_bulk_errors', (YLeaf(YType.uint64, 'total-get-bulk-errors'), ['int'])),
+                                ('total_encode_errors', (YLeaf(YType.uint64, 'total-encode-errors'), ['int'])),
+                                ('total_encode_notready', (YLeaf(YType.uint64, 'total-encode-notready'), ['int'])),
+                                ('total_send_errors', (YLeaf(YType.uint64, 'total-send-errors'), ['int'])),
+                                ('total_send_drops', (YLeaf(YType.uint64, 'total-send-drops'), ['int'])),
+                                ('total_sent_bytes', (YLeaf(YType.uint64, 'total-sent-bytes'), ['int'])),
+                                ('total_send_packets', (YLeaf(YType.uint64, 'total-send-packets'), ['int'])),
+                                ('total_send_bytes_dropped', (YLeaf(YType.uint64, 'total-send-bytes-dropped'), ['int'])),
+                                ('total_collections', (YLeaf(YType.uint64, 'total-collections'), ['int'])),
+                                ('total_collections_missed', (YLeaf(YType.uint64, 'total-collections-missed'), ['int'])),
+                                ('max_collection_time', (YLeaf(YType.uint64, 'max-collection-time'), ['int'])),
+                                ('min_collection_time', (YLeaf(YType.uint64, 'min-collection-time'), ['int'])),
+                                ('avg_collection_time', (YLeaf(YType.uint64, 'avg-collection-time'), ['int'])),
+                                ('collection_method', (YLeaf(YType.uint64, 'collection-method'), ['int'])),
+                                ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtInternalPathStatus', '')])),
                             ])
                             self.path = None
                             self.cadence = None
@@ -1312,6 +1337,7 @@ class TelemetryModelDriven(Entity):
                             self.collection_method = None
                             self.status = None
                             self._segment_path = lambda: "internal-collection-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Destinations.Destination.Destination_.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
@@ -1331,7 +1357,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2017-05-05'
+        _revision = '2017-09-27'
 
         def __init__(self):
             super(TelemetryModelDriven.Subscriptions, self).__init__()
@@ -1347,6 +1373,7 @@ class TelemetryModelDriven(Entity):
             self.subscription = YList(self)
             self._segment_path = lambda: "subscriptions"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.Subscriptions, [], name, value)
@@ -1378,7 +1405,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2017-05-05'
+            _revision = '2017-09-27'
 
             def __init__(self):
                 super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
@@ -1390,7 +1417,7 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['subscription_id']
                 self._child_classes = OrderedDict([("subscription", ("subscription", TelemetryModelDriven.Subscriptions.Subscription.Subscription_)), ("collection-group", ("collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup))])
                 self._leafs = OrderedDict([
-                    ('subscription_id', YLeaf(YType.str, 'subscription-id')),
+                    ('subscription_id', (YLeaf(YType.str, 'subscription-id'), ['str'])),
                 ])
                 self.subscription_id = None
 
@@ -1401,6 +1428,7 @@ class TelemetryModelDriven(Entity):
                 self.collection_group = YList(self)
                 self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/subscriptions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription, ['subscription_id'], name, value)
@@ -1445,7 +1473,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2017-05-05'
+                _revision = '2017-09-27'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, self).__init__()
@@ -1457,9 +1485,9 @@ class TelemetryModelDriven(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-interface", ("source_interface", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface)), ("sensor-profile", ("sensor_profile", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile)), ("destination-grp", ("destination_grp", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('source_qos_marking', YLeaf(YType.enumeration, 'source-qos-marking')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtSubsStateEnum', '')])),
+                        ('source_qos_marking', (YLeaf(YType.enumeration, 'source-qos-marking'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtSourceQosMarking', '')])),
                     ])
                     self.id = None
                     self.state = None
@@ -1472,6 +1500,7 @@ class TelemetryModelDriven(Entity):
                     self.sensor_profile = YList(self)
                     self.destination_grp = YList(self)
                     self._segment_path = lambda: "subscription"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_, [u'id', u'state', u'source_qos_marking'], name, value)
@@ -1517,7 +1546,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, self).__init__()
@@ -1529,11 +1558,11 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('state', YLeaf(YType.boolean, 'state')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                            ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('state', (YLeaf(YType.boolean, 'state'), ['bool'])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                            ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
                         ])
                         self.interface_name = None
                         self.state = None
@@ -1541,6 +1570,7 @@ class TelemetryModelDriven(Entity):
                         self.ipv6_address = None
                         self.vrf_id = None
                         self._segment_path = lambda: "source-interface"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SourceInterface, [u'interface_name', u'state', u'ipv4_address', u'ipv6_address', u'vrf_id'], name, value)
@@ -1579,7 +1609,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, self).__init__()
@@ -1591,9 +1621,9 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sensor-group", ("sensor_group", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup))])
                         self._leafs = OrderedDict([
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
-                            ('heartbeat_interval', YLeaf(YType.uint32, 'heartbeat-interval')),
-                            ('suppress_redundant', YLeaf(YType.boolean, 'suppress-redundant')),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
+                            ('heartbeat_interval', (YLeaf(YType.uint32, 'heartbeat-interval'), ['int'])),
+                            ('suppress_redundant', (YLeaf(YType.boolean, 'suppress-redundant'), ['bool'])),
                         ])
                         self.sample_interval = None
                         self.heartbeat_interval = None
@@ -1603,6 +1633,7 @@ class TelemetryModelDriven(Entity):
                         self.sensor_group.parent = self
                         self._children_name_map["sensor_group"] = "sensor-group"
                         self._segment_path = lambda: "sensor-profile"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile, [u'sample_interval', u'heartbeat_interval', u'suppress_redundant'], name, value)
@@ -1634,7 +1665,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2017-05-05'
+                        _revision = '2017-09-27'
 
                         def __init__(self):
                             super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, self).__init__()
@@ -1646,14 +1677,15 @@ class TelemetryModelDriven(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath))])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.str, 'id')),
-                                ('configured', YLeaf(YType.uint32, 'configured')),
+                                ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                                ('configured', (YLeaf(YType.uint32, 'configured'), ['int'])),
                             ])
                             self.id = None
                             self.configured = None
 
                             self.sensor_path = YList(self)
                             self._segment_path = lambda: "sensor-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup, [u'id', u'configured'], name, value)
@@ -1684,7 +1716,7 @@ class TelemetryModelDriven(Entity):
                             """
 
                             _prefix = 'telemetry-model-driven-oper'
-                            _revision = '2017-05-05'
+                            _revision = '2017-09-27'
 
                             def __init__(self):
                                 super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, self).__init__()
@@ -1696,14 +1728,15 @@ class TelemetryModelDriven(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('path', YLeaf(YType.str, 'path')),
-                                    ('state', YLeaf(YType.boolean, 'state')),
-                                    ('status_str', YLeaf(YType.str, 'status-str')),
+                                    ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                    ('state', (YLeaf(YType.boolean, 'state'), ['bool'])),
+                                    ('status_str', (YLeaf(YType.str, 'status-str'), ['str'])),
                                 ])
                                 self.path = None
                                 self.state = None
                                 self.status_str = None
                                 self._segment_path = lambda: "sensor-path"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.SensorProfile.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
@@ -1735,7 +1768,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, self).__init__()
@@ -1747,14 +1780,15 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("destination", ("destination", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination))])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.str, 'id')),
-                            ('configured', YLeaf(YType.uint32, 'configured')),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                            ('configured', (YLeaf(YType.uint32, 'configured'), ['int'])),
                         ])
                         self.id = None
                         self.configured = None
 
                         self.destination = YList(self)
                         self._segment_path = lambda: "destination-grp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp, [u'id', u'configured'], name, value)
@@ -1874,7 +1908,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-oper'
-                        _revision = '2017-05-05'
+                        _revision = '2017-09-27'
 
                         def __init__(self):
                             super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, self).__init__()
@@ -1886,22 +1920,22 @@ class TelemetryModelDriven(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("dest-ip-address", ("dest_ip_address", TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress))])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.str, 'id')),
-                                ('sub_id_str', YLeaf(YType.str, 'sub-id-str')),
-                                ('dest_port', YLeaf(YType.uint16, 'dest-port')),
-                                ('encoding', YLeaf(YType.enumeration, 'encoding')),
-                                ('transport', YLeaf(YType.enumeration, 'transport')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
-                                ('udp_mtu', YLeaf(YType.uint32, 'udp-mtu')),
-                                ('tls', YLeaf(YType.uint32, 'tls')),
-                                ('tls_host', YLeaf(YType.str, 'tls-host')),
-                                ('total_num_of_packets_sent', YLeaf(YType.uint64, 'total-num-of-packets-sent')),
-                                ('total_num_of_bytes_sent', YLeaf(YType.uint64, 'total-num-of-bytes-sent')),
-                                ('last_collection_time', YLeaf(YType.uint64, 'last-collection-time')),
-                                ('dscp', YLeaf(YType.uint32, 'dscp')),
-                                ('sub_id', YLeafList(YType.uint64, 'sub-id')),
+                                ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                                ('sub_id_str', (YLeaf(YType.str, 'sub-id-str'), ['str'])),
+                                ('dest_port', (YLeaf(YType.uint16, 'dest-port'), ['int'])),
+                                ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtEncodingEnum', '')])),
+                                ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtTransportEnum', '')])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtDestStateEnum', '')])),
+                                ('udp_mtu', (YLeaf(YType.uint32, 'udp-mtu'), ['int'])),
+                                ('tls', (YLeaf(YType.uint32, 'tls'), ['int'])),
+                                ('tls_host', (YLeaf(YType.str, 'tls-host'), ['str'])),
+                                ('total_num_of_packets_sent', (YLeaf(YType.uint64, 'total-num-of-packets-sent'), ['int'])),
+                                ('total_num_of_bytes_sent', (YLeaf(YType.uint64, 'total-num-of-bytes-sent'), ['int'])),
+                                ('last_collection_time', (YLeaf(YType.uint64, 'last-collection-time'), ['int'])),
+                                ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                                ('sub_id', (YLeafList(YType.uint64, 'sub-id'), ['int'])),
                             ])
                             self.id = None
                             self.sub_id_str = None
@@ -1924,6 +1958,7 @@ class TelemetryModelDriven(Entity):
                             self.dest_ip_address.parent = self
                             self._children_name_map["dest_ip_address"] = "dest-ip-address"
                             self._segment_path = lambda: "destination"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination, [u'id', u'sub_id_str', u'dest_port', u'encoding', u'transport', u'vrf', u'vrf_id', u'state', u'udp_mtu', u'tls', u'tls_host', u'total_num_of_packets_sent', u'total_num_of_bytes_sent', u'last_collection_time', u'dscp', u'sub_id'], name, value)
@@ -1957,7 +1992,7 @@ class TelemetryModelDriven(Entity):
                             """
 
                             _prefix = 'telemetry-model-driven-oper'
-                            _revision = '2017-05-05'
+                            _revision = '2017-09-27'
 
                             def __init__(self):
                                 super(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, self).__init__()
@@ -1969,14 +2004,15 @@ class TelemetryModelDriven(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ip_type', YLeaf(YType.enumeration, 'ip-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                    ('ip_type', (YLeaf(YType.enumeration, 'ip-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtIp', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                 ])
                                 self.ip_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self._segment_path = lambda: "dest-ip-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.Subscription_.DestinationGrp.Destination.DestIpAddress, [u'ip_type', u'ipv4_address', u'ipv6_address'], name, value)
@@ -2097,6 +2133,11 @@ class TelemetryModelDriven(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: strict_timer
+                
+                	Set if strict timer is ON
+                	**type**\: bool
+                
                 .. attribute:: collection_path
                 
                 	Array of information for sensor paths within collection group
@@ -2112,7 +2153,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2017-05-05'
+                _revision = '2017-09-27'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, self).__init__()
@@ -2124,22 +2165,23 @@ class TelemetryModelDriven(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("collection-path", ("collection_path", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath)), ("internal-collection-group", ("internal_collection_group", TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.uint64, 'id')),
-                        ('cadence', YLeaf(YType.uint32, 'cadence')),
-                        ('total_collections', YLeaf(YType.uint32, 'total-collections')),
-                        ('encoding', YLeaf(YType.enumeration, 'encoding')),
-                        ('last_collection_start_time', YLeaf(YType.uint64, 'last-collection-start-time')),
-                        ('last_collection_end_time', YLeaf(YType.uint64, 'last-collection-end-time')),
-                        ('max_collection_time', YLeaf(YType.uint32, 'max-collection-time')),
-                        ('min_collection_time', YLeaf(YType.uint32, 'min-collection-time')),
-                        ('min_total_time', YLeaf(YType.uint32, 'min-total-time')),
-                        ('max_total_time', YLeaf(YType.uint32, 'max-total-time')),
-                        ('avg_total_time', YLeaf(YType.uint32, 'avg-total-time')),
-                        ('total_other_errors', YLeaf(YType.uint32, 'total-other-errors')),
-                        ('total_on_data_instances', YLeaf(YType.uint32, 'total-on-data-instances')),
-                        ('total_not_ready', YLeaf(YType.uint32, 'total-not-ready')),
-                        ('total_send_errors', YLeaf(YType.uint32, 'total-send-errors')),
-                        ('total_send_drops', YLeaf(YType.uint32, 'total-send-drops')),
+                        ('id', (YLeaf(YType.uint64, 'id'), ['int'])),
+                        ('cadence', (YLeaf(YType.uint32, 'cadence'), ['int'])),
+                        ('total_collections', (YLeaf(YType.uint32, 'total-collections'), ['int'])),
+                        ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtEncodingEnum', '')])),
+                        ('last_collection_start_time', (YLeaf(YType.uint64, 'last-collection-start-time'), ['int'])),
+                        ('last_collection_end_time', (YLeaf(YType.uint64, 'last-collection-end-time'), ['int'])),
+                        ('max_collection_time', (YLeaf(YType.uint32, 'max-collection-time'), ['int'])),
+                        ('min_collection_time', (YLeaf(YType.uint32, 'min-collection-time'), ['int'])),
+                        ('min_total_time', (YLeaf(YType.uint32, 'min-total-time'), ['int'])),
+                        ('max_total_time', (YLeaf(YType.uint32, 'max-total-time'), ['int'])),
+                        ('avg_total_time', (YLeaf(YType.uint32, 'avg-total-time'), ['int'])),
+                        ('total_other_errors', (YLeaf(YType.uint32, 'total-other-errors'), ['int'])),
+                        ('total_on_data_instances', (YLeaf(YType.uint32, 'total-on-data-instances'), ['int'])),
+                        ('total_not_ready', (YLeaf(YType.uint32, 'total-not-ready'), ['int'])),
+                        ('total_send_errors', (YLeaf(YType.uint32, 'total-send-errors'), ['int'])),
+                        ('total_send_drops', (YLeaf(YType.uint32, 'total-send-drops'), ['int'])),
+                        ('strict_timer', (YLeaf(YType.boolean, 'strict-timer'), ['bool'])),
                     ])
                     self.id = None
                     self.cadence = None
@@ -2157,13 +2199,15 @@ class TelemetryModelDriven(Entity):
                     self.total_not_ready = None
                     self.total_send_errors = None
                     self.total_send_drops = None
+                    self.strict_timer = None
 
                     self.collection_path = YList(self)
                     self.internal_collection_group = YList(self)
                     self._segment_path = lambda: "collection-group"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops'], name, value)
+                    self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup, [u'id', u'cadence', u'total_collections', u'encoding', u'last_collection_start_time', u'last_collection_end_time', u'max_collection_time', u'min_collection_time', u'min_total_time', u'max_total_time', u'avg_total_time', u'total_other_errors', u'total_on_data_instances', u'total_not_ready', u'total_send_errors', u'total_send_drops', u'strict_timer'], name, value)
 
 
                 class CollectionPath(Entity):
@@ -2191,7 +2235,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, self).__init__()
@@ -2203,14 +2247,15 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('path', YLeaf(YType.str, 'path')),
-                            ('state', YLeaf(YType.boolean, 'state')),
-                            ('status_str', YLeaf(YType.str, 'status-str')),
+                            ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                            ('state', (YLeaf(YType.boolean, 'state'), ['bool'])),
+                            ('status_str', (YLeaf(YType.str, 'status-str'), ['str'])),
                         ])
                         self.path = None
                         self.state = None
                         self.status_str = None
                         self._segment_path = lambda: "collection-path"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.CollectionPath, [u'path', u'state', u'status_str'], name, value)
@@ -2415,7 +2460,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-oper'
-                    _revision = '2017-05-05'
+                    _revision = '2017-09-27'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, self).__init__()
@@ -2427,33 +2472,33 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('path', YLeaf(YType.str, 'path')),
-                            ('cadence', YLeaf(YType.uint64, 'cadence')),
-                            ('total_get_count', YLeaf(YType.uint64, 'total-get-count')),
-                            ('total_list_count', YLeaf(YType.uint64, 'total-list-count')),
-                            ('total_datalist_count', YLeaf(YType.uint64, 'total-datalist-count')),
-                            ('total_finddata_count', YLeaf(YType.uint64, 'total-finddata-count')),
-                            ('total_get_bulk_count', YLeaf(YType.uint64, 'total-get-bulk-count')),
-                            ('total_item_count', YLeaf(YType.uint64, 'total-item-count')),
-                            ('total_get_errors', YLeaf(YType.uint64, 'total-get-errors')),
-                            ('total_list_errors', YLeaf(YType.uint64, 'total-list-errors')),
-                            ('total_datalist_errors', YLeaf(YType.uint64, 'total-datalist-errors')),
-                            ('total_finddata_errors', YLeaf(YType.uint64, 'total-finddata-errors')),
-                            ('total_get_bulk_errors', YLeaf(YType.uint64, 'total-get-bulk-errors')),
-                            ('total_encode_errors', YLeaf(YType.uint64, 'total-encode-errors')),
-                            ('total_encode_notready', YLeaf(YType.uint64, 'total-encode-notready')),
-                            ('total_send_errors', YLeaf(YType.uint64, 'total-send-errors')),
-                            ('total_send_drops', YLeaf(YType.uint64, 'total-send-drops')),
-                            ('total_sent_bytes', YLeaf(YType.uint64, 'total-sent-bytes')),
-                            ('total_send_packets', YLeaf(YType.uint64, 'total-send-packets')),
-                            ('total_send_bytes_dropped', YLeaf(YType.uint64, 'total-send-bytes-dropped')),
-                            ('total_collections', YLeaf(YType.uint64, 'total-collections')),
-                            ('total_collections_missed', YLeaf(YType.uint64, 'total-collections-missed')),
-                            ('max_collection_time', YLeaf(YType.uint64, 'max-collection-time')),
-                            ('min_collection_time', YLeaf(YType.uint64, 'min-collection-time')),
-                            ('avg_collection_time', YLeaf(YType.uint64, 'avg-collection-time')),
-                            ('collection_method', YLeaf(YType.uint64, 'collection-method')),
-                            ('status', YLeaf(YType.enumeration, 'status')),
+                            ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                            ('cadence', (YLeaf(YType.uint64, 'cadence'), ['int'])),
+                            ('total_get_count', (YLeaf(YType.uint64, 'total-get-count'), ['int'])),
+                            ('total_list_count', (YLeaf(YType.uint64, 'total-list-count'), ['int'])),
+                            ('total_datalist_count', (YLeaf(YType.uint64, 'total-datalist-count'), ['int'])),
+                            ('total_finddata_count', (YLeaf(YType.uint64, 'total-finddata-count'), ['int'])),
+                            ('total_get_bulk_count', (YLeaf(YType.uint64, 'total-get-bulk-count'), ['int'])),
+                            ('total_item_count', (YLeaf(YType.uint64, 'total-item-count'), ['int'])),
+                            ('total_get_errors', (YLeaf(YType.uint64, 'total-get-errors'), ['int'])),
+                            ('total_list_errors', (YLeaf(YType.uint64, 'total-list-errors'), ['int'])),
+                            ('total_datalist_errors', (YLeaf(YType.uint64, 'total-datalist-errors'), ['int'])),
+                            ('total_finddata_errors', (YLeaf(YType.uint64, 'total-finddata-errors'), ['int'])),
+                            ('total_get_bulk_errors', (YLeaf(YType.uint64, 'total-get-bulk-errors'), ['int'])),
+                            ('total_encode_errors', (YLeaf(YType.uint64, 'total-encode-errors'), ['int'])),
+                            ('total_encode_notready', (YLeaf(YType.uint64, 'total-encode-notready'), ['int'])),
+                            ('total_send_errors', (YLeaf(YType.uint64, 'total-send-errors'), ['int'])),
+                            ('total_send_drops', (YLeaf(YType.uint64, 'total-send-drops'), ['int'])),
+                            ('total_sent_bytes', (YLeaf(YType.uint64, 'total-sent-bytes'), ['int'])),
+                            ('total_send_packets', (YLeaf(YType.uint64, 'total-send-packets'), ['int'])),
+                            ('total_send_bytes_dropped', (YLeaf(YType.uint64, 'total-send-bytes-dropped'), ['int'])),
+                            ('total_collections', (YLeaf(YType.uint64, 'total-collections'), ['int'])),
+                            ('total_collections_missed', (YLeaf(YType.uint64, 'total-collections-missed'), ['int'])),
+                            ('max_collection_time', (YLeaf(YType.uint64, 'max-collection-time'), ['int'])),
+                            ('min_collection_time', (YLeaf(YType.uint64, 'min-collection-time'), ['int'])),
+                            ('avg_collection_time', (YLeaf(YType.uint64, 'avg-collection-time'), ['int'])),
+                            ('collection_method', (YLeaf(YType.uint64, 'collection-method'), ['int'])),
+                            ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_oper', 'MdtInternalPathStatus', '')])),
                         ])
                         self.path = None
                         self.cadence = None
@@ -2483,6 +2528,7 @@ class TelemetryModelDriven(Entity):
                         self.collection_method = None
                         self.status = None
                         self._segment_path = lambda: "internal-collection-group"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.CollectionGroup.InternalCollectionGroup, [u'path', u'cadence', u'total_get_count', u'total_list_count', u'total_datalist_count', u'total_finddata_count', u'total_get_bulk_count', u'total_item_count', u'total_get_errors', u'total_list_errors', u'total_datalist_errors', u'total_finddata_errors', u'total_get_bulk_errors', u'total_encode_errors', u'total_encode_notready', u'total_send_errors', u'total_send_drops', u'total_sent_bytes', u'total_send_packets', u'total_send_bytes_dropped', u'total_collections', u'total_collections_missed', u'max_collection_time', u'min_collection_time', u'avg_collection_time', u'collection_method', u'status'], name, value)
@@ -2502,7 +2548,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-oper'
-        _revision = '2017-05-05'
+        _revision = '2017-09-27'
 
         def __init__(self):
             super(TelemetryModelDriven.SensorGroups, self).__init__()
@@ -2518,6 +2564,7 @@ class TelemetryModelDriven(Entity):
             self.sensor_group = YList(self)
             self._segment_path = lambda: "sensor-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.SensorGroups, [], name, value)
@@ -2556,7 +2603,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-oper'
-            _revision = '2017-05-05'
+            _revision = '2017-09-27'
 
             def __init__(self):
                 super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
@@ -2568,9 +2615,9 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['sensor_group_id']
                 self._child_classes = OrderedDict([("sensor-path", ("sensor_path", TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath))])
                 self._leafs = OrderedDict([
-                    ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('configured', YLeaf(YType.uint32, 'configured')),
+                    ('sensor_group_id', (YLeaf(YType.str, 'sensor-group-id'), ['str'])),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('configured', (YLeaf(YType.uint32, 'configured'), ['int'])),
                 ])
                 self.sensor_group_id = None
                 self.id = None
@@ -2579,6 +2626,7 @@ class TelemetryModelDriven(Entity):
                 self.sensor_path = YList(self)
                 self._segment_path = lambda: "sensor-group" + "[sensor-group-id='" + str(self.sensor_group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/sensor-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_id', u'id', u'configured'], name, value)
@@ -2609,7 +2657,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-oper'
-                _revision = '2017-05-05'
+                _revision = '2017-09-27'
 
                 def __init__(self):
                     super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, self).__init__()
@@ -2621,17 +2669,228 @@ class TelemetryModelDriven(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('path', YLeaf(YType.str, 'path')),
-                        ('state', YLeaf(YType.boolean, 'state')),
-                        ('status_str', YLeaf(YType.str, 'status-str')),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                        ('state', (YLeaf(YType.boolean, 'state'), ['bool'])),
+                        ('status_str', (YLeaf(YType.str, 'status-str'), ['str'])),
                     ])
                     self.path = None
                     self.state = None
                     self.status_str = None
                     self._segment_path = lambda: "sensor-path"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPath, [u'path', u'state', u'status_str'], name, value)
+
+
+    class Summary(Entity):
+        """
+        Telemetry Summary info
+        
+        .. attribute:: num_of_subscriptions
+        
+        	Number of Subscriptions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_active_subscriptions
+        
+        	Number of Active Subscriptions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_paused_subscriptions
+        
+        	Number of Paused Subscriptions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_destination_groups
+        
+        	Number of Destination Groups
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_destinations
+        
+        	Number of Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_tcp_dialouts
+        
+        	Number of Tcp Dialout Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_udp_dialouts
+        
+        	Number of Udp Dialout Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_grpc_tls_dialouts
+        
+        	Number of GRPC TLS Dialout Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_grpc_non_tls_dialouts
+        
+        	Number of GRPC Non\-TLS Dialout Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_dialins
+        
+        	Number of Dialin Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_active_destinations
+        
+        	Number of Active Destinations
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_connected_sessions
+        
+        	Number of Connected Sessions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_connecting_sessions
+        
+        	Number of Connecting Sessions
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_sensor_groups
+        
+        	Number of Sensor Groups
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_unique_sensor_paths
+        
+        	Number of Unique Sensor Paths
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_sensor_paths
+        
+        	Number of Sensor Paths
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_not_resolved_sensor_paths
+        
+        	Number of not resolved sensor paths
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: num_of_active_sensor_paths
+        
+        	Number of Active Sensor Paths
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: max_sensor_paths
+        
+        	Maximum Sensor Paths allowed
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: max_containers_per_path
+        
+        	Max containers allowed per Sensor Path
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        
+
+        """
+
+        _prefix = 'telemetry-model-driven-oper'
+        _revision = '2017-09-27'
+
+        def __init__(self):
+            super(TelemetryModelDriven.Summary, self).__init__()
+
+            self.yang_name = "summary"
+            self.yang_parent_name = "telemetry-model-driven"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('num_of_subscriptions', (YLeaf(YType.uint32, 'num-of-subscriptions'), ['int'])),
+                ('num_of_active_subscriptions', (YLeaf(YType.uint32, 'num-of-active-subscriptions'), ['int'])),
+                ('num_of_paused_subscriptions', (YLeaf(YType.uint32, 'num-of-paused-subscriptions'), ['int'])),
+                ('num_of_destination_groups', (YLeaf(YType.uint32, 'num-of-destination-groups'), ['int'])),
+                ('num_of_destinations', (YLeaf(YType.uint32, 'num-of-destinations'), ['int'])),
+                ('num_of_tcp_dialouts', (YLeaf(YType.uint32, 'num-of-tcp-dialouts'), ['int'])),
+                ('num_of_udp_dialouts', (YLeaf(YType.uint32, 'num-of-udp-dialouts'), ['int'])),
+                ('num_of_grpc_tls_dialouts', (YLeaf(YType.uint32, 'num-of-grpc-tls-dialouts'), ['int'])),
+                ('num_of_grpc_non_tls_dialouts', (YLeaf(YType.uint32, 'num-of-grpc-non-tls-dialouts'), ['int'])),
+                ('num_of_dialins', (YLeaf(YType.uint32, 'num-of-dialins'), ['int'])),
+                ('num_of_active_destinations', (YLeaf(YType.uint32, 'num-of-active-destinations'), ['int'])),
+                ('num_of_connected_sessions', (YLeaf(YType.uint32, 'num-of-connected-sessions'), ['int'])),
+                ('num_of_connecting_sessions', (YLeaf(YType.uint32, 'num-of-connecting-sessions'), ['int'])),
+                ('num_of_sensor_groups', (YLeaf(YType.uint32, 'num-of-sensor-groups'), ['int'])),
+                ('num_of_unique_sensor_paths', (YLeaf(YType.uint32, 'num-of-unique-sensor-paths'), ['int'])),
+                ('num_of_sensor_paths', (YLeaf(YType.uint32, 'num-of-sensor-paths'), ['int'])),
+                ('num_of_not_resolved_sensor_paths', (YLeaf(YType.uint32, 'num-of-not-resolved-sensor-paths'), ['int'])),
+                ('num_of_active_sensor_paths', (YLeaf(YType.uint32, 'num-of-active-sensor-paths'), ['int'])),
+                ('max_sensor_paths', (YLeaf(YType.uint32, 'max-sensor-paths'), ['int'])),
+                ('max_containers_per_path', (YLeaf(YType.uint32, 'max-containers-per-path'), ['int'])),
+            ])
+            self.num_of_subscriptions = None
+            self.num_of_active_subscriptions = None
+            self.num_of_paused_subscriptions = None
+            self.num_of_destination_groups = None
+            self.num_of_destinations = None
+            self.num_of_tcp_dialouts = None
+            self.num_of_udp_dialouts = None
+            self.num_of_grpc_tls_dialouts = None
+            self.num_of_grpc_non_tls_dialouts = None
+            self.num_of_dialins = None
+            self.num_of_active_destinations = None
+            self.num_of_connected_sessions = None
+            self.num_of_connecting_sessions = None
+            self.num_of_sensor_groups = None
+            self.num_of_unique_sensor_paths = None
+            self.num_of_sensor_paths = None
+            self.num_of_not_resolved_sensor_paths = None
+            self.num_of_active_sensor_paths = None
+            self.max_sensor_paths = None
+            self.max_containers_per_path = None
+            self._segment_path = lambda: "summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-oper:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TelemetryModelDriven.Summary, [u'num_of_subscriptions', u'num_of_active_subscriptions', u'num_of_paused_subscriptions', u'num_of_destination_groups', u'num_of_destinations', u'num_of_tcp_dialouts', u'num_of_udp_dialouts', u'num_of_grpc_tls_dialouts', u'num_of_grpc_non_tls_dialouts', u'num_of_dialins', u'num_of_active_destinations', u'num_of_connected_sessions', u'num_of_connecting_sessions', u'num_of_sensor_groups', u'num_of_unique_sensor_paths', u'num_of_sensor_paths', u'num_of_not_resolved_sensor_paths', u'num_of_active_sensor_paths', u'max_sensor_paths', u'max_containers_per_path'], name, value)
 
     def clone_ptr(self):
         self._top_entity = TelemetryModelDriven()

@@ -24,6 +24,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPTAPMIB(Entity):
     """
     
@@ -65,6 +66,7 @@ class CISCOIPTAPMIB(Entity):
         self.citapstreamtable.parent = self
         self._children_name_map["citapstreamtable"] = "citapStreamTable"
         self._segment_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPTAPMIB, [], name, value)
@@ -96,11 +98,12 @@ class CISCOIPTAPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('citapstreamcapabilities', YLeaf(YType.bits, 'citapStreamCapabilities')),
+                ('citapstreamcapabilities', (YLeaf(YType.bits, 'citapStreamCapabilities'), ['Bits'])),
             ])
             self.citapstreamcapabilities = Bits()
             self._segment_path = lambda: "citapStreamEncodePacket"
             self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPTAPMIB.CitapStreamEncodePacket, ['citapstreamcapabilities'], name, value)
@@ -166,6 +169,7 @@ class CISCOIPTAPMIB(Entity):
             self.citapstreamentry = YList(self)
             self._segment_path = lambda: "citapStreamTable"
             self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPTAPMIB.CitapStreamTable, [], name, value)
@@ -319,24 +323,24 @@ class CISCOIPTAPMIB(Entity):
                 self.ylist_key_names = ['ctap2mediationcontentid','ctap2streamindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
-                    ('ctap2streamindex', YLeaf(YType.str, 'cTap2StreamIndex')),
-                    ('citapstreaminterface', YLeaf(YType.int32, 'citapStreamInterface')),
-                    ('citapstreamaddrtype', YLeaf(YType.enumeration, 'citapStreamAddrType')),
-                    ('citapstreamdestinationaddress', YLeaf(YType.str, 'citapStreamDestinationAddress')),
-                    ('citapstreamdestinationlength', YLeaf(YType.uint32, 'citapStreamDestinationLength')),
-                    ('citapstreamsourceaddress', YLeaf(YType.str, 'citapStreamSourceAddress')),
-                    ('citapstreamsourcelength', YLeaf(YType.uint32, 'citapStreamSourceLength')),
-                    ('citapstreamtosbyte', YLeaf(YType.int32, 'citapStreamTosByte')),
-                    ('citapstreamtosbytemask', YLeaf(YType.int32, 'citapStreamTosByteMask')),
-                    ('citapstreamflowid', YLeaf(YType.int32, 'citapStreamFlowId')),
-                    ('citapstreamprotocol', YLeaf(YType.int32, 'citapStreamProtocol')),
-                    ('citapstreamdestl4portmin', YLeaf(YType.uint16, 'citapStreamDestL4PortMin')),
-                    ('citapstreamdestl4portmax', YLeaf(YType.uint16, 'citapStreamDestL4PortMax')),
-                    ('citapstreamsourcel4portmin', YLeaf(YType.uint16, 'citapStreamSourceL4PortMin')),
-                    ('citapstreamsourcel4portmax', YLeaf(YType.uint16, 'citapStreamSourceL4PortMax')),
-                    ('citapstreamvrf', YLeaf(YType.str, 'citapStreamVRF')),
-                    ('citapstreamstatus', YLeaf(YType.enumeration, 'citapStreamStatus')),
+                    ('ctap2mediationcontentid', (YLeaf(YType.str, 'cTap2MediationContentId'), ['int'])),
+                    ('ctap2streamindex', (YLeaf(YType.str, 'cTap2StreamIndex'), ['int'])),
+                    ('citapstreaminterface', (YLeaf(YType.int32, 'citapStreamInterface'), ['int'])),
+                    ('citapstreamaddrtype', (YLeaf(YType.enumeration, 'citapStreamAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('citapstreamdestinationaddress', (YLeaf(YType.str, 'citapStreamDestinationAddress'), ['str'])),
+                    ('citapstreamdestinationlength', (YLeaf(YType.uint32, 'citapStreamDestinationLength'), ['int'])),
+                    ('citapstreamsourceaddress', (YLeaf(YType.str, 'citapStreamSourceAddress'), ['str'])),
+                    ('citapstreamsourcelength', (YLeaf(YType.uint32, 'citapStreamSourceLength'), ['int'])),
+                    ('citapstreamtosbyte', (YLeaf(YType.int32, 'citapStreamTosByte'), ['int'])),
+                    ('citapstreamtosbytemask', (YLeaf(YType.int32, 'citapStreamTosByteMask'), ['int'])),
+                    ('citapstreamflowid', (YLeaf(YType.int32, 'citapStreamFlowId'), ['int'])),
+                    ('citapstreamprotocol', (YLeaf(YType.int32, 'citapStreamProtocol'), ['int'])),
+                    ('citapstreamdestl4portmin', (YLeaf(YType.uint16, 'citapStreamDestL4PortMin'), ['int'])),
+                    ('citapstreamdestl4portmax', (YLeaf(YType.uint16, 'citapStreamDestL4PortMax'), ['int'])),
+                    ('citapstreamsourcel4portmin', (YLeaf(YType.uint16, 'citapStreamSourceL4PortMin'), ['int'])),
+                    ('citapstreamsourcel4portmax', (YLeaf(YType.uint16, 'citapStreamSourceL4PortMax'), ['int'])),
+                    ('citapstreamvrf', (YLeaf(YType.str, 'citapStreamVRF'), ['str'])),
+                    ('citapstreamstatus', (YLeaf(YType.enumeration, 'citapStreamStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ctap2mediationcontentid = None
                 self.ctap2streamindex = None
@@ -358,6 +362,7 @@ class CISCOIPTAPMIB(Entity):
                 self.citapstreamstatus = None
                 self._segment_path = lambda: "citapStreamEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2StreamIndex='" + str(self.ctap2streamindex) + "']"
                 self._absolute_path = lambda: "CISCO-IP-TAP-MIB:CISCO-IP-TAP-MIB/citapStreamTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPTAPMIB.CitapStreamTable.CitapStreamEntry, ['ctap2mediationcontentid', 'ctap2streamindex', 'citapstreaminterface', 'citapstreamaddrtype', 'citapstreamdestinationaddress', 'citapstreamdestinationlength', 'citapstreamsourceaddress', 'citapstreamsourcelength', 'citapstreamtosbyte', 'citapstreamtosbytemask', 'citapstreamflowid', 'citapstreamprotocol', 'citapstreamdestl4portmin', 'citapstreamdestl4portmax', 'citapstreamsourcel4portmin', 'citapstreamsourcel4portmax', 'citapstreamvrf', 'citapstreamstatus'], name, value)

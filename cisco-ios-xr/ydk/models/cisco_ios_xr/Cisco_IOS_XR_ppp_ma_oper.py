@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ppp\: PPP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class NcpIdent(Enum):
@@ -355,6 +356,7 @@ class Ppp(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ma-oper:ppp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ppp, [], name, value)
@@ -390,6 +392,7 @@ class Ppp(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-oper:ppp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ppp.Nodes, [], name, value)
@@ -458,7 +461,7 @@ class Ppp(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("statistics", ("statistics", Ppp.Nodes.Node.Statistics)), ("node-interfaces", ("node_interfaces", Ppp.Nodes.Node.NodeInterfaces)), ("sso-alerts", ("sso_alerts", Ppp.Nodes.Node.SsoAlerts)), ("node-interface-statistics", ("node_interface_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics)), ("sso-summary", ("sso_summary", Ppp.Nodes.Node.SsoSummary)), ("sso-groups", ("sso_groups", Ppp.Nodes.Node.SsoGroups)), ("summary", ("summary", Ppp.Nodes.Node.Summary))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -491,6 +494,7 @@ class Ppp(Entity):
                 self._children_name_map["summary"] = "summary"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-oper:ppp/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ppp.Nodes.Node, ['node_name'], name, value)
@@ -543,6 +547,7 @@ class Ppp(Entity):
 
                     self.ncp_statistics_array = YList(self)
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.Statistics, [], name, value)
@@ -737,30 +742,30 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('conf_req_sent', YLeaf(YType.uint64, 'conf-req-sent')),
-                            ('conf_req_rcvd', YLeaf(YType.uint64, 'conf-req-rcvd')),
-                            ('conf_ack_sent', YLeaf(YType.uint64, 'conf-ack-sent')),
-                            ('conf_ack_rcvd', YLeaf(YType.uint64, 'conf-ack-rcvd')),
-                            ('conf_nak_sent', YLeaf(YType.uint64, 'conf-nak-sent')),
-                            ('conf_nak_rcvd', YLeaf(YType.uint64, 'conf-nak-rcvd')),
-                            ('conf_rej_sent', YLeaf(YType.uint64, 'conf-rej-sent')),
-                            ('conf_rej_rcvd', YLeaf(YType.uint64, 'conf-rej-rcvd')),
-                            ('term_req_sent', YLeaf(YType.uint64, 'term-req-sent')),
-                            ('term_req_rcvd', YLeaf(YType.uint64, 'term-req-rcvd')),
-                            ('term_ack_sent', YLeaf(YType.uint64, 'term-ack-sent')),
-                            ('term_ack_rcvd', YLeaf(YType.uint64, 'term-ack-rcvd')),
-                            ('code_rej_sent', YLeaf(YType.uint64, 'code-rej-sent')),
-                            ('code_rej_rcvd', YLeaf(YType.uint64, 'code-rej-rcvd')),
-                            ('proto_rej_sent', YLeaf(YType.uint64, 'proto-rej-sent')),
-                            ('proto_rej_rcvd', YLeaf(YType.uint64, 'proto-rej-rcvd')),
-                            ('echo_req_sent', YLeaf(YType.uint64, 'echo-req-sent')),
-                            ('echo_req_rcvd', YLeaf(YType.uint64, 'echo-req-rcvd')),
-                            ('echo_rep_sent', YLeaf(YType.uint64, 'echo-rep-sent')),
-                            ('echo_rep_rcvd', YLeaf(YType.uint64, 'echo-rep-rcvd')),
-                            ('disc_req_sent', YLeaf(YType.uint64, 'disc-req-sent')),
-                            ('disc_req_rcvd', YLeaf(YType.uint64, 'disc-req-rcvd')),
-                            ('link_up', YLeaf(YType.uint64, 'link-up')),
-                            ('link_error', YLeaf(YType.uint64, 'link-error')),
+                            ('conf_req_sent', (YLeaf(YType.uint64, 'conf-req-sent'), ['int'])),
+                            ('conf_req_rcvd', (YLeaf(YType.uint64, 'conf-req-rcvd'), ['int'])),
+                            ('conf_ack_sent', (YLeaf(YType.uint64, 'conf-ack-sent'), ['int'])),
+                            ('conf_ack_rcvd', (YLeaf(YType.uint64, 'conf-ack-rcvd'), ['int'])),
+                            ('conf_nak_sent', (YLeaf(YType.uint64, 'conf-nak-sent'), ['int'])),
+                            ('conf_nak_rcvd', (YLeaf(YType.uint64, 'conf-nak-rcvd'), ['int'])),
+                            ('conf_rej_sent', (YLeaf(YType.uint64, 'conf-rej-sent'), ['int'])),
+                            ('conf_rej_rcvd', (YLeaf(YType.uint64, 'conf-rej-rcvd'), ['int'])),
+                            ('term_req_sent', (YLeaf(YType.uint64, 'term-req-sent'), ['int'])),
+                            ('term_req_rcvd', (YLeaf(YType.uint64, 'term-req-rcvd'), ['int'])),
+                            ('term_ack_sent', (YLeaf(YType.uint64, 'term-ack-sent'), ['int'])),
+                            ('term_ack_rcvd', (YLeaf(YType.uint64, 'term-ack-rcvd'), ['int'])),
+                            ('code_rej_sent', (YLeaf(YType.uint64, 'code-rej-sent'), ['int'])),
+                            ('code_rej_rcvd', (YLeaf(YType.uint64, 'code-rej-rcvd'), ['int'])),
+                            ('proto_rej_sent', (YLeaf(YType.uint64, 'proto-rej-sent'), ['int'])),
+                            ('proto_rej_rcvd', (YLeaf(YType.uint64, 'proto-rej-rcvd'), ['int'])),
+                            ('echo_req_sent', (YLeaf(YType.uint64, 'echo-req-sent'), ['int'])),
+                            ('echo_req_rcvd', (YLeaf(YType.uint64, 'echo-req-rcvd'), ['int'])),
+                            ('echo_rep_sent', (YLeaf(YType.uint64, 'echo-rep-sent'), ['int'])),
+                            ('echo_rep_rcvd', (YLeaf(YType.uint64, 'echo-rep-rcvd'), ['int'])),
+                            ('disc_req_sent', (YLeaf(YType.uint64, 'disc-req-sent'), ['int'])),
+                            ('disc_req_rcvd', (YLeaf(YType.uint64, 'disc-req-rcvd'), ['int'])),
+                            ('link_up', (YLeaf(YType.uint64, 'link-up'), ['int'])),
+                            ('link_error', (YLeaf(YType.uint64, 'link-error'), ['int'])),
                         ])
                         self.conf_req_sent = None
                         self.conf_req_rcvd = None
@@ -787,6 +792,7 @@ class Ppp(Entity):
                         self.link_up = None
                         self.link_error = None
                         self._segment_path = lambda: "lcp-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'code_rej_sent', 'code_rej_rcvd', 'proto_rej_sent', 'proto_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
@@ -918,21 +924,21 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pap_req_sent', YLeaf(YType.uint64, 'pap-req-sent')),
-                            ('pap_req_rcvd', YLeaf(YType.uint64, 'pap-req-rcvd')),
-                            ('pap_ack_sent', YLeaf(YType.uint64, 'pap-ack-sent')),
-                            ('pap_ack_rcvd', YLeaf(YType.uint64, 'pap-ack-rcvd')),
-                            ('pap_nak_sent', YLeaf(YType.uint64, 'pap-nak-sent')),
-                            ('pap_nak_rcvd', YLeaf(YType.uint64, 'pap-nak-rcvd')),
-                            ('chap_chall_sent', YLeaf(YType.uint64, 'chap-chall-sent')),
-                            ('chap_chall_rcvd', YLeaf(YType.uint64, 'chap-chall-rcvd')),
-                            ('chap_resp_sent', YLeaf(YType.uint64, 'chap-resp-sent')),
-                            ('chap_resp_rcvd', YLeaf(YType.uint64, 'chap-resp-rcvd')),
-                            ('chap_rep_succ_sent', YLeaf(YType.uint64, 'chap-rep-succ-sent')),
-                            ('chap_rep_succ_rcvd', YLeaf(YType.uint64, 'chap-rep-succ-rcvd')),
-                            ('chap_rep_fail_sent', YLeaf(YType.uint64, 'chap-rep-fail-sent')),
-                            ('chap_rep_fail_rcvd', YLeaf(YType.uint64, 'chap-rep-fail-rcvd')),
-                            ('auth_timeout_count', YLeaf(YType.uint64, 'auth-timeout-count')),
+                            ('pap_req_sent', (YLeaf(YType.uint64, 'pap-req-sent'), ['int'])),
+                            ('pap_req_rcvd', (YLeaf(YType.uint64, 'pap-req-rcvd'), ['int'])),
+                            ('pap_ack_sent', (YLeaf(YType.uint64, 'pap-ack-sent'), ['int'])),
+                            ('pap_ack_rcvd', (YLeaf(YType.uint64, 'pap-ack-rcvd'), ['int'])),
+                            ('pap_nak_sent', (YLeaf(YType.uint64, 'pap-nak-sent'), ['int'])),
+                            ('pap_nak_rcvd', (YLeaf(YType.uint64, 'pap-nak-rcvd'), ['int'])),
+                            ('chap_chall_sent', (YLeaf(YType.uint64, 'chap-chall-sent'), ['int'])),
+                            ('chap_chall_rcvd', (YLeaf(YType.uint64, 'chap-chall-rcvd'), ['int'])),
+                            ('chap_resp_sent', (YLeaf(YType.uint64, 'chap-resp-sent'), ['int'])),
+                            ('chap_resp_rcvd', (YLeaf(YType.uint64, 'chap-resp-rcvd'), ['int'])),
+                            ('chap_rep_succ_sent', (YLeaf(YType.uint64, 'chap-rep-succ-sent'), ['int'])),
+                            ('chap_rep_succ_rcvd', (YLeaf(YType.uint64, 'chap-rep-succ-rcvd'), ['int'])),
+                            ('chap_rep_fail_sent', (YLeaf(YType.uint64, 'chap-rep-fail-sent'), ['int'])),
+                            ('chap_rep_fail_rcvd', (YLeaf(YType.uint64, 'chap-rep-fail-rcvd'), ['int'])),
+                            ('auth_timeout_count', (YLeaf(YType.uint64, 'auth-timeout-count'), ['int'])),
                         ])
                         self.pap_req_sent = None
                         self.pap_req_rcvd = None
@@ -950,6 +956,7 @@ class Ppp(Entity):
                         self.chap_rep_fail_rcvd = None
                         self.auth_timeout_count = None
                         self._segment_path = lambda: "authentication-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
@@ -1079,21 +1086,21 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
-                            ('conf_req_sent', YLeaf(YType.uint64, 'conf-req-sent')),
-                            ('conf_req_rcvd', YLeaf(YType.uint64, 'conf-req-rcvd')),
-                            ('conf_ack_sent', YLeaf(YType.uint64, 'conf-ack-sent')),
-                            ('conf_ack_rcvd', YLeaf(YType.uint64, 'conf-ack-rcvd')),
-                            ('conf_nak_sent', YLeaf(YType.uint64, 'conf-nak-sent')),
-                            ('conf_nak_rcvd', YLeaf(YType.uint64, 'conf-nak-rcvd')),
-                            ('conf_rej_sent', YLeaf(YType.uint64, 'conf-rej-sent')),
-                            ('conf_rej_rcvd', YLeaf(YType.uint64, 'conf-rej-rcvd')),
-                            ('term_req_sent', YLeaf(YType.uint64, 'term-req-sent')),
-                            ('term_req_rcvd', YLeaf(YType.uint64, 'term-req-rcvd')),
-                            ('term_ack_sent', YLeaf(YType.uint64, 'term-ack-sent')),
-                            ('term_ack_rcvd', YLeaf(YType.uint64, 'term-ack-rcvd')),
-                            ('proto_rej_sent', YLeaf(YType.uint64, 'proto-rej-sent')),
-                            ('proto_rej_rcvd', YLeaf(YType.uint64, 'proto-rej-rcvd')),
+                            ('ncp_identifier', (YLeaf(YType.enumeration, 'ncp-identifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'NcpIdent', '')])),
+                            ('conf_req_sent', (YLeaf(YType.uint64, 'conf-req-sent'), ['int'])),
+                            ('conf_req_rcvd', (YLeaf(YType.uint64, 'conf-req-rcvd'), ['int'])),
+                            ('conf_ack_sent', (YLeaf(YType.uint64, 'conf-ack-sent'), ['int'])),
+                            ('conf_ack_rcvd', (YLeaf(YType.uint64, 'conf-ack-rcvd'), ['int'])),
+                            ('conf_nak_sent', (YLeaf(YType.uint64, 'conf-nak-sent'), ['int'])),
+                            ('conf_nak_rcvd', (YLeaf(YType.uint64, 'conf-nak-rcvd'), ['int'])),
+                            ('conf_rej_sent', (YLeaf(YType.uint64, 'conf-rej-sent'), ['int'])),
+                            ('conf_rej_rcvd', (YLeaf(YType.uint64, 'conf-rej-rcvd'), ['int'])),
+                            ('term_req_sent', (YLeaf(YType.uint64, 'term-req-sent'), ['int'])),
+                            ('term_req_rcvd', (YLeaf(YType.uint64, 'term-req-rcvd'), ['int'])),
+                            ('term_ack_sent', (YLeaf(YType.uint64, 'term-ack-sent'), ['int'])),
+                            ('term_ack_rcvd', (YLeaf(YType.uint64, 'term-ack-rcvd'), ['int'])),
+                            ('proto_rej_sent', (YLeaf(YType.uint64, 'proto-rej-sent'), ['int'])),
+                            ('proto_rej_rcvd', (YLeaf(YType.uint64, 'proto-rej-rcvd'), ['int'])),
                         ])
                         self.ncp_identifier = None
                         self.conf_req_sent = None
@@ -1111,6 +1118,7 @@ class Ppp(Entity):
                         self.proto_rej_sent = None
                         self.proto_rej_rcvd = None
                         self._segment_path = lambda: "ncp-statistics-array"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Statistics.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'term_req_sent', 'term_req_rcvd', 'term_ack_sent', 'term_ack_rcvd', 'proto_rej_sent', 'proto_rej_rcvd'], name, value)
@@ -1145,6 +1153,7 @@ class Ppp(Entity):
 
                     self.node_interface = YList(self)
                     self._segment_path = lambda: "node-interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces, [], name, value)
@@ -1160,7 +1169,7 @@ class Ppp(Entity):
                     	Interface running PPP
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: mp_info
                     
@@ -1368,34 +1377,34 @@ class Ppp(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("mp-info", ("mp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo)), ("configured-timeout", ("configured_timeout", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout)), ("auth-info", ("auth_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo)), ("ncp-info-array", ("ncp_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('parent_state', YLeaf(YType.uint32, 'parent-state')),
-                            ('line_state', YLeaf(YType.uint32, 'line-state')),
-                            ('is_loopback_detected', YLeaf(YType.boolean, 'is-loopback-detected')),
-                            ('caps_idb_srg_role', YLeaf(YType.uint32, 'caps-idb-srg-role')),
-                            ('session_srg_role', YLeaf(YType.uint32, 'session-srg-role')),
-                            ('keepalive_period', YLeaf(YType.uint32, 'keepalive-period')),
-                            ('keepalive_retry_count', YLeaf(YType.uint32, 'keepalive-retry-count')),
-                            ('is_ssrp_configured', YLeaf(YType.boolean, 'is-ssrp-configured')),
-                            ('is_l2ac', YLeaf(YType.boolean, 'is-l2ac')),
-                            ('provisioned', YLeaf(YType.boolean, 'provisioned')),
-                            ('ip_interworking_enabled', YLeaf(YType.boolean, 'ip-interworking-enabled')),
-                            ('xconnect_id', YLeaf(YType.uint32, 'xconnect-id')),
-                            ('is_tunneled_session', YLeaf(YType.boolean, 'is-tunneled-session')),
-                            ('ssrp_peer_id', YLeaf(YType.str, 'ssrp-peer-id')),
-                            ('lcp_state', YLeaf(YType.enumeration, 'lcp-state')),
-                            ('lcpsso_state', YLeaf(YType.enumeration, 'lcpsso-state')),
-                            ('is_lcp_delayed', YLeaf(YType.boolean, 'is-lcp-delayed')),
-                            ('local_mru', YLeaf(YType.uint16, 'local-mru')),
-                            ('peer_mru', YLeaf(YType.uint16, 'peer-mru')),
-                            ('local_mrru', YLeaf(YType.uint16, 'local-mrru')),
-                            ('peer_mrru', YLeaf(YType.uint16, 'peer-mrru')),
-                            ('local_ed', YLeaf(YType.str, 'local-ed')),
-                            ('peer_ed', YLeaf(YType.str, 'peer-ed')),
-                            ('is_mcmp_enabled', YLeaf(YType.boolean, 'is-mcmp-enabled')),
-                            ('local_mcmp_classes', YLeaf(YType.uint8, 'local-mcmp-classes')),
-                            ('peer_mcmp_classes', YLeaf(YType.uint8, 'peer-mcmp-classes')),
-                            ('session_expires', YLeaf(YType.uint32, 'session-expires')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('parent_state', (YLeaf(YType.uint32, 'parent-state'), ['int'])),
+                            ('line_state', (YLeaf(YType.uint32, 'line-state'), ['int'])),
+                            ('is_loopback_detected', (YLeaf(YType.boolean, 'is-loopback-detected'), ['bool'])),
+                            ('caps_idb_srg_role', (YLeaf(YType.uint32, 'caps-idb-srg-role'), ['int'])),
+                            ('session_srg_role', (YLeaf(YType.uint32, 'session-srg-role'), ['int'])),
+                            ('keepalive_period', (YLeaf(YType.uint32, 'keepalive-period'), ['int'])),
+                            ('keepalive_retry_count', (YLeaf(YType.uint32, 'keepalive-retry-count'), ['int'])),
+                            ('is_ssrp_configured', (YLeaf(YType.boolean, 'is-ssrp-configured'), ['bool'])),
+                            ('is_l2ac', (YLeaf(YType.boolean, 'is-l2ac'), ['bool'])),
+                            ('provisioned', (YLeaf(YType.boolean, 'provisioned'), ['bool'])),
+                            ('ip_interworking_enabled', (YLeaf(YType.boolean, 'ip-interworking-enabled'), ['bool'])),
+                            ('xconnect_id', (YLeaf(YType.uint32, 'xconnect-id'), ['int'])),
+                            ('is_tunneled_session', (YLeaf(YType.boolean, 'is-tunneled-session'), ['bool'])),
+                            ('ssrp_peer_id', (YLeaf(YType.str, 'ssrp-peer-id'), ['str'])),
+                            ('lcp_state', (YLeaf(YType.enumeration, 'lcp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppFsmState', '')])),
+                            ('lcpsso_state', (YLeaf(YType.enumeration, 'lcpsso-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
+                            ('is_lcp_delayed', (YLeaf(YType.boolean, 'is-lcp-delayed'), ['bool'])),
+                            ('local_mru', (YLeaf(YType.uint16, 'local-mru'), ['int'])),
+                            ('peer_mru', (YLeaf(YType.uint16, 'peer-mru'), ['int'])),
+                            ('local_mrru', (YLeaf(YType.uint16, 'local-mrru'), ['int'])),
+                            ('peer_mrru', (YLeaf(YType.uint16, 'peer-mrru'), ['int'])),
+                            ('local_ed', (YLeaf(YType.str, 'local-ed'), ['str'])),
+                            ('peer_ed', (YLeaf(YType.str, 'peer-ed'), ['str'])),
+                            ('is_mcmp_enabled', (YLeaf(YType.boolean, 'is-mcmp-enabled'), ['bool'])),
+                            ('local_mcmp_classes', (YLeaf(YType.uint8, 'local-mcmp-classes'), ['int'])),
+                            ('peer_mcmp_classes', (YLeaf(YType.uint8, 'peer-mcmp-classes'), ['int'])),
+                            ('session_expires', (YLeaf(YType.uint32, 'session-expires'), ['int'])),
                         ])
                         self.interface = None
                         self.parent_state = None
@@ -1440,6 +1449,7 @@ class Ppp(Entity):
 
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "node-interface" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface, ['interface', 'parent_state', 'line_state', 'is_loopback_detected', 'caps_idb_srg_role', 'session_srg_role', 'keepalive_period', 'keepalive_retry_count', 'is_ssrp_configured', 'is_l2ac', 'provisioned', 'ip_interworking_enabled', 'xconnect_id', 'is_tunneled_session', 'ssrp_peer_id', 'lcp_state', 'lcpsso_state', 'is_lcp_delayed', 'local_mru', 'peer_mru', 'local_mrru', 'peer_mrru', 'local_ed', 'peer_ed', 'is_mcmp_enabled', 'local_mcmp_classes', 'peer_mcmp_classes', 'session_expires'], name, value)
@@ -1459,7 +1469,7 @@ class Ppp(Entity):
                         	MP Bundle Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: is_mp_bundle_member
                         
@@ -1521,14 +1531,14 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("mp-member-info-array", ("mp_member_info_array", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray))])
                             self._leafs = OrderedDict([
-                                ('is_mp_bundle', YLeaf(YType.boolean, 'is-mp-bundle')),
-                                ('mp_bundle_interface', YLeaf(YType.str, 'mp-bundle-interface')),
-                                ('is_mp_bundle_member', YLeaf(YType.boolean, 'is-mp-bundle-member')),
-                                ('mp_group', YLeaf(YType.uint32, 'mp-group')),
-                                ('active_links', YLeaf(YType.uint16, 'active-links')),
-                                ('inactive_links', YLeaf(YType.uint16, 'inactive-links')),
-                                ('minimum_active_links', YLeaf(YType.uint16, 'minimum-active-links')),
-                                ('mp_state', YLeaf(YType.enumeration, 'mp-state')),
+                                ('is_mp_bundle', (YLeaf(YType.boolean, 'is-mp-bundle'), ['bool'])),
+                                ('mp_bundle_interface', (YLeaf(YType.str, 'mp-bundle-interface'), ['str'])),
+                                ('is_mp_bundle_member', (YLeaf(YType.boolean, 'is-mp-bundle-member'), ['bool'])),
+                                ('mp_group', (YLeaf(YType.uint32, 'mp-group'), ['int'])),
+                                ('active_links', (YLeaf(YType.uint16, 'active-links'), ['int'])),
+                                ('inactive_links', (YLeaf(YType.uint16, 'inactive-links'), ['int'])),
+                                ('minimum_active_links', (YLeaf(YType.uint16, 'minimum-active-links'), ['int'])),
+                                ('mp_state', (YLeaf(YType.enumeration, 'mp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppLcpMpMbrState', '')])),
                             ])
                             self.is_mp_bundle = None
                             self.mp_bundle_interface = None
@@ -1541,6 +1551,7 @@ class Ppp(Entity):
 
                             self.mp_member_info_array = YList(self)
                             self._segment_path = lambda: "mp-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo, ['is_mp_bundle', 'mp_bundle_interface', 'is_mp_bundle_member', 'mp_group', 'active_links', 'inactive_links', 'minimum_active_links', 'mp_state'], name, value)
@@ -1555,7 +1566,7 @@ class Ppp(Entity):
                             	Member Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: state
                             
@@ -1579,12 +1590,13 @@ class Ppp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppLcpMpMbrState', '')])),
                                 ])
                                 self.interface = None
                                 self.state = None
                                 self._segment_path = lambda: "mp-member-info-array"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.MpInfo.MpMemberInfoArray, ['interface', 'state'], name, value)
@@ -1629,12 +1641,13 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('minutes', YLeaf(YType.uint32, 'minutes')),
-                                ('seconds', YLeaf(YType.uint8, 'seconds')),
+                                ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
+                                ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                             ])
                             self.minutes = None
                             self.seconds = None
                             self._segment_path = lambda: "configured-timeout"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.ConfiguredTimeout, ['minutes', 'seconds'], name, value)
@@ -1705,14 +1718,14 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_authenticated', YLeaf(YType.boolean, 'is-authenticated')),
-                                ('is_sso_authenticated', YLeaf(YType.boolean, 'is-sso-authenticated')),
-                                ('of_us_auth', YLeaf(YType.uint8, 'of-us-auth')),
-                                ('of_peer_auth', YLeaf(YType.uint8, 'of-peer-auth')),
-                                ('of_us_name', YLeaf(YType.str, 'of-us-name')),
-                                ('of_peer_name', YLeaf(YType.str, 'of-peer-name')),
-                                ('of_us_sso_state', YLeaf(YType.enumeration, 'of-us-sso-state')),
-                                ('of_peer_sso_state', YLeaf(YType.enumeration, 'of-peer-sso-state')),
+                                ('is_authenticated', (YLeaf(YType.boolean, 'is-authenticated'), ['bool'])),
+                                ('is_sso_authenticated', (YLeaf(YType.boolean, 'is-sso-authenticated'), ['bool'])),
+                                ('of_us_auth', (YLeaf(YType.uint8, 'of-us-auth'), ['int'])),
+                                ('of_peer_auth', (YLeaf(YType.uint8, 'of-peer-auth'), ['int'])),
+                                ('of_us_name', (YLeaf(YType.str, 'of-us-name'), ['str'])),
+                                ('of_peer_name', (YLeaf(YType.str, 'of-peer-name'), ['str'])),
+                                ('of_us_sso_state', (YLeaf(YType.enumeration, 'of-us-sso-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
+                                ('of_peer_sso_state', (YLeaf(YType.enumeration, 'of-peer-sso-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
                             ])
                             self.is_authenticated = None
                             self.is_sso_authenticated = None
@@ -1723,6 +1736,7 @@ class Ppp(Entity):
                             self.of_us_sso_state = None
                             self.of_peer_sso_state = None
                             self._segment_path = lambda: "auth-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.AuthInfo, ['is_authenticated', 'is_sso_authenticated', 'of_us_auth', 'of_peer_auth', 'of_us_name', 'of_peer_name', 'of_us_sso_state', 'of_peer_sso_state'], name, value)
@@ -1774,10 +1788,10 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("ncp-info", ("ncp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo))])
                             self._leafs = OrderedDict([
-                                ('ncp_state', YLeaf(YType.enumeration, 'ncp-state')),
-                                ('ncpsso_state', YLeaf(YType.enumeration, 'ncpsso-state')),
-                                ('is_passive', YLeaf(YType.boolean, 'is-passive')),
-                                ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
+                                ('ncp_state', (YLeaf(YType.enumeration, 'ncp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppFsmState', '')])),
+                                ('ncpsso_state', (YLeaf(YType.enumeration, 'ncpsso-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
+                                ('is_passive', (YLeaf(YType.boolean, 'is-passive'), ['bool'])),
+                                ('ncp_identifier', (YLeaf(YType.enumeration, 'ncp-identifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'NcpIdent', '')])),
                             ])
                             self.ncp_state = None
                             self.ncpsso_state = None
@@ -1788,6 +1802,7 @@ class Ppp(Entity):
                             self.ncp_info.parent = self
                             self._children_name_map["ncp_info"] = "ncp-info"
                             self._segment_path = lambda: "ncp-info-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray, ['ncp_state', 'ncpsso_state', 'is_passive', 'ncp_identifier'], name, value)
@@ -1834,7 +1849,7 @@ class Ppp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("ipcp-info", ("ipcp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo)), ("ipcpiw-info", ("ipcpiw_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo)), ("ipv6cp-info", ("ipv6cp_info", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo))])
                                 self._leafs = OrderedDict([
-                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'NcpIdent', '')])),
                                 ])
                                 self.type = None
 
@@ -1850,6 +1865,7 @@ class Ppp(Entity):
                                 self.ipv6cp_info.parent = self
                                 self._children_name_map["ipv6cp_info"] = "ipv6cp-info"
                                 self._segment_path = lambda: "ncp-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo, ['type'], name, value)
@@ -1940,14 +1956,14 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("local-iphc-options", ("local_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions)), ("peer-iphc-options", ("peer_iphc_options", Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions))])
                                     self._leafs = OrderedDict([
-                                        ('local_address', YLeaf(YType.str, 'local-address')),
-                                        ('peer_address', YLeaf(YType.str, 'peer-address')),
-                                        ('peer_netmask', YLeaf(YType.str, 'peer-netmask')),
-                                        ('dns_primary', YLeaf(YType.str, 'dns-primary')),
-                                        ('dns_secondary', YLeaf(YType.str, 'dns-secondary')),
-                                        ('wins_primary', YLeaf(YType.str, 'wins-primary')),
-                                        ('wins_secondary', YLeaf(YType.str, 'wins-secondary')),
-                                        ('is_iphc_configured', YLeaf(YType.boolean, 'is-iphc-configured')),
+                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                        ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str'])),
+                                        ('peer_netmask', (YLeaf(YType.str, 'peer-netmask'), ['str'])),
+                                        ('dns_primary', (YLeaf(YType.str, 'dns-primary'), ['str'])),
+                                        ('dns_secondary', (YLeaf(YType.str, 'dns-secondary'), ['str'])),
+                                        ('wins_primary', (YLeaf(YType.str, 'wins-primary'), ['str'])),
+                                        ('wins_secondary', (YLeaf(YType.str, 'wins-secondary'), ['str'])),
+                                        ('is_iphc_configured', (YLeaf(YType.boolean, 'is-iphc-configured'), ['bool'])),
                                     ])
                                     self.local_address = None
                                     self.peer_address = None
@@ -1966,6 +1982,7 @@ class Ppp(Entity):
                                     self.peer_iphc_options.parent = self
                                     self._children_name_map["peer_iphc_options"] = "peer-iphc-options"
                                     self._segment_path = lambda: "ipcp-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo, ['local_address', 'peer_address', 'peer_netmask', 'dns_primary', 'dns_secondary', 'wins_primary', 'wins_secondary', 'is_iphc_configured'], name, value)
@@ -2042,14 +2059,14 @@ class Ppp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('compression_type', YLeaf(YType.enumeration, 'compression-type')),
-                                            ('tcp_space', YLeaf(YType.uint16, 'tcp-space')),
-                                            ('non_tcp_space', YLeaf(YType.uint16, 'non-tcp-space')),
-                                            ('max_period', YLeaf(YType.uint16, 'max-period')),
-                                            ('max_time', YLeaf(YType.uint16, 'max-time')),
-                                            ('max_header', YLeaf(YType.uint16, 'max-header')),
-                                            ('rtp_compression', YLeaf(YType.boolean, 'rtp-compression')),
-                                            ('ec_rtp_compression', YLeaf(YType.boolean, 'ec-rtp-compression')),
+                                            ('compression_type', (YLeaf(YType.enumeration, 'compression-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppIphcCompression', '')])),
+                                            ('tcp_space', (YLeaf(YType.uint16, 'tcp-space'), ['int'])),
+                                            ('non_tcp_space', (YLeaf(YType.uint16, 'non-tcp-space'), ['int'])),
+                                            ('max_period', (YLeaf(YType.uint16, 'max-period'), ['int'])),
+                                            ('max_time', (YLeaf(YType.uint16, 'max-time'), ['int'])),
+                                            ('max_header', (YLeaf(YType.uint16, 'max-header'), ['int'])),
+                                            ('rtp_compression', (YLeaf(YType.boolean, 'rtp-compression'), ['bool'])),
+                                            ('ec_rtp_compression', (YLeaf(YType.boolean, 'ec-rtp-compression'), ['bool'])),
                                         ])
                                         self.compression_type = None
                                         self.tcp_space = None
@@ -2060,6 +2077,7 @@ class Ppp(Entity):
                                         self.rtp_compression = None
                                         self.ec_rtp_compression = None
                                         self._segment_path = lambda: "local-iphc-options"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.LocalIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
@@ -2136,14 +2154,14 @@ class Ppp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('compression_type', YLeaf(YType.enumeration, 'compression-type')),
-                                            ('tcp_space', YLeaf(YType.uint16, 'tcp-space')),
-                                            ('non_tcp_space', YLeaf(YType.uint16, 'non-tcp-space')),
-                                            ('max_period', YLeaf(YType.uint16, 'max-period')),
-                                            ('max_time', YLeaf(YType.uint16, 'max-time')),
-                                            ('max_header', YLeaf(YType.uint16, 'max-header')),
-                                            ('rtp_compression', YLeaf(YType.boolean, 'rtp-compression')),
-                                            ('ec_rtp_compression', YLeaf(YType.boolean, 'ec-rtp-compression')),
+                                            ('compression_type', (YLeaf(YType.enumeration, 'compression-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppIphcCompression', '')])),
+                                            ('tcp_space', (YLeaf(YType.uint16, 'tcp-space'), ['int'])),
+                                            ('non_tcp_space', (YLeaf(YType.uint16, 'non-tcp-space'), ['int'])),
+                                            ('max_period', (YLeaf(YType.uint16, 'max-period'), ['int'])),
+                                            ('max_time', (YLeaf(YType.uint16, 'max-time'), ['int'])),
+                                            ('max_header', (YLeaf(YType.uint16, 'max-header'), ['int'])),
+                                            ('rtp_compression', (YLeaf(YType.boolean, 'rtp-compression'), ['bool'])),
+                                            ('ec_rtp_compression', (YLeaf(YType.boolean, 'ec-rtp-compression'), ['bool'])),
                                         ])
                                         self.compression_type = None
                                         self.tcp_space = None
@@ -2154,6 +2172,7 @@ class Ppp(Entity):
                                         self.rtp_compression = None
                                         self.ec_rtp_compression = None
                                         self._segment_path = lambda: "peer-iphc-options"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpInfo.PeerIphcOptions, ['compression_type', 'tcp_space', 'non_tcp_space', 'max_period', 'max_time', 'max_header', 'rtp_compression', 'ec_rtp_compression'], name, value)
@@ -2194,12 +2213,13 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('local_address', YLeaf(YType.str, 'local-address')),
-                                        ('peer_address', YLeaf(YType.str, 'peer-address')),
+                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                        ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str'])),
                                     ])
                                     self.local_address = None
                                     self.peer_address = None
                                     self._segment_path = lambda: "ipcpiw-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.IpcpiwInfo, ['local_address', 'peer_address'], name, value)
@@ -2240,12 +2260,13 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('local_address', YLeaf(YType.str, 'local-address')),
-                                        ('peer_address', YLeaf(YType.str, 'peer-address')),
+                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                        ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str'])),
                                     ])
                                     self.local_address = None
                                     self.peer_address = None
                                     self._segment_path = lambda: "ipv6cp-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaces.NodeInterface.NcpInfoArray.NcpInfo.Ipv6cpInfo, ['local_address', 'peer_address'], name, value)
@@ -2280,6 +2301,7 @@ class Ppp(Entity):
 
                     self.sso_alert = YList(self)
                     self._segment_path = lambda: "sso-alerts"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.SsoAlerts, [], name, value)
@@ -2294,7 +2316,7 @@ class Ppp(Entity):
                     	Interface with SSO Alert
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: lcp_error
                     
@@ -2333,7 +2355,7 @@ class Ppp(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("lcp-error", ("lcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError)), ("of-us-auth-error", ("of_us_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError)), ("of-peer-auth-error", ("of_peer_auth_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError)), ("ipcp-error", ("ipcp_error", Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                         ])
                         self.interface = None
 
@@ -2353,6 +2375,7 @@ class Ppp(Entity):
                         self.ipcp_error.parent = self
                         self._children_name_map["ipcp_error"] = "ipcp-error"
                         self._segment_path = lambda: "sso-alert" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert, ['interface'], name, value)
@@ -2398,17 +2421,18 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_error', YLeaf(YType.boolean, 'is-error')),
-                                ('error', YLeaf(YType.uint32, 'error')),
-                                ('context', YLeaf(YType.uint32, 'context')),
+                                ('is_error', (YLeaf(YType.boolean, 'is-error'), ['bool'])),
+                                ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                ('context', (YLeaf(YType.uint32, 'context'), ['int'])),
                             ])
                             self.is_error = None
                             self.error = None
                             self.context = None
                             self._segment_path = lambda: "lcp-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, ['is_error', 'error', 'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.LcpError, [u'is_error', u'error', u'context'], name, value)
 
 
                     class OfUsAuthError(Entity):
@@ -2451,17 +2475,18 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_error', YLeaf(YType.boolean, 'is-error')),
-                                ('error', YLeaf(YType.uint32, 'error')),
-                                ('context', YLeaf(YType.uint32, 'context')),
+                                ('is_error', (YLeaf(YType.boolean, 'is-error'), ['bool'])),
+                                ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                ('context', (YLeaf(YType.uint32, 'context'), ['int'])),
                             ])
                             self.is_error = None
                             self.error = None
                             self.context = None
                             self._segment_path = lambda: "of-us-auth-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, ['is_error', 'error', 'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfUsAuthError, [u'is_error', u'error', u'context'], name, value)
 
 
                     class OfPeerAuthError(Entity):
@@ -2504,17 +2529,18 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_error', YLeaf(YType.boolean, 'is-error')),
-                                ('error', YLeaf(YType.uint32, 'error')),
-                                ('context', YLeaf(YType.uint32, 'context')),
+                                ('is_error', (YLeaf(YType.boolean, 'is-error'), ['bool'])),
+                                ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                ('context', (YLeaf(YType.uint32, 'context'), ['int'])),
                             ])
                             self.is_error = None
                             self.error = None
                             self.context = None
                             self._segment_path = lambda: "of-peer-auth-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, ['is_error', 'error', 'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.OfPeerAuthError, [u'is_error', u'error', u'context'], name, value)
 
 
                     class IpcpError(Entity):
@@ -2557,17 +2583,18 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_error', YLeaf(YType.boolean, 'is-error')),
-                                ('error', YLeaf(YType.uint32, 'error')),
-                                ('context', YLeaf(YType.uint32, 'context')),
+                                ('is_error', (YLeaf(YType.boolean, 'is-error'), ['bool'])),
+                                ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                ('context', (YLeaf(YType.uint32, 'context'), ['int'])),
                             ])
                             self.is_error = None
                             self.error = None
                             self.context = None
                             self._segment_path = lambda: "ipcp-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, ['is_error', 'error', 'context'], name, value)
+                            self._perform_setattr(Ppp.Nodes.Node.SsoAlerts.SsoAlert.IpcpError, [u'is_error', u'error', u'context'], name, value)
 
 
             class NodeInterfaceStatistics(Entity):
@@ -2599,6 +2626,7 @@ class Ppp(Entity):
 
                     self.node_interface_statistic = YList(self)
                     self._segment_path = lambda: "node-interface-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics, [], name, value)
@@ -2614,7 +2642,7 @@ class Ppp(Entity):
                     	Interface running PPP
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: lcp_statistics
                     
@@ -2648,7 +2676,7 @@ class Ppp(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("lcp-statistics", ("lcp_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics)), ("authentication-statistics", ("authentication_statistics", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics)), ("ncp-statistics-array", ("ncp_statistics_array", Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -2662,6 +2690,7 @@ class Ppp(Entity):
 
                         self.ncp_statistics_array = YList(self)
                         self._segment_path = lambda: "node-interface-statistic" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic, ['interface_name'], name, value)
@@ -2800,22 +2829,22 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('conf_req_sent', YLeaf(YType.uint16, 'conf-req-sent')),
-                                ('conf_req_rcvd', YLeaf(YType.uint16, 'conf-req-rcvd')),
-                                ('conf_ack_sent', YLeaf(YType.uint16, 'conf-ack-sent')),
-                                ('conf_ack_rcvd', YLeaf(YType.uint16, 'conf-ack-rcvd')),
-                                ('conf_nak_sent', YLeaf(YType.uint16, 'conf-nak-sent')),
-                                ('conf_nak_rcvd', YLeaf(YType.uint16, 'conf-nak-rcvd')),
-                                ('conf_rej_sent', YLeaf(YType.uint16, 'conf-rej-sent')),
-                                ('conf_rej_rcvd', YLeaf(YType.uint16, 'conf-rej-rcvd')),
-                                ('echo_req_sent', YLeaf(YType.uint16, 'echo-req-sent')),
-                                ('echo_req_rcvd', YLeaf(YType.uint16, 'echo-req-rcvd')),
-                                ('echo_rep_sent', YLeaf(YType.uint16, 'echo-rep-sent')),
-                                ('echo_rep_rcvd', YLeaf(YType.uint16, 'echo-rep-rcvd')),
-                                ('disc_req_sent', YLeaf(YType.uint16, 'disc-req-sent')),
-                                ('disc_req_rcvd', YLeaf(YType.uint16, 'disc-req-rcvd')),
-                                ('link_up', YLeaf(YType.uint16, 'link-up')),
-                                ('link_error', YLeaf(YType.uint16, 'link-error')),
+                                ('conf_req_sent', (YLeaf(YType.uint16, 'conf-req-sent'), ['int'])),
+                                ('conf_req_rcvd', (YLeaf(YType.uint16, 'conf-req-rcvd'), ['int'])),
+                                ('conf_ack_sent', (YLeaf(YType.uint16, 'conf-ack-sent'), ['int'])),
+                                ('conf_ack_rcvd', (YLeaf(YType.uint16, 'conf-ack-rcvd'), ['int'])),
+                                ('conf_nak_sent', (YLeaf(YType.uint16, 'conf-nak-sent'), ['int'])),
+                                ('conf_nak_rcvd', (YLeaf(YType.uint16, 'conf-nak-rcvd'), ['int'])),
+                                ('conf_rej_sent', (YLeaf(YType.uint16, 'conf-rej-sent'), ['int'])),
+                                ('conf_rej_rcvd', (YLeaf(YType.uint16, 'conf-rej-rcvd'), ['int'])),
+                                ('echo_req_sent', (YLeaf(YType.uint16, 'echo-req-sent'), ['int'])),
+                                ('echo_req_rcvd', (YLeaf(YType.uint16, 'echo-req-rcvd'), ['int'])),
+                                ('echo_rep_sent', (YLeaf(YType.uint16, 'echo-rep-sent'), ['int'])),
+                                ('echo_rep_rcvd', (YLeaf(YType.uint16, 'echo-rep-rcvd'), ['int'])),
+                                ('disc_req_sent', (YLeaf(YType.uint16, 'disc-req-sent'), ['int'])),
+                                ('disc_req_rcvd', (YLeaf(YType.uint16, 'disc-req-rcvd'), ['int'])),
+                                ('link_up', (YLeaf(YType.uint16, 'link-up'), ['int'])),
+                                ('link_error', (YLeaf(YType.uint16, 'link-error'), ['int'])),
                             ])
                             self.conf_req_sent = None
                             self.conf_req_rcvd = None
@@ -2834,6 +2863,7 @@ class Ppp(Entity):
                             self.link_up = None
                             self.link_error = None
                             self._segment_path = lambda: "lcp-statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.LcpStatistics, ['conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd', 'echo_req_sent', 'echo_req_rcvd', 'echo_rep_sent', 'echo_rep_rcvd', 'disc_req_sent', 'disc_req_rcvd', 'link_up', 'link_error'], name, value)
@@ -2965,21 +2995,21 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('pap_req_sent', YLeaf(YType.uint16, 'pap-req-sent')),
-                                ('pap_req_rcvd', YLeaf(YType.uint16, 'pap-req-rcvd')),
-                                ('pap_ack_sent', YLeaf(YType.uint16, 'pap-ack-sent')),
-                                ('pap_ack_rcvd', YLeaf(YType.uint16, 'pap-ack-rcvd')),
-                                ('pap_nak_sent', YLeaf(YType.uint16, 'pap-nak-sent')),
-                                ('pap_nak_rcvd', YLeaf(YType.uint16, 'pap-nak-rcvd')),
-                                ('chap_chall_sent', YLeaf(YType.uint16, 'chap-chall-sent')),
-                                ('chap_chall_rcvd', YLeaf(YType.uint16, 'chap-chall-rcvd')),
-                                ('chap_resp_sent', YLeaf(YType.uint16, 'chap-resp-sent')),
-                                ('chap_resp_rcvd', YLeaf(YType.uint16, 'chap-resp-rcvd')),
-                                ('chap_rep_succ_sent', YLeaf(YType.uint16, 'chap-rep-succ-sent')),
-                                ('chap_rep_succ_rcvd', YLeaf(YType.uint16, 'chap-rep-succ-rcvd')),
-                                ('chap_rep_fail_sent', YLeaf(YType.uint16, 'chap-rep-fail-sent')),
-                                ('chap_rep_fail_rcvd', YLeaf(YType.uint16, 'chap-rep-fail-rcvd')),
-                                ('auth_timeout_count', YLeaf(YType.uint16, 'auth-timeout-count')),
+                                ('pap_req_sent', (YLeaf(YType.uint16, 'pap-req-sent'), ['int'])),
+                                ('pap_req_rcvd', (YLeaf(YType.uint16, 'pap-req-rcvd'), ['int'])),
+                                ('pap_ack_sent', (YLeaf(YType.uint16, 'pap-ack-sent'), ['int'])),
+                                ('pap_ack_rcvd', (YLeaf(YType.uint16, 'pap-ack-rcvd'), ['int'])),
+                                ('pap_nak_sent', (YLeaf(YType.uint16, 'pap-nak-sent'), ['int'])),
+                                ('pap_nak_rcvd', (YLeaf(YType.uint16, 'pap-nak-rcvd'), ['int'])),
+                                ('chap_chall_sent', (YLeaf(YType.uint16, 'chap-chall-sent'), ['int'])),
+                                ('chap_chall_rcvd', (YLeaf(YType.uint16, 'chap-chall-rcvd'), ['int'])),
+                                ('chap_resp_sent', (YLeaf(YType.uint16, 'chap-resp-sent'), ['int'])),
+                                ('chap_resp_rcvd', (YLeaf(YType.uint16, 'chap-resp-rcvd'), ['int'])),
+                                ('chap_rep_succ_sent', (YLeaf(YType.uint16, 'chap-rep-succ-sent'), ['int'])),
+                                ('chap_rep_succ_rcvd', (YLeaf(YType.uint16, 'chap-rep-succ-rcvd'), ['int'])),
+                                ('chap_rep_fail_sent', (YLeaf(YType.uint16, 'chap-rep-fail-sent'), ['int'])),
+                                ('chap_rep_fail_rcvd', (YLeaf(YType.uint16, 'chap-rep-fail-rcvd'), ['int'])),
+                                ('auth_timeout_count', (YLeaf(YType.uint16, 'auth-timeout-count'), ['int'])),
                             ])
                             self.pap_req_sent = None
                             self.pap_req_rcvd = None
@@ -2997,6 +3027,7 @@ class Ppp(Entity):
                             self.chap_rep_fail_rcvd = None
                             self.auth_timeout_count = None
                             self._segment_path = lambda: "authentication-statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.AuthenticationStatistics, ['pap_req_sent', 'pap_req_rcvd', 'pap_ack_sent', 'pap_ack_rcvd', 'pap_nak_sent', 'pap_nak_rcvd', 'chap_chall_sent', 'chap_chall_rcvd', 'chap_resp_sent', 'chap_resp_rcvd', 'chap_rep_succ_sent', 'chap_rep_succ_rcvd', 'chap_rep_fail_sent', 'chap_rep_fail_rcvd', 'auth_timeout_count'], name, value)
@@ -3084,15 +3115,15 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
-                                ('conf_req_sent', YLeaf(YType.uint16, 'conf-req-sent')),
-                                ('conf_req_rcvd', YLeaf(YType.uint16, 'conf-req-rcvd')),
-                                ('conf_ack_sent', YLeaf(YType.uint16, 'conf-ack-sent')),
-                                ('conf_ack_rcvd', YLeaf(YType.uint16, 'conf-ack-rcvd')),
-                                ('conf_nak_sent', YLeaf(YType.uint16, 'conf-nak-sent')),
-                                ('conf_nak_rcvd', YLeaf(YType.uint16, 'conf-nak-rcvd')),
-                                ('conf_rej_sent', YLeaf(YType.uint16, 'conf-rej-sent')),
-                                ('conf_rej_rcvd', YLeaf(YType.uint16, 'conf-rej-rcvd')),
+                                ('ncp_identifier', (YLeaf(YType.enumeration, 'ncp-identifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'NcpIdent', '')])),
+                                ('conf_req_sent', (YLeaf(YType.uint16, 'conf-req-sent'), ['int'])),
+                                ('conf_req_rcvd', (YLeaf(YType.uint16, 'conf-req-rcvd'), ['int'])),
+                                ('conf_ack_sent', (YLeaf(YType.uint16, 'conf-ack-sent'), ['int'])),
+                                ('conf_ack_rcvd', (YLeaf(YType.uint16, 'conf-ack-rcvd'), ['int'])),
+                                ('conf_nak_sent', (YLeaf(YType.uint16, 'conf-nak-sent'), ['int'])),
+                                ('conf_nak_rcvd', (YLeaf(YType.uint16, 'conf-nak-rcvd'), ['int'])),
+                                ('conf_rej_sent', (YLeaf(YType.uint16, 'conf-rej-sent'), ['int'])),
+                                ('conf_rej_rcvd', (YLeaf(YType.uint16, 'conf-rej-rcvd'), ['int'])),
                             ])
                             self.ncp_identifier = None
                             self.conf_req_sent = None
@@ -3104,6 +3135,7 @@ class Ppp(Entity):
                             self.conf_rej_sent = None
                             self.conf_rej_rcvd = None
                             self._segment_path = lambda: "ncp-statistics-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.NodeInterfaceStatistics.NodeInterfaceStatistic.NcpStatisticsArray, ['ncp_identifier', 'conf_req_sent', 'conf_req_rcvd', 'conf_ack_sent', 'conf_ack_rcvd', 'conf_nak_sent', 'conf_nak_rcvd', 'conf_rej_sent', 'conf_rej_rcvd'], name, value)
@@ -3167,6 +3199,7 @@ class Ppp(Entity):
                     self.ipcp_states.parent = self
                     self._children_name_map["ipcp_states"] = "ipcp-states"
                     self._segment_path = lambda: "sso-summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.SsoSummary, [], name, value)
@@ -3207,15 +3240,16 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('total', YLeaf(YType.uint16, 'total')),
-                            ('count', YLeafList(YType.uint16, 'count')),
+                            ('total', (YLeaf(YType.uint16, 'total'), ['int'])),
+                            ('count', (YLeafList(YType.uint16, 'count'), ['int'])),
                         ])
                         self.total = None
                         self.count = []
                         self._segment_path = lambda: "lcp-states"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, ['total', 'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.LcpStates, [u'total', u'count'], name, value)
 
 
                 class OfUsAuthStates(Entity):
@@ -3253,15 +3287,16 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('total', YLeaf(YType.uint16, 'total')),
-                            ('count', YLeafList(YType.uint16, 'count')),
+                            ('total', (YLeaf(YType.uint16, 'total'), ['int'])),
+                            ('count', (YLeafList(YType.uint16, 'count'), ['int'])),
                         ])
                         self.total = None
                         self.count = []
                         self._segment_path = lambda: "of-us-auth-states"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, ['total', 'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfUsAuthStates, [u'total', u'count'], name, value)
 
 
                 class OfPeerAuthStates(Entity):
@@ -3299,15 +3334,16 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('total', YLeaf(YType.uint16, 'total')),
-                            ('count', YLeafList(YType.uint16, 'count')),
+                            ('total', (YLeaf(YType.uint16, 'total'), ['int'])),
+                            ('count', (YLeafList(YType.uint16, 'count'), ['int'])),
                         ])
                         self.total = None
                         self.count = []
                         self._segment_path = lambda: "of-peer-auth-states"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, ['total', 'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.OfPeerAuthStates, [u'total', u'count'], name, value)
 
 
                 class IpcpStates(Entity):
@@ -3345,15 +3381,16 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('total', YLeaf(YType.uint16, 'total')),
-                            ('count', YLeafList(YType.uint16, 'count')),
+                            ('total', (YLeaf(YType.uint16, 'total'), ['int'])),
+                            ('count', (YLeafList(YType.uint16, 'count'), ['int'])),
                         ])
                         self.total = None
                         self.count = []
                         self._segment_path = lambda: "ipcp-states"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, ['total', 'count'], name, value)
+                        self._perform_setattr(Ppp.Nodes.Node.SsoSummary.IpcpStates, [u'total', u'count'], name, value)
 
 
             class SsoGroups(Entity):
@@ -3385,6 +3422,7 @@ class Ppp(Entity):
 
                     self.sso_group = YList(self)
                     self._segment_path = lambda: "sso-groups"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.SsoGroups, [], name, value)
@@ -3423,7 +3461,7 @@ class Ppp(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([("sso-states", ("sso_states", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.uint32, 'group-id')),
+                            ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
                         ])
                         self.group_id = None
 
@@ -3431,6 +3469,7 @@ class Ppp(Entity):
                         self.sso_states.parent = self
                         self._children_name_map["sso_states"] = "sso-states"
                         self._segment_path = lambda: "sso-group" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup, ['group_id'], name, value)
@@ -3465,6 +3504,7 @@ class Ppp(Entity):
 
                             self.sso_state = YList(self)
                             self._segment_path = lambda: "sso-states"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates, [], name, value)
@@ -3514,7 +3554,7 @@ class Ppp(Entity):
                             	Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -3533,9 +3573,9 @@ class Ppp(Entity):
                                 self.ylist_key_names = ['session_id']
                                 self._child_classes = OrderedDict([("lcp-state", ("lcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState)), ("of-us-auth-state", ("of_us_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState)), ("of-peer-auth-state", ("of_peer_auth_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState)), ("ipcp-state", ("ipcp_state", Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState))])
                                 self._leafs = OrderedDict([
-                                    ('session_id', YLeaf(YType.uint32, 'session-id')),
-                                    ('session_id_xr', YLeaf(YType.uint32, 'session-id-xr')),
-                                    ('interface', YLeaf(YType.str, 'interface')),
+                                    ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                                    ('session_id_xr', (YLeaf(YType.uint32, 'session-id-xr'), ['int'])),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                                 ])
                                 self.session_id = None
                                 self.session_id_xr = None
@@ -3557,9 +3597,10 @@ class Ppp(Entity):
                                 self.ipcp_state.parent = self
                                 self._children_name_map["ipcp_state"] = "ipcp-state"
                                 self._segment_path = lambda: "sso-state" + "[session-id='" + str(self.session_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', 'session_id_xr', 'interface'], name, value)
+                                self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState, ['session_id', u'session_id_xr', u'interface'], name, value)
 
 
                             class LcpState(Entity):
@@ -3593,15 +3634,16 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('is_running', YLeaf(YType.boolean, 'is-running')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('is_running', (YLeaf(YType.boolean, 'is-running'), ['bool'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
                                     ])
                                     self.is_running = None
                                     self.state = None
                                     self._segment_path = lambda: "lcp-state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, ['is_running', 'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.LcpState, [u'is_running', u'state'], name, value)
 
 
                             class OfUsAuthState(Entity):
@@ -3635,15 +3677,16 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('is_running', YLeaf(YType.boolean, 'is-running')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('is_running', (YLeaf(YType.boolean, 'is-running'), ['bool'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
                                     ])
                                     self.is_running = None
                                     self.state = None
                                     self._segment_path = lambda: "of-us-auth-state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, ['is_running', 'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfUsAuthState, [u'is_running', u'state'], name, value)
 
 
                             class OfPeerAuthState(Entity):
@@ -3677,15 +3720,16 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('is_running', YLeaf(YType.boolean, 'is-running')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('is_running', (YLeaf(YType.boolean, 'is-running'), ['bool'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
                                     ])
                                     self.is_running = None
                                     self.state = None
                                     self._segment_path = lambda: "of-peer-auth-state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, ['is_running', 'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.OfPeerAuthState, [u'is_running', u'state'], name, value)
 
 
                             class IpcpState(Entity):
@@ -3719,15 +3763,16 @@ class Ppp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('is_running', YLeaf(YType.boolean, 'is-running')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('is_running', (YLeaf(YType.boolean, 'is-running'), ['bool'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'PppSsoFsmState', '')])),
                                     ])
                                     self.is_running = None
                                     self.state = None
                                     self._segment_path = lambda: "ipcp-state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, ['is_running', 'state'], name, value)
+                                    self._perform_setattr(Ppp.Nodes.Node.SsoGroups.SsoGroup.SsoStates.SsoState.IpcpState, [u'is_running', u'state'], name, value)
 
 
             class Summary(Entity):
@@ -3779,6 +3824,7 @@ class Ppp(Entity):
                     self.lcp_auth_phases.parent = self
                     self._children_name_map["lcp_auth_phases"] = "lcp-auth-phases"
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ppp.Nodes.Node.Summary, [], name, value)
@@ -3854,13 +3900,13 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pos_count', YLeaf(YType.uint32, 'pos-count')),
-                            ('serial_count', YLeaf(YType.uint32, 'serial-count')),
-                            ('pppoe_count', YLeaf(YType.uint32, 'pppoe-count')),
-                            ('multilink_bundle_count', YLeaf(YType.uint32, 'multilink-bundle-count')),
-                            ('gcc0_count', YLeaf(YType.uint32, 'gcc0-count')),
-                            ('gcc1_count', YLeaf(YType.uint32, 'gcc1-count')),
-                            ('total', YLeaf(YType.uint32, 'total')),
+                            ('pos_count', (YLeaf(YType.uint32, 'pos-count'), ['int'])),
+                            ('serial_count', (YLeaf(YType.uint32, 'serial-count'), ['int'])),
+                            ('pppoe_count', (YLeaf(YType.uint32, 'pppoe-count'), ['int'])),
+                            ('multilink_bundle_count', (YLeaf(YType.uint32, 'multilink-bundle-count'), ['int'])),
+                            ('gcc0_count', (YLeaf(YType.uint32, 'gcc0-count'), ['int'])),
+                            ('gcc1_count', (YLeaf(YType.uint32, 'gcc1-count'), ['int'])),
+                            ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
                         ])
                         self.pos_count = None
                         self.serial_count = None
@@ -3870,6 +3916,7 @@ class Ppp(Entity):
                         self.gcc1_count = None
                         self.total = None
                         self._segment_path = lambda: "intfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.Intfs, ['pos_count', 'serial_count', 'pppoe_count', 'multilink_bundle_count', 'gcc0_count', 'gcc1_count', 'total'], name, value)
@@ -3913,6 +3960,7 @@ class Ppp(Entity):
 
                         self.ncpfsm_states_array = YList(self)
                         self._segment_path = lambda: "fsm-states"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates, [], name, value)
@@ -3953,12 +4001,13 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('total', YLeaf(YType.uint32, 'total')),
-                                ('count', YLeafList(YType.uint32, 'count')),
+                                ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                ('count', (YLeafList(YType.uint32, 'count'), ['int'])),
                             ])
                             self.total = None
                             self.count = []
                             self._segment_path = lambda: "lcpfsm-states"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.LcpfsmStates, ['total', 'count'], name, value)
@@ -4004,14 +4053,15 @@ class Ppp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
-                                ('total', YLeaf(YType.uint32, 'total')),
-                                ('count', YLeafList(YType.uint32, 'count')),
+                                ('ncp_identifier', (YLeaf(YType.enumeration, 'ncp-identifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ma_oper', 'NcpIdent', '')])),
+                                ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                ('count', (YLeafList(YType.uint32, 'count'), ['int'])),
                             ])
                             self.ncp_identifier = None
                             self.total = None
                             self.count = []
                             self._segment_path = lambda: "ncpfsm-states-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ppp.Nodes.Node.Summary.FsmStates.NcpfsmStatesArray, ['ncp_identifier', 'total', 'count'], name, value)
@@ -4080,12 +4130,12 @@ class Ppp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lcp_not_negotiated', YLeaf(YType.uint32, 'lcp-not-negotiated')),
-                            ('authenticating', YLeaf(YType.uint32, 'authenticating')),
-                            ('line_held_down', YLeaf(YType.uint32, 'line-held-down')),
-                            ('up_local_term', YLeaf(YType.uint32, 'up-local-term')),
-                            ('up_l2_fwded', YLeaf(YType.uint32, 'up-l2-fwded')),
-                            ('up_tunneled', YLeaf(YType.uint32, 'up-tunneled')),
+                            ('lcp_not_negotiated', (YLeaf(YType.uint32, 'lcp-not-negotiated'), ['int'])),
+                            ('authenticating', (YLeaf(YType.uint32, 'authenticating'), ['int'])),
+                            ('line_held_down', (YLeaf(YType.uint32, 'line-held-down'), ['int'])),
+                            ('up_local_term', (YLeaf(YType.uint32, 'up-local-term'), ['int'])),
+                            ('up_l2_fwded', (YLeaf(YType.uint32, 'up-l2-fwded'), ['int'])),
+                            ('up_tunneled', (YLeaf(YType.uint32, 'up-tunneled'), ['int'])),
                         ])
                         self.lcp_not_negotiated = None
                         self.authenticating = None
@@ -4094,6 +4144,7 @@ class Ppp(Entity):
                         self.up_l2_fwded = None
                         self.up_tunneled = None
                         self._segment_path = lambda: "lcp-auth-phases"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ppp.Nodes.Node.Summary.LcpAuthPhases, ['lcp_not_negotiated', 'authenticating', 'line_held_down', 'up_local_term', 'up_l2_fwded', 'up_tunneled'], name, value)

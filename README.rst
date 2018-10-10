@@ -32,16 +32,19 @@ To use the docker image, `install docker <https://docs.docker.com/install/>`_ on
 
 System Requirements
 -------------------
+
+**Note:** libssh 0.8.0 and later `does not support <http://api.libssh.org/master/libssh_tutor_threads.html>`_ separate threading library which is required for YDK. Please use libssh versions older than 0.8.0.
+
 Linux
 ~~~~~
 **Ubuntu (Debian-based)** - The following packages must be present in your system before installing YDK-Py::
 
    $ sudo apt-get install gdebi-core python3-dev python-dev libtool-bin  
    # Use the below for Ubuntu Xenial
-   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.2/libydk_0.7.2-1_amd64.deb
+   $ wget https://devhub.cisco.com/artifactory/debian-ydk/0.7.3/libydk_0.7.3-1_amd64.deb
    # Use the below for Ubuntu Artful
-   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.2/artful/libydk_0.7.2-1_amd64.deb
-   $ sudo gdebi libydk_0.7.2-1_amd64.deb
+   $ wget http://devhub.cisco.com/artifactory/debian-ydk/0.7.3/artful/libydk_0.7.3-1_amd64.deb
+   $ sudo gdebi libydk_0.7.3-1_amd64.deb
 
 **Centos (Fedora-based)** - The following packages must be present in your system before installing YDK-Py. Currently, only Centos7/RHEL7 are known to work::
 
@@ -49,7 +52,7 @@ Linux
    $ sudo yum install epel-release
 
    $ sudo yum install libssh-devel gcc-c++ python-devel
-   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.2/libydk-0.7.2-1.x86_64.rpm
+   $ sudo yum install https://devhub.cisco.com/artifactory/rpm-ydk/0.7.3/libydk-0.7.3-1.x86_64.rpm
 
    # Upgrade compiler to gcc 5.*
    $ yum install centos-release-scl -y > /dev/null
@@ -92,8 +95,8 @@ You can download the latest python package from `here <https://www.python.org/do
    $ xcode-select --install
    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    $ brew install pkg-config libssh xml2 libxml2 curl pcre cmake pybind11
-   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.2/libydk-0.7.2-Darwin.pkg
-   $ sudo installer -pkg libydk-0.7.2-Darwin.pkg -target /
+   $ curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
+   $ sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
 
 Windows
 ~~~~~~~
@@ -178,4 +181,4 @@ Documentation and Support
 
 Release Notes
 --------------
-The current YDK release version is 0.7.2 (beta). YDK-Py is licensed under the Apache 2.0 License.
+The current YDK release version is 0.7.3 (beta). YDK-Py is licensed under the Apache 2.0 License.

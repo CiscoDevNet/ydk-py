@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class AuthorizationStateEnum(Enum):
     """
     AuthorizationStateEnum (Enum Class)
@@ -1316,6 +1317,7 @@ class RegisterIdToken(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-smart-license:register-id-token"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1353,13 +1355,14 @@ class RegisterIdToken(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('id_token', YLeaf(YType.str, 'id-token')),
-                ('force', YLeaf(YType.boolean, 'force')),
+                ('id_token', (YLeaf(YType.str, 'id-token'), ['str'])),
+                ('force', (YLeaf(YType.boolean, 'force'), ['bool'])),
             ])
             self.id_token = None
             self.force = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-smart-license:register-id-token/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RegisterIdToken.Input, ['id_token', 'force'], name, value)
@@ -1391,11 +1394,12 @@ class RegisterIdToken(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'ErrorEnum', '')])),
             ])
             self.return_code = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-smart-license:register-id-token/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RegisterIdToken.Output, ['return_code'], name, value)
@@ -1436,6 +1440,7 @@ class DeRegister(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-smart-license:de-register"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -1464,11 +1469,12 @@ class DeRegister(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'ErrorEnum', '')])),
             ])
             self.return_code = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-smart-license:de-register/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DeRegister.Output, ['return_code'], name, value)
@@ -1512,6 +1518,7 @@ class RenewId(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-smart-license:renew-id"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -1540,11 +1547,12 @@ class RenewId(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'ErrorEnum', '')])),
             ])
             self.return_code = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-smart-license:renew-id/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RenewId.Output, ['return_code'], name, value)
@@ -1588,6 +1596,7 @@ class RenewAuth(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-smart-license:renew-auth"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -1616,11 +1625,12 @@ class RenewAuth(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'ErrorEnum', '')])),
             ])
             self.return_code = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-smart-license:renew-auth/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RenewAuth.Output, ['return_code'], name, value)
@@ -1670,6 +1680,7 @@ class Licensing(Entity):
         self.state.parent = self
         self._children_name_map["state"] = "state"
         self._segment_path = lambda: "cisco-smart-license:licensing"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Licensing, [], name, value)
@@ -1721,8 +1732,8 @@ class Licensing(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("privacy", ("privacy", Licensing.Config.Privacy)), ("utility", ("utility", Licensing.Config.Utility)), ("transport", ("transport", Licensing.Config.Transport))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.boolean, 'enable')),
-                ('custom_id', YLeaf(YType.str, 'custom-id')),
+                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                ('custom_id', (YLeaf(YType.str, 'custom-id'), ['str'])),
             ])
             self.enable = None
             self.custom_id = None
@@ -1740,6 +1751,7 @@ class Licensing(Entity):
             self._children_name_map["transport"] = "transport"
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "cisco-smart-license:licensing/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Licensing.Config, ['enable', 'custom_id'], name, value)
@@ -1777,13 +1789,14 @@ class Licensing(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hostname', YLeaf(YType.boolean, 'hostname')),
-                    ('version', YLeaf(YType.boolean, 'version')),
+                    ('hostname', (YLeaf(YType.boolean, 'hostname'), ['bool'])),
+                    ('version', (YLeaf(YType.boolean, 'version'), ['bool'])),
                 ])
                 self.hostname = None
                 self.version = None
                 self._segment_path = lambda: "privacy"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Licensing.Config.Privacy, ['hostname', 'version'], name, value)
@@ -1820,7 +1833,7 @@ class Licensing(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("customer-info", ("customer_info", Licensing.Config.Utility.CustomerInfo))])
                 self._leafs = OrderedDict([
-                    ('utility_enable', YLeaf(YType.boolean, 'utility-enable')),
+                    ('utility_enable', (YLeaf(YType.boolean, 'utility-enable'), ['bool'])),
                 ])
                 self.utility_enable = None
 
@@ -1829,6 +1842,7 @@ class Licensing(Entity):
                 self._children_name_map["customer_info"] = "customer-info"
                 self._segment_path = lambda: "utility"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Licensing.Config.Utility, ['utility_enable'], name, value)
@@ -1905,13 +1919,13 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('street', YLeaf(YType.str, 'street')),
-                        ('city', YLeaf(YType.str, 'city')),
-                        ('state', YLeaf(YType.str, 'state')),
-                        ('country', YLeaf(YType.str, 'country')),
-                        ('postal_code', YLeaf(YType.str, 'postal-code')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('street', (YLeaf(YType.str, 'street'), ['str'])),
+                        ('city', (YLeaf(YType.str, 'city'), ['str'])),
+                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                        ('country', (YLeaf(YType.str, 'country'), ['str'])),
+                        ('postal_code', (YLeaf(YType.str, 'postal-code'), ['str'])),
                     ])
                     self.id = None
                     self.name = None
@@ -1922,6 +1936,7 @@ class Licensing(Entity):
                     self.postal_code = None
                     self._segment_path = lambda: "customer-info"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/config/utility/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.Config.Utility.CustomerInfo, ['id', 'name', 'street', 'city', 'state', 'country', 'postal_code'], name, value)
@@ -1958,7 +1973,7 @@ class Licensing(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("transport-smart", ("transport_smart", Licensing.Config.Transport.TransportSmart))])
                 self._leafs = OrderedDict([
-                    ('transport_type', YLeaf(YType.enumeration, 'transport-type')),
+                    ('transport_type', (YLeaf(YType.enumeration, 'transport-type'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'TransportTypeEnum', '')])),
                 ])
                 self.transport_type = None
 
@@ -1967,6 +1982,7 @@ class Licensing(Entity):
                 self._children_name_map["transport_smart"] = "transport-smart"
                 self._segment_path = lambda: "transport"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Licensing.Config.Transport, ['transport_type'], name, value)
@@ -2003,7 +2019,7 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("urls", ("urls", Licensing.Config.Transport.TransportSmart.Urls))])
                     self._leafs = OrderedDict([
-                        ('url_default', YLeaf(YType.boolean, 'url-default')),
+                        ('url_default', (YLeaf(YType.boolean, 'url-default'), ['bool'])),
                     ])
                     self.url_default = None
 
@@ -2012,6 +2028,7 @@ class Licensing(Entity):
                     self._children_name_map["urls"] = "urls"
                     self._segment_path = lambda: "transport-smart"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/config/transport/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.Config.Transport.TransportSmart, ['url_default'], name, value)
@@ -2051,13 +2068,14 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('url_registration', YLeaf(YType.str, 'url-registration')),
-                            ('url_utility', YLeaf(YType.str, 'url-utility')),
+                            ('url_registration', (YLeaf(YType.str, 'url-registration'), ['str'])),
+                            ('url_utility', (YLeaf(YType.str, 'url-utility'), ['str'])),
                         ])
                         self.url_registration = None
                         self.url_utility = None
                         self._segment_path = lambda: "urls"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/config/transport/transport-smart/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.Config.Transport.TransportSmart.Urls, ['url_registration', 'url_utility'], name, value)
@@ -2106,9 +2124,9 @@ class Licensing(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("state-info", ("state_info", Licensing.State.StateInfo))])
             self._leafs = OrderedDict([
-                ('always_enabled', YLeaf(YType.boolean, 'always-enabled')),
-                ('smart_enabled', YLeaf(YType.boolean, 'smart-enabled')),
-                ('version', YLeaf(YType.str, 'version')),
+                ('always_enabled', (YLeaf(YType.boolean, 'always-enabled'), ['bool'])),
+                ('smart_enabled', (YLeaf(YType.boolean, 'smart-enabled'), ['bool'])),
+                ('version', (YLeaf(YType.str, 'version'), ['str'])),
             ])
             self.always_enabled = None
             self.smart_enabled = None
@@ -2119,6 +2137,7 @@ class Licensing(Entity):
             self._children_name_map["state_info"] = "state-info"
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "cisco-smart-license:licensing/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Licensing.State, ['always_enabled', 'smart_enabled', 'version'], name, value)
@@ -2191,7 +2210,7 @@ class Licensing(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("registration", ("registration", Licensing.State.StateInfo.Registration)), ("authorization", ("authorization", Licensing.State.StateInfo.Authorization)), ("utility", ("utility", Licensing.State.StateInfo.Utility)), ("transport", ("transport", Licensing.State.StateInfo.Transport)), ("privacy", ("privacy", Licensing.State.StateInfo.Privacy)), ("evaluation", ("evaluation", Licensing.State.StateInfo.Evaluation)), ("udi", ("udi", Licensing.State.StateInfo.Udi)), ("usage", ("usage", Licensing.State.StateInfo.Usage))])
                 self._leafs = OrderedDict([
-                    ('custom_id', YLeaf(YType.str, 'custom-id')),
+                    ('custom_id', (YLeaf(YType.str, 'custom-id'), ['str'])),
                 ])
                 self.custom_id = None
 
@@ -2226,6 +2245,7 @@ class Licensing(Entity):
                 self.usage = YList(self)
                 self._segment_path = lambda: "state-info"
                 self._absolute_path = lambda: "cisco-smart-license:licensing/state/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Licensing.State.StateInfo, ['custom_id'], name, value)
@@ -2282,8 +2302,8 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("registration-in-progress", ("registration_in_progress", Licensing.State.StateInfo.Registration.RegistrationInProgress)), ("registration-failed", ("registration_failed", Licensing.State.StateInfo.Registration.RegistrationFailed)), ("registration-retry", ("registration_retry", Licensing.State.StateInfo.Registration.RegistrationRetry)), ("registration-complete", ("registration_complete", Licensing.State.StateInfo.Registration.RegistrationComplete))])
                     self._leafs = OrderedDict([
-                        ('registration_state', YLeaf(YType.enumeration, 'registration-state')),
-                        ('export_control_allowed', YLeaf(YType.boolean, 'export-control-allowed')),
+                        ('registration_state', (YLeaf(YType.enumeration, 'registration-state'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'RegistrationStateEnum', '')])),
+                        ('export_control_allowed', (YLeaf(YType.boolean, 'export-control-allowed'), ['bool'])),
                     ])
                     self.registration_state = None
                     self.export_control_allowed = None
@@ -2305,6 +2325,7 @@ class Licensing(Entity):
                     self._children_name_map["registration_complete"] = "registration-complete"
                     self._segment_path = lambda: "registration"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Registration, ['registration_state', 'export_control_allowed'], name, value)
@@ -2338,11 +2359,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('start_time', YLeaf(YType.str, 'start-time')),
+                            ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
                         ])
                         self.start_time = None
                         self._segment_path = lambda: "registration-in-progress"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/registration/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationInProgress, ['start_time'], name, value)
@@ -2383,13 +2405,14 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fail_time', YLeaf(YType.str, 'fail-time')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
+                            ('fail_time', (YLeaf(YType.str, 'fail-time'), ['str'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
                         ])
                         self.fail_time = None
                         self.fail_message = None
                         self._segment_path = lambda: "registration-failed"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/registration/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationFailed, ['fail_time', 'fail_message'], name, value)
@@ -2437,15 +2460,16 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('retry_next_time', YLeaf(YType.str, 'retry-next-time')),
-                            ('fail_time', YLeaf(YType.str, 'fail-time')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
+                            ('retry_next_time', (YLeaf(YType.str, 'retry-next-time'), ['str'])),
+                            ('fail_time', (YLeaf(YType.str, 'fail-time'), ['str'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
                         ])
                         self.retry_next_time = None
                         self.fail_time = None
                         self.fail_message = None
                         self._segment_path = lambda: "registration-retry"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/registration/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationRetry, ['retry_next_time', 'fail_time', 'fail_message'], name, value)
@@ -2526,14 +2550,14 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('complete_time', YLeaf(YType.str, 'complete-time')),
-                            ('last_renew_time', YLeaf(YType.str, 'last-renew-time')),
-                            ('next_renew_time', YLeaf(YType.str, 'next-renew-time')),
-                            ('expire_time', YLeaf(YType.str, 'expire-time')),
-                            ('last_renew_success', YLeaf(YType.boolean, 'last-renew-success')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
-                            ('smart_account', YLeaf(YType.str, 'smart-account')),
-                            ('virtual_account', YLeaf(YType.str, 'virtual-account')),
+                            ('complete_time', (YLeaf(YType.str, 'complete-time'), ['str'])),
+                            ('last_renew_time', (YLeaf(YType.str, 'last-renew-time'), ['str'])),
+                            ('next_renew_time', (YLeaf(YType.str, 'next-renew-time'), ['str'])),
+                            ('expire_time', (YLeaf(YType.str, 'expire-time'), ['str'])),
+                            ('last_renew_success', (YLeaf(YType.boolean, 'last-renew-success'), ['bool'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
+                            ('smart_account', (YLeaf(YType.str, 'smart-account'), ['str'])),
+                            ('virtual_account', (YLeaf(YType.str, 'virtual-account'), ['str'])),
                         ])
                         self.complete_time = None
                         self.last_renew_time = None
@@ -2545,6 +2569,7 @@ class Licensing(Entity):
                         self.virtual_account = None
                         self._segment_path = lambda: "registration-complete"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/registration/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Registration.RegistrationComplete, ['complete_time', 'last_renew_time', 'next_renew_time', 'expire_time', 'last_renew_success', 'fail_message', 'smart_account', 'virtual_account'], name, value)
@@ -2611,7 +2636,7 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("authorization-none", ("authorization_none", Licensing.State.StateInfo.Authorization.AuthorizationNone)), ("authorization-eval", ("authorization_eval", Licensing.State.StateInfo.Authorization.AuthorizationEval)), ("authorization-eval-expired", ("authorization_eval_expired", Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired)), ("authorization-authorized", ("authorization_authorized", Licensing.State.StateInfo.Authorization.AuthorizationAuthorized)), ("authorization-authorized-reservation", ("authorization_authorized_reservation", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation)), ("authorization-out-of-compliance", ("authorization_out_of_compliance", Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance)), ("authorization-authorization-expired", ("authorization_authorization_expired", Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired))])
                     self._leafs = OrderedDict([
-                        ('authorization_state', YLeaf(YType.enumeration, 'authorization-state')),
+                        ('authorization_state', (YLeaf(YType.enumeration, 'authorization-state'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'AuthorizationStateEnum', '')])),
                     ])
                     self.authorization_state = None
 
@@ -2644,6 +2669,7 @@ class Licensing(Entity):
                     self._children_name_map["authorization_authorization_expired"] = "authorization-authorization-expired"
                     self._segment_path = lambda: "authorization"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Authorization, ['authorization_state'], name, value)
@@ -2673,6 +2699,7 @@ class Licensing(Entity):
                         self._leafs = OrderedDict()
                         self._segment_path = lambda: "authorization-none"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
 
                 class AuthorizationEval(Entity):
@@ -2705,11 +2732,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds_left', YLeaf(YType.uint64, 'seconds-left')),
+                            ('seconds_left', (YLeaf(YType.uint64, 'seconds-left'), ['int'])),
                         ])
                         self.seconds_left = None
                         self._segment_path = lambda: "authorization-eval"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationEval, ['seconds_left'], name, value)
@@ -2743,11 +2771,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('expire_time', YLeaf(YType.str, 'expire-time')),
+                            ('expire_time', (YLeaf(YType.str, 'expire-time'), ['str'])),
                         ])
                         self.expire_time = None
                         self._segment_path = lambda: "authorization-eval-expired"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationEvalExpired, ['expire_time'], name, value)
@@ -2807,11 +2836,11 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
-                            ('last_comm_time', YLeaf(YType.str, 'last-comm-time')),
-                            ('next_comm_time', YLeaf(YType.str, 'next-comm-time')),
-                            ('comm_deadline_time', YLeaf(YType.str, 'comm-deadline-time')),
+                            ('last_comm_status_success', (YLeaf(YType.boolean, 'last-comm-status-success'), ['bool'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
+                            ('last_comm_time', (YLeaf(YType.str, 'last-comm-time'), ['str'])),
+                            ('next_comm_time', (YLeaf(YType.str, 'next-comm-time'), ['str'])),
+                            ('comm_deadline_time', (YLeaf(YType.str, 'comm-deadline-time'), ['str'])),
                         ])
                         self.last_comm_status_success = None
                         self.fail_message = None
@@ -2820,6 +2849,7 @@ class Licensing(Entity):
                         self.comm_deadline_time = None
                         self._segment_path = lambda: "authorization-authorized"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorized, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time'], name, value)
@@ -2854,11 +2884,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('reservation_time', YLeaf(YType.str, 'reservation-time')),
+                            ('reservation_time', (YLeaf(YType.str, 'reservation-time'), ['str'])),
                         ])
                         self.reservation_time = None
                         self._segment_path = lambda: "authorization-authorized-reservation"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorizedReservation, ['reservation_time'], name, value)
@@ -2926,12 +2957,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
-                            ('last_comm_time', YLeaf(YType.str, 'last-comm-time')),
-                            ('next_comm_time', YLeaf(YType.str, 'next-comm-time')),
-                            ('comm_deadline_time', YLeaf(YType.str, 'comm-deadline-time')),
-                            ('ooc_time', YLeaf(YType.str, 'ooc-time')),
+                            ('last_comm_status_success', (YLeaf(YType.boolean, 'last-comm-status-success'), ['bool'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
+                            ('last_comm_time', (YLeaf(YType.str, 'last-comm-time'), ['str'])),
+                            ('next_comm_time', (YLeaf(YType.str, 'next-comm-time'), ['str'])),
+                            ('comm_deadline_time', (YLeaf(YType.str, 'comm-deadline-time'), ['str'])),
+                            ('ooc_time', (YLeaf(YType.str, 'ooc-time'), ['str'])),
                         ])
                         self.last_comm_status_success = None
                         self.fail_message = None
@@ -2941,6 +2972,7 @@ class Licensing(Entity):
                         self.ooc_time = None
                         self._segment_path = lambda: "authorization-out-of-compliance"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationOutOfCompliance, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time', 'ooc_time'], name, value)
@@ -3002,11 +3034,11 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('last_comm_status_success', YLeaf(YType.boolean, 'last-comm-status-success')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
-                            ('last_comm_time', YLeaf(YType.str, 'last-comm-time')),
-                            ('next_comm_time', YLeaf(YType.str, 'next-comm-time')),
-                            ('comm_deadline_time', YLeaf(YType.str, 'comm-deadline-time')),
+                            ('last_comm_status_success', (YLeaf(YType.boolean, 'last-comm-status-success'), ['bool'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
+                            ('last_comm_time', (YLeaf(YType.str, 'last-comm-time'), ['str'])),
+                            ('next_comm_time', (YLeaf(YType.str, 'next-comm-time'), ['str'])),
+                            ('comm_deadline_time', (YLeaf(YType.str, 'comm-deadline-time'), ['str'])),
                         ])
                         self.last_comm_status_success = None
                         self.fail_message = None
@@ -3015,6 +3047,7 @@ class Licensing(Entity):
                         self.comm_deadline_time = None
                         self._segment_path = lambda: "authorization-authorization-expired"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/authorization/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Authorization.AuthorizationAuthorizationExpired, ['last_comm_status_success', 'fail_message', 'last_comm_time', 'next_comm_time', 'comm_deadline_time'], name, value)
@@ -3061,8 +3094,8 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("reporting-times", ("reporting_times", Licensing.State.StateInfo.Utility.ReportingTimes)), ("customer-info", ("customer_info", Licensing.State.StateInfo.Utility.CustomerInfo))])
                     self._leafs = OrderedDict([
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('reporting', YLeaf(YType.enumeration, 'reporting')),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('reporting', (YLeaf(YType.enumeration, 'reporting'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'UtilityReportingTypeEnum', '')])),
                     ])
                     self.enabled = None
                     self.reporting = None
@@ -3076,6 +3109,7 @@ class Licensing(Entity):
                     self._children_name_map["customer_info"] = "customer-info"
                     self._segment_path = lambda: "utility"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Utility, ['enabled', 'reporting'], name, value)
@@ -3129,10 +3163,10 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('last_report_time', YLeaf(YType.str, 'last-report-time')),
-                            ('last_report_success', YLeaf(YType.boolean, 'last-report-success')),
-                            ('fail_message', YLeaf(YType.str, 'fail-message')),
-                            ('next_report_time', YLeaf(YType.str, 'next-report-time')),
+                            ('last_report_time', (YLeaf(YType.str, 'last-report-time'), ['str'])),
+                            ('last_report_success', (YLeaf(YType.boolean, 'last-report-success'), ['bool'])),
+                            ('fail_message', (YLeaf(YType.str, 'fail-message'), ['str'])),
+                            ('next_report_time', (YLeaf(YType.str, 'next-report-time'), ['str'])),
                         ])
                         self.last_report_time = None
                         self.last_report_success = None
@@ -3140,6 +3174,7 @@ class Licensing(Entity):
                         self.next_report_time = None
                         self._segment_path = lambda: "reporting-times"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/utility/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Utility.ReportingTimes, ['last_report_time', 'last_report_success', 'fail_message', 'next_report_time'], name, value)
@@ -3216,13 +3251,13 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.str, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('street', YLeaf(YType.str, 'street')),
-                            ('city', YLeaf(YType.str, 'city')),
-                            ('state', YLeaf(YType.str, 'state')),
-                            ('country', YLeaf(YType.str, 'country')),
-                            ('postal_code', YLeaf(YType.str, 'postal-code')),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('street', (YLeaf(YType.str, 'street'), ['str'])),
+                            ('city', (YLeaf(YType.str, 'city'), ['str'])),
+                            ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                            ('country', (YLeaf(YType.str, 'country'), ['str'])),
+                            ('postal_code', (YLeaf(YType.str, 'postal-code'), ['str'])),
                         ])
                         self.id = None
                         self.name = None
@@ -3233,6 +3268,7 @@ class Licensing(Entity):
                         self.postal_code = None
                         self._segment_path = lambda: "customer-info"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/utility/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Utility.CustomerInfo, ['id', 'name', 'street', 'city', 'state', 'country', 'postal_code'], name, value)
@@ -3269,7 +3305,7 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("url-settings", ("url_settings", Licensing.State.StateInfo.Transport.UrlSettings))])
                     self._leafs = OrderedDict([
-                        ('transport_type', YLeaf(YType.enumeration, 'transport-type')),
+                        ('transport_type', (YLeaf(YType.enumeration, 'transport-type'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'TransportTypeEnum', '')])),
                     ])
                     self.transport_type = None
 
@@ -3278,6 +3314,7 @@ class Licensing(Entity):
                     self._children_name_map["url_settings"] = "url-settings"
                     self._segment_path = lambda: "transport"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Transport, ['transport_type'], name, value)
@@ -3314,13 +3351,14 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('url_registration', YLeaf(YType.str, 'url-registration')),
-                            ('url_utility', YLeaf(YType.str, 'url-utility')),
+                            ('url_registration', (YLeaf(YType.str, 'url-registration'), ['str'])),
+                            ('url_utility', (YLeaf(YType.str, 'url-utility'), ['str'])),
                         ])
                         self.url_registration = None
                         self.url_utility = None
                         self._segment_path = lambda: "url-settings"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/transport/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Transport.UrlSettings, ['url_registration', 'url_utility'], name, value)
@@ -3357,13 +3395,14 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('hostname', YLeaf(YType.boolean, 'hostname')),
-                        ('version', YLeaf(YType.boolean, 'version')),
+                        ('hostname', (YLeaf(YType.boolean, 'hostname'), ['bool'])),
+                        ('version', (YLeaf(YType.boolean, 'version'), ['bool'])),
                     ])
                     self.hostname = None
                     self.version = None
                     self._segment_path = lambda: "privacy"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Privacy, ['hostname', 'version'], name, value)
@@ -3410,8 +3449,8 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("eval-period-left", ("eval_period_left", Licensing.State.StateInfo.Evaluation.EvalPeriodLeft)), ("eval-expire-time", ("eval_expire_time", Licensing.State.StateInfo.Evaluation.EvalExpireTime))])
                     self._leafs = OrderedDict([
-                        ('eval_in_use', YLeaf(YType.boolean, 'eval-in-use')),
-                        ('eval_expired', YLeaf(YType.boolean, 'eval-expired')),
+                        ('eval_in_use', (YLeaf(YType.boolean, 'eval-in-use'), ['bool'])),
+                        ('eval_expired', (YLeaf(YType.boolean, 'eval-expired'), ['bool'])),
                     ])
                     self.eval_in_use = None
                     self.eval_expired = None
@@ -3425,6 +3464,7 @@ class Licensing(Entity):
                     self._children_name_map["eval_expire_time"] = "eval-expire-time"
                     self._segment_path = lambda: "evaluation"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Evaluation, ['eval_in_use', 'eval_expired'], name, value)
@@ -3459,11 +3499,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('time_left', YLeaf(YType.uint32, 'time-left')),
+                            ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
                         ])
                         self.time_left = None
                         self._segment_path = lambda: "eval-period-left"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/evaluation/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Evaluation.EvalPeriodLeft, ['time_left'], name, value)
@@ -3498,11 +3539,12 @@ class Licensing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('expire_time', YLeaf(YType.str, 'expire-time')),
+                            ('expire_time', (YLeaf(YType.str, 'expire-time'), ['str'])),
                         ])
                         self.expire_time = None
                         self._segment_path = lambda: "eval-expire-time"
                         self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/evaluation/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Licensing.State.StateInfo.Evaluation.EvalExpireTime, ['expire_time'], name, value)
@@ -3578,13 +3620,13 @@ class Licensing(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pid', YLeaf(YType.str, 'pid')),
-                        ('sn', YLeaf(YType.str, 'sn')),
-                        ('vid', YLeaf(YType.str, 'vid')),
-                        ('uuid', YLeaf(YType.str, 'uuid')),
-                        ('suvi', YLeaf(YType.str, 'suvi')),
-                        ('host_identifier', YLeaf(YType.str, 'host-identifier')),
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
+                        ('pid', (YLeaf(YType.str, 'pid'), ['str'])),
+                        ('sn', (YLeaf(YType.str, 'sn'), ['str'])),
+                        ('vid', (YLeaf(YType.str, 'vid'), ['str'])),
+                        ('uuid', (YLeaf(YType.str, 'uuid'), ['str'])),
+                        ('suvi', (YLeaf(YType.str, 'suvi'), ['str'])),
+                        ('host_identifier', (YLeaf(YType.str, 'host-identifier'), ['str'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
                     ])
                     self.pid = None
                     self.sn = None
@@ -3595,6 +3637,7 @@ class Licensing(Entity):
                     self.mac_address = None
                     self._segment_path = lambda: "udi"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Udi, ['pid', 'sn', 'vid', 'uuid', 'suvi', 'host_identifier', 'mac_address'], name, value)
@@ -3664,14 +3707,14 @@ class Licensing(Entity):
                     self.ylist_key_names = ['entitlement_tag']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('entitlement_tag', YLeaf(YType.str, 'entitlement-tag')),
-                        ('short_name', YLeaf(YType.str, 'short-name')),
-                        ('license_name', YLeaf(YType.str, 'license-name')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('count', YLeaf(YType.uint32, 'count')),
-                        ('enforcement_mode', YLeaf(YType.enumeration, 'enforcement-mode')),
-                        ('post_paid', YLeaf(YType.boolean, 'post-paid')),
-                        ('subscription_id', YLeaf(YType.str, 'subscription-id')),
+                        ('entitlement_tag', (YLeaf(YType.str, 'entitlement-tag'), ['str'])),
+                        ('short_name', (YLeaf(YType.str, 'short-name'), ['str'])),
+                        ('license_name', (YLeaf(YType.str, 'license-name'), ['str'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                        ('enforcement_mode', (YLeaf(YType.enumeration, 'enforcement-mode'), [('ydk.models.cisco_ios_xe.cisco_smart_license', 'EnforcementModeEnum', '')])),
+                        ('post_paid', (YLeaf(YType.boolean, 'post-paid'), ['bool'])),
+                        ('subscription_id', (YLeaf(YType.str, 'subscription-id'), ['str'])),
                     ])
                     self.entitlement_tag = None
                     self.short_name = None
@@ -3683,6 +3726,7 @@ class Licensing(Entity):
                     self.subscription_id = None
                     self._segment_path = lambda: "usage" + "[entitlement-tag='" + str(self.entitlement_tag) + "']"
                     self._absolute_path = lambda: "cisco-smart-license:licensing/state/state-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Licensing.State.StateInfo.Usage, ['entitlement_tag', 'short_name', 'license_name', 'description', 'count', 'enforcement_mode', 'post_paid', 'subscription_id'], name, value)

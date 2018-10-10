@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class OSPFTRAPMIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class OSPFTRAPMIB(Entity):
         self.ospftrapcontrol.parent = self
         self._children_name_map["ospftrapcontrol"] = "ospfTrapControl"
         self._segment_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OSPFTRAPMIB, [], name, value)
@@ -100,10 +102,10 @@ class OSPFTRAPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ospfsettrap', YLeaf(YType.str, 'ospfSetTrap')),
-                ('ospfconfigerrortype', YLeaf(YType.enumeration, 'ospfConfigErrorType')),
-                ('ospfpackettype', YLeaf(YType.enumeration, 'ospfPacketType')),
-                ('ospfpacketsrc', YLeaf(YType.str, 'ospfPacketSrc')),
+                ('ospfsettrap', (YLeaf(YType.str, 'ospfSetTrap'), ['str'])),
+                ('ospfconfigerrortype', (YLeaf(YType.enumeration, 'ospfConfigErrorType'), [('ydk.models.cisco_ios_xe.OSPF_TRAP_MIB', 'OSPFTRAPMIB', 'OspfTrapControl.OspfConfigErrorType')])),
+                ('ospfpackettype', (YLeaf(YType.enumeration, 'ospfPacketType'), [('ydk.models.cisco_ios_xe.OSPF_TRAP_MIB', 'OSPFTRAPMIB', 'OspfTrapControl.OspfPacketType')])),
+                ('ospfpacketsrc', (YLeaf(YType.str, 'ospfPacketSrc'), ['str'])),
             ])
             self.ospfsettrap = None
             self.ospfconfigerrortype = None
@@ -111,6 +113,7 @@ class OSPFTRAPMIB(Entity):
             self.ospfpacketsrc = None
             self._segment_path = lambda: "ospfTrapControl"
             self._absolute_path = lambda: "OSPF-TRAP-MIB:OSPF-TRAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OSPFTRAPMIB.OspfTrapControl, ['ospfsettrap', 'ospfconfigerrortype', 'ospfpackettype', 'ospfpacketsrc'], name, value)

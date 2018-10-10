@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class TUNNELMIB(Entity):
     """
     
@@ -70,6 +71,7 @@ class TUNNELMIB(Entity):
         self.tunnelinetconfigtable.parent = self
         self._children_name_map["tunnelinetconfigtable"] = "tunnelInetConfigTable"
         self._segment_path = lambda: "TUNNEL-MIB:TUNNEL-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TUNNELMIB, [], name, value)
@@ -106,6 +108,7 @@ class TUNNELMIB(Entity):
             self.tunnelifentry = YList(self)
             self._segment_path = lambda: "tunnelIfTable"
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TUNNELMIB.TunnelIfTable, [], name, value)
@@ -217,18 +220,18 @@ class TUNNELMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('tunneliflocaladdress', YLeaf(YType.str, 'tunnelIfLocalAddress')),
-                    ('tunnelifremoteaddress', YLeaf(YType.str, 'tunnelIfRemoteAddress')),
-                    ('tunnelifencapsmethod', YLeaf(YType.enumeration, 'tunnelIfEncapsMethod')),
-                    ('tunnelifhoplimit', YLeaf(YType.int32, 'tunnelIfHopLimit')),
-                    ('tunnelifsecurity', YLeaf(YType.enumeration, 'tunnelIfSecurity')),
-                    ('tunneliftos', YLeaf(YType.int32, 'tunnelIfTOS')),
-                    ('tunnelifflowlabel', YLeaf(YType.int32, 'tunnelIfFlowLabel')),
-                    ('tunnelifaddresstype', YLeaf(YType.enumeration, 'tunnelIfAddressType')),
-                    ('tunneliflocalinetaddress', YLeaf(YType.str, 'tunnelIfLocalInetAddress')),
-                    ('tunnelifremoteinetaddress', YLeaf(YType.str, 'tunnelIfRemoteInetAddress')),
-                    ('tunnelifencapslimit', YLeaf(YType.int32, 'tunnelIfEncapsLimit')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('tunneliflocaladdress', (YLeaf(YType.str, 'tunnelIfLocalAddress'), ['str'])),
+                    ('tunnelifremoteaddress', (YLeaf(YType.str, 'tunnelIfRemoteAddress'), ['str'])),
+                    ('tunnelifencapsmethod', (YLeaf(YType.enumeration, 'tunnelIfEncapsMethod'), [('ydk.models.cisco_ios_xe.IANAifType_MIB', 'IANAtunnelType', '')])),
+                    ('tunnelifhoplimit', (YLeaf(YType.int32, 'tunnelIfHopLimit'), ['int'])),
+                    ('tunnelifsecurity', (YLeaf(YType.enumeration, 'tunnelIfSecurity'), [('ydk.models.cisco_ios_xe.TUNNEL_MIB', 'TUNNELMIB', 'TunnelIfTable.TunnelIfEntry.TunnelIfSecurity')])),
+                    ('tunneliftos', (YLeaf(YType.int32, 'tunnelIfTOS'), ['int'])),
+                    ('tunnelifflowlabel', (YLeaf(YType.int32, 'tunnelIfFlowLabel'), ['int'])),
+                    ('tunnelifaddresstype', (YLeaf(YType.enumeration, 'tunnelIfAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('tunneliflocalinetaddress', (YLeaf(YType.str, 'tunnelIfLocalInetAddress'), ['str'])),
+                    ('tunnelifremoteinetaddress', (YLeaf(YType.str, 'tunnelIfRemoteInetAddress'), ['str'])),
+                    ('tunnelifencapslimit', (YLeaf(YType.int32, 'tunnelIfEncapsLimit'), ['int'])),
                 ])
                 self.ifindex = None
                 self.tunneliflocaladdress = None
@@ -244,6 +247,7 @@ class TUNNELMIB(Entity):
                 self.tunnelifencapslimit = None
                 self._segment_path = lambda: "tunnelIfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelIfTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TUNNELMIB.TunnelIfTable.TunnelIfEntry, ['ifindex', 'tunneliflocaladdress', 'tunnelifremoteaddress', 'tunnelifencapsmethod', 'tunnelifhoplimit', 'tunnelifsecurity', 'tunneliftos', 'tunnelifflowlabel', 'tunnelifaddresstype', 'tunneliflocalinetaddress', 'tunnelifremoteinetaddress', 'tunnelifencapslimit'], name, value)
@@ -322,6 +326,7 @@ class TUNNELMIB(Entity):
             self.tunnelconfigentry = YList(self)
             self._segment_path = lambda: "tunnelConfigTable"
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TUNNELMIB.TunnelConfigTable, [], name, value)
@@ -402,12 +407,12 @@ class TUNNELMIB(Entity):
                 self.ylist_key_names = ['tunnelconfiglocaladdress','tunnelconfigremoteaddress','tunnelconfigencapsmethod','tunnelconfigid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tunnelconfiglocaladdress', YLeaf(YType.str, 'tunnelConfigLocalAddress')),
-                    ('tunnelconfigremoteaddress', YLeaf(YType.str, 'tunnelConfigRemoteAddress')),
-                    ('tunnelconfigencapsmethod', YLeaf(YType.enumeration, 'tunnelConfigEncapsMethod')),
-                    ('tunnelconfigid', YLeaf(YType.int32, 'tunnelConfigID')),
-                    ('tunnelconfigifindex', YLeaf(YType.int32, 'tunnelConfigIfIndex')),
-                    ('tunnelconfigstatus', YLeaf(YType.enumeration, 'tunnelConfigStatus')),
+                    ('tunnelconfiglocaladdress', (YLeaf(YType.str, 'tunnelConfigLocalAddress'), ['str'])),
+                    ('tunnelconfigremoteaddress', (YLeaf(YType.str, 'tunnelConfigRemoteAddress'), ['str'])),
+                    ('tunnelconfigencapsmethod', (YLeaf(YType.enumeration, 'tunnelConfigEncapsMethod'), [('ydk.models.cisco_ios_xe.IANAifType_MIB', 'IANAtunnelType', '')])),
+                    ('tunnelconfigid', (YLeaf(YType.int32, 'tunnelConfigID'), ['int'])),
+                    ('tunnelconfigifindex', (YLeaf(YType.int32, 'tunnelConfigIfIndex'), ['int'])),
+                    ('tunnelconfigstatus', (YLeaf(YType.enumeration, 'tunnelConfigStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.tunnelconfiglocaladdress = None
                 self.tunnelconfigremoteaddress = None
@@ -417,6 +422,7 @@ class TUNNELMIB(Entity):
                 self.tunnelconfigstatus = None
                 self._segment_path = lambda: "tunnelConfigEntry" + "[tunnelConfigLocalAddress='" + str(self.tunnelconfiglocaladdress) + "']" + "[tunnelConfigRemoteAddress='" + str(self.tunnelconfigremoteaddress) + "']" + "[tunnelConfigEncapsMethod='" + str(self.tunnelconfigencapsmethod) + "']" + "[tunnelConfigID='" + str(self.tunnelconfigid) + "']"
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TUNNELMIB.TunnelConfigTable.TunnelConfigEntry, ['tunnelconfiglocaladdress', 'tunnelconfigremoteaddress', 'tunnelconfigencapsmethod', 'tunnelconfigid', 'tunnelconfigifindex', 'tunnelconfigstatus'], name, value)
@@ -459,6 +465,7 @@ class TUNNELMIB(Entity):
             self.tunnelinetconfigentry = YList(self)
             self._segment_path = lambda: "tunnelInetConfigTable"
             self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TUNNELMIB.TunnelInetConfigTable, [], name, value)
@@ -546,14 +553,14 @@ class TUNNELMIB(Entity):
                 self.ylist_key_names = ['tunnelinetconfigaddresstype','tunnelinetconfiglocaladdress','tunnelinetconfigremoteaddress','tunnelinetconfigencapsmethod','tunnelinetconfigid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tunnelinetconfigaddresstype', YLeaf(YType.enumeration, 'tunnelInetConfigAddressType')),
-                    ('tunnelinetconfiglocaladdress', YLeaf(YType.str, 'tunnelInetConfigLocalAddress')),
-                    ('tunnelinetconfigremoteaddress', YLeaf(YType.str, 'tunnelInetConfigRemoteAddress')),
-                    ('tunnelinetconfigencapsmethod', YLeaf(YType.enumeration, 'tunnelInetConfigEncapsMethod')),
-                    ('tunnelinetconfigid', YLeaf(YType.int32, 'tunnelInetConfigID')),
-                    ('tunnelinetconfigifindex', YLeaf(YType.int32, 'tunnelInetConfigIfIndex')),
-                    ('tunnelinetconfigstatus', YLeaf(YType.enumeration, 'tunnelInetConfigStatus')),
-                    ('tunnelinetconfigstoragetype', YLeaf(YType.enumeration, 'tunnelInetConfigStorageType')),
+                    ('tunnelinetconfigaddresstype', (YLeaf(YType.enumeration, 'tunnelInetConfigAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('tunnelinetconfiglocaladdress', (YLeaf(YType.str, 'tunnelInetConfigLocalAddress'), ['str'])),
+                    ('tunnelinetconfigremoteaddress', (YLeaf(YType.str, 'tunnelInetConfigRemoteAddress'), ['str'])),
+                    ('tunnelinetconfigencapsmethod', (YLeaf(YType.enumeration, 'tunnelInetConfigEncapsMethod'), [('ydk.models.cisco_ios_xe.IANAifType_MIB', 'IANAtunnelType', '')])),
+                    ('tunnelinetconfigid', (YLeaf(YType.int32, 'tunnelInetConfigID'), ['int'])),
+                    ('tunnelinetconfigifindex', (YLeaf(YType.int32, 'tunnelInetConfigIfIndex'), ['int'])),
+                    ('tunnelinetconfigstatus', (YLeaf(YType.enumeration, 'tunnelInetConfigStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('tunnelinetconfigstoragetype', (YLeaf(YType.enumeration, 'tunnelInetConfigStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.tunnelinetconfigaddresstype = None
                 self.tunnelinetconfiglocaladdress = None
@@ -565,6 +572,7 @@ class TUNNELMIB(Entity):
                 self.tunnelinetconfigstoragetype = None
                 self._segment_path = lambda: "tunnelInetConfigEntry" + "[tunnelInetConfigAddressType='" + str(self.tunnelinetconfigaddresstype) + "']" + "[tunnelInetConfigLocalAddress='" + str(self.tunnelinetconfiglocaladdress) + "']" + "[tunnelInetConfigRemoteAddress='" + str(self.tunnelinetconfigremoteaddress) + "']" + "[tunnelInetConfigEncapsMethod='" + str(self.tunnelinetconfigencapsmethod) + "']" + "[tunnelInetConfigID='" + str(self.tunnelinetconfigid) + "']"
                 self._absolute_path = lambda: "TUNNEL-MIB:TUNNEL-MIB/tunnelInetConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TUNNELMIB.TunnelInetConfigTable.TunnelInetConfigEntry, ['tunnelinetconfigaddresstype', 'tunnelinetconfiglocaladdress', 'tunnelinetconfigremoteaddress', 'tunnelinetconfigencapsmethod', 'tunnelinetconfigid', 'tunnelinetconfigifindex', 'tunnelinetconfigstatus', 'tunnelinetconfigstoragetype'], name, value)

@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Groups(Entity):
     """
     config groups
@@ -46,6 +47,7 @@ class Groups(Entity):
 
         self.group = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-group-cfg:groups"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Groups, [], name, value)
@@ -79,11 +81,12 @@ class Groups(Entity):
             self.ylist_key_names = ['group_name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('group_name', YLeaf(YType.str, 'group-name')),
+                ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
             ])
             self.group_name = None
             self._segment_path = lambda: "group" + "[group-name='" + str(self.group_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-group-cfg:groups/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Groups.Group, ['group_name'], name, value)
@@ -121,10 +124,11 @@ class ApplyGroups(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('apply_group', YLeaf(YType.str, 'apply-group')),
+            ('apply_group', (YLeaf(YType.str, 'apply-group'), ['str'])),
         ])
         self.apply_group = None
         self._segment_path = lambda: "Cisco-IOS-XR-group-cfg:apply-groups"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ApplyGroups, ['apply_group'], name, value)

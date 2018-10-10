@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-virtual\: IPv6 virtual address for management interfaces
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,7 +53,7 @@ class Ipv6Virtual(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv6Virtual.Vrfs))])
         self._leafs = OrderedDict([
-            ('use_as_source_address', YLeaf(YType.empty, 'use-as-source-address')),
+            ('use_as_source_address', (YLeaf(YType.empty, 'use-as-source-address'), ['Empty'])),
         ])
         self.use_as_source_address = None
 
@@ -60,6 +61,7 @@ class Ipv6Virtual(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Virtual, ['use_as_source_address'], name, value)
@@ -95,6 +97,7 @@ class Ipv6Virtual(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Virtual.Vrfs, [], name, value)
@@ -136,7 +139,7 @@ class Ipv6Virtual(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("address", ("address", Ipv6Virtual.Vrfs.Vrf.Address))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -144,6 +147,7 @@ class Ipv6Virtual(Entity):
                 self._children_name_map["address"] = "address"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-smiap-cfg:ipv6-virtual/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6Virtual.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -191,12 +195,13 @@ class Ipv6Virtual(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                     ])
                     self.address = None
                     self.prefix_length = None
                     self._segment_path = lambda: "address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6Virtual.Vrfs.Vrf.Address, ['address', 'prefix_length'], name, value)

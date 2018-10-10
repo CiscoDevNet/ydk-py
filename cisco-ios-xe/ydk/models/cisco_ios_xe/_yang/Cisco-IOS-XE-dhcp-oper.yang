@@ -25,9 +25,14 @@ module Cisco-IOS-XE-dhcp-oper {
   description
     "This module contains a collection of YANG definitions
      for DHCP Server and Client operational data.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-13 {
+    description
+      "dns name changes.";
+    reference "2.0.0";
+  }
   revision 2017-11-01 {
     description
       "Initial revision";
@@ -358,11 +363,20 @@ module Cisco-IOS-XE-dhcp-oper {
       description
         "Lease remaining time for the IP address";
     }
-    leaf-list dns-list {
+    leaf dns-address {
       type inet:ip-address;
-      ordered-by user;
       description
-        "DNS list based on index";
+        "First DNS address";
+    }
+    leaf dns-address-secondary {
+      type inet:ip-address;
+      description
+        "Secondary DNS address";
+    }
+    leaf subnet-mask {
+      type inet:ip-address;
+      description
+        "Subnet mask address";
     }
   }
 

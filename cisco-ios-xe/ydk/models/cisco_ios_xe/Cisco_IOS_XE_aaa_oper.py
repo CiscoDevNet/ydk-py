@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class AaaSessProtType(Enum):
     """
     AaaSessProtType (Enum Class)
@@ -480,6 +481,21 @@ class AaaData(Entity):
     """
     Operational state of AAA
     
+    .. attribute:: aaa_radius_stats
+    
+    	Radius server statistics
+    	**type**\: list of  		 :py:class:`AaaRadiusStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaRadiusStats>`
+    
+    .. attribute:: aaa_tacacs_stats
+    
+    	AAA TACACS server statistics
+    	**type**\: list of  		 :py:class:`AaaTacacsStats <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaTacacsStats>`
+    
+    .. attribute:: aaa_ldap_counters
+    
+    	LDAP server counters
+    	**type**\: list of  		 :py:class:`AaaLdapCounters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper.AaaData.AaaLdapCounters>`
+    
     .. attribute:: aaa_users
     
     	List of current users
@@ -490,7 +506,7 @@ class AaaData(Entity):
     """
 
     _prefix = 'aaa-ios-xe-oper'
-    _revision = '2017-11-01'
+    _revision = '2018-04-16'
 
     def __init__(self):
         super(AaaData, self).__init__()
@@ -501,14 +517,563 @@ class AaaData(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("aaa-users", ("aaa_users", AaaData.AaaUsers))])
+        self._child_classes = OrderedDict([("aaa-radius-stats", ("aaa_radius_stats", AaaData.AaaRadiusStats)), ("aaa-tacacs-stats", ("aaa_tacacs_stats", AaaData.AaaTacacsStats)), ("aaa-ldap-counters", ("aaa_ldap_counters", AaaData.AaaLdapCounters)), ("aaa-users", ("aaa_users", AaaData.AaaUsers))])
         self._leafs = OrderedDict()
 
+        self.aaa_radius_stats = YList(self)
+        self.aaa_tacacs_stats = YList(self)
+        self.aaa_ldap_counters = YList(self)
         self.aaa_users = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-aaa-oper:aaa-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AaaData, [], name, value)
+
+
+    class AaaRadiusStats(Entity):
+        """
+        Radius server statistics
+        
+        .. attribute:: group_name  (key)
+        
+        	AAA group name in which the server is defined.  For public servers the group name is "PUBLIC GROUP" by default
+        	**type**\: str
+        
+        .. attribute:: radius_server_ip  (key)
+        
+        	Radius server IP address
+        	**type**\: union of the below types:
+        
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: auth_port  (key)
+        
+        	Radius server auth\-port
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: acct_port  (key)
+        
+        	Radius server acct\-port
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: authen_retried_access_requests
+        
+        	Authentication retried access requests
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_access_accepts
+        
+        	Authentication access accepts
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_access_rejects
+        
+        	Authentication access rejects
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_timeout_access_requests
+        
+        	Authentication Timeout access requests
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_retried_access_requests
+        
+        	Authorization retried access requests
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_access_accepts
+        
+        	Authorization access accepts
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_access_rejects
+        
+        	Authorization access rejects
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_timeout_access_requests
+        
+        	Authorization Timeout access requests
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_opens
+        
+        	Number of new connection requests sent to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_closes
+        
+        	Number of connection close requests sent to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_aborts
+        
+        	Number of connections aborted. These do not include connections that are closed gracefully
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_failures
+        
+        	Number of connection failures to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_timeouts
+        
+        	Number of connection timeouts to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_messages_sent
+        
+        	Number of authentication messages sent to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_messages_sent
+        
+        	Number of authorization messages sent to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: acct_messages_sent
+        
+        	Number of accounting messages sent to the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_messages_received
+        
+        	Number of authentication messages received by the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_messages_received
+        
+        	Number of authorization messages received by the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: authen_errors_received
+        
+        	Number of authentication error messages received  from the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: author_errors_received
+        
+        	Number of authorization error messages received  from the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: acct_errors_received
+        
+        	Number of accounting error messages received  from the RADIUS server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: stats_time
+        
+        	Time from which the statistics are valid. This field will be updated when a RADIUS server is configured and also when the RADIUS server statistics are cleared
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        
+
+        """
+
+        _prefix = 'aaa-ios-xe-oper'
+        _revision = '2018-04-16'
+
+        def __init__(self):
+            super(AaaData.AaaRadiusStats, self).__init__()
+
+            self.yang_name = "aaa-radius-stats"
+            self.yang_parent_name = "aaa-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['group_name','radius_server_ip','auth_port','acct_port']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                ('radius_server_ip', (YLeaf(YType.str, 'radius-server-ip'), ['str','str'])),
+                ('auth_port', (YLeaf(YType.uint16, 'auth-port'), ['int'])),
+                ('acct_port', (YLeaf(YType.uint16, 'acct-port'), ['int'])),
+                ('authen_retried_access_requests', (YLeaf(YType.uint32, 'authen-retried-access-requests'), ['int'])),
+                ('authen_access_accepts', (YLeaf(YType.uint32, 'authen-access-accepts'), ['int'])),
+                ('authen_access_rejects', (YLeaf(YType.uint32, 'authen-access-rejects'), ['int'])),
+                ('authen_timeout_access_requests', (YLeaf(YType.uint32, 'authen-timeout-access-requests'), ['int'])),
+                ('author_retried_access_requests', (YLeaf(YType.uint32, 'author-retried-access-requests'), ['int'])),
+                ('author_access_accepts', (YLeaf(YType.uint32, 'author-access-accepts'), ['int'])),
+                ('author_access_rejects', (YLeaf(YType.uint32, 'author-access-rejects'), ['int'])),
+                ('author_timeout_access_requests', (YLeaf(YType.uint32, 'author-timeout-access-requests'), ['int'])),
+                ('connection_opens', (YLeaf(YType.uint32, 'connection-opens'), ['int'])),
+                ('connection_closes', (YLeaf(YType.uint32, 'connection-closes'), ['int'])),
+                ('connection_aborts', (YLeaf(YType.uint32, 'connection-aborts'), ['int'])),
+                ('connection_failures', (YLeaf(YType.uint32, 'connection-failures'), ['int'])),
+                ('connection_timeouts', (YLeaf(YType.uint32, 'connection-timeouts'), ['int'])),
+                ('authen_messages_sent', (YLeaf(YType.uint32, 'authen-messages-sent'), ['int'])),
+                ('author_messages_sent', (YLeaf(YType.uint32, 'author-messages-sent'), ['int'])),
+                ('acct_messages_sent', (YLeaf(YType.uint32, 'acct-messages-sent'), ['int'])),
+                ('authen_messages_received', (YLeaf(YType.uint32, 'authen-messages-received'), ['int'])),
+                ('author_messages_received', (YLeaf(YType.uint32, 'author-messages-received'), ['int'])),
+                ('authen_errors_received', (YLeaf(YType.uint32, 'authen-errors-received'), ['int'])),
+                ('author_errors_received', (YLeaf(YType.uint32, 'author-errors-received'), ['int'])),
+                ('acct_errors_received', (YLeaf(YType.uint32, 'acct-errors-received'), ['int'])),
+                ('stats_time', (YLeaf(YType.str, 'stats-time'), ['str'])),
+            ])
+            self.group_name = None
+            self.radius_server_ip = None
+            self.auth_port = None
+            self.acct_port = None
+            self.authen_retried_access_requests = None
+            self.authen_access_accepts = None
+            self.authen_access_rejects = None
+            self.authen_timeout_access_requests = None
+            self.author_retried_access_requests = None
+            self.author_access_accepts = None
+            self.author_access_rejects = None
+            self.author_timeout_access_requests = None
+            self.connection_opens = None
+            self.connection_closes = None
+            self.connection_aborts = None
+            self.connection_failures = None
+            self.connection_timeouts = None
+            self.authen_messages_sent = None
+            self.author_messages_sent = None
+            self.acct_messages_sent = None
+            self.authen_messages_received = None
+            self.author_messages_received = None
+            self.authen_errors_received = None
+            self.author_errors_received = None
+            self.acct_errors_received = None
+            self.stats_time = None
+            self._segment_path = lambda: "aaa-radius-stats" + "[group-name='" + str(self.group_name) + "']" + "[radius-server-ip='" + str(self.radius_server_ip) + "']" + "[auth-port='" + str(self.auth_port) + "']" + "[acct-port='" + str(self.acct_port) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-aaa-oper:aaa-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AaaData.AaaRadiusStats, ['group_name', 'radius_server_ip', 'auth_port', 'acct_port', 'authen_retried_access_requests', 'authen_access_accepts', 'authen_access_rejects', 'authen_timeout_access_requests', 'author_retried_access_requests', 'author_access_accepts', 'author_access_rejects', 'author_timeout_access_requests', 'connection_opens', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'authen_messages_sent', 'author_messages_sent', 'acct_messages_sent', 'authen_messages_received', 'author_messages_received', 'authen_errors_received', 'author_errors_received', 'acct_errors_received', 'stats_time'], name, value)
+
+
+    class AaaTacacsStats(Entity):
+        """
+        AAA TACACS server statistics
+        
+        .. attribute:: group_name  (key)
+        
+        	AAA group name in which the server is defined. For public servers the group name is "PUBLIC GROUP" by default
+        	**type**\: str
+        
+        .. attribute:: tacacs_server_address  (key)
+        
+        	TACACS server IP address
+        	**type**\: union of the below types:
+        
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: port  (key)
+        
+        	TACACS server port
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: connection_opens
+        
+        	Number of new connection requests sent to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_closes
+        
+        	Number of connection close requests sent to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_aborts
+        
+        	Number of aborted connections to the server. These do not include connections that are close gracefully
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_failures
+        
+        	Number of connection failures to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_timeouts
+        
+        	Number of connection timeouts to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: messages_sent
+        
+        	Number of messages sent to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: messages_received
+        
+        	Number of messages received by the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: errors_received
+        
+        	Number of error messages received from the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: stats_start_time
+        
+        	This attribute contains stats collection start time. Stats collection starts when the TACACS server is configured
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        
+
+        """
+
+        _prefix = 'aaa-ios-xe-oper'
+        _revision = '2018-04-16'
+
+        def __init__(self):
+            super(AaaData.AaaTacacsStats, self).__init__()
+
+            self.yang_name = "aaa-tacacs-stats"
+            self.yang_parent_name = "aaa-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['group_name','tacacs_server_address','port']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                ('tacacs_server_address', (YLeaf(YType.str, 'tacacs-server-address'), ['str','str'])),
+                ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                ('connection_opens', (YLeaf(YType.uint32, 'connection-opens'), ['int'])),
+                ('connection_closes', (YLeaf(YType.uint32, 'connection-closes'), ['int'])),
+                ('connection_aborts', (YLeaf(YType.uint32, 'connection-aborts'), ['int'])),
+                ('connection_failures', (YLeaf(YType.uint32, 'connection-failures'), ['int'])),
+                ('connection_timeouts', (YLeaf(YType.uint32, 'connection-timeouts'), ['int'])),
+                ('messages_sent', (YLeaf(YType.uint32, 'messages-sent'), ['int'])),
+                ('messages_received', (YLeaf(YType.uint32, 'messages-received'), ['int'])),
+                ('errors_received', (YLeaf(YType.uint32, 'errors-received'), ['int'])),
+                ('stats_start_time', (YLeaf(YType.str, 'stats-start-time'), ['str'])),
+            ])
+            self.group_name = None
+            self.tacacs_server_address = None
+            self.port = None
+            self.connection_opens = None
+            self.connection_closes = None
+            self.connection_aborts = None
+            self.connection_failures = None
+            self.connection_timeouts = None
+            self.messages_sent = None
+            self.messages_received = None
+            self.errors_received = None
+            self.stats_start_time = None
+            self._segment_path = lambda: "aaa-tacacs-stats" + "[group-name='" + str(self.group_name) + "']" + "[tacacs-server-address='" + str(self.tacacs_server_address) + "']" + "[port='" + str(self.port) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-aaa-oper:aaa-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AaaData.AaaTacacsStats, ['group_name', 'tacacs_server_address', 'port', 'connection_opens', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'messages_sent', 'messages_received', 'errors_received', 'stats_start_time'], name, value)
+
+
+    class AaaLdapCounters(Entity):
+        """
+        LDAP server counters
+        
+        .. attribute:: ldap_server_address  (key)
+        
+        	LDAP server IP address
+        	**type**\: union of the below types:
+        
+        		**type**\: str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: ldap_server_port  (key)
+        
+        	LDAP server listening port \- TCP
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: connection_opens
+        
+        	Number of new connection requests sent to the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: messages_sent
+        
+        	Number of messages sent to the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: messages_received
+        
+        	Number of messages received by the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: errors_received
+        
+        	Number of error messages received from the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_closes
+        
+        	Number of connection close requests sent to the server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_aborts
+        
+        	Number of connections aborted. These do not include connections that are close gracefully
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_failures
+        
+        	Number of connection failures to the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: connection_timeouts
+        
+        	Number of connection timeouts to the LDAP server
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: counters_start_time
+        
+        	This attribute contains LDAP counters collection start time. Counters collection starts when a LDAP server is configured. Counters collection will be reset when the LDAP server counters are cleared
+        	**type**\: str
+        
+        	**pattern:** \\d{4}\-\\d{2}\-\\d{2}T\\d{2}\:\\d{2}\:\\d{2}(\\.\\d+)?(Z\|[\\+\\\-]\\d{2}\:\\d{2})
+        
+        
+
+        """
+
+        _prefix = 'aaa-ios-xe-oper'
+        _revision = '2018-04-16'
+
+        def __init__(self):
+            super(AaaData.AaaLdapCounters, self).__init__()
+
+            self.yang_name = "aaa-ldap-counters"
+            self.yang_parent_name = "aaa-data"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = ['ldap_server_address','ldap_server_port']
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('ldap_server_address', (YLeaf(YType.str, 'ldap-server-address'), ['str','str'])),
+                ('ldap_server_port', (YLeaf(YType.uint16, 'ldap-server-port'), ['int'])),
+                ('connection_opens', (YLeaf(YType.uint32, 'connection-opens'), ['int'])),
+                ('messages_sent', (YLeaf(YType.uint32, 'messages-sent'), ['int'])),
+                ('messages_received', (YLeaf(YType.uint32, 'messages-received'), ['int'])),
+                ('errors_received', (YLeaf(YType.uint32, 'errors-received'), ['int'])),
+                ('connection_closes', (YLeaf(YType.uint32, 'connection-closes'), ['int'])),
+                ('connection_aborts', (YLeaf(YType.uint32, 'connection-aborts'), ['int'])),
+                ('connection_failures', (YLeaf(YType.uint32, 'connection-failures'), ['int'])),
+                ('connection_timeouts', (YLeaf(YType.uint32, 'connection-timeouts'), ['int'])),
+                ('counters_start_time', (YLeaf(YType.str, 'counters-start-time'), ['str'])),
+            ])
+            self.ldap_server_address = None
+            self.ldap_server_port = None
+            self.connection_opens = None
+            self.messages_sent = None
+            self.messages_received = None
+            self.errors_received = None
+            self.connection_closes = None
+            self.connection_aborts = None
+            self.connection_failures = None
+            self.connection_timeouts = None
+            self.counters_start_time = None
+            self._segment_path = lambda: "aaa-ldap-counters" + "[ldap-server-address='" + str(self.ldap_server_address) + "']" + "[ldap-server-port='" + str(self.ldap_server_port) + "']"
+            self._absolute_path = lambda: "Cisco-IOS-XE-aaa-oper:aaa-data/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(AaaData.AaaLdapCounters, ['ldap_server_address', 'ldap_server_port', 'connection_opens', 'messages_sent', 'messages_received', 'errors_received', 'connection_closes', 'connection_aborts', 'connection_failures', 'connection_timeouts', 'counters_start_time'], name, value)
 
 
     class AaaUsers(Entity):
@@ -530,7 +1095,7 @@ class AaaData(Entity):
         """
 
         _prefix = 'aaa-ios-xe-oper'
-        _revision = '2017-11-01'
+        _revision = '2018-04-16'
 
         def __init__(self):
             super(AaaData.AaaUsers, self).__init__()
@@ -542,13 +1107,14 @@ class AaaData(Entity):
             self.ylist_key_names = ['username']
             self._child_classes = OrderedDict([("aaa-sessions", ("aaa_sessions", AaaData.AaaUsers.AaaSessions))])
             self._leafs = OrderedDict([
-                ('username', YLeaf(YType.str, 'username')),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
             ])
             self.username = None
 
             self.aaa_sessions = YList(self)
             self._segment_path = lambda: "aaa-users" + "[username='" + str(self.username) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-aaa-oper:aaa-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AaaData.AaaUsers, ['username'], name, value)
@@ -602,7 +1168,7 @@ class AaaData(Entity):
             """
 
             _prefix = 'aaa-ios-xe-oper'
-            _revision = '2017-11-01'
+            _revision = '2018-04-16'
 
             def __init__(self):
                 super(AaaData.AaaUsers.AaaSessions, self).__init__()
@@ -614,11 +1180,11 @@ class AaaData(Entity):
                 self.ylist_key_names = ['aaa_uid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('aaa_uid', YLeaf(YType.uint32, 'aaa-uid')),
-                    ('session_id', YLeaf(YType.uint32, 'session-id')),
-                    ('ip_addr', YLeaf(YType.str, 'ip-addr')),
-                    ('protocol', YLeaf(YType.enumeration, 'protocol')),
-                    ('login_time', YLeaf(YType.str, 'login-time')),
+                    ('aaa_uid', (YLeaf(YType.uint32, 'aaa-uid'), ['int'])),
+                    ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                    ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
+                    ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_aaa_oper', 'AaaSessProtType', '')])),
+                    ('login_time', (YLeaf(YType.str, 'login-time'), ['str'])),
                 ])
                 self.aaa_uid = None
                 self.session_id = None
@@ -626,6 +1192,7 @@ class AaaData(Entity):
                 self.protocol = None
                 self.login_time = None
                 self._segment_path = lambda: "aaa-sessions" + "[aaa-uid='" + str(self.aaa_uid) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AaaData.AaaUsers.AaaSessions, ['aaa_uid', 'session_id', 'ip_addr', 'protocol', 'login_time'], name, value)

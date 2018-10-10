@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ETHERNETSPEED(Identity):
     """
     base type to specify available Ethernet link
@@ -25,11 +26,11 @@ class ETHERNETSPEED(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(ETHERNETSPEED, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:ETHERNET_SPEED")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:ETHERNET_SPEED"):
+        super(ETHERNETSPEED, self).__init__(ns, pref, tag)
 
 
-class SPEED100GB(Identity):
+class SPEED100GB(ETHERNETSPEED):
     """
     100 GBps Ethernet
     
@@ -40,11 +41,11 @@ class SPEED100GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED100GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100GB"):
+        super(SPEED100GB, self).__init__(ns, pref, tag)
 
 
-class SPEED1GB(Identity):
+class SPEED1GB(ETHERNETSPEED):
     """
     1 GBps Ethernet
     
@@ -55,11 +56,11 @@ class SPEED1GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED1GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_1GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_1GB"):
+        super(SPEED1GB, self).__init__(ns, pref, tag)
 
 
-class SPEED25GB(Identity):
+class SPEED25GB(ETHERNETSPEED):
     """
     25 GBps Ethernet
     
@@ -70,11 +71,11 @@ class SPEED25GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED25GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_25GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_25GB"):
+        super(SPEED25GB, self).__init__(ns, pref, tag)
 
 
-class SPEED10GB(Identity):
+class SPEED10GB(ETHERNETSPEED):
     """
     10 GBps Ethernet
     
@@ -85,11 +86,11 @@ class SPEED10GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED10GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_10GB"):
+        super(SPEED10GB, self).__init__(ns, pref, tag)
 
 
-class SPEED10MB(Identity):
+class SPEED10MB(ETHERNETSPEED):
     """
     10 Mbps Ethernet
     
@@ -100,11 +101,11 @@ class SPEED10MB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED10MB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_10MB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_10MB"):
+        super(SPEED10MB, self).__init__(ns, pref, tag)
 
 
-class SPEED40GB(Identity):
+class SPEED40GB(ETHERNETSPEED):
     """
     40 GBps Ethernet
     
@@ -115,11 +116,11 @@ class SPEED40GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED40GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_40GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_40GB"):
+        super(SPEED40GB, self).__init__(ns, pref, tag)
 
 
-class SPEEDUNKNOWN(Identity):
+class SPEEDUNKNOWN(ETHERNETSPEED):
     """
     Interface speed is unknown.  Systems may report
     speed UNKNOWN when an interface is down or unpopuplated (e.g.,
@@ -132,11 +133,11 @@ class SPEEDUNKNOWN(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEEDUNKNOWN, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_UNKNOWN")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_UNKNOWN"):
+        super(SPEEDUNKNOWN, self).__init__(ns, pref, tag)
 
 
-class SPEED50GB(Identity):
+class SPEED50GB(ETHERNETSPEED):
     """
     50 GBps Ethernet
     
@@ -147,11 +148,11 @@ class SPEED50GB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED50GB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_50GB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_50GB"):
+        super(SPEED50GB, self).__init__(ns, pref, tag)
 
 
-class SPEED100MB(Identity):
+class SPEED100MB(ETHERNETSPEED):
     """
     100 Mbps Ethernet
     
@@ -162,7 +163,7 @@ class SPEED100MB(Identity):
     _prefix = 'oc-eth'
     _revision = '2016-05-26'
 
-    def __init__(self):
-        super(SPEED100MB, self).__init__("http://openconfig.net/yang/interfaces/ethernet", "openconfig-if-ethernet", "openconfig-if-ethernet:SPEED_100MB")
+    def __init__(self, ns="http://openconfig.net/yang/interfaces/ethernet", pref="openconfig-if-ethernet", tag="openconfig-if-ethernet:SPEED_100MB"):
+        super(SPEED100MB, self).__init__(ns, pref, tag)
 
 

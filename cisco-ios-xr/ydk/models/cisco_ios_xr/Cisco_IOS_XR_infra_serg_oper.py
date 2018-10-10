@@ -9,7 +9,7 @@ for the following management objects\:
     information
   session\-redundancy\-agent\: session redundancy agent
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +19,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SergPeerStatus(Enum):
@@ -102,6 +103,10 @@ class SergShowComp(Enum):
 
     	DHCPv6
 
+    .. data:: daps = 3
+
+    	DAPS
+
     """
 
     serga = Enum.YLeaf(0, "serga")
@@ -109,6 +114,8 @@ class SergShowComp(Enum):
     ipv6nd = Enum.YLeaf(1, "ipv6nd")
 
     dhcpv6 = Enum.YLeaf(2, "dhcpv6")
+
+    daps = Enum.YLeaf(3, "daps")
 
 
 class SergShowImRole(Enum):
@@ -393,6 +400,7 @@ class SessionRedundancyManager(Entity):
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SessionRedundancyManager, [], name, value)
@@ -428,6 +436,7 @@ class SessionRedundancyManager(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancyManager.Interfaces, [], name, value)
@@ -490,12 +499,12 @@ class SessionRedundancyManager(Entity):
                 self.ylist_key_names = ['interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('interface_mapping_id', YLeaf(YType.uint32, 'interface-mapping-id')),
-                    ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                    ('group_id', YLeaf(YType.uint32, 'group-id')),
-                    ('role', YLeaf(YType.enumeration, 'role')),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('interface_mapping_id', (YLeaf(YType.uint32, 'interface-mapping-id'), ['int'])),
+                    ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                    ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowImRole', '')])),
                 ])
                 self.interface = None
                 self.interface_name = None
@@ -505,6 +514,7 @@ class SessionRedundancyManager(Entity):
                 self.role = None
                 self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
@@ -540,6 +550,7 @@ class SessionRedundancyManager(Entity):
             self.group = YList(self)
             self._segment_path = lambda: "groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancyManager.Groups, [], name, value)
@@ -636,18 +647,18 @@ class SessionRedundancyManager(Entity):
                 self.ylist_key_names = ['group']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('group', YLeaf(YType.str, 'group')),
-                    ('group_id', YLeaf(YType.uint32, 'group-id')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('disabled', YLeaf(YType.boolean, 'disabled')),
-                    ('role', YLeaf(YType.enumeration, 'role')),
-                    ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                    ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                    ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                    ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                    ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                    ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowImRole', '')])),
+                    ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                    ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                    ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                    ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                    ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSlaveMode', '')])),
+                    ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.group = None
                 self.group_id = None
@@ -663,6 +674,7 @@ class SessionRedundancyManager(Entity):
                 self.node_name = None
                 self._segment_path = lambda: "group" + "[group='" + str(self.group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'node_name'], name, value)
@@ -772,6 +784,13 @@ class SessionRedundancyManager(Entity):
         
         	**range:** 0..4294967295
         
+        .. attribute:: pool_count
+        
+        	No. of Configured Pools
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
         
 
         """
@@ -789,22 +808,23 @@ class SessionRedundancyManager(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('disabled', YLeaf(YType.boolean, 'disabled')),
-                ('active_state', YLeaf(YType.boolean, 'active-state')),
-                ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
-                ('source_interface_name', YLeaf(YType.str, 'source-interface-name')),
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('source_interface_ipv4_address', YLeaf(YType.str, 'source-interface-ipv4-address')),
-                ('source_interface_ipv6_address', YLeaf(YType.str, 'source-interface-ipv6-address')),
-                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                ('disabled_group_count', YLeaf(YType.uint32, 'disabled-group-count')),
-                ('master_group_count', YLeaf(YType.uint32, 'master-group-count')),
-                ('slave_group_count', YLeaf(YType.uint32, 'slave-group-count')),
-                ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                ('master_interface_count', YLeaf(YType.uint32, 'master-interface-count')),
-                ('slave_interface_count', YLeaf(YType.uint32, 'slave-interface-count')),
+                ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                ('active_state', (YLeaf(YType.boolean, 'active-state'), ['bool'])),
+                ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSlaveMode', '')])),
+                ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                ('source_interface_name', (YLeaf(YType.str, 'source-interface-name'), ['str'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('source_interface_ipv4_address', (YLeaf(YType.str, 'source-interface-ipv4-address'), ['str'])),
+                ('source_interface_ipv6_address', (YLeaf(YType.str, 'source-interface-ipv6-address'), ['str'])),
+                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                ('disabled_group_count', (YLeaf(YType.uint32, 'disabled-group-count'), ['int'])),
+                ('master_group_count', (YLeaf(YType.uint32, 'master-group-count'), ['int'])),
+                ('slave_group_count', (YLeaf(YType.uint32, 'slave-group-count'), ['int'])),
+                ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                ('master_interface_count', (YLeaf(YType.uint32, 'master-interface-count'), ['int'])),
+                ('slave_interface_count', (YLeaf(YType.uint32, 'slave-interface-count'), ['int'])),
+                ('pool_count', (YLeaf(YType.uint32, 'pool-count'), ['int'])),
             ])
             self.disabled = None
             self.active_state = None
@@ -822,11 +842,13 @@ class SessionRedundancyManager(Entity):
             self.interface_count = None
             self.master_interface_count = None
             self.slave_interface_count = None
+            self.pool_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SessionRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count'], name, value)
+            self._perform_setattr(SessionRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count', u'pool_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SessionRedundancyManager()
@@ -864,6 +886,7 @@ class SessionRedundancyAgent(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SessionRedundancyAgent, [], name, value)
@@ -900,6 +923,7 @@ class SessionRedundancyAgent(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SessionRedundancyAgent.Nodes, [], name, value)
@@ -968,7 +992,7 @@ class SessionRedundancyAgent(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("group-id-xr", ("group_id_xr", SessionRedundancyAgent.Nodes.Node.GroupIdXr)), ("client-ids", ("client_ids", SessionRedundancyAgent.Nodes.Node.ClientIds)), ("memory", ("memory", SessionRedundancyAgent.Nodes.Node.Memory)), ("group-ids", ("group_ids", SessionRedundancyAgent.Nodes.Node.GroupIds)), ("interfaces", ("interfaces", SessionRedundancyAgent.Nodes.Node.Interfaces)), ("stats-global", ("stats_global", SessionRedundancyAgent.Nodes.Node.StatsGlobal)), ("group-summaries", ("group_summaries", SessionRedundancyAgent.Nodes.Node.GroupSummaries))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -1001,6 +1025,7 @@ class SessionRedundancyAgent(Entity):
                 self._children_name_map["group_summaries"] = "group-summaries"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-serg-oper:session-redundancy-agent/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SessionRedundancyAgent.Nodes.Node, ['node_name'], name, value)
@@ -1035,6 +1060,7 @@ class SessionRedundancyAgent(Entity):
 
                     self.group_id = YList(self)
                     self._segment_path = lambda: "group-id-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr, [], name, value)
@@ -1105,12 +1131,12 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('key_index', YLeaf(YType.str, 'key-index')),
-                            ('role_master', YLeaf(YType.boolean, 'role-master')),
-                            ('negative_acknowledgement_update_all', YLeaf(YType.boolean, 'negative-acknowledgement-update-all')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('key_index', (YLeaf(YType.str, 'key-index'), ['str'])),
+                            ('role_master', (YLeaf(YType.boolean, 'role-master'), ['bool'])),
+                            ('negative_acknowledgement_update_all', (YLeaf(YType.boolean, 'negative-acknowledgement-update-all'), ['bool'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -1122,6 +1148,7 @@ class SessionRedundancyAgent(Entity):
                         self.session_detailed_information = YList(self)
                         self.session_sync_error_information = YList(self)
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', u'group_id_xr', u'interface_name', u'key_index', u'role_master', u'negative_acknowledgement_update_all'], name, value)
@@ -1173,11 +1200,11 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('component', YLeaf(YType.enumeration, 'component')),
-                                ('operation_', YLeaf(YType.enumeration, 'operation')),
-                                ('tx_list_queue_fail', YLeaf(YType.boolean, 'tx-list-queue-fail')),
-                                ('marked_for_sweeping', YLeaf(YType.boolean, 'marked-for-sweeping')),
-                                ('marked_for_cleanup', YLeaf(YType.boolean, 'marked-for-cleanup')),
+                                ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowComp', '')])),
+                                ('operation_', (YLeaf(YType.enumeration, 'operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSessionOperation', '')])),
+                                ('tx_list_queue_fail', (YLeaf(YType.boolean, 'tx-list-queue-fail'), ['bool'])),
+                                ('marked_for_sweeping', (YLeaf(YType.boolean, 'marked-for-sweeping'), ['bool'])),
+                                ('marked_for_cleanup', (YLeaf(YType.boolean, 'marked-for-cleanup'), ['bool'])),
                             ])
                             self.component = None
                             self.operation_ = None
@@ -1185,6 +1212,7 @@ class SessionRedundancyAgent(Entity):
                             self.marked_for_sweeping = None
                             self.marked_for_cleanup = None
                             self._segment_path = lambda: "session-detailed-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
@@ -1230,14 +1258,15 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sync_error_count', YLeaf(YType.uint16, 'sync-error-count')),
-                                ('last_error_code', YLeaf(YType.uint32, 'last-error-code')),
-                                ('last_error_type', YLeaf(YType.enumeration, 'last-error-type')),
+                                ('sync_error_count', (YLeaf(YType.uint16, 'sync-error-count'), ['int'])),
+                                ('last_error_code', (YLeaf(YType.uint32, 'last-error-code'), ['int'])),
+                                ('last_error_type', (YLeaf(YType.enumeration, 'last-error-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSessionError', '')])),
                             ])
                             self.sync_error_count = None
                             self.last_error_code = None
                             self.last_error_type = None
                             self._segment_path = lambda: "session-sync-error-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
@@ -1272,6 +1301,7 @@ class SessionRedundancyAgent(Entity):
 
                     self.client_id = YList(self)
                     self._segment_path = lambda: "client-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds, [], name, value)
@@ -1617,6 +1647,41 @@ class SessionRedundancyAgent(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    .. attribute:: tx_list_send_pool_role_ok
+                    
+                    	TxListSendPoolRoleOk
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tx_list_send_pool_role_not_ok
+                    
+                    	TxListSendPoolRoleNotOk
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tx_list_send_pool_update_ok
+                    
+                    	TxListSendPoolUpdateOk
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tx_list_send_pool_update_not_ok
+                    
+                    	TxListSendPoolUpdateNotOk
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: tx_list_recv_pool_update_ok
+                    
+                    	TxListRecvPoolUpdateOk
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -1634,54 +1699,59 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = ['stats_client_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('stats_client_id', YLeaf(YType.uint32, 'stats-client-id')),
-                            ('tx_list_start_of_download_add_ok', YLeaf(YType.uint32, 'tx-list-start-of-download-add-ok')),
-                            ('tx_list_start_of_download_add_not_ok', YLeaf(YType.uint32, 'tx-list-start-of-download-add-not-ok')),
-                            ('tx_list_end_of_download_add_ok', YLeaf(YType.uint32, 'tx-list-end-of-download-add-ok')),
-                            ('tx_list_end_of_download_add_not_ok', YLeaf(YType.uint32, 'tx-list-end-of-download-add-not-ok')),
-                            ('tx_list_end_of_message_add_ok', YLeaf(YType.uint32, 'tx-list-end-of-message-add-ok')),
-                            ('tx_list_end_of_message_add_not_ok', YLeaf(YType.uint32, 'tx-list-end-of-message-add-not-ok')),
-                            ('tx_list_clear_all_add_ok', YLeaf(YType.uint32, 'tx-list-clear-all-add-ok')),
-                            ('tx_list_clear_all_add_not_ok', YLeaf(YType.uint32, 'tx-list-clear-all-add-not-ok')),
-                            ('tx_list_clear_selected_add_ok', YLeaf(YType.uint32, 'tx-list-clear-selected-add-ok')),
-                            ('tx_list_clear_selected_add_not_ok', YLeaf(YType.uint32, 'tx-list-clear-selected-add-not-ok')),
-                            ('tx_list_replay_all_add_ok', YLeaf(YType.uint32, 'tx-list-replay-all-add-ok')),
-                            ('tx_list_replay_all_add_not_ok', YLeaf(YType.uint32, 'tx-list-replay-all-add-not-ok')),
-                            ('tx_list_replay_selected_add_ok', YLeaf(YType.uint32, 'tx-list-replay-selected-add-ok')),
-                            ('tx_list_replay_selected_add_not_ok', YLeaf(YType.uint32, 'tx-list-replay-selected-add-not-ok')),
-                            ('tx_list_session_session_add_ok', YLeaf(YType.uint32, 'tx-list-session-session-add-ok')),
-                            ('tx_list_session_session_add_not_ok', YLeaf(YType.uint32, 'tx-list-session-session-add-not-ok')),
-                            ('tx_list_session_session_update_ok', YLeaf(YType.uint32, 'tx-list-session-session-update-ok')),
-                            ('tx_list_session_session_update_not_ok', YLeaf(YType.uint32, 'tx-list-session-session-update-not-ok')),
-                            ('tx_list_session_session_delete', YLeaf(YType.uint32, 'tx-list-session-session-delete')),
-                            ('clean_call_back', YLeaf(YType.uint32, 'clean-call-back')),
-                            ('tx_list_encode_session_session_ok', YLeaf(YType.uint32, 'tx-list-encode-session-session-ok')),
-                            ('tx_list_encode_session_session_partial_write', YLeaf(YType.uint32, 'tx-list-encode-session-session-partial-write')),
-                            ('last_replay_all_count', YLeaf(YType.uint32, 'last-replay-all-count')),
-                            ('tx_list_receive_command_replay_all', YLeaf(YType.uint32, 'tx-list-receive-command-replay-all')),
-                            ('tx_list_receive_command_replay_selected', YLeaf(YType.uint32, 'tx-list-receive-command-replay-selected')),
-                            ('tx_list_receive_session_session_delete_valid', YLeaf(YType.uint32, 'tx-list-receive-session-session-delete-valid')),
-                            ('tx_list_receive_session_session_delete_invalid', YLeaf(YType.uint32, 'tx-list-receive-session-session-delete-invalid')),
-                            ('tx_list_receive_session_session_update_valid', YLeaf(YType.uint32, 'tx-list-receive-session-session-update-valid')),
-                            ('tx_list_receive_session_session_update_invalid', YLeaf(YType.uint32, 'tx-list-receive-session-session-update-invalid')),
-                            ('tx_list_receive_session_session_sod_all', YLeaf(YType.uint32, 'tx-list-receive-session-session-sod-all')),
-                            ('tx_list_receive_session_session_sod_selected', YLeaf(YType.uint32, 'tx-list-receive-session-session-sod-selected')),
-                            ('tx_list_receive_session_session_eod_all', YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-all')),
-                            ('tx_list_receive_session_session_eod_selected', YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-selected')),
-                            ('tx_list_receive_session_session_eoms', YLeaf(YType.uint32, 'tx-list-receive-session-session-eoms')),
-                            ('tx_list_receive_session_session_clear_all', YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-all')),
-                            ('tx_list_receive_session_session_clear_selected', YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-selected')),
-                            ('tx_list_receive_session_session_neg_ack', YLeaf(YType.uint32, 'tx-list-receive-session-session-neg-ack')),
-                            ('tx_list_receive_session_session_neg_ack_not_ok', YLeaf(YType.uint32, 'tx-list-receive-session-session-neg-ack-not-ok')),
-                            ('tx_list_client_registration_ok', YLeaf(YType.uint32, 'tx-list-client-registration-ok')),
-                            ('tx_list_client_registration_not_ok', YLeaf(YType.uint32, 'tx-list-client-registration-not-ok')),
-                            ('tx_list_client_de_registration', YLeaf(YType.uint32, 'tx-list-client-de-registration')),
-                            ('tx_list_client_connection_down', YLeaf(YType.uint32, 'tx-list-client-connection-down')),
-                            ('tx_list_client_cleanup', YLeaf(YType.uint32, 'tx-list-client-cleanup')),
-                            ('tx_list_active_ok', YLeaf(YType.uint32, 'tx-list-active-ok')),
-                            ('tx_list_active_not_ok', YLeaf(YType.uint32, 'tx-list-active-not-ok')),
-                            ('tx_list_de_active_ok', YLeaf(YType.uint32, 'tx-list-de-active-ok')),
-                            ('tx_list_de_active_not_ok', YLeaf(YType.uint32, 'tx-list-de-active-not-ok')),
+                            ('stats_client_id', (YLeaf(YType.uint32, 'stats-client-id'), ['int'])),
+                            ('tx_list_start_of_download_add_ok', (YLeaf(YType.uint32, 'tx-list-start-of-download-add-ok'), ['int'])),
+                            ('tx_list_start_of_download_add_not_ok', (YLeaf(YType.uint32, 'tx-list-start-of-download-add-not-ok'), ['int'])),
+                            ('tx_list_end_of_download_add_ok', (YLeaf(YType.uint32, 'tx-list-end-of-download-add-ok'), ['int'])),
+                            ('tx_list_end_of_download_add_not_ok', (YLeaf(YType.uint32, 'tx-list-end-of-download-add-not-ok'), ['int'])),
+                            ('tx_list_end_of_message_add_ok', (YLeaf(YType.uint32, 'tx-list-end-of-message-add-ok'), ['int'])),
+                            ('tx_list_end_of_message_add_not_ok', (YLeaf(YType.uint32, 'tx-list-end-of-message-add-not-ok'), ['int'])),
+                            ('tx_list_clear_all_add_ok', (YLeaf(YType.uint32, 'tx-list-clear-all-add-ok'), ['int'])),
+                            ('tx_list_clear_all_add_not_ok', (YLeaf(YType.uint32, 'tx-list-clear-all-add-not-ok'), ['int'])),
+                            ('tx_list_clear_selected_add_ok', (YLeaf(YType.uint32, 'tx-list-clear-selected-add-ok'), ['int'])),
+                            ('tx_list_clear_selected_add_not_ok', (YLeaf(YType.uint32, 'tx-list-clear-selected-add-not-ok'), ['int'])),
+                            ('tx_list_replay_all_add_ok', (YLeaf(YType.uint32, 'tx-list-replay-all-add-ok'), ['int'])),
+                            ('tx_list_replay_all_add_not_ok', (YLeaf(YType.uint32, 'tx-list-replay-all-add-not-ok'), ['int'])),
+                            ('tx_list_replay_selected_add_ok', (YLeaf(YType.uint32, 'tx-list-replay-selected-add-ok'), ['int'])),
+                            ('tx_list_replay_selected_add_not_ok', (YLeaf(YType.uint32, 'tx-list-replay-selected-add-not-ok'), ['int'])),
+                            ('tx_list_session_session_add_ok', (YLeaf(YType.uint32, 'tx-list-session-session-add-ok'), ['int'])),
+                            ('tx_list_session_session_add_not_ok', (YLeaf(YType.uint32, 'tx-list-session-session-add-not-ok'), ['int'])),
+                            ('tx_list_session_session_update_ok', (YLeaf(YType.uint32, 'tx-list-session-session-update-ok'), ['int'])),
+                            ('tx_list_session_session_update_not_ok', (YLeaf(YType.uint32, 'tx-list-session-session-update-not-ok'), ['int'])),
+                            ('tx_list_session_session_delete', (YLeaf(YType.uint32, 'tx-list-session-session-delete'), ['int'])),
+                            ('clean_call_back', (YLeaf(YType.uint32, 'clean-call-back'), ['int'])),
+                            ('tx_list_encode_session_session_ok', (YLeaf(YType.uint32, 'tx-list-encode-session-session-ok'), ['int'])),
+                            ('tx_list_encode_session_session_partial_write', (YLeaf(YType.uint32, 'tx-list-encode-session-session-partial-write'), ['int'])),
+                            ('last_replay_all_count', (YLeaf(YType.uint32, 'last-replay-all-count'), ['int'])),
+                            ('tx_list_receive_command_replay_all', (YLeaf(YType.uint32, 'tx-list-receive-command-replay-all'), ['int'])),
+                            ('tx_list_receive_command_replay_selected', (YLeaf(YType.uint32, 'tx-list-receive-command-replay-selected'), ['int'])),
+                            ('tx_list_receive_session_session_delete_valid', (YLeaf(YType.uint32, 'tx-list-receive-session-session-delete-valid'), ['int'])),
+                            ('tx_list_receive_session_session_delete_invalid', (YLeaf(YType.uint32, 'tx-list-receive-session-session-delete-invalid'), ['int'])),
+                            ('tx_list_receive_session_session_update_valid', (YLeaf(YType.uint32, 'tx-list-receive-session-session-update-valid'), ['int'])),
+                            ('tx_list_receive_session_session_update_invalid', (YLeaf(YType.uint32, 'tx-list-receive-session-session-update-invalid'), ['int'])),
+                            ('tx_list_receive_session_session_sod_all', (YLeaf(YType.uint32, 'tx-list-receive-session-session-sod-all'), ['int'])),
+                            ('tx_list_receive_session_session_sod_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-sod-selected'), ['int'])),
+                            ('tx_list_receive_session_session_eod_all', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-all'), ['int'])),
+                            ('tx_list_receive_session_session_eod_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eod-selected'), ['int'])),
+                            ('tx_list_receive_session_session_eoms', (YLeaf(YType.uint32, 'tx-list-receive-session-session-eoms'), ['int'])),
+                            ('tx_list_receive_session_session_clear_all', (YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-all'), ['int'])),
+                            ('tx_list_receive_session_session_clear_selected', (YLeaf(YType.uint32, 'tx-list-receive-session-session-clear-selected'), ['int'])),
+                            ('tx_list_receive_session_session_neg_ack', (YLeaf(YType.uint32, 'tx-list-receive-session-session-neg-ack'), ['int'])),
+                            ('tx_list_receive_session_session_neg_ack_not_ok', (YLeaf(YType.uint32, 'tx-list-receive-session-session-neg-ack-not-ok'), ['int'])),
+                            ('tx_list_client_registration_ok', (YLeaf(YType.uint32, 'tx-list-client-registration-ok'), ['int'])),
+                            ('tx_list_client_registration_not_ok', (YLeaf(YType.uint32, 'tx-list-client-registration-not-ok'), ['int'])),
+                            ('tx_list_client_de_registration', (YLeaf(YType.uint32, 'tx-list-client-de-registration'), ['int'])),
+                            ('tx_list_client_connection_down', (YLeaf(YType.uint32, 'tx-list-client-connection-down'), ['int'])),
+                            ('tx_list_client_cleanup', (YLeaf(YType.uint32, 'tx-list-client-cleanup'), ['int'])),
+                            ('tx_list_active_ok', (YLeaf(YType.uint32, 'tx-list-active-ok'), ['int'])),
+                            ('tx_list_active_not_ok', (YLeaf(YType.uint32, 'tx-list-active-not-ok'), ['int'])),
+                            ('tx_list_de_active_ok', (YLeaf(YType.uint32, 'tx-list-de-active-ok'), ['int'])),
+                            ('tx_list_de_active_not_ok', (YLeaf(YType.uint32, 'tx-list-de-active-not-ok'), ['int'])),
+                            ('tx_list_send_pool_role_ok', (YLeaf(YType.uint32, 'tx-list-send-pool-role-ok'), ['int'])),
+                            ('tx_list_send_pool_role_not_ok', (YLeaf(YType.uint32, 'tx-list-send-pool-role-not-ok'), ['int'])),
+                            ('tx_list_send_pool_update_ok', (YLeaf(YType.uint32, 'tx-list-send-pool-update-ok'), ['int'])),
+                            ('tx_list_send_pool_update_not_ok', (YLeaf(YType.uint32, 'tx-list-send-pool-update-not-ok'), ['int'])),
+                            ('tx_list_recv_pool_update_ok', (YLeaf(YType.uint32, 'tx-list-recv-pool-update-ok'), ['int'])),
                         ])
                         self.stats_client_id = None
                         self.tx_list_start_of_download_add_ok = None
@@ -1731,10 +1801,16 @@ class SessionRedundancyAgent(Entity):
                         self.tx_list_active_not_ok = None
                         self.tx_list_de_active_ok = None
                         self.tx_list_de_active_not_ok = None
+                        self.tx_list_send_pool_role_ok = None
+                        self.tx_list_send_pool_role_not_ok = None
+                        self.tx_list_send_pool_update_ok = None
+                        self.tx_list_send_pool_update_not_ok = None
+                        self.tx_list_recv_pool_update_ok = None
                         self._segment_path = lambda: "client-id" + "[stats-client-id='" + str(self.stats_client_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', u'tx_list_start_of_download_add_ok', u'tx_list_start_of_download_add_not_ok', u'tx_list_end_of_download_add_ok', u'tx_list_end_of_download_add_not_ok', u'tx_list_end_of_message_add_ok', u'tx_list_end_of_message_add_not_ok', u'tx_list_clear_all_add_ok', u'tx_list_clear_all_add_not_ok', u'tx_list_clear_selected_add_ok', u'tx_list_clear_selected_add_not_ok', u'tx_list_replay_all_add_ok', u'tx_list_replay_all_add_not_ok', u'tx_list_replay_selected_add_ok', u'tx_list_replay_selected_add_not_ok', u'tx_list_session_session_add_ok', u'tx_list_session_session_add_not_ok', u'tx_list_session_session_update_ok', u'tx_list_session_session_update_not_ok', u'tx_list_session_session_delete', u'clean_call_back', u'tx_list_encode_session_session_ok', u'tx_list_encode_session_session_partial_write', u'last_replay_all_count', u'tx_list_receive_command_replay_all', u'tx_list_receive_command_replay_selected', u'tx_list_receive_session_session_delete_valid', u'tx_list_receive_session_session_delete_invalid', u'tx_list_receive_session_session_update_valid', u'tx_list_receive_session_session_update_invalid', u'tx_list_receive_session_session_sod_all', u'tx_list_receive_session_session_sod_selected', u'tx_list_receive_session_session_eod_all', u'tx_list_receive_session_session_eod_selected', u'tx_list_receive_session_session_eoms', u'tx_list_receive_session_session_clear_all', u'tx_list_receive_session_session_clear_selected', u'tx_list_receive_session_session_neg_ack', u'tx_list_receive_session_session_neg_ack_not_ok', u'tx_list_client_registration_ok', u'tx_list_client_registration_not_ok', u'tx_list_client_de_registration', u'tx_list_client_connection_down', u'tx_list_client_cleanup', u'tx_list_active_ok', u'tx_list_active_not_ok', u'tx_list_de_active_ok', u'tx_list_de_active_not_ok'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.ClientIds.ClientId, ['stats_client_id', u'tx_list_start_of_download_add_ok', u'tx_list_start_of_download_add_not_ok', u'tx_list_end_of_download_add_ok', u'tx_list_end_of_download_add_not_ok', u'tx_list_end_of_message_add_ok', u'tx_list_end_of_message_add_not_ok', u'tx_list_clear_all_add_ok', u'tx_list_clear_all_add_not_ok', u'tx_list_clear_selected_add_ok', u'tx_list_clear_selected_add_not_ok', u'tx_list_replay_all_add_ok', u'tx_list_replay_all_add_not_ok', u'tx_list_replay_selected_add_ok', u'tx_list_replay_selected_add_not_ok', u'tx_list_session_session_add_ok', u'tx_list_session_session_add_not_ok', u'tx_list_session_session_update_ok', u'tx_list_session_session_update_not_ok', u'tx_list_session_session_delete', u'clean_call_back', u'tx_list_encode_session_session_ok', u'tx_list_encode_session_session_partial_write', u'last_replay_all_count', u'tx_list_receive_command_replay_all', u'tx_list_receive_command_replay_selected', u'tx_list_receive_session_session_delete_valid', u'tx_list_receive_session_session_delete_invalid', u'tx_list_receive_session_session_update_valid', u'tx_list_receive_session_session_update_invalid', u'tx_list_receive_session_session_sod_all', u'tx_list_receive_session_session_sod_selected', u'tx_list_receive_session_session_eod_all', u'tx_list_receive_session_session_eod_selected', u'tx_list_receive_session_session_eoms', u'tx_list_receive_session_session_clear_all', u'tx_list_receive_session_session_clear_selected', u'tx_list_receive_session_session_neg_ack', u'tx_list_receive_session_session_neg_ack_not_ok', u'tx_list_client_registration_ok', u'tx_list_client_registration_not_ok', u'tx_list_client_de_registration', u'tx_list_client_connection_down', u'tx_list_client_cleanup', u'tx_list_active_ok', u'tx_list_active_not_ok', u'tx_list_de_active_ok', u'tx_list_de_active_not_ok', u'tx_list_send_pool_role_ok', u'tx_list_send_pool_role_not_ok', u'tx_list_send_pool_update_ok', u'tx_list_send_pool_update_not_ok', u'tx_list_recv_pool_update_ok'], name, value)
 
 
             class Memory(Entity):
@@ -1778,6 +1854,7 @@ class SessionRedundancyAgent(Entity):
                     self.edm_memory_info = YList(self)
                     self.string_memory_info = YList(self)
                     self._segment_path = lambda: "memory"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory, [], name, value)
@@ -1849,13 +1926,13 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('structure_name', YLeaf(YType.str, 'structure-name')),
-                            ('size', YLeaf(YType.uint32, 'size')),
-                            ('current_count', YLeaf(YType.uint32, 'current-count')),
-                            ('alloc_fails', YLeaf(YType.uint32, 'alloc-fails')),
-                            ('alloc_count', YLeaf(YType.uint32, 'alloc-count')),
-                            ('freed_count', YLeaf(YType.uint32, 'freed-count')),
-                            ('memory_type', YLeaf(YType.enumeration, 'memory-type')),
+                            ('structure_name', (YLeaf(YType.str, 'structure-name'), ['str'])),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('current_count', (YLeaf(YType.uint32, 'current-count'), ['int'])),
+                            ('alloc_fails', (YLeaf(YType.uint32, 'alloc-fails'), ['int'])),
+                            ('alloc_count', (YLeaf(YType.uint32, 'alloc-count'), ['int'])),
+                            ('freed_count', (YLeaf(YType.uint32, 'freed-count'), ['int'])),
+                            ('memory_type', (YLeaf(YType.enumeration, 'memory-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowMem', '')])),
                         ])
                         self.structure_name = None
                         self.size = None
@@ -1865,6 +1942,7 @@ class SessionRedundancyAgent(Entity):
                         self.freed_count = None
                         self.memory_type = None
                         self._segment_path = lambda: "memory-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.MemoryInfo, [u'structure_name', u'size', u'current_count', u'alloc_fails', u'alloc_count', u'freed_count', u'memory_type'], name, value)
@@ -1919,16 +1997,17 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('size', YLeaf(YType.uint32, 'size')),
-                            ('total', YLeaf(YType.uint32, 'total')),
-                            ('success', YLeaf(YType.uint32, 'success')),
-                            ('failure', YLeaf(YType.uint32, 'failure')),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                            ('success', (YLeaf(YType.uint32, 'success'), ['int'])),
+                            ('failure', (YLeaf(YType.uint32, 'failure'), ['int'])),
                         ])
                         self.size = None
                         self.total = None
                         self.success = None
                         self.failure = None
                         self._segment_path = lambda: "edm-memory-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.EdmMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
@@ -1983,16 +2062,17 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('size', YLeaf(YType.uint32, 'size')),
-                            ('total', YLeaf(YType.uint32, 'total')),
-                            ('success', YLeaf(YType.uint32, 'success')),
-                            ('failure', YLeaf(YType.uint32, 'failure')),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                            ('success', (YLeaf(YType.uint32, 'success'), ['int'])),
+                            ('failure', (YLeaf(YType.uint32, 'failure'), ['int'])),
                         ])
                         self.size = None
                         self.total = None
                         self.success = None
                         self.failure = None
                         self._segment_path = lambda: "string-memory-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Memory.StringMemoryInfo, [u'size', u'total', u'success', u'failure'], name, value)
@@ -2027,6 +2107,7 @@ class SessionRedundancyAgent(Entity):
 
                     self.group_id = YList(self)
                     self._segment_path = lambda: "group-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds, [], name, value)
@@ -2243,6 +2324,13 @@ class SessionRedundancyAgent(Entity):
                     
                     	**units**\: second
                     
+                    .. attribute:: pool_count
+                    
+                    	No. of Configured Pools
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     .. attribute:: client_session_count
                     
                     	Client Session Count
@@ -2252,6 +2340,11 @@ class SessionRedundancyAgent(Entity):
                     
                     	Interface List
                     	**type**\: list of  		 :py:class:`Interface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface>`
+                    
+                    .. attribute:: pool
+                    
+                    	Pool List
+                    	**type**\: list of  		 :py:class:`Pool <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper.SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool>`
                     
                     
 
@@ -2268,43 +2361,44 @@ class SessionRedundancyAgent(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['group_id']
-                        self._child_classes = OrderedDict([("client-session-count", ("client_session_count", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount)), ("interface", ("interface", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
+                        self._child_classes = OrderedDict([("client-session-count", ("client_session_count", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount)), ("interface", ("interface", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface)), ("pool", ("pool", SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('disabled', YLeaf(YType.boolean, 'disabled')),
-                            ('init_role', YLeaf(YType.enumeration, 'init-role')),
-                            ('negotiating_role', YLeaf(YType.enumeration, 'negotiating-role')),
-                            ('current_role', YLeaf(YType.enumeration, 'current-role')),
-                            ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                            ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
-                            ('core_tracking_object_name', YLeaf(YType.str, 'core-tracking-object-name')),
-                            ('core_tracking_object_status', YLeaf(YType.boolean, 'core-tracking-object-status')),
-                            ('access_tracking_object_name', YLeaf(YType.str, 'access-tracking-object-name')),
-                            ('access_tracking_object_status', YLeaf(YType.boolean, 'access-tracking-object-status')),
-                            ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                            ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                            ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                            ('peer_status', YLeaf(YType.enumeration, 'peer-status')),
-                            ('peer_last_negotiation_time', YLeaf(YType.str, 'peer-last-negotiation-time')),
-                            ('peer_last_up_time', YLeaf(YType.str, 'peer-last-up-time')),
-                            ('peer_last_down_time', YLeaf(YType.str, 'peer-last-down-time')),
-                            ('peer_init_role', YLeaf(YType.enumeration, 'peer-init-role')),
-                            ('peer_negotiating_role', YLeaf(YType.enumeration, 'peer-negotiating-role')),
-                            ('peer_current_role', YLeaf(YType.enumeration, 'peer-current-role')),
-                            ('peer_object_tracking_status', YLeaf(YType.boolean, 'peer-object-tracking-status')),
-                            ('last_switchover_time', YLeaf(YType.str, 'last-switchover-time')),
-                            ('switchover_count', YLeaf(YType.uint32, 'switchover-count')),
-                            ('last_switchover_reason', YLeaf(YType.enumeration, 'last-switchover-reason')),
-                            ('switchover_hold_time', YLeaf(YType.uint32, 'switchover-hold-time')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('slave_update_failure_count', YLeaf(YType.uint32, 'slave-update-failure-count')),
-                            ('pending_session_update_count', YLeaf(YType.uint32, 'pending-session-update-count')),
-                            ('pending_session_delete_count', YLeaf(YType.uint32, 'pending-session-delete-count')),
-                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                            ('revertive_timer', YLeaf(YType.uint32, 'revertive-timer')),
-                            ('switchover_revert_time', YLeaf(YType.uint32, 'switchover-revert-time')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                            ('init_role', (YLeaf(YType.enumeration, 'init-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('negotiating_role', (YLeaf(YType.enumeration, 'negotiating-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('current_role', (YLeaf(YType.enumeration, 'current-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSlaveMode', '')])),
+                            ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                            ('core_tracking_object_name', (YLeaf(YType.str, 'core-tracking-object-name'), ['str'])),
+                            ('core_tracking_object_status', (YLeaf(YType.boolean, 'core-tracking-object-status'), ['bool'])),
+                            ('access_tracking_object_name', (YLeaf(YType.str, 'access-tracking-object-name'), ['str'])),
+                            ('access_tracking_object_status', (YLeaf(YType.boolean, 'access-tracking-object-status'), ['bool'])),
+                            ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                            ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                            ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                            ('peer_status', (YLeaf(YType.enumeration, 'peer-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergPeerStatus', '')])),
+                            ('peer_last_negotiation_time', (YLeaf(YType.str, 'peer-last-negotiation-time'), ['str'])),
+                            ('peer_last_up_time', (YLeaf(YType.str, 'peer-last-up-time'), ['str'])),
+                            ('peer_last_down_time', (YLeaf(YType.str, 'peer-last-down-time'), ['str'])),
+                            ('peer_init_role', (YLeaf(YType.enumeration, 'peer-init-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('peer_negotiating_role', (YLeaf(YType.enumeration, 'peer-negotiating-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('peer_current_role', (YLeaf(YType.enumeration, 'peer-current-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('peer_object_tracking_status', (YLeaf(YType.boolean, 'peer-object-tracking-status'), ['bool'])),
+                            ('last_switchover_time', (YLeaf(YType.str, 'last-switchover-time'), ['str'])),
+                            ('switchover_count', (YLeaf(YType.uint32, 'switchover-count'), ['int'])),
+                            ('last_switchover_reason', (YLeaf(YType.enumeration, 'last-switchover-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSoReason', '')])),
+                            ('switchover_hold_time', (YLeaf(YType.uint32, 'switchover-hold-time'), ['int'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('slave_update_failure_count', (YLeaf(YType.uint32, 'slave-update-failure-count'), ['int'])),
+                            ('pending_session_update_count', (YLeaf(YType.uint32, 'pending-session-update-count'), ['int'])),
+                            ('pending_session_delete_count', (YLeaf(YType.uint32, 'pending-session-delete-count'), ['int'])),
+                            ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                            ('revertive_timer', (YLeaf(YType.uint32, 'revertive-timer'), ['int'])),
+                            ('switchover_revert_time', (YLeaf(YType.uint32, 'switchover-revert-time'), ['int'])),
+                            ('pool_count', (YLeaf(YType.uint32, 'pool-count'), ['int'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -2341,13 +2435,16 @@ class SessionRedundancyAgent(Entity):
                         self.interface_count = None
                         self.revertive_timer = None
                         self.switchover_revert_time = None
+                        self.pool_count = None
 
                         self.client_session_count = YList(self)
                         self.interface = YList(self)
+                        self.pool = YList(self)
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time'], name, value)
+                        self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time', u'pool_count'], name, value)
 
 
                     class ClientSessionCount(Entity):
@@ -2383,12 +2480,13 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('component', YLeaf(YType.enumeration, 'component')),
-                                ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowComp', '')])),
+                                ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                             ])
                             self.component = None
                             self.session_count = None
                             self._segment_path = lambda: "client-session-count"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.ClientSessionCount, [u'component', u'session_count'], name, value)
@@ -2439,19 +2537,56 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
-                                ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                                ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface_synchronization_id', (YLeaf(YType.uint32, 'interface-synchronization-id'), ['int'])),
+                                ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                                ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                             ])
                             self.interface_name = None
                             self.interface_synchronization_id = None
                             self.forward_referenced = None
                             self.session_count = None
                             self._segment_path = lambda: "interface"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
+
+
+                    class Pool(Entity):
+                        """
+                        Pool List
+                        
+                        .. attribute:: pool_name
+                        
+                        	Pool Name
+                        	**type**\: str
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-serg-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, self).__init__()
+
+                            self.yang_name = "pool"
+                            self.yang_parent_name = "group-id"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                            ])
+                            self.pool_name = None
+                            self._segment_path = lambda: "pool"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupIds.GroupId.Pool, [u'pool_name'], name, value)
 
 
             class Interfaces(Entity):
@@ -2483,6 +2618,7 @@ class SessionRedundancyAgent(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces, [], name, value)
@@ -2497,7 +2633,7 @@ class SessionRedundancyAgent(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface_oper
                     
@@ -2602,18 +2738,18 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
-                            ('group_id', YLeaf(YType.uint32, 'group-id')),
-                            ('role', YLeaf(YType.enumeration, 'role')),
-                            ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('interface_enable_error_count', YLeaf(YType.uint32, 'interface-enable-error-count')),
-                            ('interface_disable_error_count', YLeaf(YType.uint32, 'interface-disable-error-count')),
-                            ('interface_caps_add_error_count', YLeaf(YType.uint32, 'interface-caps-add-error-count')),
-                            ('interface_caps_remove_error_count', YLeaf(YType.uint32, 'interface-caps-remove-error-count')),
-                            ('interface_attribute_update_error_count', YLeaf(YType.uint32, 'interface-attribute-update-error-count')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_synchronization_id', (YLeaf(YType.uint32, 'interface-synchronization-id'), ['int'])),
+                            ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowImRole', '')])),
+                            ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('interface_enable_error_count', (YLeaf(YType.uint32, 'interface-enable-error-count'), ['int'])),
+                            ('interface_disable_error_count', (YLeaf(YType.uint32, 'interface-disable-error-count'), ['int'])),
+                            ('interface_caps_add_error_count', (YLeaf(YType.uint32, 'interface-caps-add-error-count'), ['int'])),
+                            ('interface_caps_remove_error_count', (YLeaf(YType.uint32, 'interface-caps-remove-error-count'), ['int'])),
+                            ('interface_attribute_update_error_count', (YLeaf(YType.uint32, 'interface-attribute-update-error-count'), ['int'])),
                         ])
                         self.interface = None
                         self.interface_name = None
@@ -2638,6 +2774,7 @@ class SessionRedundancyAgent(Entity):
 
                         self.client_status = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', u'interface_name', u'interface_synchronization_id', u'group_id', u'role', u'forward_referenced', u'session_count', u'interface_enable_error_count', u'interface_disable_error_count', u'interface_caps_add_error_count', u'interface_caps_remove_error_count', u'interface_attribute_update_error_count'], name, value)
@@ -2689,11 +2826,11 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('idb_oper_reg_enable', YLeaf(YType.boolean, 'idb-oper-reg-enable')),
-                                ('idb_oper_reg_disable', YLeaf(YType.boolean, 'idb-oper-reg-disable')),
-                                ('idb_oper_caps_add', YLeaf(YType.boolean, 'idb-oper-caps-add')),
-                                ('idb_oper_caps_remove', YLeaf(YType.boolean, 'idb-oper-caps-remove')),
-                                ('idb_oper_attr_update', YLeaf(YType.boolean, 'idb-oper-attr-update')),
+                                ('idb_oper_reg_enable', (YLeaf(YType.boolean, 'idb-oper-reg-enable'), ['bool'])),
+                                ('idb_oper_reg_disable', (YLeaf(YType.boolean, 'idb-oper-reg-disable'), ['bool'])),
+                                ('idb_oper_caps_add', (YLeaf(YType.boolean, 'idb-oper-caps-add'), ['bool'])),
+                                ('idb_oper_caps_remove', (YLeaf(YType.boolean, 'idb-oper-caps-remove'), ['bool'])),
+                                ('idb_oper_attr_update', (YLeaf(YType.boolean, 'idb-oper-attr-update'), ['bool'])),
                             ])
                             self.idb_oper_reg_enable = None
                             self.idb_oper_reg_disable = None
@@ -2701,6 +2838,7 @@ class SessionRedundancyAgent(Entity):
                             self.idb_oper_caps_remove = None
                             self.idb_oper_attr_update = None
                             self._segment_path = lambda: "interface-oper"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
@@ -2767,14 +2905,14 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('idb_state_fwd_ref', YLeaf(YType.boolean, 'idb-state-fwd-ref')),
-                                ('idb_state_stale', YLeaf(YType.boolean, 'idb-state-stale')),
-                                ('idb_state_registered', YLeaf(YType.boolean, 'idb-state-registered')),
-                                ('idb_state_caps_added', YLeaf(YType.boolean, 'idb-state-caps-added')),
-                                ('idb_state_owned_re_source', YLeaf(YType.boolean, 'idb-state-owned-re-source')),
-                                ('idb_client_eoms_pending', YLeaf(YType.boolean, 'idb-client-eoms-pending')),
-                                ('idb_state_p_end_caps_rem', YLeaf(YType.boolean, 'idb-state-p-end-caps-rem')),
-                                ('idb_state_p_end_reg_disable', YLeaf(YType.boolean, 'idb-state-p-end-reg-disable')),
+                                ('idb_state_fwd_ref', (YLeaf(YType.boolean, 'idb-state-fwd-ref'), ['bool'])),
+                                ('idb_state_stale', (YLeaf(YType.boolean, 'idb-state-stale'), ['bool'])),
+                                ('idb_state_registered', (YLeaf(YType.boolean, 'idb-state-registered'), ['bool'])),
+                                ('idb_state_caps_added', (YLeaf(YType.boolean, 'idb-state-caps-added'), ['bool'])),
+                                ('idb_state_owned_re_source', (YLeaf(YType.boolean, 'idb-state-owned-re-source'), ['bool'])),
+                                ('idb_client_eoms_pending', (YLeaf(YType.boolean, 'idb-client-eoms-pending'), ['bool'])),
+                                ('idb_state_p_end_caps_rem', (YLeaf(YType.boolean, 'idb-state-p-end-caps-rem'), ['bool'])),
+                                ('idb_state_p_end_reg_disable', (YLeaf(YType.boolean, 'idb-state-p-end-reg-disable'), ['bool'])),
                             ])
                             self.idb_state_fwd_ref = None
                             self.idb_state_stale = None
@@ -2785,6 +2923,7 @@ class SessionRedundancyAgent(Entity):
                             self.idb_state_p_end_caps_rem = None
                             self.idb_state_p_end_reg_disable = None
                             self._segment_path = lambda: "interface-status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
@@ -2833,16 +2972,17 @@ class SessionRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('component', YLeaf(YType.enumeration, 'component')),
-                                ('serg_show_idb_client_eoms_pending', YLeaf(YType.boolean, 'serg-show-idb-client-eoms-pending')),
-                                ('serg_show_idb_client_sync_eod_pending', YLeaf(YType.boolean, 'serg-show-idb-client-sync-eod-pending')),
-                                ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowComp', '')])),
+                                ('serg_show_idb_client_eoms_pending', (YLeaf(YType.boolean, 'serg-show-idb-client-eoms-pending'), ['bool'])),
+                                ('serg_show_idb_client_sync_eod_pending', (YLeaf(YType.boolean, 'serg-show-idb-client-sync-eod-pending'), ['bool'])),
+                                ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                             ])
                             self.component = None
                             self.serg_show_idb_client_eoms_pending = None
                             self.serg_show_idb_client_sync_eod_pending = None
                             self.session_count = None
                             self._segment_path = lambda: "client-status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SessionRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'serg_show_idb_client_eoms_pending', u'serg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
@@ -3088,6 +3228,13 @@ class SessionRedundancyAgent(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: tx_list_send_pool_update_not_ok
+                
+                	TxListSendPoolUpdateNotOk
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: client_status
                 
                 	Client Status
@@ -3120,40 +3267,41 @@ class SessionRedundancyAgent(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("intf-status-statistics", ("intf_status_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics)), ("tx-list-statistics", ("tx_list_statistics", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics)), ("client-status", ("client_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus)), ("opaque-memory-status", ("opaque_memory_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus)), ("tx-list-over-tcp-status", ("tx_list_over_tcp_status", SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus))])
                     self._leafs = OrderedDict([
-                        ('source_interface_name', YLeaf(YType.str, 'source-interface-name')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('source_interface_ipv4_address', YLeaf(YType.str, 'source-interface-ipv4-address')),
-                        ('source_interface_ipv6_address', YLeaf(YType.str, 'source-interface-ipv6-address')),
-                        ('redundancy_role', YLeaf(YType.str, 'redundancy-role')),
-                        ('restart_client_sync_in_progress', YLeaf(YType.boolean, 'restart-client-sync-in-progress')),
-                        ('client_init_sync_time_stamp', YLeaf(YType.str, 'client-init-sync-time-stamp')),
-                        ('restart_peer_sync_in_progress', YLeaf(YType.boolean, 'restart-peer-sync-in-progress')),
-                        ('peer_init_sync_time_stamp', YLeaf(YType.str, 'peer-init-sync-time-stamp')),
-                        ('sync_in_progress', YLeaf(YType.boolean, 'sync-in-progress')),
-                        ('peer_action_timer', YLeaf(YType.uint32, 'peer-action-timer')),
-                        ('retry_timer_remaining', YLeaf(YType.uint32, 'retry-timer-remaining')),
-                        ('tx_list_client_registration_invalid', YLeaf(YType.uint32, 'tx-list-client-registration-invalid')),
-                        ('tx_list_client_de_registration_invalid', YLeaf(YType.uint32, 'tx-list-client-de-registration-invalid')),
-                        ('tx_list_client_connection_up', YLeaf(YType.uint32, 'tx-list-client-connection-up')),
-                        ('tx_list_client_connection_down', YLeaf(YType.uint32, 'tx-list-client-connection-down')),
-                        ('tx_list_client_peer_done', YLeaf(YType.uint32, 'tx-list-client-peer-done')),
-                        ('tx_list_client_message_call_back', YLeaf(YType.uint32, 'tx-list-client-message-call-back')),
-                        ('tx_list_client_receive_valid', YLeaf(YType.uint32, 'tx-list-client-receive-valid')),
-                        ('tx_list_client_receive_invalid', YLeaf(YType.uint32, 'tx-list-client-receive-invalid')),
-                        ('tx_list_client_receive_command_valid', YLeaf(YType.uint32, 'tx-list-client-receive-command-valid')),
-                        ('tx_list_client_receive_command_invalid', YLeaf(YType.uint32, 'tx-list-client-receive-command-invalid')),
-                        ('tx_list_client_receive_session_sessionvalid', YLeaf(YType.uint32, 'tx-list-client-receive-session-sessionvalid')),
-                        ('tx_list_client_receive_session_session_invalid', YLeaf(YType.uint32, 'tx-list-client-receive-session-session-invalid')),
-                        ('tx_list_peer_timer_handler', YLeaf(YType.uint32, 'tx-list-peer-timer-handler')),
-                        ('tx_list_peer_registration_invalid', YLeaf(YType.uint32, 'tx-list-peer-registration-invalid')),
-                        ('tx_list_peer_de_registration_invalid', YLeaf(YType.uint32, 'tx-list-peer-de-registration-invalid')),
-                        ('tx_list_peer_message_call_back_valid', YLeaf(YType.uint32, 'tx-list-peer-message-call-back-valid')),
-                        ('tx_list_peer_message_call_back_invalid', YLeaf(YType.uint32, 'tx-list-peer-message-call-back-invalid')),
-                        ('tx_list_peer_done', YLeaf(YType.uint32, 'tx-list-peer-done')),
-                        ('tx_list_peer_cmd_connection_up_not_ok', YLeaf(YType.uint32, 'tx-list-peer-cmd-connection-up-not-ok')),
-                        ('tx_list_peer_cmd_connection_down_not_ok', YLeaf(YType.uint32, 'tx-list-peer-cmd-connection-down-not-ok')),
-                        ('tx_list_peer_session_connection_up_not_ok', YLeaf(YType.uint32, 'tx-list-peer-session-connection-up-not-ok')),
-                        ('tx_list_peer_session_connection_down_not_ok', YLeaf(YType.uint32, 'tx-list-peer-session-connection-down-not-ok')),
+                        ('source_interface_name', (YLeaf(YType.str, 'source-interface-name'), ['str'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('source_interface_ipv4_address', (YLeaf(YType.str, 'source-interface-ipv4-address'), ['str'])),
+                        ('source_interface_ipv6_address', (YLeaf(YType.str, 'source-interface-ipv6-address'), ['str'])),
+                        ('redundancy_role', (YLeaf(YType.str, 'redundancy-role'), ['str'])),
+                        ('restart_client_sync_in_progress', (YLeaf(YType.boolean, 'restart-client-sync-in-progress'), ['bool'])),
+                        ('client_init_sync_time_stamp', (YLeaf(YType.str, 'client-init-sync-time-stamp'), ['str'])),
+                        ('restart_peer_sync_in_progress', (YLeaf(YType.boolean, 'restart-peer-sync-in-progress'), ['bool'])),
+                        ('peer_init_sync_time_stamp', (YLeaf(YType.str, 'peer-init-sync-time-stamp'), ['str'])),
+                        ('sync_in_progress', (YLeaf(YType.boolean, 'sync-in-progress'), ['bool'])),
+                        ('peer_action_timer', (YLeaf(YType.uint32, 'peer-action-timer'), ['int'])),
+                        ('retry_timer_remaining', (YLeaf(YType.uint32, 'retry-timer-remaining'), ['int'])),
+                        ('tx_list_client_registration_invalid', (YLeaf(YType.uint32, 'tx-list-client-registration-invalid'), ['int'])),
+                        ('tx_list_client_de_registration_invalid', (YLeaf(YType.uint32, 'tx-list-client-de-registration-invalid'), ['int'])),
+                        ('tx_list_client_connection_up', (YLeaf(YType.uint32, 'tx-list-client-connection-up'), ['int'])),
+                        ('tx_list_client_connection_down', (YLeaf(YType.uint32, 'tx-list-client-connection-down'), ['int'])),
+                        ('tx_list_client_peer_done', (YLeaf(YType.uint32, 'tx-list-client-peer-done'), ['int'])),
+                        ('tx_list_client_message_call_back', (YLeaf(YType.uint32, 'tx-list-client-message-call-back'), ['int'])),
+                        ('tx_list_client_receive_valid', (YLeaf(YType.uint32, 'tx-list-client-receive-valid'), ['int'])),
+                        ('tx_list_client_receive_invalid', (YLeaf(YType.uint32, 'tx-list-client-receive-invalid'), ['int'])),
+                        ('tx_list_client_receive_command_valid', (YLeaf(YType.uint32, 'tx-list-client-receive-command-valid'), ['int'])),
+                        ('tx_list_client_receive_command_invalid', (YLeaf(YType.uint32, 'tx-list-client-receive-command-invalid'), ['int'])),
+                        ('tx_list_client_receive_session_sessionvalid', (YLeaf(YType.uint32, 'tx-list-client-receive-session-sessionvalid'), ['int'])),
+                        ('tx_list_client_receive_session_session_invalid', (YLeaf(YType.uint32, 'tx-list-client-receive-session-session-invalid'), ['int'])),
+                        ('tx_list_peer_timer_handler', (YLeaf(YType.uint32, 'tx-list-peer-timer-handler'), ['int'])),
+                        ('tx_list_peer_registration_invalid', (YLeaf(YType.uint32, 'tx-list-peer-registration-invalid'), ['int'])),
+                        ('tx_list_peer_de_registration_invalid', (YLeaf(YType.uint32, 'tx-list-peer-de-registration-invalid'), ['int'])),
+                        ('tx_list_peer_message_call_back_valid', (YLeaf(YType.uint32, 'tx-list-peer-message-call-back-valid'), ['int'])),
+                        ('tx_list_peer_message_call_back_invalid', (YLeaf(YType.uint32, 'tx-list-peer-message-call-back-invalid'), ['int'])),
+                        ('tx_list_peer_done', (YLeaf(YType.uint32, 'tx-list-peer-done'), ['int'])),
+                        ('tx_list_peer_cmd_connection_up_not_ok', (YLeaf(YType.uint32, 'tx-list-peer-cmd-connection-up-not-ok'), ['int'])),
+                        ('tx_list_peer_cmd_connection_down_not_ok', (YLeaf(YType.uint32, 'tx-list-peer-cmd-connection-down-not-ok'), ['int'])),
+                        ('tx_list_peer_session_connection_up_not_ok', (YLeaf(YType.uint32, 'tx-list-peer-session-connection-up-not-ok'), ['int'])),
+                        ('tx_list_peer_session_connection_down_not_ok', (YLeaf(YType.uint32, 'tx-list-peer-session-connection-down-not-ok'), ['int'])),
+                        ('tx_list_send_pool_update_not_ok', (YLeaf(YType.uint32, 'tx-list-send-pool-update-not-ok'), ['int'])),
                     ])
                     self.source_interface_name = None
                     self.vrf_name = None
@@ -3189,6 +3337,7 @@ class SessionRedundancyAgent(Entity):
                     self.tx_list_peer_cmd_connection_down_not_ok = None
                     self.tx_list_peer_session_connection_up_not_ok = None
                     self.tx_list_peer_session_connection_down_not_ok = None
+                    self.tx_list_send_pool_update_not_ok = None
 
                     self.intf_status_statistics = SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics()
                     self.intf_status_statistics.parent = self
@@ -3202,9 +3351,10 @@ class SessionRedundancyAgent(Entity):
                     self.opaque_memory_status = YList(self)
                     self.tx_list_over_tcp_status = YList(self)
                     self._segment_path = lambda: "stats-global"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, [u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'redundancy_role', u'restart_client_sync_in_progress', u'client_init_sync_time_stamp', u'restart_peer_sync_in_progress', u'peer_init_sync_time_stamp', u'sync_in_progress', u'peer_action_timer', u'retry_timer_remaining', u'tx_list_client_registration_invalid', u'tx_list_client_de_registration_invalid', u'tx_list_client_connection_up', u'tx_list_client_connection_down', u'tx_list_client_peer_done', u'tx_list_client_message_call_back', u'tx_list_client_receive_valid', u'tx_list_client_receive_invalid', u'tx_list_client_receive_command_valid', u'tx_list_client_receive_command_invalid', u'tx_list_client_receive_session_sessionvalid', u'tx_list_client_receive_session_session_invalid', u'tx_list_peer_timer_handler', u'tx_list_peer_registration_invalid', u'tx_list_peer_de_registration_invalid', u'tx_list_peer_message_call_back_valid', u'tx_list_peer_message_call_back_invalid', u'tx_list_peer_done', u'tx_list_peer_cmd_connection_up_not_ok', u'tx_list_peer_cmd_connection_down_not_ok', u'tx_list_peer_session_connection_up_not_ok', u'tx_list_peer_session_connection_down_not_ok'], name, value)
+                    self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal, [u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'redundancy_role', u'restart_client_sync_in_progress', u'client_init_sync_time_stamp', u'restart_peer_sync_in_progress', u'peer_init_sync_time_stamp', u'sync_in_progress', u'peer_action_timer', u'retry_timer_remaining', u'tx_list_client_registration_invalid', u'tx_list_client_de_registration_invalid', u'tx_list_client_connection_up', u'tx_list_client_connection_down', u'tx_list_client_peer_done', u'tx_list_client_message_call_back', u'tx_list_client_receive_valid', u'tx_list_client_receive_invalid', u'tx_list_client_receive_command_valid', u'tx_list_client_receive_command_invalid', u'tx_list_client_receive_session_sessionvalid', u'tx_list_client_receive_session_session_invalid', u'tx_list_peer_timer_handler', u'tx_list_peer_registration_invalid', u'tx_list_peer_de_registration_invalid', u'tx_list_peer_message_call_back_valid', u'tx_list_peer_message_call_back_invalid', u'tx_list_peer_done', u'tx_list_peer_cmd_connection_up_not_ok', u'tx_list_peer_cmd_connection_down_not_ok', u'tx_list_peer_session_connection_up_not_ok', u'tx_list_peer_session_connection_down_not_ok', u'tx_list_send_pool_update_not_ok'], name, value)
 
 
                 class IntfStatusStatistics(Entity):
@@ -3263,11 +3413,11 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pend_caps_rem_cnt', YLeaf(YType.uint32, 'pend-caps-rem-cnt')),
-                            ('pend_reg_disable_cnt', YLeaf(YType.uint32, 'pend-reg-disable-cnt')),
-                            ('pend_other_batch_oper_cnt', YLeaf(YType.uint32, 'pend-other-batch-oper-cnt')),
-                            ('non_stale_cnt', YLeaf(YType.uint32, 'non-stale-cnt')),
-                            ('grp_bound_cnt', YLeaf(YType.uint32, 'grp-bound-cnt')),
+                            ('pend_caps_rem_cnt', (YLeaf(YType.uint32, 'pend-caps-rem-cnt'), ['int'])),
+                            ('pend_reg_disable_cnt', (YLeaf(YType.uint32, 'pend-reg-disable-cnt'), ['int'])),
+                            ('pend_other_batch_oper_cnt', (YLeaf(YType.uint32, 'pend-other-batch-oper-cnt'), ['int'])),
+                            ('non_stale_cnt', (YLeaf(YType.uint32, 'non-stale-cnt'), ['int'])),
+                            ('grp_bound_cnt', (YLeaf(YType.uint32, 'grp-bound-cnt'), ['int'])),
                         ])
                         self.pend_caps_rem_cnt = None
                         self.pend_reg_disable_cnt = None
@@ -3275,6 +3425,7 @@ class SessionRedundancyAgent(Entity):
                         self.non_stale_cnt = None
                         self.grp_bound_cnt = None
                         self._segment_path = lambda: "intf-status-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.IntfStatusStatistics, [u'pend_caps_rem_cnt', u'pend_reg_disable_cnt', u'pend_other_batch_oper_cnt', u'non_stale_cnt', u'grp_bound_cnt'], name, value)
@@ -3364,15 +3515,15 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tx_list_encode_marker_ok', YLeaf(YType.uint32, 'tx-list-encode-marker-ok')),
-                            ('tx_list_encode_marker_partial_write', YLeaf(YType.uint32, 'tx-list-encode-marker-partial-write')),
-                            ('tx_list_clean_marker', YLeaf(YType.uint32, 'tx-list-clean-marker')),
-                            ('tx_list_encode_command_ok', YLeaf(YType.uint32, 'tx-list-encode-command-ok')),
-                            ('tx_list_encode_command_partial_write', YLeaf(YType.uint32, 'tx-list-encode-command-partial-write')),
-                            ('tx_list_clean_command', YLeaf(YType.uint32, 'tx-list-clean-command')),
-                            ('tx_list_encode_negotiation_ok', YLeaf(YType.uint32, 'tx-list-encode-negotiation-ok')),
-                            ('tx_list_encode_negotiation_partial_write', YLeaf(YType.uint32, 'tx-list-encode-negotiation-partial-write')),
-                            ('tx_list_clean_negotiation', YLeaf(YType.uint32, 'tx-list-clean-negotiation')),
+                            ('tx_list_encode_marker_ok', (YLeaf(YType.uint32, 'tx-list-encode-marker-ok'), ['int'])),
+                            ('tx_list_encode_marker_partial_write', (YLeaf(YType.uint32, 'tx-list-encode-marker-partial-write'), ['int'])),
+                            ('tx_list_clean_marker', (YLeaf(YType.uint32, 'tx-list-clean-marker'), ['int'])),
+                            ('tx_list_encode_command_ok', (YLeaf(YType.uint32, 'tx-list-encode-command-ok'), ['int'])),
+                            ('tx_list_encode_command_partial_write', (YLeaf(YType.uint32, 'tx-list-encode-command-partial-write'), ['int'])),
+                            ('tx_list_clean_command', (YLeaf(YType.uint32, 'tx-list-clean-command'), ['int'])),
+                            ('tx_list_encode_negotiation_ok', (YLeaf(YType.uint32, 'tx-list-encode-negotiation-ok'), ['int'])),
+                            ('tx_list_encode_negotiation_partial_write', (YLeaf(YType.uint32, 'tx-list-encode-negotiation-partial-write'), ['int'])),
+                            ('tx_list_clean_negotiation', (YLeaf(YType.uint32, 'tx-list-clean-negotiation'), ['int'])),
                         ])
                         self.tx_list_encode_marker_ok = None
                         self.tx_list_encode_marker_partial_write = None
@@ -3384,6 +3535,7 @@ class SessionRedundancyAgent(Entity):
                         self.tx_list_encode_negotiation_partial_write = None
                         self.tx_list_clean_negotiation = None
                         self._segment_path = lambda: "tx-list-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListStatistics, [u'tx_list_encode_marker_ok', u'tx_list_encode_marker_partial_write', u'tx_list_clean_marker', u'tx_list_encode_command_ok', u'tx_list_encode_command_partial_write', u'tx_list_clean_command', u'tx_list_encode_negotiation_ok', u'tx_list_encode_negotiation_partial_write', u'tx_list_clean_negotiation'], name, value)
@@ -3449,13 +3601,13 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('component', YLeaf(YType.enumeration, 'component')),
-                            ('client_connection_status', YLeaf(YType.boolean, 'client-connection-status')),
-                            ('client_initialization_synchronization_pending', YLeaf(YType.boolean, 'client-initialization-synchronization-pending')),
-                            ('client_synchronization_end_of_download_pending', YLeaf(YType.boolean, 'client-synchronization-end-of-download-pending')),
-                            ('up_time_stamp', YLeaf(YType.str, 'up-time-stamp')),
-                            ('down_time_stamp', YLeaf(YType.str, 'down-time-stamp')),
-                            ('clean_up_timer_remaining', YLeaf(YType.uint32, 'clean-up-timer-remaining')),
+                            ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowComp', '')])),
+                            ('client_connection_status', (YLeaf(YType.boolean, 'client-connection-status'), ['bool'])),
+                            ('client_initialization_synchronization_pending', (YLeaf(YType.boolean, 'client-initialization-synchronization-pending'), ['bool'])),
+                            ('client_synchronization_end_of_download_pending', (YLeaf(YType.boolean, 'client-synchronization-end-of-download-pending'), ['bool'])),
+                            ('up_time_stamp', (YLeaf(YType.str, 'up-time-stamp'), ['str'])),
+                            ('down_time_stamp', (YLeaf(YType.str, 'down-time-stamp'), ['str'])),
+                            ('clean_up_timer_remaining', (YLeaf(YType.uint32, 'clean-up-timer-remaining'), ['int'])),
                         ])
                         self.component = None
                         self.client_connection_status = None
@@ -3465,6 +3617,7 @@ class SessionRedundancyAgent(Entity):
                         self.down_time_stamp = None
                         self.clean_up_timer_remaining = None
                         self._segment_path = lambda: "client-status"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.ClientStatus, [u'component', u'client_connection_status', u'client_initialization_synchronization_pending', u'client_synchronization_end_of_download_pending', u'up_time_stamp', u'down_time_stamp', u'clean_up_timer_remaining'], name, value)
@@ -3524,11 +3677,11 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('component', YLeaf(YType.enumeration, 'component')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('opaque_size', YLeaf(YType.uint32, 'opaque-size')),
-                            ('opaque_high_size', YLeaf(YType.uint32, 'opaque-high-size')),
-                            ('opaque_data_size', YLeaf(YType.uint32, 'opaque-data-size')),
+                            ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowComp', '')])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('opaque_size', (YLeaf(YType.uint32, 'opaque-size'), ['int'])),
+                            ('opaque_high_size', (YLeaf(YType.uint32, 'opaque-high-size'), ['int'])),
+                            ('opaque_data_size', (YLeaf(YType.uint32, 'opaque-data-size'), ['int'])),
                         ])
                         self.component = None
                         self.session_count = None
@@ -3536,6 +3689,7 @@ class SessionRedundancyAgent(Entity):
                         self.opaque_high_size = None
                         self.opaque_data_size = None
                         self._segment_path = lambda: "opaque-memory-status"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.OpaqueMemoryStatus, [u'component', u'session_count', u'opaque_size', u'opaque_high_size', u'opaque_data_size'], name, value)
@@ -3720,28 +3874,28 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('messages_sent', YLeaf(YType.uint32, 'messages-sent')),
-                            ('bytes_sent', YLeaf(YType.uint32, 'bytes-sent')),
-                            ('messages_received', YLeaf(YType.uint32, 'messages-received')),
-                            ('bytes_received', YLeaf(YType.uint32, 'bytes-received')),
-                            ('connect_count', YLeaf(YType.uint32, 'connect-count')),
-                            ('blocked_connect_count', YLeaf(YType.uint32, 'blocked-connect-count')),
-                            ('connect_retry_count', YLeaf(YType.uint32, 'connect-retry-count')),
-                            ('remote_node_down_count', YLeaf(YType.uint32, 'remote-node-down-count')),
-                            ('accept_count', YLeaf(YType.uint32, 'accept-count')),
-                            ('maximum_sent_message_size', YLeaf(YType.uint32, 'maximum-sent-message-size')),
-                            ('maximum_received_message_size', YLeaf(YType.uint32, 'maximum-received-message-size')),
-                            ('peer_pause_count', YLeaf(YType.uint32, 'peer-pause-count')),
-                            ('buffer_full_occurence_count', YLeaf(YType.uint32, 'buffer-full-occurence-count')),
-                            ('mem_move_message_count', YLeaf(YType.uint32, 'mem-move-message-count')),
-                            ('mem_move_bytes_count', YLeaf(YType.uint32, 'mem-move-bytes-count')),
-                            ('socket_read_count', YLeaf(YType.uint32, 'socket-read-count')),
-                            ('socket_write_count', YLeaf(YType.uint32, 'socket-write-count')),
-                            ('active_socket_count', YLeaf(YType.uint16, 'active-socket-count')),
-                            ('maximum_requested_buffer_size', YLeaf(YType.uint32, 'maximum-requested-buffer-size')),
-                            ('buffer_freed_count', YLeaf(YType.uint16, 'buffer-freed-count')),
-                            ('buffer_cache_hit', YLeaf(YType.uint16, 'buffer-cache-hit')),
-                            ('buffer_cache_miss', YLeaf(YType.uint16, 'buffer-cache-miss')),
+                            ('messages_sent', (YLeaf(YType.uint32, 'messages-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint32, 'bytes-sent'), ['int'])),
+                            ('messages_received', (YLeaf(YType.uint32, 'messages-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint32, 'bytes-received'), ['int'])),
+                            ('connect_count', (YLeaf(YType.uint32, 'connect-count'), ['int'])),
+                            ('blocked_connect_count', (YLeaf(YType.uint32, 'blocked-connect-count'), ['int'])),
+                            ('connect_retry_count', (YLeaf(YType.uint32, 'connect-retry-count'), ['int'])),
+                            ('remote_node_down_count', (YLeaf(YType.uint32, 'remote-node-down-count'), ['int'])),
+                            ('accept_count', (YLeaf(YType.uint32, 'accept-count'), ['int'])),
+                            ('maximum_sent_message_size', (YLeaf(YType.uint32, 'maximum-sent-message-size'), ['int'])),
+                            ('maximum_received_message_size', (YLeaf(YType.uint32, 'maximum-received-message-size'), ['int'])),
+                            ('peer_pause_count', (YLeaf(YType.uint32, 'peer-pause-count'), ['int'])),
+                            ('buffer_full_occurence_count', (YLeaf(YType.uint32, 'buffer-full-occurence-count'), ['int'])),
+                            ('mem_move_message_count', (YLeaf(YType.uint32, 'mem-move-message-count'), ['int'])),
+                            ('mem_move_bytes_count', (YLeaf(YType.uint32, 'mem-move-bytes-count'), ['int'])),
+                            ('socket_read_count', (YLeaf(YType.uint32, 'socket-read-count'), ['int'])),
+                            ('socket_write_count', (YLeaf(YType.uint32, 'socket-write-count'), ['int'])),
+                            ('active_socket_count', (YLeaf(YType.uint16, 'active-socket-count'), ['int'])),
+                            ('maximum_requested_buffer_size', (YLeaf(YType.uint32, 'maximum-requested-buffer-size'), ['int'])),
+                            ('buffer_freed_count', (YLeaf(YType.uint16, 'buffer-freed-count'), ['int'])),
+                            ('buffer_cache_hit', (YLeaf(YType.uint16, 'buffer-cache-hit'), ['int'])),
+                            ('buffer_cache_miss', (YLeaf(YType.uint16, 'buffer-cache-miss'), ['int'])),
                         ])
                         self.messages_sent = None
                         self.bytes_sent = None
@@ -3766,6 +3920,7 @@ class SessionRedundancyAgent(Entity):
                         self.buffer_cache_hit = None
                         self.buffer_cache_miss = None
                         self._segment_path = lambda: "tx-list-over-tcp-status"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.StatsGlobal.TxListOverTcpStatus, [u'messages_sent', u'bytes_sent', u'messages_received', u'bytes_received', u'connect_count', u'blocked_connect_count', u'connect_retry_count', u'remote_node_down_count', u'accept_count', u'maximum_sent_message_size', u'maximum_received_message_size', u'peer_pause_count', u'buffer_full_occurence_count', u'mem_move_message_count', u'mem_move_bytes_count', u'socket_read_count', u'socket_write_count', u'active_socket_count', u'maximum_requested_buffer_size', u'buffer_freed_count', u'buffer_cache_hit', u'buffer_cache_miss'], name, value)
@@ -3800,6 +3955,7 @@ class SessionRedundancyAgent(Entity):
 
                     self.group_summary = YList(self)
                     self._segment_path = lambda: "group-summaries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries, [], name, value)
@@ -3905,19 +4061,19 @@ class SessionRedundancyAgent(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('role', YLeaf(YType.enumeration, 'role')),
-                            ('disabled', YLeaf(YType.boolean, 'disabled')),
-                            ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                            ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                            ('peer_status', YLeaf(YType.enumeration, 'peer-status')),
-                            ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                            ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                            ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('pending_add_session_count', YLeaf(YType.uint32, 'pending-add-session-count')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowImRole', '')])),
+                            ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                            ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                            ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                            ('peer_status', (YLeaf(YType.enumeration, 'peer-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergPeerStatus', '')])),
+                            ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowRole', '')])),
+                            ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_oper', 'SergShowSlaveMode', '')])),
+                            ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                            ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('pending_add_session_count', (YLeaf(YType.uint32, 'pending-add-session-count'), ['int'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -3933,6 +4089,7 @@ class SessionRedundancyAgent(Entity):
                         self.session_count = None
                         self.pending_add_session_count = None
                         self._segment_path = lambda: "group-summary" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SessionRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)

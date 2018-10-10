@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv4\-network\: IPv4 network operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,34 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+
+class Ipv4MaOperConfig(Enum):
+    """
+    Ipv4MaOperConfig (Enum Class)
+
+    ipv4 client type
+
+    .. data:: ipv4_ma_oper_client_none = 0
+
+    	ipv4 ma oper client none
+
+    .. data:: ipv4_ma_oper_non_oc_client = 1
+
+    	ipv4 ma oper non oc client
+
+    .. data:: ipv4_ma_oper_oc_client = 2
+
+    	ipv4 ma oper oc client
+
+    """
+
+    ipv4_ma_oper_client_none = Enum.YLeaf(0, "ipv4-ma-oper-client-none")
+
+    ipv4_ma_oper_non_oc_client = Enum.YLeaf(1, "ipv4-ma-oper-non-oc-client")
+
+    ipv4_ma_oper_oc_client = Enum.YLeaf(2, "ipv4-ma-oper-oc-client")
 
 
 class Ipv4MaOperLineState(Enum):
@@ -115,6 +143,7 @@ class Ipv4Network(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv4Network, [], name, value)
@@ -150,6 +179,7 @@ class Ipv4Network(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Network.Nodes, [], name, value)
@@ -194,7 +224,7 @@ class Ipv4Network(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("interface-data", ("interface_data", Ipv4Network.Nodes.Node.InterfaceData)), ("statistics", ("statistics", Ipv4Network.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -207,6 +237,7 @@ class Ipv4Network(Entity):
                 self._children_name_map["statistics"] = "statistics"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Network.Nodes.Node, ['node_name'], name, value)
@@ -252,6 +283,7 @@ class Ipv4Network(Entity):
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
                     self._segment_path = lambda: "interface-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData, [], name, value)
@@ -287,6 +319,7 @@ class Ipv4Network(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs, [], name, value)
@@ -330,7 +363,7 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("briefs", ("briefs", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("details", ("details", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -342,6 +375,7 @@ class Ipv4Network(Entity):
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -377,6 +411,7 @@ class Ipv4Network(Entity):
 
                                 self.brief = YList(self)
                                 self._segment_path = lambda: "briefs"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, [], name, value)
@@ -392,7 +427,7 @@ class Ipv4Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: primary_address
                                 
@@ -435,11 +470,11 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('primary_address', YLeaf(YType.str, 'primary-address')),
-                                        ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                                        ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineState', '')])),
                                     ])
                                     self.interface_name = None
                                     self.primary_address = None
@@ -447,6 +482,7 @@ class Ipv4Network(Entity):
                                     self.vrf_name = None
                                     self.line_state = None
                                     self._segment_path = lambda: "brief" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'primary_address', u'vrf_id', u'vrf_name', u'line_state'], name, value)
@@ -482,6 +518,7 @@ class Ipv4Network(Entity):
 
                                 self.detail = YList(self)
                                 self._segment_path = lambda: "details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
@@ -497,7 +534,7 @@ class Ipv4Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: acl
                                 
@@ -624,6 +661,11 @@ class Ipv4Network(Entity):
                                 	Name of referenced interface (valid if unnumbered)
                                 	**type**\: str
                                 
+                                .. attribute:: next_unnumbered_interface_name
+                                
+                                	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                                	**type**\: str
+                                
                                 .. attribute:: proxy_arp_disabled
                                 
                                 	Is Proxy ARP disabled on the interface?
@@ -638,6 +680,61 @@ class Ipv4Network(Entity):
                                 
                                 	Is BGP Flow Tag Destination is enable
                                 	**type**\: bool
+                                
+                                .. attribute:: config_flags
+                                
+                                	IDB configuration flags
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: oper_flags
+                                
+                                	IDB operational flags
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
+                                
+                                .. attribute:: arm_flags
+                                
+                                	IP ARM operation flags
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                .. attribute:: state_recvd_frm_im
+                                
+                                	state as recieved                                from IM
+                                	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                .. attribute:: cflct_address
+                                
+                                	Conflicated ipv4 address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: client_type
+                                
+                                	Client type for IDB
+                                	**type**\:  :py:class:`Ipv4MaOperConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperConfig>`
+                                
+                                .. attribute:: is_or_event
+                                
+                                	Is OR event for IDB
+                                	**type**\: bool
+                                
+                                .. attribute:: or_im_state
+                                
+                                	OR IM state type
+                                	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper.Ipv4MaOperLineState>`
+                                
+                                .. attribute:: idb_pointer
+                                
+                                	idb pointer value
+                                	**type**\: int
+                                
+                                	**range:** 0..18446744073709551615
                                 
                                 .. attribute:: multicast_group
                                 
@@ -666,23 +763,33 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('primary_address', YLeaf(YType.str, 'primary-address')),
-                                        ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                        ('route_tag', YLeaf(YType.uint32, 'route-tag')),
-                                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                        ('unreachable', YLeaf(YType.boolean, 'unreachable')),
-                                        ('redirect', YLeaf(YType.boolean, 'redirect')),
-                                        ('direct_broadcast', YLeaf(YType.boolean, 'direct-broadcast')),
-                                        ('mask_reply', YLeaf(YType.boolean, 'mask-reply')),
-                                        ('rg_id_exists', YLeaf(YType.boolean, 'rg-id-exists')),
-                                        ('mlacp_active', YLeaf(YType.boolean, 'mlacp-active')),
-                                        ('unnumbered_interface_name', YLeaf(YType.str, 'unnumbered-interface-name')),
-                                        ('proxy_arp_disabled', YLeaf(YType.boolean, 'proxy-arp-disabled')),
-                                        ('flow_tag_src', YLeaf(YType.boolean, 'flow-tag-src')),
-                                        ('flow_tag_dst', YLeaf(YType.boolean, 'flow-tag-dst')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                                        ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineState', '')])),
+                                        ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                        ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
+                                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                        ('unreachable', (YLeaf(YType.boolean, 'unreachable'), ['bool'])),
+                                        ('redirect', (YLeaf(YType.boolean, 'redirect'), ['bool'])),
+                                        ('direct_broadcast', (YLeaf(YType.boolean, 'direct-broadcast'), ['bool'])),
+                                        ('mask_reply', (YLeaf(YType.boolean, 'mask-reply'), ['bool'])),
+                                        ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
+                                        ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
+                                        ('unnumbered_interface_name', (YLeaf(YType.str, 'unnumbered-interface-name'), ['str'])),
+                                        ('next_unnumbered_interface_name', (YLeaf(YType.str, 'next-unnumbered-interface-name'), ['str'])),
+                                        ('proxy_arp_disabled', (YLeaf(YType.boolean, 'proxy-arp-disabled'), ['bool'])),
+                                        ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
+                                        ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
+                                        ('config_flags', (YLeaf(YType.uint16, 'config-flags'), ['int'])),
+                                        ('oper_flags', (YLeaf(YType.uint64, 'oper-flags'), ['int'])),
+                                        ('arm_flags', (YLeaf(YType.uint16, 'arm-flags'), ['int'])),
+                                        ('state_recvd_frm_im', (YLeaf(YType.enumeration, 'state-recvd-frm-im'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineState', '')])),
+                                        ('cflct_address', (YLeaf(YType.str, 'cflct-address'), ['str'])),
+                                        ('client_type', (YLeaf(YType.enumeration, 'client-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperConfig', '')])),
+                                        ('is_or_event', (YLeaf(YType.boolean, 'is-or-event'), ['bool'])),
+                                        ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'Ipv4MaOperLineState', '')])),
+                                        ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                                     ])
                                     self.interface_name = None
                                     self.primary_address = None
@@ -698,9 +805,19 @@ class Ipv4Network(Entity):
                                     self.rg_id_exists = None
                                     self.mlacp_active = None
                                     self.unnumbered_interface_name = None
+                                    self.next_unnumbered_interface_name = None
                                     self.proxy_arp_disabled = None
                                     self.flow_tag_src = None
                                     self.flow_tag_dst = None
+                                    self.config_flags = None
+                                    self.oper_flags = None
+                                    self.arm_flags = None
+                                    self.state_recvd_frm_im = None
+                                    self.cflct_address = None
+                                    self.client_type = None
+                                    self.is_or_event = None
+                                    self.or_im_state = None
+                                    self.idb_pointer = None
 
                                     self.acl = Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl()
                                     self.acl.parent = self
@@ -745,9 +862,10 @@ class Ipv4Network(Entity):
                                     self.multicast_group = YList(self)
                                     self.secondary_address = YList(self)
                                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'primary_address', u'vrf_id', u'line_state', u'prefix_length', u'route_tag', u'mtu', u'unreachable', u'redirect', u'direct_broadcast', u'mask_reply', u'rg_id_exists', u'mlacp_active', u'unnumbered_interface_name', u'next_unnumbered_interface_name', u'proxy_arp_disabled', u'flow_tag_src', u'flow_tag_dst', u'config_flags', u'oper_flags', u'arm_flags', u'state_recvd_frm_im', u'cflct_address', u'client_type', u'is_or_event', u'or_im_state', u'idb_pointer'], name, value)
 
 
                                 class Acl(Entity):
@@ -791,16 +909,17 @@ class Ipv4Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('inbound', YLeaf(YType.str, 'inbound')),
-                                            ('outbound', YLeaf(YType.str, 'outbound')),
-                                            ('common_in_bound', YLeaf(YType.str, 'common-in-bound')),
-                                            ('common_out_bound', YLeaf(YType.str, 'common-out-bound')),
+                                            ('inbound', (YLeaf(YType.str, 'inbound'), ['str'])),
+                                            ('outbound', (YLeaf(YType.str, 'outbound'), ['str'])),
+                                            ('common_in_bound', (YLeaf(YType.str, 'common-in-bound'), ['str'])),
+                                            ('common_out_bound', (YLeaf(YType.str, 'common-out-bound'), ['str'])),
                                         ])
                                         self.inbound = None
                                         self.outbound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
                                         self._segment_path = lambda: "acl"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Acl, [u'inbound', u'outbound', u'common_in_bound', u'common_out_bound'], name, value)
@@ -847,6 +966,7 @@ class Ipv4Network(Entity):
                                         self.outbound = YList(self)
                                         self.common = YList(self)
                                         self._segment_path = lambda: "multi-acl"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl, [], name, value)
@@ -878,10 +998,11 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "inbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Inbound, [u'entry'], name, value)
@@ -913,10 +1034,11 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "outbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Outbound, [u'entry'], name, value)
@@ -948,10 +1070,11 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "common"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAcl.Common, [u'entry'], name, value)
@@ -986,6 +1109,7 @@ class Ipv4Network(Entity):
 
                                         self.address_array = YList(self)
                                         self._segment_path = lambda: "helper-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress, [], name, value)
@@ -1019,10 +1143,11 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "address-array"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.HelperAddress.AddressArray, [u'entry'], name, value)
@@ -1069,16 +1194,17 @@ class Ipv4Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
-                                            ('allow_self_ping', YLeaf(YType.boolean, 'allow-self-ping')),
-                                            ('mode', YLeaf(YType.enumeration, 'mode')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('allow_default_route', (YLeaf(YType.boolean, 'allow-default-route'), ['bool'])),
+                                            ('allow_self_ping', (YLeaf(YType.boolean, 'allow-self-ping'), ['bool'])),
+                                            ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper', 'RpfMode', '')])),
                                         ])
                                         self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
                                         self.mode = None
                                         self._segment_path = lambda: "rpf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
@@ -1124,6 +1250,7 @@ class Ipv4Network(Entity):
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
                                         self._segment_path = lambda: "bgp-pa"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
@@ -1165,14 +1292,15 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.boolean, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "input"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
@@ -1214,14 +1342,15 @@ class Ipv4Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.boolean, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "output"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
@@ -1249,6 +1378,7 @@ class Ipv4Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "pub-utime"
+                                        self._is_frozen = True
 
 
                                 class IdbUtime(Entity):
@@ -1273,6 +1403,7 @@ class Ipv4Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
+                                        self._is_frozen = True
 
 
                                 class CapsUtime(Entity):
@@ -1297,6 +1428,7 @@ class Ipv4Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdEnUtime(Entity):
@@ -1321,6 +1453,7 @@ class Ipv4Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdDisUtime(Entity):
@@ -1345,6 +1478,7 @@ class Ipv4Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
+                                        self._is_frozen = True
 
 
                                 class MulticastGroup(Entity):
@@ -1375,10 +1509,11 @@ class Ipv4Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('group_address', YLeaf(YType.str, 'group-address')),
+                                            ('group_address', (YLeaf(YType.str, 'group-address'), ['str'])),
                                         ])
                                         self.group_address = None
                                         self._segment_path = lambda: "multicast-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'group_address'], name, value)
@@ -1426,14 +1561,15 @@ class Ipv4Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "secondary-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.SecondaryAddress, [u'address', u'prefix_length', u'route_tag'], name, value)
@@ -1488,7 +1624,7 @@ class Ipv4Network(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
                         self._leafs = OrderedDict([
-                            ('if_up_down_basecaps_up', YLeaf(YType.uint32, 'if-up-down-basecaps-up')),
+                            ('if_up_down_basecaps_up', (YLeaf(YType.uint32, 'if-up-down-basecaps-up'), ['int'])),
                         ])
                         self.if_up_down_basecaps_up = None
 
@@ -1508,6 +1644,7 @@ class Ipv4Network(Entity):
                         self.if_shutdown_down.parent = self
                         self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
                         self._segment_path = lambda: "summary"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
@@ -1555,14 +1692,15 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-up-up"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
@@ -1610,14 +1748,15 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-up-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
@@ -1665,14 +1804,15 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-down-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
@@ -1720,14 +1860,15 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-shutdown-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
@@ -1765,6 +1906,7 @@ class Ipv4Network(Entity):
                     self.traffic.parent = self
                     self._children_name_map["traffic"] = "traffic"
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Network.Nodes.Node.Statistics, [], name, value)
@@ -1810,6 +1952,7 @@ class Ipv4Network(Entity):
                         self.icmp_stats.parent = self
                         self._children_name_map["icmp_stats"] = "icmp-stats"
                         self._segment_path = lambda: "traffic"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic, [], name, value)
@@ -2151,51 +2294,51 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('input_packets', YLeaf(YType.uint32, 'input-packets')),
-                                ('received_packets', YLeaf(YType.uint32, 'received-packets')),
-                                ('format_errors', YLeaf(YType.uint32, 'format-errors')),
-                                ('bad_hop_count', YLeaf(YType.uint32, 'bad-hop-count')),
-                                ('bad_source_address', YLeaf(YType.uint32, 'bad-source-address')),
-                                ('bad_header', YLeaf(YType.uint32, 'bad-header')),
-                                ('no_protocol', YLeaf(YType.uint32, 'no-protocol')),
-                                ('no_gateway', YLeaf(YType.uint32, 'no-gateway')),
-                                ('reassemble_input', YLeaf(YType.uint32, 'reassemble-input')),
-                                ('reassembled', YLeaf(YType.uint32, 'reassembled')),
-                                ('reassemble_timeout', YLeaf(YType.uint32, 'reassemble-timeout')),
-                                ('reassemble_max_drop', YLeaf(YType.uint32, 'reassemble-max-drop')),
-                                ('reassemble_failed', YLeaf(YType.uint32, 'reassemble-failed')),
-                                ('options_present', YLeaf(YType.uint32, 'options-present')),
-                                ('bad_option', YLeaf(YType.uint32, 'bad-option')),
-                                ('unknown_option', YLeaf(YType.uint32, 'unknown-option')),
-                                ('bad_security_option', YLeaf(YType.uint32, 'bad-security-option')),
-                                ('basic_security_option', YLeaf(YType.uint32, 'basic-security-option')),
-                                ('extended_security_option', YLeaf(YType.uint32, 'extended-security-option')),
-                                ('cipso_option', YLeaf(YType.uint32, 'cipso-option')),
-                                ('strict_source_route_option', YLeaf(YType.uint32, 'strict-source-route-option')),
-                                ('loose_source_route_option', YLeaf(YType.uint32, 'loose-source-route-option')),
-                                ('record_route_option', YLeaf(YType.uint32, 'record-route-option')),
-                                ('sid_option', YLeaf(YType.uint32, 'sid-option')),
-                                ('timestamp_option', YLeaf(YType.uint32, 'timestamp-option')),
-                                ('router_alert_option', YLeaf(YType.uint32, 'router-alert-option')),
-                                ('noop_option', YLeaf(YType.uint32, 'noop-option')),
-                                ('end_option', YLeaf(YType.uint32, 'end-option')),
-                                ('packets_output', YLeaf(YType.uint32, 'packets-output')),
-                                ('packets_forwarded', YLeaf(YType.uint32, 'packets-forwarded')),
-                                ('packets_fragmented', YLeaf(YType.uint32, 'packets-fragmented')),
-                                ('fragment_count', YLeaf(YType.uint32, 'fragment-count')),
-                                ('encapsulation_failed', YLeaf(YType.uint32, 'encapsulation-failed')),
-                                ('no_router', YLeaf(YType.uint32, 'no-router')),
-                                ('packet_too_big', YLeaf(YType.uint32, 'packet-too-big')),
-                                ('multicast_in', YLeaf(YType.uint32, 'multicast-in')),
-                                ('multicast_out', YLeaf(YType.uint32, 'multicast-out')),
-                                ('broadcast_in', YLeaf(YType.uint32, 'broadcast-in')),
-                                ('broadcast_out', YLeaf(YType.uint32, 'broadcast-out')),
-                                ('lisp_v4_encap', YLeaf(YType.uint32, 'lisp-v4-encap')),
-                                ('lisp_v4_decap', YLeaf(YType.uint32, 'lisp-v4-decap')),
-                                ('lisp_v6_encap', YLeaf(YType.uint32, 'lisp-v6-encap')),
-                                ('lisp_v6_decap', YLeaf(YType.uint32, 'lisp-v6-decap')),
-                                ('lisp_encap_error', YLeaf(YType.uint32, 'lisp-encap-error')),
-                                ('lisp_decap_error', YLeaf(YType.uint32, 'lisp-decap-error')),
+                                ('input_packets', (YLeaf(YType.uint32, 'input-packets'), ['int'])),
+                                ('received_packets', (YLeaf(YType.uint32, 'received-packets'), ['int'])),
+                                ('format_errors', (YLeaf(YType.uint32, 'format-errors'), ['int'])),
+                                ('bad_hop_count', (YLeaf(YType.uint32, 'bad-hop-count'), ['int'])),
+                                ('bad_source_address', (YLeaf(YType.uint32, 'bad-source-address'), ['int'])),
+                                ('bad_header', (YLeaf(YType.uint32, 'bad-header'), ['int'])),
+                                ('no_protocol', (YLeaf(YType.uint32, 'no-protocol'), ['int'])),
+                                ('no_gateway', (YLeaf(YType.uint32, 'no-gateway'), ['int'])),
+                                ('reassemble_input', (YLeaf(YType.uint32, 'reassemble-input'), ['int'])),
+                                ('reassembled', (YLeaf(YType.uint32, 'reassembled'), ['int'])),
+                                ('reassemble_timeout', (YLeaf(YType.uint32, 'reassemble-timeout'), ['int'])),
+                                ('reassemble_max_drop', (YLeaf(YType.uint32, 'reassemble-max-drop'), ['int'])),
+                                ('reassemble_failed', (YLeaf(YType.uint32, 'reassemble-failed'), ['int'])),
+                                ('options_present', (YLeaf(YType.uint32, 'options-present'), ['int'])),
+                                ('bad_option', (YLeaf(YType.uint32, 'bad-option'), ['int'])),
+                                ('unknown_option', (YLeaf(YType.uint32, 'unknown-option'), ['int'])),
+                                ('bad_security_option', (YLeaf(YType.uint32, 'bad-security-option'), ['int'])),
+                                ('basic_security_option', (YLeaf(YType.uint32, 'basic-security-option'), ['int'])),
+                                ('extended_security_option', (YLeaf(YType.uint32, 'extended-security-option'), ['int'])),
+                                ('cipso_option', (YLeaf(YType.uint32, 'cipso-option'), ['int'])),
+                                ('strict_source_route_option', (YLeaf(YType.uint32, 'strict-source-route-option'), ['int'])),
+                                ('loose_source_route_option', (YLeaf(YType.uint32, 'loose-source-route-option'), ['int'])),
+                                ('record_route_option', (YLeaf(YType.uint32, 'record-route-option'), ['int'])),
+                                ('sid_option', (YLeaf(YType.uint32, 'sid-option'), ['int'])),
+                                ('timestamp_option', (YLeaf(YType.uint32, 'timestamp-option'), ['int'])),
+                                ('router_alert_option', (YLeaf(YType.uint32, 'router-alert-option'), ['int'])),
+                                ('noop_option', (YLeaf(YType.uint32, 'noop-option'), ['int'])),
+                                ('end_option', (YLeaf(YType.uint32, 'end-option'), ['int'])),
+                                ('packets_output', (YLeaf(YType.uint32, 'packets-output'), ['int'])),
+                                ('packets_forwarded', (YLeaf(YType.uint32, 'packets-forwarded'), ['int'])),
+                                ('packets_fragmented', (YLeaf(YType.uint32, 'packets-fragmented'), ['int'])),
+                                ('fragment_count', (YLeaf(YType.uint32, 'fragment-count'), ['int'])),
+                                ('encapsulation_failed', (YLeaf(YType.uint32, 'encapsulation-failed'), ['int'])),
+                                ('no_router', (YLeaf(YType.uint32, 'no-router'), ['int'])),
+                                ('packet_too_big', (YLeaf(YType.uint32, 'packet-too-big'), ['int'])),
+                                ('multicast_in', (YLeaf(YType.uint32, 'multicast-in'), ['int'])),
+                                ('multicast_out', (YLeaf(YType.uint32, 'multicast-out'), ['int'])),
+                                ('broadcast_in', (YLeaf(YType.uint32, 'broadcast-in'), ['int'])),
+                                ('broadcast_out', (YLeaf(YType.uint32, 'broadcast-out'), ['int'])),
+                                ('lisp_v4_encap', (YLeaf(YType.uint32, 'lisp-v4-encap'), ['int'])),
+                                ('lisp_v4_decap', (YLeaf(YType.uint32, 'lisp-v4-decap'), ['int'])),
+                                ('lisp_v6_encap', (YLeaf(YType.uint32, 'lisp-v6-encap'), ['int'])),
+                                ('lisp_v6_decap', (YLeaf(YType.uint32, 'lisp-v6-decap'), ['int'])),
+                                ('lisp_encap_error', (YLeaf(YType.uint32, 'lisp-encap-error'), ['int'])),
+                                ('lisp_decap_error', (YLeaf(YType.uint32, 'lisp-decap-error'), ['int'])),
                             ])
                             self.input_packets = None
                             self.received_packets = None
@@ -2243,9 +2386,10 @@ class Ipv4Network(Entity):
                             self.lisp_encap_error = None
                             self.lisp_decap_error = None
                             self._segment_path = lambda: "ipv4-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, ['input_packets', 'received_packets', 'format_errors', 'bad_hop_count', 'bad_source_address', 'bad_header', 'no_protocol', 'no_gateway', 'reassemble_input', 'reassembled', 'reassemble_timeout', 'reassemble_max_drop', 'reassemble_failed', 'options_present', 'bad_option', 'unknown_option', 'bad_security_option', 'basic_security_option', 'extended_security_option', 'cipso_option', 'strict_source_route_option', 'loose_source_route_option', 'record_route_option', 'sid_option', 'timestamp_option', 'router_alert_option', 'noop_option', 'end_option', 'packets_output', 'packets_forwarded', 'packets_fragmented', 'fragment_count', 'encapsulation_failed', 'no_router', 'packet_too_big', 'multicast_in', 'multicast_out', 'broadcast_in', 'broadcast_out', 'lisp_v4_encap', 'lisp_v4_decap', 'lisp_v6_encap', 'lisp_v6_decap', 'lisp_encap_error', 'lisp_decap_error'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.Ipv4Stats, [u'input_packets', u'received_packets', u'format_errors', u'bad_hop_count', u'bad_source_address', u'bad_header', u'no_protocol', u'no_gateway', u'reassemble_input', u'reassembled', u'reassemble_timeout', u'reassemble_max_drop', u'reassemble_failed', u'options_present', u'bad_option', u'unknown_option', u'bad_security_option', u'basic_security_option', u'extended_security_option', u'cipso_option', u'strict_source_route_option', u'loose_source_route_option', u'record_route_option', u'sid_option', u'timestamp_option', u'router_alert_option', u'noop_option', u'end_option', u'packets_output', u'packets_forwarded', u'packets_fragmented', u'fragment_count', u'encapsulation_failed', u'no_router', u'packet_too_big', u'multicast_in', u'multicast_out', u'broadcast_in', u'broadcast_out', u'lisp_v4_encap', u'lisp_v4_decap', u'lisp_v6_encap', u'lisp_v6_decap', u'lisp_encap_error', u'lisp_decap_error'], name, value)
 
 
                     class IcmpStats(Entity):
@@ -2528,43 +2672,43 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('checksum_error', YLeaf(YType.uint32, 'checksum-error')),
-                                ('unknown', YLeaf(YType.uint32, 'unknown')),
-                                ('output', YLeaf(YType.uint32, 'output')),
-                                ('admin_unreachable_sent', YLeaf(YType.uint32, 'admin-unreachable-sent')),
-                                ('network_unreachable_sent', YLeaf(YType.uint32, 'network-unreachable-sent')),
-                                ('host_unreachable_sent', YLeaf(YType.uint32, 'host-unreachable-sent')),
-                                ('protocol_unreachable_sent', YLeaf(YType.uint32, 'protocol-unreachable-sent')),
-                                ('port_unreachable_sent', YLeaf(YType.uint32, 'port-unreachable-sent')),
-                                ('fragment_unreachable_sent', YLeaf(YType.uint32, 'fragment-unreachable-sent')),
-                                ('admin_unreachable_received', YLeaf(YType.uint32, 'admin-unreachable-received')),
-                                ('network_unreachable_received', YLeaf(YType.uint32, 'network-unreachable-received')),
-                                ('host_unreachable_received', YLeaf(YType.uint32, 'host-unreachable-received')),
-                                ('protocol_unreachable_received', YLeaf(YType.uint32, 'protocol-unreachable-received')),
-                                ('port_unreachable_received', YLeaf(YType.uint32, 'port-unreachable-received')),
-                                ('fragment_unreachable_received', YLeaf(YType.uint32, 'fragment-unreachable-received')),
-                                ('hopcount_sent', YLeaf(YType.uint32, 'hopcount-sent')),
-                                ('reassembly_sent', YLeaf(YType.uint32, 'reassembly-sent')),
-                                ('hopcount_received', YLeaf(YType.uint32, 'hopcount-received')),
-                                ('reassebly_received', YLeaf(YType.uint32, 'reassebly-received')),
-                                ('param_error_received', YLeaf(YType.uint32, 'param-error-received')),
-                                ('param_error_send', YLeaf(YType.uint32, 'param-error-send')),
-                                ('echo_request_sent', YLeaf(YType.uint32, 'echo-request-sent')),
-                                ('echo_request_received', YLeaf(YType.uint32, 'echo-request-received')),
-                                ('echo_reply_sent', YLeaf(YType.uint32, 'echo-reply-sent')),
-                                ('echo_reply_received', YLeaf(YType.uint32, 'echo-reply-received')),
-                                ('mask_request_sent', YLeaf(YType.uint32, 'mask-request-sent')),
-                                ('mask_request_received', YLeaf(YType.uint32, 'mask-request-received')),
-                                ('mask_reply_sent', YLeaf(YType.uint32, 'mask-reply-sent')),
-                                ('mask_reply_received', YLeaf(YType.uint32, 'mask-reply-received')),
-                                ('source_quench_received', YLeaf(YType.uint32, 'source-quench-received')),
-                                ('redirect_received', YLeaf(YType.uint32, 'redirect-received')),
-                                ('redirect_send', YLeaf(YType.uint32, 'redirect-send')),
-                                ('timestamp_received', YLeaf(YType.uint32, 'timestamp-received')),
-                                ('timestamp_reply_received', YLeaf(YType.uint32, 'timestamp-reply-received')),
-                                ('router_advert_received', YLeaf(YType.uint32, 'router-advert-received')),
-                                ('router_solicit_received', YLeaf(YType.uint32, 'router-solicit-received')),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('checksum_error', (YLeaf(YType.uint32, 'checksum-error'), ['int'])),
+                                ('unknown', (YLeaf(YType.uint32, 'unknown'), ['int'])),
+                                ('output', (YLeaf(YType.uint32, 'output'), ['int'])),
+                                ('admin_unreachable_sent', (YLeaf(YType.uint32, 'admin-unreachable-sent'), ['int'])),
+                                ('network_unreachable_sent', (YLeaf(YType.uint32, 'network-unreachable-sent'), ['int'])),
+                                ('host_unreachable_sent', (YLeaf(YType.uint32, 'host-unreachable-sent'), ['int'])),
+                                ('protocol_unreachable_sent', (YLeaf(YType.uint32, 'protocol-unreachable-sent'), ['int'])),
+                                ('port_unreachable_sent', (YLeaf(YType.uint32, 'port-unreachable-sent'), ['int'])),
+                                ('fragment_unreachable_sent', (YLeaf(YType.uint32, 'fragment-unreachable-sent'), ['int'])),
+                                ('admin_unreachable_received', (YLeaf(YType.uint32, 'admin-unreachable-received'), ['int'])),
+                                ('network_unreachable_received', (YLeaf(YType.uint32, 'network-unreachable-received'), ['int'])),
+                                ('host_unreachable_received', (YLeaf(YType.uint32, 'host-unreachable-received'), ['int'])),
+                                ('protocol_unreachable_received', (YLeaf(YType.uint32, 'protocol-unreachable-received'), ['int'])),
+                                ('port_unreachable_received', (YLeaf(YType.uint32, 'port-unreachable-received'), ['int'])),
+                                ('fragment_unreachable_received', (YLeaf(YType.uint32, 'fragment-unreachable-received'), ['int'])),
+                                ('hopcount_sent', (YLeaf(YType.uint32, 'hopcount-sent'), ['int'])),
+                                ('reassembly_sent', (YLeaf(YType.uint32, 'reassembly-sent'), ['int'])),
+                                ('hopcount_received', (YLeaf(YType.uint32, 'hopcount-received'), ['int'])),
+                                ('reassebly_received', (YLeaf(YType.uint32, 'reassebly-received'), ['int'])),
+                                ('param_error_received', (YLeaf(YType.uint32, 'param-error-received'), ['int'])),
+                                ('param_error_send', (YLeaf(YType.uint32, 'param-error-send'), ['int'])),
+                                ('echo_request_sent', (YLeaf(YType.uint32, 'echo-request-sent'), ['int'])),
+                                ('echo_request_received', (YLeaf(YType.uint32, 'echo-request-received'), ['int'])),
+                                ('echo_reply_sent', (YLeaf(YType.uint32, 'echo-reply-sent'), ['int'])),
+                                ('echo_reply_received', (YLeaf(YType.uint32, 'echo-reply-received'), ['int'])),
+                                ('mask_request_sent', (YLeaf(YType.uint32, 'mask-request-sent'), ['int'])),
+                                ('mask_request_received', (YLeaf(YType.uint32, 'mask-request-received'), ['int'])),
+                                ('mask_reply_sent', (YLeaf(YType.uint32, 'mask-reply-sent'), ['int'])),
+                                ('mask_reply_received', (YLeaf(YType.uint32, 'mask-reply-received'), ['int'])),
+                                ('source_quench_received', (YLeaf(YType.uint32, 'source-quench-received'), ['int'])),
+                                ('redirect_received', (YLeaf(YType.uint32, 'redirect-received'), ['int'])),
+                                ('redirect_send', (YLeaf(YType.uint32, 'redirect-send'), ['int'])),
+                                ('timestamp_received', (YLeaf(YType.uint32, 'timestamp-received'), ['int'])),
+                                ('timestamp_reply_received', (YLeaf(YType.uint32, 'timestamp-reply-received'), ['int'])),
+                                ('router_advert_received', (YLeaf(YType.uint32, 'router-advert-received'), ['int'])),
+                                ('router_solicit_received', (YLeaf(YType.uint32, 'router-solicit-received'), ['int'])),
                             ])
                             self.received = None
                             self.checksum_error = None
@@ -2604,9 +2748,10 @@ class Ipv4Network(Entity):
                             self.router_advert_received = None
                             self.router_solicit_received = None
                             self._segment_path = lambda: "icmp-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, ['received', 'checksum_error', 'unknown', 'output', 'admin_unreachable_sent', 'network_unreachable_sent', 'host_unreachable_sent', 'protocol_unreachable_sent', 'port_unreachable_sent', 'fragment_unreachable_sent', 'admin_unreachable_received', 'network_unreachable_received', 'host_unreachable_received', 'protocol_unreachable_received', 'port_unreachable_received', 'fragment_unreachable_received', 'hopcount_sent', 'reassembly_sent', 'hopcount_received', 'reassebly_received', 'param_error_received', 'param_error_send', 'echo_request_sent', 'echo_request_received', 'echo_reply_sent', 'echo_reply_received', 'mask_request_sent', 'mask_request_received', 'mask_reply_sent', 'mask_reply_received', 'source_quench_received', 'redirect_received', 'redirect_send', 'timestamp_received', 'timestamp_reply_received', 'router_advert_received', 'router_solicit_received'], name, value)
+                            self._perform_setattr(Ipv4Network.Nodes.Node.Statistics.Traffic.IcmpStats, [u'received', u'checksum_error', u'unknown', u'output', u'admin_unreachable_sent', u'network_unreachable_sent', u'host_unreachable_sent', u'protocol_unreachable_sent', u'port_unreachable_sent', u'fragment_unreachable_sent', u'admin_unreachable_received', u'network_unreachable_received', u'host_unreachable_received', u'protocol_unreachable_received', u'port_unreachable_received', u'fragment_unreachable_received', u'hopcount_sent', u'reassembly_sent', u'hopcount_received', u'reassebly_received', u'param_error_received', u'param_error_send', u'echo_request_sent', u'echo_request_received', u'echo_reply_sent', u'echo_reply_received', u'mask_request_sent', u'mask_request_received', u'mask_reply_sent', u'mask_reply_received', u'source_quench_received', u'redirect_received', u'redirect_send', u'timestamp_received', u'timestamp_reply_received', u'router_advert_received', u'router_solicit_received'], name, value)
 
 
     class Interfaces(Entity):
@@ -2639,6 +2784,7 @@ class Ipv4Network(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-oper:interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Network.Interfaces, [], name, value)
@@ -2653,7 +2799,7 @@ class Ipv4Network(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: vrfs
             
@@ -2677,7 +2823,7 @@ class Ipv4Network(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipv4Network.Interfaces.Interface.Vrfs))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -2686,6 +2832,7 @@ class Ipv4Network(Entity):
                 self._children_name_map["vrfs"] = "vrfs"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-io-oper:ipv4-network/Cisco-IOS-XR-ipv4-ma-oper:interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Network.Interfaces.Interface, ['interface_name'], name, value)
@@ -2720,6 +2867,7 @@ class Ipv4Network(Entity):
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs, [], name, value)
@@ -2763,7 +2911,7 @@ class Ipv4Network(Entity):
                         self.ylist_key_names = ['vrf_name']
                         self._child_classes = OrderedDict([("detail", ("detail", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail)), ("brief", ("brief", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief))])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                         ])
                         self.vrf_name = None
 
@@ -2775,6 +2923,7 @@ class Ipv4Network(Entity):
                         self.brief.parent = self
                         self._children_name_map["brief"] = "brief"
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -2910,6 +3059,11 @@ class Ipv4Network(Entity):
                         	Name of referenced interface (valid if unnumbered)
                         	**type**\: str
                         
+                        .. attribute:: next_unnumbered_interface_name
+                        
+                        	Name of interface which is also unnum to         same interface where this intf is unnumbered
+                        	**type**\: str
+                        
                         .. attribute:: proxy_arp_disabled
                         
                         	Is Proxy ARP disabled on the interface?
@@ -2924,6 +3078,61 @@ class Ipv4Network(Entity):
                         
                         	Is BGP Flow Tag Destination is enable
                         	**type**\: bool
+                        
+                        .. attribute:: config_flags
+                        
+                        	IDB configuration flags
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: oper_flags
+                        
+                        	IDB operational flags
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
+                        
+                        .. attribute:: arm_flags
+                        
+                        	IP ARM operation flags
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: state_recvd_frm_im
+                        
+                        	state as recieved                                from IM
+                        	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        .. attribute:: cflct_address
+                        
+                        	Conflicated ipv4 address
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: client_type
+                        
+                        	Client type for IDB
+                        	**type**\:  :py:class:`Ipv4MaOperConfig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperConfig>`
+                        
+                        .. attribute:: is_or_event
+                        
+                        	Is OR event for IDB
+                        	**type**\: bool
+                        
+                        .. attribute:: or_im_state
+                        
+                        	OR IM state type
+                        	**type**\:  :py:class:`Ipv4MaOperLineState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper.Ipv4MaOperLineState>`
+                        
+                        .. attribute:: idb_pointer
+                        
+                        	idb pointer value
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         .. attribute:: multicast_group
                         
@@ -2952,22 +3161,32 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("acl", ("acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl)), ("multi-acl", ("multi_acl", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl)), ("helper-address", ("helper_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress)), ("rpf", ("rpf", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa)), ("pub-utime", ("pub_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.PubUtime)), ("idb-utime", ("idb_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup)), ("secondary-address", ("secondary_address", Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress))])
                             self._leafs = OrderedDict([
-                                ('primary_address', YLeaf(YType.str, 'primary-address')),
-                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('route_tag', YLeaf(YType.uint32, 'route-tag')),
-                                ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                ('unreachable', YLeaf(YType.boolean, 'unreachable')),
-                                ('redirect', YLeaf(YType.boolean, 'redirect')),
-                                ('direct_broadcast', YLeaf(YType.boolean, 'direct-broadcast')),
-                                ('mask_reply', YLeaf(YType.boolean, 'mask-reply')),
-                                ('rg_id_exists', YLeaf(YType.boolean, 'rg-id-exists')),
-                                ('mlacp_active', YLeaf(YType.boolean, 'mlacp-active')),
-                                ('unnumbered_interface_name', YLeaf(YType.str, 'unnumbered-interface-name')),
-                                ('proxy_arp_disabled', YLeaf(YType.boolean, 'proxy-arp-disabled')),
-                                ('flow_tag_src', YLeaf(YType.boolean, 'flow-tag-src')),
-                                ('flow_tag_dst', YLeaf(YType.boolean, 'flow-tag-dst')),
+                                ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                                ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineState', '')])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
+                                ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                ('unreachable', (YLeaf(YType.boolean, 'unreachable'), ['bool'])),
+                                ('redirect', (YLeaf(YType.boolean, 'redirect'), ['bool'])),
+                                ('direct_broadcast', (YLeaf(YType.boolean, 'direct-broadcast'), ['bool'])),
+                                ('mask_reply', (YLeaf(YType.boolean, 'mask-reply'), ['bool'])),
+                                ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
+                                ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
+                                ('unnumbered_interface_name', (YLeaf(YType.str, 'unnumbered-interface-name'), ['str'])),
+                                ('next_unnumbered_interface_name', (YLeaf(YType.str, 'next-unnumbered-interface-name'), ['str'])),
+                                ('proxy_arp_disabled', (YLeaf(YType.boolean, 'proxy-arp-disabled'), ['bool'])),
+                                ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
+                                ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
+                                ('config_flags', (YLeaf(YType.uint16, 'config-flags'), ['int'])),
+                                ('oper_flags', (YLeaf(YType.uint64, 'oper-flags'), ['int'])),
+                                ('arm_flags', (YLeaf(YType.uint16, 'arm-flags'), ['int'])),
+                                ('state_recvd_frm_im', (YLeaf(YType.enumeration, 'state-recvd-frm-im'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineState', '')])),
+                                ('cflct_address', (YLeaf(YType.str, 'cflct-address'), ['str'])),
+                                ('client_type', (YLeaf(YType.enumeration, 'client-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperConfig', '')])),
+                                ('is_or_event', (YLeaf(YType.boolean, 'is-or-event'), ['bool'])),
+                                ('or_im_state', (YLeaf(YType.enumeration, 'or-im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineState', '')])),
+                                ('idb_pointer', (YLeaf(YType.uint64, 'idb-pointer'), ['int'])),
                             ])
                             self.primary_address = None
                             self.vrf_id = None
@@ -2982,9 +3201,19 @@ class Ipv4Network(Entity):
                             self.rg_id_exists = None
                             self.mlacp_active = None
                             self.unnumbered_interface_name = None
+                            self.next_unnumbered_interface_name = None
                             self.proxy_arp_disabled = None
                             self.flow_tag_src = None
                             self.flow_tag_dst = None
+                            self.config_flags = None
+                            self.oper_flags = None
+                            self.arm_flags = None
+                            self.state_recvd_frm_im = None
+                            self.cflct_address = None
+                            self.client_type = None
+                            self.is_or_event = None
+                            self.or_im_state = None
+                            self.idb_pointer = None
 
                             self.acl = Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl()
                             self.acl.parent = self
@@ -3029,9 +3258,10 @@ class Ipv4Network(Entity):
                             self.multicast_group = YList(self)
                             self.secondary_address = YList(self)
                             self._segment_path = lambda: "detail"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, ['primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                            self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail, ['primary_address', 'vrf_id', 'line_state', 'prefix_length', 'route_tag', 'mtu', 'unreachable', 'redirect', 'direct_broadcast', 'mask_reply', 'rg_id_exists', 'mlacp_active', 'unnumbered_interface_name', 'next_unnumbered_interface_name', 'proxy_arp_disabled', 'flow_tag_src', 'flow_tag_dst', 'config_flags', 'oper_flags', 'arm_flags', 'state_recvd_frm_im', 'cflct_address', 'client_type', 'is_or_event', 'or_im_state', 'idb_pointer'], name, value)
 
 
                         class Acl(Entity):
@@ -3075,16 +3305,17 @@ class Ipv4Network(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('inbound', YLeaf(YType.str, 'inbound')),
-                                    ('outbound', YLeaf(YType.str, 'outbound')),
-                                    ('common_in_bound', YLeaf(YType.str, 'common-in-bound')),
-                                    ('common_out_bound', YLeaf(YType.str, 'common-out-bound')),
+                                    ('inbound', (YLeaf(YType.str, 'inbound'), ['str'])),
+                                    ('outbound', (YLeaf(YType.str, 'outbound'), ['str'])),
+                                    ('common_in_bound', (YLeaf(YType.str, 'common-in-bound'), ['str'])),
+                                    ('common_out_bound', (YLeaf(YType.str, 'common-out-bound'), ['str'])),
                                 ])
                                 self.inbound = None
                                 self.outbound = None
                                 self.common_in_bound = None
                                 self.common_out_bound = None
                                 self._segment_path = lambda: "acl"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Acl, ['inbound', 'outbound', 'common_in_bound', 'common_out_bound'], name, value)
@@ -3131,6 +3362,7 @@ class Ipv4Network(Entity):
                                 self.outbound = YList(self)
                                 self.common = YList(self)
                                 self._segment_path = lambda: "multi-acl"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl, [], name, value)
@@ -3162,10 +3394,11 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('entry', YLeaf(YType.str, 'entry')),
+                                        ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                     ])
                                     self.entry = None
                                     self._segment_path = lambda: "inbound"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Inbound, ['entry'], name, value)
@@ -3197,10 +3430,11 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('entry', YLeaf(YType.str, 'entry')),
+                                        ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                     ])
                                     self.entry = None
                                     self._segment_path = lambda: "outbound"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Outbound, ['entry'], name, value)
@@ -3232,10 +3466,11 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('entry', YLeaf(YType.str, 'entry')),
+                                        ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                     ])
                                     self.entry = None
                                     self._segment_path = lambda: "common"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MultiAcl.Common, ['entry'], name, value)
@@ -3270,6 +3505,7 @@ class Ipv4Network(Entity):
 
                                 self.address_array = YList(self)
                                 self._segment_path = lambda: "helper-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress, [], name, value)
@@ -3303,10 +3539,11 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('entry', YLeaf(YType.str, 'entry')),
+                                        ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                     ])
                                     self.entry = None
                                     self._segment_path = lambda: "address-array"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.HelperAddress.AddressArray, ['entry'], name, value)
@@ -3353,16 +3590,17 @@ class Ipv4Network(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
-                                    ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
-                                    ('allow_self_ping', YLeaf(YType.boolean, 'allow-self-ping')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                    ('allow_default_route', (YLeaf(YType.boolean, 'allow-default-route'), ['bool'])),
+                                    ('allow_self_ping', (YLeaf(YType.boolean, 'allow-self-ping'), ['bool'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'RpfMode', '')])),
                                 ])
                                 self.enable = None
                                 self.allow_default_route = None
                                 self.allow_self_ping = None
                                 self.mode = None
                                 self._segment_path = lambda: "rpf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
@@ -3408,6 +3646,7 @@ class Ipv4Network(Entity):
                                 self.output.parent = self
                                 self._children_name_map["output"] = "output"
                                 self._segment_path = lambda: "bgp-pa"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa, [], name, value)
@@ -3449,14 +3688,15 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
-                                        ('source', YLeaf(YType.boolean, 'source')),
-                                        ('destination', YLeaf(YType.boolean, 'destination')),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                        ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                        ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                     ])
                                     self.enable = None
                                     self.source = None
                                     self.destination = None
                                     self._segment_path = lambda: "input"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
@@ -3498,14 +3738,15 @@ class Ipv4Network(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
-                                        ('source', YLeaf(YType.boolean, 'source')),
-                                        ('destination', YLeaf(YType.boolean, 'destination')),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                        ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                        ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                     ])
                                     self.enable = None
                                     self.source = None
                                     self.destination = None
                                     self._segment_path = lambda: "output"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
@@ -3533,6 +3774,7 @@ class Ipv4Network(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "pub-utime"
+                                self._is_frozen = True
 
 
                         class IdbUtime(Entity):
@@ -3557,6 +3799,7 @@ class Ipv4Network(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "idb-utime"
+                                self._is_frozen = True
 
 
                         class CapsUtime(Entity):
@@ -3581,6 +3824,7 @@ class Ipv4Network(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "caps-utime"
+                                self._is_frozen = True
 
 
                         class FwdEnUtime(Entity):
@@ -3605,6 +3849,7 @@ class Ipv4Network(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "fwd-en-utime"
+                                self._is_frozen = True
 
 
                         class FwdDisUtime(Entity):
@@ -3629,6 +3874,7 @@ class Ipv4Network(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "fwd-dis-utime"
+                                self._is_frozen = True
 
 
                         class MulticastGroup(Entity):
@@ -3659,10 +3905,11 @@ class Ipv4Network(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str'])),
                                 ])
                                 self.group_address = None
                                 self._segment_path = lambda: "multicast-group"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.MulticastGroup, ['group_address'], name, value)
@@ -3710,14 +3957,15 @@ class Ipv4Network(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                    ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                    ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                 ])
                                 self.address = None
                                 self.prefix_length = None
                                 self.route_tag = None
                                 self._segment_path = lambda: "secondary-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Detail.SecondaryAddress, ['address', 'prefix_length', 'route_tag'], name, value)
@@ -3769,16 +4017,17 @@ class Ipv4Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('primary_address', YLeaf(YType.str, 'primary-address')),
-                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('line_state', YLeaf(YType.enumeration, 'line-state')),
+                                ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                                ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper', 'Ipv4MaOperLineState', '')])),
                             ])
                             self.primary_address = None
                             self.vrf_id = None
                             self.vrf_name = None
                             self.line_state = None
                             self._segment_path = lambda: "brief"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Network.Interfaces.Interface.Vrfs.Vrf.Brief, ['primary_address', 'vrf_id', 'vrf_name', 'line_state'], name, value)

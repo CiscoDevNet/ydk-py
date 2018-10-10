@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class PlatformCompType(Enum):
     """
     PlatformCompType (Enum Class)
@@ -131,6 +132,7 @@ class Components(Entity):
 
         self.component = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-platform-oper:components"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Components, [], name, value)
@@ -177,7 +179,7 @@ class Components(Entity):
             self.ylist_key_names = ['cname']
             self._child_classes = OrderedDict([("state", ("state", Components.Component.State)), ("platform-properties", ("platform_properties", Components.Component.PlatformProperties)), ("platform-subcomponents", ("platform_subcomponents", Components.Component.PlatformSubcomponents))])
             self._leafs = OrderedDict([
-                ('cname', YLeaf(YType.str, 'cname')),
+                ('cname', (YLeaf(YType.str, 'cname'), ['str'])),
             ])
             self.cname = None
 
@@ -194,6 +196,7 @@ class Components(Entity):
             self._children_name_map["platform_subcomponents"] = "platform-subcomponents"
             self._segment_path = lambda: "component" + "[cname='" + str(self.cname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-oper:components/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Components.Component, ['cname'], name, value)
@@ -260,13 +263,13 @@ class Components(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("temp", ("temp", Components.Component.State.Temp))])
                 self._leafs = OrderedDict([
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('mfg_name', YLeaf(YType.str, 'mfg-name')),
-                    ('version', YLeaf(YType.str, 'version')),
-                    ('serial_no', YLeaf(YType.str, 'serial-no')),
-                    ('part_no', YLeaf(YType.str, 'part-no')),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_oper', 'PlatformCompType', '')])),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('mfg_name', (YLeaf(YType.str, 'mfg-name'), ['str'])),
+                    ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                    ('serial_no', (YLeaf(YType.str, 'serial-no'), ['str'])),
+                    ('part_no', (YLeaf(YType.str, 'part-no'), ['str'])),
                 ])
                 self.type = None
                 self.id = None
@@ -280,6 +283,7 @@ class Components(Entity):
                 self.temp.parent = self
                 self._children_name_map["temp"] = "temp"
                 self._segment_path = lambda: "state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.State, ['type', 'id', 'description', 'mfg_name', 'version', 'serial_no', 'part_no'], name, value)
@@ -337,16 +341,17 @@ class Components(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('temp_instant', YLeaf(YType.str, 'temp-instant')),
-                        ('temp_avg', YLeaf(YType.str, 'temp-avg')),
-                        ('temp_max', YLeaf(YType.str, 'temp-max')),
-                        ('temp_min', YLeaf(YType.str, 'temp-min')),
+                        ('temp_instant', (YLeaf(YType.str, 'temp-instant'), ['Decimal64'])),
+                        ('temp_avg', (YLeaf(YType.str, 'temp-avg'), ['Decimal64'])),
+                        ('temp_max', (YLeaf(YType.str, 'temp-max'), ['Decimal64'])),
+                        ('temp_min', (YLeaf(YType.str, 'temp-min'), ['Decimal64'])),
                     ])
                     self.temp_instant = None
                     self.temp_avg = None
                     self.temp_max = None
                     self.temp_min = None
                     self._segment_path = lambda: "temp"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.State.Temp, ['temp_instant', 'temp_avg', 'temp_max', 'temp_min'], name, value)
@@ -381,6 +386,7 @@ class Components(Entity):
 
                 self.platform_property = YList(self)
                 self._segment_path = lambda: "platform-properties"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.PlatformProperties, [], name, value)
@@ -422,8 +428,8 @@ class Components(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("value", ("value", Components.Component.PlatformProperties.PlatformProperty.Value))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('configurable', YLeaf(YType.boolean, 'configurable')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('configurable', (YLeaf(YType.boolean, 'configurable'), ['bool'])),
                     ])
                     self.name = None
                     self.configurable = None
@@ -432,6 +438,7 @@ class Components(Entity):
                     self.value.parent = self
                     self._children_name_map["value"] = "value"
                     self._segment_path = lambda: "platform-property" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty, ['name', 'configurable'], name, value)
@@ -489,11 +496,11 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('string', YLeaf(YType.str, 'string')),
-                            ('boolean', YLeaf(YType.boolean, 'boolean')),
-                            ('intsixfour', YLeaf(YType.int64, 'intsixfour')),
-                            ('uintsixfour', YLeaf(YType.uint64, 'uintsixfour')),
-                            ('decimal', YLeaf(YType.str, 'decimal')),
+                            ('string', (YLeaf(YType.str, 'string'), ['str'])),
+                            ('boolean', (YLeaf(YType.boolean, 'boolean'), ['bool'])),
+                            ('intsixfour', (YLeaf(YType.int64, 'intsixfour'), ['int'])),
+                            ('uintsixfour', (YLeaf(YType.uint64, 'uintsixfour'), ['int'])),
+                            ('decimal', (YLeaf(YType.str, 'decimal'), ['Decimal64'])),
                         ])
                         self.string = None
                         self.boolean = None
@@ -501,6 +508,7 @@ class Components(Entity):
                         self.uintsixfour = None
                         self.decimal = None
                         self._segment_path = lambda: "value"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Components.Component.PlatformProperties.PlatformProperty.Value, ['string', 'boolean', 'intsixfour', 'uintsixfour', 'decimal'], name, value)
@@ -535,6 +543,7 @@ class Components(Entity):
 
                 self.platform_subcomponent = YList(self)
                 self._segment_path = lambda: "platform-subcomponents"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.PlatformSubcomponents, [], name, value)
@@ -566,10 +575,11 @@ class Components(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
                     self._segment_path = lambda: "platform-subcomponent" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.PlatformSubcomponents.PlatformSubcomponent, ['name'], name, value)

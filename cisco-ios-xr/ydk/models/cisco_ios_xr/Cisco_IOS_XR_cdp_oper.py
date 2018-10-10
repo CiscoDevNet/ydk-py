@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   cdp\: CDP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CdpDuplex(Enum):
@@ -100,6 +101,7 @@ class Cdp(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Cdp, [], name, value)
@@ -135,6 +137,7 @@ class Cdp(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Cdp.Nodes, [], name, value)
@@ -183,7 +186,7 @@ class Cdp(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("neighbors", ("neighbors", Cdp.Nodes.Node.Neighbors)), ("statistics", ("statistics", Cdp.Nodes.Node.Statistics)), ("interfaces", ("interfaces", Cdp.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -200,6 +203,7 @@ class Cdp(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-cdp-oper:cdp/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Cdp.Nodes.Node, ['node_name'], name, value)
@@ -254,6 +258,7 @@ class Cdp(Entity):
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
                     self._segment_path = lambda: "neighbors"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cdp.Nodes.Node.Neighbors, [], name, value)
@@ -288,6 +293,7 @@ class Cdp(Entity):
 
                         self.detail = YList(self)
                         self._segment_path = lambda: "details"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details, [], name, value)
@@ -303,7 +309,7 @@ class Cdp(Entity):
                         	The interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: device_id
                         
@@ -332,14 +338,15 @@ class Cdp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("cdp-neighbor", ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('device_id', YLeaf(YType.str, 'device-id')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
                             ])
                             self.interface_name = None
                             self.device_id = None
 
                             self.cdp_neighbor = YList(self)
                             self._segment_path = lambda: "detail"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail, ['interface_name', 'device_id'], name, value)
@@ -359,7 +366,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -412,13 +419,13 @@ class Cdp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('capabilities', YLeaf(YType.str, 'capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('capabilities', (YLeaf(YType.str, 'capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.device_id = None
@@ -432,9 +439,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._segment_path = lambda: "cdp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail_(Entity):
@@ -495,11 +503,11 @@ class Cdp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses)), ("protocol-hello-list", ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList))])
                                     self._leafs = OrderedDict([
-                                        ('version', YLeaf(YType.str, 'version')),
-                                        ('vtp_domain', YLeaf(YType.str, 'vtp-domain')),
-                                        ('native_vlan', YLeaf(YType.uint32, 'native-vlan')),
-                                        ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
+                                        ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                                        ('vtp_domain', (YLeaf(YType.str, 'vtp-domain'), ['str'])),
+                                        ('native_vlan', (YLeaf(YType.uint32, 'native-vlan'), ['int'])),
+                                        ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpDuplex', '')])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
                                     ])
                                     self.version = None
                                     self.vtp_domain = None
@@ -515,9 +523,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -549,6 +558,7 @@ class Cdp(Entity):
 
                                         self.cdp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses, [], name, value)
@@ -585,6 +595,7 @@ class Cdp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "cdp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry, [], name, value)
@@ -630,17 +641,18 @@ class Cdp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -672,6 +684,7 @@ class Cdp(Entity):
 
                                         self.cdp_prot_hello_entry = YList(self)
                                         self._segment_path = lambda: "protocol-hello-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList, [], name, value)
@@ -705,13 +718,14 @@ class Cdp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hello_message', YLeaf(YType.str, 'hello-message')),
+                                                ('hello_message', (YLeaf(YType.str, 'hello-message'), ['str'])),
                                             ])
                                             self.hello_message = None
                                             self._segment_path = lambda: "cdp-prot-hello-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Details.Detail.CdpNeighbor.Detail_.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
                 class Devices(Entity):
@@ -743,6 +757,7 @@ class Cdp(Entity):
 
                         self.device = YList(self)
                         self._segment_path = lambda: "devices"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices, [], name, value)
@@ -780,12 +795,13 @@ class Cdp(Entity):
                             self.ylist_key_names = ['device_id']
                             self._child_classes = OrderedDict([("cdp-neighbor", ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('device_id', YLeaf(YType.str, 'device-id')),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
                             ])
                             self.device_id = None
 
                             self.cdp_neighbor = YList(self)
                             self._segment_path = lambda: "device" + "[device-id='" + str(self.device_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device, ['device_id'], name, value)
@@ -805,7 +821,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -858,13 +874,13 @@ class Cdp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('capabilities', YLeaf(YType.str, 'capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('capabilities', (YLeaf(YType.str, 'capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.device_id = None
@@ -878,9 +894,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._segment_path = lambda: "cdp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -941,11 +958,11 @@ class Cdp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses)), ("protocol-hello-list", ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList))])
                                     self._leafs = OrderedDict([
-                                        ('version', YLeaf(YType.str, 'version')),
-                                        ('vtp_domain', YLeaf(YType.str, 'vtp-domain')),
-                                        ('native_vlan', YLeaf(YType.uint32, 'native-vlan')),
-                                        ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
+                                        ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                                        ('vtp_domain', (YLeaf(YType.str, 'vtp-domain'), ['str'])),
+                                        ('native_vlan', (YLeaf(YType.uint32, 'native-vlan'), ['int'])),
+                                        ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpDuplex', '')])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
                                     ])
                                     self.version = None
                                     self.vtp_domain = None
@@ -961,9 +978,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -995,6 +1013,7 @@ class Cdp(Entity):
 
                                         self.cdp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
@@ -1031,6 +1050,7 @@ class Cdp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "cdp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, [], name, value)
@@ -1076,17 +1096,18 @@ class Cdp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -1118,6 +1139,7 @@ class Cdp(Entity):
 
                                         self.cdp_prot_hello_entry = YList(self)
                                         self._segment_path = lambda: "protocol-hello-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
@@ -1151,13 +1173,14 @@ class Cdp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hello_message', YLeaf(YType.str, 'hello-message')),
+                                                ('hello_message', (YLeaf(YType.str, 'hello-message'), ['str'])),
                                             ])
                                             self.hello_message = None
                                             self._segment_path = lambda: "cdp-prot-hello-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Devices.Device.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
                 class Summaries(Entity):
@@ -1189,6 +1212,7 @@ class Cdp(Entity):
 
                         self.summary = YList(self)
                         self._segment_path = lambda: "summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries, [], name, value)
@@ -1203,7 +1227,7 @@ class Cdp(Entity):
                         	The interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: device_id
                         
@@ -1232,14 +1256,15 @@ class Cdp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("cdp-neighbor", ("cdp_neighbor", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('device_id', YLeaf(YType.str, 'device-id')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
                             ])
                             self.interface_name = None
                             self.device_id = None
 
                             self.cdp_neighbor = YList(self)
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary, ['interface_name', 'device_id'], name, value)
@@ -1259,7 +1284,7 @@ class Cdp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -1312,13 +1337,13 @@ class Cdp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('port_id', YLeaf(YType.str, 'port-id')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('capabilities', YLeaf(YType.str, 'capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('capabilities', (YLeaf(YType.str, 'capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.device_id = None
@@ -1332,9 +1357,10 @@ class Cdp(Entity):
                                 self.detail.parent = self
                                 self._children_name_map["detail"] = "detail"
                                 self._segment_path = lambda: "cdp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, [u'receiving_interface_name', u'device_id', u'port_id', u'header_version', u'hold_time', u'capabilities', u'platform'], name, value)
+                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor, ['receiving_interface_name', 'device_id', 'port_id', 'header_version', 'hold_time', 'capabilities', 'platform'], name, value)
 
 
                             class Detail(Entity):
@@ -1395,11 +1421,11 @@ class Cdp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses)), ("protocol-hello-list", ("protocol_hello_list", Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList))])
                                     self._leafs = OrderedDict([
-                                        ('version', YLeaf(YType.str, 'version')),
-                                        ('vtp_domain', YLeaf(YType.str, 'vtp-domain')),
-                                        ('native_vlan', YLeaf(YType.uint32, 'native-vlan')),
-                                        ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
+                                        ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                                        ('vtp_domain', (YLeaf(YType.str, 'vtp-domain'), ['str'])),
+                                        ('native_vlan', (YLeaf(YType.uint32, 'native-vlan'), ['int'])),
+                                        ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpDuplex', '')])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
                                     ])
                                     self.version = None
                                     self.vtp_domain = None
@@ -1415,9 +1441,10 @@ class Cdp(Entity):
                                     self.protocol_hello_list.parent = self
                                     self._children_name_map["protocol_hello_list"] = "protocol-hello-list"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, [u'version', u'vtp_domain', u'native_vlan', u'duplex', u'system_name'], name, value)
+                                    self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail, ['version', 'vtp_domain', 'native_vlan', 'duplex', 'system_name'], name, value)
 
 
                                 class NetworkAddresses(Entity):
@@ -1449,6 +1476,7 @@ class Cdp(Entity):
 
                                         self.cdp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses, [], name, value)
@@ -1485,6 +1513,7 @@ class Cdp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "cdp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry, [], name, value)
@@ -1530,17 +1559,18 @@ class Cdp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_cdp_oper', 'CdpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, [u'address_type', u'ipv4_address', u'ipv6_address'], name, value)
+                                                self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.NetworkAddresses.CdpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                                 class ProtocolHelloList(Entity):
@@ -1572,6 +1602,7 @@ class Cdp(Entity):
 
                                         self.cdp_prot_hello_entry = YList(self)
                                         self._segment_path = lambda: "protocol-hello-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList, [], name, value)
@@ -1605,13 +1636,14 @@ class Cdp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hello_message', YLeaf(YType.str, 'hello-message')),
+                                                ('hello_message', (YLeaf(YType.str, 'hello-message'), ['str'])),
                                             ])
                                             self.hello_message = None
                                             self._segment_path = lambda: "cdp-prot-hello-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, [u'hello_message'], name, value)
+                                            self._perform_setattr(Cdp.Nodes.Node.Neighbors.Summaries.Summary.CdpNeighbor.Detail.ProtocolHelloList.CdpProtHelloEntry, ['hello_message'], name, value)
 
 
             class Statistics(Entity):
@@ -1733,20 +1765,20 @@ class Cdp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('received_packets', YLeaf(YType.uint32, 'received-packets')),
-                        ('received_packets_v1', YLeaf(YType.uint32, 'received-packets-v1')),
-                        ('received_packets_v2', YLeaf(YType.uint32, 'received-packets-v2')),
-                        ('transmitted_packets', YLeaf(YType.uint32, 'transmitted-packets')),
-                        ('transmitted_packets_v1', YLeaf(YType.uint32, 'transmitted-packets-v1')),
-                        ('transmitted_packets_v2', YLeaf(YType.uint32, 'transmitted-packets-v2')),
-                        ('header_errors', YLeaf(YType.uint32, 'header-errors')),
-                        ('checksum_errors', YLeaf(YType.uint32, 'checksum-errors')),
-                        ('encapsulation_errors', YLeaf(YType.uint32, 'encapsulation-errors')),
-                        ('bad_packet_errors', YLeaf(YType.uint32, 'bad-packet-errors')),
-                        ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
-                        ('truncated_packet_errors', YLeaf(YType.uint32, 'truncated-packet-errors')),
-                        ('header_version_errors', YLeaf(YType.uint32, 'header-version-errors')),
-                        ('open_file_errors', YLeaf(YType.uint32, 'open-file-errors')),
+                        ('received_packets', (YLeaf(YType.uint32, 'received-packets'), ['int'])),
+                        ('received_packets_v1', (YLeaf(YType.uint32, 'received-packets-v1'), ['int'])),
+                        ('received_packets_v2', (YLeaf(YType.uint32, 'received-packets-v2'), ['int'])),
+                        ('transmitted_packets', (YLeaf(YType.uint32, 'transmitted-packets'), ['int'])),
+                        ('transmitted_packets_v1', (YLeaf(YType.uint32, 'transmitted-packets-v1'), ['int'])),
+                        ('transmitted_packets_v2', (YLeaf(YType.uint32, 'transmitted-packets-v2'), ['int'])),
+                        ('header_errors', (YLeaf(YType.uint32, 'header-errors'), ['int'])),
+                        ('checksum_errors', (YLeaf(YType.uint32, 'checksum-errors'), ['int'])),
+                        ('encapsulation_errors', (YLeaf(YType.uint32, 'encapsulation-errors'), ['int'])),
+                        ('bad_packet_errors', (YLeaf(YType.uint32, 'bad-packet-errors'), ['int'])),
+                        ('out_of_memory_errors', (YLeaf(YType.uint32, 'out-of-memory-errors'), ['int'])),
+                        ('truncated_packet_errors', (YLeaf(YType.uint32, 'truncated-packet-errors'), ['int'])),
+                        ('header_version_errors', (YLeaf(YType.uint32, 'header-version-errors'), ['int'])),
+                        ('open_file_errors', (YLeaf(YType.uint32, 'open-file-errors'), ['int'])),
                     ])
                     self.received_packets = None
                     self.received_packets_v1 = None
@@ -1763,9 +1795,10 @@ class Cdp(Entity):
                     self.header_version_errors = None
                     self.open_file_errors = None
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cdp.Nodes.Node.Statistics, [u'received_packets', u'received_packets_v1', u'received_packets_v2', u'transmitted_packets', u'transmitted_packets_v1', u'transmitted_packets_v2', u'header_errors', u'checksum_errors', u'encapsulation_errors', u'bad_packet_errors', u'out_of_memory_errors', u'truncated_packet_errors', u'header_version_errors', u'open_file_errors'], name, value)
+                    self._perform_setattr(Cdp.Nodes.Node.Statistics, ['received_packets', 'received_packets_v1', 'received_packets_v2', 'transmitted_packets', 'transmitted_packets_v1', 'transmitted_packets_v2', 'header_errors', 'checksum_errors', 'encapsulation_errors', 'bad_packet_errors', 'out_of_memory_errors', 'truncated_packet_errors', 'header_version_errors', 'open_file_errors'], name, value)
 
 
             class Interfaces(Entity):
@@ -1798,6 +1831,7 @@ class Cdp(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cdp.Nodes.Node.Interfaces, [], name, value)
@@ -1813,14 +1847,14 @@ class Cdp(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface_handle
                     
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: basecaps_state
                     
@@ -1858,11 +1892,11 @@ class Cdp(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                            ('basecaps_state', YLeaf(YType.uint32, 'basecaps-state')),
-                            ('cdp_protocol_state', YLeaf(YType.uint32, 'cdp-protocol-state')),
-                            ('interface_encaps', YLeaf(YType.str, 'interface-encaps')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                            ('basecaps_state', (YLeaf(YType.uint32, 'basecaps-state'), ['int'])),
+                            ('cdp_protocol_state', (YLeaf(YType.uint32, 'cdp-protocol-state'), ['int'])),
+                            ('interface_encaps', (YLeaf(YType.str, 'interface-encaps'), ['str'])),
                         ])
                         self.interface_name = None
                         self.interface_handle = None
@@ -1870,9 +1904,10 @@ class Cdp(Entity):
                         self.cdp_protocol_state = None
                         self.interface_encaps = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_handle', u'basecaps_state', u'cdp_protocol_state', u'interface_encaps'], name, value)
+                        self._perform_setattr(Cdp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_handle', 'basecaps_state', 'cdp_protocol_state', 'interface_encaps'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cdp()

@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_cm 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The System Admin Manager (CM)
 
 Copyright(c) 2010\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +15,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AreaType(Enum):
@@ -86,6 +81,7 @@ class NodeInventory(Entity):
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NodeInventory, [], name, value)
@@ -123,6 +119,7 @@ class NodeInventory(Entity):
             self.node_locations = YList(self)
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NodeInventory.Summary, [], name, value)
@@ -137,7 +134,7 @@ class NodeInventory(Entity):
             	
             	**type**\: str
             
-            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
             .. attribute:: nodei
             
@@ -161,13 +158,14 @@ class NodeInventory(Entity):
                 self.ylist_key_names = ['node_location']
                 self._child_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Summary.NodeLocations.Nodei))])
                 self._leafs = OrderedDict([
-                    ('node_location', YLeaf(YType.str, 'node_location')),
+                    ('node_location', (YLeaf(YType.str, 'node_location'), ['str'])),
                 ])
                 self.node_location = None
 
                 self.nodei = YList(self)
                 self._segment_path = lambda: "node_locations" + "[node_location='" + str(self.node_location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory/summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NodeInventory.Summary.NodeLocations, ['node_location'], name, value)
@@ -231,11 +229,11 @@ class NodeInventory(Entity):
                     self.ylist_key_names = ['ip_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip_address', YLeaf(YType.str, 'ip_address')),
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('mac_address', YLeaf(YType.str, 'mac_address')),
-                        ('card_serial', YLeaf(YType.str, 'card_serial')),
-                        ('nti', YLeaf(YType.uint32, 'nti')),
+                        ('ip_address', (YLeaf(YType.str, 'ip_address'), ['str','str'])),
+                        ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac_address'), ['str'])),
+                        ('card_serial', (YLeaf(YType.str, 'card_serial'), ['str'])),
+                        ('nti', (YLeaf(YType.uint32, 'nti'), ['int'])),
                     ])
                     self.ip_address = None
                     self.type = None
@@ -243,6 +241,7 @@ class NodeInventory(Entity):
                     self.card_serial = None
                     self.nti = None
                     self._segment_path = lambda: "nodei" + "[ip_address='" + str(self.ip_address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodeInventory.Summary.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti'], name, value)
@@ -280,6 +279,7 @@ class NodeInventory(Entity):
             self.node_locations = YList(self)
             self._segment_path = lambda: "detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NodeInventory.Detail, [], name, value)
@@ -294,7 +294,7 @@ class NodeInventory(Entity):
             	
             	**type**\: str
             
-            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+            	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
             
             .. attribute:: nodei
             
@@ -318,13 +318,14 @@ class NodeInventory(Entity):
                 self.ylist_key_names = ['node_location']
                 self._child_classes = OrderedDict([("nodei", ("nodei", NodeInventory.Detail.NodeLocations.Nodei))])
                 self._leafs = OrderedDict([
-                    ('node_location', YLeaf(YType.str, 'node_location')),
+                    ('node_location', (YLeaf(YType.str, 'node_location'), ['str'])),
                 ])
                 self.node_location = None
 
                 self.nodei = YList(self)
                 self._segment_path = lambda: "node_locations" + "[node_location='" + str(self.node_location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:node-inventory/detail/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NodeInventory.Detail.NodeLocations, ['node_location'], name, value)
@@ -403,14 +404,14 @@ class NodeInventory(Entity):
                     self.ylist_key_names = ['ip_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip_address', YLeaf(YType.str, 'ip_address')),
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('mac_address', YLeaf(YType.str, 'mac_address')),
-                        ('card_serial', YLeaf(YType.str, 'card_serial')),
-                        ('nti', YLeaf(YType.uint32, 'nti')),
-                        ('restart', YLeaf(YType.boolean, 'restart')),
-                        ('data', YLeaf(YType.str, 'data')),
-                        ('sdr', YLeaf(YType.str, 'sdr')),
+                        ('ip_address', (YLeaf(YType.str, 'ip_address'), ['str','str'])),
+                        ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac_address'), ['str'])),
+                        ('card_serial', (YLeaf(YType.str, 'card_serial'), ['str'])),
+                        ('nti', (YLeaf(YType.uint32, 'nti'), ['int'])),
+                        ('restart', (YLeaf(YType.boolean, 'restart'), ['bool'])),
+                        ('data', (YLeaf(YType.str, 'data'), ['str'])),
+                        ('sdr', (YLeaf(YType.str, 'sdr'), ['str'])),
                     ])
                     self.ip_address = None
                     self.type = None
@@ -421,6 +422,7 @@ class NodeInventory(Entity):
                     self.data = None
                     self.sdr = None
                     self._segment_path = lambda: "nodei" + "[ip_address='" + str(self.ip_address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NodeInventory.Detail.NodeLocations.Nodei, ['ip_address', 'type', 'mac_address', 'card_serial', 'nti', 'restart', 'data', 'sdr'], name, value)
@@ -461,6 +463,7 @@ class CardInventory(Entity):
 
         self.card_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:card-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CardInventory, [], name, value)
@@ -475,7 +478,7 @@ class CardInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: cardi
         
@@ -499,13 +502,14 @@ class CardInventory(Entity):
             self.ylist_key_names = ['card_location']
             self._child_classes = OrderedDict([("cardi", ("cardi", CardInventory.CardLocations.Cardi))])
             self._leafs = OrderedDict([
-                ('card_location', YLeaf(YType.str, 'card_location')),
+                ('card_location', (YLeaf(YType.str, 'card_location'), ['str'])),
             ])
             self.card_location = None
 
             self.cardi = YList(self)
             self._segment_path = lambda: "card_locations" + "[card_location='" + str(self.card_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:card-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CardInventory.CardLocations, ['card_location'], name, value)
@@ -571,13 +575,13 @@ class CardInventory(Entity):
                 self.ylist_key_names = ['card_serial']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('card_serial', YLeaf(YType.str, 'card_serial')),
-                    ('node_id', YLeaf(YType.str, 'node_id')),
-                    ('card_type', YLeaf(YType.str, 'card_type')),
-                    ('hw_state', YLeaf(YType.str, 'hw_state')),
-                    ('sw_state', YLeaf(YType.str, 'sw_state')),
-                    ('slot', YLeaf(YType.uint32, 'slot')),
-                    ('cti', YLeaf(YType.uint32, 'cti')),
+                    ('card_serial', (YLeaf(YType.str, 'card_serial'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node_id'), ['str'])),
+                    ('card_type', (YLeaf(YType.str, 'card_type'), ['str'])),
+                    ('hw_state', (YLeaf(YType.str, 'hw_state'), ['str'])),
+                    ('sw_state', (YLeaf(YType.str, 'sw_state'), ['str'])),
+                    ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
+                    ('cti', (YLeaf(YType.uint32, 'cti'), ['int'])),
                 ])
                 self.card_serial = None
                 self.node_id = None
@@ -587,6 +591,7 @@ class CardInventory(Entity):
                 self.slot = None
                 self.cti = None
                 self._segment_path = lambda: "cardi" + "[card_serial='" + str(self.card_serial) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CardInventory.CardLocations.Cardi, ['card_serial', 'node_id', 'card_type', 'hw_state', 'sw_state', 'slot', 'cti'], name, value)
@@ -625,6 +630,7 @@ class RackInventory(Entity):
 
         self.rack_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:rack-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RackInventory, [], name, value)
@@ -639,7 +645,7 @@ class RackInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: racki
         
@@ -663,13 +669,14 @@ class RackInventory(Entity):
             self.ylist_key_names = ['rack_location']
             self._child_classes = OrderedDict([("racki", ("racki", RackInventory.RackLocations.Racki))])
             self._leafs = OrderedDict([
-                ('rack_location', YLeaf(YType.str, 'rack_location')),
+                ('rack_location', (YLeaf(YType.str, 'rack_location'), ['str'])),
             ])
             self.rack_location = None
 
             self.racki = YList(self)
             self._segment_path = lambda: "rack_locations" + "[rack_location='" + str(self.rack_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:rack-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RackInventory.RackLocations, ['rack_location'], name, value)
@@ -715,14 +722,15 @@ class RackInventory(Entity):
                 self.ylist_key_names = ['rack_serial']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rack_serial', YLeaf(YType.str, 'rack_serial')),
-                    ('rack_number', YLeaf(YType.int32, 'rack_number')),
-                    ('rack_state', YLeaf(YType.int32, 'rack_state')),
+                    ('rack_serial', (YLeaf(YType.str, 'rack_serial'), ['str'])),
+                    ('rack_number', (YLeaf(YType.int32, 'rack_number'), ['int'])),
+                    ('rack_state', (YLeaf(YType.int32, 'rack_state'), ['int'])),
                 ])
                 self.rack_serial = None
                 self.rack_number = None
                 self.rack_state = None
                 self._segment_path = lambda: "racki" + "[rack_serial='" + str(self.rack_serial) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RackInventory.RackLocations.Racki, ['rack_serial', 'rack_number', 'rack_state'], name, value)
@@ -761,6 +769,7 @@ class SystemServiceInventory(Entity):
 
         self.ssvc_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:system-service-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SystemServiceInventory, [], name, value)
@@ -775,7 +784,7 @@ class SystemServiceInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: ssvci
         
@@ -799,13 +808,14 @@ class SystemServiceInventory(Entity):
             self.ylist_key_names = ['ssvc_location']
             self._child_classes = OrderedDict([("ssvci", ("ssvci", SystemServiceInventory.SsvcLocations.Ssvci))])
             self._leafs = OrderedDict([
-                ('ssvc_location', YLeaf(YType.str, 'ssvc_location')),
+                ('ssvc_location', (YLeaf(YType.str, 'ssvc_location'), ['str'])),
             ])
             self.ssvc_location = None
 
             self.ssvci = YList(self)
             self._segment_path = lambda: "ssvc_locations" + "[ssvc_location='" + str(self.ssvc_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:system-service-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SystemServiceInventory.SsvcLocations, ['ssvc_location'], name, value)
@@ -864,12 +874,12 @@ class SystemServiceInventory(Entity):
                 self.ylist_key_names = ['svc_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('svc_name', YLeaf(YType.str, 'svc_name')),
-                    ('placement_first', YLeaf(YType.str, 'placement_first')),
-                    ('nodeid_first', YLeaf(YType.str, 'nodeid_first')),
-                    ('placement_second', YLeaf(YType.str, 'placement_second')),
-                    ('nodeid_second', YLeaf(YType.str, 'nodeid_second')),
-                    ('svc_load', YLeaf(YType.uint8, 'svc_load')),
+                    ('svc_name', (YLeaf(YType.str, 'svc_name'), ['str'])),
+                    ('placement_first', (YLeaf(YType.str, 'placement_first'), ['str'])),
+                    ('nodeid_first', (YLeaf(YType.str, 'nodeid_first'), ['str'])),
+                    ('placement_second', (YLeaf(YType.str, 'placement_second'), ['str'])),
+                    ('nodeid_second', (YLeaf(YType.str, 'nodeid_second'), ['str'])),
+                    ('svc_load', (YLeaf(YType.uint8, 'svc_load'), ['int'])),
                 ])
                 self.svc_name = None
                 self.placement_first = None
@@ -878,6 +888,7 @@ class SystemServiceInventory(Entity):
                 self.nodeid_second = None
                 self.svc_load = None
                 self._segment_path = lambda: "ssvci" + "[svc_name='" + str(self.svc_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SystemServiceInventory.SsvcLocations.Ssvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
@@ -916,6 +927,7 @@ class RackServiceInventory(Entity):
 
         self.rsvc_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:rack-service-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RackServiceInventory, [], name, value)
@@ -930,7 +942,7 @@ class RackServiceInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: rsvci
         
@@ -954,13 +966,14 @@ class RackServiceInventory(Entity):
             self.ylist_key_names = ['rsvc_location']
             self._child_classes = OrderedDict([("rsvci", ("rsvci", RackServiceInventory.RsvcLocations.Rsvci))])
             self._leafs = OrderedDict([
-                ('rsvc_location', YLeaf(YType.str, 'rsvc_location')),
+                ('rsvc_location', (YLeaf(YType.str, 'rsvc_location'), ['str'])),
             ])
             self.rsvc_location = None
 
             self.rsvci = YList(self)
             self._segment_path = lambda: "rsvc_locations" + "[rsvc_location='" + str(self.rsvc_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:rack-service-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RackServiceInventory.RsvcLocations, ['rsvc_location'], name, value)
@@ -1019,12 +1032,12 @@ class RackServiceInventory(Entity):
                 self.ylist_key_names = ['svc_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('svc_name', YLeaf(YType.str, 'svc_name')),
-                    ('placement_first', YLeaf(YType.str, 'placement_first')),
-                    ('nodeid_first', YLeaf(YType.str, 'nodeid_first')),
-                    ('placement_second', YLeaf(YType.str, 'placement_second')),
-                    ('nodeid_second', YLeaf(YType.str, 'nodeid_second')),
-                    ('svc_load', YLeaf(YType.uint8, 'svc_load')),
+                    ('svc_name', (YLeaf(YType.str, 'svc_name'), ['str'])),
+                    ('placement_first', (YLeaf(YType.str, 'placement_first'), ['str'])),
+                    ('nodeid_first', (YLeaf(YType.str, 'nodeid_first'), ['str'])),
+                    ('placement_second', (YLeaf(YType.str, 'placement_second'), ['str'])),
+                    ('nodeid_second', (YLeaf(YType.str, 'nodeid_second'), ['str'])),
+                    ('svc_load', (YLeaf(YType.uint8, 'svc_load'), ['int'])),
                 ])
                 self.svc_name = None
                 self.placement_first = None
@@ -1033,6 +1046,7 @@ class RackServiceInventory(Entity):
                 self.nodeid_second = None
                 self.svc_load = None
                 self._segment_path = lambda: "rsvci" + "[svc_name='" + str(self.svc_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RackServiceInventory.RsvcLocations.Rsvci, ['svc_name', 'placement_first', 'nodeid_first', 'placement_second', 'nodeid_second', 'svc_load'], name, value)
@@ -1071,6 +1085,7 @@ class SdrInventory(Entity):
 
         self.sdr_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:sdr-inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SdrInventory, [], name, value)
@@ -1085,7 +1100,7 @@ class SdrInventory(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: sdri
         
@@ -1109,13 +1124,14 @@ class SdrInventory(Entity):
             self.ylist_key_names = ['sdr_location']
             self._child_classes = OrderedDict([("sdri", ("sdri", SdrInventory.SdrLocations.Sdri))])
             self._leafs = OrderedDict([
-                ('sdr_location', YLeaf(YType.str, 'sdr_location')),
+                ('sdr_location', (YLeaf(YType.str, 'sdr_location'), ['str'])),
             ])
             self.sdr_location = None
 
             self.sdri = YList(self)
             self._segment_path = lambda: "sdr_locations" + "[sdr_location='" + str(self.sdr_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:sdr-inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SdrInventory.SdrLocations, ['sdr_location'], name, value)
@@ -1168,16 +1184,17 @@ class SdrInventory(Entity):
                 self.ylist_key_names = ['sdr_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sdr_name', YLeaf(YType.str, 'sdr_name')),
-                    ('sdr_id', YLeaf(YType.uint32, 'sdr_id')),
-                    ('sdr_vlan_baseid', YLeaf(YType.uint8, 'sdr_vlan_baseid')),
-                    ('sdr_version', YLeaf(YType.uint64, 'sdr_version')),
+                    ('sdr_name', (YLeaf(YType.str, 'sdr_name'), ['str'])),
+                    ('sdr_id', (YLeaf(YType.uint32, 'sdr_id'), ['int'])),
+                    ('sdr_vlan_baseid', (YLeaf(YType.uint8, 'sdr_vlan_baseid'), ['int'])),
+                    ('sdr_version', (YLeaf(YType.uint64, 'sdr_version'), ['int'])),
                 ])
                 self.sdr_name = None
                 self.sdr_id = None
                 self.sdr_vlan_baseid = None
                 self.sdr_version = None
                 self._segment_path = lambda: "sdri" + "[sdr_name='" + str(self.sdr_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrInventory.SdrLocations.Sdri, ['sdr_name', 'sdr_id', 'sdr_vlan_baseid', 'sdr_version'], name, value)
@@ -1216,6 +1233,7 @@ class LeaderStatistics(Entity):
 
         self.ldr_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:leader-statistics"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LeaderStatistics, [], name, value)
@@ -1230,7 +1248,7 @@ class LeaderStatistics(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: syslead
         
@@ -1279,13 +1297,13 @@ class LeaderStatistics(Entity):
             self.ylist_key_names = ['ldr_location']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ldr_location', YLeaf(YType.str, 'ldr_location')),
-                ('syslead', YLeaf(YType.str, 'syslead')),
-                ('bkup_syslead', YLeaf(YType.str, 'bkup_syslead')),
-                ('racklead', YLeaf(YType.str, 'racklead')),
-                ('bkup_racklead', YLeaf(YType.str, 'bkup_racklead')),
-                ('l1_dis', YLeaf(YType.str, 'l1_dis')),
-                ('l2_dis', YLeaf(YType.str, 'l2_dis')),
+                ('ldr_location', (YLeaf(YType.str, 'ldr_location'), ['str'])),
+                ('syslead', (YLeaf(YType.str, 'syslead'), ['str'])),
+                ('bkup_syslead', (YLeaf(YType.str, 'bkup_syslead'), ['str'])),
+                ('racklead', (YLeaf(YType.str, 'racklead'), ['str'])),
+                ('bkup_racklead', (YLeaf(YType.str, 'bkup_racklead'), ['str'])),
+                ('l1_dis', (YLeaf(YType.str, 'l1_dis'), ['str'])),
+                ('l2_dis', (YLeaf(YType.str, 'l2_dis'), ['str'])),
             ])
             self.ldr_location = None
             self.syslead = None
@@ -1296,6 +1314,7 @@ class LeaderStatistics(Entity):
             self.l2_dis = None
             self._segment_path = lambda: "ldr_locations" + "[ldr_location='" + str(self.ldr_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:leader-statistics/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LeaderStatistics.LdrLocations, ['ldr_location', 'syslead', 'bkup_syslead', 'racklead', 'bkup_racklead', 'l1_dis', 'l2_dis'], name, value)
@@ -1334,6 +1353,7 @@ class TopologyNeighbors(Entity):
 
         self.nbr_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:topology-neighbors"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TopologyNeighbors, [], name, value)
@@ -1348,7 +1368,7 @@ class TopologyNeighbors(Entity):
         	
         	**type**\: str
         
-        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
         
         .. attribute:: nbri
         
@@ -1372,13 +1392,14 @@ class TopologyNeighbors(Entity):
             self.ylist_key_names = ['nbr_location']
             self._child_classes = OrderedDict([("nbri", ("nbri", TopologyNeighbors.NbrLocations.Nbri))])
             self._leafs = OrderedDict([
-                ('nbr_location', YLeaf(YType.str, 'nbr_location')),
+                ('nbr_location', (YLeaf(YType.str, 'nbr_location'), ['str'])),
             ])
             self.nbr_location = None
 
             self.nbri = YList(self)
             self._segment_path = lambda: "nbr_locations" + "[nbr_location='" + str(self.nbr_location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-cm:topology-neighbors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TopologyNeighbors.NbrLocations, ['nbr_location'], name, value)
@@ -1437,12 +1458,12 @@ class TopologyNeighbors(Entity):
                 self.ylist_key_names = ['nbr_system_id','nbr_area_type']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nbr_system_id', YLeaf(YType.str, 'nbr_system_id')),
-                    ('nbr_area_type', YLeaf(YType.str, 'nbr_area_type')),
-                    ('nbr_interface', YLeaf(YType.str, 'nbr_interface')),
-                    ('nbr_state', YLeaf(YType.str, 'nbr_state')),
-                    ('nbr_holdtime', YLeaf(YType.uint64, 'nbr_holdtime')),
-                    ('nbr_uptime', YLeaf(YType.str, 'nbr_uptime')),
+                    ('nbr_system_id', (YLeaf(YType.str, 'nbr_system_id'), ['str'])),
+                    ('nbr_area_type', (YLeaf(YType.str, 'nbr_area_type'), ['str'])),
+                    ('nbr_interface', (YLeaf(YType.str, 'nbr_interface'), ['str'])),
+                    ('nbr_state', (YLeaf(YType.str, 'nbr_state'), ['str'])),
+                    ('nbr_holdtime', (YLeaf(YType.uint64, 'nbr_holdtime'), ['int'])),
+                    ('nbr_uptime', (YLeaf(YType.str, 'nbr_uptime'), ['str'])),
                 ])
                 self.nbr_system_id = None
                 self.nbr_area_type = None
@@ -1451,6 +1472,7 @@ class TopologyNeighbors(Entity):
                 self.nbr_holdtime = None
                 self.nbr_uptime = None
                 self._segment_path = lambda: "nbri" + "[nbr_system_id='" + str(self.nbr_system_id) + "']" + "[nbr_area_type='" + str(self.nbr_area_type) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TopologyNeighbors.NbrLocations.Nbri, ['nbr_system_id', 'nbr_area_type', 'nbr_interface', 'nbr_state', 'nbr_holdtime', 'nbr_uptime'], name, value)
@@ -1482,6 +1504,7 @@ class Placement(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-cm:placement"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = Placement()

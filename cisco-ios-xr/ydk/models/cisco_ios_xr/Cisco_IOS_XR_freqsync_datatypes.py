@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -13,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FsyncClock(Enum):
@@ -255,6 +256,18 @@ class GnssConstellation(Enum):
 
     	QZSS constellation
 
+    .. data:: glonass = 5
+
+    	GLONASS constellation
+
+    .. data:: sbas = 6
+
+    	SBAS constellation
+
+    .. data:: irnss = 7
+
+    	IRNSS constellation
+
     """
 
     auto = Enum.YLeaf(0, "auto")
@@ -266,6 +279,12 @@ class GnssConstellation(Enum):
     bei_dou = Enum.YLeaf(3, "bei-dou")
 
     qzss = Enum.YLeaf(4, "qzss")
+
+    glonass = Enum.YLeaf(5, "glonass")
+
+    sbas = Enum.YLeaf(6, "sbas")
+
+    irnss = Enum.YLeaf(7, "irnss")
 
 
 

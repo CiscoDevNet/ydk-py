@@ -43,15 +43,41 @@ module Cisco-IOS-XE-native {
 
   description
     "NED YANG module for IOS-XE
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-22 {
+    description
+      "Remove wireless model";
+  }
+
+  revision 2018-03-27 {
+    description
+      "Move top level card to native before controller to keep the sequence.";
+  }
+
+  revision 2018-02-26 {
+     description
+       "Add model for username secret 9 SCRYPT";
+  }
+  revision 2018-02-06 {
+     description
+       "Refactor parameter-map";
+  }
   revision 2018-02-01 {
     description
       "fix banner issue";
+  }
+  revision 2018-01-15 {
+    description
+      "Add monitor session type local and options";
+  }
+  revision 2018-01-07 {
+    description
+      "Add monitor session type erspan-dst and options under erspan-src";
   }
   revision 2017-10-24 {
     description
@@ -467,6 +493,53 @@ module Cisco-IOS-XE-native {
           }
         }
       }
+      list switch {
+        description
+           "Switch in the system";
+          key "switch-number";
+          leaf switch-number {
+            description
+              "Switch number in the Stack (Refer to show switch CLI)";
+            type uint8 {
+              range "1..8";
+            }
+          }
+          container usbflash1 {
+            description
+              "USB SSD";
+            container security {
+              description
+                "Security on usbflash1";
+              container enable {
+                description
+                  "Enable security on usbflash1";
+                presence true;
+                leaf password {
+                  description
+                    "Enter password for enabling security on usbflash1";
+                  type string;
+                }
+              }
+            }
+          }
+        }
+
+      list slot {
+        description
+          "Control a component in a slot";
+          key "name";
+          leaf name {
+            description
+              "Slot of LC";
+            type string;
+          }
+          leaf shutdown {
+            description
+              "Shutdown a fru";
+            type empty;
+          }
+      }
+
       leaf sm {
         type uint8;
       }
@@ -1718,12 +1791,22 @@ module Cisco-IOS-XE-native {
           type enumeration {
             enum "0";
             enum "5";
+            enum "9";
           }
         }
         leaf secret {
           type string;
         }
       }
+    }
+
+    /////////////////////////////////////////////////////////
+    // native / card
+    /////////////////////////////////////////////////////////
+    container card {
+      description
+        "Configure T1/E1 SPA";
+      // @mount Cisco-IOS-XE-card
     }
 
     /////////////////////////////////////////////////////////
@@ -2671,6 +2754,23 @@ module Cisco-IOS-XE-native {
     }
 
     /////////////////////////////////////////////////////////
+    // native / mab
+    /////////////////////////////////////////////////////////
+    container mab { 
+      description
+        "mab Configuration Commands";
+      container logging {
+        description
+          "Set logging parameters";
+        leaf verbose {
+          description
+            "Show verbose messages in system logs";
+          type empty;
+        }
+      }
+    }
+
+    /////////////////////////////////////////////////////////
     // native / fallback
     /////////////////////////////////////////////////////////
     container fallback { 
@@ -2681,49 +2781,17 @@ module Cisco-IOS-XE-native {
     /////////////////////////////////////////////////////////
     // native / parameter-map *
     /////////////////////////////////////////////////////////
-    list parameter-map { 
+    container parameter-map { 
       //Note: put the top level nodes in the base file. Nodes in
       //augmented file will show up in the submode (config-profile)#
       description
         "parameter map";
-      key "name";
-      leaf name {
-        description
-          "cws_tunnel global parameter-map";
-        type union {
-          type string;
-          type enumeration {
-            enum "global";
-            enum "gtp";
-          }
-        }
-      }
-      leaf type {
+      container type {
         description
           "parameter map type";
-        type enumeration {
-          enum "cws-tunnel";
-          enum "inspect";
-          enum "inspect-global";
-          enum "webauth";
-          enum "inspect-vrf";
-          enum "inspect-zone";
-          enum "regex";
-          enum "authbypass";
-          enum "umbrella";
-        }
+        // Each parameter-map type should augment from this point
+        // @mount Cisco-IOS-XE-policy
       }
-      leaf parameter-map-type {
-        description
-          "type - web-auth, consent or both";
-        type enumeration {
-          enum "webauth";
-          enum "authbypass";
-          enum "consent";
-          enum "webconsent";
-        }
-      }
-      // @mount Cisco-IOS-XE-policy
     }
 
     /////////////////////////////////////////////////////////
@@ -3393,6 +3461,16 @@ module Cisco-IOS-XE-native {
       container event-trace {
         description
           "Tracing of system events";
+        container timestamps {
+          presence "true"; 
+          description
+           "Format of event trace timestamps";
+          leaf uptime {
+            description
+              "Timestamp with system uptime";
+            type empty;
+          }			
+        }
         container atom {
           description
             "AToM traces";
@@ -3656,6 +3734,19 @@ module Cisco-IOS-XE-native {
                   }
                 }
               }
+              leaf sgt {
+                description "SPAN source SGT";
+                type uint16 {
+                  range "0..65535";
+                }
+              }
+            }
+            leaf header-type {
+                description
+                  "ERSPAN header-type for encapsulation. Default is type 2";
+                type uint8 {
+                  range "2..3";
+                }
             }
             leaf shutdown {
               description
@@ -3701,9 +3792,156 @@ module Cisco-IOS-XE-native {
                     type inet:ipv4-address;
                   }
                 }
-              }				
+              }
             }
           }
+          container erspan-destination {
+            description
+              "Encapsulated RSPAN Destination Session";				
+            presence "true";
+            leaf description {
+              description
+                "Properties for this session";
+              type string;
+            }
+            container destination {
+              description
+                "SPAN destination interface, VLAN ";
+              list interface {
+                description
+                  "SPAN destination interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+              }
+              leaf vlan {
+                description
+                  "Remote SPAN destination RSPAN VLAN <1-1001>|<1006-4094>";
+                type uint16 {
+                  range "1..1001 | 1006..4094";
+                }
+              }
+            }
+            leaf shutdown {
+              description
+                "Shutdown this session";
+              type empty;
+            }
+            container source {
+              description
+                "Specify Source and their properties";				  
+              presence "true";
+              container ip {
+                description
+                  "IP Address";
+                leaf address {
+                  description
+                    "Enter IP Address";
+                  type inet:ipv4-address;
+                }				  
+              }
+              leaf vrf {
+                description
+                  "Enter VRF number";
+                type string;
+              }
+              leaf erspan-id {
+                description
+                  "Enter ERSPAN Identifier";
+                type uint16 {
+                  range "1..1023";
+                }
+              }  				
+            }
+          }//erspan
+
+          container local {
+            description
+              "Local SPAN Session";
+            presence "true";
+            leaf description {
+              description
+                "Description for this session";
+              type string;
+            }
+            container source {
+              description
+                "SPAN source Interface/VLAN/CPU";
+              list interface {
+                description
+                  "SPAN source interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+                leaf direction {
+                  type enumeration {
+                    enum "both";
+                    enum "rx";
+                    enum "tx";
+                  }
+                }
+              }//list interface
+
+              list vlan {
+                description
+                  "SPAN source VLAN";
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+                leaf direction {
+                  type enumeration {
+                    enum "both";
+                    enum "rx";
+                    enum "tx";
+                  }
+                }
+              }//list vlan
+            }//source
+
+            // monitor session * destination
+            container destination {
+              description
+                "SPAN destination interface or VLAN";
+              list interface {
+                description
+                  "SPAN destination interface";
+                key "name";
+                leaf name {
+                  description
+                    "Interface Name";
+                  type string;
+                }
+              }//interface
+            }//destination
+
+            container filter {
+              description
+                "SPAN filter VLAN";
+              list vlan {
+                key "vlan1";
+                leaf vlan1 {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                }
+              }
+            }//filter
+            leaf shutdown {
+              description
+                "Take the Service Instance out of Service";
+              type empty;
+            }
+          }//local
+
         }
       }
     }
@@ -4171,20 +4409,6 @@ module Cisco-IOS-XE-native {
       description
         "Configure global UDLD setting";
       // @mount Cisco-IOS-XE-udld
-    }
-
-    /////////////////////////////////////////////////////////
-    // native / wireless
-    /////////////////////////////////////////////////////////
-    // TODO seprate model or remove
-    container wireless {
-      description
-        "Configure wireless parameters";
-      leaf mdns-bridging {
-        description
-          "Enable Ethernet mDNS Support";
-        type boolean;
-      }
     }
 
     /////////////////////////////////////////////////////////

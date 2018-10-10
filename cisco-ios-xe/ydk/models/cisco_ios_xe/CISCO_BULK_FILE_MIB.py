@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOBULKFILEMIB(Entity):
     """
     
@@ -81,6 +82,7 @@ class CISCOBULKFILEMIB(Entity):
         self.cbfstatusfiletable.parent = self
         self._children_name_map["cbfstatusfiletable"] = "cbfStatusFileTable"
         self._segment_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOBULKFILEMIB, [], name, value)
@@ -163,14 +165,14 @@ class CISCOBULKFILEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cbfdefinemaxfiles', YLeaf(YType.uint32, 'cbfDefineMaxFiles')),
-                ('cbfdefinefiles', YLeaf(YType.uint32, 'cbfDefineFiles')),
-                ('cbfdefinehighfiles', YLeaf(YType.uint32, 'cbfDefineHighFiles')),
-                ('cbfdefinefilesrefused', YLeaf(YType.uint32, 'cbfDefineFilesRefused')),
-                ('cbfdefinemaxobjects', YLeaf(YType.uint32, 'cbfDefineMaxObjects')),
-                ('cbfdefineobjects', YLeaf(YType.uint32, 'cbfDefineObjects')),
-                ('cbfdefinehighobjects', YLeaf(YType.uint32, 'cbfDefineHighObjects')),
-                ('cbfdefineobjectsrefused', YLeaf(YType.uint32, 'cbfDefineObjectsRefused')),
+                ('cbfdefinemaxfiles', (YLeaf(YType.uint32, 'cbfDefineMaxFiles'), ['int'])),
+                ('cbfdefinefiles', (YLeaf(YType.uint32, 'cbfDefineFiles'), ['int'])),
+                ('cbfdefinehighfiles', (YLeaf(YType.uint32, 'cbfDefineHighFiles'), ['int'])),
+                ('cbfdefinefilesrefused', (YLeaf(YType.uint32, 'cbfDefineFilesRefused'), ['int'])),
+                ('cbfdefinemaxobjects', (YLeaf(YType.uint32, 'cbfDefineMaxObjects'), ['int'])),
+                ('cbfdefineobjects', (YLeaf(YType.uint32, 'cbfDefineObjects'), ['int'])),
+                ('cbfdefinehighobjects', (YLeaf(YType.uint32, 'cbfDefineHighObjects'), ['int'])),
+                ('cbfdefineobjectsrefused', (YLeaf(YType.uint32, 'cbfDefineObjectsRefused'), ['int'])),
             ])
             self.cbfdefinemaxfiles = None
             self.cbfdefinefiles = None
@@ -182,6 +184,7 @@ class CISCOBULKFILEMIB(Entity):
             self.cbfdefineobjectsrefused = None
             self._segment_path = lambda: "cbfDefine"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBULKFILEMIB.CbfDefine, ['cbfdefinemaxfiles', 'cbfdefinefiles', 'cbfdefinehighfiles', 'cbfdefinefilesrefused', 'cbfdefinemaxobjects', 'cbfdefineobjects', 'cbfdefinehighobjects', 'cbfdefineobjectsrefused'], name, value)
@@ -236,10 +239,10 @@ class CISCOBULKFILEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cbfstatusmaxfiles', YLeaf(YType.uint32, 'cbfStatusMaxFiles')),
-                ('cbfstatusfiles', YLeaf(YType.uint32, 'cbfStatusFiles')),
-                ('cbfstatushighfiles', YLeaf(YType.uint32, 'cbfStatusHighFiles')),
-                ('cbfstatusfilesbumped', YLeaf(YType.uint32, 'cbfStatusFilesBumped')),
+                ('cbfstatusmaxfiles', (YLeaf(YType.uint32, 'cbfStatusMaxFiles'), ['int'])),
+                ('cbfstatusfiles', (YLeaf(YType.uint32, 'cbfStatusFiles'), ['int'])),
+                ('cbfstatushighfiles', (YLeaf(YType.uint32, 'cbfStatusHighFiles'), ['int'])),
+                ('cbfstatusfilesbumped', (YLeaf(YType.uint32, 'cbfStatusFilesBumped'), ['int'])),
             ])
             self.cbfstatusmaxfiles = None
             self.cbfstatusfiles = None
@@ -247,6 +250,7 @@ class CISCOBULKFILEMIB(Entity):
             self.cbfstatusfilesbumped = None
             self._segment_path = lambda: "cbfStatus"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBULKFILEMIB.CbfStatus, ['cbfstatusmaxfiles', 'cbfstatusfiles', 'cbfstatushighfiles', 'cbfstatusfilesbumped'], name, value)
@@ -282,6 +286,7 @@ class CISCOBULKFILEMIB(Entity):
             self.cbfdefinefileentry = YList(self)
             self._segment_path = lambda: "cbfDefineFileTable"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBULKFILEMIB.CbfDefineFileTable, [], name, value)
@@ -362,13 +367,13 @@ class CISCOBULKFILEMIB(Entity):
                 self.ylist_key_names = ['cbfdefinefileindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbfdefinefileindex', YLeaf(YType.uint32, 'cbfDefineFileIndex')),
-                    ('cbfdefinefilename', YLeaf(YType.str, 'cbfDefineFileName')),
-                    ('cbfdefinefilestorage', YLeaf(YType.enumeration, 'cbfDefineFileStorage')),
-                    ('cbfdefinefileformat', YLeaf(YType.enumeration, 'cbfDefineFileFormat')),
-                    ('cbfdefinefilenow', YLeaf(YType.enumeration, 'cbfDefineFileNow')),
-                    ('cbfdefinefileentrystatus', YLeaf(YType.enumeration, 'cbfDefineFileEntryStatus')),
-                    ('cbfdefinefilenotifyoncompletion', YLeaf(YType.boolean, 'cbfDefineFileNotifyOnCompletion')),
+                    ('cbfdefinefileindex', (YLeaf(YType.uint32, 'cbfDefineFileIndex'), ['int'])),
+                    ('cbfdefinefilename', (YLeaf(YType.str, 'cbfDefineFileName'), ['str'])),
+                    ('cbfdefinefilestorage', (YLeaf(YType.enumeration, 'cbfDefineFileStorage'), [('ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB', 'CISCOBULKFILEMIB', 'CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileStorage')])),
+                    ('cbfdefinefileformat', (YLeaf(YType.enumeration, 'cbfDefineFileFormat'), [('ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB', 'CISCOBULKFILEMIB', 'CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileFormat')])),
+                    ('cbfdefinefilenow', (YLeaf(YType.enumeration, 'cbfDefineFileNow'), [('ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB', 'CISCOBULKFILEMIB', 'CbfDefineFileTable.CbfDefineFileEntry.CbfDefineFileNow')])),
+                    ('cbfdefinefileentrystatus', (YLeaf(YType.enumeration, 'cbfDefineFileEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cbfdefinefilenotifyoncompletion', (YLeaf(YType.boolean, 'cbfDefineFileNotifyOnCompletion'), ['bool'])),
                 ])
                 self.cbfdefinefileindex = None
                 self.cbfdefinefilename = None
@@ -379,6 +384,7 @@ class CISCOBULKFILEMIB(Entity):
                 self.cbfdefinefilenotifyoncompletion = None
                 self._segment_path = lambda: "cbfDefineFileEntry" + "[cbfDefineFileIndex='" + str(self.cbfdefinefileindex) + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineFileTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBULKFILEMIB.CbfDefineFileTable.CbfDefineFileEntry, ['cbfdefinefileindex', 'cbfdefinefilename', 'cbfdefinefilestorage', 'cbfdefinefileformat', 'cbfdefinefilenow', 'cbfdefinefileentrystatus', 'cbfdefinefilenotifyoncompletion'], name, value)
@@ -547,6 +553,7 @@ class CISCOBULKFILEMIB(Entity):
             self.cbfdefineobjectentry = YList(self)
             self._segment_path = lambda: "cbfDefineObjectTable"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBULKFILEMIB.CbfDefineObjectTable, [], name, value)
@@ -634,14 +641,14 @@ class CISCOBULKFILEMIB(Entity):
                 self.ylist_key_names = ['cbfdefinefileindex','cbfdefineobjectindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbfdefinefileindex', YLeaf(YType.str, 'cbfDefineFileIndex')),
-                    ('cbfdefineobjectindex', YLeaf(YType.uint32, 'cbfDefineObjectIndex')),
-                    ('cbfdefineobjectclass', YLeaf(YType.enumeration, 'cbfDefineObjectClass')),
-                    ('cbfdefineobjectid', YLeaf(YType.str, 'cbfDefineObjectID')),
-                    ('cbfdefineobjectentrystatus', YLeaf(YType.enumeration, 'cbfDefineObjectEntryStatus')),
-                    ('cbfdefineobjecttableinstance', YLeaf(YType.str, 'cbfDefineObjectTableInstance')),
-                    ('cbfdefineobjectnumentries', YLeaf(YType.uint32, 'cbfDefineObjectNumEntries')),
-                    ('cbfdefineobjectlastpolledinst', YLeaf(YType.str, 'cbfDefineObjectLastPolledInst')),
+                    ('cbfdefinefileindex', (YLeaf(YType.str, 'cbfDefineFileIndex'), ['int'])),
+                    ('cbfdefineobjectindex', (YLeaf(YType.uint32, 'cbfDefineObjectIndex'), ['int'])),
+                    ('cbfdefineobjectclass', (YLeaf(YType.enumeration, 'cbfDefineObjectClass'), [('ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB', 'CISCOBULKFILEMIB', 'CbfDefineObjectTable.CbfDefineObjectEntry.CbfDefineObjectClass')])),
+                    ('cbfdefineobjectid', (YLeaf(YType.str, 'cbfDefineObjectID'), ['str'])),
+                    ('cbfdefineobjectentrystatus', (YLeaf(YType.enumeration, 'cbfDefineObjectEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cbfdefineobjecttableinstance', (YLeaf(YType.str, 'cbfDefineObjectTableInstance'), ['str'])),
+                    ('cbfdefineobjectnumentries', (YLeaf(YType.uint32, 'cbfDefineObjectNumEntries'), ['int'])),
+                    ('cbfdefineobjectlastpolledinst', (YLeaf(YType.str, 'cbfDefineObjectLastPolledInst'), ['str'])),
                 ])
                 self.cbfdefinefileindex = None
                 self.cbfdefineobjectindex = None
@@ -653,6 +660,7 @@ class CISCOBULKFILEMIB(Entity):
                 self.cbfdefineobjectlastpolledinst = None
                 self._segment_path = lambda: "cbfDefineObjectEntry" + "[cbfDefineFileIndex='" + str(self.cbfdefinefileindex) + "']" + "[cbfDefineObjectIndex='" + str(self.cbfdefineobjectindex) + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfDefineObjectTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBULKFILEMIB.CbfDefineObjectTable.CbfDefineObjectEntry, ['cbfdefinefileindex', 'cbfdefineobjectindex', 'cbfdefineobjectclass', 'cbfdefineobjectid', 'cbfdefineobjectentrystatus', 'cbfdefineobjecttableinstance', 'cbfdefineobjectnumentries', 'cbfdefineobjectlastpolledinst'], name, value)
@@ -725,6 +733,7 @@ class CISCOBULKFILEMIB(Entity):
             self.cbfstatusfileentry = YList(self)
             self._segment_path = lambda: "cbfStatusFileTable"
             self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBULKFILEMIB.CbfStatusFileTable, [], name, value)
@@ -795,11 +804,11 @@ class CISCOBULKFILEMIB(Entity):
                 self.ylist_key_names = ['cbfdefinefileindex','cbfstatusfileindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbfdefinefileindex', YLeaf(YType.str, 'cbfDefineFileIndex')),
-                    ('cbfstatusfileindex', YLeaf(YType.uint32, 'cbfStatusFileIndex')),
-                    ('cbfstatusfilestate', YLeaf(YType.enumeration, 'cbfStatusFileState')),
-                    ('cbfstatusfilecompletiontime', YLeaf(YType.uint32, 'cbfStatusFileCompletionTime')),
-                    ('cbfstatusfileentrystatus', YLeaf(YType.enumeration, 'cbfStatusFileEntryStatus')),
+                    ('cbfdefinefileindex', (YLeaf(YType.str, 'cbfDefineFileIndex'), ['int'])),
+                    ('cbfstatusfileindex', (YLeaf(YType.uint32, 'cbfStatusFileIndex'), ['int'])),
+                    ('cbfstatusfilestate', (YLeaf(YType.enumeration, 'cbfStatusFileState'), [('ydk.models.cisco_ios_xe.CISCO_BULK_FILE_MIB', 'CISCOBULKFILEMIB', 'CbfStatusFileTable.CbfStatusFileEntry.CbfStatusFileState')])),
+                    ('cbfstatusfilecompletiontime', (YLeaf(YType.uint32, 'cbfStatusFileCompletionTime'), ['int'])),
+                    ('cbfstatusfileentrystatus', (YLeaf(YType.enumeration, 'cbfStatusFileEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cbfdefinefileindex = None
                 self.cbfstatusfileindex = None
@@ -808,6 +817,7 @@ class CISCOBULKFILEMIB(Entity):
                 self.cbfstatusfileentrystatus = None
                 self._segment_path = lambda: "cbfStatusFileEntry" + "[cbfDefineFileIndex='" + str(self.cbfdefinefileindex) + "']" + "[cbfStatusFileIndex='" + str(self.cbfstatusfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-BULK-FILE-MIB:CISCO-BULK-FILE-MIB/cbfStatusFileTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBULKFILEMIB.CbfStatusFileTable.CbfStatusFileEntry, ['cbfdefinefileindex', 'cbfstatusfileindex', 'cbfstatusfilestate', 'cbfstatusfilecompletiontime', 'cbfstatusfileentrystatus'], name, value)

@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class BGP4MIB(Entity):
     """
     
@@ -73,6 +74,7 @@ class BGP4MIB(Entity):
         self.bgp4pathattrtable.parent = self
         self._children_name_map["bgp4pathattrtable"] = "bgp4PathAttrTable"
         self._segment_path = lambda: "BGP4-MIB:BGP4-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(BGP4MIB, [], name, value)
@@ -120,18 +122,19 @@ class BGP4MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('bgpversion', YLeaf(YType.str, 'bgpVersion')),
-                ('bgplocalas', YLeaf(YType.int32, 'bgpLocalAs')),
-                ('bgpidentifier', YLeaf(YType.str, 'bgpIdentifier')),
+                ('bgpversion', (YLeaf(YType.str, 'bgpVersion'), ['str'])),
+                ('bgplocalas', (YLeaf(YType.int32, 'bgpLocalAs'), ['int'])),
+                ('bgpidentifier', (YLeaf(YType.str, 'bgpIdentifier'), ['str'])),
             ])
             self.bgpversion = None
             self.bgplocalas = None
             self.bgpidentifier = None
             self._segment_path = lambda: "bgp"
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(BGP4MIB.Bgp, ['bgpversion', 'bgplocalas', 'bgpidentifier'], name, value)
+            self._perform_setattr(BGP4MIB.Bgp, [u'bgpversion', u'bgplocalas', u'bgpidentifier'], name, value)
 
 
     class BgpPeerTable(Entity):
@@ -166,6 +169,7 @@ class BGP4MIB(Entity):
             self.bgppeerentry = YList(self)
             self._segment_path = lambda: "bgpPeerTable"
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BGP4MIB.BgpPeerTable, [], name, value)
@@ -421,38 +425,38 @@ class BGP4MIB(Entity):
                 self.ylist_key_names = ['bgppeerremoteaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgppeerremoteaddr', YLeaf(YType.str, 'bgpPeerRemoteAddr')),
-                    ('bgppeeridentifier', YLeaf(YType.str, 'bgpPeerIdentifier')),
-                    ('bgppeerstate', YLeaf(YType.enumeration, 'bgpPeerState')),
-                    ('bgppeeradminstatus', YLeaf(YType.enumeration, 'bgpPeerAdminStatus')),
-                    ('bgppeernegotiatedversion', YLeaf(YType.int32, 'bgpPeerNegotiatedVersion')),
-                    ('bgppeerlocaladdr', YLeaf(YType.str, 'bgpPeerLocalAddr')),
-                    ('bgppeerlocalport', YLeaf(YType.int32, 'bgpPeerLocalPort')),
-                    ('bgppeerremoteport', YLeaf(YType.int32, 'bgpPeerRemotePort')),
-                    ('bgppeerremoteas', YLeaf(YType.int32, 'bgpPeerRemoteAs')),
-                    ('bgppeerinupdates', YLeaf(YType.uint32, 'bgpPeerInUpdates')),
-                    ('bgppeeroutupdates', YLeaf(YType.uint32, 'bgpPeerOutUpdates')),
-                    ('bgppeerintotalmessages', YLeaf(YType.uint32, 'bgpPeerInTotalMessages')),
-                    ('bgppeerouttotalmessages', YLeaf(YType.uint32, 'bgpPeerOutTotalMessages')),
-                    ('bgppeerlasterror', YLeaf(YType.str, 'bgpPeerLastError')),
-                    ('bgppeerfsmestablishedtransitions', YLeaf(YType.uint32, 'bgpPeerFsmEstablishedTransitions')),
-                    ('bgppeerfsmestablishedtime', YLeaf(YType.uint32, 'bgpPeerFsmEstablishedTime')),
-                    ('bgppeerconnectretryinterval', YLeaf(YType.int32, 'bgpPeerConnectRetryInterval')),
-                    ('bgppeerholdtime', YLeaf(YType.int32, 'bgpPeerHoldTime')),
-                    ('bgppeerkeepalive', YLeaf(YType.int32, 'bgpPeerKeepAlive')),
-                    ('bgppeerholdtimeconfigured', YLeaf(YType.int32, 'bgpPeerHoldTimeConfigured')),
-                    ('bgppeerkeepaliveconfigured', YLeaf(YType.int32, 'bgpPeerKeepAliveConfigured')),
-                    ('bgppeerminasoriginationinterval', YLeaf(YType.int32, 'bgpPeerMinASOriginationInterval')),
-                    ('bgppeerminrouteadvertisementinterval', YLeaf(YType.int32, 'bgpPeerMinRouteAdvertisementInterval')),
-                    ('bgppeerinupdateelapsedtime', YLeaf(YType.uint32, 'bgpPeerInUpdateElapsedTime')),
-                    ('cbgppeerprefixaccepted', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixAccepted')),
-                    ('cbgppeerprefixdenied', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixDenied')),
-                    ('cbgppeerprefixlimit', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixLimit')),
-                    ('cbgppeerprefixadvertised', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixAdvertised')),
-                    ('cbgppeerprefixsuppressed', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixSuppressed')),
-                    ('cbgppeerprefixwithdrawn', YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixWithdrawn')),
-                    ('cbgppeerlasterrortxt', YLeaf(YType.str, 'CISCO-BGP4-MIB:cbgpPeerLastErrorTxt')),
-                    ('cbgppeerprevstate', YLeaf(YType.enumeration, 'CISCO-BGP4-MIB:cbgpPeerPrevState')),
+                    ('bgppeerremoteaddr', (YLeaf(YType.str, 'bgpPeerRemoteAddr'), ['str'])),
+                    ('bgppeeridentifier', (YLeaf(YType.str, 'bgpPeerIdentifier'), ['str'])),
+                    ('bgppeerstate', (YLeaf(YType.enumeration, 'bgpPeerState'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'BgpPeerTable.BgpPeerEntry.BgpPeerState')])),
+                    ('bgppeeradminstatus', (YLeaf(YType.enumeration, 'bgpPeerAdminStatus'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'BgpPeerTable.BgpPeerEntry.BgpPeerAdminStatus')])),
+                    ('bgppeernegotiatedversion', (YLeaf(YType.int32, 'bgpPeerNegotiatedVersion'), ['int'])),
+                    ('bgppeerlocaladdr', (YLeaf(YType.str, 'bgpPeerLocalAddr'), ['str'])),
+                    ('bgppeerlocalport', (YLeaf(YType.int32, 'bgpPeerLocalPort'), ['int'])),
+                    ('bgppeerremoteport', (YLeaf(YType.int32, 'bgpPeerRemotePort'), ['int'])),
+                    ('bgppeerremoteas', (YLeaf(YType.int32, 'bgpPeerRemoteAs'), ['int'])),
+                    ('bgppeerinupdates', (YLeaf(YType.uint32, 'bgpPeerInUpdates'), ['int'])),
+                    ('bgppeeroutupdates', (YLeaf(YType.uint32, 'bgpPeerOutUpdates'), ['int'])),
+                    ('bgppeerintotalmessages', (YLeaf(YType.uint32, 'bgpPeerInTotalMessages'), ['int'])),
+                    ('bgppeerouttotalmessages', (YLeaf(YType.uint32, 'bgpPeerOutTotalMessages'), ['int'])),
+                    ('bgppeerlasterror', (YLeaf(YType.str, 'bgpPeerLastError'), ['str'])),
+                    ('bgppeerfsmestablishedtransitions', (YLeaf(YType.uint32, 'bgpPeerFsmEstablishedTransitions'), ['int'])),
+                    ('bgppeerfsmestablishedtime', (YLeaf(YType.uint32, 'bgpPeerFsmEstablishedTime'), ['int'])),
+                    ('bgppeerconnectretryinterval', (YLeaf(YType.int32, 'bgpPeerConnectRetryInterval'), ['int'])),
+                    ('bgppeerholdtime', (YLeaf(YType.int32, 'bgpPeerHoldTime'), ['int'])),
+                    ('bgppeerkeepalive', (YLeaf(YType.int32, 'bgpPeerKeepAlive'), ['int'])),
+                    ('bgppeerholdtimeconfigured', (YLeaf(YType.int32, 'bgpPeerHoldTimeConfigured'), ['int'])),
+                    ('bgppeerkeepaliveconfigured', (YLeaf(YType.int32, 'bgpPeerKeepAliveConfigured'), ['int'])),
+                    ('bgppeerminasoriginationinterval', (YLeaf(YType.int32, 'bgpPeerMinASOriginationInterval'), ['int'])),
+                    ('bgppeerminrouteadvertisementinterval', (YLeaf(YType.int32, 'bgpPeerMinRouteAdvertisementInterval'), ['int'])),
+                    ('bgppeerinupdateelapsedtime', (YLeaf(YType.uint32, 'bgpPeerInUpdateElapsedTime'), ['int'])),
+                    ('cbgppeerprefixaccepted', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixAccepted'), ['int'])),
+                    ('cbgppeerprefixdenied', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixDenied'), ['int'])),
+                    ('cbgppeerprefixlimit', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixLimit'), ['int'])),
+                    ('cbgppeerprefixadvertised', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixAdvertised'), ['int'])),
+                    ('cbgppeerprefixsuppressed', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixSuppressed'), ['int'])),
+                    ('cbgppeerprefixwithdrawn', (YLeaf(YType.uint32, 'CISCO-BGP4-MIB:cbgpPeerPrefixWithdrawn'), ['int'])),
+                    ('cbgppeerlasterrortxt', (YLeaf(YType.str, 'CISCO-BGP4-MIB:cbgpPeerLastErrorTxt'), ['str'])),
+                    ('cbgppeerprevstate', (YLeaf(YType.enumeration, 'CISCO-BGP4-MIB:cbgpPeerPrevState'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'BgpPeerTable.BgpPeerEntry.CbgpPeerPrevState')])),
                 ])
                 self.bgppeerremoteaddr = None
                 self.bgppeeridentifier = None
@@ -488,9 +492,10 @@ class BGP4MIB(Entity):
                 self.cbgppeerprevstate = None
                 self._segment_path = lambda: "bgpPeerEntry" + "[bgpPeerRemoteAddr='" + str(self.bgppeerremoteaddr) + "']"
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgpPeerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.BgpPeerTable.BgpPeerEntry, ['bgppeerremoteaddr', 'bgppeeridentifier', 'bgppeerstate', 'bgppeeradminstatus', 'bgppeernegotiatedversion', 'bgppeerlocaladdr', 'bgppeerlocalport', 'bgppeerremoteport', 'bgppeerremoteas', 'bgppeerinupdates', 'bgppeeroutupdates', 'bgppeerintotalmessages', 'bgppeerouttotalmessages', 'bgppeerlasterror', 'bgppeerfsmestablishedtransitions', 'bgppeerfsmestablishedtime', 'bgppeerconnectretryinterval', 'bgppeerholdtime', 'bgppeerkeepalive', 'bgppeerholdtimeconfigured', 'bgppeerkeepaliveconfigured', 'bgppeerminasoriginationinterval', 'bgppeerminrouteadvertisementinterval', 'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
+                self._perform_setattr(BGP4MIB.BgpPeerTable.BgpPeerEntry, [u'bgppeerremoteaddr', u'bgppeeridentifier', u'bgppeerstate', u'bgppeeradminstatus', u'bgppeernegotiatedversion', u'bgppeerlocaladdr', u'bgppeerlocalport', u'bgppeerremoteport', u'bgppeerremoteas', u'bgppeerinupdates', u'bgppeeroutupdates', u'bgppeerintotalmessages', u'bgppeerouttotalmessages', u'bgppeerlasterror', u'bgppeerfsmestablishedtransitions', u'bgppeerfsmestablishedtime', u'bgppeerconnectretryinterval', u'bgppeerholdtime', u'bgppeerkeepalive', u'bgppeerholdtimeconfigured', u'bgppeerkeepaliveconfigured', u'bgppeerminasoriginationinterval', u'bgppeerminrouteadvertisementinterval', u'bgppeerinupdateelapsedtime', 'cbgppeerprefixaccepted', 'cbgppeerprefixdenied', 'cbgppeerprefixlimit', 'cbgppeerprefixadvertised', 'cbgppeerprefixsuppressed', 'cbgppeerprefixwithdrawn', 'cbgppeerlasterrortxt', 'cbgppeerprevstate'], name, value)
 
             class BgpPeerAdminStatus(Enum):
                 """
@@ -631,6 +636,7 @@ class BGP4MIB(Entity):
             self.bgppathattrentry = YList(self)
             self._segment_path = lambda: "bgpRcvdPathAttrTable"
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable, [], name, value)
@@ -709,12 +715,12 @@ class BGP4MIB(Entity):
                 self.ylist_key_names = ['bgppathattrdestnetwork','bgppathattrpeer']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgppathattrdestnetwork', YLeaf(YType.str, 'bgpPathAttrDestNetwork')),
-                    ('bgppathattrpeer', YLeaf(YType.str, 'bgpPathAttrPeer')),
-                    ('bgppathattrorigin', YLeaf(YType.enumeration, 'bgpPathAttrOrigin')),
-                    ('bgppathattraspath', YLeaf(YType.str, 'bgpPathAttrASPath')),
-                    ('bgppathattrnexthop', YLeaf(YType.str, 'bgpPathAttrNextHop')),
-                    ('bgppathattrinterasmetric', YLeaf(YType.int32, 'bgpPathAttrInterASMetric')),
+                    ('bgppathattrdestnetwork', (YLeaf(YType.str, 'bgpPathAttrDestNetwork'), ['str'])),
+                    ('bgppathattrpeer', (YLeaf(YType.str, 'bgpPathAttrPeer'), ['str'])),
+                    ('bgppathattrorigin', (YLeaf(YType.enumeration, 'bgpPathAttrOrigin'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'BgpRcvdPathAttrTable.BgpPathAttrEntry.BgpPathAttrOrigin')])),
+                    ('bgppathattraspath', (YLeaf(YType.str, 'bgpPathAttrASPath'), ['str'])),
+                    ('bgppathattrnexthop', (YLeaf(YType.str, 'bgpPathAttrNextHop'), ['str'])),
+                    ('bgppathattrinterasmetric', (YLeaf(YType.int32, 'bgpPathAttrInterASMetric'), ['int'])),
                 ])
                 self.bgppathattrdestnetwork = None
                 self.bgppathattrpeer = None
@@ -724,9 +730,10 @@ class BGP4MIB(Entity):
                 self.bgppathattrinterasmetric = None
                 self._segment_path = lambda: "bgpPathAttrEntry" + "[bgpPathAttrDestNetwork='" + str(self.bgppathattrdestnetwork) + "']" + "[bgpPathAttrPeer='" + str(self.bgppathattrpeer) + "']"
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgpRcvdPathAttrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, ['bgppathattrdestnetwork', 'bgppathattrpeer', 'bgppathattrorigin', 'bgppathattraspath', 'bgppathattrnexthop', 'bgppathattrinterasmetric'], name, value)
+                self._perform_setattr(BGP4MIB.BgpRcvdPathAttrTable.BgpPathAttrEntry, [u'bgppathattrdestnetwork', u'bgppathattrpeer', u'bgppathattrorigin', u'bgppathattraspath', u'bgppathattrnexthop', u'bgppathattrinterasmetric'], name, value)
 
             class BgpPathAttrOrigin(Enum):
                 """
@@ -783,6 +790,7 @@ class BGP4MIB(Entity):
             self.bgp4pathattrentry = YList(self)
             self._segment_path = lambda: "bgp4PathAttrTable"
             self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BGP4MIB.Bgp4PathAttrTable, [], name, value)
@@ -901,20 +909,20 @@ class BGP4MIB(Entity):
                 self.ylist_key_names = ['bgp4pathattripaddrprefix','bgp4pathattripaddrprefixlen','bgp4pathattrpeer']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgp4pathattripaddrprefix', YLeaf(YType.str, 'bgp4PathAttrIpAddrPrefix')),
-                    ('bgp4pathattripaddrprefixlen', YLeaf(YType.int32, 'bgp4PathAttrIpAddrPrefixLen')),
-                    ('bgp4pathattrpeer', YLeaf(YType.str, 'bgp4PathAttrPeer')),
-                    ('bgp4pathattrorigin', YLeaf(YType.enumeration, 'bgp4PathAttrOrigin')),
-                    ('bgp4pathattraspathsegment', YLeaf(YType.str, 'bgp4PathAttrASPathSegment')),
-                    ('bgp4pathattrnexthop', YLeaf(YType.str, 'bgp4PathAttrNextHop')),
-                    ('bgp4pathattrmultiexitdisc', YLeaf(YType.int32, 'bgp4PathAttrMultiExitDisc')),
-                    ('bgp4pathattrlocalpref', YLeaf(YType.int32, 'bgp4PathAttrLocalPref')),
-                    ('bgp4pathattratomicaggregate', YLeaf(YType.enumeration, 'bgp4PathAttrAtomicAggregate')),
-                    ('bgp4pathattraggregatoras', YLeaf(YType.int32, 'bgp4PathAttrAggregatorAS')),
-                    ('bgp4pathattraggregatoraddr', YLeaf(YType.str, 'bgp4PathAttrAggregatorAddr')),
-                    ('bgp4pathattrcalclocalpref', YLeaf(YType.int32, 'bgp4PathAttrCalcLocalPref')),
-                    ('bgp4pathattrbest', YLeaf(YType.enumeration, 'bgp4PathAttrBest')),
-                    ('bgp4pathattrunknown', YLeaf(YType.str, 'bgp4PathAttrUnknown')),
+                    ('bgp4pathattripaddrprefix', (YLeaf(YType.str, 'bgp4PathAttrIpAddrPrefix'), ['str'])),
+                    ('bgp4pathattripaddrprefixlen', (YLeaf(YType.int32, 'bgp4PathAttrIpAddrPrefixLen'), ['int'])),
+                    ('bgp4pathattrpeer', (YLeaf(YType.str, 'bgp4PathAttrPeer'), ['str'])),
+                    ('bgp4pathattrorigin', (YLeaf(YType.enumeration, 'bgp4PathAttrOrigin'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrOrigin')])),
+                    ('bgp4pathattraspathsegment', (YLeaf(YType.str, 'bgp4PathAttrASPathSegment'), ['str'])),
+                    ('bgp4pathattrnexthop', (YLeaf(YType.str, 'bgp4PathAttrNextHop'), ['str'])),
+                    ('bgp4pathattrmultiexitdisc', (YLeaf(YType.int32, 'bgp4PathAttrMultiExitDisc'), ['int'])),
+                    ('bgp4pathattrlocalpref', (YLeaf(YType.int32, 'bgp4PathAttrLocalPref'), ['int'])),
+                    ('bgp4pathattratomicaggregate', (YLeaf(YType.enumeration, 'bgp4PathAttrAtomicAggregate'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrAtomicAggregate')])),
+                    ('bgp4pathattraggregatoras', (YLeaf(YType.int32, 'bgp4PathAttrAggregatorAS'), ['int'])),
+                    ('bgp4pathattraggregatoraddr', (YLeaf(YType.str, 'bgp4PathAttrAggregatorAddr'), ['str'])),
+                    ('bgp4pathattrcalclocalpref', (YLeaf(YType.int32, 'bgp4PathAttrCalcLocalPref'), ['int'])),
+                    ('bgp4pathattrbest', (YLeaf(YType.enumeration, 'bgp4PathAttrBest'), [('ydk.models.cisco_ios_xe.BGP4_MIB', 'BGP4MIB', 'Bgp4PathAttrTable.Bgp4PathAttrEntry.Bgp4PathAttrBest')])),
+                    ('bgp4pathattrunknown', (YLeaf(YType.str, 'bgp4PathAttrUnknown'), ['str'])),
                 ])
                 self.bgp4pathattripaddrprefix = None
                 self.bgp4pathattripaddrprefixlen = None
@@ -932,9 +940,10 @@ class BGP4MIB(Entity):
                 self.bgp4pathattrunknown = None
                 self._segment_path = lambda: "bgp4PathAttrEntry" + "[bgp4PathAttrIpAddrPrefix='" + str(self.bgp4pathattripaddrprefix) + "']" + "[bgp4PathAttrIpAddrPrefixLen='" + str(self.bgp4pathattripaddrprefixlen) + "']" + "[bgp4PathAttrPeer='" + str(self.bgp4pathattrpeer) + "']"
                 self._absolute_path = lambda: "BGP4-MIB:BGP4-MIB/bgp4PathAttrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, ['bgp4pathattripaddrprefix', 'bgp4pathattripaddrprefixlen', 'bgp4pathattrpeer', 'bgp4pathattrorigin', 'bgp4pathattraspathsegment', 'bgp4pathattrnexthop', 'bgp4pathattrmultiexitdisc', 'bgp4pathattrlocalpref', 'bgp4pathattratomicaggregate', 'bgp4pathattraggregatoras', 'bgp4pathattraggregatoraddr', 'bgp4pathattrcalclocalpref', 'bgp4pathattrbest', 'bgp4pathattrunknown'], name, value)
+                self._perform_setattr(BGP4MIB.Bgp4PathAttrTable.Bgp4PathAttrEntry, [u'bgp4pathattripaddrprefix', u'bgp4pathattripaddrprefixlen', u'bgp4pathattrpeer', u'bgp4pathattrorigin', u'bgp4pathattraspathsegment', u'bgp4pathattrnexthop', u'bgp4pathattrmultiexitdisc', u'bgp4pathattrlocalpref', u'bgp4pathattratomicaggregate', u'bgp4pathattraggregatoras', u'bgp4pathattraggregatoraddr', u'bgp4pathattrcalclocalpref', u'bgp4pathattrbest', u'bgp4pathattrunknown'], name, value)
 
             class Bgp4PathAttrAtomicAggregate(Enum):
                 """

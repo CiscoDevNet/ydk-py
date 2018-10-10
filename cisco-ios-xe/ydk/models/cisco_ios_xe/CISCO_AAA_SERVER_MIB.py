@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoAAAProtocol(Enum):
     """
     CiscoAAAProtocol (Enum Class)
@@ -109,6 +110,7 @@ class CISCOAAASERVERMIB(Entity):
         self.casconfigtable.parent = self
         self._children_name_map["casconfigtable"] = "casConfigTable"
         self._segment_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOAAASERVERMIB, [], name, value)
@@ -140,11 +142,12 @@ class CISCOAAASERVERMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('casserverstatechangeenable', YLeaf(YType.boolean, 'casServerStateChangeEnable')),
+                ('casserverstatechangeenable', (YLeaf(YType.boolean, 'casServerStateChangeEnable'), ['bool'])),
             ])
             self.casserverstatechangeenable = None
             self._segment_path = lambda: "casConfig"
             self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOAAASERVERMIB.CasConfig, ['casserverstatechangeenable'], name, value)
@@ -182,6 +185,7 @@ class CISCOAAASERVERMIB(Entity):
             self.casconfigentry = YList(self)
             self._segment_path = lambda: "casConfigTable"
             self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOAAASERVERMIB.CasConfigTable, [], name, value)
@@ -514,43 +518,43 @@ class CISCOAAASERVERMIB(Entity):
                 self.ylist_key_names = ['casprotocol','casindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('casprotocol', YLeaf(YType.enumeration, 'casProtocol')),
-                    ('casindex', YLeaf(YType.uint32, 'casIndex')),
-                    ('casaddress', YLeaf(YType.str, 'casAddress')),
-                    ('casauthenport', YLeaf(YType.int32, 'casAuthenPort')),
-                    ('casacctport', YLeaf(YType.int32, 'casAcctPort')),
-                    ('caskey', YLeaf(YType.str, 'casKey')),
-                    ('caspriority', YLeaf(YType.uint32, 'casPriority')),
-                    ('casconfigrowstatus', YLeaf(YType.enumeration, 'casConfigRowStatus')),
-                    ('casauthenrequests', YLeaf(YType.uint32, 'casAuthenRequests')),
-                    ('casauthenrequesttimeouts', YLeaf(YType.uint32, 'casAuthenRequestTimeouts')),
-                    ('casauthenunexpectedresponses', YLeaf(YType.uint32, 'casAuthenUnexpectedResponses')),
-                    ('casauthenservererrorresponses', YLeaf(YType.uint32, 'casAuthenServerErrorResponses')),
-                    ('casauthenincorrectresponses', YLeaf(YType.uint32, 'casAuthenIncorrectResponses')),
-                    ('casauthenresponsetime', YLeaf(YType.int32, 'casAuthenResponseTime')),
-                    ('casauthentransactionsuccesses', YLeaf(YType.uint32, 'casAuthenTransactionSuccesses')),
-                    ('casauthentransactionfailures', YLeaf(YType.uint32, 'casAuthenTransactionFailures')),
-                    ('casauthorrequests', YLeaf(YType.uint32, 'casAuthorRequests')),
-                    ('casauthorrequesttimeouts', YLeaf(YType.uint32, 'casAuthorRequestTimeouts')),
-                    ('casauthorunexpectedresponses', YLeaf(YType.uint32, 'casAuthorUnexpectedResponses')),
-                    ('casauthorservererrorresponses', YLeaf(YType.uint32, 'casAuthorServerErrorResponses')),
-                    ('casauthorincorrectresponses', YLeaf(YType.uint32, 'casAuthorIncorrectResponses')),
-                    ('casauthorresponsetime', YLeaf(YType.int32, 'casAuthorResponseTime')),
-                    ('casauthortransactionsuccesses', YLeaf(YType.uint32, 'casAuthorTransactionSuccesses')),
-                    ('casauthortransactionfailures', YLeaf(YType.uint32, 'casAuthorTransactionFailures')),
-                    ('casacctrequests', YLeaf(YType.uint32, 'casAcctRequests')),
-                    ('casacctrequesttimeouts', YLeaf(YType.uint32, 'casAcctRequestTimeouts')),
-                    ('casacctunexpectedresponses', YLeaf(YType.uint32, 'casAcctUnexpectedResponses')),
-                    ('casacctservererrorresponses', YLeaf(YType.uint32, 'casAcctServerErrorResponses')),
-                    ('casacctincorrectresponses', YLeaf(YType.uint32, 'casAcctIncorrectResponses')),
-                    ('casacctresponsetime', YLeaf(YType.int32, 'casAcctResponseTime')),
-                    ('casaccttransactionsuccesses', YLeaf(YType.uint32, 'casAcctTransactionSuccesses')),
-                    ('casaccttransactionfailures', YLeaf(YType.uint32, 'casAcctTransactionFailures')),
-                    ('casstate', YLeaf(YType.enumeration, 'casState')),
-                    ('cascurrentstateduration', YLeaf(YType.int32, 'casCurrentStateDuration')),
-                    ('caspreviousstateduration', YLeaf(YType.int32, 'casPreviousStateDuration')),
-                    ('castotaldeadtime', YLeaf(YType.int32, 'casTotalDeadTime')),
-                    ('casdeadcount', YLeaf(YType.uint32, 'casDeadCount')),
+                    ('casprotocol', (YLeaf(YType.enumeration, 'casProtocol'), [('ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB', 'CiscoAAAProtocol', '')])),
+                    ('casindex', (YLeaf(YType.uint32, 'casIndex'), ['int'])),
+                    ('casaddress', (YLeaf(YType.str, 'casAddress'), ['str'])),
+                    ('casauthenport', (YLeaf(YType.int32, 'casAuthenPort'), ['int'])),
+                    ('casacctport', (YLeaf(YType.int32, 'casAcctPort'), ['int'])),
+                    ('caskey', (YLeaf(YType.str, 'casKey'), ['str'])),
+                    ('caspriority', (YLeaf(YType.uint32, 'casPriority'), ['int'])),
+                    ('casconfigrowstatus', (YLeaf(YType.enumeration, 'casConfigRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('casauthenrequests', (YLeaf(YType.uint32, 'casAuthenRequests'), ['int'])),
+                    ('casauthenrequesttimeouts', (YLeaf(YType.uint32, 'casAuthenRequestTimeouts'), ['int'])),
+                    ('casauthenunexpectedresponses', (YLeaf(YType.uint32, 'casAuthenUnexpectedResponses'), ['int'])),
+                    ('casauthenservererrorresponses', (YLeaf(YType.uint32, 'casAuthenServerErrorResponses'), ['int'])),
+                    ('casauthenincorrectresponses', (YLeaf(YType.uint32, 'casAuthenIncorrectResponses'), ['int'])),
+                    ('casauthenresponsetime', (YLeaf(YType.int32, 'casAuthenResponseTime'), ['int'])),
+                    ('casauthentransactionsuccesses', (YLeaf(YType.uint32, 'casAuthenTransactionSuccesses'), ['int'])),
+                    ('casauthentransactionfailures', (YLeaf(YType.uint32, 'casAuthenTransactionFailures'), ['int'])),
+                    ('casauthorrequests', (YLeaf(YType.uint32, 'casAuthorRequests'), ['int'])),
+                    ('casauthorrequesttimeouts', (YLeaf(YType.uint32, 'casAuthorRequestTimeouts'), ['int'])),
+                    ('casauthorunexpectedresponses', (YLeaf(YType.uint32, 'casAuthorUnexpectedResponses'), ['int'])),
+                    ('casauthorservererrorresponses', (YLeaf(YType.uint32, 'casAuthorServerErrorResponses'), ['int'])),
+                    ('casauthorincorrectresponses', (YLeaf(YType.uint32, 'casAuthorIncorrectResponses'), ['int'])),
+                    ('casauthorresponsetime', (YLeaf(YType.int32, 'casAuthorResponseTime'), ['int'])),
+                    ('casauthortransactionsuccesses', (YLeaf(YType.uint32, 'casAuthorTransactionSuccesses'), ['int'])),
+                    ('casauthortransactionfailures', (YLeaf(YType.uint32, 'casAuthorTransactionFailures'), ['int'])),
+                    ('casacctrequests', (YLeaf(YType.uint32, 'casAcctRequests'), ['int'])),
+                    ('casacctrequesttimeouts', (YLeaf(YType.uint32, 'casAcctRequestTimeouts'), ['int'])),
+                    ('casacctunexpectedresponses', (YLeaf(YType.uint32, 'casAcctUnexpectedResponses'), ['int'])),
+                    ('casacctservererrorresponses', (YLeaf(YType.uint32, 'casAcctServerErrorResponses'), ['int'])),
+                    ('casacctincorrectresponses', (YLeaf(YType.uint32, 'casAcctIncorrectResponses'), ['int'])),
+                    ('casacctresponsetime', (YLeaf(YType.int32, 'casAcctResponseTime'), ['int'])),
+                    ('casaccttransactionsuccesses', (YLeaf(YType.uint32, 'casAcctTransactionSuccesses'), ['int'])),
+                    ('casaccttransactionfailures', (YLeaf(YType.uint32, 'casAcctTransactionFailures'), ['int'])),
+                    ('casstate', (YLeaf(YType.enumeration, 'casState'), [('ydk.models.cisco_ios_xe.CISCO_AAA_SERVER_MIB', 'CISCOAAASERVERMIB', 'CasConfigTable.CasConfigEntry.CasState')])),
+                    ('cascurrentstateduration', (YLeaf(YType.int32, 'casCurrentStateDuration'), ['int'])),
+                    ('caspreviousstateduration', (YLeaf(YType.int32, 'casPreviousStateDuration'), ['int'])),
+                    ('castotaldeadtime', (YLeaf(YType.int32, 'casTotalDeadTime'), ['int'])),
+                    ('casdeadcount', (YLeaf(YType.uint32, 'casDeadCount'), ['int'])),
                 ])
                 self.casprotocol = None
                 self.casindex = None
@@ -591,6 +595,7 @@ class CISCOAAASERVERMIB(Entity):
                 self.casdeadcount = None
                 self._segment_path = lambda: "casConfigEntry" + "[casProtocol='" + str(self.casprotocol) + "']" + "[casIndex='" + str(self.casindex) + "']"
                 self._absolute_path = lambda: "CISCO-AAA-SERVER-MIB:CISCO-AAA-SERVER-MIB/casConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOAAASERVERMIB.CasConfigTable.CasConfigEntry, ['casprotocol', 'casindex', 'casaddress', 'casauthenport', 'casacctport', 'caskey', 'caspriority', 'casconfigrowstatus', 'casauthenrequests', 'casauthenrequesttimeouts', 'casauthenunexpectedresponses', 'casauthenservererrorresponses', 'casauthenincorrectresponses', 'casauthenresponsetime', 'casauthentransactionsuccesses', 'casauthentransactionfailures', 'casauthorrequests', 'casauthorrequesttimeouts', 'casauthorunexpectedresponses', 'casauthorservererrorresponses', 'casauthorincorrectresponses', 'casauthorresponsetime', 'casauthortransactionsuccesses', 'casauthortransactionfailures', 'casacctrequests', 'casacctrequesttimeouts', 'casacctunexpectedresponses', 'casacctservererrorresponses', 'casacctincorrectresponses', 'casacctresponsetime', 'casaccttransactionsuccesses', 'casaccttransactionfailures', 'casstate', 'cascurrentstateduration', 'caspreviousstateduration', 'castotaldeadtime', 'casdeadcount'], name, value)

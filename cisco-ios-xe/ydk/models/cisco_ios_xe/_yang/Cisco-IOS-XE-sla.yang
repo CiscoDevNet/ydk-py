@@ -11,6 +11,10 @@ module Cisco-IOS-XE-sla {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-types {
+    prefix ios-types;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -24,12 +28,25 @@ module Cisco-IOS-XE-sla {
 
   description
     "Cisco XE Native Service Level Agreements (SLA) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added leafref for ip sla schedule entry-number";
+  }
+
+  revision 2018-04-11 {
+    description
+      "Add source-port, control and codec options for ip sla udp-jitter probe";
+  }
+  revision 2018-01-15 {
+    description
+      "Add ethernet case and its options under ip sla";
+  }
   revision 2017-08-31 {
     description
       "Add dependency between ip sla schedule and ip sla reaction configuration";
@@ -277,6 +294,32 @@ module Cisco-IOS-XE-sla {
       type string;
     }
   }
+
+  grouping ip-sla-ethernet-delay-grouping {
+    container aggregate {
+      description
+        "Aggregate parameters";
+      leaf interval {
+        description
+          "Specify interval period";
+        type uint32 {
+          range "1..65535";
+        }
+      }
+    }
+    container history {
+      description
+        "History parameters";
+      leaf interval {
+        description
+          "Specify number of intervals";
+        type uint8 {
+          range "1..10";
+        }
+      }
+    }
+
+  }//end grouping
 
   grouping config-ip-sla-grouping {
     container sla {
@@ -528,9 +571,10 @@ module Cisco-IOS-XE-sla {
                 "UDP jitter operation";
               leaf dest-addr {
                 description 
-                  "Hostname or A.B.C.D  Destination IP address or hostname";
+                  "Hostname or A.B.C.D/X:X:X:X::X  Destination IP/IPv6 address";
                 type union {
                   type inet:ip-address;
+                  type inet:ipv6-address;
                   type string;
                 }
               }
@@ -541,24 +585,82 @@ module Cisco-IOS-XE-sla {
                   range "1..65535";
                 }
               }
+              choice type-param {
+                case codec {
+                   leaf codec {
+                     description "codec type to be configured";
+                     type enumeration {
+                       enum "g711alaw" {
+                       }
+                       enum "g711ulaw" {
+                       }
+                       enum "g729a" {
+                       }
+                     }
+                   }
+                   leaf advantage-factor {
+                     description "Advantage Factor";
+                     type uint16 {
+                       range "0..20";
+                     }
+                   }
+                   leaf codec-interval {
+                     description "Inter Packet Interval";
+                     type uint32 {
+                       range "4..60000";
+                     }
+                   }
+                   leaf codec-numpackets {
+                     description "Number of Packets";
+                     type uint32 {
+                       range "1..60000";
+                     }
+                   }
+                   leaf codec-size {
+                     description "Number of Packets";
+                     type uint16 {
+                       range "16..16384";
+                     }
+                   }
+                }
+                case non-codec {
+                   leaf num-packets {
+                     description "Number of Packets (default 10)";
+                     type uint16 {
+                       range "1..60000";
+                     }
+                   }
+                   leaf interval {
+                     description "Delay (default 20)";
+                     type uint16 {
+                       range "4..60000";
+                     }
+                   }
+                }
+              }
               leaf source-ip {
                 description
-                  "Hostname or A.B.C.D  IP address or hostname, broadcast disallowed";
+                  "Hostname or A.B.C.D/X:X:X:X::X Source IP/IPv6 address";
                 type union {
                   type inet:ip-address;
+                  type inet:ipv6-address;
                   type string;
                 }
               }
-              leaf num-packets {
-                description "Number of Packets (default 10)";
+              leaf source-port {
+                description
+                  "Source port";
                 type uint16 {
-                  range "1..60000";
+                  range "1..65535";
                 }
               }
-              leaf interval {
-                description "Delay (default 20)";
-                type uint16 {
-                  range "4..60000";
+              leaf control {
+                description "Enable or disable control packets";
+                type enumeration {
+                  enum "enable" {
+                  }
+                  enum "disable" {
+                  }
                 }
               }
               uses ip-sla-udp-jitter-grouping;
@@ -679,6 +781,104 @@ module Cisco-IOS-XE-sla {
               }
             } //end ip sla dhcp            
           }//end dhcp-case
+
+          case ethernet-case {
+            container ethernet {
+              description
+                "Ethernet Operations";
+
+              container y1731 {
+                description
+                  "Y1731 Ethernet OAM Performance Measurement Operations";
+                container delay {
+                  description
+                    "Y1731 Delay and Delay Variation Operation";
+                  leaf name {
+                    description
+                      "Y1731 Delay option";
+                    type enumeration {
+                      enum "1DM";
+                      enum "DMM";
+                      enum "DMMv1";
+                    }
+                  }
+
+                  leaf burst {
+                    description
+                      "Enable bursting of delay frames";
+                    type empty;
+                  }
+
+                  leaf domain {
+                    description
+                      "Specify the Ethernet OAM domain";
+                    type string;
+                  }
+
+                  choice evc-or-vlan {
+                     leaf evc {
+                        description
+                          "Specify the Ethernet Virtual Circuit Identifier";
+                        type string;
+                     }
+                     leaf vlan {
+                       description
+                         "Specify the VLAN";
+                       type uint16 {
+                         range "1..4096";
+                       }
+                     }
+                  }//evc-or-vlan-choice
+
+                  choice mac-or-mpid {
+                    leaf mac-address {
+                      description
+                        "Specify the remote mac-address";
+                      type ios-types:cisco-mac-address-type;
+                    }
+                    leaf mpid {
+                      description
+                        "Specify the remote MPID";
+                      type uint16 {
+                        range "1..8191";
+                      }
+                    }
+                  }//mac-or-mpid
+
+                  leaf cos {
+                    description
+                      "Specify the Class of Service";
+                    type uint8 {
+                      range "0..7";
+                    }
+                  }
+
+                  container source {
+                    description
+                      "Specify the local MPID or MAC-Address";
+                    choice mac-or-mpid {
+                        leaf mac-address {
+                            description
+                              "Specify the local mac-address";
+                            type ios-types:cisco-mac-address-type;
+                        }
+                        leaf mpid {
+                          description
+                            "Specify the local MPID";
+                          type uint16 {
+                            range "1..8191";
+                          }
+                        }
+                    }
+                  }//source
+                }//delay
+              }//y1731
+
+              uses ip-sla-ethernet-delay-grouping;
+
+            }//ethernet
+          }//case
+
         } // end choice sla-param 
       } // end ip sla entry
 
@@ -827,7 +1027,9 @@ module Cisco-IOS-XE-sla {
           "Entry Scheduling";
         key "entry-number";
         leaf entry-number {
-          type uint32;
+	  type leafref {
+	    path "/ios:native/ios:ip/ios-sla:sla/ios-sla:entry/ios-sla:number";
+          }
         }
         leaf ageout {
           description

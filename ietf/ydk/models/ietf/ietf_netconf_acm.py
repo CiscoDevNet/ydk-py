@@ -24,6 +24,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class ActionType(Enum):
     """
     ActionType (Enum Class)
@@ -142,14 +143,14 @@ class Nacm(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("groups", ("groups", Nacm.Groups)), ("rule-list", ("rule_list", Nacm.RuleList))])
         self._leafs = OrderedDict([
-            ('enable_nacm', YLeaf(YType.boolean, 'enable-nacm')),
-            ('read_default', YLeaf(YType.enumeration, 'read-default')),
-            ('write_default', YLeaf(YType.enumeration, 'write-default')),
-            ('exec_default', YLeaf(YType.enumeration, 'exec-default')),
-            ('enable_external_groups', YLeaf(YType.boolean, 'enable-external-groups')),
-            ('denied_operations', YLeaf(YType.uint32, 'denied-operations')),
-            ('denied_data_writes', YLeaf(YType.uint32, 'denied-data-writes')),
-            ('denied_notifications', YLeaf(YType.uint32, 'denied-notifications')),
+            ('enable_nacm', (YLeaf(YType.boolean, 'enable-nacm'), ['bool'])),
+            ('read_default', (YLeaf(YType.enumeration, 'read-default'), [('ydk.models.ietf.ietf_netconf_acm', 'ActionType', '')])),
+            ('write_default', (YLeaf(YType.enumeration, 'write-default'), [('ydk.models.ietf.ietf_netconf_acm', 'ActionType', '')])),
+            ('exec_default', (YLeaf(YType.enumeration, 'exec-default'), [('ydk.models.ietf.ietf_netconf_acm', 'ActionType', '')])),
+            ('enable_external_groups', (YLeaf(YType.boolean, 'enable-external-groups'), ['bool'])),
+            ('denied_operations', (YLeaf(YType.uint32, 'denied-operations'), ['int'])),
+            ('denied_data_writes', (YLeaf(YType.uint32, 'denied-data-writes'), ['int'])),
+            ('denied_notifications', (YLeaf(YType.uint32, 'denied-notifications'), ['int'])),
         ])
         self.enable_nacm = None
         self.read_default = None
@@ -166,6 +167,7 @@ class Nacm(Entity):
 
         self.rule_list = YList(self)
         self._segment_path = lambda: "ietf-netconf-acm:nacm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Nacm, ['enable_nacm', 'read_default', 'write_default', 'exec_default', 'enable_external_groups', 'denied_operations', 'denied_data_writes', 'denied_notifications'], name, value)
@@ -201,6 +203,7 @@ class Nacm(Entity):
             self.group = YList(self)
             self._segment_path = lambda: "groups"
             self._absolute_path = lambda: "ietf-netconf-acm:nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Nacm.Groups, [], name, value)
@@ -243,13 +246,14 @@ class Nacm(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('user_name', YLeafList(YType.str, 'user-name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('user_name', (YLeafList(YType.str, 'user-name'), ['str'])),
                 ])
                 self.name = None
                 self.user_name = []
                 self._segment_path = lambda: "group" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-netconf-acm:nacm/groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.Groups.Group, ['name', 'user_name'], name, value)
@@ -301,8 +305,8 @@ class Nacm(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("rule", ("rule", Nacm.RuleList.Rule))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('group', YLeafList(YType.str, 'group')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('group', (YLeafList(YType.str, 'group'), ['str','str'])),
             ])
             self.name = None
             self.group = []
@@ -310,6 +314,7 @@ class Nacm(Entity):
             self.rule = YList(self)
             self._segment_path = lambda: "rule-list" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-netconf-acm:nacm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Nacm.RuleList, ['name', 'group'], name, value)
@@ -416,14 +421,14 @@ class Nacm(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('module_name', YLeaf(YType.str, 'module-name')),
-                    ('rpc_name', YLeaf(YType.str, 'rpc-name')),
-                    ('notification_name', YLeaf(YType.str, 'notification-name')),
-                    ('path', YLeaf(YType.str, 'path')),
-                    ('access_operations', YLeaf(YType.str, 'access-operations')),
-                    ('action', YLeaf(YType.enumeration, 'action')),
-                    ('comment', YLeaf(YType.str, 'comment')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('module_name', (YLeaf(YType.str, 'module-name'), ['str','str'])),
+                    ('rpc_name', (YLeaf(YType.str, 'rpc-name'), ['str','str'])),
+                    ('notification_name', (YLeaf(YType.str, 'notification-name'), ['str','str'])),
+                    ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                    ('access_operations', (YLeaf(YType.str, 'access-operations'), ['str','Bits'])),
+                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.ietf.ietf_netconf_acm', 'ActionType', '')])),
+                    ('comment', (YLeaf(YType.str, 'comment'), ['str'])),
                 ])
                 self.name = None
                 self.module_name = None
@@ -434,6 +439,7 @@ class Nacm(Entity):
                 self.action = None
                 self.comment = None
                 self._segment_path = lambda: "rule" + "[name='" + str(self.name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Nacm.RuleList.Rule, ['name', 'module_name', 'rpc_name', 'notification_name', 'path', 'access_operations', 'action', 'comment'], name, value)

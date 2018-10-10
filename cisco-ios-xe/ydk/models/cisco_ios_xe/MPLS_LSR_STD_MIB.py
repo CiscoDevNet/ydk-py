@@ -22,6 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MPLSLSRSTDMIB(Entity):
     """
     
@@ -108,6 +109,7 @@ class MPLSLSRSTDMIB(Entity):
         self.mplsinsegmentmaptable.parent = self
         self._children_name_map["mplsinsegmentmaptable"] = "mplsInSegmentMapTable"
         self._segment_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MPLSLSRSTDMIB, [], name, value)
@@ -174,12 +176,12 @@ class MPLSLSRSTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsinsegmentindexnext', YLeaf(YType.str, 'mplsInSegmentIndexNext')),
-                ('mplsoutsegmentindexnext', YLeaf(YType.str, 'mplsOutSegmentIndexNext')),
-                ('mplsxcindexnext', YLeaf(YType.str, 'mplsXCIndexNext')),
-                ('mplsmaxlabelstackdepth', YLeaf(YType.uint32, 'mplsMaxLabelStackDepth')),
-                ('mplslabelstackindexnext', YLeaf(YType.str, 'mplsLabelStackIndexNext')),
-                ('mplsxcnotificationsenable', YLeaf(YType.boolean, 'mplsXCNotificationsEnable')),
+                ('mplsinsegmentindexnext', (YLeaf(YType.str, 'mplsInSegmentIndexNext'), ['str'])),
+                ('mplsoutsegmentindexnext', (YLeaf(YType.str, 'mplsOutSegmentIndexNext'), ['str'])),
+                ('mplsxcindexnext', (YLeaf(YType.str, 'mplsXCIndexNext'), ['str'])),
+                ('mplsmaxlabelstackdepth', (YLeaf(YType.uint32, 'mplsMaxLabelStackDepth'), ['int'])),
+                ('mplslabelstackindexnext', (YLeaf(YType.str, 'mplsLabelStackIndexNext'), ['str'])),
+                ('mplsxcnotificationsenable', (YLeaf(YType.boolean, 'mplsXCNotificationsEnable'), ['bool'])),
             ])
             self.mplsinsegmentindexnext = None
             self.mplsoutsegmentindexnext = None
@@ -189,6 +191,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsxcnotificationsenable = None
             self._segment_path = lambda: "mplsLsrObjects"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsLsrObjects, [u'mplsinsegmentindexnext', u'mplsoutsegmentindexnext', u'mplsxcindexnext', u'mplsmaxlabelstackdepth', u'mplslabelstackindexnext', u'mplsxcnotificationsenable'], name, value)
@@ -225,6 +228,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsinterfaceentry = YList(self)
             self._segment_path = lambda: "mplsInterfaceTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable, [], name, value)
@@ -359,18 +363,18 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplsinterfaceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsinterfaceindex', YLeaf(YType.int32, 'mplsInterfaceIndex')),
-                    ('mplsinterfacelabelminin', YLeaf(YType.uint32, 'mplsInterfaceLabelMinIn')),
-                    ('mplsinterfacelabelmaxin', YLeaf(YType.uint32, 'mplsInterfaceLabelMaxIn')),
-                    ('mplsinterfacelabelminout', YLeaf(YType.uint32, 'mplsInterfaceLabelMinOut')),
-                    ('mplsinterfacelabelmaxout', YLeaf(YType.uint32, 'mplsInterfaceLabelMaxOut')),
-                    ('mplsinterfacetotalbandwidth', YLeaf(YType.uint32, 'mplsInterfaceTotalBandwidth')),
-                    ('mplsinterfaceavailablebandwidth', YLeaf(YType.uint32, 'mplsInterfaceAvailableBandwidth')),
-                    ('mplsinterfacelabelparticipationtype', YLeaf(YType.bits, 'mplsInterfaceLabelParticipationType')),
-                    ('mplsinterfaceperfinlabelsinuse', YLeaf(YType.uint32, 'mplsInterfacePerfInLabelsInUse')),
-                    ('mplsinterfaceperfinlabellookupfailures', YLeaf(YType.uint32, 'mplsInterfacePerfInLabelLookupFailures')),
-                    ('mplsinterfaceperfoutlabelsinuse', YLeaf(YType.uint32, 'mplsInterfacePerfOutLabelsInUse')),
-                    ('mplsinterfaceperfoutfragmentedpkts', YLeaf(YType.uint32, 'mplsInterfacePerfOutFragmentedPkts')),
+                    ('mplsinterfaceindex', (YLeaf(YType.int32, 'mplsInterfaceIndex'), ['int'])),
+                    ('mplsinterfacelabelminin', (YLeaf(YType.uint32, 'mplsInterfaceLabelMinIn'), ['int'])),
+                    ('mplsinterfacelabelmaxin', (YLeaf(YType.uint32, 'mplsInterfaceLabelMaxIn'), ['int'])),
+                    ('mplsinterfacelabelminout', (YLeaf(YType.uint32, 'mplsInterfaceLabelMinOut'), ['int'])),
+                    ('mplsinterfacelabelmaxout', (YLeaf(YType.uint32, 'mplsInterfaceLabelMaxOut'), ['int'])),
+                    ('mplsinterfacetotalbandwidth', (YLeaf(YType.uint32, 'mplsInterfaceTotalBandwidth'), ['int'])),
+                    ('mplsinterfaceavailablebandwidth', (YLeaf(YType.uint32, 'mplsInterfaceAvailableBandwidth'), ['int'])),
+                    ('mplsinterfacelabelparticipationtype', (YLeaf(YType.bits, 'mplsInterfaceLabelParticipationType'), ['Bits'])),
+                    ('mplsinterfaceperfinlabelsinuse', (YLeaf(YType.uint32, 'mplsInterfacePerfInLabelsInUse'), ['int'])),
+                    ('mplsinterfaceperfinlabellookupfailures', (YLeaf(YType.uint32, 'mplsInterfacePerfInLabelLookupFailures'), ['int'])),
+                    ('mplsinterfaceperfoutlabelsinuse', (YLeaf(YType.uint32, 'mplsInterfacePerfOutLabelsInUse'), ['int'])),
+                    ('mplsinterfaceperfoutfragmentedpkts', (YLeaf(YType.uint32, 'mplsInterfacePerfOutFragmentedPkts'), ['int'])),
                 ])
                 self.mplsinterfaceindex = None
                 self.mplsinterfacelabelminin = None
@@ -386,6 +390,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplsinterfaceperfoutfragmentedpkts = None
                 self._segment_path = lambda: "mplsInterfaceEntry" + "[mplsInterfaceIndex='" + str(self.mplsinterfaceindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsInterfaceTable.MplsInterfaceEntry, [u'mplsinterfaceindex', u'mplsinterfacelabelminin', u'mplsinterfacelabelmaxin', u'mplsinterfacelabelminout', u'mplsinterfacelabelmaxout', u'mplsinterfacetotalbandwidth', u'mplsinterfaceavailablebandwidth', u'mplsinterfacelabelparticipationtype', u'mplsinterfaceperfinlabelsinuse', u'mplsinterfaceperfinlabellookupfailures', u'mplsinterfaceperfoutlabelsinuse', u'mplsinterfaceperfoutfragmentedpkts'], name, value)
@@ -444,6 +449,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsinsegmententry = YList(self)
             self._segment_path = lambda: "mplsInSegmentTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable, [], name, value)
@@ -592,23 +598,23 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplsinsegmentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsinsegmentindex', YLeaf(YType.str, 'mplsInSegmentIndex')),
-                    ('mplsinsegmentinterface', YLeaf(YType.int32, 'mplsInSegmentInterface')),
-                    ('mplsinsegmentlabel', YLeaf(YType.uint32, 'mplsInSegmentLabel')),
-                    ('mplsinsegmentlabelptr', YLeaf(YType.str, 'mplsInSegmentLabelPtr')),
-                    ('mplsinsegmentnpop', YLeaf(YType.int32, 'mplsInSegmentNPop')),
-                    ('mplsinsegmentaddrfamily', YLeaf(YType.enumeration, 'mplsInSegmentAddrFamily')),
-                    ('mplsinsegmentxcindex', YLeaf(YType.str, 'mplsInSegmentXCIndex')),
-                    ('mplsinsegmentowner', YLeaf(YType.enumeration, 'mplsInSegmentOwner')),
-                    ('mplsinsegmenttrafficparamptr', YLeaf(YType.str, 'mplsInSegmentTrafficParamPtr')),
-                    ('mplsinsegmentrowstatus', YLeaf(YType.enumeration, 'mplsInSegmentRowStatus')),
-                    ('mplsinsegmentstoragetype', YLeaf(YType.enumeration, 'mplsInSegmentStorageType')),
-                    ('mplsinsegmentperfoctets', YLeaf(YType.uint32, 'mplsInSegmentPerfOctets')),
-                    ('mplsinsegmentperfpackets', YLeaf(YType.uint32, 'mplsInSegmentPerfPackets')),
-                    ('mplsinsegmentperferrors', YLeaf(YType.uint32, 'mplsInSegmentPerfErrors')),
-                    ('mplsinsegmentperfdiscards', YLeaf(YType.uint32, 'mplsInSegmentPerfDiscards')),
-                    ('mplsinsegmentperfhcoctets', YLeaf(YType.uint64, 'mplsInSegmentPerfHCOctets')),
-                    ('mplsinsegmentperfdiscontinuitytime', YLeaf(YType.uint32, 'mplsInSegmentPerfDiscontinuityTime')),
+                    ('mplsinsegmentindex', (YLeaf(YType.str, 'mplsInSegmentIndex'), ['str'])),
+                    ('mplsinsegmentinterface', (YLeaf(YType.int32, 'mplsInSegmentInterface'), ['int'])),
+                    ('mplsinsegmentlabel', (YLeaf(YType.uint32, 'mplsInSegmentLabel'), ['int'])),
+                    ('mplsinsegmentlabelptr', (YLeaf(YType.str, 'mplsInSegmentLabelPtr'), ['str'])),
+                    ('mplsinsegmentnpop', (YLeaf(YType.int32, 'mplsInSegmentNPop'), ['int'])),
+                    ('mplsinsegmentaddrfamily', (YLeaf(YType.enumeration, 'mplsInSegmentAddrFamily'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('mplsinsegmentxcindex', (YLeaf(YType.str, 'mplsInSegmentXCIndex'), ['str'])),
+                    ('mplsinsegmentowner', (YLeaf(YType.enumeration, 'mplsInSegmentOwner'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsOwner', '')])),
+                    ('mplsinsegmenttrafficparamptr', (YLeaf(YType.str, 'mplsInSegmentTrafficParamPtr'), ['str'])),
+                    ('mplsinsegmentrowstatus', (YLeaf(YType.enumeration, 'mplsInSegmentRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsinsegmentstoragetype', (YLeaf(YType.enumeration, 'mplsInSegmentStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsinsegmentperfoctets', (YLeaf(YType.uint32, 'mplsInSegmentPerfOctets'), ['int'])),
+                    ('mplsinsegmentperfpackets', (YLeaf(YType.uint32, 'mplsInSegmentPerfPackets'), ['int'])),
+                    ('mplsinsegmentperferrors', (YLeaf(YType.uint32, 'mplsInSegmentPerfErrors'), ['int'])),
+                    ('mplsinsegmentperfdiscards', (YLeaf(YType.uint32, 'mplsInSegmentPerfDiscards'), ['int'])),
+                    ('mplsinsegmentperfhcoctets', (YLeaf(YType.uint64, 'mplsInSegmentPerfHCOctets'), ['int'])),
+                    ('mplsinsegmentperfdiscontinuitytime', (YLeaf(YType.uint32, 'mplsInSegmentPerfDiscontinuityTime'), ['int'])),
                 ])
                 self.mplsinsegmentindex = None
                 self.mplsinsegmentinterface = None
@@ -629,6 +635,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplsinsegmentperfdiscontinuitytime = None
                 self._segment_path = lambda: "mplsInSegmentEntry" + "[mplsInSegmentIndex='" + str(self.mplsinsegmentindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentTable.MplsInSegmentEntry, [u'mplsinsegmentindex', u'mplsinsegmentinterface', u'mplsinsegmentlabel', u'mplsinsegmentlabelptr', u'mplsinsegmentnpop', u'mplsinsegmentaddrfamily', u'mplsinsegmentxcindex', u'mplsinsegmentowner', u'mplsinsegmenttrafficparamptr', u'mplsinsegmentrowstatus', u'mplsinsegmentstoragetype', u'mplsinsegmentperfoctets', u'mplsinsegmentperfpackets', u'mplsinsegmentperferrors', u'mplsinsegmentperfdiscards', u'mplsinsegmentperfhcoctets', u'mplsinsegmentperfdiscontinuitytime'], name, value)
@@ -665,6 +672,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsoutsegmententry = YList(self)
             self._segment_path = lambda: "mplsOutSegmentTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable, [], name, value)
@@ -827,24 +835,24 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplsoutsegmentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsoutsegmentindex', YLeaf(YType.str, 'mplsOutSegmentIndex')),
-                    ('mplsoutsegmentinterface', YLeaf(YType.int32, 'mplsOutSegmentInterface')),
-                    ('mplsoutsegmentpushtoplabel', YLeaf(YType.boolean, 'mplsOutSegmentPushTopLabel')),
-                    ('mplsoutsegmenttoplabel', YLeaf(YType.uint32, 'mplsOutSegmentTopLabel')),
-                    ('mplsoutsegmenttoplabelptr', YLeaf(YType.str, 'mplsOutSegmentTopLabelPtr')),
-                    ('mplsoutsegmentnexthopaddrtype', YLeaf(YType.enumeration, 'mplsOutSegmentNextHopAddrType')),
-                    ('mplsoutsegmentnexthopaddr', YLeaf(YType.str, 'mplsOutSegmentNextHopAddr')),
-                    ('mplsoutsegmentxcindex', YLeaf(YType.str, 'mplsOutSegmentXCIndex')),
-                    ('mplsoutsegmentowner', YLeaf(YType.enumeration, 'mplsOutSegmentOwner')),
-                    ('mplsoutsegmenttrafficparamptr', YLeaf(YType.str, 'mplsOutSegmentTrafficParamPtr')),
-                    ('mplsoutsegmentrowstatus', YLeaf(YType.enumeration, 'mplsOutSegmentRowStatus')),
-                    ('mplsoutsegmentstoragetype', YLeaf(YType.enumeration, 'mplsOutSegmentStorageType')),
-                    ('mplsoutsegmentperfoctets', YLeaf(YType.uint32, 'mplsOutSegmentPerfOctets')),
-                    ('mplsoutsegmentperfpackets', YLeaf(YType.uint32, 'mplsOutSegmentPerfPackets')),
-                    ('mplsoutsegmentperferrors', YLeaf(YType.uint32, 'mplsOutSegmentPerfErrors')),
-                    ('mplsoutsegmentperfdiscards', YLeaf(YType.uint32, 'mplsOutSegmentPerfDiscards')),
-                    ('mplsoutsegmentperfhcoctets', YLeaf(YType.uint64, 'mplsOutSegmentPerfHCOctets')),
-                    ('mplsoutsegmentperfdiscontinuitytime', YLeaf(YType.uint32, 'mplsOutSegmentPerfDiscontinuityTime')),
+                    ('mplsoutsegmentindex', (YLeaf(YType.str, 'mplsOutSegmentIndex'), ['str'])),
+                    ('mplsoutsegmentinterface', (YLeaf(YType.int32, 'mplsOutSegmentInterface'), ['int'])),
+                    ('mplsoutsegmentpushtoplabel', (YLeaf(YType.boolean, 'mplsOutSegmentPushTopLabel'), ['bool'])),
+                    ('mplsoutsegmenttoplabel', (YLeaf(YType.uint32, 'mplsOutSegmentTopLabel'), ['int'])),
+                    ('mplsoutsegmenttoplabelptr', (YLeaf(YType.str, 'mplsOutSegmentTopLabelPtr'), ['str'])),
+                    ('mplsoutsegmentnexthopaddrtype', (YLeaf(YType.enumeration, 'mplsOutSegmentNextHopAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsoutsegmentnexthopaddr', (YLeaf(YType.str, 'mplsOutSegmentNextHopAddr'), ['str'])),
+                    ('mplsoutsegmentxcindex', (YLeaf(YType.str, 'mplsOutSegmentXCIndex'), ['str'])),
+                    ('mplsoutsegmentowner', (YLeaf(YType.enumeration, 'mplsOutSegmentOwner'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsOwner', '')])),
+                    ('mplsoutsegmenttrafficparamptr', (YLeaf(YType.str, 'mplsOutSegmentTrafficParamPtr'), ['str'])),
+                    ('mplsoutsegmentrowstatus', (YLeaf(YType.enumeration, 'mplsOutSegmentRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsoutsegmentstoragetype', (YLeaf(YType.enumeration, 'mplsOutSegmentStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsoutsegmentperfoctets', (YLeaf(YType.uint32, 'mplsOutSegmentPerfOctets'), ['int'])),
+                    ('mplsoutsegmentperfpackets', (YLeaf(YType.uint32, 'mplsOutSegmentPerfPackets'), ['int'])),
+                    ('mplsoutsegmentperferrors', (YLeaf(YType.uint32, 'mplsOutSegmentPerfErrors'), ['int'])),
+                    ('mplsoutsegmentperfdiscards', (YLeaf(YType.uint32, 'mplsOutSegmentPerfDiscards'), ['int'])),
+                    ('mplsoutsegmentperfhcoctets', (YLeaf(YType.uint64, 'mplsOutSegmentPerfHCOctets'), ['int'])),
+                    ('mplsoutsegmentperfdiscontinuitytime', (YLeaf(YType.uint32, 'mplsOutSegmentPerfDiscontinuityTime'), ['int'])),
                 ])
                 self.mplsoutsegmentindex = None
                 self.mplsoutsegmentinterface = None
@@ -866,6 +874,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplsoutsegmentperfdiscontinuitytime = None
                 self._segment_path = lambda: "mplsOutSegmentEntry" + "[mplsOutSegmentIndex='" + str(self.mplsoutsegmentindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsOutSegmentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsOutSegmentTable.MplsOutSegmentEntry, [u'mplsoutsegmentindex', u'mplsoutsegmentinterface', u'mplsoutsegmentpushtoplabel', u'mplsoutsegmenttoplabel', u'mplsoutsegmenttoplabelptr', u'mplsoutsegmentnexthopaddrtype', u'mplsoutsegmentnexthopaddr', u'mplsoutsegmentxcindex', u'mplsoutsegmentowner', u'mplsoutsegmenttrafficparamptr', u'mplsoutsegmentrowstatus', u'mplsoutsegmentstoragetype', u'mplsoutsegmentperfoctets', u'mplsoutsegmentperfpackets', u'mplsoutsegmentperferrors', u'mplsoutsegmentperfdiscards', u'mplsoutsegmentperfhcoctets', u'mplsoutsegmentperfdiscontinuitytime'], name, value)
@@ -906,6 +915,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsxcentry = YList(self)
             self._segment_path = lambda: "mplsXCTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable, [], name, value)
@@ -1028,16 +1038,16 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplsxcindex','mplsxcinsegmentindex','mplsxcoutsegmentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsxcindex', YLeaf(YType.str, 'mplsXCIndex')),
-                    ('mplsxcinsegmentindex', YLeaf(YType.str, 'mplsXCInSegmentIndex')),
-                    ('mplsxcoutsegmentindex', YLeaf(YType.str, 'mplsXCOutSegmentIndex')),
-                    ('mplsxclspid', YLeaf(YType.str, 'mplsXCLspId')),
-                    ('mplsxclabelstackindex', YLeaf(YType.str, 'mplsXCLabelStackIndex')),
-                    ('mplsxcowner', YLeaf(YType.enumeration, 'mplsXCOwner')),
-                    ('mplsxcrowstatus', YLeaf(YType.enumeration, 'mplsXCRowStatus')),
-                    ('mplsxcstoragetype', YLeaf(YType.enumeration, 'mplsXCStorageType')),
-                    ('mplsxcadminstatus', YLeaf(YType.enumeration, 'mplsXCAdminStatus')),
-                    ('mplsxcoperstatus', YLeaf(YType.enumeration, 'mplsXCOperStatus')),
+                    ('mplsxcindex', (YLeaf(YType.str, 'mplsXCIndex'), ['str'])),
+                    ('mplsxcinsegmentindex', (YLeaf(YType.str, 'mplsXCInSegmentIndex'), ['str'])),
+                    ('mplsxcoutsegmentindex', (YLeaf(YType.str, 'mplsXCOutSegmentIndex'), ['str'])),
+                    ('mplsxclspid', (YLeaf(YType.str, 'mplsXCLspId'), ['str'])),
+                    ('mplsxclabelstackindex', (YLeaf(YType.str, 'mplsXCLabelStackIndex'), ['str'])),
+                    ('mplsxcowner', (YLeaf(YType.enumeration, 'mplsXCOwner'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsOwner', '')])),
+                    ('mplsxcrowstatus', (YLeaf(YType.enumeration, 'mplsXCRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsxcstoragetype', (YLeaf(YType.enumeration, 'mplsXCStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsxcadminstatus', (YLeaf(YType.enumeration, 'mplsXCAdminStatus'), [('ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB', 'MPLSLSRSTDMIB', 'MplsXCTable.MplsXCEntry.MplsXCAdminStatus')])),
+                    ('mplsxcoperstatus', (YLeaf(YType.enumeration, 'mplsXCOperStatus'), [('ydk.models.cisco_ios_xe.MPLS_LSR_STD_MIB', 'MPLSLSRSTDMIB', 'MplsXCTable.MplsXCEntry.MplsXCOperStatus')])),
                 ])
                 self.mplsxcindex = None
                 self.mplsxcinsegmentindex = None
@@ -1051,6 +1061,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplsxcoperstatus = None
                 self._segment_path = lambda: "mplsXCEntry" + "[mplsXCIndex='" + str(self.mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + str(self.mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + str(self.mplsxcoutsegmentindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsXCTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsXCTable.MplsXCEntry, [u'mplsxcindex', u'mplsxcinsegmentindex', u'mplsxcoutsegmentindex', u'mplsxclspid', u'mplsxclabelstackindex', u'mplsxcowner', u'mplsxcrowstatus', u'mplsxcstoragetype', u'mplsxcadminstatus', u'mplsxcoperstatus'], name, value)
@@ -1148,6 +1159,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplslabelstackentry = YList(self)
             self._segment_path = lambda: "mplsLabelStackTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable, [], name, value)
@@ -1216,12 +1228,12 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplslabelstackindex','mplslabelstacklabelindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplslabelstackindex', YLeaf(YType.str, 'mplsLabelStackIndex')),
-                    ('mplslabelstacklabelindex', YLeaf(YType.uint32, 'mplsLabelStackLabelIndex')),
-                    ('mplslabelstacklabel', YLeaf(YType.uint32, 'mplsLabelStackLabel')),
-                    ('mplslabelstacklabelptr', YLeaf(YType.str, 'mplsLabelStackLabelPtr')),
-                    ('mplslabelstackrowstatus', YLeaf(YType.enumeration, 'mplsLabelStackRowStatus')),
-                    ('mplslabelstackstoragetype', YLeaf(YType.enumeration, 'mplsLabelStackStorageType')),
+                    ('mplslabelstackindex', (YLeaf(YType.str, 'mplsLabelStackIndex'), ['str'])),
+                    ('mplslabelstacklabelindex', (YLeaf(YType.uint32, 'mplsLabelStackLabelIndex'), ['int'])),
+                    ('mplslabelstacklabel', (YLeaf(YType.uint32, 'mplsLabelStackLabel'), ['int'])),
+                    ('mplslabelstacklabelptr', (YLeaf(YType.str, 'mplsLabelStackLabelPtr'), ['str'])),
+                    ('mplslabelstackrowstatus', (YLeaf(YType.enumeration, 'mplsLabelStackRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplslabelstackstoragetype', (YLeaf(YType.enumeration, 'mplsLabelStackStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplslabelstackindex = None
                 self.mplslabelstacklabelindex = None
@@ -1231,6 +1243,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplslabelstackstoragetype = None
                 self._segment_path = lambda: "mplsLabelStackEntry" + "[mplsLabelStackIndex='" + str(self.mplslabelstackindex) + "']" + "[mplsLabelStackLabelIndex='" + str(self.mplslabelstacklabelindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsLabelStackTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsLabelStackTable.MplsLabelStackEntry, [u'mplslabelstackindex', u'mplslabelstacklabelindex', u'mplslabelstacklabel', u'mplslabelstacklabelptr', u'mplslabelstackrowstatus', u'mplslabelstackstoragetype'], name, value)
@@ -1271,6 +1284,7 @@ class MPLSLSRSTDMIB(Entity):
             self.mplsinsegmentmapentry = YList(self)
             self._segment_path = lambda: "mplsInSegmentMapTable"
             self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable, [], name, value)
@@ -1342,10 +1356,10 @@ class MPLSLSRSTDMIB(Entity):
                 self.ylist_key_names = ['mplsinsegmentmapinterface','mplsinsegmentmaplabel','mplsinsegmentmaplabelptrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsinsegmentmapinterface', YLeaf(YType.int32, 'mplsInSegmentMapInterface')),
-                    ('mplsinsegmentmaplabel', YLeaf(YType.uint32, 'mplsInSegmentMapLabel')),
-                    ('mplsinsegmentmaplabelptrindex', YLeaf(YType.str, 'mplsInSegmentMapLabelPtrIndex')),
-                    ('mplsinsegmentmapindex', YLeaf(YType.str, 'mplsInSegmentMapIndex')),
+                    ('mplsinsegmentmapinterface', (YLeaf(YType.int32, 'mplsInSegmentMapInterface'), ['int'])),
+                    ('mplsinsegmentmaplabel', (YLeaf(YType.uint32, 'mplsInSegmentMapLabel'), ['int'])),
+                    ('mplsinsegmentmaplabelptrindex', (YLeaf(YType.str, 'mplsInSegmentMapLabelPtrIndex'), ['str'])),
+                    ('mplsinsegmentmapindex', (YLeaf(YType.str, 'mplsInSegmentMapIndex'), ['str'])),
                 ])
                 self.mplsinsegmentmapinterface = None
                 self.mplsinsegmentmaplabel = None
@@ -1353,6 +1367,7 @@ class MPLSLSRSTDMIB(Entity):
                 self.mplsinsegmentmapindex = None
                 self._segment_path = lambda: "mplsInSegmentMapEntry" + "[mplsInSegmentMapInterface='" + str(self.mplsinsegmentmapinterface) + "']" + "[mplsInSegmentMapLabel='" + str(self.mplsinsegmentmaplabel) + "']" + "[mplsInSegmentMapLabelPtrIndex='" + str(self.mplsinsegmentmaplabelptrindex) + "']"
                 self._absolute_path = lambda: "MPLS-LSR-STD-MIB:MPLS-LSR-STD-MIB/mplsInSegmentMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLSRSTDMIB.MplsInSegmentMapTable.MplsInSegmentMapEntry, [u'mplsinsegmentmapinterface', u'mplsinsegmentmaplabel', u'mplsinsegmentmaplabelptrindex', u'mplsinsegmentmapindex'], name, value)

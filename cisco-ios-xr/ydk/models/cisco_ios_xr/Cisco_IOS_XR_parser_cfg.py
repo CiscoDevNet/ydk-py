@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   parser\: Parser configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -133,6 +134,7 @@ class Parser(Entity):
         self.submode_exit.parent = self
         self._children_name_map["submode_exit"] = "submode-exit"
         self._segment_path = lambda: "Cisco-IOS-XR-parser-cfg:parser"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Parser, [], name, value)
@@ -164,11 +166,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('indentation_disable', YLeaf(YType.boolean, 'indentation-disable')),
+                ('indentation_disable', (YLeaf(YType.boolean, 'indentation-disable'), ['bool'])),
             ])
             self.indentation_disable = None
             self._segment_path = lambda: "indentation"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Indentation, ['indentation_disable'], name, value)
@@ -224,6 +227,7 @@ class Parser(Entity):
             self._children_name_map["alls"] = "alls"
             self._segment_path = lambda: "alias"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Alias, [], name, value)
@@ -259,6 +263,7 @@ class Parser(Entity):
                 self.exec_ = YList(self)
                 self._segment_path = lambda: "execs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Parser.Alias.Execs, [], name, value)
@@ -299,13 +304,14 @@ class Parser(Entity):
                     self.ylist_key_names = ['identifier']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('identifier', YLeaf(YType.str, 'identifier')),
-                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                        ('identifier', (YLeaf(YType.str, 'identifier'), ['str'])),
+                        ('identifier_xr', (YLeaf(YType.str, 'identifier-xr'), ['str'])),
                     ])
                     self.identifier = None
                     self.identifier_xr = None
                     self._segment_path = lambda: "exec" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/execs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Execs.Exec, ['identifier', 'identifier_xr'], name, value)
@@ -341,6 +347,7 @@ class Parser(Entity):
                 self.configuration = YList(self)
                 self._segment_path = lambda: "configurations"
                 self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Parser.Alias.Configurations, [], name, value)
@@ -381,13 +388,14 @@ class Parser(Entity):
                     self.ylist_key_names = ['identifier']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('identifier', YLeaf(YType.str, 'identifier')),
-                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                        ('identifier', (YLeaf(YType.str, 'identifier'), ['str'])),
+                        ('identifier_xr', (YLeaf(YType.str, 'identifier-xr'), ['str'])),
                     ])
                     self.identifier = None
                     self.identifier_xr = None
                     self._segment_path = lambda: "configuration" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/configurations/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Configurations.Configuration, ['identifier', 'identifier_xr'], name, value)
@@ -423,6 +431,7 @@ class Parser(Entity):
                 self.all = YList(self)
                 self._segment_path = lambda: "alls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Parser.Alias.Alls, [], name, value)
@@ -463,13 +472,14 @@ class Parser(Entity):
                     self.ylist_key_names = ['identifier']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('identifier', YLeaf(YType.str, 'identifier')),
-                        ('identifier_xr', YLeaf(YType.str, 'identifier-xr')),
+                        ('identifier', (YLeaf(YType.str, 'identifier'), ['str'])),
+                        ('identifier_xr', (YLeaf(YType.str, 'identifier-xr'), ['str'])),
                     ])
                     self.identifier = None
                     self.identifier_xr = None
                     self._segment_path = lambda: "all" + "[identifier='" + str(self.identifier) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/alias/alls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Parser.Alias.Alls.All, ['identifier', 'identifier_xr'], name, value)
@@ -503,11 +513,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('size', YLeaf(YType.uint32, 'size')),
+                ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
             ])
             self.size = None
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.History, ['size'], name, value)
@@ -539,11 +550,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('interactive_disable', YLeaf(YType.boolean, 'interactive-disable')),
+                ('interactive_disable', (YLeaf(YType.boolean, 'interactive-disable'), ['bool'])),
             ])
             self.interactive_disable = None
             self._segment_path = lambda: "interactive"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Interactive, ['interactive_disable'], name, value)
@@ -575,11 +587,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('commit_optimized_enable', YLeaf(YType.boolean, 'commit-optimized-enable')),
+                ('commit_optimized_enable', (YLeaf(YType.boolean, 'commit-optimized-enable'), ['bool'])),
             ])
             self.commit_optimized_enable = None
             self._segment_path = lambda: "commit-optimized"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.CommitOptimized, ['commit_optimized_enable'], name, value)
@@ -611,11 +624,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sysadmin_login_banner_disable', YLeaf(YType.boolean, 'sysadmin-login-banner-disable')),
+                ('sysadmin_login_banner_disable', (YLeaf(YType.boolean, 'sysadmin-login-banner-disable'), ['bool'])),
             ])
             self.sysadmin_login_banner_disable = None
             self._segment_path = lambda: "sysadmin-login-banner"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SysadminLoginBanner, ['sysadmin_login_banner_disable'], name, value)
@@ -647,11 +661,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('slot_order', YLeaf(YType.boolean, 'slot-order')),
+                ('slot_order', (YLeaf(YType.boolean, 'slot-order'), ['bool'])),
             ])
             self.slot_order = None
             self._segment_path = lambda: "interface-display"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.InterfaceDisplay, ['slot_order'], name, value)
@@ -683,11 +698,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('bit_count', YLeaf(YType.boolean, 'bit-count')),
+                ('bit_count', (YLeaf(YType.boolean, 'bit-count'), ['bool'])),
             ])
             self.bit_count = None
             self._segment_path = lambda: "netmask-format"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.NetmaskFormat, ['bit_count'], name, value)
@@ -725,6 +741,7 @@ class Parser(Entity):
             self._children_name_map["disable"] = "disable"
             self._segment_path = lambda: "configuration"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.Configuration, [], name, value)
@@ -756,11 +773,12 @@ class Parser(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('usergroup', YLeaf(YType.str, 'usergroup')),
+                    ('usergroup', (YLeaf(YType.str, 'usergroup'), ['str'])),
                 ])
                 self.usergroup = None
                 self._segment_path = lambda: "disable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/configuration/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Parser.Configuration.Disable, ['usergroup'], name, value)
@@ -793,11 +811,12 @@ class Parser(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.boolean, 'enable')),
+                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
             ])
             self.enable = None
             self._segment_path = lambda: "submode-exit"
             self._absolute_path = lambda: "Cisco-IOS-XR-parser-cfg:parser/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Parser.SubmodeExit, ['enable'], name, value)

@@ -35,6 +35,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class POWERETHERNETMIB(Entity):
     """
     
@@ -85,6 +86,7 @@ class POWERETHERNETMIB(Entity):
         self.pethnotificationcontroltable.parent = self
         self._children_name_map["pethnotificationcontroltable"] = "pethNotificationControlTable"
         self._segment_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(POWERETHERNETMIB, [], name, value)
@@ -125,6 +127,7 @@ class POWERETHERNETMIB(Entity):
             self.pethpseportentry = YList(self)
             self._segment_path = lambda: "pethPsePortTable"
             self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(POWERETHERNETMIB.PethPsePortTable, [], name, value)
@@ -342,36 +345,36 @@ class POWERETHERNETMIB(Entity):
                 self.ylist_key_names = ['pethpseportgroupindex','pethpseportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pethpseportgroupindex', YLeaf(YType.int32, 'pethPsePortGroupIndex')),
-                    ('pethpseportindex', YLeaf(YType.int32, 'pethPsePortIndex')),
-                    ('pethpseportadminenable', YLeaf(YType.boolean, 'pethPsePortAdminEnable')),
-                    ('pethpseportpowerpairscontrolability', YLeaf(YType.boolean, 'pethPsePortPowerPairsControlAbility')),
-                    ('pethpseportpowerpairs', YLeaf(YType.enumeration, 'pethPsePortPowerPairs')),
-                    ('pethpseportdetectionstatus', YLeaf(YType.enumeration, 'pethPsePortDetectionStatus')),
-                    ('pethpseportpowerpriority', YLeaf(YType.enumeration, 'pethPsePortPowerPriority')),
-                    ('pethpseportmpsabsentcounter', YLeaf(YType.uint32, 'pethPsePortMPSAbsentCounter')),
-                    ('pethpseporttype', YLeaf(YType.str, 'pethPsePortType')),
-                    ('pethpseportpowerclassifications', YLeaf(YType.enumeration, 'pethPsePortPowerClassifications')),
-                    ('pethpseportinvalidsignaturecounter', YLeaf(YType.uint32, 'pethPsePortInvalidSignatureCounter')),
-                    ('pethpseportpowerdeniedcounter', YLeaf(YType.uint32, 'pethPsePortPowerDeniedCounter')),
-                    ('pethpseportoverloadcounter', YLeaf(YType.uint32, 'pethPsePortOverLoadCounter')),
-                    ('pethpseportshortcounter', YLeaf(YType.uint32, 'pethPsePortShortCounter')),
-                    ('cpeextpseportenable', YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortEnable')),
-                    ('cpeextpseportdiscovermode', YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortDiscoverMode')),
-                    ('cpeextpseportdevicedetected', YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortDeviceDetected')),
-                    ('cpeextpseportieeepd', YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortIeeePd')),
-                    ('cpeextpseportadditionalstatus', YLeaf(YType.bits, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortAdditionalStatus')),
-                    ('cpeextpseportpwrmax', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrMax')),
-                    ('cpeextpseportpwrallocated', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrAllocated')),
-                    ('cpeextpseportpwravailable', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrAvailable')),
-                    ('cpeextpseportpwrconsumption', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrConsumption')),
-                    ('cpeextpseportmaxpwrdrawn', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortMaxPwrDrawn')),
-                    ('cpeextpseportentphyindex', YLeaf(YType.int32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortEntPhyIndex')),
-                    ('cpeextpseportpolicingcapable', YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingCapable')),
-                    ('cpeextpseportpolicingenable', YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingEnable')),
-                    ('cpeextpseportpolicingaction', YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingAction')),
-                    ('cpeextpseportpwrmanalloc', YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrManAlloc')),
-                    ('cpeextpseportcapabilities', YLeaf(YType.bits, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortCapabilities')),
+                    ('pethpseportgroupindex', (YLeaf(YType.int32, 'pethPsePortGroupIndex'), ['int'])),
+                    ('pethpseportindex', (YLeaf(YType.int32, 'pethPsePortIndex'), ['int'])),
+                    ('pethpseportadminenable', (YLeaf(YType.boolean, 'pethPsePortAdminEnable'), ['bool'])),
+                    ('pethpseportpowerpairscontrolability', (YLeaf(YType.boolean, 'pethPsePortPowerPairsControlAbility'), ['bool'])),
+                    ('pethpseportpowerpairs', (YLeaf(YType.enumeration, 'pethPsePortPowerPairs'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.PethPsePortPowerPairs')])),
+                    ('pethpseportdetectionstatus', (YLeaf(YType.enumeration, 'pethPsePortDetectionStatus'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.PethPsePortDetectionStatus')])),
+                    ('pethpseportpowerpriority', (YLeaf(YType.enumeration, 'pethPsePortPowerPriority'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.PethPsePortPowerPriority')])),
+                    ('pethpseportmpsabsentcounter', (YLeaf(YType.uint32, 'pethPsePortMPSAbsentCounter'), ['int'])),
+                    ('pethpseporttype', (YLeaf(YType.str, 'pethPsePortType'), ['str'])),
+                    ('pethpseportpowerclassifications', (YLeaf(YType.enumeration, 'pethPsePortPowerClassifications'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.PethPsePortPowerClassifications')])),
+                    ('pethpseportinvalidsignaturecounter', (YLeaf(YType.uint32, 'pethPsePortInvalidSignatureCounter'), ['int'])),
+                    ('pethpseportpowerdeniedcounter', (YLeaf(YType.uint32, 'pethPsePortPowerDeniedCounter'), ['int'])),
+                    ('pethpseportoverloadcounter', (YLeaf(YType.uint32, 'pethPsePortOverLoadCounter'), ['int'])),
+                    ('pethpseportshortcounter', (YLeaf(YType.uint32, 'pethPsePortShortCounter'), ['int'])),
+                    ('cpeextpseportenable', (YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortEnable'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.CpeExtPsePortEnable')])),
+                    ('cpeextpseportdiscovermode', (YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortDiscoverMode'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.CpeExtPsePortDiscoverMode')])),
+                    ('cpeextpseportdevicedetected', (YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortDeviceDetected'), ['bool'])),
+                    ('cpeextpseportieeepd', (YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortIeeePd'), ['bool'])),
+                    ('cpeextpseportadditionalstatus', (YLeaf(YType.bits, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortAdditionalStatus'), ['Bits'])),
+                    ('cpeextpseportpwrmax', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrMax'), ['int'])),
+                    ('cpeextpseportpwrallocated', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrAllocated'), ['int'])),
+                    ('cpeextpseportpwravailable', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrAvailable'), ['int'])),
+                    ('cpeextpseportpwrconsumption', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrConsumption'), ['int'])),
+                    ('cpeextpseportmaxpwrdrawn', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortMaxPwrDrawn'), ['int'])),
+                    ('cpeextpseportentphyindex', (YLeaf(YType.int32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortEntPhyIndex'), ['int'])),
+                    ('cpeextpseportpolicingcapable', (YLeaf(YType.boolean, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingCapable'), ['bool'])),
+                    ('cpeextpseportpolicingenable', (YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingEnable'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.CpeExtPsePortPolicingEnable')])),
+                    ('cpeextpseportpolicingaction', (YLeaf(YType.enumeration, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPolicingAction'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethPsePortTable.PethPsePortEntry.CpeExtPsePortPolicingAction')])),
+                    ('cpeextpseportpwrmanalloc', (YLeaf(YType.uint32, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortPwrManAlloc'), ['int'])),
+                    ('cpeextpseportcapabilities', (YLeaf(YType.bits, 'CISCO-POWER-ETHERNET-EXT-MIB:cpeExtPsePortCapabilities'), ['Bits'])),
                 ])
                 self.pethpseportgroupindex = None
                 self.pethpseportindex = None
@@ -405,9 +408,10 @@ class POWERETHERNETMIB(Entity):
                 self.cpeextpseportcapabilities = Bits()
                 self._segment_path = lambda: "pethPsePortEntry" + "[pethPsePortGroupIndex='" + str(self.pethpseportgroupindex) + "']" + "[pethPsePortIndex='" + str(self.pethpseportindex) + "']"
                 self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethPsePortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry, ['pethpseportgroupindex', 'pethpseportindex', 'pethpseportadminenable', 'pethpseportpowerpairscontrolability', 'pethpseportpowerpairs', 'pethpseportdetectionstatus', 'pethpseportpowerpriority', 'pethpseportmpsabsentcounter', 'pethpseporttype', 'pethpseportpowerclassifications', 'pethpseportinvalidsignaturecounter', 'pethpseportpowerdeniedcounter', 'pethpseportoverloadcounter', 'pethpseportshortcounter', 'cpeextpseportenable', 'cpeextpseportdiscovermode', 'cpeextpseportdevicedetected', 'cpeextpseportieeepd', 'cpeextpseportadditionalstatus', 'cpeextpseportpwrmax', 'cpeextpseportpwrallocated', 'cpeextpseportpwravailable', 'cpeextpseportpwrconsumption', 'cpeextpseportmaxpwrdrawn', 'cpeextpseportentphyindex', 'cpeextpseportpolicingcapable', 'cpeextpseportpolicingenable', 'cpeextpseportpolicingaction', 'cpeextpseportpwrmanalloc', 'cpeextpseportcapabilities'], name, value)
+                self._perform_setattr(POWERETHERNETMIB.PethPsePortTable.PethPsePortEntry, [u'pethpseportgroupindex', u'pethpseportindex', u'pethpseportadminenable', u'pethpseportpowerpairscontrolability', u'pethpseportpowerpairs', u'pethpseportdetectionstatus', u'pethpseportpowerpriority', u'pethpseportmpsabsentcounter', u'pethpseporttype', u'pethpseportpowerclassifications', u'pethpseportinvalidsignaturecounter', u'pethpseportpowerdeniedcounter', u'pethpseportoverloadcounter', u'pethpseportshortcounter', 'cpeextpseportenable', 'cpeextpseportdiscovermode', 'cpeextpseportdevicedetected', 'cpeextpseportieeepd', 'cpeextpseportadditionalstatus', 'cpeextpseportpwrmax', 'cpeextpseportpwrallocated', 'cpeextpseportpwravailable', 'cpeextpseportpwrconsumption', 'cpeextpseportmaxpwrdrawn', 'cpeextpseportentphyindex', 'cpeextpseportpolicingcapable', 'cpeextpseportpolicingenable', 'cpeextpseportpolicingaction', 'cpeextpseportpwrmanalloc', 'cpeextpseportcapabilities'], name, value)
 
             class CpeExtPsePortDiscoverMode(Enum):
                 """
@@ -811,6 +815,7 @@ class POWERETHERNETMIB(Entity):
             self.pethmainpseentry = YList(self)
             self._segment_path = lambda: "pethMainPseTable"
             self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(POWERETHERNETMIB.PethMainPseTable, [], name, value)
@@ -877,11 +882,11 @@ class POWERETHERNETMIB(Entity):
                 self.ylist_key_names = ['pethmainpsegroupindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pethmainpsegroupindex', YLeaf(YType.int32, 'pethMainPseGroupIndex')),
-                    ('pethmainpsepower', YLeaf(YType.uint32, 'pethMainPsePower')),
-                    ('pethmainpseoperstatus', YLeaf(YType.enumeration, 'pethMainPseOperStatus')),
-                    ('pethmainpseconsumptionpower', YLeaf(YType.uint32, 'pethMainPseConsumptionPower')),
-                    ('pethmainpseusagethreshold', YLeaf(YType.int32, 'pethMainPseUsageThreshold')),
+                    ('pethmainpsegroupindex', (YLeaf(YType.int32, 'pethMainPseGroupIndex'), ['int'])),
+                    ('pethmainpsepower', (YLeaf(YType.uint32, 'pethMainPsePower'), ['int'])),
+                    ('pethmainpseoperstatus', (YLeaf(YType.enumeration, 'pethMainPseOperStatus'), [('ydk.models.cisco_ios_xe.POWER_ETHERNET_MIB', 'POWERETHERNETMIB', 'PethMainPseTable.PethMainPseEntry.PethMainPseOperStatus')])),
+                    ('pethmainpseconsumptionpower', (YLeaf(YType.uint32, 'pethMainPseConsumptionPower'), ['int'])),
+                    ('pethmainpseusagethreshold', (YLeaf(YType.int32, 'pethMainPseUsageThreshold'), ['int'])),
                 ])
                 self.pethmainpsegroupindex = None
                 self.pethmainpsepower = None
@@ -890,9 +895,10 @@ class POWERETHERNETMIB(Entity):
                 self.pethmainpseusagethreshold = None
                 self._segment_path = lambda: "pethMainPseEntry" + "[pethMainPseGroupIndex='" + str(self.pethmainpsegroupindex) + "']"
                 self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethMainPseTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(POWERETHERNETMIB.PethMainPseTable.PethMainPseEntry, ['pethmainpsegroupindex', 'pethmainpsepower', 'pethmainpseoperstatus', 'pethmainpseconsumptionpower', 'pethmainpseusagethreshold'], name, value)
+                self._perform_setattr(POWERETHERNETMIB.PethMainPseTable.PethMainPseEntry, [u'pethmainpsegroupindex', u'pethmainpsepower', u'pethmainpseoperstatus', u'pethmainpseconsumptionpower', u'pethmainpseusagethreshold'], name, value)
 
             class PethMainPseOperStatus(Enum):
                 """
@@ -949,6 +955,7 @@ class POWERETHERNETMIB(Entity):
             self.pethnotificationcontrolentry = YList(self)
             self._segment_path = lambda: "pethNotificationControlTable"
             self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(POWERETHERNETMIB.PethNotificationControlTable, [], name, value)
@@ -987,16 +994,17 @@ class POWERETHERNETMIB(Entity):
                 self.ylist_key_names = ['pethnotificationcontrolgroupindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pethnotificationcontrolgroupindex', YLeaf(YType.int32, 'pethNotificationControlGroupIndex')),
-                    ('pethnotificationcontrolenable', YLeaf(YType.boolean, 'pethNotificationControlEnable')),
+                    ('pethnotificationcontrolgroupindex', (YLeaf(YType.int32, 'pethNotificationControlGroupIndex'), ['int'])),
+                    ('pethnotificationcontrolenable', (YLeaf(YType.boolean, 'pethNotificationControlEnable'), ['bool'])),
                 ])
                 self.pethnotificationcontrolgroupindex = None
                 self.pethnotificationcontrolenable = None
                 self._segment_path = lambda: "pethNotificationControlEntry" + "[pethNotificationControlGroupIndex='" + str(self.pethnotificationcontrolgroupindex) + "']"
                 self._absolute_path = lambda: "POWER-ETHERNET-MIB:POWER-ETHERNET-MIB/pethNotificationControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(POWERETHERNETMIB.PethNotificationControlTable.PethNotificationControlEntry, ['pethnotificationcontrolgroupindex', 'pethnotificationcontrolenable'], name, value)
+                self._perform_setattr(POWERETHERNETMIB.PethNotificationControlTable.PethNotificationControlEntry, [u'pethnotificationcontrolgroupindex', u'pethnotificationcontrolenable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = POWERETHERNETMIB()

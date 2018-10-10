@@ -15,6 +15,10 @@ module Cisco-IOS-XE-lisp {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-interface-common {
+    prefix ios-ifc;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -31,12 +35,43 @@ module Cisco-IOS-XE-lisp {
 
   description
     "Cisco XE Native Locator ID Separation Protocol (LISP) Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-04-17 {
+    description
+      "Added two new 'flood' leaves for Ethernet service";
+  }
+  
+  revision 2018-04-01 {
+    description
+      "interface vlan lisp mobility <dyn-eid-name> is now a list
+       instead of a single leaf";
+  }
+  
+  revision 2018-03-13 {
+    description
+        "This revision has changes for ip source-locator knob";
+  }
+
+  revision 2018-03-10 {
+    description
+      "router lisp 0 is now not allowed via lisp-list";
+  }
+
+  revision 2018-02-08 {
+    description
+        "This revision has changes for multisite featurette";
+  }
+
+  revision 2018-01-18 {
+    description
+        "This revision has changes for per-subnet MSMR functionality";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -339,16 +374,104 @@ module Cisco-IOS-XE-lisp {
     }
   }
 
+  //router lisp inst service ipv4/ipv6 route-import prefix-list
+  grouping router-lisp-inst-service-ip-route-import-prefix-list-protocol-grouping {
+    list prefix-list-proto {
+        key "prefix-list protocol";
+        leaf prefix-list {
+            type string;
+        }
+        leaf protocol {
+            type enumeration {
+                enum "application";
+                enum "bgp";
+                enum "connected";
+                enum "eigrp";
+                enum "isis";
+                enum "maximum-prefix";
+                enum "nd";
+                enum "ospf";
+                enum "static";
+                enum "rip";
+            }
+        }
+        list bgp-id {
+            key "bgp-id";
+            when "../protocol = 'bgp'" {
+            }
+            leaf bgp-id {
+                type ios-types:bgp-as-number-type;
+            }
+            leaf route-map {
+                type string;
+            }
+        }
+        list eigrp-or-ospf-id {
+            when "../protocol = 'eigrp' or ../protocol = 'ospf'" {
+            }
+            key "int16-id";
+            leaf int16-id {
+                type uint16 {
+                    range "1..65535";
+                }
+            }
+            leaf route-map {
+                type string;
+            }
+        }
+        leaf isis-id {
+            when "../protocol = 'isis'" {
+            }
+            type string;
+        }
+        leaf number {
+            when "../protocol = 'maximum-prefix'" {
+            }
+            type uint32 {
+                range "1..4294967295";
+            }
+        }
+        leaf threshold {
+            when "../protocol = 'maximum-prefix'" {
+            }
+            type uint8 {
+                range "1..100";
+            }
+        }
+        leaf warning-only {
+            when "../protocol = 'maximum-prefix'" {
+            }
+            type empty;
+        }
+        leaf route-map {
+            when "not(../protocol = 'maximum-prefix')" {
+            }
+            type string;
+        }
+    }
+  }
+
   //router lisp inst service ipv6 router-import 
   grouping router-lisp-inst-service-ipv6-route-import-protocol-grouping {
     uses router-lisp-inst-service-ipv6-route-import-database-protocol-grouping;
     uses router-lisp-inst-service-ipv6-route-import-map-cache-protocol-grouping;
+    uses router-lisp-inst-service-ip-route-import-prefix-list-protocol-grouping;
   }
 
   //router lisp inst service ipv4 router-import 
   grouping router-lisp-inst-service-ipv4-route-import-protocol-grouping {
     uses router-lisp-inst-service-ipv4-route-import-database-protocol-grouping;
     uses router-lisp-inst-service-ipv4-route-import-map-cache-protocol-grouping;
+    uses router-lisp-inst-service-ip-route-import-prefix-list-protocol-grouping;
+  }
+
+  //router lisp xtr prefix-list
+  grouping router-lisp-xtr-prefix-list-grouping {
+    leaf prefix-list {
+      description
+          "Associates ITR/ETR with prefix list";
+      type string;
+    }
   }
 
   //router lisp itr
@@ -362,6 +485,13 @@ module Cisco-IOS-XE-lisp {
         key "ip-addr";
         leaf ip-addr {
           type inet:ip-address;
+        }
+        uses router-lisp-xtr-prefix-list-grouping;
+      }
+      leaf nmr-ttl {
+        description "verride negative map-reply TTL for site EID";
+        type uint16 {
+          range 1..900;
         }
       }
     }
@@ -653,6 +783,50 @@ module Cisco-IOS-XE-lisp {
     uses router-lisp-service-common-grouping;
   }
 
+  grouping router-lisp-service-ip-import-database-grouping {
+    container database {
+      description "Redistribute LISP internal states as database mapping";
+      leaf site-registration {
+        description "Import states from site registrations";
+        type empty;
+      }
+      leaf locator-set {
+        description "Locator set to use with created database mapping entries";
+        type string;
+      }
+    }
+  }
+
+  grouping router-lisp-service-ip-import-prefix-list-grouping {
+    container prefix-list-container {
+      description "Redistribute LISP internal states into LISP prefix-list entries";
+      leaf prefix-list {
+          description "The name of the lisp prefix list";
+          type string;
+      }
+      leaf site-registration {
+        description "Import states from site registrations";
+        type empty;
+      }
+    }
+  }
+
+  //router lisp service ip import grouping
+  grouping router-lisp-service-ip-import-grouping {
+    container import {
+      description "Redistribute LISP states internally";
+      uses router-lisp-service-ip-import-database-grouping;
+    }
+  }
+
+  grouping router-lisp-inst-service-ip-import-grouping {
+    container import {
+      description "Redistribute LISP states internally";
+      uses router-lisp-service-ip-import-database-grouping;
+      uses router-lisp-service-ip-import-prefix-list-grouping;
+    }
+  }
+
   //router lisp service ip common grouping
   grouping router-lisp-service-ip-grouping {
     uses router-lisp-service-common-grouping;
@@ -687,7 +861,8 @@ module Cisco-IOS-XE-lisp {
     uses router-lisp-proxy-grouping;
     uses router-lisp-route-export-grouping;
     uses router-lisp-sgt-grouping; 
-    uses router-lisp-use-petr-grouping; 
+    uses router-lisp-use-petr-grouping;
+    uses router-lisp-service-ip-import-grouping;
   }
 
   //router lisp service ipv4
@@ -704,27 +879,37 @@ module Cisco-IOS-XE-lisp {
 
   //router lisp four key 
   grouping router-lisp-four-key-grouping {
-    leaf unc-pwd {
-      description
-        "The UNENCRYPTED (cleartext) password";
-      type string;
+    choice auth-key {
+      case uncpwd {
+        leaf unc-pwd {
+          description
+           "The UNENCRYPTED (cleartext) password";
+          type string;
+        }
+      }
+      case key0 {
+        leaf key-0 {
+          description
+            "The UNENCRYPTED (cleartext) password";
+          type string;
+        }
+      }
+      case key6 {
+        leaf key-6 {
+          description
+            "The ENCRYPTED password";
+          type string;
+        }
+      }
+      case key7 {
+        leaf key-7 {
+          description
+            "The ENCRYPTED password";
+          type string;
+        }
+      }
     }
-    leaf key-0 {
-      description
-        "The UNENCRYPTED (cleartext) password";
-      type string;
-    }
-    leaf key-6 {
-      description
-        "The ENCRYPTED password";
-      type string;
-    }
-    leaf key-7 {
-      description
-         "The ENCRYPTED password";
-      type string;
-    }
-  } 
+  }
 
   //router lisp key hash function
   grouping router-lisp-key-hash-function-grouping { 
@@ -757,6 +942,28 @@ module Cisco-IOS-XE-lisp {
       uses router-lisp-key-hash-function-grouping;
     }
   }
+
+  //router lisp password key-0and6 with prefix list
+  grouping router-lisp-password-key-0and6-with-prefix-list-grouping {
+    container key-0 {
+      leaf ak-0 {
+        description
+          "The UNENCRYPTED (cleartext) password";
+        type string;
+      }
+      uses router-lisp-key-hash-function-grouping;
+      uses router-lisp-xtr-prefix-list-grouping;
+    }
+    container key-6 {
+      leaf ak-6 {
+        description
+          "The ENCRYPTED password";
+        type string;
+      }
+      uses router-lisp-key-hash-function-grouping;
+      uses router-lisp-xtr-prefix-list-grouping;
+    }
+  }
  
   //router lisp passowd key-7 
   grouping router-lisp-password-key-7-grouping {
@@ -770,6 +977,19 @@ module Cisco-IOS-XE-lisp {
     }
   }
 
+  //router lisp passowd key-7 with prefix-list
+  grouping router-lisp-password-key-7-with-prefix-list-grouping {
+    container key-7 {
+      leaf ak-7 {
+        description
+          "The ENCRYPTED password";
+        type string;
+      }
+      uses router-lisp-key-hash-function-grouping;
+      uses router-lisp-xtr-prefix-list-grouping;
+    }
+  }
+
   //router lisp password string
   grouping router-lisp-password-string-grouping {
     container key-pwd {
@@ -779,6 +999,19 @@ module Cisco-IOS-XE-lisp {
         type string;
       }
       uses router-lisp-key-hash-function-grouping;
+    }
+  }
+
+  //router lisp password string with prefix list
+  grouping router-lisp-password-string-with-prefix-list-grouping {
+    container key-pwd {
+      leaf unc-pwd {
+        description
+          "The UNENCRYPTED (cleartext) password";
+        type string;
+      }
+      uses router-lisp-key-hash-function-grouping;
+      uses router-lisp-xtr-prefix-list-grouping;
     }
   }
 
@@ -803,6 +1036,19 @@ module Cisco-IOS-XE-lisp {
       case password-key {
         uses router-lisp-password-key-0and6-grouping;
         uses router-lisp-password-key-7-grouping;
+      }
+    }
+  }
+
+  //router lisp four key with hash function with prefix list
+  grouping router-lisp-four-key-with-hash-function-and-prefix-list-grouping {
+    choice password {
+      case password-string {
+        uses router-lisp-password-string-with-prefix-list-grouping;
+      }
+      case password-key {
+        uses router-lisp-password-key-0and6-with-prefix-list-grouping;
+        uses router-lisp-password-key-7-with-prefix-list-grouping;
       }
     }
   }
@@ -944,7 +1190,7 @@ module Cisco-IOS-XE-lisp {
       container key {
         description
           "Authentication key used with map server";
-        uses router-lisp-four-key-with-hash-function-grouping;
+        uses router-lisp-four-key-with-hash-function-and-prefix-list-grouping;
       }
       leaf proxy-reply {
         description
@@ -976,12 +1222,20 @@ module Cisco-IOS-XE-lisp {
     }
   }
 
-  //router lisp inst database mapping common 
+  //router lisp inst database mapping common
   grouping router-lisp-inst-database-mapping-common-grouping {
-    leaf locator-set {
+    container locator-set-container {
       description
         "Use locators defined by locator-set";
+      leaf locator-set {
+        description
+          "Use locators defined by locator-set";
         type string;
+      }
+      leaf proxy {
+        description "Enable configuration of static proxy database mapping";
+        type empty;
+      }
     }
     list ipv4-addrees {
       description "IPv4 Address of loopback or other ETR interface";
@@ -1051,6 +1305,17 @@ module Cisco-IOS-XE-lisp {
       leaf ipv6-multicast {
         description "IPv6 multicast group address";
         type inet:ipv6-address;
+      }
+    }
+    container flood {
+      description "Control flooding or local intercept of broadcast frames";
+      leaf arp-nd {
+        description "IPv4 ARP / IPv6 ND";
+        type empty;
+      }
+      leaf unknown-unicast {
+        description "Frames with unknown destination MAC";
+        type empty;
       }
     }
     container database-mapping {
@@ -1189,6 +1454,7 @@ module Cisco-IOS-XE-lisp {
     uses router-lisp-route-export-grouping;
     uses router-lisp-sgt-grouping; 
     uses router-lisp-use-petr-grouping; 
+    uses router-lisp-inst-service-ip-import-grouping;
   } 
 
   //router lisp inst service ipv4 grouping
@@ -1394,7 +1660,7 @@ module Cisco-IOS-XE-lisp {
           }
         }
       }
-    }
+   }
     container other-xtr-probe {
       description
         "Configure parameters for probing of other xTRs in our site";
@@ -2041,6 +2307,11 @@ module Cisco-IOS-XE-lisp {
         }
       }
     }
+    container source-locator {
+      description
+        "Source Locator configuration";
+      uses ios-ifc:interface-grouping;
+    }
     list use-petr {
       description
         "Encapsulate to Proxy ETR when matching forward-native entry";
@@ -2307,6 +2578,26 @@ module Cisco-IOS-XE-lisp {
           }
         }
       }
+      container nmr {
+        description
+          "Map-server negative map-reply optio";
+        leaf non-site-ttl {
+          description
+            "Negative map-reply TTL for non-site EID";
+          type uint16 {
+            range "1..1440";
+          }
+        }
+      }
+      container session {
+        description
+          "Map-server session";
+        leaf passive-open {
+          description
+            "Open passive TCP sockets to listen for incoming connections";
+          type string;
+        }
+      }     
     }
     container other-xtr-probe {
       description
@@ -2619,6 +2910,30 @@ module Cisco-IOS-XE-lisp {
         type string;
       }
     }
+    list prefix-list {
+      description
+        "Configure a named prefix list";
+      key "name";
+      leaf name {
+        type string;
+      }
+      list ipv4-prefix {
+        description
+          "IPv4 EID-prefix";
+        key "prefix";
+        leaf prefix {
+          type inet:ipv4-prefix;
+        }
+      }
+      list ipv6-prefix {
+        description
+          "IPv6 EID-prefix";
+        key "prefix";
+        leaf prefix {
+          type inet:ipv6-prefix;
+        }
+      }
+    }
     container instance-container {
       description "EID instance-ID";
       list instance-list {
@@ -2867,20 +3182,21 @@ module Cisco-IOS-XE-lisp {
       container mobility {
         description
           "Configures to allow EID mobility on interface";
-        container dynamic-eid {
+        list dynamic-eid {
+          key dynamic-eid-name;
           leaf dynamic-eid-name {
             type string;
           }
-          leaf nbr-proxy-reply {
+          container nbr-proxy-reply {
             description
               "Neighbor proxy reply behavior for dynamic EID group";
-            type empty;
-          }
-          leaf requests {
-            description
-              "Send neighbor proxy reply after reaching request threshold";
-            type uint8 {
-              range "0..5";
+            presence true;
+            leaf requests {
+              description
+                "Send neighbor proxy reply after reaching request threshold";
+              type uint8 {
+                range "0..5";
+              }
             }
           }
         }
@@ -2921,7 +3237,9 @@ module Cisco-IOS-XE-lisp {
       leaf lisp {
         description
           "Locator/ID Separation Protocol";
-        type uint16;
+        type uint16 {
+          range "1..65520";
+        }
       }
       container default {
         uses config-lisp-main-grouping;

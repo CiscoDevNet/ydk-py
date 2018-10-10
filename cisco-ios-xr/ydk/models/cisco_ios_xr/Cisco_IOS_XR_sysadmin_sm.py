@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_sm 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 This module holds Shelf Management configuration data.
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -15,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -111,6 +118,7 @@ class Oper(Entity):
 
         self.interface = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Oper, [], name, value)
@@ -146,6 +154,7 @@ class Oper(Entity):
             self.trace = YList(self)
             self._segment_path = lambda: "shelf_mgr"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.ShelfMgr, [], name, value)
@@ -182,13 +191,14 @@ class Oper(Entity):
                 self.ylist_key_names = ['buffer']
                 self._child_classes = OrderedDict([("location", ("location", Oper.ShelfMgr.Trace.Location))])
                 self._leafs = OrderedDict([
-                    ('buffer', YLeaf(YType.str, 'buffer')),
+                    ('buffer', (YLeaf(YType.str, 'buffer'), ['str'])),
                 ])
                 self.buffer = None
 
                 self.location = YList(self)
                 self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/shelf_mgr/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.ShelfMgr.Trace, [u'buffer'], name, value)
@@ -225,12 +235,13 @@ class Oper(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("all-options", ("all_options", Oper.ShelfMgr.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location_name')),
+                        ('location_name', (YLeaf(YType.str, 'location_name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.all_options = YList(self)
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.ShelfMgr.Trace.Location, [u'location_name'], name, value)
@@ -267,12 +278,13 @@ class Oper(Entity):
                         self.ylist_key_names = ['option']
                         self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
-                            ('option', YLeaf(YType.str, 'option')),
+                            ('option', (YLeaf(YType.str, 'option'), ['str'])),
                         ])
                         self.option = None
 
                         self.trace_blocks = YList(self)
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions, [u'option'], name, value)
@@ -304,10 +316,11 @@ class Oper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('data', YLeaf(YType.str, 'data')),
+                                ('data', (YLeaf(YType.str, 'data'), ['str'])),
                             ])
                             self.data = None
                             self._segment_path = lambda: "trace-blocks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.ShelfMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
@@ -363,6 +376,7 @@ class Oper(Entity):
             self._children_name_map["slices"] = "slices"
             self._segment_path = lambda: "platform"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Platform, [], name, value)
@@ -398,6 +412,7 @@ class Oper(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Platform.Summary, [], name, value)
@@ -412,7 +427,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: summary_data
                 
@@ -436,7 +451,7 @@ class Oper(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("summary-data", ("summary_data", Oper.Platform.Summary.Location.SummaryData))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
@@ -445,6 +460,7 @@ class Oper(Entity):
                     self._children_name_map["summary_data"] = "summary-data"
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/summary/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Platform.Summary.Location, ['location'], name, value)
@@ -491,16 +507,17 @@ class Oper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('card_type', YLeaf(YType.str, 'card_type')),
-                            ('hw_state', YLeaf(YType.str, 'hw_state')),
-                            ('sw_state', YLeaf(YType.str, 'sw_state')),
-                            ('config_state', YLeaf(YType.str, 'config_state')),
+                            ('card_type', (YLeaf(YType.str, 'card_type'), ['str'])),
+                            ('hw_state', (YLeaf(YType.str, 'hw_state'), ['str'])),
+                            ('sw_state', (YLeaf(YType.str, 'sw_state'), ['str'])),
+                            ('config_state', (YLeaf(YType.str, 'config_state'), ['str'])),
                         ])
                         self.card_type = None
                         self.hw_state = None
                         self.sw_state = None
                         self.config_state = None
                         self._segment_path = lambda: "summary-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Platform.Summary.Location.SummaryData, ['card_type', 'hw_state', 'sw_state', 'config_state'], name, value)
@@ -536,6 +553,7 @@ class Oper(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Platform.Detail, [], name, value)
@@ -550,7 +568,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: detail_data
                 
@@ -574,7 +592,7 @@ class Oper(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("detail-data", ("detail_data", Oper.Platform.Detail.Location.DetailData))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
@@ -583,6 +601,7 @@ class Oper(Entity):
                     self._children_name_map["detail_data"] = "detail-data"
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Platform.Detail.Location, ['location'], name, value)
@@ -654,15 +673,15 @@ class Oper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pid', YLeaf(YType.str, 'pid')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('vid_sn', YLeaf(YType.str, 'vid_sn')),
-                            ('hw_state', YLeaf(YType.str, 'hw_state')),
-                            ('sw_state', YLeaf(YType.str, 'sw_state')),
-                            ('config_wordy', YLeaf(YType.str, 'config_wordy')),
-                            ('hw_ver', YLeaf(YType.str, 'hw_ver')),
-                            ('last_event', YLeaf(YType.str, 'last_event')),
-                            ('last_ev_reason_str', YLeaf(YType.str, 'last_ev_reason_str')),
+                            ('pid', (YLeaf(YType.str, 'pid'), ['str'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('vid_sn', (YLeaf(YType.str, 'vid_sn'), ['str'])),
+                            ('hw_state', (YLeaf(YType.str, 'hw_state'), ['str'])),
+                            ('sw_state', (YLeaf(YType.str, 'sw_state'), ['str'])),
+                            ('config_wordy', (YLeaf(YType.str, 'config_wordy'), ['str'])),
+                            ('hw_ver', (YLeaf(YType.str, 'hw_ver'), ['str'])),
+                            ('last_event', (YLeaf(YType.str, 'last_event'), ['str'])),
+                            ('last_ev_reason_str', (YLeaf(YType.str, 'last_ev_reason_str'), ['str'])),
                         ])
                         self.pid = None
                         self.description = None
@@ -674,6 +693,7 @@ class Oper(Entity):
                         self.last_event = None
                         self.last_ev_reason_str = None
                         self._segment_path = lambda: "detail-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Platform.Detail.Location.DetailData, ['pid', 'description', 'vid_sn', 'hw_state', 'sw_state', 'config_wordy', 'hw_ver', 'last_event', 'last_ev_reason_str'], name, value)
@@ -709,6 +729,7 @@ class Oper(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "slices"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Platform.Slices, [], name, value)
@@ -723,7 +744,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: slice_values
                 
@@ -747,13 +768,14 @@ class Oper(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("slice_values", ("slice_values", Oper.Platform.Slices.Location.SliceValues))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
                     self.slice_values = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/platform/slices/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Platform.Slices.Location, ['location'], name, value)
@@ -792,7 +814,7 @@ class Oper(Entity):
                         self.ylist_key_names = ['slice_idx']
                         self._child_classes = OrderedDict([("slice", ("slice", Oper.Platform.Slices.Location.SliceValues.Slice))])
                         self._leafs = OrderedDict([
-                            ('slice_idx', YLeaf(YType.uint32, 'slice_idx')),
+                            ('slice_idx', (YLeaf(YType.uint32, 'slice_idx'), ['int'])),
                         ])
                         self.slice_idx = None
 
@@ -800,6 +822,7 @@ class Oper(Entity):
                         self.slice.parent = self
                         self._children_name_map["slice"] = "slice"
                         self._segment_path = lambda: "slice_values" + "[slice_idx='" + str(self.slice_idx) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Platform.Slices.Location.SliceValues, ['slice_idx'], name, value)
@@ -843,14 +866,15 @@ class Oper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('slice_num', YLeaf(YType.uint32, 'slice_num')),
-                                ('admin_state', YLeaf(YType.str, 'admin_state')),
-                                ('oper_state', YLeaf(YType.str, 'oper_state')),
+                                ('slice_num', (YLeaf(YType.uint32, 'slice_num'), ['int'])),
+                                ('admin_state', (YLeaf(YType.str, 'admin_state'), ['str'])),
+                                ('oper_state', (YLeaf(YType.str, 'oper_state'), ['str'])),
                             ])
                             self.slice_num = None
                             self.admin_state = None
                             self.oper_state = None
                             self._segment_path = lambda: "slice"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.Platform.Slices.Location.SliceValues.Slice, ['slice_num', 'admin_state', 'oper_state'], name, value)
@@ -888,6 +912,7 @@ class Oper(Entity):
             self._children_name_map["brief"] = "brief"
             self._segment_path = lambda: "chassis"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Chassis, [], name, value)
@@ -923,6 +948,7 @@ class Oper(Entity):
                 self.chassis_serial = YList(self)
                 self._segment_path = lambda: "brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/chassis/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Chassis.Brief, [], name, value)
@@ -959,7 +985,7 @@ class Oper(Entity):
                     self.ylist_key_names = ['serial_number']
                     self._child_classes = OrderedDict([("brief-data", ("brief_data", Oper.Chassis.Brief.ChassisSerial.BriefData))])
                     self._leafs = OrderedDict([
-                        ('serial_number', YLeaf(YType.str, 'serial_number')),
+                        ('serial_number', (YLeaf(YType.str, 'serial_number'), ['str'])),
                     ])
                     self.serial_number = None
 
@@ -968,6 +994,7 @@ class Oper(Entity):
                     self._children_name_map["brief_data"] = "brief-data"
                     self._segment_path = lambda: "chassis_serial" + "[serial_number='" + str(self.serial_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/chassis/brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Chassis.Brief.ChassisSerial, ['serial_number'], name, value)
@@ -1019,11 +1046,11 @@ class Oper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('racknum', YLeaf(YType.str, 'racknum')),
-                            ('rack_type', YLeaf(YType.str, 'rack_type')),
-                            ('rack_state', YLeaf(YType.str, 'rack_state')),
-                            ('data_plane', YLeaf(YType.str, 'data_plane')),
-                            ('ctrl_plane', YLeaf(YType.str, 'ctrl_plane')),
+                            ('racknum', (YLeaf(YType.str, 'racknum'), ['str'])),
+                            ('rack_type', (YLeaf(YType.str, 'rack_type'), ['str'])),
+                            ('rack_state', (YLeaf(YType.str, 'rack_state'), ['str'])),
+                            ('data_plane', (YLeaf(YType.str, 'data_plane'), ['str'])),
+                            ('ctrl_plane', (YLeaf(YType.str, 'ctrl_plane'), ['str'])),
                         ])
                         self.racknum = None
                         self.rack_type = None
@@ -1031,6 +1058,7 @@ class Oper(Entity):
                         self.data_plane = None
                         self.ctrl_plane = None
                         self._segment_path = lambda: "brief-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Chassis.Brief.ChassisSerial.BriefData, ['racknum', 'rack_type', 'rack_state', 'data_plane', 'ctrl_plane'], name, value)
@@ -1068,6 +1096,7 @@ class Oper(Entity):
             self._children_name_map["rack"] = "rack"
             self._segment_path = lambda: "reload"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Reload, [], name, value)
@@ -1103,6 +1132,7 @@ class Oper(Entity):
                 self.racks = YList(self)
                 self._segment_path = lambda: "rack"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reload/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Reload.Rack, [], name, value)
@@ -1134,11 +1164,12 @@ class Oper(Entity):
                     self.ylist_key_names = ['rack']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rack', YLeaf(YType.str, 'rack')),
+                        ('rack', (YLeaf(YType.str, 'rack'), ['str'])),
                     ])
                     self.rack = None
                     self._segment_path = lambda: "racks" + "[rack='" + str(self.rack) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reload/rack/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Reload.Rack.Racks, ['rack'], name, value)
@@ -1194,6 +1225,7 @@ class Oper(Entity):
             self._children_name_map["reverse"] = "reverse"
             self._segment_path = lambda: "reboot-history"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.RebootHistory, [], name, value)
@@ -1229,6 +1261,7 @@ class Oper(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "card"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.RebootHistory.Card, [], name, value)
@@ -1243,7 +1276,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: events
                 
@@ -1267,13 +1300,14 @@ class Oper(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Card.Location.Events))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
                     self.events = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/card/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.RebootHistory.Card.Location, ['location'], name, value)
@@ -1312,7 +1346,7 @@ class Oper(Entity):
                         self.ylist_key_names = ['event_idx']
                         self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Card.Location.Events.Event))])
                         self._leafs = OrderedDict([
-                            ('event_idx', YLeaf(YType.uint32, 'event_idx')),
+                            ('event_idx', (YLeaf(YType.uint32, 'event_idx'), ['int'])),
                         ])
                         self.event_idx = None
 
@@ -1320,6 +1354,7 @@ class Oper(Entity):
                         self.event.parent = self
                         self._children_name_map["event"] = "event"
                         self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.RebootHistory.Card.Location.Events, ['event_idx'], name, value)
@@ -1373,11 +1408,11 @@ class Oper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('timestamp', YLeaf(YType.str, 'timestamp')),
-                                ('reason_code', YLeaf(YType.uint32, 'reason_code')),
-                                ('reason', YLeaf(YType.str, 'reason')),
-                                ('src_loc', YLeaf(YType.str, 'src_loc')),
-                                ('src_name', YLeaf(YType.str, 'src_name')),
+                                ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+                                ('reason_code', (YLeaf(YType.uint32, 'reason_code'), ['int'])),
+                                ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
+                                ('src_loc', (YLeaf(YType.str, 'src_loc'), ['str'])),
+                                ('src_name', (YLeaf(YType.str, 'src_name'), ['str'])),
                             ])
                             self.timestamp = None
                             self.reason_code = None
@@ -1385,6 +1420,7 @@ class Oper(Entity):
                             self.src_loc = None
                             self.src_name = None
                             self._segment_path = lambda: "event"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
@@ -1420,6 +1456,7 @@ class Oper(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "admin-vm"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.RebootHistory.AdminVm, [], name, value)
@@ -1434,7 +1471,7 @@ class Oper(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: events
                 
@@ -1458,13 +1495,14 @@ class Oper(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.AdminVm.Location.Events))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
                     self.events = YList(self)
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/admin-vm/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.RebootHistory.AdminVm.Location, ['location'], name, value)
@@ -1503,7 +1541,7 @@ class Oper(Entity):
                         self.ylist_key_names = ['event_idx']
                         self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.AdminVm.Location.Events.Event))])
                         self._leafs = OrderedDict([
-                            ('event_idx', YLeaf(YType.uint32, 'event_idx')),
+                            ('event_idx', (YLeaf(YType.uint32, 'event_idx'), ['int'])),
                         ])
                         self.event_idx = None
 
@@ -1511,6 +1549,7 @@ class Oper(Entity):
                         self.event.parent = self
                         self._children_name_map["event"] = "event"
                         self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.RebootHistory.AdminVm.Location.Events, ['event_idx'], name, value)
@@ -1564,11 +1603,11 @@ class Oper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('timestamp', YLeaf(YType.str, 'timestamp')),
-                                ('reason_code', YLeaf(YType.uint32, 'reason_code')),
-                                ('reason', YLeaf(YType.str, 'reason')),
-                                ('src_loc', YLeaf(YType.str, 'src_loc')),
-                                ('src_name', YLeaf(YType.str, 'src_name')),
+                                ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+                                ('reason_code', (YLeaf(YType.uint32, 'reason_code'), ['int'])),
+                                ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
+                                ('src_loc', (YLeaf(YType.str, 'src_loc'), ['str'])),
+                                ('src_name', (YLeaf(YType.str, 'src_name'), ['str'])),
                             ])
                             self.timestamp = None
                             self.reason_code = None
@@ -1576,6 +1615,7 @@ class Oper(Entity):
                             self.src_loc = None
                             self.src_name = None
                             self._segment_path = lambda: "event"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
@@ -1622,6 +1662,7 @@ class Oper(Entity):
                 self._children_name_map["admin_vm"] = "admin-vm"
                 self._segment_path = lambda: "reverse"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.RebootHistory.Reverse, [], name, value)
@@ -1657,6 +1698,7 @@ class Oper(Entity):
                     self.location = YList(self)
                     self._segment_path = lambda: "card"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.RebootHistory.Reverse.Card, [], name, value)
@@ -1671,7 +1713,7 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: events
                     
@@ -1695,13 +1737,14 @@ class Oper(Entity):
                         self.ylist_key_names = ['location']
                         self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.Card.Location.Events))])
                         self._leafs = OrderedDict([
-                            ('location', YLeaf(YType.str, 'location')),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
                         ])
                         self.location = None
 
                         self.events = YList(self)
                         self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/card/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location, ['location'], name, value)
@@ -1740,7 +1783,7 @@ class Oper(Entity):
                             self.ylist_key_names = ['event_idx']
                             self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.Card.Location.Events.Event))])
                             self._leafs = OrderedDict([
-                                ('event_idx', YLeaf(YType.uint32, 'event_idx')),
+                                ('event_idx', (YLeaf(YType.uint32, 'event_idx'), ['int'])),
                             ])
                             self.event_idx = None
 
@@ -1748,6 +1791,7 @@ class Oper(Entity):
                             self.event.parent = self
                             self._children_name_map["event"] = "event"
                             self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location.Events, ['event_idx'], name, value)
@@ -1801,11 +1845,11 @@ class Oper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('timestamp', YLeaf(YType.str, 'timestamp')),
-                                    ('reason_code', YLeaf(YType.uint32, 'reason_code')),
-                                    ('reason', YLeaf(YType.str, 'reason')),
-                                    ('src_loc', YLeaf(YType.str, 'src_loc')),
-                                    ('src_name', YLeaf(YType.str, 'src_name')),
+                                    ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+                                    ('reason_code', (YLeaf(YType.uint32, 'reason_code'), ['int'])),
+                                    ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
+                                    ('src_loc', (YLeaf(YType.str, 'src_loc'), ['str'])),
+                                    ('src_name', (YLeaf(YType.str, 'src_name'), ['str'])),
                                 ])
                                 self.timestamp = None
                                 self.reason_code = None
@@ -1813,6 +1857,7 @@ class Oper(Entity):
                                 self.src_loc = None
                                 self.src_name = None
                                 self._segment_path = lambda: "event"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.Card.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
@@ -1848,6 +1893,7 @@ class Oper(Entity):
                     self.location = YList(self)
                     self._segment_path = lambda: "admin-vm"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm, [], name, value)
@@ -1862,7 +1908,7 @@ class Oper(Entity):
                     	
                     	**type**\: str
                     
-                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                    	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                     
                     .. attribute:: events
                     
@@ -1886,13 +1932,14 @@ class Oper(Entity):
                         self.ylist_key_names = ['location']
                         self._child_classes = OrderedDict([("events", ("events", Oper.RebootHistory.Reverse.AdminVm.Location.Events))])
                         self._leafs = OrderedDict([
-                            ('location', YLeaf(YType.str, 'location')),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
                         ])
                         self.location = None
 
                         self.events = YList(self)
                         self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reboot-history/reverse/admin-vm/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location, ['location'], name, value)
@@ -1931,7 +1978,7 @@ class Oper(Entity):
                             self.ylist_key_names = ['event_idx']
                             self._child_classes = OrderedDict([("event", ("event", Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event))])
                             self._leafs = OrderedDict([
-                                ('event_idx', YLeaf(YType.uint32, 'event_idx')),
+                                ('event_idx', (YLeaf(YType.uint32, 'event_idx'), ['int'])),
                             ])
                             self.event_idx = None
 
@@ -1939,6 +1986,7 @@ class Oper(Entity):
                             self.event.parent = self
                             self._children_name_map["event"] = "event"
                             self._segment_path = lambda: "events" + "[event_idx='" + str(self.event_idx) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location.Events, ['event_idx'], name, value)
@@ -1992,11 +2040,11 @@ class Oper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('timestamp', YLeaf(YType.str, 'timestamp')),
-                                    ('reason_code', YLeaf(YType.uint32, 'reason_code')),
-                                    ('reason', YLeaf(YType.str, 'reason')),
-                                    ('src_loc', YLeaf(YType.str, 'src_loc')),
-                                    ('src_name', YLeaf(YType.str, 'src_name')),
+                                    ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+                                    ('reason_code', (YLeaf(YType.uint32, 'reason_code'), ['int'])),
+                                    ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
+                                    ('src_loc', (YLeaf(YType.str, 'src_loc'), ['str'])),
+                                    ('src_name', (YLeaf(YType.str, 'src_name'), ['str'])),
                                 ])
                                 self.timestamp = None
                                 self.reason_code = None
@@ -2004,6 +2052,7 @@ class Oper(Entity):
                                 self.src_loc = None
                                 self.src_name = None
                                 self._segment_path = lambda: "event"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Oper.RebootHistory.Reverse.AdminVm.Location.Events.Event, ['timestamp', 'reason_code', 'reason', 'src_loc', 'src_name'], name, value)
@@ -2040,7 +2089,7 @@ class Oper(Entity):
             self.ylist_key_names = ['ifname']
             self._child_classes = OrderedDict([("interface-data", ("interface_data", Oper.Interface.InterfaceData))])
             self._leafs = OrderedDict([
-                ('ifname', YLeaf(YType.str, 'ifname')),
+                ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
             ])
             self.ifname = None
 
@@ -2049,6 +2098,7 @@ class Oper(Entity):
             self._children_name_map["interface_data"] = "interface-data"
             self._segment_path = lambda: "interface" + "[ifname='" + str(self.ifname) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Interface, ['ifname'], name, value)
@@ -2218,27 +2268,27 @@ class Oper(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mac', YLeaf(YType.str, 'mac')),
-                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                    ('flagstr', YLeaf(YType.str, 'flagstr')),
-                    ('port_status', YLeaf(YType.str, 'port_status')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                    ('metric', YLeaf(YType.uint32, 'metric')),
-                    ('rx_pak', YLeaf(YType.uint32, 'rx_pak')),
-                    ('rx_errors', YLeaf(YType.uint32, 'rx_errors')),
-                    ('rx_dropped', YLeaf(YType.uint32, 'rx_dropped')),
-                    ('rx_overruns', YLeaf(YType.uint32, 'rx_overruns')),
-                    ('rx_frame', YLeaf(YType.uint32, 'rx_frame')),
-                    ('tx_pak', YLeaf(YType.uint32, 'tx_pak')),
-                    ('tx_errors', YLeaf(YType.uint32, 'tx_errors')),
-                    ('tx_dropped', YLeaf(YType.uint32, 'tx_dropped')),
-                    ('tx_overruns', YLeaf(YType.uint32, 'tx_overruns')),
-                    ('tx_carrier', YLeaf(YType.uint32, 'tx_carrier')),
-                    ('collisions', YLeaf(YType.uint32, 'collisions')),
-                    ('tx_queuelen', YLeaf(YType.uint32, 'tx_queuelen')),
-                    ('rx_bytes', YLeaf(YType.uint64, 'rx_bytes')),
-                    ('tx_bytes', YLeaf(YType.uint64, 'tx_bytes')),
-                    ('intf_num', YLeaf(YType.uint32, 'intf_num')),
+                    ('mac', (YLeaf(YType.str, 'mac'), ['str'])),
+                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                    ('flagstr', (YLeaf(YType.str, 'flagstr'), ['str'])),
+                    ('port_status', (YLeaf(YType.str, 'port_status'), ['str'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                    ('rx_pak', (YLeaf(YType.uint32, 'rx_pak'), ['int'])),
+                    ('rx_errors', (YLeaf(YType.uint32, 'rx_errors'), ['int'])),
+                    ('rx_dropped', (YLeaf(YType.uint32, 'rx_dropped'), ['int'])),
+                    ('rx_overruns', (YLeaf(YType.uint32, 'rx_overruns'), ['int'])),
+                    ('rx_frame', (YLeaf(YType.uint32, 'rx_frame'), ['int'])),
+                    ('tx_pak', (YLeaf(YType.uint32, 'tx_pak'), ['int'])),
+                    ('tx_errors', (YLeaf(YType.uint32, 'tx_errors'), ['int'])),
+                    ('tx_dropped', (YLeaf(YType.uint32, 'tx_dropped'), ['int'])),
+                    ('tx_overruns', (YLeaf(YType.uint32, 'tx_overruns'), ['int'])),
+                    ('tx_carrier', (YLeaf(YType.uint32, 'tx_carrier'), ['int'])),
+                    ('collisions', (YLeaf(YType.uint32, 'collisions'), ['int'])),
+                    ('tx_queuelen', (YLeaf(YType.uint32, 'tx_queuelen'), ['int'])),
+                    ('rx_bytes', (YLeaf(YType.uint64, 'rx_bytes'), ['int'])),
+                    ('tx_bytes', (YLeaf(YType.uint64, 'tx_bytes'), ['int'])),
+                    ('intf_num', (YLeaf(YType.uint32, 'intf_num'), ['int'])),
                 ])
                 self.mac = None
                 self.ipv4 = None
@@ -2262,6 +2312,7 @@ class Oper(Entity):
                 self.tx_bytes = None
                 self.intf_num = None
                 self._segment_path = lambda: "interface-data"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Interface.InterfaceData, ['mac', 'ipv4', 'flagstr', 'port_status', 'mtu', 'metric', 'rx_pak', 'rx_errors', 'rx_dropped', 'rx_overruns', 'rx_frame', 'tx_pak', 'tx_errors', 'tx_dropped', 'tx_overruns', 'tx_carrier', 'collisions', 'tx_queuelen', 'rx_bytes', 'tx_bytes', 'intf_num'], name, value)
@@ -2297,6 +2348,7 @@ class Oper(Entity):
             self.location = YList(self)
             self._segment_path = lambda: "reload_vm"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.ReloadVm, [], name, value)
@@ -2328,11 +2380,12 @@ class Oper(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
                 self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/reload_vm/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.ReloadVm.Location, ['location'], name, value)
@@ -2370,6 +2423,7 @@ class Oper(Entity):
             self._children_name_map["brief"] = "brief"
             self._segment_path = lambda: "macpool"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Oper.Macpool, [], name, value)
@@ -2405,6 +2459,7 @@ class Oper(Entity):
                 self.rack = YList(self)
                 self._segment_path = lambda: "brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/macpool/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Oper.Macpool.Brief, [], name, value)
@@ -2441,7 +2496,7 @@ class Oper(Entity):
                     self.ylist_key_names = ['serial_number']
                     self._child_classes = OrderedDict([("brief-data", ("brief_data", Oper.Macpool.Brief.Rack.BriefData))])
                     self._leafs = OrderedDict([
-                        ('serial_number', YLeaf(YType.str, 'serial_number')),
+                        ('serial_number', (YLeaf(YType.str, 'serial_number'), ['str'])),
                     ])
                     self.serial_number = None
 
@@ -2450,6 +2505,7 @@ class Oper(Entity):
                     self._children_name_map["brief_data"] = "brief-data"
                     self._segment_path = lambda: "rack" + "[serial_number='" + str(self.serial_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:oper/macpool/brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Oper.Macpool.Brief.Rack, ['serial_number'], name, value)
@@ -2507,11 +2563,11 @@ class Oper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('racknum', YLeaf(YType.str, 'racknum')),
-                            ('mac_base', YLeaf(YType.str, 'mac_base')),
-                            ('mac_count', YLeaf(YType.uint32, 'mac_count')),
-                            ('is_selected', YLeaf(YType.boolean, 'is_selected')),
-                            ('allocated_count', YLeaf(YType.uint32, 'allocated_count')),
+                            ('racknum', (YLeaf(YType.str, 'racknum'), ['str'])),
+                            ('mac_base', (YLeaf(YType.str, 'mac_base'), ['str'])),
+                            ('mac_count', (YLeaf(YType.uint32, 'mac_count'), ['int'])),
+                            ('is_selected', (YLeaf(YType.boolean, 'is_selected'), ['bool'])),
+                            ('allocated_count', (YLeaf(YType.uint32, 'allocated_count'), ['int'])),
                         ])
                         self.racknum = None
                         self.mac_base = None
@@ -2519,6 +2575,7 @@ class Oper(Entity):
                         self.is_selected = None
                         self.allocated_count = None
                         self._segment_path = lambda: "brief-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Oper.Macpool.Brief.Rack.BriefData, ['racknum', 'mac_base', 'mac_count', 'is_selected', 'allocated_count'], name, value)
@@ -2586,6 +2643,7 @@ class Config(Entity):
         self.virtual_macaddr_range.parent = self
         self._children_name_map["virtual_macaddr_range"] = "virtual-macaddr-range"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Config, [], name, value)
@@ -2621,6 +2679,7 @@ class Config(Entity):
             self.serial = YList(self)
             self._segment_path = lambda: "chassis"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Config.Chassis, [], name, value)
@@ -2663,13 +2722,14 @@ class Config(Entity):
                 self.ylist_key_names = ['serial']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('serial', YLeaf(YType.str, 'serial')),
-                    ('rack', YLeaf(YType.str, 'rack')),
+                    ('serial', (YLeaf(YType.str, 'serial'), ['str'])),
+                    ('rack', (YLeaf(YType.str, 'rack'), ['str'])),
                 ])
                 self.serial = None
                 self.rack = None
                 self._segment_path = lambda: "serial" + "[serial='" + str(self.serial) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/chassis/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Chassis.Serial, ['serial', 'rack'], name, value)
@@ -2707,6 +2767,7 @@ class Config(Entity):
             self._children_name_map["mgmteth"] = "MgmtEth"
             self._segment_path = lambda: "interface"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Config.Interface, [], name, value)
@@ -2742,6 +2803,7 @@ class Config(Entity):
                 self.locport = YList(self)
                 self._segment_path = lambda: "MgmtEth"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/interface/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Interface.MgmtEth, [], name, value)
@@ -2825,13 +2887,13 @@ class Config(Entity):
                     self.ylist_key_names = ['rack','slot','intf','port']
                     self._child_classes = OrderedDict([("ipv4", ("ipv4", Config.Interface.MgmtEth.Locport.Ipv4)), ("arp", ("arp", Config.Interface.MgmtEth.Locport.Arp))])
                     self._leafs = OrderedDict([
-                        ('rack', YLeaf(YType.str, 'rack')),
-                        ('slot', YLeaf(YType.str, 'slot')),
-                        ('intf', YLeaf(YType.uint32, 'intf')),
-                        ('port', YLeaf(YType.uint32, 'port')),
-                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
-                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                        ('default_gw', YLeaf(YType.str, 'default-gw')),
+                        ('rack', (YLeaf(YType.str, 'rack'), ['str'])),
+                        ('slot', (YLeaf(YType.str, 'slot'), ['str'])),
+                        ('intf', (YLeaf(YType.uint32, 'intf'), ['int'])),
+                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                        ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('default_gw', (YLeaf(YType.str, 'default-gw'), ['str'])),
                     ])
                     self.rack = None
                     self.slot = None
@@ -2850,6 +2912,7 @@ class Config(Entity):
                     self._children_name_map["arp"] = "arp"
                     self._segment_path = lambda: "locport" + "[rack='" + str(self.rack) + "']" + "[slot='" + str(self.slot) + "']" + "[intf='" + str(self.intf) + "']" + "[port='" + str(self.port) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/interface/MgmtEth/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Config.Interface.MgmtEth.Locport, ['rack', 'slot', 'intf', 'port', 'shutdown', 'mtu', 'default_gw'], name, value)
@@ -2883,10 +2946,11 @@ class Config(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                         ])
                         self.address = None
                         self._segment_path = lambda: "ipv4"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Config.Interface.MgmtEth.Locport.Ipv4, ['address'], name, value)
@@ -2921,6 +2985,7 @@ class Config(Entity):
 
                         self.ip = YList(self)
                         self._segment_path = lambda: "arp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Config.Interface.MgmtEth.Locport.Arp, [], name, value)
@@ -2965,12 +3030,13 @@ class Config(Entity):
                             self.ylist_key_names = ['ip']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip', YLeaf(YType.str, 'ip')),
-                                ('mac', YLeaf(YType.str, 'mac')),
+                                ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                                ('mac', (YLeaf(YType.str, 'mac'), ['str'])),
                             ])
                             self.ip = None
                             self.mac = None
                             self._segment_path = lambda: "ip" + "[ip='" + str(self.ip) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Config.Interface.MgmtEth.Locport.Arp.Ip, ['ip', 'mac'], name, value)
@@ -3012,6 +3078,7 @@ class Config(Entity):
             self.name_server = YList(self)
             self._segment_path = lambda: "domain"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Config.Domain, [], name, value)
@@ -3043,11 +3110,12 @@ class Config(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
                 self._segment_path = lambda: "name" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/domain/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Domain.Name, ['name'], name, value)
@@ -3081,11 +3149,12 @@ class Config(Entity):
                 self.ylist_key_names = ['name_server']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name_server', YLeaf(YType.str, 'name-server')),
+                    ('name_server', (YLeaf(YType.str, 'name-server'), ['str'])),
                 ])
                 self.name_server = None
                 self._segment_path = lambda: "name-server" + "[name-server='" + str(self.name_server) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/domain/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Domain.NameServer, ['name_server'], name, value)
@@ -3126,13 +3195,14 @@ class Config(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('base', YLeaf(YType.str, 'base')),
-                ('count', YLeaf(YType.uint32, 'count')),
+                ('base', (YLeaf(YType.str, 'base'), ['str'])),
+                ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
             ])
             self.base = None
             self.count = None
             self._segment_path = lambda: "virtual-macaddr-range"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-sm:config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Config.VirtualMacaddrRange, ['base', 'count'], name, value)
@@ -3164,6 +3234,7 @@ class Actions(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-sm:actions"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = Actions()

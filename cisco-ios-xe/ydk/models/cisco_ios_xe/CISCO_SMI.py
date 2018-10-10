@@ -11,9 +11,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
 
 
-class CiscoChipSetSaint2(Identity):
+
+class CiscoChipSetSaint2(ObjectIdentity):
     """
     The identity of the Rev 2 SAINT ethernet chipset
     manufactured for cisco by LSI Logic.
@@ -25,11 +27,11 @@ class CiscoChipSetSaint2(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoChipSetSaint2, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoChipSetSaint2")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoChipSetSaint2"):
+        super(CiscoChipSetSaint2, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainClns(Identity):
+class CiscoTDomainClns(ObjectIdentity):
     """
     The CLNS transport domain.  The corresponding transport
     address is of type CiscoTAddressOSI.
@@ -41,11 +43,11 @@ class CiscoTDomainClns(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainClns, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainClns")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainClns"):
+        super(CiscoTDomainClns, self).__init__(ns, pref, tag)
 
 
-class CiscoProxy(Identity):
+class CiscoProxy(ObjectIdentity):
     """
     ciscoProxy OBJECT IDENTIFIERS are used to uniquely name
     party mib records created to proxy for SNMPv1.
@@ -57,11 +59,11 @@ class CiscoProxy(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoProxy, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoProxy")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoProxy"):
+        super(CiscoProxy, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainCons(Identity):
+class CiscoTDomainCons(ObjectIdentity):
     """
     The CONS transport domain.  The corresponding transport
     address is of type CiscoTAddressOSI.
@@ -73,11 +75,11 @@ class CiscoTDomainCons(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainCons, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainCons")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainCons"):
+        super(CiscoTDomainCons, self).__init__(ns, pref, tag)
 
 
-class CiscoPolicyAuto(Identity):
+class CiscoPolicyAuto(ObjectIdentity):
     """
     ciscoPolicyAuto is the root of the Cisco\-assigned
     OID subtree for OIDs which are automatically assigned
@@ -90,11 +92,11 @@ class CiscoPolicyAuto(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPolicyAuto, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPolicyAuto")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPolicyAuto"):
+        super(CiscoPolicyAuto, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainTcpIpv6(Identity):
+class CiscoTDomainTcpIpv6(ObjectIdentity):
     """
     The TCP over IPv6 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv6 for global IPv6
@@ -107,11 +109,11 @@ class CiscoTDomainTcpIpv6(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainTcpIpv6, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainTcpIpv6")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainTcpIpv6"):
+        super(CiscoTDomainTcpIpv6, self).__init__(ns, pref, tag)
 
 
-class Cisco2505RptrGroup(Identity):
+class Cisco2505RptrGroup(ObjectIdentity):
     """
     The authoritative identity of the Cisco 2505 repeater
     port group.
@@ -123,11 +125,11 @@ class Cisco2505RptrGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Cisco2505RptrGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:cisco2505RptrGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:cisco2505RptrGroup"):
+        super(Cisco2505RptrGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainUdpIpv6(Identity):
+class CiscoTDomainUdpIpv6(ObjectIdentity):
     """
     The UDP over IPv6 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv6 for global IPv6
@@ -140,11 +142,11 @@ class CiscoTDomainUdpIpv6(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainUdpIpv6, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainUdpIpv6")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainUdpIpv6"):
+        super(CiscoTDomainUdpIpv6, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainUdpIpv4(Identity):
+class CiscoTDomainUdpIpv4(ObjectIdentity):
     """
     The UDP over IPv4 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv4.
@@ -156,11 +158,11 @@ class CiscoTDomainUdpIpv4(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainUdpIpv4, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainUdpIpv4")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainUdpIpv4"):
+        super(CiscoTDomainUdpIpv4, self).__init__(ns, pref, tag)
 
 
-class CiscoPIB(Identity):
+class CiscoPIB(ObjectIdentity):
     """
     ciscoPIB is the root of the Cisco\-assigned OID
     subtree for assignment to PIB (Policy Information
@@ -173,11 +175,11 @@ class CiscoPIB(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPIB, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPIB")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPIB"):
+        super(CiscoPIB, self).__init__(ns, pref, tag)
 
 
-class CiscoExperiment(Identity):
+class CiscoExperiment(ObjectIdentity):
     """
     ciscoExperiment provides a root object identifier
     from which experimental mibs may be temporarily
@@ -202,11 +204,11 @@ class CiscoExperiment(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoExperiment, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoExperiment")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoExperiment"):
+        super(CiscoExperiment, self).__init__(ns, pref, tag)
 
 
-class CiscoMgmt(Identity):
+class CiscoMgmt(ObjectIdentity):
     """
     ciscoMgmt is the main subtree for new mib development.
     
@@ -217,11 +219,11 @@ class CiscoMgmt(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoMgmt, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoMgmt")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoMgmt"):
+        super(CiscoMgmt, self).__init__(ns, pref, tag)
 
 
-class CiscoCibProvGroup(Identity):
+class CiscoCibProvGroup(ObjectIdentity):
     """
     ciscoCibStoreGroup is the root of the Cisco\-assigned OID
     subtree for assignment to MIB modules describing managed
@@ -235,11 +237,11 @@ class CiscoCibProvGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoCibProvGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoCibProvGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoCibProvGroup"):
+        super(CiscoCibProvGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoRptrGroupObjectID(Identity):
+class CiscoRptrGroupObjectID(ObjectIdentity):
     """
     ciscoRptrGroupObjectID OBJECT IDENTIFIERS are used to
     uniquely identify groups of repeater ports for use by the
@@ -252,11 +254,11 @@ class CiscoRptrGroupObjectID(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoRptrGroupObjectID, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoRptrGroupObjectID")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoRptrGroupObjectID"):
+        super(CiscoRptrGroupObjectID, self).__init__(ns, pref, tag)
 
 
-class CiscoDomains(Identity):
+class CiscoDomains(ObjectIdentity):
     """
     ciscoDomains provides a root object identifier from which
     different transport mapping values may be assigned.
@@ -268,11 +270,11 @@ class CiscoDomains(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoDomains, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoDomains")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoDomains"):
+        super(CiscoDomains, self).__init__(ns, pref, tag)
 
 
-class CiscoPibToMib(Identity):
+class CiscoPibToMib(ObjectIdentity):
     """
     ciscoPibToMib is the root of the Cisco\-assigned
     OID subtree for MIBs which are algorithmically
@@ -291,11 +293,11 @@ class CiscoPibToMib(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPibToMib, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPibToMib")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPibToMib"):
+        super(CiscoPibToMib, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainIpx(Identity):
+class CiscoTDomainIpx(ObjectIdentity):
     """
     The IPX transport domain.  The corresponding transport
     address is of type CiscoTAddressIPX.
@@ -307,11 +309,11 @@ class CiscoTDomainIpx(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainIpx, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainIpx")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainIpx"):
+        super(CiscoTDomainIpx, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainSctpIpv4(Identity):
+class CiscoTDomainSctpIpv4(ObjectIdentity):
     """
     The SCTP over IPv4 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv4.
@@ -323,11 +325,11 @@ class CiscoTDomainSctpIpv4(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainSctpIpv4, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainSctpIpv4")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainSctpIpv4"):
+        super(CiscoTDomainSctpIpv4, self).__init__(ns, pref, tag)
 
 
-class CiscoUnknownRptrGroup(Identity):
+class CiscoUnknownRptrGroup(ObjectIdentity):
     """
     The identity of an unknown repeater port group.
     
@@ -338,11 +340,11 @@ class CiscoUnknownRptrGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoUnknownRptrGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoUnknownRptrGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoUnknownRptrGroup"):
+        super(CiscoUnknownRptrGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoModules(Identity):
+class CiscoModules(ObjectIdentity):
     """
     ciscoModules provides a root object identifier
     from which MODULE\-IDENTITY values may be assigned.
@@ -354,11 +356,11 @@ class CiscoModules(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoModules, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoModules")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoModules"):
+        super(CiscoModules, self).__init__(ns, pref, tag)
 
 
-class Lightstream(Identity):
+class Lightstream(ObjectIdentity):
     """
     subtree reserved for use by Lightstream
     
@@ -369,11 +371,11 @@ class Lightstream(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Lightstream, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:lightstream")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:lightstream"):
+        super(Lightstream, self).__init__(ns, pref, tag)
 
 
-class CiscoAdmin(Identity):
+class CiscoAdmin(ObjectIdentity):
     """
     ciscoAdmin is reserved for administratively assigned
     OBJECT IDENTIFIERS, i.e. those not associated with MIB
@@ -386,11 +388,11 @@ class CiscoAdmin(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoAdmin, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoAdmin")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoAdmin"):
+        super(CiscoAdmin, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainLocal(Identity):
+class CiscoTDomainLocal(ObjectIdentity):
     """
     The Posix Local IPC transport domain. The corresponding
     transport address is of type CiscoTAddressLocal.  The Posix
@@ -404,11 +406,11 @@ class CiscoTDomainLocal(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainLocal, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainLocal")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainLocal"):
+        super(CiscoTDomainLocal, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainDdp(Identity):
+class CiscoTDomainDdp(ObjectIdentity):
     """
     The DDP transport domain.  The corresponding transport
     address is of type CiscoTAddressNBP.
@@ -420,11 +422,11 @@ class CiscoTDomainDdp(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainDdp, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainDdp")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainDdp"):
+        super(CiscoTDomainDdp, self).__init__(ns, pref, tag)
 
 
-class Cisco2507RptrGroup(Identity):
+class Cisco2507RptrGroup(ObjectIdentity):
     """
     The authoritative identity of the Cisco 2507 repeater
     port group.
@@ -436,11 +438,11 @@ class Cisco2507RptrGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Cisco2507RptrGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:cisco2507RptrGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:cisco2507RptrGroup"):
+        super(Cisco2507RptrGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoChipSetSaint3(Identity):
+class CiscoChipSetSaint3(ObjectIdentity):
     """
     The identity of the Rev 3 SAINT ethernet chipset
     manufactured for cisco by Plessey.
@@ -452,11 +454,11 @@ class CiscoChipSetSaint3(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoChipSetSaint3, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoChipSetSaint3")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoChipSetSaint3"):
+        super(CiscoChipSetSaint3, self).__init__(ns, pref, tag)
 
 
-class CiscoChipSetSaint1(Identity):
+class CiscoChipSetSaint1(ObjectIdentity):
     """
     The identity of the Rev 1 SAINT ethernet chipset
     manufactured for cisco by LSI Logic.
@@ -468,11 +470,11 @@ class CiscoChipSetSaint1(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoChipSetSaint1, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoChipSetSaint1")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoChipSetSaint1"):
+        super(CiscoChipSetSaint1, self).__init__(ns, pref, tag)
 
 
-class Temporary(Identity):
+class Temporary(ObjectIdentity):
     """
     Subtree beneath which pre\-10.2 experiments were
     placed.
@@ -484,11 +486,11 @@ class Temporary(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Temporary, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:temporary")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:temporary"):
+        super(Temporary, self).__init__(ns, pref, tag)
 
 
-class Workgroup(Identity):
+class Workgroup(ObjectIdentity):
     """
     subtree reserved for use by the Workgroup Business Unit
     
@@ -499,11 +501,11 @@ class Workgroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Workgroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:workgroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:workgroup"):
+        super(Workgroup, self).__init__(ns, pref, tag)
 
 
-class CiscoChipSetSaint4(Identity):
+class CiscoChipSetSaint4(ObjectIdentity):
     """
     The identity of the Rev 4 SAINT ethernet chipset
     manufactured for cisco by Mitsubishi.
@@ -515,11 +517,11 @@ class CiscoChipSetSaint4(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoChipSetSaint4, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoChipSetSaint4")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoChipSetSaint4"):
+        super(CiscoChipSetSaint4, self).__init__(ns, pref, tag)
 
 
-class Ciscoworks(Identity):
+class Ciscoworks(ObjectIdentity):
     """
     ciscoworks provides a root object identifier beneath
     which mibs applicable to the CiscoWorks family of network
@@ -532,11 +534,11 @@ class Ciscoworks(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Ciscoworks, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoworks")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoworks"):
+        super(Ciscoworks, self).__init__(ns, pref, tag)
 
 
-class Pakmon(Identity):
+class Pakmon(ObjectIdentity):
     """
     reserved for pakmon
     
@@ -547,11 +549,11 @@ class Pakmon(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Pakmon, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:pakmon")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:pakmon"):
+        super(Pakmon, self).__init__(ns, pref, tag)
 
 
-class CiscoWsx5020RptrGroup(Identity):
+class CiscoWsx5020RptrGroup(ObjectIdentity):
     """
     The authoritative identity of the wsx5020 repeater
     port group.
@@ -563,11 +565,11 @@ class CiscoWsx5020RptrGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoWsx5020RptrGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoWsx5020RptrGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoWsx5020RptrGroup"):
+        super(CiscoWsx5020RptrGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoAgentCapability(Identity):
+class CiscoAgentCapability(ObjectIdentity):
     """
     ciscoAgentCapability provides a root object identifier
     from which AGENT\-CAPABILITIES values may be assigned.
@@ -579,11 +581,11 @@ class CiscoAgentCapability(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoAgentCapability, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoAgentCapability")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoAgentCapability"):
+        super(CiscoAgentCapability, self).__init__(ns, pref, tag)
 
 
-class CiscoPartnerProducts(Identity):
+class CiscoPartnerProducts(ObjectIdentity):
     """
     ciscoPartnerProducts is the root OBJECT IDENTIFIER from
     which partner sysObjectID values may be assigned. Such 
@@ -601,11 +603,11 @@ class CiscoPartnerProducts(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPartnerProducts, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPartnerProducts")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPartnerProducts"):
+        super(CiscoPartnerProducts, self).__init__(ns, pref, tag)
 
 
-class CiscoCibMmiGroup(Identity):
+class CiscoCibMmiGroup(ObjectIdentity):
     """
     ciscoCibMmiGroup is the root of the Cisco\-assigned OID
     subtree for assignment to MIB modules describing managed
@@ -619,11 +621,11 @@ class CiscoCibMmiGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoCibMmiGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoCibMmiGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoCibMmiGroup"):
+        super(CiscoCibMmiGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoProducts(Identity):
+class CiscoProducts(ObjectIdentity):
     """
     ciscoProducts is the root OBJECT IDENTIFIER from
     which sysObjectID values are assigned.  Actual
@@ -636,11 +638,11 @@ class CiscoProducts(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoProducts, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoProducts")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoProducts"):
+        super(CiscoProducts, self).__init__(ns, pref, tag)
 
 
-class CiscoPKI(Identity):
+class CiscoPKI(ObjectIdentity):
     """
     ciscoPKI is the root of cisco\-assigned OID subtree for PKI
     Certificate Policies and Certificate Extensions.
@@ -652,11 +654,11 @@ class CiscoPKI(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPKI, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPKI")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPKI"):
+        super(CiscoPKI, self).__init__(ns, pref, tag)
 
 
-class Cisco2516RptrGroup(Identity):
+class Cisco2516RptrGroup(ObjectIdentity):
     """
     The authoritative identity of the Cisco 2516 repeater
     port group.
@@ -668,11 +670,11 @@ class Cisco2516RptrGroup(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Cisco2516RptrGroup, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:cisco2516RptrGroup")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:cisco2516RptrGroup"):
+        super(Cisco2516RptrGroup, self).__init__(ns, pref, tag)
 
 
-class CiscoConfig(Identity):
+class CiscoConfig(ObjectIdentity):
     """
     ciscoConfig is the main subtree for configuration mibs.
     
@@ -683,11 +685,11 @@ class CiscoConfig(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoConfig, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoConfig")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoConfig"):
+        super(CiscoConfig, self).__init__(ns, pref, tag)
 
 
-class CiscoChipSets(Identity):
+class CiscoChipSets(ObjectIdentity):
     """
     Numerous media\-specific MIBS have an object, defined as
     an OBJECT IDENTIFIER, which is the identity of the chipset
@@ -701,11 +703,11 @@ class CiscoChipSets(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoChipSets, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoChipSets")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoChipSets"):
+        super(CiscoChipSets, self).__init__(ns, pref, tag)
 
 
-class OtherEnterprises(Identity):
+class OtherEnterprises(ObjectIdentity):
     """
     otherEnterprises provides a root object identifier
     from which mibs produced by other companies may be
@@ -722,11 +724,11 @@ class OtherEnterprises(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(OtherEnterprises, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:otherEnterprises")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:otherEnterprises"):
+        super(OtherEnterprises, self).__init__(ns, pref, tag)
 
 
-class CiscoCIB(Identity):
+class CiscoCIB(ObjectIdentity):
     """
     ciscoCIB is the root of the Cisco\-assigned OID subtree for
     assignment to MIB modules describing managed objects that
@@ -739,11 +741,11 @@ class CiscoCIB(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoCIB, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoCIB")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoCIB"):
+        super(CiscoCIB, self).__init__(ns, pref, tag)
 
 
-class Local(Identity):
+class Local(ObjectIdentity):
     """
     Subtree beneath which pre\-10.2 MIBS were built.
     
@@ -754,11 +756,11 @@ class Local(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Local, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:local")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:local"):
+        super(Local, self).__init__(ns, pref, tag)
 
 
-class CiscoPolicy(Identity):
+class CiscoPolicy(ObjectIdentity):
     """
     ciscoPolicy is the root of the Cisco\-assigned OID
     subtree for use with Policy Management.
@@ -770,11 +772,11 @@ class CiscoPolicy(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoPolicy, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoPolicy")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoPolicy"):
+        super(CiscoPolicy, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainSctpIpv6(Identity):
+class CiscoTDomainSctpIpv6(ObjectIdentity):
     """
     The SCTP over IPv6 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv6 for global IPv6
@@ -787,11 +789,11 @@ class CiscoTDomainSctpIpv6(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainSctpIpv6, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainSctpIpv6")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainSctpIpv6"):
+        super(CiscoTDomainSctpIpv6, self).__init__(ns, pref, tag)
 
 
-class Newport(Identity):
+class Newport(ObjectIdentity):
     """
     subtree reserved for use by the former Newport Systems
     Solutions, now a portion of the Access Business Unit.
@@ -803,11 +805,11 @@ class Newport(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(Newport, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:newport")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:newport"):
+        super(Newport, self).__init__(ns, pref, tag)
 
 
-class CiscoSB(Identity):
+class CiscoSB(ObjectIdentity):
     """
     ciscoSB provides root Object Identifier for Management
     Information Base for products of Cisco Small Business.
@@ -822,11 +824,11 @@ class CiscoSB(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoSB, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoSB")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoSB"):
+        super(CiscoSB, self).__init__(ns, pref, tag)
 
 
-class CiscoTDomainTcpIpv4(Identity):
+class CiscoTDomainTcpIpv4(ObjectIdentity):
     """
     The TCP over IPv4 transport domain.  The corresponding
     transport address is of type CiscoTAddressIPv4.
@@ -838,11 +840,11 @@ class CiscoTDomainTcpIpv4(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoTDomainTcpIpv4, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoTDomainTcpIpv4")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoTDomainTcpIpv4"):
+        super(CiscoTDomainTcpIpv4, self).__init__(ns, pref, tag)
 
 
-class CiscoSMB(Identity):
+class CiscoSMB(ObjectIdentity):
     """
     ciscoSMB provides root Object Identifier for Management
     Information Base for products of Cisco built for Small and 
@@ -856,7 +858,7 @@ class CiscoSMB(Identity):
     _prefix = 'CISCO-SMI'
     _revision = '2012-08-29'
 
-    def __init__(self):
-        super(CiscoSMB, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", "CISCO-SMI", "CISCO-SMI:ciscoSMB")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SMI", pref="CISCO-SMI", tag="CISCO-SMI:ciscoSMB"):
+        super(CiscoSMB, self).__init__(ns, pref, tag)
 
 

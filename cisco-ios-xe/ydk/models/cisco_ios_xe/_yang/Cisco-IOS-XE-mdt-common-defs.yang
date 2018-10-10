@@ -22,10 +22,10 @@ module Cisco-IOS-XE-mdt-common-defs {
   description
     "This module contains a collection of common YANG 
      definitions for streaming telemetry.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-10-29 {
+  revision 2018-02-12 {
     description
       "TRANSFORM support for Native stream";
     reference "1.2.0";

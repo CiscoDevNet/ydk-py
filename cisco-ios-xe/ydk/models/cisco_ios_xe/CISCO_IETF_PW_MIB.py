@@ -34,6 +34,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFPWMIB(Entity):
     """
     
@@ -120,6 +121,7 @@ class CISCOIETFPWMIB(Entity):
         self.cpwvcpeermappingtable.parent = self
         self._children_name_map["cpwvcpeermappingtable"] = "cpwVcPeerMappingTable"
         self._segment_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFPWMIB, [], name, value)
@@ -172,10 +174,10 @@ class CISCOIETFPWMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpwvcindexnext', YLeaf(YType.uint32, 'cpwVcIndexNext')),
-                ('cpwvcperftotalerrorpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalErrorPackets')),
-                ('cpwvcupdownnotifenable', YLeaf(YType.boolean, 'cpwVcUpDownNotifEnable')),
-                ('cpwvcnotifrate', YLeaf(YType.uint32, 'cpwVcNotifRate')),
+                ('cpwvcindexnext', (YLeaf(YType.uint32, 'cpwVcIndexNext'), ['int'])),
+                ('cpwvcperftotalerrorpackets', (YLeaf(YType.uint64, 'cpwVcPerfTotalErrorPackets'), ['int'])),
+                ('cpwvcupdownnotifenable', (YLeaf(YType.boolean, 'cpwVcUpDownNotifEnable'), ['bool'])),
+                ('cpwvcnotifrate', (YLeaf(YType.uint32, 'cpwVcNotifRate'), ['int'])),
             ])
             self.cpwvcindexnext = None
             self.cpwvcperftotalerrorpackets = None
@@ -183,6 +185,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcnotifrate = None
             self._segment_path = lambda: "cpwVcObjects"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcObjects, [u'cpwvcindexnext', u'cpwvcperftotalerrorpackets', u'cpwvcupdownnotifenable', u'cpwvcnotifrate'], name, value)
@@ -219,6 +222,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcentry = YList(self)
             self._segment_path = lambda: "cpwVcTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcTable, [], name, value)
@@ -440,38 +444,38 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.uint32, 'cpwVcIndex')),
-                    ('cpwvctype', YLeaf(YType.enumeration, 'cpwVcType')),
-                    ('cpwvcowner', YLeaf(YType.enumeration, 'cpwVcOwner')),
-                    ('cpwvcpsntype', YLeaf(YType.enumeration, 'cpwVcPsnType')),
-                    ('cpwvcsetuppriority', YLeaf(YType.int32, 'cpwVcSetUpPriority')),
-                    ('cpwvcholdingpriority', YLeaf(YType.int32, 'cpwVcHoldingPriority')),
-                    ('cpwvcinboundmode', YLeaf(YType.enumeration, 'cpwVcInboundMode')),
-                    ('cpwvcpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcPeerAddrType')),
-                    ('cpwvcpeeraddr', YLeaf(YType.str, 'cpwVcPeerAddr')),
-                    ('cpwvcid', YLeaf(YType.uint32, 'cpwVcID')),
-                    ('cpwvclocalgroupid', YLeaf(YType.uint32, 'cpwVcLocalGroupID')),
-                    ('cpwvccontrolword', YLeaf(YType.boolean, 'cpwVcControlWord')),
-                    ('cpwvclocalifmtu', YLeaf(YType.uint32, 'cpwVcLocalIfMtu')),
-                    ('cpwvclocalifstring', YLeaf(YType.boolean, 'cpwVcLocalIfString')),
-                    ('cpwvcremotegroupid', YLeaf(YType.uint32, 'cpwVcRemoteGroupID')),
-                    ('cpwvcremotecontrolword', YLeaf(YType.enumeration, 'cpwVcRemoteControlWord')),
-                    ('cpwvcremoteifmtu', YLeaf(YType.uint32, 'cpwVcRemoteIfMtu')),
-                    ('cpwvcremoteifstring', YLeaf(YType.str, 'cpwVcRemoteIfString')),
-                    ('cpwvcoutboundvclabel', YLeaf(YType.uint32, 'cpwVcOutboundVcLabel')),
-                    ('cpwvcinboundvclabel', YLeaf(YType.uint32, 'cpwVcInboundVcLabel')),
-                    ('cpwvcname', YLeaf(YType.str, 'cpwVcName')),
-                    ('cpwvcdescr', YLeaf(YType.str, 'cpwVcDescr')),
-                    ('cpwvccreatetime', YLeaf(YType.uint32, 'cpwVcCreateTime')),
-                    ('cpwvcuptime', YLeaf(YType.uint32, 'cpwVcUpTime')),
-                    ('cpwvcadminstatus', YLeaf(YType.enumeration, 'cpwVcAdminStatus')),
-                    ('cpwvcoperstatus', YLeaf(YType.enumeration, 'cpwVcOperStatus')),
-                    ('cpwvcinboundoperstatus', YLeaf(YType.enumeration, 'cpwVcInboundOperStatus')),
-                    ('cpwvcoutboundoperstatus', YLeaf(YType.enumeration, 'cpwVcOutboundOperStatus')),
-                    ('cpwvctimeelapsed', YLeaf(YType.int32, 'cpwVcTimeElapsed')),
-                    ('cpwvcvalidintervals', YLeaf(YType.int32, 'cpwVcValidIntervals')),
-                    ('cpwvcrowstatus', YLeaf(YType.enumeration, 'cpwVcRowStatus')),
-                    ('cpwvcstoragetype', YLeaf(YType.enumeration, 'cpwVcStorageType')),
+                    ('cpwvcindex', (YLeaf(YType.uint32, 'cpwVcIndex'), ['int'])),
+                    ('cpwvctype', (YLeaf(YType.enumeration, 'cpwVcType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwVcType', '')])),
+                    ('cpwvcowner', (YLeaf(YType.enumeration, 'cpwVcOwner'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB', 'CISCOIETFPWMIB', 'CpwVcTable.CpwVcEntry.CpwVcOwner')])),
+                    ('cpwvcpsntype', (YLeaf(YType.enumeration, 'cpwVcPsnType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB', 'CISCOIETFPWMIB', 'CpwVcTable.CpwVcEntry.CpwVcPsnType')])),
+                    ('cpwvcsetuppriority', (YLeaf(YType.int32, 'cpwVcSetUpPriority'), ['int'])),
+                    ('cpwvcholdingpriority', (YLeaf(YType.int32, 'cpwVcHoldingPriority'), ['int'])),
+                    ('cpwvcinboundmode', (YLeaf(YType.enumeration, 'cpwVcInboundMode'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB', 'CISCOIETFPWMIB', 'CpwVcTable.CpwVcEntry.CpwVcInboundMode')])),
+                    ('cpwvcpeeraddrtype', (YLeaf(YType.enumeration, 'cpwVcPeerAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cpwvcpeeraddr', (YLeaf(YType.str, 'cpwVcPeerAddr'), ['str'])),
+                    ('cpwvcid', (YLeaf(YType.uint32, 'cpwVcID'), ['int'])),
+                    ('cpwvclocalgroupid', (YLeaf(YType.uint32, 'cpwVcLocalGroupID'), ['int'])),
+                    ('cpwvccontrolword', (YLeaf(YType.boolean, 'cpwVcControlWord'), ['bool'])),
+                    ('cpwvclocalifmtu', (YLeaf(YType.uint32, 'cpwVcLocalIfMtu'), ['int'])),
+                    ('cpwvclocalifstring', (YLeaf(YType.boolean, 'cpwVcLocalIfString'), ['bool'])),
+                    ('cpwvcremotegroupid', (YLeaf(YType.uint32, 'cpwVcRemoteGroupID'), ['int'])),
+                    ('cpwvcremotecontrolword', (YLeaf(YType.enumeration, 'cpwVcRemoteControlWord'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB', 'CISCOIETFPWMIB', 'CpwVcTable.CpwVcEntry.CpwVcRemoteControlWord')])),
+                    ('cpwvcremoteifmtu', (YLeaf(YType.uint32, 'cpwVcRemoteIfMtu'), ['int'])),
+                    ('cpwvcremoteifstring', (YLeaf(YType.str, 'cpwVcRemoteIfString'), ['str'])),
+                    ('cpwvcoutboundvclabel', (YLeaf(YType.uint32, 'cpwVcOutboundVcLabel'), ['int'])),
+                    ('cpwvcinboundvclabel', (YLeaf(YType.uint32, 'cpwVcInboundVcLabel'), ['int'])),
+                    ('cpwvcname', (YLeaf(YType.str, 'cpwVcName'), ['str'])),
+                    ('cpwvcdescr', (YLeaf(YType.str, 'cpwVcDescr'), ['str'])),
+                    ('cpwvccreatetime', (YLeaf(YType.uint32, 'cpwVcCreateTime'), ['int'])),
+                    ('cpwvcuptime', (YLeaf(YType.uint32, 'cpwVcUpTime'), ['int'])),
+                    ('cpwvcadminstatus', (YLeaf(YType.enumeration, 'cpwVcAdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MIB', 'CISCOIETFPWMIB', 'CpwVcTable.CpwVcEntry.CpwVcAdminStatus')])),
+                    ('cpwvcoperstatus', (YLeaf(YType.enumeration, 'cpwVcOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwOperStatus', '')])),
+                    ('cpwvcinboundoperstatus', (YLeaf(YType.enumeration, 'cpwVcInboundOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwOperStatus', '')])),
+                    ('cpwvcoutboundoperstatus', (YLeaf(YType.enumeration, 'cpwVcOutboundOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwOperStatus', '')])),
+                    ('cpwvctimeelapsed', (YLeaf(YType.int32, 'cpwVcTimeElapsed'), ['int'])),
+                    ('cpwvcvalidintervals', (YLeaf(YType.int32, 'cpwVcValidIntervals'), ['int'])),
+                    ('cpwvcrowstatus', (YLeaf(YType.enumeration, 'cpwVcRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cpwvcstoragetype', (YLeaf(YType.enumeration, 'cpwVcStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvctype = None
@@ -507,6 +511,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcstoragetype = None
                 self._segment_path = lambda: "cpwVcEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcTable.CpwVcEntry, [u'cpwvcindex', u'cpwvctype', u'cpwvcowner', u'cpwvcpsntype', u'cpwvcsetuppriority', u'cpwvcholdingpriority', u'cpwvcinboundmode', u'cpwvcpeeraddrtype', u'cpwvcpeeraddr', u'cpwvcid', u'cpwvclocalgroupid', u'cpwvccontrolword', u'cpwvclocalifmtu', u'cpwvclocalifstring', u'cpwvcremotegroupid', u'cpwvcremotecontrolword', u'cpwvcremoteifmtu', u'cpwvcremoteifstring', u'cpwvcoutboundvclabel', u'cpwvcinboundvclabel', u'cpwvcname', u'cpwvcdescr', u'cpwvccreatetime', u'cpwvcuptime', u'cpwvcadminstatus', u'cpwvcoperstatus', u'cpwvcinboundoperstatus', u'cpwvcoutboundoperstatus', u'cpwvctimeelapsed', u'cpwvcvalidintervals', u'cpwvcrowstatus', u'cpwvcstoragetype'], name, value)
@@ -728,6 +733,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcperfcurrententry = YList(self)
             self._segment_path = lambda: "cpwVcPerfCurrentTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable, [], name, value)
@@ -792,11 +798,11 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcperfcurrentinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCPackets')),
-                    ('cpwvcperfcurrentinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCBytes')),
-                    ('cpwvcperfcurrentouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCPackets')),
-                    ('cpwvcperfcurrentouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCBytes')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcperfcurrentinhcpackets', (YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCPackets'), ['int'])),
+                    ('cpwvcperfcurrentinhcbytes', (YLeaf(YType.uint64, 'cpwVcPerfCurrentInHCBytes'), ['int'])),
+                    ('cpwvcperfcurrentouthcpackets', (YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCPackets'), ['int'])),
+                    ('cpwvcperfcurrentouthcbytes', (YLeaf(YType.uint64, 'cpwVcPerfCurrentOutHCBytes'), ['int'])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcperfcurrentinhcpackets = None
@@ -805,6 +811,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcperfcurrentouthcbytes = None
                 self._segment_path = lambda: "cpwVcPerfCurrentEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfCurrentTable.CpwVcPerfCurrentEntry, [u'cpwvcindex', u'cpwvcperfcurrentinhcpackets', u'cpwvcperfcurrentinhcbytes', u'cpwvcperfcurrentouthcpackets', u'cpwvcperfcurrentouthcbytes'], name, value)
@@ -841,6 +848,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcperfintervalentry = YList(self)
             self._segment_path = lambda: "cpwVcPerfIntervalTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable, [], name, value)
@@ -923,14 +931,14 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex','cpwvcperfintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcperfintervalnumber', YLeaf(YType.int32, 'cpwVcPerfIntervalNumber')),
-                    ('cpwvcperfintervalvaliddata', YLeaf(YType.boolean, 'cpwVcPerfIntervalValidData')),
-                    ('cpwvcperfintervaltimeelapsed', YLeaf(YType.int32, 'cpwVcPerfIntervalTimeElapsed')),
-                    ('cpwvcperfintervalinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCPackets')),
-                    ('cpwvcperfintervalinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCBytes')),
-                    ('cpwvcperfintervalouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCPackets')),
-                    ('cpwvcperfintervalouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCBytes')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcperfintervalnumber', (YLeaf(YType.int32, 'cpwVcPerfIntervalNumber'), ['int'])),
+                    ('cpwvcperfintervalvaliddata', (YLeaf(YType.boolean, 'cpwVcPerfIntervalValidData'), ['bool'])),
+                    ('cpwvcperfintervaltimeelapsed', (YLeaf(YType.int32, 'cpwVcPerfIntervalTimeElapsed'), ['int'])),
+                    ('cpwvcperfintervalinhcpackets', (YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCPackets'), ['int'])),
+                    ('cpwvcperfintervalinhcbytes', (YLeaf(YType.uint64, 'cpwVcPerfIntervalInHCBytes'), ['int'])),
+                    ('cpwvcperfintervalouthcpackets', (YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCPackets'), ['int'])),
+                    ('cpwvcperfintervalouthcbytes', (YLeaf(YType.uint64, 'cpwVcPerfIntervalOutHCBytes'), ['int'])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcperfintervalnumber = None
@@ -942,6 +950,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcperfintervalouthcbytes = None
                 self._segment_path = lambda: "cpwVcPerfIntervalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcPerfIntervalNumber='" + str(self.cpwvcperfintervalnumber) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfIntervalTable.CpwVcPerfIntervalEntry, [u'cpwvcindex', u'cpwvcperfintervalnumber', u'cpwvcperfintervalvaliddata', u'cpwvcperfintervaltimeelapsed', u'cpwvcperfintervalinhcpackets', u'cpwvcperfintervalinhcbytes', u'cpwvcperfintervalouthcpackets', u'cpwvcperfintervalouthcbytes'], name, value)
@@ -978,6 +987,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcperftotalentry = YList(self)
             self._segment_path = lambda: "cpwVcPerfTotalTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable, [], name, value)
@@ -1048,12 +1058,12 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcperftotalinhcpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalInHCPackets')),
-                    ('cpwvcperftotalinhcbytes', YLeaf(YType.uint64, 'cpwVcPerfTotalInHCBytes')),
-                    ('cpwvcperftotalouthcpackets', YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCPackets')),
-                    ('cpwvcperftotalouthcbytes', YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCBytes')),
-                    ('cpwvcperftotaldiscontinuitytime', YLeaf(YType.uint32, 'cpwVcPerfTotalDiscontinuityTime')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcperftotalinhcpackets', (YLeaf(YType.uint64, 'cpwVcPerfTotalInHCPackets'), ['int'])),
+                    ('cpwvcperftotalinhcbytes', (YLeaf(YType.uint64, 'cpwVcPerfTotalInHCBytes'), ['int'])),
+                    ('cpwvcperftotalouthcpackets', (YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCPackets'), ['int'])),
+                    ('cpwvcperftotalouthcbytes', (YLeaf(YType.uint64, 'cpwVcPerfTotalOutHCBytes'), ['int'])),
+                    ('cpwvcperftotaldiscontinuitytime', (YLeaf(YType.uint32, 'cpwVcPerfTotalDiscontinuityTime'), ['int'])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcperftotalinhcpackets = None
@@ -1063,6 +1073,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcperftotaldiscontinuitytime = None
                 self._segment_path = lambda: "cpwVcPerfTotalEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPerfTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPerfTotalTable.CpwVcPerfTotalEntry, [u'cpwvcindex', u'cpwvcperftotalinhcpackets', u'cpwvcperftotalinhcbytes', u'cpwvcperftotalouthcpackets', u'cpwvcperftotalouthcbytes', u'cpwvcperftotaldiscontinuitytime'], name, value)
@@ -1100,6 +1111,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcidmappingentry = YList(self)
             self._segment_path = lambda: "cpwVcIdMappingTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable, [], name, value)
@@ -1158,11 +1170,11 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcidmappingvctype','cpwvcidmappingvcid','cpwvcidmappingpeeraddrtype','cpwvcidmappingpeeraddr','cpwvcidmappingvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcidmappingvctype', YLeaf(YType.enumeration, 'cpwVcIdMappingVcType')),
-                    ('cpwvcidmappingvcid', YLeaf(YType.uint32, 'cpwVcIdMappingVcID')),
-                    ('cpwvcidmappingpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcIdMappingPeerAddrType')),
-                    ('cpwvcidmappingpeeraddr', YLeaf(YType.str, 'cpwVcIdMappingPeerAddr')),
-                    ('cpwvcidmappingvcindex', YLeaf(YType.uint32, 'cpwVcIdMappingVcIndex')),
+                    ('cpwvcidmappingvctype', (YLeaf(YType.enumeration, 'cpwVcIdMappingVcType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwVcType', '')])),
+                    ('cpwvcidmappingvcid', (YLeaf(YType.uint32, 'cpwVcIdMappingVcID'), ['int'])),
+                    ('cpwvcidmappingpeeraddrtype', (YLeaf(YType.enumeration, 'cpwVcIdMappingPeerAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cpwvcidmappingpeeraddr', (YLeaf(YType.str, 'cpwVcIdMappingPeerAddr'), ['str'])),
+                    ('cpwvcidmappingvcindex', (YLeaf(YType.uint32, 'cpwVcIdMappingVcIndex'), ['int'])),
                 ])
                 self.cpwvcidmappingvctype = None
                 self.cpwvcidmappingvcid = None
@@ -1171,6 +1183,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcidmappingvcindex = None
                 self._segment_path = lambda: "cpwVcIdMappingEntry" + "[cpwVcIdMappingVcType='" + str(self.cpwvcidmappingvctype) + "']" + "[cpwVcIdMappingVcID='" + str(self.cpwvcidmappingvcid) + "']" + "[cpwVcIdMappingPeerAddrType='" + str(self.cpwvcidmappingpeeraddrtype) + "']" + "[cpwVcIdMappingPeerAddr='" + str(self.cpwvcidmappingpeeraddr) + "']" + "[cpwVcIdMappingVcIndex='" + str(self.cpwvcidmappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcIdMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcIdMappingTable.CpwVcIdMappingEntry, [u'cpwvcidmappingvctype', u'cpwvcidmappingvcid', u'cpwvcidmappingpeeraddrtype', u'cpwvcidmappingpeeraddr', u'cpwvcidmappingvcindex'], name, value)
@@ -1208,6 +1221,7 @@ class CISCOIETFPWMIB(Entity):
             self.cpwvcpeermappingentry = YList(self)
             self._segment_path = lambda: "cpwVcPeerMappingTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable, [], name, value)
@@ -1266,11 +1280,11 @@ class CISCOIETFPWMIB(Entity):
                 self.ylist_key_names = ['cpwvcpeermappingpeeraddrtype','cpwvcpeermappingpeeraddr','cpwvcpeermappingvctype','cpwvcpeermappingvcid','cpwvcpeermappingvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcpeermappingpeeraddrtype', YLeaf(YType.enumeration, 'cpwVcPeerMappingPeerAddrType')),
-                    ('cpwvcpeermappingpeeraddr', YLeaf(YType.str, 'cpwVcPeerMappingPeerAddr')),
-                    ('cpwvcpeermappingvctype', YLeaf(YType.enumeration, 'cpwVcPeerMappingVcType')),
-                    ('cpwvcpeermappingvcid', YLeaf(YType.uint32, 'cpwVcPeerMappingVcID')),
-                    ('cpwvcpeermappingvcindex', YLeaf(YType.uint32, 'cpwVcPeerMappingVcIndex')),
+                    ('cpwvcpeermappingpeeraddrtype', (YLeaf(YType.enumeration, 'cpwVcPeerMappingPeerAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cpwvcpeermappingpeeraddr', (YLeaf(YType.str, 'cpwVcPeerMappingPeerAddr'), ['str'])),
+                    ('cpwvcpeermappingvctype', (YLeaf(YType.enumeration, 'cpwVcPeerMappingVcType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_TC_MIB', 'CpwVcType', '')])),
+                    ('cpwvcpeermappingvcid', (YLeaf(YType.uint32, 'cpwVcPeerMappingVcID'), ['int'])),
+                    ('cpwvcpeermappingvcindex', (YLeaf(YType.uint32, 'cpwVcPeerMappingVcIndex'), ['int'])),
                 ])
                 self.cpwvcpeermappingpeeraddrtype = None
                 self.cpwvcpeermappingpeeraddr = None
@@ -1279,6 +1293,7 @@ class CISCOIETFPWMIB(Entity):
                 self.cpwvcpeermappingvcindex = None
                 self._segment_path = lambda: "cpwVcPeerMappingEntry" + "[cpwVcPeerMappingPeerAddrType='" + str(self.cpwvcpeermappingpeeraddrtype) + "']" + "[cpwVcPeerMappingPeerAddr='" + str(self.cpwvcpeermappingpeeraddr) + "']" + "[cpwVcPeerMappingVcType='" + str(self.cpwvcpeermappingvctype) + "']" + "[cpwVcPeerMappingVcID='" + str(self.cpwvcpeermappingvcid) + "']" + "[cpwVcPeerMappingVcIndex='" + str(self.cpwvcpeermappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MIB:CISCO-IETF-PW-MIB/cpwVcPeerMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMIB.CpwVcPeerMappingTable.CpwVcPeerMappingEntry, [u'cpwvcpeermappingpeeraddrtype', u'cpwvcpeermappingpeeraddr', u'cpwvcpeermappingvctype', u'cpwvcpeermappingvcid', u'cpwvcpeermappingvcindex'], name, value)

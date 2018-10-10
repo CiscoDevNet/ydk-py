@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BandwidthConstraint(Enum):
@@ -577,7 +578,7 @@ class MplsTePathOption(Enum):
 
     .. data:: sr = 6
 
-    	Segment routing
+    	Deprecated
 
     """
 
@@ -691,11 +692,17 @@ class MplsTePathSelectionMetric(Enum):
 
     	TE Metric
 
+    .. data:: delay = 4
+
+    	DELAY Metric
+
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
+
+    delay = Enum.YLeaf(4, "delay")
 
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):
@@ -1414,7 +1421,7 @@ class MplsTe(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("diff-serv-traffic-engineering", ("diff_serv_traffic_engineering", MplsTe.DiffServTrafficEngineering)), ("named-tunnels", ("named_tunnels", MplsTe.NamedTunnels)), ("gmpls-uni", ("gmpls_uni", MplsTe.GmplsUni)), ("global-attributes", ("global_attributes", MplsTe.GlobalAttributes)), ("transport-profile", ("transport_profile", MplsTe.TransportProfile)), ("interfaces", ("interfaces", MplsTe.Interfaces)), ("gmpls-nni", ("gmpls_nni", MplsTe.GmplsNni)), ("lcac", ("lcac", MplsTe.Lcac))])
         self._leafs = OrderedDict([
-            ('enable_traffic_engineering', YLeaf(YType.empty, 'enable-traffic-engineering')),
+            ('enable_traffic_engineering', (YLeaf(YType.empty, 'enable-traffic-engineering'), ['Empty'])),
         ])
         self.enable_traffic_engineering = None
 
@@ -1450,6 +1457,7 @@ class MplsTe(Entity):
         self.lcac.parent = self
         self._children_name_map["lcac"] = "lcac"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsTe, ['enable_traffic_engineering'], name, value)
@@ -1491,8 +1499,8 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("classes", ("classes", MplsTe.DiffServTrafficEngineering.Classes))])
             self._leafs = OrderedDict([
-                ('bandwidth_constraint_model', YLeaf(YType.enumeration, 'bandwidth-constraint-model')),
-                ('mode_ietf', YLeaf(YType.enumeration, 'mode-ietf')),
+                ('bandwidth_constraint_model', (YLeaf(YType.enumeration, 'bandwidth-constraint-model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'BandwidthConstraint', '')])),
+                ('mode_ietf', (YLeaf(YType.enumeration, 'mode-ietf'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'IetfMode', '')])),
             ])
             self.bandwidth_constraint_model = None
             self.mode_ietf = None
@@ -1502,6 +1510,7 @@ class MplsTe(Entity):
             self._children_name_map["classes"] = "classes"
             self._segment_path = lambda: "diff-serv-traffic-engineering"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.DiffServTrafficEngineering, ['bandwidth_constraint_model', 'mode_ietf'], name, value)
@@ -1537,6 +1546,7 @@ class MplsTe(Entity):
                 self.class_ = YList(self)
                 self._segment_path = lambda: "classes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/diff-serv-traffic-engineering/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes, [], name, value)
@@ -1593,10 +1603,10 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['class_number']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('class_number', YLeaf(YType.uint32, 'class-number')),
-                        ('class_type', YLeaf(YType.uint32, 'class-type')),
-                        ('class_priority', YLeaf(YType.uint32, 'class-priority')),
-                        ('unused', YLeaf(YType.boolean, 'unused')),
+                        ('class_number', (YLeaf(YType.uint32, 'class-number'), ['int'])),
+                        ('class_type', (YLeaf(YType.uint32, 'class-type'), ['int'])),
+                        ('class_priority', (YLeaf(YType.uint32, 'class-priority'), ['int'])),
+                        ('unused', (YLeaf(YType.boolean, 'unused'), ['bool'])),
                     ])
                     self.class_number = None
                     self.class_type = None
@@ -1604,6 +1614,7 @@ class MplsTe(Entity):
                     self.unused = None
                     self._segment_path = lambda: "class" + "[class-number='" + str(self.class_number) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/diff-serv-traffic-engineering/classes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.DiffServTrafficEngineering.Classes.Class, ['class_number', 'class_type', 'class_priority', 'unused'], name, value)
@@ -1640,7 +1651,7 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("tunnels", ("tunnels", MplsTe.NamedTunnels.Tunnels))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
@@ -1649,6 +1660,7 @@ class MplsTe(Entity):
             self._children_name_map["tunnels"] = "tunnels"
             self._segment_path = lambda: "named-tunnels"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.NamedTunnels, ['enable'], name, value)
@@ -1684,6 +1696,7 @@ class MplsTe(Entity):
                 self.tunnel = YList(self)
                 self._segment_path = lambda: "tunnels"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels, [], name, value)
@@ -1698,7 +1711,7 @@ class MplsTe(Entity):
                 	Tunnel name
                 	**type**\: str
                 
-                	**length:** 1..59
+                	**length:** 1..54
                 
                 .. attribute:: tunnel_type  (key)
                 
@@ -1739,9 +1752,9 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['tunnel_name','tunnel_type']
                     self._child_classes = OrderedDict([("tunnel-attributes", ("tunnel_attributes", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes)), ("tunnel-id", ("tunnel_id", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId))])
                     self._leafs = OrderedDict([
-                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                        ('tunnel_type', YLeaf(YType.enumeration, 'tunnel-type')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                        ('tunnel_type', (YLeaf(YType.enumeration, 'tunnel-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeConfigTunnel', '')])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.tunnel_name = None
                     self.tunnel_type = None
@@ -1755,6 +1768,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_id"] = "tunnel-id"
                     self._segment_path = lambda: "tunnel" + "[tunnel-name='" + str(self.tunnel_name) + "']" + "[tunnel-type='" + str(self.tunnel_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/named-tunnels/tunnels/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel, ['tunnel_name', 'tunnel_type', 'enable'], name, value)
@@ -1817,6 +1831,11 @@ class MplsTe(Entity):
                     
                     	**presence node**\: True
                     
+                    .. attribute:: forwarding_adjacency
+                    
+                    	Forwarding adjacency announcement to IGP
+                    	**type**\:  :py:class:`ForwardingAdjacency <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency>`
+                    
                     .. attribute:: logging
                     
                     	Log tunnel LSP messages
@@ -1878,15 +1897,15 @@ class MplsTe(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("path-setups", ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups)), ("tunnel-path-selection", ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection)), ("auto-bandwidth", ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth)), ("priority", ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask)), ("logging", ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging)), ("bandwidth", ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth)), ("autoroute", ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute))])
+                        self._child_classes = OrderedDict([("path-setups", ("path_setups", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups)), ("tunnel-path-selection", ("tunnel_path_selection", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection)), ("auto-bandwidth", ("auto_bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth)), ("priority", ("priority", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask)), ("forwarding-adjacency", ("forwarding_adjacency", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency)), ("logging", ("logging", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging)), ("bandwidth", ("bandwidth", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth)), ("autoroute", ("autoroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute))])
                         self._leafs = OrderedDict([
-                            ('shutdown', YLeaf(YType.empty, 'shutdown')),
-                            ('forward_class', YLeaf(YType.uint32, 'forward-class')),
-                            ('destination', YLeaf(YType.str, 'destination')),
-                            ('record_route', YLeaf(YType.empty, 'record-route')),
-                            ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
-                            ('soft_preemption', YLeaf(YType.empty, 'soft-preemption')),
-                            ('load_share', YLeaf(YType.uint32, 'load-share')),
+                            ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
+                            ('forward_class', (YLeaf(YType.uint32, 'forward-class'), ['int'])),
+                            ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
+                            ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
+                            ('path_selection_metric', (YLeaf(YType.enumeration, 'path-selection-metric'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
+                            ('soft_preemption', (YLeaf(YType.empty, 'soft-preemption'), ['Empty'])),
+                            ('load_share', (YLeaf(YType.uint32, 'load-share'), ['int'])),
                         ])
                         self.shutdown = None
                         self.forward_class = None
@@ -1914,6 +1933,10 @@ class MplsTe(Entity):
                         self.affinity_mask = None
                         self._children_name_map["affinity_mask"] = "affinity-mask"
 
+                        self.forwarding_adjacency = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency()
+                        self.forwarding_adjacency.parent = self
+                        self._children_name_map["forwarding_adjacency"] = "forwarding-adjacency"
+
                         self.logging = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging()
                         self.logging.parent = self
                         self._children_name_map["logging"] = "logging"
@@ -1932,6 +1955,7 @@ class MplsTe(Entity):
                         self.fast_reroute = None
                         self._children_name_map["fast_reroute"] = "fast-reroute"
                         self._segment_path = lambda: "tunnel-attributes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes, ['shutdown', 'forward_class', 'destination', 'record_route', 'path_selection_metric', 'soft_preemption', 'load_share'], name, value)
@@ -1966,6 +1990,7 @@ class MplsTe(Entity):
 
                             self.path_setup = YList(self)
                             self._segment_path = lambda: "path-setups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups, [], name, value)
@@ -1994,7 +2019,7 @@ class MplsTe(Entity):
                             	Path preference level
                             	**type**\: int
                             
-                            	**range:** 0..4294967295
+                            	**range:** 0..255
                             
                             .. attribute:: enable
                             
@@ -2018,9 +2043,9 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['path_setup_name']
                                 self._child_classes = OrderedDict([("path-computation", ("path_computation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation))])
                                 self._leafs = OrderedDict([
-                                    ('path_setup_name', YLeaf(YType.str, 'path-setup-name')),
-                                    ('preference', YLeaf(YType.uint32, 'preference')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('path_setup_name', (YLeaf(YType.str, 'path-setup-name'), ['str'])),
+                                    ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.path_setup_name = None
                                 self.preference = None
@@ -2029,6 +2054,7 @@ class MplsTe(Entity):
                                 self.path_computation = None
                                 self._children_name_map["path_computation"] = "path-computation"
                                 self._segment_path = lambda: "path-setup" + "[path-setup-name='" + str(self.path_setup_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup, ['path_setup_name', 'preference', 'enable'], name, value)
@@ -2079,14 +2105,15 @@ class MplsTe(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('path_computation_method', YLeaf(YType.enumeration, 'path-computation-method')),
-                                        ('explicit_path_name', YLeaf(YType.str, 'explicit-path-name')),
-                                        ('path_computation_server', YLeaf(YType.str, 'path-computation-server')),
+                                        ('path_computation_method', (YLeaf(YType.enumeration, 'path-computation-method'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathComputationMethod', '')])),
+                                        ('explicit_path_name', (YLeaf(YType.str, 'explicit-path-name'), ['str'])),
+                                        ('path_computation_server', (YLeaf(YType.str, 'path-computation-server'), ['str'])),
                                     ])
                                     self.path_computation_method = None
                                     self.explicit_path_name = None
                                     self.path_computation_server = None
                                     self._segment_path = lambda: "path-computation"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.PathSetups.PathSetup.PathComputation, ['path_computation_method', 'explicit_path_name', 'path_computation_server'], name, value)
@@ -2108,9 +2135,16 @@ class MplsTe(Entity):
                         
                         	**range:** 1..255
                         
+                        .. attribute:: path_selection_delay_limit
+                        
+                        	Path selection delay limit (usec) configuration for this specific tunnel
+                        	**type**\: int
+                        
+                        	**range:** 1..4294967295
+                        
                         .. attribute:: invalidation
                         
-                        	Path invalidation configuration for this specific tunnel
+                        	Deprecated
                         	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation>`
                         
                         	**presence node**\: True
@@ -2139,26 +2173,28 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation))])
                             self._leafs = OrderedDict([
-                                ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
-                                ('path_selection_hop_limit', YLeaf(YType.uint32, 'path-selection-hop-limit')),
-                                ('path_selection_cost_limit', YLeaf(YType.uint32, 'path-selection-cost-limit')),
+                                ('tiebreaker', (YLeaf(YType.enumeration, 'tiebreaker'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreaker', '')])),
+                                ('path_selection_hop_limit', (YLeaf(YType.uint32, 'path-selection-hop-limit'), ['int'])),
+                                ('path_selection_delay_limit', (YLeaf(YType.uint32, 'path-selection-delay-limit'), ['int'])),
+                                ('path_selection_cost_limit', (YLeaf(YType.uint32, 'path-selection-cost-limit'), ['int'])),
                             ])
                             self.tiebreaker = None
                             self.path_selection_hop_limit = None
+                            self.path_selection_delay_limit = None
                             self.path_selection_cost_limit = None
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
                             self._segment_path = lambda: "tunnel-path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, ['tiebreaker', 'path_selection_hop_limit', 'path_selection_cost_limit'], name, value)
+                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection, ['tiebreaker', 'path_selection_hop_limit', 'path_selection_delay_limit', 'path_selection_cost_limit'], name, value)
 
 
                         class Invalidation(Entity):
                             """
-                            Path invalidation configuration for this
-                            specific tunnel
+                            Deprecated
                             
                             .. attribute:: path_invalidation_timeout
                             
@@ -2192,12 +2228,13 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
-                                    ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                                    ('path_invalidation_timeout', (YLeaf(YType.uint32, 'path-invalidation-timeout'), ['int'])),
+                                    ('path_invalidation_action', (YLeaf(YType.enumeration, 'path-invalidation-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction', '')])),
                                 ])
                                 self.path_invalidation_timeout = None
                                 self.path_invalidation_action = None
                                 self._segment_path = lambda: "invalidation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.TunnelPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
@@ -2236,10 +2273,24 @@ class MplsTe(Entity):
                         
                         	**presence node**\: True
                         
+                        .. attribute:: auto_capacity
+                        
+                        	Tunnel auto\-capacity configuration data
+                        	**type**\:  :py:class:`AutoCapacity <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity>`
+                        
                         .. attribute:: underflow_enable
                         
                         	Enable auto bandwidth underflow detection
                         	**type**\: bool
+                        
+                        .. attribute:: resignal_last_bandwidth_time_out
+                        
+                        	Set the tunnel auto\-bw resignal last bandwidth time\-out in seconds
+                        	**type**\: int
+                        
+                        	**range:** 1..3600000
+                        
+                        	**units**\: second
                         
                         .. attribute:: enabled
                         
@@ -2280,15 +2331,17 @@ class MplsTe(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("underflow", ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow)), ("overflow", ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow)), ("bandwidth-limits", ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits)), ("adjustment-threshold", ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold))])
+                            self._child_classes = OrderedDict([("underflow", ("underflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow)), ("overflow", ("overflow", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow)), ("bandwidth-limits", ("bandwidth_limits", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits)), ("adjustment-threshold", ("adjustment_threshold", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold)), ("auto-capacity", ("auto_capacity", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity))])
                             self._leafs = OrderedDict([
-                                ('underflow_enable', YLeaf(YType.boolean, 'underflow-enable')),
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('application_frequency', YLeaf(YType.uint32, 'application-frequency')),
-                                ('overflow_enable', YLeaf(YType.boolean, 'overflow-enable')),
-                                ('collection_only', YLeaf(YType.empty, 'collection-only')),
+                                ('underflow_enable', (YLeaf(YType.boolean, 'underflow-enable'), ['bool'])),
+                                ('resignal_last_bandwidth_time_out', (YLeaf(YType.uint32, 'resignal-last-bandwidth-time-out'), ['int'])),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('application_frequency', (YLeaf(YType.uint32, 'application-frequency'), ['int'])),
+                                ('overflow_enable', (YLeaf(YType.boolean, 'overflow-enable'), ['bool'])),
+                                ('collection_only', (YLeaf(YType.empty, 'collection-only'), ['Empty'])),
                             ])
                             self.underflow_enable = None
+                            self.resignal_last_bandwidth_time_out = None
                             self.enabled = None
                             self.application_frequency = None
                             self.overflow_enable = None
@@ -2305,10 +2358,15 @@ class MplsTe(Entity):
 
                             self.adjustment_threshold = None
                             self._children_name_map["adjustment_threshold"] = "adjustment-threshold"
+
+                            self.auto_capacity = MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity()
+                            self.auto_capacity.parent = self
+                            self._children_name_map["auto_capacity"] = "auto-capacity"
                             self._segment_path = lambda: "auto-bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, ['underflow_enable', 'enabled', 'application_frequency', 'overflow_enable', 'collection_only'], name, value)
+                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth, ['underflow_enable', 'resignal_last_bandwidth_time_out', 'enabled', 'application_frequency', 'overflow_enable', 'collection_only'], name, value)
 
 
                         class Underflow(Entity):
@@ -2366,14 +2424,15 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('underflow_threshold_percent', YLeaf(YType.uint32, 'underflow-threshold-percent')),
-                                    ('underflow_threshold_value', YLeaf(YType.uint32, 'underflow-threshold-value')),
-                                    ('underflow_threshold_limit', YLeaf(YType.uint32, 'underflow-threshold-limit')),
+                                    ('underflow_threshold_percent', (YLeaf(YType.uint32, 'underflow-threshold-percent'), ['int'])),
+                                    ('underflow_threshold_value', (YLeaf(YType.uint32, 'underflow-threshold-value'), ['int'])),
+                                    ('underflow_threshold_limit', (YLeaf(YType.uint32, 'underflow-threshold-limit'), ['int'])),
                                 ])
                                 self.underflow_threshold_percent = None
                                 self.underflow_threshold_value = None
                                 self.underflow_threshold_limit = None
                                 self._segment_path = lambda: "underflow"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Underflow, ['underflow_threshold_percent', 'underflow_threshold_value', 'underflow_threshold_limit'], name, value)
@@ -2434,14 +2493,15 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('overflow_threshold_percent', YLeaf(YType.uint32, 'overflow-threshold-percent')),
-                                    ('overflow_threshold_value', YLeaf(YType.uint32, 'overflow-threshold-value')),
-                                    ('overflow_threshold_limit', YLeaf(YType.uint32, 'overflow-threshold-limit')),
+                                    ('overflow_threshold_percent', (YLeaf(YType.uint32, 'overflow-threshold-percent'), ['int'])),
+                                    ('overflow_threshold_value', (YLeaf(YType.uint32, 'overflow-threshold-value'), ['int'])),
+                                    ('overflow_threshold_limit', (YLeaf(YType.uint32, 'overflow-threshold-limit'), ['int'])),
                                 ])
                                 self.overflow_threshold_percent = None
                                 self.overflow_threshold_value = None
                                 self.overflow_threshold_limit = None
                                 self._segment_path = lambda: "overflow"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.Overflow, ['overflow_threshold_percent', 'overflow_threshold_value', 'overflow_threshold_limit'], name, value)
@@ -2490,12 +2550,13 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('bandwidth_min_limit', YLeaf(YType.uint32, 'bandwidth-min-limit')),
-                                    ('bandwidth_max_limit', YLeaf(YType.uint32, 'bandwidth-max-limit')),
+                                    ('bandwidth_min_limit', (YLeaf(YType.uint32, 'bandwidth-min-limit'), ['int'])),
+                                    ('bandwidth_max_limit', (YLeaf(YType.uint32, 'bandwidth-max-limit'), ['int'])),
                                 ])
                                 self.bandwidth_min_limit = None
                                 self.bandwidth_max_limit = None
                                 self._segment_path = lambda: "bandwidth-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.BandwidthLimits, ['bandwidth_min_limit', 'bandwidth_max_limit'], name, value)
@@ -2548,15 +2609,107 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('adjustment_threshold_percent', YLeaf(YType.uint32, 'adjustment-threshold-percent')),
-                                    ('adjustment_threshold_value', YLeaf(YType.uint32, 'adjustment-threshold-value')),
+                                    ('adjustment_threshold_percent', (YLeaf(YType.uint32, 'adjustment-threshold-percent'), ['int'])),
+                                    ('adjustment_threshold_value', (YLeaf(YType.uint32, 'adjustment-threshold-value'), ['int'])),
                                 ])
                                 self.adjustment_threshold_percent = None
                                 self.adjustment_threshold_value = None
                                 self._segment_path = lambda: "adjustment-threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AdjustmentThreshold, ['adjustment_threshold_percent', 'adjustment_threshold_value'], name, value)
+
+
+                        class AutoCapacity(Entity):
+                            """
+                            Tunnel auto\-capacity configuration data
+                            
+                            .. attribute:: nominal_bandwidth
+                            
+                            	Bandwidth value used to compute the desired number of tunnels for auto\-capacity
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: enable
+                            
+                            	Enable auto\-capacityThe object must be set before any other auto capacity configuration is supplied for the tunnel,and must be the last auto\-capacity configuration object to be removed
+                            	**type**\: bool
+                            
+                            .. attribute:: clones_minimum
+                            
+                            	Lower limit on the number of clones can be created for the tunnel
+                            	**type**\: int
+                            
+                            	**range:** 0..63
+                            
+                            	**default value**\: 0
+                            
+                            .. attribute:: split_bandwidth
+                            
+                            	Upper bandwidth limit that causes the tunnel to be split
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: merge_bandwidth
+                            
+                            	Lower bandwidth limit that causes the tunnel to be merged
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            	**units**\: kbit/s
+                            
+                            .. attribute:: clones_maximum
+                            
+                            	Upper limit on the number of clones can be created for the tunnel
+                            	**type**\: int
+                            
+                            	**range:** 0..63
+                            
+                            	**default value**\: 63
+                            
+                            
+
+                            """
+
+                            _prefix = 'mpls-te-cfg'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, self).__init__()
+
+                                self.yang_name = "auto-capacity"
+                                self.yang_parent_name = "auto-bandwidth"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('nominal_bandwidth', (YLeaf(YType.uint32, 'nominal-bandwidth'), ['int'])),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                    ('clones_minimum', (YLeaf(YType.uint32, 'clones-minimum'), ['int'])),
+                                    ('split_bandwidth', (YLeaf(YType.uint32, 'split-bandwidth'), ['int'])),
+                                    ('merge_bandwidth', (YLeaf(YType.uint32, 'merge-bandwidth'), ['int'])),
+                                    ('clones_maximum', (YLeaf(YType.uint32, 'clones-maximum'), ['int'])),
+                                ])
+                                self.nominal_bandwidth = None
+                                self.enable = None
+                                self.clones_minimum = None
+                                self.split_bandwidth = None
+                                self.merge_bandwidth = None
+                                self.clones_maximum = None
+                                self._segment_path = lambda: "auto-capacity"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AutoBandwidth.AutoCapacity, ['nominal_bandwidth', 'enable', 'clones_minimum', 'split_bandwidth', 'merge_bandwidth', 'clones_maximum'], name, value)
 
 
                     class Priority(Entity):
@@ -2601,12 +2754,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
-                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ('setup_priority', (YLeaf(YType.uint32, 'setup-priority'), ['int'])),
+                                ('hold_priority', (YLeaf(YType.uint32, 'hold-priority'), ['int'])),
                             ])
                             self.setup_priority = None
                             self.hold_priority = None
                             self._segment_path = lambda: "priority"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Priority, ['setup_priority', 'hold_priority'], name, value)
@@ -2654,15 +2808,68 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.AffinityMask, ['affinity', 'mask'], name, value)
+
+
+                    class ForwardingAdjacency(Entity):
+                        """
+                        Forwarding adjacency announcement to IGP
+                        
+                        .. attribute:: enable
+                        
+                        	Enable forwarding adjacency
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: include_ipv6
+                        
+                        	Specify that the tunnel should be an IPv6 forwarding adjacency also
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: hold_time
+                        
+                        	Specify the holdtime for the tunnel as forwarding adjacency
+                        	**type**\: int
+                        
+                        	**range:** 0..20000
+                        
+                        
+
+                        """
+
+                        _prefix = 'mpls-te-cfg'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, self).__init__()
+
+                            self.yang_name = "forwarding-adjacency"
+                            self.yang_parent_name = "tunnel-attributes"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('include_ipv6', (YLeaf(YType.empty, 'include-ipv6'), ['Empty'])),
+                                ('hold_time', (YLeaf(YType.uint32, 'hold-time'), ['int'])),
+                            ])
+                            self.enable = None
+                            self.include_ipv6 = None
+                            self.hold_time = None
+                            self._segment_path = lambda: "forwarding-adjacency"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.ForwardingAdjacency, ['enable', 'include_ipv6', 'hold_time'], name, value)
 
 
                     class Logging(Entity):
@@ -2741,17 +2948,17 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
-                                ('all', YLeaf(YType.empty, 'all')),
-                                ('record_route_messsage', YLeaf(YType.empty, 'record-route-messsage')),
-                                ('bfd_state_message', YLeaf(YType.empty, 'bfd-state-message')),
-                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
-                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
-                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
-                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
-                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
-                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                                ('lsp_switch_over_change_message', (YLeaf(YType.empty, 'lsp-switch-over-change-message'), ['Empty'])),
+                                ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                                ('record_route_messsage', (YLeaf(YType.empty, 'record-route-messsage'), ['Empty'])),
+                                ('bfd_state_message', (YLeaf(YType.empty, 'bfd-state-message'), ['Empty'])),
+                                ('bandwidth_change_message', (YLeaf(YType.empty, 'bandwidth-change-message'), ['Empty'])),
+                                ('reoptimize_attempts_message', (YLeaf(YType.empty, 'reoptimize-attempts-message'), ['Empty'])),
+                                ('reroute_messsage', (YLeaf(YType.empty, 'reroute-messsage'), ['Empty'])),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
+                                ('insufficient_bw_message', (YLeaf(YType.empty, 'insufficient-bw-message'), ['Empty'])),
+                                ('reoptimized_message', (YLeaf(YType.empty, 'reoptimized-message'), ['Empty'])),
+                                ('pcalc_failure_message', (YLeaf(YType.empty, 'pcalc-failure-message'), ['Empty'])),
                             ])
                             self.lsp_switch_over_change_message = None
                             self.all = None
@@ -2765,6 +2972,7 @@ class MplsTe(Entity):
                             self.reoptimized_message = None
                             self.pcalc_failure_message = None
                             self._segment_path = lambda: "logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
@@ -2821,14 +3029,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
-                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('dste_type', (YLeaf(YType.enumeration, 'dste-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste', '')])),
+                                ('class_or_pool_type', (YLeaf(YType.uint32, 'class-or-pool-type'), ['int'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                             ])
                             self.dste_type = None
                             self.class_or_pool_type = None
                             self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
@@ -2874,6 +3083,7 @@ class MplsTe(Entity):
                             self.destinations.parent = self
                             self._children_name_map["destinations"] = "destinations"
                             self._segment_path = lambda: "autoroute"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute, [], name, value)
@@ -2920,8 +3130,8 @@ class MplsTe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("exclude-traffic", ("exclude_traffic", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic)), ("metric", ("metric", MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric))])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('include_ipv6', YLeaf(YType.empty, 'include-ipv6')),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('include_ipv6', (YLeaf(YType.empty, 'include-ipv6'), ['Empty'])),
                                 ])
                                 self.enable = None
                                 self.include_ipv6 = None
@@ -2934,6 +3144,7 @@ class MplsTe(Entity):
                                 self.metric.parent = self
                                 self._children_name_map["metric"] = "metric"
                                 self._segment_path = lambda: "autoroute-announce"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce, ['enable', 'include_ipv6'], name, value)
@@ -2965,10 +3176,11 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('segment_routing', YLeaf(YType.empty, 'segment-routing')),
+                                        ('segment_routing', (YLeaf(YType.empty, 'segment-routing'), ['Empty'])),
                                     ])
                                     self.segment_routing = None
                                     self._segment_path = lambda: "exclude-traffic"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.ExcludeTraffic, ['segment_routing'], name, value)
@@ -3021,16 +3233,17 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
-                                        ('absolute_metric', YLeaf(YType.uint32, 'absolute-metric')),
-                                        ('relative_metric', YLeaf(YType.int32, 'relative-metric')),
-                                        ('constant_metric', YLeaf(YType.uint32, 'constant-metric')),
+                                        ('metric_type', (YLeaf(YType.enumeration, 'metric-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAutorouteMetric', '')])),
+                                        ('absolute_metric', (YLeaf(YType.uint32, 'absolute-metric'), ['int'])),
+                                        ('relative_metric', (YLeaf(YType.int32, 'relative-metric'), ['int'])),
+                                        ('constant_metric', (YLeaf(YType.uint32, 'constant-metric'), ['int'])),
                                     ])
                                     self.metric_type = None
                                     self.absolute_metric = None
                                     self.relative_metric = None
                                     self.constant_metric = None
                                     self._segment_path = lambda: "metric"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.AutorouteAnnounce.Metric, ['metric_type', 'absolute_metric', 'relative_metric', 'constant_metric'], name, value)
@@ -3065,6 +3278,7 @@ class MplsTe(Entity):
 
                                 self.destination = YList(self)
                                 self._segment_path = lambda: "destinations"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations, [], name, value)
@@ -3098,10 +3312,11 @@ class MplsTe(Entity):
                                     self.ylist_key_names = ['destination_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('destination_address', YLeaf(YType.str, 'destination-address')),
+                                        ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
                                     ])
                                     self.destination_address = None
                                     self._segment_path = lambda: "destination" + "[destination-address='" + str(self.destination_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.Autoroute.Destinations.Destination, ['destination_address'], name, value)
@@ -3196,6 +3411,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes, [], name, value)
@@ -3227,10 +3443,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -3269,12 +3486,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -3320,14 +3538,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -3380,16 +3599,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -3449,11 +3669,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3461,6 +3681,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -3527,12 +3748,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3541,6 +3762,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -3614,13 +3836,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3630,6 +3852,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -3710,14 +3933,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3728,6 +3951,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -3815,15 +4039,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3835,6 +4059,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -3929,16 +4154,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -3951,6 +4176,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -4052,17 +4278,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -4076,6 +4302,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -4123,12 +4350,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
-                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                                ('bandwidth_protection', (YLeaf(YType.uint32, 'bandwidth-protection'), ['int'])),
+                                ('node_protection', (YLeaf(YType.uint32, 'node-protection'), ['int'])),
                             ])
                             self.bandwidth_protection = None
                             self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelAttributes.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
@@ -4172,12 +4400,13 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('tunnel_id_type', YLeaf(YType.enumeration, 'tunnel-id-type')),
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('tunnel_id_type', (YLeaf(YType.enumeration, 'tunnel-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelId', '')])),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                         ])
                         self.tunnel_id_type = None
                         self.tunnel_id = None
                         self._segment_path = lambda: "tunnel-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.NamedTunnels.Tunnels.Tunnel.TunnelId, ['tunnel_id_type', 'tunnel_id'], name, value)
@@ -4224,6 +4453,7 @@ class MplsTe(Entity):
             self._children_name_map["controllers"] = "controllers"
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.GmplsUni, [], name, value)
@@ -4261,6 +4491,7 @@ class MplsTe(Entity):
                 self._children_name_map["path_option_timers"] = "path-option-timers"
                 self._segment_path = lambda: "timers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GmplsUni.Timers, [], name, value)
@@ -4298,6 +4529,7 @@ class MplsTe(Entity):
                     self._children_name_map["holddown"] = "holddown"
                     self._segment_path = lambda: "path-option-timers"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers, [], name, value)
@@ -4343,13 +4575,14 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                         ])
                         self.minimum = None
                         self.maximum = None
                         self._segment_path = lambda: "holddown"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/timers/path-option-timers/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Timers.PathOptionTimers.Holddown, ['minimum', 'maximum'], name, value)
@@ -4385,6 +4618,7 @@ class MplsTe(Entity):
                 self.controller = YList(self)
                 self._segment_path = lambda: "controllers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GmplsUni.Controllers, [], name, value)
@@ -4399,7 +4633,7 @@ class MplsTe(Entity):
                 	Controller name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: announce
                 
@@ -4438,8 +4672,8 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['controller_name']
                     self._child_classes = OrderedDict([("announce", ("announce", MplsTe.GmplsUni.Controllers.Controller.Announce)), ("controller-logging", ("controller_logging", MplsTe.GmplsUni.Controllers.Controller.ControllerLogging)), ("gmpls-unitunnel-head", ("gmpls_unitunnel_head", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead))])
                     self._leafs = OrderedDict([
-                        ('controller_name', YLeaf(YType.str, 'controller-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.controller_name = None
                     self.enable = None
@@ -4457,6 +4691,7 @@ class MplsTe(Entity):
                     self._children_name_map["gmpls_unitunnel_head"] = "gmpls-unitunnel-head"
                     self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-uni/controllers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller, ['controller_name', 'enable'], name, value)
@@ -4489,10 +4724,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('srl_gs', YLeaf(YType.empty, 'srl-gs')),
+                            ('srl_gs', (YLeaf(YType.empty, 'srl-gs'), ['Empty'])),
                         ])
                         self.srl_gs = None
                         self._segment_path = lambda: "announce"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.Announce, ['srl_gs'], name, value)
@@ -4524,10 +4760,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('discovered_srlg_change_logging', YLeaf(YType.empty, 'discovered-srlg-change-logging')),
+                            ('discovered_srlg_change_logging', (YLeaf(YType.empty, 'discovered-srlg-change-logging'), ['Empty'])),
                         ])
                         self.discovered_srlg_change_logging = None
                         self._segment_path = lambda: "controller-logging"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.ControllerLogging, ['discovered_srlg_change_logging'], name, value)
@@ -4607,11 +4844,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("path-options", ("path_options", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions)), ("recording", ("recording", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording)), ("logging", ("logging", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging)), ("priority", ("priority", MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('destination', YLeaf(YType.str, 'destination')),
-                            ('record_route', YLeaf(YType.empty, 'record-route')),
-                            ('signalled_name', YLeaf(YType.str, 'signalled-name')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
+                            ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
+                            ('signalled_name', (YLeaf(YType.str, 'signalled-name'), ['str'])),
                         ])
                         self.tunnel_id = None
                         self.enable = None
@@ -4634,6 +4871,7 @@ class MplsTe(Entity):
                         self.priority = None
                         self._children_name_map["priority"] = "priority"
                         self._segment_path = lambda: "gmpls-unitunnel-head"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead, ['tunnel_id', 'enable', 'destination', 'record_route', 'signalled_name'], name, value)
@@ -4668,6 +4906,7 @@ class MplsTe(Entity):
 
                             self.path_option = YList(self)
                             self._segment_path = lambda: "path-options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions, [], name, value)
@@ -4766,16 +5005,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['preference_level']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('preference_level', YLeaf(YType.uint32, 'preference-level')),
-                                    ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                    ('path_name', YLeaf(YType.str, 'path-name')),
-                                    ('xro_type', YLeaf(YType.empty, 'xro-type')),
-                                    ('xro_attribute_set_name', YLeaf(YType.str, 'xro-attribute-set-name')),
-                                    ('lockdown', YLeaf(YType.enumeration, 'lockdown')),
-                                    ('verbatim', YLeaf(YType.enumeration, 'verbatim')),
-                                    ('signaled_label', YLeaf(YType.enumeration, 'signaled-label')),
-                                    ('dwdm_channel', YLeaf(YType.uint32, 'dwdm-channel')),
+                                    ('preference_level', (YLeaf(YType.uint32, 'preference-level'), ['int'])),
+                                    ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption', '')])),
+                                    ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                    ('path_name', (YLeaf(YType.str, 'path-name'), ['str'])),
+                                    ('xro_type', (YLeaf(YType.empty, 'xro-type'), ['Empty'])),
+                                    ('xro_attribute_set_name', (YLeaf(YType.str, 'xro-attribute-set-name'), ['str'])),
+                                    ('lockdown', (YLeaf(YType.enumeration, 'lockdown'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty', '')])),
+                                    ('verbatim', (YLeaf(YType.enumeration, 'verbatim'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty', '')])),
+                                    ('signaled_label', (YLeaf(YType.enumeration, 'signaled-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSignaledLabel', '')])),
+                                    ('dwdm_channel', (YLeaf(YType.uint32, 'dwdm-channel'), ['int'])),
                                 ])
                                 self.preference_level = None
                                 self.path_type = None
@@ -4788,6 +5027,7 @@ class MplsTe(Entity):
                                 self.signaled_label = None
                                 self.dwdm_channel = None
                                 self._segment_path = lambda: "path-option" + "[preference-level='" + str(self.preference_level) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'xro_type', 'xro_attribute_set_name', 'lockdown', 'verbatim', 'signaled_label', 'dwdm_channel'], name, value)
@@ -4819,10 +5059,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('srlg', YLeaf(YType.empty, 'srlg')),
+                                ('srlg', (YLeaf(YType.empty, 'srlg'), ['Empty'])),
                             ])
                             self.srlg = None
                             self._segment_path = lambda: "recording"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Recording, ['srlg'], name, value)
@@ -4854,10 +5095,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
                             ])
                             self.state_message = None
                             self._segment_path = lambda: "logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Logging, ['state_message'], name, value)
@@ -4905,12 +5147,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
-                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ('setup_priority', (YLeaf(YType.uint32, 'setup-priority'), ['int'])),
+                                ('hold_priority', (YLeaf(YType.uint32, 'hold-priority'), ['int'])),
                             ])
                             self.setup_priority = None
                             self.hold_priority = None
                             self._segment_path = lambda: "priority"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsUni.Controllers.Controller.GmplsUnitunnelHead.Priority, ['setup_priority', 'hold_priority'], name, value)
@@ -5190,32 +5433,32 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("auto-tunnel", ("auto_tunnel", MplsTe.GlobalAttributes.AutoTunnel)), ("hardware-out-of-resource", ("hardware_out_of_resource", MplsTe.GlobalAttributes.HardwareOutOfResource)), ("secondary-router-ids", ("secondary_router_ids", MplsTe.GlobalAttributes.SecondaryRouterIds)), ("srlg", ("srlg", MplsTe.GlobalAttributes.Srlg)), ("queues", ("queues", MplsTe.GlobalAttributes.Queues)), ("mib", ("mib", MplsTe.GlobalAttributes.Mib)), ("attribute-set", ("attribute_set", MplsTe.GlobalAttributes.AttributeSet)), ("bfd-over-lsp", ("bfd_over_lsp", MplsTe.GlobalAttributes.BfdOverLsp)), ("bandwidth-accounting", ("bandwidth_accounting", MplsTe.GlobalAttributes.BandwidthAccounting)), ("pce-attributes", ("pce_attributes", MplsTe.GlobalAttributes.PceAttributes)), ("lsp-out-of-resource", ("lsp_out_of_resource", MplsTe.GlobalAttributes.LspOutOfResource)), ("soft-preemption", ("soft_preemption", MplsTe.GlobalAttributes.SoftPreemption)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.FastReroute)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.PathSelection)), ("affinity-mappings", ("affinity_mappings", MplsTe.GlobalAttributes.AffinityMappings))])
             self._leafs = OrderedDict([
-                ('log_nsr_status', YLeaf(YType.empty, 'log-nsr-status')),
-                ('log_issu_status', YLeaf(YType.empty, 'log-issu-status')),
-                ('reoptimize_link_up', YLeaf(YType.empty, 'reoptimize-link-up')),
-                ('reoptimize_delay_cleanup_timer', YLeaf(YType.uint32, 'reoptimize-delay-cleanup-timer')),
-                ('disable_reoptimize_affinity_failure', YLeaf(YType.empty, 'disable-reoptimize-affinity-failure')),
-                ('maximum_tunnels', YLeaf(YType.uint32, 'maximum-tunnels')),
-                ('link_holddown_timer', YLeaf(YType.uint32, 'link-holddown-timer')),
-                ('fault_oam', YLeaf(YType.empty, 'fault-oam')),
-                ('enable_unequal_load_balancing', YLeaf(YType.empty, 'enable-unequal-load-balancing')),
-                ('log_tail', YLeaf(YType.empty, 'log-tail')),
-                ('reoptimize_delay_after_frr_timer', YLeaf(YType.uint32, 'reoptimize-delay-after-frr-timer')),
-                ('auto_bandwidth_collect_frequency', YLeaf(YType.uint32, 'auto-bandwidth-collect-frequency')),
-                ('reopt_delay_path_protect_switchover_timer', YLeaf(YType.uint32, 'reopt-delay-path-protect-switchover-timer')),
-                ('log_all', YLeaf(YType.empty, 'log-all')),
-                ('loose_path_retry_period', YLeaf(YType.uint32, 'loose-path-retry-period')),
-                ('reoptimize_load_balancing', YLeaf(YType.empty, 'reoptimize-load-balancing')),
-                ('log_head', YLeaf(YType.empty, 'log-head')),
-                ('path_selection_ignore_overload', YLeaf(YType.empty, 'path-selection-ignore-overload')),
-                ('graceful_preemption_on_bandwidth_reduction', YLeaf(YType.empty, 'graceful-preemption-on-bandwidth-reduction')),
-                ('advertise_explicit_nulls', YLeaf(YType.empty, 'advertise-explicit-nulls')),
-                ('reoptimize_delay_install_timer', YLeaf(YType.uint32, 'reoptimize-delay-install-timer')),
-                ('reoptimize_delay_after_affinity_failure_timer', YLeaf(YType.uint32, 'reoptimize-delay-after-affinity-failure-timer')),
-                ('log_frr_protection', YLeaf(YType.enumeration, 'log-frr-protection')),
-                ('reoptimize_timer_frequency', YLeaf(YType.uint32, 'reoptimize-timer-frequency')),
-                ('log_mid', YLeaf(YType.empty, 'log-mid')),
-                ('log_preemption', YLeaf(YType.empty, 'log-preemption')),
+                ('log_nsr_status', (YLeaf(YType.empty, 'log-nsr-status'), ['Empty'])),
+                ('log_issu_status', (YLeaf(YType.empty, 'log-issu-status'), ['Empty'])),
+                ('reoptimize_link_up', (YLeaf(YType.empty, 'reoptimize-link-up'), ['Empty'])),
+                ('reoptimize_delay_cleanup_timer', (YLeaf(YType.uint32, 'reoptimize-delay-cleanup-timer'), ['int'])),
+                ('disable_reoptimize_affinity_failure', (YLeaf(YType.empty, 'disable-reoptimize-affinity-failure'), ['Empty'])),
+                ('maximum_tunnels', (YLeaf(YType.uint32, 'maximum-tunnels'), ['int'])),
+                ('link_holddown_timer', (YLeaf(YType.uint32, 'link-holddown-timer'), ['int'])),
+                ('fault_oam', (YLeaf(YType.empty, 'fault-oam'), ['Empty'])),
+                ('enable_unequal_load_balancing', (YLeaf(YType.empty, 'enable-unequal-load-balancing'), ['Empty'])),
+                ('log_tail', (YLeaf(YType.empty, 'log-tail'), ['Empty'])),
+                ('reoptimize_delay_after_frr_timer', (YLeaf(YType.uint32, 'reoptimize-delay-after-frr-timer'), ['int'])),
+                ('auto_bandwidth_collect_frequency', (YLeaf(YType.uint32, 'auto-bandwidth-collect-frequency'), ['int'])),
+                ('reopt_delay_path_protect_switchover_timer', (YLeaf(YType.uint32, 'reopt-delay-path-protect-switchover-timer'), ['int'])),
+                ('log_all', (YLeaf(YType.empty, 'log-all'), ['Empty'])),
+                ('loose_path_retry_period', (YLeaf(YType.uint32, 'loose-path-retry-period'), ['int'])),
+                ('reoptimize_load_balancing', (YLeaf(YType.empty, 'reoptimize-load-balancing'), ['Empty'])),
+                ('log_head', (YLeaf(YType.empty, 'log-head'), ['Empty'])),
+                ('path_selection_ignore_overload', (YLeaf(YType.empty, 'path-selection-ignore-overload'), ['Empty'])),
+                ('graceful_preemption_on_bandwidth_reduction', (YLeaf(YType.empty, 'graceful-preemption-on-bandwidth-reduction'), ['Empty'])),
+                ('advertise_explicit_nulls', (YLeaf(YType.empty, 'advertise-explicit-nulls'), ['Empty'])),
+                ('reoptimize_delay_install_timer', (YLeaf(YType.uint32, 'reoptimize-delay-install-timer'), ['int'])),
+                ('reoptimize_delay_after_affinity_failure_timer', (YLeaf(YType.uint32, 'reoptimize-delay-after-affinity-failure-timer'), ['int'])),
+                ('log_frr_protection', (YLeaf(YType.enumeration, 'log-frr-protection'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeLogFrrProtection', '')])),
+                ('reoptimize_timer_frequency', (YLeaf(YType.uint32, 'reoptimize-timer-frequency'), ['int'])),
+                ('log_mid', (YLeaf(YType.empty, 'log-mid'), ['Empty'])),
+                ('log_preemption', (YLeaf(YType.empty, 'log-preemption'), ['Empty'])),
             ])
             self.log_nsr_status = None
             self.log_issu_status = None
@@ -5305,6 +5548,7 @@ class MplsTe(Entity):
             self._children_name_map["affinity_mappings"] = "affinity-mappings"
             self._segment_path = lambda: "global-attributes"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.GlobalAttributes, ['log_nsr_status', 'log_issu_status', 'reoptimize_link_up', 'reoptimize_delay_cleanup_timer', 'disable_reoptimize_affinity_failure', 'maximum_tunnels', 'link_holddown_timer', 'fault_oam', 'enable_unequal_load_balancing', 'log_tail', 'reoptimize_delay_after_frr_timer', 'auto_bandwidth_collect_frequency', 'reopt_delay_path_protect_switchover_timer', 'log_all', 'loose_path_retry_period', 'reoptimize_load_balancing', 'log_head', 'path_selection_ignore_overload', 'graceful_preemption_on_bandwidth_reduction', 'advertise_explicit_nulls', 'reoptimize_delay_install_timer', 'reoptimize_delay_after_affinity_failure_timer', 'log_frr_protection', 'reoptimize_timer_frequency', 'log_mid', 'log_preemption'], name, value)
@@ -5378,6 +5622,7 @@ class MplsTe(Entity):
                 self._children_name_map["p2mp_auto_tunnel"] = "p2mp-auto-tunnel"
                 self._segment_path = lambda: "auto-tunnel"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel, [], name, value)
@@ -5417,6 +5662,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._segment_path = lambda: "pcc"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc, [], name, value)
@@ -5465,13 +5711,14 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
-                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                            ('min_tunnel_id', (YLeaf(YType.uint32, 'min-tunnel-id'), ['int'])),
+                            ('max_tunnel_id', (YLeaf(YType.uint32, 'max-tunnel-id'), ['int'])),
                         ])
                         self.min_tunnel_id = None
                         self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/pcc/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Pcc.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
@@ -5510,6 +5757,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._segment_path = lambda: "p2p-auto-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel, [], name, value)
@@ -5558,13 +5806,14 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
-                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                            ('min_tunnel_id', (YLeaf(YType.uint32, 'min-tunnel-id'), ['int'])),
+                            ('max_tunnel_id', (YLeaf(YType.uint32, 'max-tunnel-id'), ['int'])),
                         ])
                         self.min_tunnel_id = None
                         self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2p-auto-tunnel/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2pAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
@@ -5608,7 +5857,7 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("timers", ("timers", MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers)), ("tunnel-range", ("tunnel_range", MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange))])
                     self._leafs = OrderedDict([
-                        ('affinity_ignore', YLeaf(YType.empty, 'affinity-ignore')),
+                        ('affinity_ignore', (YLeaf(YType.empty, 'affinity-ignore'), ['Empty'])),
                     ])
                     self.affinity_ignore = None
 
@@ -5620,6 +5869,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._segment_path = lambda: "backup"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup, ['affinity_ignore'], name, value)
@@ -5657,6 +5907,7 @@ class MplsTe(Entity):
                         self._children_name_map["removal"] = "removal"
                         self._segment_path = lambda: "timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers, [], name, value)
@@ -5695,11 +5946,12 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unused', YLeaf(YType.uint32, 'unused')),
+                                ('unused', (YLeaf(YType.uint32, 'unused'), ['int'])),
                             ])
                             self.unused = None
                             self._segment_path = lambda: "removal"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/timers/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.Timers.Removal, ['unused'], name, value)
@@ -5748,13 +6000,14 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
-                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                            ('min_tunnel_id', (YLeaf(YType.uint32, 'min-tunnel-id'), ['int'])),
+                            ('max_tunnel_id', (YLeaf(YType.uint32, 'max-tunnel-id'), ['int'])),
                         ])
                         self.min_tunnel_id = None
                         self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/backup/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Backup.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
@@ -5811,6 +6064,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._segment_path = lambda: "mesh"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh, [], name, value)
@@ -5846,6 +6100,7 @@ class MplsTe(Entity):
                         self.mesh_group = YList(self)
                         self._segment_path = lambda: "mesh-groups"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups, [], name, value)
@@ -5908,12 +6163,12 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['mesh_group_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mesh_group_id', YLeaf(YType.uint32, 'mesh-group-id')),
-                                ('destination_list', YLeaf(YType.str, 'destination-list')),
-                                ('disable', YLeaf(YType.empty, 'disable')),
-                                ('attribute_set', YLeaf(YType.str, 'attribute-set')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('one_hop', YLeaf(YType.empty, 'one-hop')),
+                                ('mesh_group_id', (YLeaf(YType.uint32, 'mesh-group-id'), ['int'])),
+                                ('destination_list', (YLeaf(YType.str, 'destination-list'), ['str'])),
+                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                ('attribute_set', (YLeaf(YType.str, 'attribute-set'), ['str'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('one_hop', (YLeaf(YType.empty, 'one-hop'), ['Empty'])),
                             ])
                             self.mesh_group_id = None
                             self.destination_list = None
@@ -5923,6 +6178,7 @@ class MplsTe(Entity):
                             self.one_hop = None
                             self._segment_path = lambda: "mesh-group" + "[mesh-group-id='" + str(self.mesh_group_id) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/mesh-groups/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.MeshGroups.MeshGroup, ['mesh_group_id', 'destination_list', 'disable', 'attribute_set', 'create', 'one_hop'], name, value)
@@ -5960,6 +6216,7 @@ class MplsTe(Entity):
                         self._children_name_map["removal"] = "removal"
                         self._segment_path = lambda: "timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers, [], name, value)
@@ -5998,11 +6255,12 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unused', YLeaf(YType.uint32, 'unused')),
+                                ('unused', (YLeaf(YType.uint32, 'unused'), ['int'])),
                             ])
                             self.unused = None
                             self._segment_path = lambda: "removal"
                             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/timers/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.Timers.Removal, ['unused'], name, value)
@@ -6051,13 +6309,14 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
-                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                            ('min_tunnel_id', (YLeaf(YType.uint32, 'min-tunnel-id'), ['int'])),
+                            ('max_tunnel_id', (YLeaf(YType.uint32, 'max-tunnel-id'), ['int'])),
                         ])
                         self.min_tunnel_id = None
                         self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/mesh/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.Mesh.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
@@ -6096,6 +6355,7 @@ class MplsTe(Entity):
                     self._children_name_map["tunnel_range"] = "tunnel-range"
                     self._segment_path = lambda: "p2mp-auto-tunnel"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel, [], name, value)
@@ -6144,13 +6404,14 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min_tunnel_id', YLeaf(YType.uint32, 'min-tunnel-id')),
-                            ('max_tunnel_id', YLeaf(YType.uint32, 'max-tunnel-id')),
+                            ('min_tunnel_id', (YLeaf(YType.uint32, 'min-tunnel-id'), ['int'])),
+                            ('max_tunnel_id', (YLeaf(YType.uint32, 'max-tunnel-id'), ['int'])),
                         ])
                         self.min_tunnel_id = None
                         self.max_tunnel_id = None
                         self._segment_path = lambda: "tunnel-range"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/auto-tunnel/p2mp-auto-tunnel/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AutoTunnel.P2mpAutoTunnel.TunnelRange, ['min_tunnel_id', 'max_tunnel_id'], name, value)
@@ -6206,6 +6467,7 @@ class MplsTe(Entity):
                 self._children_name_map["oor_green_state"] = "oor-green-state"
                 self._segment_path = lambda: "hardware-out-of-resource"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource, [], name, value)
@@ -6273,11 +6535,11 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
-                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
-                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
+                        ('oor_node_protection_disable', (YLeaf(YType.empty, 'oor-node-protection-disable'), ['Empty'])),
+                        ('oor_available_bandwidth_percentage', (YLeaf(YType.uint32, 'oor-available-bandwidth-percentage'), ['int'])),
+                        ('oor_accept_lsp_min_bandwidth', (YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth'), ['int'])),
+                        ('oor_accept_reopt_lsp', (YLeaf(YType.empty, 'oor-accept-reopt-lsp'), ['Empty'])),
+                        ('oor_metric_te_penalty', (YLeaf(YType.uint32, 'oor-metric-te-penalty'), ['int'])),
                     ])
                     self.oor_node_protection_disable = None
                     self.oor_available_bandwidth_percentage = None
@@ -6286,6 +6548,7 @@ class MplsTe(Entity):
                     self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-red-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorRedState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
@@ -6353,11 +6616,11 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
-                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
-                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
+                        ('oor_node_protection_disable', (YLeaf(YType.empty, 'oor-node-protection-disable'), ['Empty'])),
+                        ('oor_available_bandwidth_percentage', (YLeaf(YType.uint32, 'oor-available-bandwidth-percentage'), ['int'])),
+                        ('oor_accept_lsp_min_bandwidth', (YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth'), ['int'])),
+                        ('oor_accept_reopt_lsp', (YLeaf(YType.empty, 'oor-accept-reopt-lsp'), ['Empty'])),
+                        ('oor_metric_te_penalty', (YLeaf(YType.uint32, 'oor-metric-te-penalty'), ['int'])),
                     ])
                     self.oor_node_protection_disable = None
                     self.oor_available_bandwidth_percentage = None
@@ -6366,6 +6629,7 @@ class MplsTe(Entity):
                     self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-yellow-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorYellowState, ['oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
@@ -6444,12 +6708,12 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('oor_recovery_duration', YLeaf(YType.uint32, 'oor-recovery-duration')),
-                        ('oor_node_protection_disable', YLeaf(YType.empty, 'oor-node-protection-disable')),
-                        ('oor_available_bandwidth_percentage', YLeaf(YType.uint32, 'oor-available-bandwidth-percentage')),
-                        ('oor_accept_lsp_min_bandwidth', YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth')),
-                        ('oor_accept_reopt_lsp', YLeaf(YType.empty, 'oor-accept-reopt-lsp')),
-                        ('oor_metric_te_penalty', YLeaf(YType.uint32, 'oor-metric-te-penalty')),
+                        ('oor_recovery_duration', (YLeaf(YType.uint32, 'oor-recovery-duration'), ['int'])),
+                        ('oor_node_protection_disable', (YLeaf(YType.empty, 'oor-node-protection-disable'), ['Empty'])),
+                        ('oor_available_bandwidth_percentage', (YLeaf(YType.uint32, 'oor-available-bandwidth-percentage'), ['int'])),
+                        ('oor_accept_lsp_min_bandwidth', (YLeaf(YType.uint32, 'oor-accept-lsp-min-bandwidth'), ['int'])),
+                        ('oor_accept_reopt_lsp', (YLeaf(YType.empty, 'oor-accept-reopt-lsp'), ['Empty'])),
+                        ('oor_metric_te_penalty', (YLeaf(YType.uint32, 'oor-metric-te-penalty'), ['int'])),
                     ])
                     self.oor_recovery_duration = None
                     self.oor_node_protection_disable = None
@@ -6459,6 +6723,7 @@ class MplsTe(Entity):
                     self.oor_metric_te_penalty = None
                     self._segment_path = lambda: "oor-green-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/hardware-out-of-resource/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.HardwareOutOfResource.OorGreenState, ['oor_recovery_duration', 'oor_node_protection_disable', 'oor_available_bandwidth_percentage', 'oor_accept_lsp_min_bandwidth', 'oor_accept_reopt_lsp', 'oor_metric_te_penalty'], name, value)
@@ -6494,6 +6759,7 @@ class MplsTe(Entity):
                 self.secondary_router_id = YList(self)
                 self._segment_path = lambda: "secondary-router-ids"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.SecondaryRouterIds, [], name, value)
@@ -6527,11 +6793,12 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['secondary_router_id_value']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('secondary_router_id_value', YLeaf(YType.str, 'secondary-router-id-value')),
+                        ('secondary_router_id_value', (YLeaf(YType.str, 'secondary-router-id-value'), ['str'])),
                     ])
                     self.secondary_router_id_value = None
                     self._segment_path = lambda: "secondary-router-id" + "[secondary-router-id-value='" + str(self.secondary_router_id_value) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/secondary-router-ids/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.SecondaryRouterIds.SecondaryRouterId, ['secondary_router_id_value'], name, value)
@@ -6577,8 +6844,8 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("names", ("names", MplsTe.GlobalAttributes.Srlg.Names))])
                 self._leafs = OrderedDict([
-                    ('default_admin_weight', YLeaf(YType.uint32, 'default-admin-weight')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('default_admin_weight', (YLeaf(YType.uint32, 'default-admin-weight'), ['int'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.default_admin_weight = None
                 self.enable = None
@@ -6588,6 +6855,7 @@ class MplsTe(Entity):
                 self._children_name_map["names"] = "names"
                 self._segment_path = lambda: "srlg"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg, ['default_admin_weight', 'enable'], name, value)
@@ -6623,6 +6891,7 @@ class MplsTe(Entity):
                     self.name = YList(self)
                     self._segment_path = lambda: "names"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names, [], name, value)
@@ -6668,8 +6937,8 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['srlg_name']
                         self._child_classes = OrderedDict([("static-srlg-members", ("static_srlg_members", MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers))])
                         self._leafs = OrderedDict([
-                            ('srlg_name', YLeaf(YType.str, 'srlg-name')),
-                            ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
+                            ('srlg_name', (YLeaf(YType.str, 'srlg-name'), ['str'])),
+                            ('admin_weight', (YLeaf(YType.uint32, 'admin-weight'), ['int'])),
                         ])
                         self.srlg_name = None
                         self.admin_weight = None
@@ -6679,6 +6948,7 @@ class MplsTe(Entity):
                         self._children_name_map["static_srlg_members"] = "static-srlg-members"
                         self._segment_path = lambda: "name" + "[srlg-name='" + str(self.srlg_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/srlg/names/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name, ['srlg_name', 'admin_weight'], name, value)
@@ -6713,6 +6983,7 @@ class MplsTe(Entity):
 
                             self.static_srlg_member = YList(self)
                             self._segment_path = lambda: "static-srlg-members"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers, [], name, value)
@@ -6755,12 +7026,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['from_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('from_address', YLeaf(YType.str, 'from-address')),
-                                    ('to_address', YLeaf(YType.str, 'to-address')),
+                                    ('from_address', (YLeaf(YType.str, 'from-address'), ['str'])),
+                                    ('to_address', (YLeaf(YType.str, 'to-address'), ['str'])),
                                 ])
                                 self.from_address = None
                                 self.to_address = None
                                 self._segment_path = lambda: "static-srlg-member" + "[from-address='" + str(self.from_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.Srlg.Names.Name.StaticSrlgMembers.StaticSrlgMember, ['from_address', 'to_address'], name, value)
@@ -6796,6 +7068,7 @@ class MplsTe(Entity):
                 self.queue = YList(self)
                 self._segment_path = lambda: "queues"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.Queues, [], name, value)
@@ -6836,13 +7109,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['role']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('role', YLeaf(YType.enumeration, 'role')),
-                        ('value', YLeaf(YType.uint32, 'value')),
+                        ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'RoutePriorityRole', '')])),
+                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
                     ])
                     self.role = None
                     self.value = None
                     self._segment_path = lambda: "queue" + "[role='" + str(self.role) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/queues/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.Queues.Queue, ['role', 'value'], name, value)
@@ -6874,11 +7148,12 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('midpoint_lsp_stats_collection_disable', YLeaf(YType.empty, 'midpoint-lsp-stats-collection-disable')),
+                    ('midpoint_lsp_stats_collection_disable', (YLeaf(YType.empty, 'midpoint-lsp-stats-collection-disable'), ['Empty'])),
                 ])
                 self.midpoint_lsp_stats_collection_disable = None
                 self._segment_path = lambda: "mib"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.Mib, ['midpoint_lsp_stats_collection_disable'], name, value)
@@ -6970,6 +7245,7 @@ class MplsTe(Entity):
                 self._children_name_map["xro_attributes"] = "xro-attributes"
                 self._segment_path = lambda: "attribute-set"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet, [], name, value)
@@ -7005,6 +7281,7 @@ class MplsTe(Entity):
                     self.path_option_attribute = YList(self)
                     self._segment_path = lambda: "path-option-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes, [], name, value)
@@ -7079,8 +7356,8 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("bfd-reverse-path", ("bfd_reverse_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath)), ("att-path-option-path-selection", ("att_path_option_path_selection", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.enable = None
@@ -7107,6 +7384,7 @@ class MplsTe(Entity):
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._segment_path = lambda: "path-option-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/path-option-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute, ['attribute_set_name', 'enable'], name, value)
@@ -7150,12 +7428,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bfd_reverse_path_type', YLeaf(YType.enumeration, 'bfd-reverse-path-type')),
-                                ('binding_label', YLeaf(YType.uint32, 'binding-label')),
+                                ('bfd_reverse_path_type', (YLeaf(YType.enumeration, 'bfd-reverse-path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'BfdReversePath', '')])),
+                                ('binding_label', (YLeaf(YType.uint32, 'binding-label'), ['int'])),
                             ])
                             self.bfd_reverse_path_type = None
                             self.binding_label = None
                             self._segment_path = lambda: "bfd-reverse-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.BfdReversePath, ['bfd_reverse_path_type', 'binding_label'], name, value)
@@ -7177,9 +7456,16 @@ class MplsTe(Entity):
                         	Enter path selection configuration
                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                         
+                        .. attribute:: path_selection_delay_limit
+                        
+                        	Path selection delay limit (usec) configuration for this specific tunnel
+                        	**type**\: int
+                        
+                        	**range:** 1..4294967295
+                        
                         .. attribute:: invalidation
                         
-                        	Path invalidation configuration for this specific tunnel
+                        	Deprecated
                         	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation>`
                         
                         	**presence node**\: True
@@ -7208,26 +7494,28 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation))])
                             self._leafs = OrderedDict([
-                                ('path_selection_exclude_list', YLeaf(YType.str, 'path-selection-exclude-list')),
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('path_selection_cost_limit', YLeaf(YType.uint32, 'path-selection-cost-limit')),
+                                ('path_selection_exclude_list', (YLeaf(YType.str, 'path-selection-exclude-list'), ['str'])),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('path_selection_delay_limit', (YLeaf(YType.uint32, 'path-selection-delay-limit'), ['int'])),
+                                ('path_selection_cost_limit', (YLeaf(YType.uint32, 'path-selection-cost-limit'), ['int'])),
                             ])
                             self.path_selection_exclude_list = None
                             self.enable = None
+                            self.path_selection_delay_limit = None
                             self.path_selection_cost_limit = None
 
                             self.invalidation = None
                             self._children_name_map["invalidation"] = "invalidation"
                             self._segment_path = lambda: "att-path-option-path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, ['path_selection_exclude_list', 'enable', 'path_selection_cost_limit'], name, value)
+                            self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection, ['path_selection_exclude_list', 'enable', 'path_selection_delay_limit', 'path_selection_cost_limit'], name, value)
 
 
                         class Invalidation(Entity):
                             """
-                            Path invalidation configuration for this
-                            specific tunnel
+                            Deprecated
                             
                             .. attribute:: path_invalidation_timeout
                             
@@ -7261,12 +7549,13 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
-                                    ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                                    ('path_invalidation_timeout', (YLeaf(YType.uint32, 'path-invalidation-timeout'), ['int'])),
+                                    ('path_invalidation_action', (YLeaf(YType.enumeration, 'path-invalidation-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction', '')])),
                                 ])
                                 self.path_invalidation_timeout = None
                                 self.path_invalidation_action = None
                                 self._segment_path = lambda: "invalidation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AttPathOptionPathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
@@ -7312,7 +7601,7 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
 
@@ -7322,6 +7611,7 @@ class MplsTe(Entity):
                             self.disjoint_path = None
                             self._children_name_map["disjoint_path"] = "disjoint-path"
                             self._segment_path = lambda: "pce"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce, ['enable'], name, value)
@@ -7369,12 +7659,13 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
-                                    ('bd_group_id', YLeaf(YType.uint32, 'bd-group-id')),
+                                    ('bd_source_address', (YLeaf(YType.str, 'bd-source-address'), ['str'])),
+                                    ('bd_group_id', (YLeaf(YType.uint32, 'bd-group-id'), ['int'])),
                                 ])
                                 self.bd_source_address = None
                                 self.bd_group_id = None
                                 self._segment_path = lambda: "bidirectional"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
@@ -7431,14 +7722,15 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
-                                    ('dp_type', YLeaf(YType.uint32, 'dp-type')),
-                                    ('dp_group_id', YLeaf(YType.uint32, 'dp-group-id')),
+                                    ('dp_source_address', (YLeaf(YType.str, 'dp-source-address'), ['str'])),
+                                    ('dp_type', (YLeaf(YType.uint32, 'dp-type'), ['int'])),
+                                    ('dp_group_id', (YLeaf(YType.uint32, 'dp-group-id'), ['int'])),
                                 ])
                                 self.dp_source_address = None
                                 self.dp_type = None
                                 self.dp_group_id = None
                                 self._segment_path = lambda: "disjoint-path"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
@@ -7486,12 +7778,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.AffinityMask, ['affinity', 'mask'], name, value)
@@ -7548,14 +7841,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
-                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('dste_type', (YLeaf(YType.enumeration, 'dste-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste', '')])),
+                                ('class_or_pool_type', (YLeaf(YType.uint32, 'class-or-pool-type'), ['int'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                             ])
                             self.dste_type = None
                             self.class_or_pool_type = None
                             self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
@@ -7650,6 +7944,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes, [], name, value)
@@ -7681,10 +7976,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -7723,12 +8019,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -7774,14 +8071,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -7834,16 +8132,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -7903,11 +8202,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -7915,6 +8214,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -7981,12 +8281,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -7995,6 +8295,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -8068,13 +8369,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -8084,6 +8385,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -8164,14 +8466,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -8182,6 +8484,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -8269,15 +8572,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -8289,6 +8592,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -8383,16 +8687,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -8405,6 +8709,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -8506,17 +8811,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -8530,6 +8835,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.PathOptionAttributes.PathOptionAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -8565,6 +8871,7 @@ class MplsTe(Entity):
                     self.p2mpte_attribute = YList(self)
                     self._segment_path = lambda: "p2mpte-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes, [], name, value)
@@ -8660,10 +8967,10 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('interface_bandwidth', (YLeaf(YType.uint32, 'interface-bandwidth'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.interface_bandwidth = None
@@ -8695,6 +9002,7 @@ class MplsTe(Entity):
                         self._children_name_map["logging"] = "logging"
                         self._segment_path = lambda: "p2mpte-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2mpte-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute, ['attribute_set_name', 'interface_bandwidth', 'enable', 'record_route'], name, value)
@@ -8742,12 +9050,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
-                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ('setup_priority', (YLeaf(YType.uint32, 'setup-priority'), ['int'])),
+                                ('hold_priority', (YLeaf(YType.uint32, 'hold-priority'), ['int'])),
                             ])
                             self.setup_priority = None
                             self.hold_priority = None
                             self._segment_path = lambda: "priority"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
@@ -8795,12 +9104,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.AffinityMask, ['affinity', 'mask'], name, value)
@@ -8857,14 +9167,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
-                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('dste_type', (YLeaf(YType.enumeration, 'dste-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste', '')])),
+                                ('class_or_pool_type', (YLeaf(YType.uint32, 'class-or-pool-type'), ['int'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                             ])
                             self.dste_type = None
                             self.class_or_pool_type = None
                             self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
@@ -8896,10 +9207,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.PathSelection, ['enable'], name, value)
@@ -8994,6 +9306,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes, [], name, value)
@@ -9025,10 +9338,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -9067,12 +9381,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -9118,14 +9433,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -9178,16 +9494,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -9247,11 +9564,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9259,6 +9576,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -9325,12 +9643,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9339,6 +9657,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -9412,13 +9731,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9428,6 +9747,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -9508,14 +9828,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9526,6 +9846,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -9613,15 +9934,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9633,6 +9954,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -9727,16 +10049,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9749,6 +10071,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -9850,17 +10173,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -9874,6 +10197,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -9921,12 +10245,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
-                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                                ('bandwidth_protection', (YLeaf(YType.uint32, 'bandwidth-protection'), ['int'])),
+                                ('node_protection', (YLeaf(YType.uint32, 'node-protection'), ['int'])),
                             ])
                             self.bandwidth_protection = None
                             self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
@@ -9998,15 +10323,15 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
-                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
-                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
-                                ('all', YLeaf(YType.empty, 'all')),
-                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
-                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
-                                ('sub_lsp_state_message', YLeaf(YType.empty, 'sub-lsp-state-message')),
-                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
+                                ('insufficient_bw_message', (YLeaf(YType.empty, 'insufficient-bw-message'), ['Empty'])),
+                                ('reoptimized_message', (YLeaf(YType.empty, 'reoptimized-message'), ['Empty'])),
+                                ('bandwidth_change_message', (YLeaf(YType.empty, 'bandwidth-change-message'), ['Empty'])),
+                                ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                                ('pcalc_failure_message', (YLeaf(YType.empty, 'pcalc-failure-message'), ['Empty'])),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
+                                ('reoptimize_attempts_message', (YLeaf(YType.empty, 'reoptimize-attempts-message'), ['Empty'])),
+                                ('sub_lsp_state_message', (YLeaf(YType.empty, 'sub-lsp-state-message'), ['Empty'])),
+                                ('reroute_messsage', (YLeaf(YType.empty, 'reroute-messsage'), ['Empty'])),
                             ])
                             self.insufficient_bw_message = None
                             self.reoptimized_message = None
@@ -10018,6 +10343,7 @@ class MplsTe(Entity):
                             self.sub_lsp_state_message = None
                             self.reroute_messsage = None
                             self._segment_path = lambda: "logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2mpteAttributes.P2mpteAttribute.Logging, ['insufficient_bw_message', 'reoptimized_message', 'bandwidth_change_message', 'all', 'pcalc_failure_message', 'state_message', 'reoptimize_attempts_message', 'sub_lsp_state_message', 'reroute_messsage'], name, value)
@@ -10053,6 +10379,7 @@ class MplsTe(Entity):
                     self.p2p_te_attribute = YList(self)
                     self._segment_path = lambda: "p2p-te-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes, [], name, value)
@@ -10118,8 +10445,8 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection)), ("pce", ("pce", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask)), ("logging", ("logging", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.enable = None
@@ -10144,6 +10471,7 @@ class MplsTe(Entity):
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._segment_path = lambda: "p2p-te-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/p2p-te-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute, ['attribute_set_name', 'enable'], name, value)
@@ -10155,12 +10483,12 @@ class MplsTe(Entity):
                         
                         .. attribute:: segment_routing_prepend
                         
-                        	Path selection segment routing prepend configuration
+                        	Deprecated
                         	**type**\:  :py:class:`SegmentRoutingPrepend <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend>`
                         
                         .. attribute:: invalidation
                         
-                        	Path selection invalidation configuration
+                        	Deprecated
                         	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation>`
                         
                         .. attribute:: path_selection_metric
@@ -10195,9 +10523,9 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("segment-routing-prepend", ("segment_routing_prepend", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation))])
                             self._leafs = OrderedDict([
-                                ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
-                                ('path_selection_segment_routing_adjacency_protection', YLeaf(YType.enumeration, 'path-selection-segment-routing-adjacency-protection')),
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('path_selection_metric', (YLeaf(YType.enumeration, 'path-selection-metric'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
+                                ('path_selection_segment_routing_adjacency_protection', (YLeaf(YType.enumeration, 'path-selection-segment-routing-adjacency-protection'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionSegmentRoutingAdjacencyProtection', '')])),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.path_selection_metric = None
                             self.path_selection_segment_routing_adjacency_protection = None
@@ -10211,6 +10539,7 @@ class MplsTe(Entity):
                             self.invalidation.parent = self
                             self._children_name_map["invalidation"] = "invalidation"
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection, ['path_selection_metric', 'path_selection_segment_routing_adjacency_protection', 'enable'], name, value)
@@ -10218,8 +10547,7 @@ class MplsTe(Entity):
 
                         class SegmentRoutingPrepend(Entity):
                             """
-                            Path selection segment routing prepend
-                            configuration
+                            Deprecated
                             
                             .. attribute:: indexes
                             
@@ -10248,7 +10576,7 @@ class MplsTe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("indexes", ("indexes", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes))])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.enable = None
 
@@ -10256,6 +10584,7 @@ class MplsTe(Entity):
                                 self.indexes.parent = self
                                 self._children_name_map["indexes"] = "indexes"
                                 self._segment_path = lambda: "segment-routing-prepend"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend, ['enable'], name, value)
@@ -10290,6 +10619,7 @@ class MplsTe(Entity):
 
                                     self.index = YList(self)
                                     self._segment_path = lambda: "indexes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes, [], name, value)
@@ -10339,14 +10669,15 @@ class MplsTe(Entity):
                                         self.ylist_key_names = ['index_number']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('index_number', YLeaf(YType.uint32, 'index-number')),
-                                            ('prepend_type', YLeaf(YType.enumeration, 'prepend-type')),
-                                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                            ('index_number', (YLeaf(YType.uint32, 'index-number'), ['int'])),
+                                            ('prepend_type', (YLeaf(YType.enumeration, 'prepend-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'SrPrepend', '')])),
+                                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                                         ])
                                         self.index_number = None
                                         self.prepend_type = None
                                         self.mpls_label = None
                                         self._segment_path = lambda: "index" + "[index-number='" + str(self.index_number) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.SegmentRoutingPrepend.Indexes.Index, ['index_number', 'prepend_type', 'mpls_label'], name, value)
@@ -10354,7 +10685,7 @@ class MplsTe(Entity):
 
                         class Invalidation(Entity):
                             """
-                            Path selection invalidation configuration
+                            Deprecated
                             
                             .. attribute:: invalidation_timer
                             
@@ -10389,12 +10720,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('invalidation_timer', YLeaf(YType.uint32, 'invalidation-timer')),
-                                    ('invalidation_timer_expire_type', YLeaf(YType.enumeration, 'invalidation-timer-expire-type')),
+                                    ('invalidation_timer', (YLeaf(YType.uint32, 'invalidation-timer'), ['int'])),
+                                    ('invalidation_timer_expire_type', (YLeaf(YType.enumeration, 'invalidation-timer-expire-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionInvalidationTimerExpire', '')])),
                                 ])
                                 self.invalidation_timer = None
                                 self.invalidation_timer_expire_type = None
                                 self._segment_path = lambda: "invalidation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.PathSelection.Invalidation, ['invalidation_timer', 'invalidation_timer_expire_type'], name, value)
@@ -10440,7 +10772,7 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("bidirectional", ("bidirectional", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional)), ("disjoint-path", ("disjoint_path", MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
 
@@ -10450,6 +10782,7 @@ class MplsTe(Entity):
                             self.disjoint_path = None
                             self._children_name_map["disjoint_path"] = "disjoint-path"
                             self._segment_path = lambda: "pce"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce, ['enable'], name, value)
@@ -10497,12 +10830,13 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('bd_source_address', YLeaf(YType.str, 'bd-source-address')),
-                                    ('bd_group_id', YLeaf(YType.uint32, 'bd-group-id')),
+                                    ('bd_source_address', (YLeaf(YType.str, 'bd-source-address'), ['str'])),
+                                    ('bd_group_id', (YLeaf(YType.uint32, 'bd-group-id'), ['int'])),
                                 ])
                                 self.bd_source_address = None
                                 self.bd_group_id = None
                                 self._segment_path = lambda: "bidirectional"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.Bidirectional, ['bd_source_address', 'bd_group_id'], name, value)
@@ -10559,14 +10893,15 @@ class MplsTe(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('dp_source_address', YLeaf(YType.str, 'dp-source-address')),
-                                    ('dp_type', YLeaf(YType.uint32, 'dp-type')),
-                                    ('dp_group_id', YLeaf(YType.uint32, 'dp-group-id')),
+                                    ('dp_source_address', (YLeaf(YType.str, 'dp-source-address'), ['str'])),
+                                    ('dp_type', (YLeaf(YType.uint32, 'dp-type'), ['int'])),
+                                    ('dp_group_id', (YLeaf(YType.uint32, 'dp-group-id'), ['int'])),
                                 ])
                                 self.dp_source_address = None
                                 self.dp_type = None
                                 self.dp_group_id = None
                                 self._segment_path = lambda: "disjoint-path"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Pce.DisjointPath, ['dp_source_address', 'dp_type', 'dp_group_id'], name, value)
@@ -10614,12 +10949,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.AffinityMask, ['affinity', 'mask'], name, value)
@@ -10701,17 +11037,17 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('lsp_switch_over_change_message', YLeaf(YType.empty, 'lsp-switch-over-change-message')),
-                                ('all', YLeaf(YType.empty, 'all')),
-                                ('record_route_messsage', YLeaf(YType.empty, 'record-route-messsage')),
-                                ('bfd_state_message', YLeaf(YType.empty, 'bfd-state-message')),
-                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
-                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
-                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
-                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
-                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
-                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                                ('lsp_switch_over_change_message', (YLeaf(YType.empty, 'lsp-switch-over-change-message'), ['Empty'])),
+                                ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                                ('record_route_messsage', (YLeaf(YType.empty, 'record-route-messsage'), ['Empty'])),
+                                ('bfd_state_message', (YLeaf(YType.empty, 'bfd-state-message'), ['Empty'])),
+                                ('bandwidth_change_message', (YLeaf(YType.empty, 'bandwidth-change-message'), ['Empty'])),
+                                ('reoptimize_attempts_message', (YLeaf(YType.empty, 'reoptimize-attempts-message'), ['Empty'])),
+                                ('reroute_messsage', (YLeaf(YType.empty, 'reroute-messsage'), ['Empty'])),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
+                                ('insufficient_bw_message', (YLeaf(YType.empty, 'insufficient-bw-message'), ['Empty'])),
+                                ('reoptimized_message', (YLeaf(YType.empty, 'reoptimized-message'), ['Empty'])),
+                                ('pcalc_failure_message', (YLeaf(YType.empty, 'pcalc-failure-message'), ['Empty'])),
                             ])
                             self.lsp_switch_over_change_message = None
                             self.all = None
@@ -10725,6 +11061,7 @@ class MplsTe(Entity):
                             self.reoptimized_message = None
                             self.pcalc_failure_message = None
                             self._segment_path = lambda: "logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.Logging, ['lsp_switch_over_change_message', 'all', 'record_route_messsage', 'bfd_state_message', 'bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
@@ -10819,6 +11156,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes, [], name, value)
@@ -10850,10 +11188,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -10892,12 +11231,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -10943,14 +11283,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -11003,16 +11344,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -11072,11 +11414,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11084,6 +11426,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -11150,12 +11493,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11164,6 +11507,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -11237,13 +11581,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11253,6 +11597,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -11333,14 +11678,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11351,6 +11696,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -11438,15 +11784,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11458,6 +11804,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -11552,16 +11899,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11574,6 +11921,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -11675,17 +12023,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -11699,6 +12047,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.P2pTeAttributes.P2pTeAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -11734,6 +12083,7 @@ class MplsTe(Entity):
                     self.auto_backup_attribute = YList(self)
                     self._segment_path = lambda: "auto-backup-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes, [], name, value)
@@ -11816,9 +12166,9 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("signalled-name", ("signalled_name", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName)), ("auto-backup-logging", ("auto_backup_logging", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('record_route', YLeaf(YType.empty, 'record-route')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.enable = None
@@ -11851,6 +12201,7 @@ class MplsTe(Entity):
                         self._children_name_map["new_style_affinity_affinity_types"] = "new-style-affinity-affinity-types"
                         self._segment_path = lambda: "auto-backup-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-backup-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute, ['attribute_set_name', 'enable', 'record_route'], name, value)
@@ -11897,16 +12248,17 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('source_type', YLeaf(YType.enumeration, 'source-type')),
-                                ('protected_interface_type', YLeaf(YType.enumeration, 'protected-interface-type')),
-                                ('mp_address', YLeaf(YType.boolean, 'mp-address')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('source_type', (YLeaf(YType.enumeration, 'source-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOption', '')])),
+                                ('protected_interface_type', (YLeaf(YType.enumeration, 'protected-interface-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSigNameOption', '')])),
+                                ('mp_address', (YLeaf(YType.boolean, 'mp-address'), ['bool'])),
                             ])
                             self.name = None
                             self.source_type = None
                             self.protected_interface_type = None
                             self.mp_address = None
                             self._segment_path = lambda: "signalled-name"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.SignalledName, ['name', 'source_type', 'protected_interface_type', 'mp_address'], name, value)
@@ -11953,16 +12305,17 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
-                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
-                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
+                                ('bandwidth_change_message', (YLeaf(YType.empty, 'bandwidth-change-message'), ['Empty'])),
+                                ('reoptimize_attempts_message', (YLeaf(YType.empty, 'reoptimize-attempts-message'), ['Empty'])),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
+                                ('reoptimized_message', (YLeaf(YType.empty, 'reoptimized-message'), ['Empty'])),
                             ])
                             self.bandwidth_change_message = None
                             self.reoptimize_attempts_message = None
                             self.state_message = None
                             self.reoptimized_message = None
                             self._segment_path = lambda: "auto-backup-logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AutoBackupLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'state_message', 'reoptimized_message'], name, value)
@@ -12010,12 +12363,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
-                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ('setup_priority', (YLeaf(YType.uint32, 'setup-priority'), ['int'])),
+                                ('hold_priority', (YLeaf(YType.uint32, 'hold-priority'), ['int'])),
                             ])
                             self.setup_priority = None
                             self.hold_priority = None
                             self._segment_path = lambda: "priority"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
@@ -12063,12 +12417,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.AffinityMask, ['affinity', 'mask'], name, value)
@@ -12100,10 +12455,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PathSelection, ['enable'], name, value)
@@ -12137,10 +12493,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('policy_class', YLeafList(YType.uint32, 'policy-class')),
+                                ('policy_class', (YLeafList(YType.uint32, 'policy-class'), ['int'])),
                             ])
                             self.policy_class = []
                             self._segment_path = lambda: "policy-classes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.PolicyClasses, ['policy_class'], name, value)
@@ -12235,6 +12592,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes, [], name, value)
@@ -12266,10 +12624,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -12308,12 +12667,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -12359,14 +12719,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -12419,16 +12780,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -12488,11 +12850,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12500,6 +12862,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -12566,12 +12929,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12580,6 +12943,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -12653,13 +13017,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12669,6 +13033,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -12749,14 +13114,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12767,6 +13132,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -12854,15 +13220,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12874,6 +13240,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -12968,16 +13335,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -12990,6 +13357,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -13091,17 +13459,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -13115,6 +13483,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoBackupAttributes.AutoBackupAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -13150,6 +13519,7 @@ class MplsTe(Entity):
                     self.otn_pp_attribute = YList(self)
                     self._segment_path = lambda: "otn-pp-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes, [], name, value)
@@ -13223,11 +13593,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("revert-schedule-names", ("revert_schedule_names", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames)), ("sub-network-connection-mode", ("sub_network_connection_mode", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode)), ("timers", ("timers", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('aps_protection_mode', YLeaf(YType.enumeration, 'aps-protection-mode')),
-                            ('aps_restoration_style', YLeaf(YType.enumeration, 'aps-restoration-style')),
-                            ('aps_protection_type', YLeaf(YType.enumeration, 'aps-protection-type')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('aps_protection_mode', (YLeaf(YType.enumeration, 'aps-protection-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtectionMode', '')])),
+                            ('aps_restoration_style', (YLeaf(YType.enumeration, 'aps-restoration-style'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsRestorationStyle', '')])),
+                            ('aps_protection_type', (YLeaf(YType.enumeration, 'aps-protection-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnApsProtection', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.aps_protection_mode = None
@@ -13252,6 +13622,7 @@ class MplsTe(Entity):
                         self._children_name_map["path_selection"] = "path-selection"
                         self._segment_path = lambda: "otn-pp-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/otn-pp-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute, ['attribute_set_name', 'aps_protection_mode', 'aps_restoration_style', 'aps_protection_type', 'enable'], name, value)
@@ -13286,6 +13657,7 @@ class MplsTe(Entity):
 
                             self.revert_schedule_name = YList(self)
                             self._segment_path = lambda: "revert-schedule-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames, [], name, value)
@@ -13352,10 +13724,10 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['schedule_name']
                                 self._child_classes = OrderedDict([("schedule-duration", ("schedule_duration", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration)), ("schedule-date", ("schedule_date", MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate))])
                                 self._leafs = OrderedDict([
-                                    ('schedule_name', YLeaf(YType.str, 'schedule-name')),
-                                    ('revert_schedule_max_tries', YLeaf(YType.uint32, 'revert-schedule-max-tries')),
-                                    ('sch_name_enable', YLeaf(YType.empty, 'sch-name-enable')),
-                                    ('revert_schedule_frequency', YLeaf(YType.uint32, 'revert-schedule-frequency')),
+                                    ('schedule_name', (YLeaf(YType.str, 'schedule-name'), ['str'])),
+                                    ('revert_schedule_max_tries', (YLeaf(YType.uint32, 'revert-schedule-max-tries'), ['int'])),
+                                    ('sch_name_enable', (YLeaf(YType.empty, 'sch-name-enable'), ['Empty'])),
+                                    ('revert_schedule_frequency', (YLeaf(YType.uint32, 'revert-schedule-frequency'), ['int'])),
                                 ])
                                 self.schedule_name = None
                                 self.revert_schedule_max_tries = None
@@ -13368,6 +13740,7 @@ class MplsTe(Entity):
                                 self.schedule_date = None
                                 self._children_name_map["schedule_date"] = "schedule-date"
                                 self._segment_path = lambda: "revert-schedule-name" + "[schedule-name='" + str(self.schedule_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName, ['schedule_name', 'revert_schedule_max_tries', 'sch_name_enable', 'revert_schedule_frequency'], name, value)
@@ -13415,12 +13788,13 @@ class MplsTe(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('hour', YLeaf(YType.uint32, 'hour')),
-                                        ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                        ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                                        ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
                                     ])
                                     self.hour = None
                                     self.minutes = None
                                     self._segment_path = lambda: "schedule-duration"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDuration, ['hour', 'minutes'], name, value)
@@ -13495,11 +13869,11 @@ class MplsTe(Entity):
                                     self._child_classes = OrderedDict([])
                                     self.is_presence_container = True
                                     self._leafs = OrderedDict([
-                                        ('hour', YLeaf(YType.uint32, 'hour')),
-                                        ('minutes', YLeaf(YType.uint32, 'minutes')),
-                                        ('month', YLeaf(YType.uint32, 'month')),
-                                        ('day', YLeaf(YType.uint32, 'day')),
-                                        ('year', YLeaf(YType.uint32, 'year')),
+                                        ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                                        ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
+                                        ('month', (YLeaf(YType.uint32, 'month'), ['int'])),
+                                        ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                                        ('year', (YLeaf(YType.uint32, 'year'), ['int'])),
                                     ])
                                     self.hour = None
                                     self.minutes = None
@@ -13507,6 +13881,7 @@ class MplsTe(Entity):
                                     self.day = None
                                     self.year = None
                                     self._segment_path = lambda: "schedule-date"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.RevertScheduleNames.RevertScheduleName.ScheduleDate, ['hour', 'minutes', 'month', 'day', 'year'], name, value)
@@ -13545,12 +13920,13 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('connection_mode', YLeaf(YType.enumeration, 'connection-mode')),
-                                ('connection_monitoring_mode', YLeaf(YType.uint32, 'connection-monitoring-mode')),
+                                ('connection_mode', (YLeaf(YType.enumeration, 'connection-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeOtnSncMode', '')])),
+                                ('connection_monitoring_mode', (YLeaf(YType.uint32, 'connection-monitoring-mode'), ['int'])),
                             ])
                             self.connection_mode = None
                             self.connection_monitoring_mode = None
                             self._segment_path = lambda: "sub-network-connection-mode"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.SubNetworkConnectionMode, ['connection_mode', 'connection_monitoring_mode'], name, value)
@@ -13595,12 +13971,13 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('aps_wait_to_restore', YLeaf(YType.uint32, 'aps-wait-to-restore')),
-                                ('aps_hold_off', YLeaf(YType.uint32, 'aps-hold-off')),
+                                ('aps_wait_to_restore', (YLeaf(YType.uint32, 'aps-wait-to-restore'), ['int'])),
+                                ('aps_hold_off', (YLeaf(YType.uint32, 'aps-hold-off'), ['int'])),
                             ])
                             self.aps_wait_to_restore = None
                             self.aps_hold_off = None
                             self._segment_path = lambda: "timers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.Timers, ['aps_wait_to_restore', 'aps_hold_off'], name, value)
@@ -13632,10 +14009,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.OtnPpAttributes.OtnPpAttribute.PathSelection, ['enable'], name, value)
@@ -13671,6 +14049,7 @@ class MplsTe(Entity):
                     self.auto_mesh_attribute = YList(self)
                     self._segment_path = lambda: "auto-mesh-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes, [], name, value)
@@ -13800,15 +14179,15 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("auto-mesh-logging", ("auto_mesh_logging", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging)), ("priority", ("priority", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority)), ("affinity-mask", ("affinity_mask", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask)), ("bandwidth", ("bandwidth", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection)), ("policy-classes", ("policy_classes", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses)), ("new-style-affinity-affinity-types", ("new_style_affinity_affinity_types", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes)), ("fast-reroute", ("fast_reroute", MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('autoroute_announce', YLeaf(YType.empty, 'autoroute-announce')),
-                            ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
-                            ('forward_class', YLeaf(YType.uint32, 'forward-class')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('record_route', YLeaf(YType.empty, 'record-route')),
-                            ('collection_only', YLeaf(YType.empty, 'collection-only')),
-                            ('soft_preemption', YLeaf(YType.empty, 'soft-preemption')),
-                            ('load_share', YLeaf(YType.uint32, 'load-share')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('autoroute_announce', (YLeaf(YType.empty, 'autoroute-announce'), ['Empty'])),
+                            ('interface_bandwidth', (YLeaf(YType.uint32, 'interface-bandwidth'), ['int'])),
+                            ('forward_class', (YLeaf(YType.uint32, 'forward-class'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
+                            ('collection_only', (YLeaf(YType.empty, 'collection-only'), ['Empty'])),
+                            ('soft_preemption', (YLeaf(YType.empty, 'soft-preemption'), ['Empty'])),
+                            ('load_share', (YLeaf(YType.uint32, 'load-share'), ['int'])),
                         ])
                         self.attribute_set_name = None
                         self.autoroute_announce = None
@@ -13849,6 +14228,7 @@ class MplsTe(Entity):
                         self._children_name_map["fast_reroute"] = "fast-reroute"
                         self._segment_path = lambda: "auto-mesh-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/auto-mesh-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute, ['attribute_set_name', 'autoroute_announce', 'interface_bandwidth', 'forward_class', 'enable', 'record_route', 'collection_only', 'soft_preemption', 'load_share'], name, value)
@@ -13910,13 +14290,13 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('bandwidth_change_message', YLeaf(YType.empty, 'bandwidth-change-message')),
-                                ('reoptimize_attempts_message', YLeaf(YType.empty, 'reoptimize-attempts-message')),
-                                ('reroute_messsage', YLeaf(YType.empty, 'reroute-messsage')),
-                                ('state_message', YLeaf(YType.empty, 'state-message')),
-                                ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
-                                ('reoptimized_message', YLeaf(YType.empty, 'reoptimized-message')),
-                                ('pcalc_failure_message', YLeaf(YType.empty, 'pcalc-failure-message')),
+                                ('bandwidth_change_message', (YLeaf(YType.empty, 'bandwidth-change-message'), ['Empty'])),
+                                ('reoptimize_attempts_message', (YLeaf(YType.empty, 'reoptimize-attempts-message'), ['Empty'])),
+                                ('reroute_messsage', (YLeaf(YType.empty, 'reroute-messsage'), ['Empty'])),
+                                ('state_message', (YLeaf(YType.empty, 'state-message'), ['Empty'])),
+                                ('insufficient_bw_message', (YLeaf(YType.empty, 'insufficient-bw-message'), ['Empty'])),
+                                ('reoptimized_message', (YLeaf(YType.empty, 'reoptimized-message'), ['Empty'])),
+                                ('pcalc_failure_message', (YLeaf(YType.empty, 'pcalc-failure-message'), ['Empty'])),
                             ])
                             self.bandwidth_change_message = None
                             self.reoptimize_attempts_message = None
@@ -13926,6 +14306,7 @@ class MplsTe(Entity):
                             self.reoptimized_message = None
                             self.pcalc_failure_message = None
                             self._segment_path = lambda: "auto-mesh-logging"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AutoMeshLogging, ['bandwidth_change_message', 'reoptimize_attempts_message', 'reroute_messsage', 'state_message', 'insufficient_bw_message', 'reoptimized_message', 'pcalc_failure_message'], name, value)
@@ -13973,12 +14354,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('setup_priority', YLeaf(YType.uint32, 'setup-priority')),
-                                ('hold_priority', YLeaf(YType.uint32, 'hold-priority')),
+                                ('setup_priority', (YLeaf(YType.uint32, 'setup-priority'), ['int'])),
+                                ('hold_priority', (YLeaf(YType.uint32, 'hold-priority'), ['int'])),
                             ])
                             self.setup_priority = None
                             self.hold_priority = None
                             self._segment_path = lambda: "priority"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Priority, ['setup_priority', 'hold_priority'], name, value)
@@ -14026,12 +14408,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('affinity', YLeaf(YType.str, 'affinity')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.affinity = None
                             self.mask = None
                             self._segment_path = lambda: "affinity-mask"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.AffinityMask, ['affinity', 'mask'], name, value)
@@ -14088,14 +14471,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('dste_type', YLeaf(YType.enumeration, 'dste-type')),
-                                ('class_or_pool_type', YLeaf(YType.uint32, 'class-or-pool-type')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('dste_type', (YLeaf(YType.enumeration, 'dste-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBandwidthDste', '')])),
+                                ('class_or_pool_type', (YLeaf(YType.uint32, 'class-or-pool-type'), ['int'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                             ])
                             self.dste_type = None
                             self.class_or_pool_type = None
                             self.bandwidth = None
                             self._segment_path = lambda: "bandwidth"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.Bandwidth, ['dste_type', 'class_or_pool_type', 'bandwidth'], name, value)
@@ -14127,10 +14511,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PathSelection, ['enable'], name, value)
@@ -14164,10 +14549,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('policy_class', YLeafList(YType.uint32, 'policy-class')),
+                                ('policy_class', (YLeafList(YType.uint32, 'policy-class'), ['int'])),
                             ])
                             self.policy_class = []
                             self._segment_path = lambda: "policy-classes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.PolicyClasses, ['policy_class'], name, value)
@@ -14262,6 +14648,7 @@ class MplsTe(Entity):
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9 = YList(self)
                             self.new_style_affinity_affinity_type_affinity1_affinity2_affinity3_affinity4_affinity5_affinity6_affinity7_affinity8_affinity9_affinity10 = YList(self)
                             self._segment_path = lambda: "new-style-affinity-affinity-types"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes, [], name, value)
@@ -14293,10 +14680,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
                                 ])
                                 self.affinity_type = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type" + "[affinity-type='" + str(self.affinity_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityType, ['affinity_type'], name, value)
@@ -14335,12 +14723,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1, ['affinity_type', 'affinity1'], name, value)
@@ -14386,14 +14775,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2, ['affinity_type', 'affinity1', 'affinity2'], name, value)
@@ -14446,16 +14836,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
                                 self.affinity2 = None
                                 self.affinity3 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3, ['affinity_type', 'affinity1', 'affinity2', 'affinity3'], name, value)
@@ -14515,11 +14906,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -14527,6 +14918,7 @@ class MplsTe(Entity):
                                 self.affinity3 = None
                                 self.affinity4 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4'], name, value)
@@ -14593,12 +14985,12 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -14607,6 +14999,7 @@ class MplsTe(Entity):
                                 self.affinity4 = None
                                 self.affinity5 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5'], name, value)
@@ -14680,13 +15073,13 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -14696,6 +15089,7 @@ class MplsTe(Entity):
                                 self.affinity5 = None
                                 self.affinity6 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6'], name, value)
@@ -14776,14 +15170,14 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -14794,6 +15188,7 @@ class MplsTe(Entity):
                                 self.affinity6 = None
                                 self.affinity7 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7'], name, value)
@@ -14881,15 +15276,15 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -14901,6 +15296,7 @@ class MplsTe(Entity):
                                 self.affinity7 = None
                                 self.affinity8 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8'], name, value)
@@ -14995,16 +15391,16 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -15017,6 +15413,7 @@ class MplsTe(Entity):
                                 self.affinity8 = None
                                 self.affinity9 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9'], name, value)
@@ -15118,17 +15515,17 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['affinity_type','affinity1','affinity2','affinity3','affinity4','affinity5','affinity6','affinity7','affinity8','affinity9','affinity10']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('affinity_type', YLeaf(YType.enumeration, 'affinity-type')),
-                                    ('affinity1', YLeaf(YType.str, 'affinity1')),
-                                    ('affinity2', YLeaf(YType.str, 'affinity2')),
-                                    ('affinity3', YLeaf(YType.str, 'affinity3')),
-                                    ('affinity4', YLeaf(YType.str, 'affinity4')),
-                                    ('affinity5', YLeaf(YType.str, 'affinity5')),
-                                    ('affinity6', YLeaf(YType.str, 'affinity6')),
-                                    ('affinity7', YLeaf(YType.str, 'affinity7')),
-                                    ('affinity8', YLeaf(YType.str, 'affinity8')),
-                                    ('affinity9', YLeaf(YType.str, 'affinity9')),
-                                    ('affinity10', YLeaf(YType.str, 'affinity10')),
+                                    ('affinity_type', (YLeaf(YType.enumeration, 'affinity-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeTunnelAffinity', '')])),
+                                    ('affinity1', (YLeaf(YType.str, 'affinity1'), ['str'])),
+                                    ('affinity2', (YLeaf(YType.str, 'affinity2'), ['str'])),
+                                    ('affinity3', (YLeaf(YType.str, 'affinity3'), ['str'])),
+                                    ('affinity4', (YLeaf(YType.str, 'affinity4'), ['str'])),
+                                    ('affinity5', (YLeaf(YType.str, 'affinity5'), ['str'])),
+                                    ('affinity6', (YLeaf(YType.str, 'affinity6'), ['str'])),
+                                    ('affinity7', (YLeaf(YType.str, 'affinity7'), ['str'])),
+                                    ('affinity8', (YLeaf(YType.str, 'affinity8'), ['str'])),
+                                    ('affinity9', (YLeaf(YType.str, 'affinity9'), ['str'])),
+                                    ('affinity10', (YLeaf(YType.str, 'affinity10'), ['str'])),
                                 ])
                                 self.affinity_type = None
                                 self.affinity1 = None
@@ -15142,6 +15539,7 @@ class MplsTe(Entity):
                                 self.affinity9 = None
                                 self.affinity10 = None
                                 self._segment_path = lambda: "new-style-affinity-affinity-type-affinity1-affinity2-affinity3-affinity4-affinity5-affinity6-affinity7-affinity8-affinity9-affinity10" + "[affinity-type='" + str(self.affinity_type) + "']" + "[affinity1='" + str(self.affinity1) + "']" + "[affinity2='" + str(self.affinity2) + "']" + "[affinity3='" + str(self.affinity3) + "']" + "[affinity4='" + str(self.affinity4) + "']" + "[affinity5='" + str(self.affinity5) + "']" + "[affinity6='" + str(self.affinity6) + "']" + "[affinity7='" + str(self.affinity7) + "']" + "[affinity8='" + str(self.affinity8) + "']" + "[affinity9='" + str(self.affinity9) + "']" + "[affinity10='" + str(self.affinity10) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.NewStyleAffinityAffinityTypes.NewStyleAffinityAffinityTypeAffinity1Affinity2Affinity3Affinity4Affinity5Affinity6Affinity7Affinity8Affinity9Affinity10, ['affinity_type', 'affinity1', 'affinity2', 'affinity3', 'affinity4', 'affinity5', 'affinity6', 'affinity7', 'affinity8', 'affinity9', 'affinity10'], name, value)
@@ -15189,12 +15587,13 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bandwidth_protection', YLeaf(YType.uint32, 'bandwidth-protection')),
-                                ('node_protection', YLeaf(YType.uint32, 'node-protection')),
+                                ('bandwidth_protection', (YLeaf(YType.uint32, 'bandwidth-protection'), ['int'])),
+                                ('node_protection', (YLeaf(YType.uint32, 'node-protection'), ['int'])),
                             ])
                             self.bandwidth_protection = None
                             self.node_protection = None
                             self._segment_path = lambda: "fast-reroute"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.AutoMeshAttributes.AutoMeshAttribute.FastReroute, ['bandwidth_protection', 'node_protection'], name, value)
@@ -15230,6 +15629,7 @@ class MplsTe(Entity):
                     self.xro_attribute = YList(self)
                     self._segment_path = lambda: "xro-attributes"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes, [], name, value)
@@ -15278,8 +15678,8 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['attribute_set_name']
                         self._child_classes = OrderedDict([("path-diversity", ("path_diversity", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity)), ("path-selection", ("path_selection", MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection))])
                         self._leafs = OrderedDict([
-                            ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.attribute_set_name = None
                         self.enable = None
@@ -15293,6 +15693,7 @@ class MplsTe(Entity):
                         self._children_name_map["path_selection"] = "path-selection"
                         self._segment_path = lambda: "xro-attribute" + "[attribute-set-name='" + str(self.attribute_set_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/attribute-set/xro-attributes/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute, ['attribute_set_name', 'enable'], name, value)
@@ -15338,6 +15739,7 @@ class MplsTe(Entity):
                             self.lsp.parent = self
                             self._children_name_map["lsp"] = "lsp"
                             self._segment_path = lambda: "path-diversity"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity, [], name, value)
@@ -15372,6 +15774,7 @@ class MplsTe(Entity):
 
                                 self.srlg = YList(self)
                                 self._segment_path = lambda: "srlgs"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs, [], name, value)
@@ -15412,12 +15815,13 @@ class MplsTe(Entity):
                                     self.ylist_key_names = ['srlg']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('srlg', YLeaf(YType.uint32, 'srlg')),
-                                        ('conformance', YLeaf(YType.enumeration, 'conformance')),
+                                        ('srlg', (YLeaf(YType.uint32, 'srlg'), ['int'])),
+                                        ('conformance', (YLeaf(YType.enumeration, 'conformance'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformance', '')])),
                                     ])
                                     self.srlg = None
                                     self.conformance = None
                                     self._segment_path = lambda: "srlg" + "[srlg='" + str(self.srlg) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Srlgs.Srlg, ['srlg', 'conformance'], name, value)
@@ -15454,6 +15858,7 @@ class MplsTe(Entity):
                                 self.fecs.parent = self
                                 self._children_name_map["fecs"] = "fecs"
                                 self._segment_path = lambda: "lsp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp, [], name, value)
@@ -15488,6 +15893,7 @@ class MplsTe(Entity):
 
                                     self.fec = YList(self)
                                     self._segment_path = lambda: "fecs"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs, [], name, value)
@@ -15557,12 +15963,12 @@ class MplsTe(Entity):
                                         self.ylist_key_names = ['source','destination','tunnel_id','extended_tunnel_id','lsp_id']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('source', YLeaf(YType.str, 'source')),
-                                            ('destination', YLeaf(YType.str, 'destination')),
-                                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                                            ('extended_tunnel_id', YLeaf(YType.str, 'extended-tunnel-id')),
-                                            ('lsp_id', YLeaf(YType.uint32, 'lsp-id')),
-                                            ('conformance', YLeaf(YType.enumeration, 'conformance')),
+                                            ('source', (YLeaf(YType.str, 'source'), ['str'])),
+                                            ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
+                                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                                            ('extended_tunnel_id', (YLeaf(YType.str, 'extended-tunnel-id'), ['str'])),
+                                            ('lsp_id', (YLeaf(YType.uint32, 'lsp-id'), ['int'])),
+                                            ('conformance', (YLeaf(YType.enumeration, 'conformance'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathDiversityConformance', '')])),
                                         ])
                                         self.source = None
                                         self.destination = None
@@ -15571,6 +15977,7 @@ class MplsTe(Entity):
                                         self.lsp_id = None
                                         self.conformance = None
                                         self._segment_path = lambda: "fec" + "[source='" + str(self.source) + "']" + "[destination='" + str(self.destination) + "']" + "[tunnel-id='" + str(self.tunnel_id) + "']" + "[extended-tunnel-id='" + str(self.extended_tunnel_id) + "']" + "[lsp-id='" + str(self.lsp_id) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathDiversity.Lsp.Fecs.Fec, ['source', 'destination', 'tunnel_id', 'extended_tunnel_id', 'lsp_id', 'conformance'], name, value)
@@ -15602,10 +16009,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "path-selection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GlobalAttributes.AttributeSet.XroAttributes.XroAttribute.PathSelection, ['enable'], name, value)
@@ -15652,6 +16060,7 @@ class MplsTe(Entity):
                 self._children_name_map["head"] = "head"
                 self._segment_path = lambda: "bfd-over-lsp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp, [], name, value)
@@ -15692,13 +16101,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('multiplier', YLeaf(YType.uint32, 'multiplier')),
-                        ('minimum_interval', YLeaf(YType.uint32, 'minimum-interval')),
+                        ('multiplier', (YLeaf(YType.uint32, 'multiplier'), ['int'])),
+                        ('minimum_interval', (YLeaf(YType.uint32, 'minimum-interval'), ['int'])),
                     ])
                     self.multiplier = None
                     self.minimum_interval = None
                     self._segment_path = lambda: "tail"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Tail, ['multiplier', 'minimum_interval'], name, value)
@@ -15737,13 +16147,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('reopt_timeout', YLeaf(YType.uint32, 'reopt-timeout')),
-                        ('down_action', YLeaf(YType.enumeration, 'down-action')),
+                        ('reopt_timeout', (YLeaf(YType.uint32, 'reopt-timeout'), ['int'])),
+                        ('down_action', (YLeaf(YType.enumeration, 'down-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeBfdSessionDownAction', '')])),
                     ])
                     self.reopt_timeout = None
                     self.down_action = None
                     self._segment_path = lambda: "head"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bfd-over-lsp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BfdOverLsp.Head, ['reopt_timeout', 'down_action'], name, value)
@@ -15814,10 +16225,10 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("application", ("application", MplsTe.GlobalAttributes.BandwidthAccounting.Application)), ("account-flooding-threshold", ("account_flooding_threshold", MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold))])
                 self._leafs = OrderedDict([
-                    ('sampling_interval', YLeaf(YType.uint32, 'sampling-interval')),
-                    ('adjustment_factor', YLeaf(YType.uint32, 'adjustment-factor')),
-                    ('collection_type_rsvp_te', YLeaf(YType.boolean, 'collection-type-rsvp-te')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('sampling_interval', (YLeaf(YType.uint32, 'sampling-interval'), ['int'])),
+                    ('adjustment_factor', (YLeaf(YType.uint32, 'adjustment-factor'), ['int'])),
+                    ('collection_type_rsvp_te', (YLeaf(YType.boolean, 'collection-type-rsvp-te'), ['bool'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.sampling_interval = None
                 self.adjustment_factor = None
@@ -15833,6 +16244,7 @@ class MplsTe(Entity):
                 self._children_name_map["account_flooding_threshold"] = "account-flooding-threshold"
                 self._segment_path = lambda: "bandwidth-accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting, ['sampling_interval', 'adjustment_factor', 'collection_type_rsvp_te', 'enable'], name, value)
@@ -15878,13 +16290,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('application_enforced', YLeaf(YType.boolean, 'application-enforced')),
-                        ('application_interval', YLeaf(YType.uint32, 'application-interval')),
+                        ('application_enforced', (YLeaf(YType.boolean, 'application-enforced'), ['bool'])),
+                        ('application_interval', (YLeaf(YType.uint32, 'application-interval'), ['int'])),
                     ])
                     self.application_enforced = None
                     self.application_interval = None
                     self._segment_path = lambda: "application"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.Application, ['application_enforced', 'application_interval'], name, value)
@@ -15935,13 +16348,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('up_threshold', YLeaf(YType.uint32, 'up-threshold')),
-                        ('down_threshold', YLeaf(YType.uint32, 'down-threshold')),
+                        ('up_threshold', (YLeaf(YType.uint32, 'up-threshold'), ['int'])),
+                        ('down_threshold', (YLeaf(YType.uint32, 'down-threshold'), ['int'])),
                     ])
                     self.up_threshold = None
                     self.down_threshold = None
                     self._segment_path = lambda: "account-flooding-threshold"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/bandwidth-accounting/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.BandwidthAccounting.AccountFloodingThreshold, ['up_threshold', 'down_threshold'], name, value)
@@ -16049,7 +16463,7 @@ class MplsTe(Entity):
             
             .. attribute:: segment_routing
             
-            	PCE segment routing capability
+            	Always set to true
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
             .. attribute:: password
@@ -16090,18 +16504,18 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("pce-stateful", ("pce_stateful", MplsTe.GlobalAttributes.PceAttributes.PceStateful)), ("timer", ("timer", MplsTe.GlobalAttributes.PceAttributes.Timer)), ("peers", ("peers", MplsTe.GlobalAttributes.PceAttributes.Peers)), ("logging", ("logging", MplsTe.GlobalAttributes.PceAttributes.Logging))])
                 self._leafs = OrderedDict([
-                    ('request_timeout', YLeaf(YType.uint32, 'request-timeout')),
-                    ('reoptimize_period', YLeaf(YType.uint32, 'reoptimize-period')),
-                    ('address', YLeaf(YType.str, 'address')),
-                    ('deadtimer', YLeaf(YType.uint32, 'deadtimer')),
-                    ('keepalive', YLeaf(YType.uint32, 'keepalive')),
-                    ('keepalive_tolerance', YLeaf(YType.uint32, 'keepalive-tolerance')),
-                    ('peer_source_addr', YLeaf(YType.str, 'peer-source-addr')),
-                    ('speaker_entity_id', YLeaf(YType.str, 'speaker-entity-id')),
-                    ('segment_routing', YLeaf(YType.empty, 'segment-routing')),
-                    ('password', YLeaf(YType.str, 'password')),
-                    ('keychain', YLeaf(YType.str, 'keychain')),
-                    ('precedence', YLeaf(YType.uint32, 'precedence')),
+                    ('request_timeout', (YLeaf(YType.uint32, 'request-timeout'), ['int'])),
+                    ('reoptimize_period', (YLeaf(YType.uint32, 'reoptimize-period'), ['int'])),
+                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                    ('deadtimer', (YLeaf(YType.uint32, 'deadtimer'), ['int'])),
+                    ('keepalive', (YLeaf(YType.uint32, 'keepalive'), ['int'])),
+                    ('keepalive_tolerance', (YLeaf(YType.uint32, 'keepalive-tolerance'), ['int'])),
+                    ('peer_source_addr', (YLeaf(YType.str, 'peer-source-addr'), ['str'])),
+                    ('speaker_entity_id', (YLeaf(YType.str, 'speaker-entity-id'), ['str'])),
+                    ('segment_routing', (YLeaf(YType.empty, 'segment-routing'), ['Empty'])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                    ('keychain', (YLeaf(YType.str, 'keychain'), ['str'])),
+                    ('precedence', (YLeaf(YType.uint32, 'precedence'), ['int'])),
                 ])
                 self.request_timeout = None
                 self.reoptimize_period = None
@@ -16133,6 +16547,7 @@ class MplsTe(Entity):
                 self._children_name_map["logging"] = "logging"
                 self._segment_path = lambda: "pce-attributes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes, ['request_timeout', 'reoptimize_period', 'address', 'deadtimer', 'keepalive', 'keepalive_tolerance', 'peer_source_addr', 'speaker_entity_id', 'segment_routing', 'password', 'keychain', 'precedence'], name, value)
@@ -16167,6 +16582,11 @@ class MplsTe(Entity):
                 	Delegate all statically configured tunnels
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                .. attribute:: autoroute_announce
+                
+                	Enable autoroute announce for PCE instantiated tunnels
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
                 .. attribute:: report
                 
                 	Report all statically configured tunnels
@@ -16194,17 +16614,19 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("stateful-timers", ("stateful_timers", MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers))])
                     self._leafs = OrderedDict([
-                        ('fast_repair', YLeaf(YType.empty, 'fast-repair')),
-                        ('instantiation', YLeaf(YType.empty, 'instantiation')),
-                        ('cisco_extension', YLeaf(YType.empty, 'cisco-extension')),
-                        ('delegation', YLeaf(YType.empty, 'delegation')),
-                        ('report', YLeaf(YType.empty, 'report')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('fast_repair', (YLeaf(YType.empty, 'fast-repair'), ['Empty'])),
+                        ('instantiation', (YLeaf(YType.empty, 'instantiation'), ['Empty'])),
+                        ('cisco_extension', (YLeaf(YType.empty, 'cisco-extension'), ['Empty'])),
+                        ('delegation', (YLeaf(YType.empty, 'delegation'), ['Empty'])),
+                        ('autoroute_announce', (YLeaf(YType.empty, 'autoroute-announce'), ['Empty'])),
+                        ('report', (YLeaf(YType.empty, 'report'), ['Empty'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.fast_repair = None
                     self.instantiation = None
                     self.cisco_extension = None
                     self.delegation = None
+                    self.autoroute_announce = None
                     self.report = None
                     self.enable = None
 
@@ -16213,9 +16635,10 @@ class MplsTe(Entity):
                     self._children_name_map["stateful_timers"] = "stateful-timers"
                     self._segment_path = lambda: "pce-stateful"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful, ['fast_repair', 'instantiation', 'cisco_extension', 'delegation', 'report', 'enable'], name, value)
+                    self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful, ['fast_repair', 'instantiation', 'cisco_extension', 'delegation', 'autoroute_announce', 'report', 'enable'], name, value)
 
 
                 class StatefulTimers(Entity):
@@ -16262,13 +16685,14 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('redelegation_timeout', YLeaf(YType.uint32, 'redelegation-timeout')),
-                            ('state_timeout', YLeaf(YType.uint32, 'state-timeout')),
+                            ('redelegation_timeout', (YLeaf(YType.uint32, 'redelegation-timeout'), ['int'])),
+                            ('state_timeout', (YLeaf(YType.uint32, 'state-timeout'), ['int'])),
                         ])
                         self.redelegation_timeout = None
                         self.state_timeout = None
                         self._segment_path = lambda: "stateful-timers"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/pce-stateful/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.PceStateful.StatefulTimers, ['redelegation_timeout', 'state_timeout'], name, value)
@@ -16298,6 +16722,7 @@ class MplsTe(Entity):
                     self._leafs = OrderedDict()
                     self._segment_path = lambda: "timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
+                    self._is_frozen = True
 
 
             class Peers(Entity):
@@ -16330,6 +16755,7 @@ class MplsTe(Entity):
                     self.peer = YList(self)
                     self._segment_path = lambda: "peers"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers, [], name, value)
@@ -16389,11 +16815,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['pce_peer_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pce_peer_address', YLeaf(YType.str, 'pce-peer-address')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('password', YLeaf(YType.str, 'password')),
-                            ('keychain', YLeaf(YType.str, 'keychain')),
-                            ('precedence', YLeaf(YType.uint32, 'precedence')),
+                            ('pce_peer_address', (YLeaf(YType.str, 'pce-peer-address'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                            ('keychain', (YLeaf(YType.str, 'keychain'), ['str'])),
+                            ('precedence', (YLeaf(YType.uint32, 'precedence'), ['int'])),
                         ])
                         self.pce_peer_address = None
                         self.enable = None
@@ -16402,6 +16828,7 @@ class MplsTe(Entity):
                         self.precedence = None
                         self._segment_path = lambda: "peer" + "[pce-peer-address='" + str(self.pce_peer_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/peers/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Peers.Peer, ['pce_peer_address', 'enable', 'password', 'keychain', 'precedence'], name, value)
@@ -16440,6 +16867,7 @@ class MplsTe(Entity):
                     self._children_name_map["events"] = "events"
                     self._segment_path = lambda: "logging"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging, [], name, value)
@@ -16471,11 +16899,12 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('peer_status', YLeaf(YType.empty, 'peer-status')),
+                            ('peer_status', (YLeaf(YType.empty, 'peer-status'), ['Empty'])),
                         ])
                         self.peer_status = None
                         self._segment_path = lambda: "events"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/pce-attributes/logging/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PceAttributes.Logging.Events, ['peer_status'], name, value)
@@ -16522,6 +16951,7 @@ class MplsTe(Entity):
                 self._children_name_map["lsp_oor_yellow_state"] = "lsp-oor-yellow-state"
                 self._segment_path = lambda: "lsp-out-of-resource"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource, [], name, value)
@@ -16562,13 +16992,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_transit_lsp_threshold', YLeaf(YType.uint32, 'all-transit-lsp-threshold')),
-                        ('unprotected_transit_lsp_threshold', YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold')),
+                        ('all_transit_lsp_threshold', (YLeaf(YType.uint32, 'all-transit-lsp-threshold'), ['int'])),
+                        ('unprotected_transit_lsp_threshold', (YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold'), ['int'])),
                     ])
                     self.all_transit_lsp_threshold = None
                     self.unprotected_transit_lsp_threshold = None
                     self._segment_path = lambda: "lsp-oor-red-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorRedState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
@@ -16609,13 +17040,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_transit_lsp_threshold', YLeaf(YType.uint32, 'all-transit-lsp-threshold')),
-                        ('unprotected_transit_lsp_threshold', YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold')),
+                        ('all_transit_lsp_threshold', (YLeaf(YType.uint32, 'all-transit-lsp-threshold'), ['int'])),
+                        ('unprotected_transit_lsp_threshold', (YLeaf(YType.uint32, 'unprotected-transit-lsp-threshold'), ['int'])),
                     ])
                     self.all_transit_lsp_threshold = None
                     self.unprotected_transit_lsp_threshold = None
                     self._segment_path = lambda: "lsp-oor-yellow-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/lsp-out-of-resource/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.LspOutOfResource.LspOorYellowState, ['all_transit_lsp_threshold', 'unprotected_transit_lsp_threshold'], name, value)
@@ -16663,15 +17095,16 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('timeout', YLeaf(YType.uint32, 'timeout')),
-                    ('frr_rewrite', YLeaf(YType.empty, 'frr-rewrite')),
-                    ('enable', YLeaf(YType.boolean, 'enable')),
+                    ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                    ('frr_rewrite', (YLeaf(YType.empty, 'frr-rewrite'), ['Empty'])),
+                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                 ])
                 self.timeout = None
                 self.frr_rewrite = None
                 self.enable = None
                 self._segment_path = lambda: "soft-preemption"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.SoftPreemption, ['timeout', 'frr_rewrite', 'enable'], name, value)
@@ -16709,6 +17142,7 @@ class MplsTe(Entity):
                 self._children_name_map["timers"] = "timers"
                 self._segment_path = lambda: "fast-reroute"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.FastReroute, [], name, value)
@@ -16753,13 +17187,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('hold_backup', YLeaf(YType.uint32, 'hold-backup')),
-                        ('promotion', YLeaf(YType.uint32, 'promotion')),
+                        ('hold_backup', (YLeaf(YType.uint32, 'hold-backup'), ['int'])),
+                        ('promotion', (YLeaf(YType.uint32, 'promotion'), ['int'])),
                     ])
                     self.hold_backup = None
                     self.promotion = None
                     self._segment_path = lambda: "timers"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/fast-reroute/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.FastReroute.Timers, ['hold_backup', 'promotion'], name, value)
@@ -16776,7 +17211,7 @@ class MplsTe(Entity):
             
             .. attribute:: invalidation
             
-            	Path invalidation configuration for all tunnels
+            	Deprecated
             	**type**\:  :py:class:`Invalidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg.MplsTe.GlobalAttributes.PathSelection.Invalidation>`
             
             .. attribute:: ignore_overload_role
@@ -16811,6 +17246,13 @@ class MplsTe(Entity):
             	Use only the IGP instance of the incoming interface
             	**type**\: bool
             
+            .. attribute:: delay_limit
+            
+            	Path selection delay limit configuration for p2p tunnels (usec)
+            	**type**\: int
+            
+            	**range:** 1..4294967295
+            
             
 
             """
@@ -16828,15 +17270,17 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("loose-metrics", ("loose_metrics", MplsTe.GlobalAttributes.PathSelection.LooseMetrics)), ("invalidation", ("invalidation", MplsTe.GlobalAttributes.PathSelection.Invalidation)), ("ignore-overload-role", ("ignore_overload_role", MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole)), ("loose-affinities", ("loose_affinities", MplsTe.GlobalAttributes.PathSelection.LooseAffinities))])
                 self._leafs = OrderedDict([
-                    ('cost_limit', YLeaf(YType.uint32, 'cost-limit')),
-                    ('tiebreaker', YLeaf(YType.enumeration, 'tiebreaker')),
-                    ('metric', YLeaf(YType.enumeration, 'metric')),
-                    ('loose_domain_match', YLeaf(YType.boolean, 'loose-domain-match')),
+                    ('cost_limit', (YLeaf(YType.uint32, 'cost-limit'), ['int'])),
+                    ('tiebreaker', (YLeaf(YType.enumeration, 'tiebreaker'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionTiebreaker', '')])),
+                    ('metric', (YLeaf(YType.enumeration, 'metric'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
+                    ('loose_domain_match', (YLeaf(YType.boolean, 'loose-domain-match'), ['bool'])),
+                    ('delay_limit', (YLeaf(YType.uint32, 'delay-limit'), ['int'])),
                 ])
                 self.cost_limit = None
                 self.tiebreaker = None
                 self.metric = None
                 self.loose_domain_match = None
+                self.delay_limit = None
 
                 self.loose_metrics = MplsTe.GlobalAttributes.PathSelection.LooseMetrics()
                 self.loose_metrics.parent = self
@@ -16855,9 +17299,10 @@ class MplsTe(Entity):
                 self._children_name_map["loose_affinities"] = "loose-affinities"
                 self._segment_path = lambda: "path-selection"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MplsTe.GlobalAttributes.PathSelection, ['cost_limit', 'tiebreaker', 'metric', 'loose_domain_match'], name, value)
+                self._perform_setattr(MplsTe.GlobalAttributes.PathSelection, ['cost_limit', 'tiebreaker', 'metric', 'loose_domain_match', 'delay_limit'], name, value)
 
 
             class LooseMetrics(Entity):
@@ -16891,6 +17336,7 @@ class MplsTe(Entity):
                     self.loose_metric = YList(self)
                     self._segment_path = lambda: "loose-metrics"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseMetrics, [], name, value)
@@ -16931,13 +17377,14 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['class_type']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('class_type', YLeaf(YType.uint32, 'class-type')),
-                            ('metric_type', YLeaf(YType.enumeration, 'metric-type')),
+                            ('class_type', (YLeaf(YType.uint32, 'class-type'), ['int'])),
+                            ('metric_type', (YLeaf(YType.enumeration, 'metric-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
                         ])
                         self.class_type = None
                         self.metric_type = None
                         self._segment_path = lambda: "loose-metric" + "[class-type='" + str(self.class_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-metrics/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseMetrics.LooseMetric, ['class_type', 'metric_type'], name, value)
@@ -16945,8 +17392,7 @@ class MplsTe(Entity):
 
             class Invalidation(Entity):
                 """
-                Path invalidation configuration for all
-                tunnels
+                Deprecated
                 
                 .. attribute:: path_invalidation_timeout
                 
@@ -16977,13 +17423,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('path_invalidation_timeout', YLeaf(YType.uint32, 'path-invalidation-timeout')),
-                        ('path_invalidation_action', YLeaf(YType.enumeration, 'path-invalidation-action')),
+                        ('path_invalidation_timeout', (YLeaf(YType.uint32, 'path-invalidation-timeout'), ['int'])),
+                        ('path_invalidation_action', (YLeaf(YType.enumeration, 'path-invalidation-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'PathInvalidationAction', '')])),
                     ])
                     self.path_invalidation_timeout = None
                     self.path_invalidation_action = None
                     self._segment_path = lambda: "invalidation"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.Invalidation, ['path_invalidation_timeout', 'path_invalidation_action'], name, value)
@@ -17026,15 +17473,16 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('head', YLeaf(YType.boolean, 'head')),
-                        ('mid', YLeaf(YType.boolean, 'mid')),
-                        ('tail', YLeaf(YType.boolean, 'tail')),
+                        ('head', (YLeaf(YType.boolean, 'head'), ['bool'])),
+                        ('mid', (YLeaf(YType.boolean, 'mid'), ['bool'])),
+                        ('tail', (YLeaf(YType.boolean, 'tail'), ['bool'])),
                     ])
                     self.head = None
                     self.mid = None
                     self.tail = None
                     self._segment_path = lambda: "ignore-overload-role"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.IgnoreOverloadRole, ['head', 'mid', 'tail'], name, value)
@@ -17071,6 +17519,7 @@ class MplsTe(Entity):
                     self.loose_affinity = YList(self)
                     self._segment_path = lambda: "loose-affinities"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseAffinities, [], name, value)
@@ -17119,15 +17568,16 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['class_type']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('class_type', YLeaf(YType.uint32, 'class-type')),
-                            ('affinity', YLeaf(YType.str, 'affinity')),
-                            ('mask', YLeaf(YType.str, 'mask')),
+                            ('class_type', (YLeaf(YType.uint32, 'class-type'), ['int'])),
+                            ('affinity', (YLeaf(YType.str, 'affinity'), ['str'])),
+                            ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                         ])
                         self.class_type = None
                         self.affinity = None
                         self.mask = None
                         self._segment_path = lambda: "loose-affinity" + "[class-type='" + str(self.class_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/path-selection/loose-affinities/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GlobalAttributes.PathSelection.LooseAffinities.LooseAffinity, ['class_type', 'affinity', 'mask'], name, value)
@@ -17163,6 +17613,7 @@ class MplsTe(Entity):
                 self.affinity_mapping = YList(self)
                 self._segment_path = lambda: "affinity-mappings"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GlobalAttributes.AffinityMappings, [], name, value)
@@ -17208,15 +17659,16 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['affinity_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('affinity_name', YLeaf(YType.str, 'affinity-name')),
-                        ('value_type', YLeaf(YType.enumeration, 'value-type')),
-                        ('value', YLeaf(YType.str, 'value')),
+                        ('affinity_name', (YLeaf(YType.str, 'affinity-name'), ['str'])),
+                        ('value_type', (YLeaf(YType.enumeration, 'value-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeAffinityValue', '')])),
+                        ('value', (YLeaf(YType.str, 'value'), ['str'])),
                     ])
                     self.affinity_name = None
                     self.value_type = None
                     self.value = None
                     self._segment_path = lambda: "affinity-mapping" + "[affinity-name='" + str(self.affinity_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/global-attributes/affinity-mappings/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GlobalAttributes.AffinityMappings.AffinityMapping, ['affinity_name', 'value_type', 'value'], name, value)
@@ -17277,8 +17729,8 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("fault", ("fault", MplsTe.TransportProfile.Fault)), ("alarm", ("alarm", MplsTe.TransportProfile.Alarm)), ("bfd", ("bfd", MplsTe.TransportProfile.Bfd)), ("midpoints", ("midpoints", MplsTe.TransportProfile.Midpoints))])
             self._leafs = OrderedDict([
-                ('global_id', YLeaf(YType.uint32, 'global-id')),
-                ('node_id', YLeaf(YType.str, 'node-id')),
+                ('global_id', (YLeaf(YType.uint32, 'global-id'), ['int'])),
+                ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
             ])
             self.global_id = None
             self.node_id = None
@@ -17300,6 +17752,7 @@ class MplsTe(Entity):
             self._children_name_map["midpoints"] = "midpoints"
             self._segment_path = lambda: "transport-profile"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.TransportProfile, ['global_id', 'node_id'], name, value)
@@ -17353,8 +17806,8 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("protection-trigger", ("protection_trigger", MplsTe.TransportProfile.Fault.ProtectionTrigger))])
                 self._leafs = OrderedDict([
-                    ('wait_to_restore_interval', YLeaf(YType.uint32, 'wait-to-restore-interval')),
-                    ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
+                    ('wait_to_restore_interval', (YLeaf(YType.uint32, 'wait-to-restore-interval'), ['int'])),
+                    ('refresh_interval', (YLeaf(YType.uint32, 'refresh-interval'), ['int'])),
                 ])
                 self.wait_to_restore_interval = None
                 self.refresh_interval = None
@@ -17364,6 +17817,7 @@ class MplsTe(Entity):
                 self._children_name_map["protection_trigger"] = "protection-trigger"
                 self._segment_path = lambda: "fault"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.TransportProfile.Fault, ['wait_to_restore_interval', 'refresh_interval'], name, value)
@@ -17405,7 +17859,7 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ldi", ("ldi", MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi)), ("lkr", ("lkr", MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr))])
                     self._leafs = OrderedDict([
-                        ('ais', YLeaf(YType.empty, 'ais')),
+                        ('ais', (YLeaf(YType.empty, 'ais'), ['Empty'])),
                     ])
                     self.ais = None
 
@@ -17418,6 +17872,7 @@ class MplsTe(Entity):
                     self._children_name_map["lkr"] = "lkr"
                     self._segment_path = lambda: "protection-trigger"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger, ['ais'], name, value)
@@ -17449,11 +17904,12 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.empty, 'disable')),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                         ])
                         self.disable = None
                         self._segment_path = lambda: "ldi"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Ldi, ['disable'], name, value)
@@ -17485,11 +17941,12 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.empty, 'disable')),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                         ])
                         self.disable = None
                         self._segment_path = lambda: "lkr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/fault/protection-trigger/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Fault.ProtectionTrigger.Lkr, ['disable'], name, value)
@@ -17537,8 +17994,8 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("suppress-event", ("suppress_event", MplsTe.TransportProfile.Alarm.SuppressEvent))])
                 self._leafs = OrderedDict([
-                    ('soak_time', YLeaf(YType.uint32, 'soak-time')),
-                    ('enable_alarm', YLeaf(YType.empty, 'enable-alarm')),
+                    ('soak_time', (YLeaf(YType.uint32, 'soak-time'), ['int'])),
+                    ('enable_alarm', (YLeaf(YType.empty, 'enable-alarm'), ['Empty'])),
                 ])
                 self.soak_time = None
                 self.enable_alarm = None
@@ -17548,6 +18005,7 @@ class MplsTe(Entity):
                 self._children_name_map["suppress_event"] = "suppress-event"
                 self._segment_path = lambda: "alarm"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.TransportProfile.Alarm, ['soak_time', 'enable_alarm'], name, value)
@@ -17579,11 +18037,12 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('disable', YLeaf(YType.empty, 'disable')),
+                        ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                     ])
                     self.disable = None
                     self._segment_path = lambda: "suppress-event"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/alarm/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Alarm.SuppressEvent, ['disable'], name, value)
@@ -17634,8 +18093,8 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("min-interval-standby", ("min_interval_standby", MplsTe.TransportProfile.Bfd.MinIntervalStandby)), ("min-interval", ("min_interval", MplsTe.TransportProfile.Bfd.MinInterval))])
                 self._leafs = OrderedDict([
-                    ('detection_multiplier_standby', YLeaf(YType.uint32, 'detection-multiplier-standby')),
-                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                    ('detection_multiplier_standby', (YLeaf(YType.uint32, 'detection-multiplier-standby'), ['int'])),
+                    ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                 ])
                 self.detection_multiplier_standby = None
                 self.detection_multiplier = None
@@ -17649,6 +18108,7 @@ class MplsTe(Entity):
                 self._children_name_map["min_interval"] = "min-interval"
                 self._segment_path = lambda: "bfd"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.TransportProfile.Bfd, ['detection_multiplier_standby', 'detection_multiplier'], name, value)
@@ -17695,13 +18155,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval_standby_ms', YLeaf(YType.uint32, 'interval-standby-ms')),
-                        ('interval_standby_us', YLeaf(YType.uint32, 'interval-standby-us')),
+                        ('interval_standby_ms', (YLeaf(YType.uint32, 'interval-standby-ms'), ['int'])),
+                        ('interval_standby_us', (YLeaf(YType.uint32, 'interval-standby-us'), ['int'])),
                     ])
                     self.interval_standby_ms = None
                     self.interval_standby_us = None
                     self._segment_path = lambda: "min-interval-standby"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinIntervalStandby, ['interval_standby_ms', 'interval_standby_us'], name, value)
@@ -17747,13 +18208,14 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval_ms', YLeaf(YType.uint32, 'interval-ms')),
-                        ('interval_us', YLeaf(YType.uint32, 'interval-us')),
+                        ('interval_ms', (YLeaf(YType.uint32, 'interval-ms'), ['int'])),
+                        ('interval_us', (YLeaf(YType.uint32, 'interval-us'), ['int'])),
                     ])
                     self.interval_ms = None
                     self.interval_us = None
                     self._segment_path = lambda: "min-interval"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/bfd/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Bfd.MinInterval, ['interval_ms', 'interval_us'], name, value)
@@ -17789,6 +18251,7 @@ class MplsTe(Entity):
                 self.midpoint = YList(self)
                 self._segment_path = lambda: "midpoints"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.TransportProfile.Midpoints, [], name, value)
@@ -17863,10 +18326,10 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['midpoint_name']
                     self._child_classes = OrderedDict([("source", ("source", MplsTe.TransportProfile.Midpoints.Midpoint.Source)), ("destination", ("destination", MplsTe.TransportProfile.Midpoints.Midpoint.Destination)), ("forward-lsp", ("forward_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp)), ("reverse-lsp", ("reverse_lsp", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp))])
                     self._leafs = OrderedDict([
-                        ('midpoint_name', YLeaf(YType.str, 'midpoint-name')),
-                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                        ('lsp_protect', YLeaf(YType.empty, 'lsp-protect')),
-                        ('lsp_id', YLeaf(YType.uint32, 'lsp-id')),
+                        ('midpoint_name', (YLeaf(YType.str, 'midpoint-name'), ['str'])),
+                        ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                        ('lsp_protect', (YLeaf(YType.empty, 'lsp-protect'), ['Empty'])),
+                        ('lsp_id', (YLeaf(YType.uint32, 'lsp-id'), ['int'])),
                     ])
                     self.midpoint_name = None
                     self.tunnel_name = None
@@ -17888,6 +18351,7 @@ class MplsTe(Entity):
                     self._children_name_map["reverse_lsp"] = "reverse-lsp"
                     self._segment_path = lambda: "midpoint" + "[midpoint-name='" + str(self.midpoint_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/transport-profile/midpoints/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint, ['midpoint_name', 'tunnel_name', 'lsp_protect', 'lsp_id'], name, value)
@@ -17942,14 +18406,15 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('node_id', YLeaf(YType.str, 'node-id')),
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('global_id', YLeaf(YType.uint32, 'global-id')),
+                            ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('global_id', (YLeaf(YType.uint32, 'global-id'), ['int'])),
                         ])
                         self.node_id = None
                         self.tunnel_id = None
                         self.global_id = None
                         self._segment_path = lambda: "source"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Source, ['node_id', 'tunnel_id', 'global_id'], name, value)
@@ -18004,14 +18469,15 @@ class MplsTe(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('node_id', YLeaf(YType.str, 'node-id')),
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('global_id', YLeaf(YType.uint32, 'global-id')),
+                            ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('global_id', (YLeaf(YType.uint32, 'global-id'), ['int'])),
                         ])
                         self.node_id = None
                         self.tunnel_id = None
                         self.global_id = None
                         self._segment_path = lambda: "destination"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.Destination, ['node_id', 'tunnel_id', 'global_id'], name, value)
@@ -18054,13 +18520,14 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("forward-io-map", ("forward_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap))])
                         self._leafs = OrderedDict([
-                            ('forward_bandwidth', YLeaf(YType.uint32, 'forward-bandwidth')),
+                            ('forward_bandwidth', (YLeaf(YType.uint32, 'forward-bandwidth'), ['int'])),
                         ])
                         self.forward_bandwidth = None
 
                         self.forward_io_map = None
                         self._children_name_map["forward_io_map"] = "forward-io-map"
                         self._segment_path = lambda: "forward-lsp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp, ['forward_bandwidth'], name, value)
@@ -18116,14 +18583,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('in_label', YLeaf(YType.uint32, 'in-label')),
-                                ('out_label', YLeaf(YType.uint32, 'out-label')),
-                                ('out_link', YLeaf(YType.uint32, 'out-link')),
+                                ('in_label', (YLeaf(YType.uint32, 'in-label'), ['int'])),
+                                ('out_label', (YLeaf(YType.uint32, 'out-label'), ['int'])),
+                                ('out_link', (YLeaf(YType.uint32, 'out-link'), ['int'])),
                             ])
                             self.in_label = None
                             self.out_label = None
                             self.out_link = None
                             self._segment_path = lambda: "forward-io-map"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ForwardLsp.ForwardIoMap, ['in_label', 'out_label', 'out_link'], name, value)
@@ -18166,13 +18634,14 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("reverse-io-map", ("reverse_io_map", MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap))])
                         self._leafs = OrderedDict([
-                            ('reverse_bandwidth', YLeaf(YType.uint32, 'reverse-bandwidth')),
+                            ('reverse_bandwidth', (YLeaf(YType.uint32, 'reverse-bandwidth'), ['int'])),
                         ])
                         self.reverse_bandwidth = None
 
                         self.reverse_io_map = None
                         self._children_name_map["reverse_io_map"] = "reverse-io-map"
                         self._segment_path = lambda: "reverse-lsp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp, ['reverse_bandwidth'], name, value)
@@ -18228,14 +18697,15 @@ class MplsTe(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('in_label', YLeaf(YType.uint32, 'in-label')),
-                                ('out_label', YLeaf(YType.uint32, 'out-label')),
-                                ('out_link', YLeaf(YType.uint32, 'out-link')),
+                                ('in_label', (YLeaf(YType.uint32, 'in-label'), ['int'])),
+                                ('out_label', (YLeaf(YType.uint32, 'out-label'), ['int'])),
+                                ('out_link', (YLeaf(YType.uint32, 'out-link'), ['int'])),
                             ])
                             self.in_label = None
                             self.out_label = None
                             self.out_link = None
                             self._segment_path = lambda: "reverse-io-map"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.TransportProfile.Midpoints.Midpoint.ReverseLsp.ReverseIoMap, ['in_label', 'out_label', 'out_link'], name, value)
@@ -18271,6 +18741,7 @@ class MplsTe(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.Interfaces, [], name, value)
@@ -18285,7 +18756,7 @@ class MplsTe(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: transport_profile_link
             
@@ -18319,7 +18790,7 @@ class MplsTe(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("transport-profile-link", ("transport_profile_link", MplsTe.Interfaces.Interface.TransportProfileLink)), ("lcac", ("lcac", MplsTe.Interfaces.Interface.Lcac)), ("global-attributes", ("global_attributes", MplsTe.Interfaces.Interface.GlobalAttributes))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -18336,6 +18807,7 @@ class MplsTe(Entity):
                 self._children_name_map["global_attributes"] = "global-attributes"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Interfaces.Interface, ['interface_name'], name, value)
@@ -18372,6 +18844,7 @@ class MplsTe(Entity):
                     self.links.parent = self
                     self._children_name_map["links"] = "links"
                     self._segment_path = lambda: "transport-profile-link"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink, [], name, value)
@@ -18406,6 +18879,7 @@ class MplsTe(Entity):
 
                         self.link = YList(self)
                         self._segment_path = lambda: "links"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links, [], name, value)
@@ -18453,14 +18927,15 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['link_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('link_id', YLeaf(YType.uint32, 'link-id')),
-                                ('next_hop_type', YLeaf(YType.enumeration, 'next-hop-type')),
-                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                ('link_id', (YLeaf(YType.uint32, 'link-id'), ['int'])),
+                                ('next_hop_type', (YLeaf(YType.enumeration, 'next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'LinkNextHop', '')])),
+                                ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
                             ])
                             self.link_id = None
                             self.next_hop_type = None
                             self.next_hop_address = None
                             self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.TransportProfileLink.Links.Link, ['link_id', 'next_hop_type', 'next_hop_address'], name, value)
@@ -18551,11 +19026,11 @@ class MplsTe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("switchings", ("switchings", MplsTe.Interfaces.Interface.Lcac.Switchings)), ("flood-area", ("flood_area", MplsTe.Interfaces.Interface.Lcac.FloodArea)), ("attribute-name-xr", ("attribute_name_xr", MplsTe.Interfaces.Interface.Lcac.AttributeNameXr)), ("attribute-names", ("attribute_names", MplsTe.Interfaces.Interface.Lcac.AttributeNames)), ("srlgs", ("srlgs", MplsTe.Interfaces.Interface.Lcac.Srlgs)), ("up-thresholds", ("up_thresholds", MplsTe.Interfaces.Interface.Lcac.UpThresholds)), ("down-thresholds", ("down_thresholds", MplsTe.Interfaces.Interface.Lcac.DownThresholds))])
                     self._leafs = OrderedDict([
-                        ('bfd', YLeaf(YType.empty, 'bfd')),
-                        ('fault_oam_lockout', YLeaf(YType.empty, 'fault-oam-lockout')),
-                        ('attribute_flags', YLeaf(YType.str, 'attribute-flags')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
+                        ('bfd', (YLeaf(YType.empty, 'bfd'), ['Empty'])),
+                        ('fault_oam_lockout', (YLeaf(YType.empty, 'fault-oam-lockout'), ['Empty'])),
+                        ('attribute_flags', (YLeaf(YType.str, 'attribute-flags'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('admin_weight', (YLeaf(YType.uint32, 'admin-weight'), ['int'])),
                     ])
                     self.bfd = None
                     self.fault_oam_lockout = None
@@ -18591,6 +19066,7 @@ class MplsTe(Entity):
                     self.down_thresholds.parent = self
                     self._children_name_map["down_thresholds"] = "down-thresholds"
                     self._segment_path = lambda: "lcac"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.Interfaces.Interface.Lcac, ['bfd', 'fault_oam_lockout', 'attribute_flags', 'enable', 'admin_weight'], name, value)
@@ -18625,6 +19101,7 @@ class MplsTe(Entity):
 
                         self.switching = YList(self)
                         self._segment_path = lambda: "switchings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings, [], name, value)
@@ -18672,14 +19149,15 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['switching_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('switching_id', YLeaf(YType.str, 'switching-id')),
-                                ('encoding', YLeaf(YType.enumeration, 'encoding')),
-                                ('capability', YLeaf(YType.enumeration, 'capability')),
+                                ('switching_id', (YLeaf(YType.str, 'switching-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingIndex', ''),'int'])),
+                                ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingEncoding', '')])),
+                                ('capability', (YLeaf(YType.enumeration, 'capability'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeSwitchingCap', '')])),
                             ])
                             self.switching_id = None
                             self.encoding = None
                             self.capability = None
                             self._segment_path = lambda: "switching" + "[switching-id='" + str(self.switching_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Switchings.Switching, ['switching_id', 'encoding', 'capability'], name, value)
@@ -18726,14 +19204,15 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('igp_type', YLeaf(YType.enumeration, 'igp-type')),
-                            ('process_name', YLeaf(YType.str, 'process-name')),
-                            ('area_id', YLeaf(YType.uint32, 'area-id')),
+                            ('igp_type', (YLeaf(YType.enumeration, 'igp-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsLcacFloodingIgp', '')])),
+                            ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
+                            ('area_id', (YLeaf(YType.uint32, 'area-id'), ['int'])),
                         ])
                         self.igp_type = None
                         self.process_name = None
                         self.area_id = None
                         self._segment_path = lambda: "flood-area"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.FloodArea, ['igp_type', 'process_name', 'area_id'], name, value)
@@ -18765,10 +19244,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('attribute_name', YLeafList(YType.str, 'attribute-name')),
+                            ('attribute_name', (YLeafList(YType.str, 'attribute-name'), ['str'])),
                         ])
                         self.attribute_name = []
                         self._segment_path = lambda: "attribute-name-xr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNameXr, ['attribute_name'], name, value)
@@ -18803,6 +19283,7 @@ class MplsTe(Entity):
 
                         self.attribute_name = YList(self)
                         self._segment_path = lambda: "attribute-names"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames, [], name, value)
@@ -18841,12 +19322,13 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['affinity_index']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('affinity_index', YLeaf(YType.uint32, 'affinity-index')),
-                                ('value', YLeafList(YType.str, 'value')),
+                                ('affinity_index', (YLeaf(YType.uint32, 'affinity-index'), ['int'])),
+                                ('value', (YLeafList(YType.str, 'value'), ['str'])),
                             ])
                             self.affinity_index = None
                             self.value = []
                             self._segment_path = lambda: "attribute-name" + "[affinity-index='" + str(self.affinity_index) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.AttributeNames.AttributeName, ['affinity_index', 'value'], name, value)
@@ -18881,6 +19363,7 @@ class MplsTe(Entity):
 
                         self.srlg = YList(self)
                         self._segment_path = lambda: "srlgs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs, [], name, value)
@@ -18914,10 +19397,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['srlg_number']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('srlg_number', YLeaf(YType.uint32, 'srlg-number')),
+                                ('srlg_number', (YLeaf(YType.uint32, 'srlg-number'), ['int'])),
                             ])
                             self.srlg_number = None
                             self._segment_path = lambda: "srlg" + "[srlg-number='" + str(self.srlg_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.Srlgs.Srlg, ['srlg_number'], name, value)
@@ -18954,10 +19438,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('up_threshold', YLeafList(YType.uint32, 'up-threshold')),
+                            ('up_threshold', (YLeafList(YType.uint32, 'up-threshold'), ['int'])),
                         ])
                         self.up_threshold = []
                         self._segment_path = lambda: "up-thresholds"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.UpThresholds, ['up_threshold'], name, value)
@@ -18994,10 +19479,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('down_threshold', YLeafList(YType.uint32, 'down-threshold')),
+                            ('down_threshold', (YLeafList(YType.uint32, 'down-threshold'), ['int'])),
                         ])
                         self.down_threshold = []
                         self._segment_path = lambda: "down-thresholds"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.Lcac.DownThresholds, ['down_threshold'], name, value)
@@ -19052,6 +19538,7 @@ class MplsTe(Entity):
                     self.backup_paths.parent = self
                     self._children_name_map["backup_paths"] = "backup-paths"
                     self._segment_path = lambda: "global-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes, [], name, value)
@@ -19087,6 +19574,7 @@ class MplsTe(Entity):
 
                         self.backup_tunnel = YList(self)
                         self._segment_path = lambda: "backup-tunnels"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels, [], name, value)
@@ -19101,7 +19589,7 @@ class MplsTe(Entity):
                         	Tunnel name
                         	**type**\: str
                         
-                        	**length:** 1..59
+                        	**length:** 1..54
                         
                         
 
@@ -19120,10 +19608,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['tunnel_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
+                                ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
                             ])
                             self.tunnel_name = None
                             self._segment_path = lambda: "backup-tunnel" + "[tunnel-name='" + str(self.tunnel_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupTunnels.BackupTunnel, ['tunnel_name'], name, value)
@@ -19160,6 +19649,7 @@ class MplsTe(Entity):
                         self.backup.parent = self
                         self._children_name_map["backup"] = "backup"
                         self._segment_path = lambda: "auto-tunnel"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel, [], name, value)
@@ -19208,9 +19698,9 @@ class MplsTe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("exclude", ("exclude", MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('attribute_set', YLeaf(YType.str, 'attribute-set')),
-                                ('next_hop_only', YLeaf(YType.empty, 'next-hop-only')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('attribute_set', (YLeaf(YType.str, 'attribute-set'), ['str'])),
+                                ('next_hop_only', (YLeaf(YType.empty, 'next-hop-only'), ['Empty'])),
                             ])
                             self.enable = None
                             self.attribute_set = None
@@ -19220,6 +19710,7 @@ class MplsTe(Entity):
                             self.exclude.parent = self
                             self._children_name_map["exclude"] = "exclude"
                             self._segment_path = lambda: "backup"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup, ['enable', 'attribute_set', 'next_hop_only'], name, value)
@@ -19251,10 +19742,11 @@ class MplsTe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('srlg_mode', YLeaf(YType.enumeration, 'srlg-mode')),
+                                    ('srlg_mode', (YLeaf(YType.enumeration, 'srlg-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTesrlgExclude', '')])),
                                 ])
                                 self.srlg_mode = None
                                 self._segment_path = lambda: "exclude"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.AutoTunnel.Backup.Exclude, ['srlg_mode'], name, value)
@@ -19290,6 +19782,7 @@ class MplsTe(Entity):
 
                         self.backup_path = YList(self)
                         self._segment_path = lambda: "backup-paths"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths, [], name, value)
@@ -19323,10 +19816,11 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['tunnel_number']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('tunnel_number', YLeaf(YType.uint32, 'tunnel-number')),
+                                ('tunnel_number', (YLeaf(YType.uint32, 'tunnel-number'), ['int'])),
                             ])
                             self.tunnel_number = None
                             self._segment_path = lambda: "backup-path" + "[tunnel-number='" + str(self.tunnel_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.Interfaces.Interface.GlobalAttributes.BackupPaths.BackupPath, ['tunnel_number'], name, value)
@@ -19373,8 +19867,8 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("topology-instances", ("topology_instances", MplsTe.GmplsNni.TopologyInstances)), ("tunnel-heads", ("tunnel_heads", MplsTe.GmplsNni.TunnelHeads))])
             self._leafs = OrderedDict([
-                ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
-                ('enable_gmpls_nni', YLeaf(YType.empty, 'enable-gmpls-nni')),
+                ('path_selection_metric', (YLeaf(YType.enumeration, 'path-selection-metric'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
+                ('enable_gmpls_nni', (YLeaf(YType.empty, 'enable-gmpls-nni'), ['Empty'])),
             ])
             self.path_selection_metric = None
             self.enable_gmpls_nni = None
@@ -19388,6 +19882,7 @@ class MplsTe(Entity):
             self._children_name_map["tunnel_heads"] = "tunnel-heads"
             self._segment_path = lambda: "gmpls-nni"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.GmplsNni, ['path_selection_metric', 'enable_gmpls_nni'], name, value)
@@ -19423,6 +19918,7 @@ class MplsTe(Entity):
                 self.topology_instance = YList(self)
                 self._segment_path = lambda: "topology-instances"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances, [], name, value)
@@ -19476,9 +19972,9 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['ospf_area_type','igp_instance_name','igp_type']
                     self._child_classes = OrderedDict([("ospf-int", ("ospf_int", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt)), ("ospfip-addr", ("ospfip_addr", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr))])
                     self._leafs = OrderedDict([
-                        ('ospf_area_type', YLeaf(YType.enumeration, 'ospf-area-type')),
-                        ('igp_instance_name', YLeaf(YType.str, 'igp-instance-name')),
-                        ('igp_type', YLeaf(YType.enumeration, 'igp-type')),
+                        ('ospf_area_type', (YLeaf(YType.enumeration, 'ospf-area-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OspfAreaMode', '')])),
+                        ('igp_instance_name', (YLeaf(YType.str, 'igp-instance-name'), ['str'])),
+                        ('igp_type', (YLeaf(YType.enumeration, 'igp-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTeIgpProtocol', '')])),
                     ])
                     self.ospf_area_type = None
                     self.igp_instance_name = None
@@ -19488,6 +19984,7 @@ class MplsTe(Entity):
                     self.ospfip_addr = YList(self)
                     self._segment_path = lambda: "topology-instance" + "[ospf-area-type='" + str(self.ospf_area_type) + "']" + "[igp-instance-name='" + str(self.igp_instance_name) + "']" + "[igp-type='" + str(self.igp_type) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/topology-instances/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance, ['ospf_area_type', 'igp_instance_name', 'igp_type'], name, value)
@@ -19526,7 +20023,7 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['igp_area']
                         self._child_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers))])
                         self._leafs = OrderedDict([
-                            ('igp_area', YLeaf(YType.uint32, 'igp-area')),
+                            ('igp_area', (YLeaf(YType.uint32, 'igp-area'), ['int'])),
                         ])
                         self.igp_area = None
 
@@ -19534,6 +20031,7 @@ class MplsTe(Entity):
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
                         self._segment_path = lambda: "ospf-int" + "[igp-area='" + str(self.igp_area) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt, ['igp_area'], name, value)
@@ -19568,6 +20066,7 @@ class MplsTe(Entity):
 
                             self.controller = YList(self)
                             self._segment_path = lambda: "controllers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers, [], name, value)
@@ -19582,7 +20081,7 @@ class MplsTe(Entity):
                             	Controller name
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: tti_mode
                             
@@ -19630,10 +20129,10 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['controller_name']
                                 self._child_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode)), ("affinity-names", ("affinity_names", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames))])
                                 self._leafs = OrderedDict([
-                                    ('controller_name', YLeaf(YType.str, 'controller-name')),
-                                    ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('delay', YLeaf(YType.uint32, 'delay')),
+                                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                                    ('admin_weight', (YLeaf(YType.uint32, 'admin-weight'), ['int'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                                 ])
                                 self.controller_name = None
                                 self.admin_weight = None
@@ -19648,6 +20147,7 @@ class MplsTe(Entity):
                                 self.affinity_names.parent = self
                                 self._children_name_map["affinity_names"] = "affinity-names"
                                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
@@ -19687,12 +20187,13 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
-                                        ('tcmid', YLeaf(YType.uint32, 'tcmid')),
+                                        ('tti_mode_type', (YLeaf(YType.enumeration, 'tti-mode-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiMode', '')])),
+                                        ('tcmid', (YLeaf(YType.uint32, 'tcmid'), ['int'])),
                                     ])
                                     self.tti_mode_type = None
                                     self.tcmid = None
                                     self._segment_path = lambda: "tti-mode"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
@@ -19724,10 +20225,11 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('affinity_name', YLeafList(YType.str, 'affinity-name')),
+                                        ('affinity_name', (YLeafList(YType.str, 'affinity-name'), ['str'])),
                                     ])
                                     self.affinity_name = []
                                     self._segment_path = lambda: "affinity-names"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfInt.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
@@ -19766,7 +20268,7 @@ class MplsTe(Entity):
                         self.ylist_key_names = ['address']
                         self._child_classes = OrderedDict([("controllers", ("controllers", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers))])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                         ])
                         self.address = None
 
@@ -19774,6 +20276,7 @@ class MplsTe(Entity):
                         self.controllers.parent = self
                         self._children_name_map["controllers"] = "controllers"
                         self._segment_path = lambda: "ospfip-addr" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr, ['address'], name, value)
@@ -19808,6 +20311,7 @@ class MplsTe(Entity):
 
                             self.controller = YList(self)
                             self._segment_path = lambda: "controllers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers, [], name, value)
@@ -19822,7 +20326,7 @@ class MplsTe(Entity):
                             	Controller name
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: tti_mode
                             
@@ -19870,10 +20374,10 @@ class MplsTe(Entity):
                                 self.ylist_key_names = ['controller_name']
                                 self._child_classes = OrderedDict([("tti-mode", ("tti_mode", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode)), ("affinity-names", ("affinity_names", MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames))])
                                 self._leafs = OrderedDict([
-                                    ('controller_name', YLeaf(YType.str, 'controller-name')),
-                                    ('admin_weight', YLeaf(YType.uint32, 'admin-weight')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('delay', YLeaf(YType.uint32, 'delay')),
+                                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                                    ('admin_weight', (YLeaf(YType.uint32, 'admin-weight'), ['int'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                                 ])
                                 self.controller_name = None
                                 self.admin_weight = None
@@ -19888,6 +20392,7 @@ class MplsTe(Entity):
                                 self.affinity_names.parent = self
                                 self._children_name_map["affinity_names"] = "affinity-names"
                                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller, ['controller_name', 'admin_weight', 'enable', 'delay'], name, value)
@@ -19927,12 +20432,13 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('tti_mode_type', YLeaf(YType.enumeration, 'tti-mode-type')),
-                                        ('tcmid', YLeaf(YType.uint32, 'tcmid')),
+                                        ('tti_mode_type', (YLeaf(YType.enumeration, 'tti-mode-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'GmplsttiMode', '')])),
+                                        ('tcmid', (YLeaf(YType.uint32, 'tcmid'), ['int'])),
                                     ])
                                     self.tti_mode_type = None
                                     self.tcmid = None
                                     self._segment_path = lambda: "tti-mode"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.TtiMode, ['tti_mode_type', 'tcmid'], name, value)
@@ -19964,10 +20470,11 @@ class MplsTe(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('affinity_name', YLeafList(YType.str, 'affinity-name')),
+                                        ('affinity_name', (YLeafList(YType.str, 'affinity-name'), ['str'])),
                                     ])
                                     self.affinity_name = []
                                     self._segment_path = lambda: "affinity-names"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsTe.GmplsNni.TopologyInstances.TopologyInstance.OspfipAddr.Controllers.Controller.AffinityNames, ['affinity_name'], name, value)
@@ -20003,6 +20510,7 @@ class MplsTe(Entity):
                 self.tunnel_head = YList(self)
                 self._segment_path = lambda: "tunnel-heads"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.GmplsNni.TunnelHeads, [], name, value)
@@ -20053,6 +20561,11 @@ class MplsTe(Entity):
                 .. attribute:: enable
                 
                 	The existence of this configuration indicates the a new GMPLS NNI tunnel has been enabled
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: announce_srlg
+                
+                	Announce SRLG on term interface for the tunnel
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 .. attribute:: restore_lsp_shutdown
@@ -20121,20 +20634,22 @@ class MplsTe(Entity):
                     self.ylist_key_names = ['tunnel_id']
                     self._child_classes = OrderedDict([("signalled-bandwidth", ("signalled_bandwidth", MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth)), ("destination", ("destination", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination)), ("protection-switching", ("protection_switching", MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching)), ("logging", ("logging", MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging)), ("path-options", ("path_options", MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions)), ("static-uni", ("static_uni", MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni))])
                     self._leafs = OrderedDict([
-                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('restore_lsp_shutdown', YLeaf(YType.empty, 'restore-lsp-shutdown')),
-                        ('current_lsp_shutdown', YLeaf(YType.empty, 'current-lsp-shutdown')),
-                        ('path_selection_metric', YLeaf(YType.enumeration, 'path-selection-metric')),
-                        ('payload', YLeaf(YType.enumeration, 'payload')),
-                        ('standby_lsp_shutdown', YLeaf(YType.empty, 'standby-lsp-shutdown')),
-                        ('shutdown', YLeaf(YType.empty, 'shutdown')),
-                        ('path_protection_attribute_set_profile', YLeaf(YType.str, 'path-protection-attribute-set-profile')),
-                        ('record_route', YLeaf(YType.empty, 'record-route')),
-                        ('signalled_name', YLeaf(YType.str, 'signalled-name')),
+                        ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('announce_srlg', (YLeaf(YType.empty, 'announce-srlg'), ['Empty'])),
+                        ('restore_lsp_shutdown', (YLeaf(YType.empty, 'restore-lsp-shutdown'), ['Empty'])),
+                        ('current_lsp_shutdown', (YLeaf(YType.empty, 'current-lsp-shutdown'), ['Empty'])),
+                        ('path_selection_metric', (YLeaf(YType.enumeration, 'path-selection-metric'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathSelectionMetric', '')])),
+                        ('payload', (YLeaf(YType.enumeration, 'payload'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnPayload', '')])),
+                        ('standby_lsp_shutdown', (YLeaf(YType.empty, 'standby-lsp-shutdown'), ['Empty'])),
+                        ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
+                        ('path_protection_attribute_set_profile', (YLeaf(YType.str, 'path-protection-attribute-set-profile'), ['str'])),
+                        ('record_route', (YLeaf(YType.empty, 'record-route'), ['Empty'])),
+                        ('signalled_name', (YLeaf(YType.str, 'signalled-name'), ['str'])),
                     ])
                     self.tunnel_id = None
                     self.enable = None
+                    self.announce_srlg = None
                     self.restore_lsp_shutdown = None
                     self.current_lsp_shutdown = None
                     self.path_selection_metric = None
@@ -20170,9 +20685,10 @@ class MplsTe(Entity):
                     self._children_name_map["static_uni"] = "static-uni"
                     self._segment_path = lambda: "tunnel-head" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/gmpls-nni/tunnel-heads/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead, ['tunnel_id', 'enable', 'restore_lsp_shutdown', 'current_lsp_shutdown', 'path_selection_metric', 'payload', 'standby_lsp_shutdown', 'shutdown', 'path_protection_attribute_set_profile', 'record_route', 'signalled_name'], name, value)
+                    self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead, ['tunnel_id', 'enable', 'announce_srlg', 'restore_lsp_shutdown', 'current_lsp_shutdown', 'path_selection_metric', 'payload', 'standby_lsp_shutdown', 'shutdown', 'path_protection_attribute_set_profile', 'record_route', 'signalled_name'], name, value)
 
 
                 class SignalledBandwidth(Entity):
@@ -20217,14 +20733,15 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('signalled_bandwidth_type', YLeaf(YType.enumeration, 'signalled-bandwidth-type')),
-                            ('bitrate', YLeaf(YType.uint32, 'bitrate')),
-                            ('od_uflex_framing_type', YLeaf(YType.enumeration, 'od-uflex-framing-type')),
+                            ('signalled_bandwidth_type', (YLeaf(YType.enumeration, 'signalled-bandwidth-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidth', '')])),
+                            ('bitrate', (YLeaf(YType.uint32, 'bitrate'), ['int'])),
+                            ('od_uflex_framing_type', (YLeaf(YType.enumeration, 'od-uflex-framing-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnSignaledBandwidthFlexFraming', '')])),
                         ])
                         self.signalled_bandwidth_type = None
                         self.bitrate = None
                         self.od_uflex_framing_type = None
                         self._segment_path = lambda: "signalled-bandwidth"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.SignalledBandwidth, ['signalled_bandwidth_type', 'bitrate', 'od_uflex_framing_type'], name, value)
@@ -20271,14 +20788,15 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('destination', YLeaf(YType.str, 'destination')),
-                            ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
-                            ('interface_if_index', YLeaf(YType.uint32, 'interface-if-index')),
+                            ('destination', (YLeaf(YType.str, 'destination'), ['str'])),
+                            ('destination_type', (YLeaf(YType.enumeration, 'destination-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnDestination', '')])),
+                            ('interface_if_index', (YLeaf(YType.uint32, 'interface-if-index'), ['int'])),
                         ])
                         self.destination = None
                         self.destination_type = None
                         self.interface_if_index = None
                         self._segment_path = lambda: "destination"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Destination, ['destination', 'destination_type', 'interface_if_index'], name, value)
@@ -20311,10 +20829,11 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lockout', YLeaf(YType.enumeration, 'lockout')),
+                            ('lockout', (YLeaf(YType.enumeration, 'lockout'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnProtectionSwitchLockout', '')])),
                         ])
                         self.lockout = None
                         self._segment_path = lambda: "protection-switching"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.ProtectionSwitching, ['lockout'], name, value)
@@ -20376,13 +20895,13 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('active_lsp_message', YLeaf(YType.empty, 'active-lsp-message')),
-                            ('homepath_state_message', YLeaf(YType.empty, 'homepath-state-message')),
-                            ('signalling_state_message', YLeaf(YType.empty, 'signalling-state-message')),
-                            ('path_change_message', YLeaf(YType.empty, 'path-change-message')),
-                            ('static_cross_connect_message', YLeaf(YType.empty, 'static-cross-connect-message')),
-                            ('tunnel_state_message', YLeaf(YType.empty, 'tunnel-state-message')),
-                            ('insufficient_bw_message', YLeaf(YType.empty, 'insufficient-bw-message')),
+                            ('active_lsp_message', (YLeaf(YType.empty, 'active-lsp-message'), ['Empty'])),
+                            ('homepath_state_message', (YLeaf(YType.empty, 'homepath-state-message'), ['Empty'])),
+                            ('signalling_state_message', (YLeaf(YType.empty, 'signalling-state-message'), ['Empty'])),
+                            ('path_change_message', (YLeaf(YType.empty, 'path-change-message'), ['Empty'])),
+                            ('static_cross_connect_message', (YLeaf(YType.empty, 'static-cross-connect-message'), ['Empty'])),
+                            ('tunnel_state_message', (YLeaf(YType.empty, 'tunnel-state-message'), ['Empty'])),
+                            ('insufficient_bw_message', (YLeaf(YType.empty, 'insufficient-bw-message'), ['Empty'])),
                         ])
                         self.active_lsp_message = None
                         self.homepath_state_message = None
@@ -20392,6 +20911,7 @@ class MplsTe(Entity):
                         self.tunnel_state_message = None
                         self.insufficient_bw_message = None
                         self._segment_path = lambda: "logging"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.Logging, ['active_lsp_message', 'homepath_state_message', 'signalling_state_message', 'path_change_message', 'static_cross_connect_message', 'tunnel_state_message', 'insufficient_bw_message'], name, value)
@@ -20426,6 +20946,7 @@ class MplsTe(Entity):
 
                         self.path_option = YList(self)
                         self._segment_path = lambda: "path-options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions, [], name, value)
@@ -20518,16 +21039,16 @@ class MplsTe(Entity):
                             self.ylist_key_names = ['preference_level']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('preference_level', YLeaf(YType.uint32, 'preference-level')),
-                                ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                ('path_name', YLeaf(YType.str, 'path-name')),
-                                ('protected_by_preference_level', YLeaf(YType.uint32, 'protected-by-preference-level')),
-                                ('restore_by_preference_level', YLeaf(YType.uint32, 'restore-by-preference-level')),
-                                ('xro_type', YLeaf(YType.empty, 'xro-type')),
-                                ('xro_attribute_set_name', YLeaf(YType.str, 'xro-attribute-set-name')),
-                                ('affinity_attribute_set_name', YLeaf(YType.str, 'affinity-attribute-set-name')),
-                                ('lockdown', YLeaf(YType.enumeration, 'lockdown')),
+                                ('preference_level', (YLeaf(YType.uint32, 'preference-level'), ['int'])),
+                                ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOption', '')])),
+                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                ('path_name', (YLeaf(YType.str, 'path-name'), ['str'])),
+                                ('protected_by_preference_level', (YLeaf(YType.uint32, 'protected-by-preference-level'), ['int'])),
+                                ('restore_by_preference_level', (YLeaf(YType.uint32, 'restore-by-preference-level'), ['int'])),
+                                ('xro_type', (YLeaf(YType.empty, 'xro-type'), ['Empty'])),
+                                ('xro_attribute_set_name', (YLeaf(YType.str, 'xro-attribute-set-name'), ['str'])),
+                                ('affinity_attribute_set_name', (YLeaf(YType.str, 'affinity-attribute-set-name'), ['str'])),
+                                ('lockdown', (YLeaf(YType.enumeration, 'lockdown'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'MplsTePathOptionProperty', '')])),
                             ])
                             self.preference_level = None
                             self.path_type = None
@@ -20540,6 +21061,7 @@ class MplsTe(Entity):
                             self.affinity_attribute_set_name = None
                             self.lockdown = None
                             self._segment_path = lambda: "path-option" + "[preference-level='" + str(self.preference_level) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.PathOptions.PathOption, ['preference_level', 'path_type', 'path_id', 'path_name', 'protected_by_preference_level', 'restore_by_preference_level', 'xro_type', 'xro_attribute_set_name', 'affinity_attribute_set_name', 'lockdown'], name, value)
@@ -20592,16 +21114,17 @@ class MplsTe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ingress_controller_name', YLeaf(YType.str, 'ingress-controller-name')),
-                            ('egress_controller_if_index', YLeaf(YType.uint32, 'egress-controller-if-index')),
-                            ('ingress_type', YLeaf(YType.enumeration, 'ingress-type')),
-                            ('egress_type', YLeaf(YType.enumeration, 'egress-type')),
+                            ('ingress_controller_name', (YLeaf(YType.str, 'ingress-controller-name'), ['str'])),
+                            ('egress_controller_if_index', (YLeaf(YType.uint32, 'egress-controller-if-index'), ['int'])),
+                            ('ingress_type', (YLeaf(YType.enumeration, 'ingress-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUni', '')])),
+                            ('egress_type', (YLeaf(YType.enumeration, 'egress-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_cfg', 'OtnStaticUni', '')])),
                         ])
                         self.ingress_controller_name = None
                         self.egress_controller_if_index = None
                         self.ingress_type = None
                         self.egress_type = None
                         self._segment_path = lambda: "static-uni"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsTe.GmplsNni.TunnelHeads.TunnelHead.StaticUni, ['ingress_controller_name', 'egress_controller_if_index', 'ingress_type', 'egress_type'], name, value)
@@ -20665,9 +21188,9 @@ class MplsTe(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("bfd", ("bfd", MplsTe.Lcac.Bfd)), ("flooding-threshold", ("flooding_threshold", MplsTe.Lcac.FloodingThreshold))])
             self._leafs = OrderedDict([
-                ('bandwidth_hold_timer', YLeaf(YType.uint32, 'bandwidth-hold-timer')),
-                ('delay_preempt_bundle_capacity_timer', YLeaf(YType.uint32, 'delay-preempt-bundle-capacity-timer')),
-                ('periodic_flooding_timer', YLeaf(YType.uint32, 'periodic-flooding-timer')),
+                ('bandwidth_hold_timer', (YLeaf(YType.uint32, 'bandwidth-hold-timer'), ['int'])),
+                ('delay_preempt_bundle_capacity_timer', (YLeaf(YType.uint32, 'delay-preempt-bundle-capacity-timer'), ['int'])),
+                ('periodic_flooding_timer', (YLeaf(YType.uint32, 'periodic-flooding-timer'), ['int'])),
             ])
             self.bandwidth_hold_timer = None
             self.delay_preempt_bundle_capacity_timer = None
@@ -20682,6 +21205,7 @@ class MplsTe(Entity):
             self._children_name_map["flooding_threshold"] = "flooding-threshold"
             self._segment_path = lambda: "lcac"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsTe.Lcac, ['bandwidth_hold_timer', 'delay_preempt_bundle_capacity_timer', 'periodic_flooding_timer'], name, value)
@@ -20724,13 +21248,14 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interval', YLeaf(YType.uint32, 'interval')),
-                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                    ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                 ])
                 self.interval = None
                 self.detection_multiplier = None
                 self._segment_path = lambda: "bfd"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Lcac.Bfd, ['interval', 'detection_multiplier'], name, value)
@@ -20776,13 +21301,14 @@ class MplsTe(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('up_stream', YLeaf(YType.uint32, 'up-stream')),
-                    ('down_stream', YLeaf(YType.uint32, 'down-stream')),
+                    ('up_stream', (YLeaf(YType.uint32, 'up-stream'), ['int'])),
+                    ('down_stream', (YLeaf(YType.uint32, 'down-stream'), ['int'])),
                 ])
                 self.up_stream = None
                 self.down_stream = None
                 self._segment_path = lambda: "flooding-threshold"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-te-cfg:mpls-te/lcac/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsTe.Lcac.FloodingThreshold, ['up_stream', 'down_stream'], name, value)

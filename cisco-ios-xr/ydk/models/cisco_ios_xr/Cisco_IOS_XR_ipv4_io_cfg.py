@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,20 +18,6 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
-
-class DhcpClientOptionCode(Enum):
-    """
-    DhcpClientOptionCode (Enum Class)
-
-    Dhcp client option code
-
-    .. data:: Y_60 = 1
-
-    	Vendor id  DHCP Discover
-
-    """
-
-    Y_60 = Enum.YLeaf(1, "60")
 
 
 class Ipv4DefaultPing(Enum):

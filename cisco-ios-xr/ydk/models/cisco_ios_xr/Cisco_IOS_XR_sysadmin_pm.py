@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_pm 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The Process Manager (PM).
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +15,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ProcessState(Enum):
@@ -157,6 +152,7 @@ class Processes(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-pm:processes"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Processes, [], name, value)
@@ -213,9 +209,9 @@ class Processes(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([("name", ("name", Processes.AllLocations.Name))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
-                ('ip_addr', YLeaf(YType.str, 'ip-addr')),
-                ('pcbs', YLeaf(YType.uint32, 'pcbs')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
+                ('pcbs', (YLeaf(YType.uint32, 'pcbs'), ['int'])),
             ])
             self.location = None
             self.ip_addr = None
@@ -224,6 +220,7 @@ class Processes(Entity):
             self.name = YList(self)
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-pm:processes/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Processes.AllLocations, ['location', 'ip_addr', 'pcbs'], name, value)
@@ -367,26 +364,26 @@ class Processes(Entity):
                 self.ylist_key_names = ['proc_name','instance_id']
                 self._child_classes = OrderedDict([("services", ("services", Processes.AllLocations.Name.Services))])
                 self._leafs = OrderedDict([
-                    ('proc_name', YLeaf(YType.str, 'proc-name')),
-                    ('instance_id', YLeaf(YType.uint32, 'instance-id')),
-                    ('path', YLeaf(YType.str, 'path')),
-                    ('startup_file', YLeaf(YType.str, 'startup-file')),
-                    ('startup_mode', YLeaf(YType.enumeration, 'startup-mode')),
-                    ('heart_beat_timeout', YLeaf(YType.uint32, 'heart-beat-timeout')),
-                    ('last_heart_beat_time', YLeaf(YType.str, 'last-heart-beat-time')),
-                    ('max_restarts', YLeaf(YType.uint32, 'max-restarts')),
-                    ('respawn_reset_timer', YLeaf(YType.uint32, 'respawn-reset-timer')),
-                    ('mandatory', YLeaf(YType.boolean, 'mandatory')),
-                    ('maint_mode', YLeaf(YType.boolean, 'maint-mode')),
-                    ('args', YLeaf(YType.str, 'args')),
-                    ('proc_state', YLeaf(YType.enumeration, 'proc-state')),
-                    ('pid', YLeaf(YType.int32, 'pid')),
-                    ('proc_aborted', YLeaf(YType.boolean, 'proc-aborted')),
-                    ('exit_status', YLeaf(YType.str, 'exit-status')),
-                    ('respawns', YLeaf(YType.int32, 'respawns')),
-                    ('start_time', YLeaf(YType.str, 'start-time')),
-                    ('ready_time', YLeaf(YType.str, 'ready-time')),
-                    ('last_exit_time', YLeaf(YType.str, 'last-exit-time')),
+                    ('proc_name', (YLeaf(YType.str, 'proc-name'), ['str'])),
+                    ('instance_id', (YLeaf(YType.uint32, 'instance-id'), ['int'])),
+                    ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                    ('startup_file', (YLeaf(YType.str, 'startup-file'), ['str'])),
+                    ('startup_mode', (YLeaf(YType.enumeration, 'startup-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'StartupMode', '')])),
+                    ('heart_beat_timeout', (YLeaf(YType.uint32, 'heart-beat-timeout'), ['int'])),
+                    ('last_heart_beat_time', (YLeaf(YType.str, 'last-heart-beat-time'), ['str'])),
+                    ('max_restarts', (YLeaf(YType.uint32, 'max-restarts'), ['int'])),
+                    ('respawn_reset_timer', (YLeaf(YType.uint32, 'respawn-reset-timer'), ['int'])),
+                    ('mandatory', (YLeaf(YType.boolean, 'mandatory'), ['bool'])),
+                    ('maint_mode', (YLeaf(YType.boolean, 'maint-mode'), ['bool'])),
+                    ('args', (YLeaf(YType.str, 'args'), ['str'])),
+                    ('proc_state', (YLeaf(YType.enumeration, 'proc-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'ProcessState', '')])),
+                    ('pid', (YLeaf(YType.int32, 'pid'), ['int'])),
+                    ('proc_aborted', (YLeaf(YType.boolean, 'proc-aborted'), ['bool'])),
+                    ('exit_status', (YLeaf(YType.str, 'exit-status'), ['str'])),
+                    ('respawns', (YLeaf(YType.int32, 'respawns'), ['int'])),
+                    ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                    ('ready_time', (YLeaf(YType.str, 'ready-time'), ['str'])),
+                    ('last_exit_time', (YLeaf(YType.str, 'last-exit-time'), ['str'])),
                 ])
                 self.proc_name = None
                 self.instance_id = None
@@ -411,6 +408,7 @@ class Processes(Entity):
 
                 self.services = YList(self)
                 self._segment_path = lambda: "name" + "[proc-name='" + str(self.proc_name) + "']" + "[instance-id='" + str(self.instance_id) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Processes.AllLocations.Name, ['proc_name', 'instance_id', 'path', 'startup_file', 'startup_mode', 'heart_beat_timeout', 'last_heart_beat_time', 'max_restarts', 'respawn_reset_timer', 'mandatory', 'maint_mode', 'args', 'proc_state', 'pid', 'proc_aborted', 'exit_status', 'respawns', 'start_time', 'ready_time', 'last_exit_time'], name, value)
@@ -518,19 +516,19 @@ class Processes(Entity):
                     self.ylist_key_names = ['service_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('service_name', YLeaf(YType.str, 'service-name')),
-                        ('scope', YLeaf(YType.enumeration, 'scope')),
-                        ('redundancy', YLeaf(YType.boolean, 'redundancy')),
-                        ('ha_ready', YLeaf(YType.boolean, 'ha-ready')),
-                        ('service_state', YLeaf(YType.enumeration, 'service-state')),
-                        ('ha_role', YLeaf(YType.enumeration, 'ha-role')),
-                        ('new_ha_role', YLeaf(YType.enumeration, 'new-ha-role')),
-                        ('selected', YLeaf(YType.boolean, 'selected')),
-                        ('ip1', YLeaf(YType.str, 'ip1')),
-                        ('ip2', YLeaf(YType.str, 'ip2')),
-                        ('svc_start_time', YLeaf(YType.str, 'svc-start-time')),
-                        ('svc_ready_time', YLeaf(YType.str, 'svc-ready-time')),
-                        ('svc_haready_time', YLeaf(YType.str, 'svc-haready-time')),
+                        ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                        ('scope', (YLeaf(YType.enumeration, 'scope'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'ServiceScope', '')])),
+                        ('redundancy', (YLeaf(YType.boolean, 'redundancy'), ['bool'])),
+                        ('ha_ready', (YLeaf(YType.boolean, 'ha-ready'), ['bool'])),
+                        ('service_state', (YLeaf(YType.enumeration, 'service-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'ServiceState', '')])),
+                        ('ha_role', (YLeaf(YType.enumeration, 'ha-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'ServiceRole', '')])),
+                        ('new_ha_role', (YLeaf(YType.enumeration, 'new-ha-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_pm', 'ServiceRole', '')])),
+                        ('selected', (YLeaf(YType.boolean, 'selected'), ['bool'])),
+                        ('ip1', (YLeaf(YType.str, 'ip1'), ['str','str'])),
+                        ('ip2', (YLeaf(YType.str, 'ip2'), ['str','str'])),
+                        ('svc_start_time', (YLeaf(YType.str, 'svc-start-time'), ['str'])),
+                        ('svc_ready_time', (YLeaf(YType.str, 'svc-ready-time'), ['str'])),
+                        ('svc_haready_time', (YLeaf(YType.str, 'svc-haready-time'), ['str'])),
                     ])
                     self.service_name = None
                     self.scope = None
@@ -546,6 +544,7 @@ class Processes(Entity):
                     self.svc_ready_time = None
                     self.svc_haready_time = None
                     self._segment_path = lambda: "services" + "[service-name='" + str(self.service_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Processes.AllLocations.Name.Services, ['service_name', 'scope', 'redundancy', 'ha_ready', 'service_state', 'ha_role', 'new_ha_role', 'selected', 'ip1', 'ip2', 'svc_start_time', 'svc_ready_time', 'svc_haready_time'], name, value)
@@ -584,6 +583,7 @@ class ProcessManager(Entity):
 
         self.all_locations_info = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-pm:process-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ProcessManager, [], name, value)
@@ -660,14 +660,14 @@ class ProcessManager(Entity):
             self.ylist_key_names = ['location_info']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('location_info', YLeaf(YType.str, 'location-info')),
-                ('ip_addr_info', YLeaf(YType.str, 'ip-addr-info')),
-                ('pm_start_time', YLeaf(YType.str, 'pm-start-time')),
-                ('mand_proc_down', YLeaf(YType.boolean, 'mand-proc-down')),
-                ('vmm_capi_up', YLeaf(YType.boolean, 'vmm-capi-up')),
-                ('wdmon_capi_up', YLeaf(YType.boolean, 'wdmon-capi-up')),
-                ('wdmon_capi_timestamp', YLeaf(YType.str, 'wdmon-capi-timestamp')),
-                ('wdmon_num_capi_connects', YLeaf(YType.uint32, 'wdmon-num-capi-connects')),
+                ('location_info', (YLeaf(YType.str, 'location-info'), ['str'])),
+                ('ip_addr_info', (YLeaf(YType.str, 'ip-addr-info'), ['str','str'])),
+                ('pm_start_time', (YLeaf(YType.str, 'pm-start-time'), ['str'])),
+                ('mand_proc_down', (YLeaf(YType.boolean, 'mand-proc-down'), ['bool'])),
+                ('vmm_capi_up', (YLeaf(YType.boolean, 'vmm-capi-up'), ['bool'])),
+                ('wdmon_capi_up', (YLeaf(YType.boolean, 'wdmon-capi-up'), ['bool'])),
+                ('wdmon_capi_timestamp', (YLeaf(YType.str, 'wdmon-capi-timestamp'), ['str'])),
+                ('wdmon_num_capi_connects', (YLeaf(YType.uint32, 'wdmon-num-capi-connects'), ['int'])),
             ])
             self.location_info = None
             self.ip_addr_info = None
@@ -679,6 +679,7 @@ class ProcessManager(Entity):
             self.wdmon_num_capi_connects = None
             self._segment_path = lambda: "all-locations-info" + "[location-info='" + str(self.location_info) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-pm:process-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ProcessManager.AllLocationsInfo, ['location_info', 'ip_addr_info', 'pm_start_time', 'mand_proc_down', 'vmm_capi_up', 'wdmon_capi_up', 'wdmon_capi_timestamp', 'wdmon_num_capi_connects'], name, value)
@@ -719,6 +720,7 @@ class Pm(Entity):
         self.pm.parent = self
         self._children_name_map["pm"] = "pm"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-pm:pm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pm, [], name, value)
@@ -754,6 +756,7 @@ class Pm(Entity):
             self.trace = YList(self)
             self._segment_path = lambda: "pm"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-pm:pm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pm.Pm_, [], name, value)
@@ -790,13 +793,14 @@ class Pm(Entity):
                 self.ylist_key_names = ['buffer']
                 self._child_classes = OrderedDict([("location", ("location", Pm.Pm_.Trace.Location))])
                 self._leafs = OrderedDict([
-                    ('buffer', YLeaf(YType.str, 'buffer')),
+                    ('buffer', (YLeaf(YType.str, 'buffer'), ['str'])),
                 ])
                 self.buffer = None
 
                 self.location = YList(self)
                 self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-pm:pm/pm/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pm.Pm_.Trace, [u'buffer'], name, value)
@@ -833,12 +837,13 @@ class Pm(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("all-options", ("all_options", Pm.Pm_.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location_name')),
+                        ('location_name', (YLeaf(YType.str, 'location_name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.all_options = YList(self)
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pm.Pm_.Trace.Location, [u'location_name'], name, value)
@@ -875,12 +880,13 @@ class Pm(Entity):
                         self.ylist_key_names = ['option']
                         self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Pm.Pm_.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
-                            ('option', YLeaf(YType.str, 'option')),
+                            ('option', (YLeaf(YType.str, 'option'), ['str'])),
                         ])
                         self.option = None
 
                         self.trace_blocks = YList(self)
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions, [u'option'], name, value)
@@ -912,10 +918,11 @@ class Pm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('data', YLeaf(YType.str, 'data')),
+                                ('data', (YLeaf(YType.str, 'data'), ['str'])),
                             ])
                             self.data = None
                             self._segment_path = lambda: "trace-blocks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pm.Pm_.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)

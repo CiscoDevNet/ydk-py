@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   object\-tracking\: Object Tracking operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Track(Enum):
@@ -178,6 +179,7 @@ class ObjectTracking(Entity):
         self.track_type_interface_brief.parent = self
         self._children_name_map["track_type_interface_brief"] = "track-type-interface-brief"
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ObjectTracking, [], name, value)
@@ -213,6 +215,7 @@ class ObjectTracking(Entity):
             self.track_info = YList(self)
             self._segment_path = lambda: "track-type-interface"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeInterface, [], name, value)
@@ -311,13 +314,13 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeInterface.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
-                    ('state_change_counter', YLeaf(YType.uint32, 'state-change-counter')),
-                    ('seconds_last_change', YLeaf(YType.uint64, 'seconds-last-change')),
-                    ('threshold_up', YLeaf(YType.uint32, 'threshold-up')),
-                    ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                    ('state_change_counter', (YLeaf(YType.uint32, 'state-change-counter'), ['int'])),
+                    ('seconds_last_change', (YLeaf(YType.uint64, 'seconds-last-change'), ['int'])),
+                    ('threshold_up', (YLeaf(YType.uint32, 'threshold-up'), ['int'])),
+                    ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -348,6 +351,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["delayed"] = "delayed"
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
@@ -399,7 +403,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -420,6 +424,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
@@ -453,11 +458,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -512,10 +518,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -523,6 +529,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -570,15 +577,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -633,10 +641,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -644,6 +652,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -679,6 +688,7 @@ class ObjectTracking(Entity):
                     self.bool_track_info = YList(self)
                     self._segment_path = lambda: "bool-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks, [], name, value)
@@ -722,15 +732,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('with_not', YLeaf(YType.boolean, 'with-not')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('with_not', (YLeaf(YType.boolean, 'with-not'), ['bool'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.with_not = None
                         self._segment_path = lambda: "bool-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/bool-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
@@ -766,6 +777,7 @@ class ObjectTracking(Entity):
                     self.threshold_track_info = YList(self)
                     self._segment_path = lambda: "threshold-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks, [], name, value)
@@ -813,15 +825,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('weight', YLeaf(YType.uint32, 'weight')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.weight = None
                         self._segment_path = lambda: "threshold-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/threshold-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
@@ -857,6 +870,7 @@ class ObjectTracking(Entity):
                     self.interface_tracking_info = YList(self)
                     self._segment_path = lambda: "tracking-interaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces, [], name, value)
@@ -890,11 +904,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracking-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/tracking-interaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
@@ -935,13 +950,14 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                        ('track_state', YLeaf(YType.boolean, 'track-state')),
+                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                        ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                     ])
                     self.time_remaining = None
                     self.track_state = None
                     self._segment_path = lambda: "delayed"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterface.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
@@ -977,6 +993,7 @@ class ObjectTracking(Entity):
             self.track_brief = YList(self)
             self._segment_path = lambda: "track-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackBriefs, [], name, value)
@@ -1015,13 +1032,14 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = ['track_name']
                 self._child_classes = OrderedDict([("track-info-brief", ("track_info_brief", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief))])
                 self._leafs = OrderedDict([
-                    ('track_name', YLeaf(YType.str, 'track-name')),
+                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
                 ])
                 self.track_name = None
 
                 self.track_info_brief = YList(self)
                 self._segment_path = lambda: "track-brief" + "[track-name='" + str(self.track_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief, ['track_name'], name, value)
@@ -1070,9 +1088,9 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo))])
                     self._leafs = OrderedDict([
-                        ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('track_state', YLeaf(YType.boolean, 'track-state')),
+                        ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                        ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                     ])
                     self.tracke_name = None
                     self.type = None
@@ -1082,6 +1100,7 @@ class ObjectTracking(Entity):
                     self.track_type_info.parent = self
                     self._children_name_map["track_type_info"] = "track-type-info"
                     self._segment_path = lambda: "track-info-brief"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
@@ -1133,7 +1152,7 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                         self._leafs = OrderedDict([
-                            ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                            ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                         ])
                         self.discriminant = None
 
@@ -1153,6 +1172,7 @@ class ObjectTracking(Entity):
                         self.bfd_tracks.parent = self
                         self._children_name_map["bfd_tracks"] = "bfd-tracks"
                         self._segment_path = lambda: "track-type-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
@@ -1186,10 +1206,11 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self._segment_path = lambda: "interface-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -1244,16 +1265,17 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix', YLeaf(YType.uint32, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                             ])
                             self.prefix = None
                             self.prefix_length = None
                             self.vrf = None
                             self.next_hop = None
                             self._segment_path = lambda: "route-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -1301,14 +1323,15 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                                ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                ('return_code', YLeaf(YType.uint32, 'return-code')),
+                                ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                                ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                             ])
                             self.ipsla_op_id = None
                             self.rtt = None
                             self.return_code = None
                             self._segment_path = lambda: "ipsla-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -1363,16 +1386,17 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                                ('rate', YLeaf(YType.uint32, 'rate')),
-                                ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                                ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                                ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                             ])
                             self.interface_name = None
                             self.destination_address = None
                             self.rate = None
                             self.debounce_count = None
                             self._segment_path = lambda: "bfd-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.TrackBriefs.TrackBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -1408,6 +1432,7 @@ class ObjectTracking(Entity):
             self.track_info = YList(self)
             self._segment_path = lambda: "track-type-rtr-reachability"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeRtrReachability, [], name, value)
@@ -1506,13 +1531,13 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
-                    ('state_change_counter', YLeaf(YType.uint32, 'state-change-counter')),
-                    ('seconds_last_change', YLeaf(YType.uint64, 'seconds-last-change')),
-                    ('threshold_up', YLeaf(YType.uint32, 'threshold-up')),
-                    ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                    ('state_change_counter', (YLeaf(YType.uint32, 'state-change-counter'), ['int'])),
+                    ('seconds_last_change', (YLeaf(YType.uint64, 'seconds-last-change'), ['int'])),
+                    ('threshold_up', (YLeaf(YType.uint32, 'threshold-up'), ['int'])),
+                    ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -1543,6 +1568,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["delayed"] = "delayed"
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
@@ -1594,7 +1620,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -1615,6 +1641,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
@@ -1648,11 +1675,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -1707,10 +1735,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -1718,6 +1746,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -1765,15 +1794,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -1828,10 +1858,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -1839,6 +1869,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -1874,6 +1905,7 @@ class ObjectTracking(Entity):
                     self.bool_track_info = YList(self)
                     self._segment_path = lambda: "bool-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks, [], name, value)
@@ -1917,15 +1949,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('with_not', YLeaf(YType.boolean, 'with-not')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('with_not', (YLeaf(YType.boolean, 'with-not'), ['bool'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.with_not = None
                         self._segment_path = lambda: "bool-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/bool-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
@@ -1961,6 +1994,7 @@ class ObjectTracking(Entity):
                     self.threshold_track_info = YList(self)
                     self._segment_path = lambda: "threshold-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks, [], name, value)
@@ -2008,15 +2042,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('weight', YLeaf(YType.uint32, 'weight')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.weight = None
                         self._segment_path = lambda: "threshold-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/threshold-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
@@ -2052,6 +2087,7 @@ class ObjectTracking(Entity):
                     self.interface_tracking_info = YList(self)
                     self._segment_path = lambda: "tracking-interaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces, [], name, value)
@@ -2085,11 +2121,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracking-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/tracking-interaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
@@ -2130,13 +2167,14 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                        ('track_state', YLeaf(YType.boolean, 'track-state')),
+                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                        ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                     ])
                     self.time_remaining = None
                     self.track_state = None
                     self._segment_path = lambda: "delayed"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachability.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
@@ -2172,6 +2210,7 @@ class ObjectTracking(Entity):
             self.track_info_brief = YList(self)
             self._segment_path = lambda: "track-type-rtr-reachability-brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief, [], name, value)
@@ -2220,9 +2259,9 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -2233,6 +2272,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["track_type_info"] = "track-type-info"
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
@@ -2284,7 +2324,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -2305,6 +2345,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
@@ -2338,11 +2379,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -2397,10 +2439,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -2408,6 +2450,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -2455,15 +2498,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -2518,10 +2562,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -2529,6 +2573,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-rtr-reachability-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeRtrReachabilityBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -2564,6 +2609,7 @@ class ObjectTracking(Entity):
             self.track = YList(self)
             self._segment_path = lambda: "tracks"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.Tracks, [], name, value)
@@ -2602,13 +2648,14 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = ['track_name']
                 self._child_classes = OrderedDict([("track-info", ("track_info", ObjectTracking.Tracks.Track.TrackInfo))])
                 self._leafs = OrderedDict([
-                    ('track_name', YLeaf(YType.str, 'track-name')),
+                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
                 ])
                 self.track_name = None
 
                 self.track_info = YList(self)
                 self._segment_path = lambda: "track" + "[track-name='" + str(self.track_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/tracks/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.Tracks.Track, ['track_name'], name, value)
@@ -2707,13 +2754,13 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.Tracks.Track.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.Tracks.Track.TrackInfo.Delayed))])
                     self._leafs = OrderedDict([
-                        ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('track_state', YLeaf(YType.boolean, 'track-state')),
-                        ('state_change_counter', YLeaf(YType.uint32, 'state-change-counter')),
-                        ('seconds_last_change', YLeaf(YType.uint64, 'seconds-last-change')),
-                        ('threshold_up', YLeaf(YType.uint32, 'threshold-up')),
-                        ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
+                        ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                        ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                        ('state_change_counter', (YLeaf(YType.uint32, 'state-change-counter'), ['int'])),
+                        ('seconds_last_change', (YLeaf(YType.uint64, 'seconds-last-change'), ['int'])),
+                        ('threshold_up', (YLeaf(YType.uint32, 'threshold-up'), ['int'])),
+                        ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
                     ])
                     self.tracke_name = None
                     self.type = None
@@ -2743,6 +2790,7 @@ class ObjectTracking(Entity):
                     self.delayed.parent = self
                     self._children_name_map["delayed"] = "delayed"
                     self._segment_path = lambda: "track-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
@@ -2794,7 +2842,7 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks))])
                         self._leafs = OrderedDict([
-                            ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                            ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                         ])
                         self.discriminant = None
 
@@ -2814,6 +2862,7 @@ class ObjectTracking(Entity):
                         self.bfd_tracks.parent = self
                         self._children_name_map["bfd_tracks"] = "bfd-tracks"
                         self._segment_path = lambda: "track-type-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
@@ -2847,10 +2896,11 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self._segment_path = lambda: "interface-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -2905,16 +2955,17 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix', YLeaf(YType.uint32, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('next_hop', YLeaf(YType.str, 'next-hop')),
+                                ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                             ])
                             self.prefix = None
                             self.prefix_length = None
                             self.vrf = None
                             self.next_hop = None
                             self._segment_path = lambda: "route-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -2962,14 +3013,15 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                                ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                ('return_code', YLeaf(YType.uint32, 'return-code')),
+                                ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                                ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                             ])
                             self.ipsla_op_id = None
                             self.rtt = None
                             self.return_code = None
                             self._segment_path = lambda: "ipsla-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -3024,16 +3076,17 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                                ('rate', YLeaf(YType.uint32, 'rate')),
-                                ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                                ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                                ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                             ])
                             self.interface_name = None
                             self.destination_address = None
                             self.rate = None
                             self.debounce_count = None
                             self._segment_path = lambda: "bfd-tracks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -3068,6 +3121,7 @@ class ObjectTracking(Entity):
 
                         self.bool_track_info = YList(self)
                         self._segment_path = lambda: "bool-tracks"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks, [], name, value)
@@ -3111,14 +3165,15 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('object_name', YLeaf(YType.str, 'object-name')),
-                                ('track_state', YLeaf(YType.boolean, 'track-state')),
-                                ('with_not', YLeaf(YType.boolean, 'with-not')),
+                                ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                                ('with_not', (YLeaf(YType.boolean, 'with-not'), ['bool'])),
                             ])
                             self.object_name = None
                             self.track_state = None
                             self.with_not = None
                             self._segment_path = lambda: "bool-track-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
@@ -3153,6 +3208,7 @@ class ObjectTracking(Entity):
 
                         self.threshold_track_info = YList(self)
                         self._segment_path = lambda: "threshold-tracks"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks, [], name, value)
@@ -3200,14 +3256,15 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('object_name', YLeaf(YType.str, 'object-name')),
-                                ('track_state', YLeaf(YType.boolean, 'track-state')),
-                                ('weight', YLeaf(YType.uint32, 'weight')),
+                                ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                                ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                             ])
                             self.object_name = None
                             self.track_state = None
                             self.weight = None
                             self._segment_path = lambda: "threshold-track-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
@@ -3242,6 +3299,7 @@ class ObjectTracking(Entity):
 
                         self.interface_tracking_info = YList(self)
                         self._segment_path = lambda: "tracking-interaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces, [], name, value)
@@ -3275,10 +3333,11 @@ class ObjectTracking(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self._segment_path = lambda: "interface-tracking-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
@@ -3319,12 +3378,13 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
+                            ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                         ])
                         self.time_remaining = None
                         self.track_state = None
                         self._segment_path = lambda: "delayed"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.Tracks.Track.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
@@ -3360,6 +3420,7 @@ class ObjectTracking(Entity):
             self.track_info_brief = YList(self)
             self._segment_path = lambda: "track-type-ipv4-route-brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief, [], name, value)
@@ -3408,9 +3469,9 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -3421,6 +3482,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["track_type_info"] = "track-type-info"
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
@@ -3472,7 +3534,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -3493,6 +3555,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
@@ -3526,11 +3589,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -3585,10 +3649,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -3596,6 +3660,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -3643,15 +3708,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -3706,10 +3772,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -3717,6 +3783,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4RouteBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -3752,6 +3819,7 @@ class ObjectTracking(Entity):
             self.track_info = YList(self)
             self._segment_path = lambda: "track-type-ipv4-route"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeIpv4Route, [], name, value)
@@ -3850,13 +3918,13 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo)), ("bool-tracks", ("bool_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks)), ("threshold-tracks", ("threshold_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks)), ("tracking-interaces", ("tracking_interaces", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces)), ("delayed", ("delayed", ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
-                    ('state_change_counter', YLeaf(YType.uint32, 'state-change-counter')),
-                    ('seconds_last_change', YLeaf(YType.uint64, 'seconds-last-change')),
-                    ('threshold_up', YLeaf(YType.uint32, 'threshold-up')),
-                    ('threshold_down', YLeaf(YType.uint32, 'threshold-down')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                    ('state_change_counter', (YLeaf(YType.uint32, 'state-change-counter'), ['int'])),
+                    ('seconds_last_change', (YLeaf(YType.uint64, 'seconds-last-change'), ['int'])),
+                    ('threshold_up', (YLeaf(YType.uint32, 'threshold-up'), ['int'])),
+                    ('threshold_down', (YLeaf(YType.uint32, 'threshold-down'), ['int'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -3887,6 +3955,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["delayed"] = "delayed"
                 self._segment_path = lambda: "track-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo, ['tracke_name', 'type', 'track_state', 'state_change_counter', 'seconds_last_change', 'threshold_up', 'threshold_down'], name, value)
@@ -3938,7 +4007,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -3959,6 +4028,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo, ['discriminant'], name, value)
@@ -3992,11 +4062,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -4051,10 +4122,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -4062,6 +4133,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -4109,15 +4181,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -4172,10 +4245,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -4183,6 +4256,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)
@@ -4218,6 +4292,7 @@ class ObjectTracking(Entity):
                     self.bool_track_info = YList(self)
                     self._segment_path = lambda: "bool-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks, [], name, value)
@@ -4261,15 +4336,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('with_not', YLeaf(YType.boolean, 'with-not')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('with_not', (YLeaf(YType.boolean, 'with-not'), ['bool'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.with_not = None
                         self._segment_path = lambda: "bool-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/bool-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.BoolTracks.BoolTrackInfo, ['object_name', 'track_state', 'with_not'], name, value)
@@ -4305,6 +4381,7 @@ class ObjectTracking(Entity):
                     self.threshold_track_info = YList(self)
                     self._segment_path = lambda: "threshold-tracks"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks, [], name, value)
@@ -4352,15 +4429,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('track_state', YLeaf(YType.boolean, 'track-state')),
-                            ('weight', YLeaf(YType.uint32, 'weight')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
+                            ('weight', (YLeaf(YType.uint32, 'weight'), ['int'])),
                         ])
                         self.object_name = None
                         self.track_state = None
                         self.weight = None
                         self._segment_path = lambda: "threshold-track-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/threshold-tracks/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.ThresholdTracks.ThresholdTrackInfo, ['object_name', 'track_state', 'weight'], name, value)
@@ -4396,6 +4474,7 @@ class ObjectTracking(Entity):
                     self.interface_tracking_info = YList(self)
                     self._segment_path = lambda: "tracking-interaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces, [], name, value)
@@ -4429,11 +4508,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracking-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/tracking-interaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.TrackingInteraces.InterfaceTrackingInfo, ['interface_name'], name, value)
@@ -4474,13 +4554,14 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                        ('track_state', YLeaf(YType.boolean, 'track-state')),
+                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                        ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                     ])
                     self.time_remaining = None
                     self.track_state = None
                     self._segment_path = lambda: "delayed"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-ipv4-route/track-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeIpv4Route.TrackInfo.Delayed, ['time_remaining', 'track_state'], name, value)
@@ -4516,6 +4597,7 @@ class ObjectTracking(Entity):
             self.track_info_brief = YList(self)
             self._segment_path = lambda: "track-type-interface-brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief, [], name, value)
@@ -4564,9 +4646,9 @@ class ObjectTracking(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("track-type-info", ("track_type_info", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo))])
                 self._leafs = OrderedDict([
-                    ('tracke_name', YLeaf(YType.str, 'tracke-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('track_state', YLeaf(YType.boolean, 'track-state')),
+                    ('tracke_name', (YLeaf(YType.str, 'tracke-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
+                    ('track_state', (YLeaf(YType.boolean, 'track-state'), ['bool'])),
                 ])
                 self.tracke_name = None
                 self.type = None
@@ -4577,6 +4659,7 @@ class ObjectTracking(Entity):
                 self._children_name_map["track_type_info"] = "track-type-info"
                 self._segment_path = lambda: "track-info-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief, ['tracke_name', 'type', 'track_state'], name, value)
@@ -4628,7 +4711,7 @@ class ObjectTracking(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-tracks", ("interface_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks)), ("route-tracks", ("route_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks)), ("ipsla-tracks", ("ipsla_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks)), ("bfd-tracks", ("bfd_tracks", ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks))])
                     self._leafs = OrderedDict([
-                        ('discriminant', YLeaf(YType.enumeration, 'discriminant')),
+                        ('discriminant', (YLeaf(YType.enumeration, 'discriminant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_manageability_object_tracking_oper', 'Track', '')])),
                     ])
                     self.discriminant = None
 
@@ -4649,6 +4732,7 @@ class ObjectTracking(Entity):
                     self._children_name_map["bfd_tracks"] = "bfd-tracks"
                     self._segment_path = lambda: "track-type-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo, ['discriminant'], name, value)
@@ -4682,11 +4766,12 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
                         self._segment_path = lambda: "interface-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.InterfaceTracks, ['interface_name'], name, value)
@@ -4741,10 +4826,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('prefix', YLeaf(YType.uint32, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('next_hop', YLeaf(YType.str, 'next-hop')),
+                            ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
                         ])
                         self.prefix = None
                         self.prefix_length = None
@@ -4752,6 +4837,7 @@ class ObjectTracking(Entity):
                         self.next_hop = None
                         self._segment_path = lambda: "route-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.RouteTracks, ['prefix', 'prefix_length', 'vrf', 'next_hop'], name, value)
@@ -4799,15 +4885,16 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ipsla_op_id', YLeaf(YType.uint32, 'ipsla-op-id')),
-                            ('rtt', YLeaf(YType.uint32, 'rtt')),
-                            ('return_code', YLeaf(YType.uint32, 'return-code')),
+                            ('ipsla_op_id', (YLeaf(YType.uint32, 'ipsla-op-id'), ['int'])),
+                            ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                            ('return_code', (YLeaf(YType.uint32, 'return-code'), ['int'])),
                         ])
                         self.ipsla_op_id = None
                         self.rtt = None
                         self.return_code = None
                         self._segment_path = lambda: "ipsla-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.IpslaTracks, ['ipsla_op_id', 'rtt', 'return_code'], name, value)
@@ -4862,10 +4949,10 @@ class ObjectTracking(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('destination_address', YLeaf(YType.uint32, 'destination-address')),
-                            ('rate', YLeaf(YType.uint32, 'rate')),
-                            ('debounce_count', YLeaf(YType.uint32, 'debounce-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('destination_address', (YLeaf(YType.uint32, 'destination-address'), ['int'])),
+                            ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                            ('debounce_count', (YLeaf(YType.uint32, 'debounce-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.destination_address = None
@@ -4873,6 +4960,7 @@ class ObjectTracking(Entity):
                         self.debounce_count = None
                         self._segment_path = lambda: "bfd-tracks"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-object-tracking-oper:object-tracking/track-type-interface-brief/track-info-brief/track-type-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectTracking.TrackTypeInterfaceBrief.TrackInfoBrief.TrackTypeInfo.BfdTracks, ['interface_name', 'destination_address', 'rate', 'debounce_count'], name, value)

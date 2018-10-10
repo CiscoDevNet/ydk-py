@@ -41,6 +41,11 @@ module Cisco-IOS-XE-ospfv3 {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -756,6 +761,9 @@ module Cisco-IOS-XE-ospfv3 {
       leaf vrf {
         description
           "VPN Routing/Forwarding Instance";
+	must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	  error-message "VRF must be created 1st, deleted last";
+        }
         type string;
       }
     }
@@ -1121,6 +1129,9 @@ module Cisco-IOS-XE-ospfv3 {
               "Specify parameters for a VPN Routing/Forwarding instance";
             key "vrf";
             leaf vrf {
+	      must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	        error-message "VRF must be created 1st, deleted last";
+              }
               type string;
             }
             leaf unicast {
@@ -1147,6 +1158,9 @@ module Cisco-IOS-XE-ospfv3 {
               "Specify parameters for a VPN Routing/Forwarding instance";
             key "vrf";
             leaf vrf {
+	      must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	        error-message "VRF must be created 1st, deleted last";
+              }
               type string;
             }
             leaf unicast {

@@ -28,12 +28,23 @@ submodule Cisco-IOS-XE-logging {
 
   description
     "Cisco XE Native Logging Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-18 {
+    description
+      "Add diff-dependency for logging discriminator,
+       logging-level-type enumeration order fixed,
+       Change logging remote-host to work correctly for 
+       oc-system mapping";
+  }
+  revision 2018-03-15 {
+    description
+      "Add dependancy to buffered for persistent";
+  }
   revision 2017-11-10 {
     description
       "Add more nodes under logging persistent";
@@ -64,14 +75,14 @@ submodule Cisco-IOS-XE-logging {
         range "0..7";
       }
       type enumeration {
+        enum "emergencies";
         enum "alerts";
         enum "critical";
-        enum "debugging";
-        enum "emergencies";
         enum "errors";
-        enum "informational";
-        enum "notifications";
         enum "warnings";
+        enum "notifications";
+        enum "informational";
+        enum "debugging";
         enum "bogus";
       }
     }
@@ -144,11 +155,7 @@ submodule Cisco-IOS-XE-logging {
         leaf name {
           type string;
         }
-        leaf severity {
-           type logging-level-type;
-         }
-
-        container msg-body {
+        container severity {
           description
             "Msg-body pattern for messsage filtering";
           leaf drops {
@@ -158,8 +165,22 @@ submodule Cisco-IOS-XE-logging {
           }
           leaf includes {
             description
-              "To deliver messages including the specified regular expression string";
+             "To deliver messages including the specified regular expression string";
             type string;
+          }
+          container facility {
+            description
+              "Msg-body pattern for messsage filtering";
+            leaf drops {
+              description
+                 "To drop messages including the specified regular expression string";
+              type string;
+            }
+            leaf includes {
+              description
+               "To deliver messages including the specified regular expression string";
+              type string;
+            }
           }
         }
       }
@@ -422,14 +443,14 @@ submodule Cisco-IOS-XE-logging {
               range "0..7";
             }
             type enumeration {
+              enum "emergencies";
               enum "alerts";
               enum "critical";
-              enum "debugging";
-              enum "emergencies";
               enum "errors";
-              enum "informational";
-              enum "notifications";
               enum "warnings";
+              enum "notifications";
+              enum "informational";
+              enum "debugging";
             }
           }
         }

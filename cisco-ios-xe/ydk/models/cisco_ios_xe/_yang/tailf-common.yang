@@ -16,6 +16,13 @@ module tailf-common {
     "This module defines all Tail-f YANG extensions statements
     and common YANG types.";
 
+  revision 2017-09-28 {
+    description
+      "Released as part of ConfD-6.5 / NCS-4.5.
+
+       Allow tailf:call-once in leaf-lists.";
+  }
+
   revision 2017-08-23 {
     description
       "Released as part of ConfD-6.4.3 / NCS-4.4.3.
@@ -1708,11 +1715,11 @@ module tailf-common {
     tailf:use-in "tailf:validate";
     description
       "This optional statement can be used only if the parent statement is
-      a list.  If 'call-once' is 'true'. the validation callback is
-      only called once even though there exists many list entries in
-      the data store.  This is useful if we have a huge amount of
-      instances or if values assigned to each instance have to be
-      validated in comparison with its siblings.";
+      a list or a leaf-list.  If 'call-once' is 'true', the validation
+      callback is only called once even though there exists many list or
+      leaf-list entries in the data store.  This is useful if we have a
+      huge amount of instances or if values assigned to each instance have
+      to be validated in comparison with its siblings.";
   }
 
   extension dependency {

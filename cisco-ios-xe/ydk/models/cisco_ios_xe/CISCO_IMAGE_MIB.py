@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIMAGEMIB(Entity):
     """
     
@@ -45,6 +46,7 @@ class CISCOIMAGEMIB(Entity):
         self.ciscoimagetable.parent = self
         self._children_name_map["ciscoimagetable"] = "ciscoImageTable"
         self._segment_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIMAGEMIB, [], name, value)
@@ -81,6 +83,7 @@ class CISCOIMAGEMIB(Entity):
             self.ciscoimageentry = YList(self)
             self._segment_path = lambda: "ciscoImageTable"
             self._absolute_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIMAGEMIB.CiscoImageTable, [], name, value)
@@ -119,13 +122,14 @@ class CISCOIMAGEMIB(Entity):
                 self.ylist_key_names = ['ciscoimageindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoimageindex', YLeaf(YType.int32, 'ciscoImageIndex')),
-                    ('ciscoimagestring', YLeaf(YType.str, 'ciscoImageString')),
+                    ('ciscoimageindex', (YLeaf(YType.int32, 'ciscoImageIndex'), ['int'])),
+                    ('ciscoimagestring', (YLeaf(YType.str, 'ciscoImageString'), ['str'])),
                 ])
                 self.ciscoimageindex = None
                 self.ciscoimagestring = None
                 self._segment_path = lambda: "ciscoImageEntry" + "[ciscoImageIndex='" + str(self.ciscoimageindex) + "']"
                 self._absolute_path = lambda: "CISCO-IMAGE-MIB:CISCO-IMAGE-MIB/ciscoImageTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIMAGEMIB.CiscoImageTable.CiscoImageEntry, ['ciscoimageindex', 'ciscoimagestring'], name, value)

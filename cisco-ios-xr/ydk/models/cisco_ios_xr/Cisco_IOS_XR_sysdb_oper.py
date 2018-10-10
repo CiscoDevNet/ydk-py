@@ -8,7 +8,7 @@ for the following management objects\:
   sysdb\-connections\: Sysdb health on client connections
   sysdb\: sysdb
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +54,7 @@ class SysdbConnections(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-sysdb-oper:sysdb-connections"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SysdbConnections, [], name, value)
@@ -88,6 +90,7 @@ class SysdbConnections(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysdb-oper:sysdb-connections/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SysdbConnections.Nodes, [], name, value)
@@ -126,13 +129,14 @@ class SysdbConnections(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
-                    ('connections', YLeaf(YType.str, 'connections')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('connections', (YLeaf(YType.str, 'connections'), ['str'])),
                 ])
                 self.node_name = None
                 self.connections = None
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysdb-oper:sysdb-connections/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SysdbConnections.Nodes.Node, ['node_name', 'connections'], name, value)
@@ -183,16 +187,17 @@ class Sysdb(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('configuration_space', YLeaf(YType.str, 'configuration-space')),
-            ('memory', YLeaf(YType.str, 'memory')),
-            ('ipc_space', YLeaf(YType.str, 'ipc-space')),
-            ('cpu', YLeaf(YType.str, 'cpu')),
+            ('configuration_space', (YLeaf(YType.str, 'configuration-space'), ['str'])),
+            ('memory', (YLeaf(YType.str, 'memory'), ['str'])),
+            ('ipc_space', (YLeaf(YType.str, 'ipc-space'), ['str'])),
+            ('cpu', (YLeaf(YType.str, 'cpu'), ['str'])),
         ])
         self.configuration_space = None
         self.memory = None
         self.ipc_space = None
         self.cpu = None
         self._segment_path = lambda: "Cisco-IOS-XR-sysdb-oper:sysdb"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Sysdb, ['configuration_space', 'memory', 'ipc_space', 'cpu'], name, value)

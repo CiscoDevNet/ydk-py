@@ -8,7 +8,7 @@ for the following management objects\:
   suppression\: Suppression operational data
   correlator\: correlator
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AcRuleState(Enum):
@@ -181,6 +182,7 @@ class Suppression(Entity):
         self.rule_details.parent = self
         self._children_name_map["rule_details"] = "rule-details"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:suppression"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Suppression, [], name, value)
@@ -217,6 +219,7 @@ class Suppression(Entity):
             self.rule_summary = YList(self)
             self._segment_path = lambda: "rule-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:suppression/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Suppression.RuleSummaries, [], name, value)
@@ -267,10 +270,10 @@ class Suppression(Entity):
                 self.ylist_key_names = ['rule_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                    ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                    ('suppressed_alarms_count', YLeaf(YType.uint32, 'suppressed-alarms-count')),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                    ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                    ('suppressed_alarms_count', (YLeaf(YType.uint32, 'suppressed-alarms-count'), ['int'])),
                 ])
                 self.rule_name = None
                 self.rule_name_xr = None
@@ -278,6 +281,7 @@ class Suppression(Entity):
                 self.suppressed_alarms_count = None
                 self._segment_path = lambda: "rule-summary" + "[rule-name='" + str(self.rule_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Suppression.RuleSummaries.RuleSummary, ['rule_name', u'rule_name_xr', u'rule_state', u'suppressed_alarms_count'], name, value)
@@ -314,6 +318,7 @@ class Suppression(Entity):
             self.rule_detail = YList(self)
             self._segment_path = lambda: "rule-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:suppression/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Suppression.RuleDetails, [], name, value)
@@ -374,10 +379,10 @@ class Suppression(Entity):
                 self.ylist_key_names = ['rule_name']
                 self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Suppression.RuleDetails.RuleDetail.RuleSummary)), ("codes", ("codes", Suppression.RuleDetails.RuleDetail.Codes))])
                 self._leafs = OrderedDict([
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('all_alarms', YLeaf(YType.boolean, 'all-alarms')),
-                    ('alarm_severity', YLeaf(YType.enumeration, 'alarm-severity')),
-                    ('apply_source', YLeafList(YType.str, 'apply-source')),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('all_alarms', (YLeaf(YType.boolean, 'all-alarms'), ['bool'])),
+                    ('alarm_severity', (YLeaf(YType.enumeration, 'alarm-severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AlAlarmSeverity', '')])),
+                    ('apply_source', (YLeafList(YType.str, 'apply-source'), ['str'])),
                 ])
                 self.rule_name = None
                 self.all_alarms = None
@@ -391,6 +396,7 @@ class Suppression(Entity):
                 self.codes = YList(self)
                 self._segment_path = lambda: "rule-detail" + "[rule-name='" + str(self.rule_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:suppression/rule-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Suppression.RuleDetails.RuleDetail, ['rule_name', u'all_alarms', u'alarm_severity', u'apply_source'], name, value)
@@ -434,14 +440,15 @@ class Suppression(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                        ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                        ('suppressed_alarms_count', YLeaf(YType.uint32, 'suppressed-alarms-count')),
+                        ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                        ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                        ('suppressed_alarms_count', (YLeaf(YType.uint32, 'suppressed-alarms-count'), ['int'])),
                     ])
                     self.rule_name_xr = None
                     self.rule_state = None
                     self.suppressed_alarms_count = None
                     self._segment_path = lambda: "rule-summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Suppression.RuleDetails.RuleDetail.RuleSummary, [u'rule_name_xr', u'rule_state', u'suppressed_alarms_count'], name, value)
@@ -483,14 +490,15 @@ class Suppression(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('category', YLeaf(YType.str, 'category')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('code', YLeaf(YType.str, 'code')),
+                        ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('code', (YLeaf(YType.str, 'code'), ['str'])),
                     ])
                     self.category = None
                     self.group = None
                     self.code = None
                     self._segment_path = lambda: "codes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Suppression.RuleDetails.RuleDetail.Codes, [u'category', u'group', u'code'], name, value)
@@ -585,6 +593,7 @@ class Correlator(Entity):
         self.rule_summaries.parent = self
         self._children_name_map["rule_summaries"] = "rule-summaries"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Correlator, [], name, value)
@@ -621,6 +630,7 @@ class Correlator(Entity):
             self.rule = YList(self)
             self._segment_path = lambda: "rules"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.Rules, [], name, value)
@@ -690,12 +700,12 @@ class Correlator(Entity):
                 self.ylist_key_names = ['rule_name']
                 self._child_classes = OrderedDict([("codes", ("codes", Correlator.Rules.Rule.Codes))])
                 self._leafs = OrderedDict([
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                    ('timeout', YLeaf(YType.uint32, 'timeout')),
-                    ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                    ('apply_location', YLeafList(YType.str, 'apply-location')),
-                    ('apply_context', YLeafList(YType.str, 'apply-context')),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                    ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                    ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                    ('apply_location', (YLeafList(YType.str, 'apply-location'), ['str'])),
+                    ('apply_context', (YLeafList(YType.str, 'apply-context'), ['str'])),
                 ])
                 self.rule_name = None
                 self.rule_name_xr = None
@@ -707,6 +717,7 @@ class Correlator(Entity):
                 self.codes = YList(self)
                 self._segment_path = lambda: "rule" + "[rule-name='" + str(self.rule_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/rules/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.Rules.Rule, ['rule_name', u'rule_name_xr', u'timeout', u'rule_state', u'apply_location', u'apply_context'], name, value)
@@ -748,14 +759,15 @@ class Correlator(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('category', YLeaf(YType.str, 'category')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('code', YLeaf(YType.str, 'code')),
+                        ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('code', (YLeaf(YType.str, 'code'), ['str'])),
                     ])
                     self.category = None
                     self.group = None
                     self.code = None
                     self._segment_path = lambda: "codes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.Rules.Rule.Codes, [u'category', u'group', u'code'], name, value)
@@ -797,13 +809,14 @@ class Correlator(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('current_size', YLeaf(YType.uint32, 'current-size')),
-                ('configured_size', YLeaf(YType.uint32, 'configured-size')),
+                ('current_size', (YLeaf(YType.uint32, 'current-size'), ['int'])),
+                ('configured_size', (YLeaf(YType.uint32, 'configured-size'), ['int'])),
             ])
             self.current_size = None
             self.configured_size = None
             self._segment_path = lambda: "buffer-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
@@ -839,6 +852,7 @@ class Correlator(Entity):
             self.alarm = YList(self)
             self._segment_path = lambda: "alarms"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.Alarms, [], name, value)
@@ -887,9 +901,9 @@ class Correlator(Entity):
                 self.ylist_key_names = ['alarm_id']
                 self._child_classes = OrderedDict([("alarm-info", ("alarm_info", Correlator.Alarms.Alarm.AlarmInfo))])
                 self._leafs = OrderedDict([
-                    ('alarm_id', YLeaf(YType.uint32, 'alarm-id')),
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('context', YLeaf(YType.str, 'context')),
+                    ('alarm_id', (YLeaf(YType.uint32, 'alarm-id'), ['int'])),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('context', (YLeaf(YType.str, 'context'), ['str'])),
                 ])
                 self.alarm_id = None
                 self.rule_name = None
@@ -900,6 +914,7 @@ class Correlator(Entity):
                 self._children_name_map["alarm_info"] = "alarm-info"
                 self._segment_path = lambda: "alarm" + "[alarm-id='" + str(self.alarm_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/alarms/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.Alarms.Alarm, ['alarm_id', u'rule_name', u'context'], name, value)
@@ -982,16 +997,16 @@ class Correlator(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_id', YLeaf(YType.str, 'source-id')),
-                        ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                        ('category', YLeaf(YType.str, 'category')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('code', YLeaf(YType.str, 'code')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
-                        ('is_admin', YLeaf(YType.boolean, 'is-admin')),
-                        ('additional_text', YLeaf(YType.str, 'additional-text')),
+                        ('source_id', (YLeaf(YType.str, 'source-id'), ['str'])),
+                        ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                        ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('code', (YLeaf(YType.str, 'code'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AlAlarmSeverity', '')])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AlAlarmBistate', '')])),
+                        ('correlation_id', (YLeaf(YType.uint32, 'correlation-id'), ['int'])),
+                        ('is_admin', (YLeaf(YType.boolean, 'is-admin'), ['bool'])),
+                        ('additional_text', (YLeaf(YType.str, 'additional-text'), ['str'])),
                     ])
                     self.source_id = None
                     self.timestamp = None
@@ -1004,6 +1019,7 @@ class Correlator(Entity):
                     self.is_admin = None
                     self.additional_text = None
                     self._segment_path = lambda: "alarm-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.Alarms.Alarm.AlarmInfo, [u'source_id', u'timestamp', u'category', u'group', u'code', u'severity', u'state', u'correlation_id', u'is_admin', u'additional_text'], name, value)
@@ -1039,6 +1055,7 @@ class Correlator(Entity):
             self.rule_set_summary = YList(self)
             self._segment_path = lambda: "rule-set-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.RuleSetSummaries, [], name, value)
@@ -1077,13 +1094,14 @@ class Correlator(Entity):
                 self.ylist_key_names = ['rule_set_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rule_set_name', YLeaf(YType.str, 'rule-set-name')),
-                    ('rule_set_name_xr', YLeaf(YType.str, 'rule-set-name-xr')),
+                    ('rule_set_name', (YLeaf(YType.str, 'rule-set-name'), ['str'])),
+                    ('rule_set_name_xr', (YLeaf(YType.str, 'rule-set-name-xr'), ['str'])),
                 ])
                 self.rule_set_name = None
                 self.rule_set_name_xr = None
                 self._segment_path = lambda: "rule-set-summary" + "[rule-set-name='" + str(self.rule_set_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleSetSummaries.RuleSetSummary, ['rule_set_name', u'rule_set_name_xr'], name, value)
@@ -1119,6 +1137,7 @@ class Correlator(Entity):
             self.rule_set_detail = YList(self)
             self._segment_path = lambda: "rule-set-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.RuleSetDetails, [], name, value)
@@ -1162,8 +1181,8 @@ class Correlator(Entity):
                 self.ylist_key_names = ['rule_set_name']
                 self._child_classes = OrderedDict([("rules", ("rules", Correlator.RuleSetDetails.RuleSetDetail.Rules))])
                 self._leafs = OrderedDict([
-                    ('rule_set_name', YLeaf(YType.str, 'rule-set-name')),
-                    ('rule_set_name_xr', YLeaf(YType.str, 'rule-set-name-xr')),
+                    ('rule_set_name', (YLeaf(YType.str, 'rule-set-name'), ['str'])),
+                    ('rule_set_name_xr', (YLeaf(YType.str, 'rule-set-name-xr'), ['str'])),
                 ])
                 self.rule_set_name = None
                 self.rule_set_name_xr = None
@@ -1171,6 +1190,7 @@ class Correlator(Entity):
                 self.rules = YList(self)
                 self._segment_path = lambda: "rule-set-detail" + "[rule-set-name='" + str(self.rule_set_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-set-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', u'rule_set_name_xr'], name, value)
@@ -1219,16 +1239,17 @@ class Correlator(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                        ('stateful', YLeaf(YType.boolean, 'stateful')),
-                        ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                        ('buffered_alarms_count', YLeaf(YType.uint32, 'buffered-alarms-count')),
+                        ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                        ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                        ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                        ('buffered_alarms_count', (YLeaf(YType.uint32, 'buffered-alarms-count'), ['int'])),
                     ])
                     self.rule_name_xr = None
                     self.stateful = None
                     self.rule_state = None
                     self.buffered_alarms_count = None
                     self._segment_path = lambda: "rules"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)
@@ -1265,6 +1286,7 @@ class Correlator(Entity):
             self.rule_detail = YList(self)
             self._segment_path = lambda: "rule-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.RuleDetails, [], name, value)
@@ -1356,15 +1378,15 @@ class Correlator(Entity):
                 self.ylist_key_names = ['rule_name']
                 self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Correlator.RuleDetails.RuleDetail.RuleSummary)), ("codes", ("codes", Correlator.RuleDetails.RuleDetail.Codes))])
                 self._leafs = OrderedDict([
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('timeout', YLeaf(YType.uint32, 'timeout')),
-                    ('root_cause_timeout', YLeaf(YType.uint32, 'root-cause-timeout')),
-                    ('internal', YLeaf(YType.boolean, 'internal')),
-                    ('reissue_non_bistate', YLeaf(YType.boolean, 'reissue-non-bistate')),
-                    ('reparent', YLeaf(YType.boolean, 'reparent')),
-                    ('context_correlation', YLeaf(YType.boolean, 'context-correlation')),
-                    ('apply_location', YLeafList(YType.str, 'apply-location')),
-                    ('apply_context', YLeafList(YType.str, 'apply-context')),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                    ('root_cause_timeout', (YLeaf(YType.uint32, 'root-cause-timeout'), ['int'])),
+                    ('internal', (YLeaf(YType.boolean, 'internal'), ['bool'])),
+                    ('reissue_non_bistate', (YLeaf(YType.boolean, 'reissue-non-bistate'), ['bool'])),
+                    ('reparent', (YLeaf(YType.boolean, 'reparent'), ['bool'])),
+                    ('context_correlation', (YLeaf(YType.boolean, 'context-correlation'), ['bool'])),
+                    ('apply_location', (YLeafList(YType.str, 'apply-location'), ['str'])),
+                    ('apply_context', (YLeafList(YType.str, 'apply-context'), ['str'])),
                 ])
                 self.rule_name = None
                 self.timeout = None
@@ -1383,6 +1405,7 @@ class Correlator(Entity):
                 self.codes = YList(self)
                 self._segment_path = lambda: "rule-detail" + "[rule-name='" + str(self.rule_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleDetails.RuleDetail, ['rule_name', u'timeout', u'root_cause_timeout', u'internal', u'reissue_non_bistate', u'reparent', u'context_correlation', u'apply_location', u'apply_context'], name, value)
@@ -1431,16 +1454,17 @@ class Correlator(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                        ('stateful', YLeaf(YType.boolean, 'stateful')),
-                        ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                        ('buffered_alarms_count', YLeaf(YType.uint32, 'buffered-alarms-count')),
+                        ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                        ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                        ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                        ('buffered_alarms_count', (YLeaf(YType.uint32, 'buffered-alarms-count'), ['int'])),
                     ])
                     self.rule_name_xr = None
                     self.stateful = None
                     self.rule_state = None
                     self.buffered_alarms_count = None
                     self._segment_path = lambda: "rule-summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)
@@ -1482,14 +1506,15 @@ class Correlator(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('category', YLeaf(YType.str, 'category')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('code', YLeaf(YType.str, 'code')),
+                        ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('code', (YLeaf(YType.str, 'code'), ['str'])),
                     ])
                     self.category = None
                     self.group = None
                     self.code = None
                     self._segment_path = lambda: "codes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Correlator.RuleDetails.RuleDetail.Codes, [u'category', u'group', u'code'], name, value)
@@ -1526,6 +1551,7 @@ class Correlator(Entity):
             self.rule_summary = YList(self)
             self._segment_path = lambda: "rule-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Correlator.RuleSummaries, [], name, value)
@@ -1581,11 +1607,11 @@ class Correlator(Entity):
                 self.ylist_key_names = ['rule_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rule_name', YLeaf(YType.str, 'rule-name')),
-                    ('rule_name_xr', YLeaf(YType.str, 'rule-name-xr')),
-                    ('stateful', YLeaf(YType.boolean, 'stateful')),
-                    ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                    ('buffered_alarms_count', YLeaf(YType.uint32, 'buffered-alarms-count')),
+                    ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                    ('rule_name_xr', (YLeaf(YType.str, 'rule-name-xr'), ['str'])),
+                    ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                    ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_correlator_oper', 'AcRuleState', '')])),
+                    ('buffered_alarms_count', (YLeaf(YType.uint32, 'buffered-alarms-count'), ['int'])),
                 ])
                 self.rule_name = None
                 self.rule_name_xr = None
@@ -1594,6 +1620,7 @@ class Correlator(Entity):
                 self.buffered_alarms_count = None
                 self._segment_path = lambda: "rule-summary" + "[rule-name='" + str(self.rule_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-correlator-oper:correlator/rule-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Correlator.RuleSummaries.RuleSummary, ['rule_name', u'rule_name_xr', u'stateful', u'rule_state', u'buffered_alarms_count'], name, value)

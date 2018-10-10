@@ -18,6 +18,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class FRUCoolingUnit(Enum):
     """
     FRUCoolingUnit (Enum Class)
@@ -1001,6 +1002,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
         self.cefcmodulepowerconsumptiontable.parent = self
         self._children_name_map["cefcmodulepowerconsumptiontable"] = "cefcModulePowerConsumptionTable"
         self._segment_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENTITYFRUCONTROLMIB, [], name, value)
@@ -1047,13 +1049,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cefcmaxdefaultinlinepower', YLeaf(YType.int32, 'cefcMaxDefaultInLinePower')),
-                ('cefcmaxdefaulthighinlinepower', YLeaf(YType.uint32, 'cefcMaxDefaultHighInLinePower')),
+                ('cefcmaxdefaultinlinepower', (YLeaf(YType.int32, 'cefcMaxDefaultInLinePower'), ['int'])),
+                ('cefcmaxdefaulthighinlinepower', (YLeaf(YType.uint32, 'cefcMaxDefaultHighInLinePower'), ['int'])),
             ])
             self.cefcmaxdefaultinlinepower = None
             self.cefcmaxdefaulthighinlinepower = None
             self._segment_path = lambda: "cefcFRUPower"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPower, ['cefcmaxdefaultinlinepower', 'cefcmaxdefaulthighinlinepower'], name, value)
@@ -1090,13 +1093,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cefcmibenablestatusnotification', YLeaf(YType.boolean, 'cefcMIBEnableStatusNotification')),
-                ('cefcenablepsoutputchangenotif', YLeaf(YType.boolean, 'cefcEnablePSOutputChangeNotif')),
+                ('cefcmibenablestatusnotification', (YLeaf(YType.boolean, 'cefcMIBEnableStatusNotification'), ['bool'])),
+                ('cefcenablepsoutputchangenotif', (YLeaf(YType.boolean, 'cefcEnablePSOutputChangeNotif'), ['bool'])),
             ])
             self.cefcmibenablestatusnotification = None
             self.cefcenablepsoutputchangenotif = None
             self._segment_path = lambda: "cefcMIBNotificationEnables"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcMIBNotificationEnables, ['cefcmibenablestatusnotification', 'cefcenablepsoutputchangenotif'], name, value)
@@ -1134,6 +1138,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfrupowersupplygroupentry = YList(self)
             self._segment_path = lambda: "cefcFRUPowerSupplyGroupTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable, [], name, value)
@@ -1216,14 +1221,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcpowerredundancymode', YLeaf(YType.enumeration, 'cefcPowerRedundancyMode')),
-                    ('cefcpowerunits', YLeaf(YType.str, 'cefcPowerUnits')),
-                    ('cefctotalavailablecurrent', YLeaf(YType.int32, 'cefcTotalAvailableCurrent')),
-                    ('cefctotaldrawncurrent', YLeaf(YType.int32, 'cefcTotalDrawnCurrent')),
-                    ('cefcpowerredundancyopermode', YLeaf(YType.enumeration, 'cefcPowerRedundancyOperMode')),
-                    ('cefcpowernonredundantreason', YLeaf(YType.enumeration, 'cefcPowerNonRedundantReason')),
-                    ('cefctotaldrawninlinecurrent', YLeaf(YType.int32, 'cefcTotalDrawnInlineCurrent')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcpowerredundancymode', (YLeaf(YType.enumeration, 'cefcPowerRedundancyMode'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'PowerRedundancyType', '')])),
+                    ('cefcpowerunits', (YLeaf(YType.str, 'cefcPowerUnits'), ['str'])),
+                    ('cefctotalavailablecurrent', (YLeaf(YType.int32, 'cefcTotalAvailableCurrent'), ['int'])),
+                    ('cefctotaldrawncurrent', (YLeaf(YType.int32, 'cefcTotalDrawnCurrent'), ['int'])),
+                    ('cefcpowerredundancyopermode', (YLeaf(YType.enumeration, 'cefcPowerRedundancyOperMode'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'PowerRedundancyType', '')])),
+                    ('cefcpowernonredundantreason', (YLeaf(YType.enumeration, 'cefcPowerNonRedundantReason'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'CISCOENTITYFRUCONTROLMIB', 'CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry.CefcPowerNonRedundantReason')])),
+                    ('cefctotaldrawninlinecurrent', (YLeaf(YType.int32, 'cefcTotalDrawnInlineCurrent'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcpowerredundancymode = None
@@ -1235,6 +1240,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefctotaldrawninlinecurrent = None
                 self._segment_path = lambda: "cefcFRUPowerSupplyGroupEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyGroupTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyGroupTable.CefcFRUPowerSupplyGroupEntry, ['entphysicalindex', 'cefcpowerredundancymode', 'cefcpowerunits', 'cefctotalavailablecurrent', 'cefctotaldrawncurrent', 'cefcpowerredundancyopermode', 'cefcpowernonredundantreason', 'cefctotaldrawninlinecurrent'], name, value)
@@ -1327,6 +1333,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfrupowerstatusentry = YList(self)
             self._segment_path = lambda: "cefcFRUPowerStatusTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable, [], name, value)
@@ -1401,12 +1408,12 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcfrupoweradminstatus', YLeaf(YType.enumeration, 'cefcFRUPowerAdminStatus')),
-                    ('cefcfrupoweroperstatus', YLeaf(YType.enumeration, 'cefcFRUPowerOperStatus')),
-                    ('cefcfrucurrent', YLeaf(YType.int32, 'cefcFRUCurrent')),
-                    ('cefcfrupowercapability', YLeaf(YType.bits, 'cefcFRUPowerCapability')),
-                    ('cefcfrurealtimecurrent', YLeaf(YType.int32, 'cefcFRURealTimeCurrent')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcfrupoweradminstatus', (YLeaf(YType.enumeration, 'cefcFRUPowerAdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'PowerAdminType', '')])),
+                    ('cefcfrupoweroperstatus', (YLeaf(YType.enumeration, 'cefcFRUPowerOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'PowerOperType', '')])),
+                    ('cefcfrucurrent', (YLeaf(YType.int32, 'cefcFRUCurrent'), ['int'])),
+                    ('cefcfrupowercapability', (YLeaf(YType.bits, 'cefcFRUPowerCapability'), ['Bits'])),
+                    ('cefcfrurealtimecurrent', (YLeaf(YType.int32, 'cefcFRURealTimeCurrent'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcfrupoweradminstatus = None
@@ -1416,6 +1423,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefcfrurealtimecurrent = None
                 self._segment_path = lambda: "cefcFRUPowerStatusEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerStatusTable.CefcFRUPowerStatusEntry, ['entphysicalindex', 'cefcfrupoweradminstatus', 'cefcfrupoweroperstatus', 'cefcfrucurrent', 'cefcfrupowercapability', 'cefcfrurealtimecurrent'], name, value)
@@ -1466,6 +1474,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfrupowersupplyvalueentry = YList(self)
             self._segment_path = lambda: "cefcFRUPowerSupplyValueTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable, [], name, value)
@@ -1536,11 +1545,11 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcfrutotalsystemcurrent', YLeaf(YType.int32, 'cefcFRUTotalSystemCurrent')),
-                    ('cefcfrudrawnsystemcurrent', YLeaf(YType.int32, 'cefcFRUDrawnSystemCurrent')),
-                    ('cefcfrutotalinlinecurrent', YLeaf(YType.int32, 'cefcFRUTotalInlineCurrent')),
-                    ('cefcfrudrawninlinecurrent', YLeaf(YType.int32, 'cefcFRUDrawnInlineCurrent')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcfrutotalsystemcurrent', (YLeaf(YType.int32, 'cefcFRUTotalSystemCurrent'), ['int'])),
+                    ('cefcfrudrawnsystemcurrent', (YLeaf(YType.int32, 'cefcFRUDrawnSystemCurrent'), ['int'])),
+                    ('cefcfrutotalinlinecurrent', (YLeaf(YType.int32, 'cefcFRUTotalInlineCurrent'), ['int'])),
+                    ('cefcfrudrawninlinecurrent', (YLeaf(YType.int32, 'cefcFRUDrawnInlineCurrent'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcfrutotalsystemcurrent = None
@@ -1549,6 +1558,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefcfrudrawninlinecurrent = None
                 self._segment_path = lambda: "cefcFRUPowerSupplyValueEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFRUPowerSupplyValueTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFRUPowerSupplyValueTable.CefcFRUPowerSupplyValueEntry, ['entphysicalindex', 'cefcfrutotalsystemcurrent', 'cefcfrudrawnsystemcurrent', 'cefcfrutotalinlinecurrent', 'cefcfrudrawninlinecurrent'], name, value)
@@ -1587,6 +1597,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcmoduleentry = YList(self)
             self._segment_path = lambda: "cefcModuleTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable, [], name, value)
@@ -1676,15 +1687,15 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcmoduleadminstatus', YLeaf(YType.enumeration, 'cefcModuleAdminStatus')),
-                    ('cefcmoduleoperstatus', YLeaf(YType.enumeration, 'cefcModuleOperStatus')),
-                    ('cefcmoduleresetreason', YLeaf(YType.enumeration, 'cefcModuleResetReason')),
-                    ('cefcmodulestatuslastchangetime', YLeaf(YType.uint32, 'cefcModuleStatusLastChangeTime')),
-                    ('cefcmodulelastclearconfigtime', YLeaf(YType.uint32, 'cefcModuleLastClearConfigTime')),
-                    ('cefcmoduleresetreasondescription', YLeaf(YType.str, 'cefcModuleResetReasonDescription')),
-                    ('cefcmodulestatechangereasondescr', YLeaf(YType.str, 'cefcModuleStateChangeReasonDescr')),
-                    ('cefcmoduleuptime', YLeaf(YType.uint32, 'cefcModuleUpTime')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcmoduleadminstatus', (YLeaf(YType.enumeration, 'cefcModuleAdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'ModuleAdminType', '')])),
+                    ('cefcmoduleoperstatus', (YLeaf(YType.enumeration, 'cefcModuleOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'ModuleOperType', '')])),
+                    ('cefcmoduleresetreason', (YLeaf(YType.enumeration, 'cefcModuleResetReason'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'ModuleResetReasonType', '')])),
+                    ('cefcmodulestatuslastchangetime', (YLeaf(YType.uint32, 'cefcModuleStatusLastChangeTime'), ['int'])),
+                    ('cefcmodulelastclearconfigtime', (YLeaf(YType.uint32, 'cefcModuleLastClearConfigTime'), ['int'])),
+                    ('cefcmoduleresetreasondescription', (YLeaf(YType.str, 'cefcModuleResetReasonDescription'), ['str'])),
+                    ('cefcmodulestatechangereasondescr', (YLeaf(YType.str, 'cefcModuleStateChangeReasonDescr'), ['str'])),
+                    ('cefcmoduleuptime', (YLeaf(YType.uint32, 'cefcModuleUpTime'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcmoduleadminstatus = None
@@ -1697,6 +1708,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefcmoduleuptime = None
                 self._segment_path = lambda: "cefcModuleEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleTable.CefcModuleEntry, ['entphysicalindex', 'cefcmoduleadminstatus', 'cefcmoduleoperstatus', 'cefcmoduleresetreason', 'cefcmodulestatuslastchangetime', 'cefcmodulelastclearconfigtime', 'cefcmoduleresetreasondescription', 'cefcmodulestatechangereasondescr', 'cefcmoduleuptime'], name, value)
@@ -1741,6 +1753,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcintellimoduleentry = YList(self)
             self._segment_path = lambda: "cefcIntelliModuleTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable, [], name, value)
@@ -1804,15 +1817,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcintellimoduleipaddrtype', YLeaf(YType.enumeration, 'cefcIntelliModuleIPAddrType')),
-                    ('cefcintellimoduleipaddr', YLeaf(YType.str, 'cefcIntelliModuleIPAddr')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcintellimoduleipaddrtype', (YLeaf(YType.enumeration, 'cefcIntelliModuleIPAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cefcintellimoduleipaddr', (YLeaf(YType.str, 'cefcIntelliModuleIPAddr'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcintellimoduleipaddrtype = None
                 self.cefcintellimoduleipaddr = None
                 self._segment_path = lambda: "cefcIntelliModuleEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcIntelliModuleTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcIntelliModuleTable.CefcIntelliModuleEntry, ['entphysicalindex', 'cefcintellimoduleipaddrtype', 'cefcintellimoduleipaddr'], name, value)
@@ -1855,6 +1869,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcmodulelocalswitchingentry = YList(self)
             self._segment_path = lambda: "cefcModuleLocalSwitchingTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable, [], name, value)
@@ -1907,13 +1922,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcmodulelocalswitchingmode', YLeaf(YType.enumeration, 'cefcModuleLocalSwitchingMode')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcmodulelocalswitchingmode', (YLeaf(YType.enumeration, 'cefcModuleLocalSwitchingMode'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'CISCOENTITYFRUCONTROLMIB', 'CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry.CefcModuleLocalSwitchingMode')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcmodulelocalswitchingmode = None
                 self._segment_path = lambda: "cefcModuleLocalSwitchingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleLocalSwitchingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleLocalSwitchingTable.CefcModuleLocalSwitchingEntry, ['entphysicalindex', 'cefcmodulelocalswitchingmode'], name, value)
@@ -1976,6 +1992,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfantraystatusentry = YList(self)
             self._segment_path = lambda: "cefcFanTrayStatusTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable, [], name, value)
@@ -2027,13 +2044,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcfantrayoperstatus', YLeaf(YType.enumeration, 'cefcFanTrayOperStatus')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcfantrayoperstatus', (YLeaf(YType.enumeration, 'cefcFanTrayOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'CISCOENTITYFRUCONTROLMIB', 'CefcFanTrayStatusTable.CefcFanTrayStatusEntry.CefcFanTrayOperStatus')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcfantrayoperstatus = None
                 self._segment_path = lambda: "cefcFanTrayStatusEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanTrayStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanTrayStatusTable.CefcFanTrayStatusEntry, ['entphysicalindex', 'cefcfantrayoperstatus'], name, value)
@@ -2104,6 +2122,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcphysicalentry = YList(self)
             self._segment_path = lambda: "cefcPhysicalTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable, [], name, value)
@@ -2144,13 +2163,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcphysicalstatus', YLeaf(YType.enumeration, 'cefcPhysicalStatus')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcphysicalstatus', (YLeaf(YType.enumeration, 'cefcPhysicalStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'CISCOENTITYFRUCONTROLMIB', 'CefcPhysicalTable.CefcPhysicalEntry.CefcPhysicalStatus')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcphysicalstatus = None
                 self._segment_path = lambda: "cefcPhysicalEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPhysicalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPhysicalTable.CefcPhysicalEntry, ['entphysicalindex', 'cefcphysicalstatus'], name, value)
@@ -2237,6 +2257,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcpowersupplyinputentry = YList(self)
             self._segment_path = lambda: "cefcPowerSupplyInputTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable, [], name, value)
@@ -2285,15 +2306,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefcpowersupplyinputindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcpowersupplyinputindex', YLeaf(YType.uint32, 'cefcPowerSupplyInputIndex')),
-                    ('cefcpowersupplyinputtype', YLeaf(YType.enumeration, 'cefcPowerSupplyInputType')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcpowersupplyinputindex', (YLeaf(YType.uint32, 'cefcPowerSupplyInputIndex'), ['int'])),
+                    ('cefcpowersupplyinputtype', (YLeaf(YType.enumeration, 'cefcPowerSupplyInputType'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'CISCOENTITYFRUCONTROLMIB', 'CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry.CefcPowerSupplyInputType')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcpowersupplyinputindex = None
                 self.cefcpowersupplyinputtype = None
                 self._segment_path = lambda: "cefcPowerSupplyInputEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefcPowerSupplyInputIndex='" + str(self.cefcpowersupplyinputindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyInputTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyInputTable.CefcPowerSupplyInputEntry, ['entphysicalindex', 'cefcpowersupplyinputindex', 'cefcpowersupplyinputtype'], name, value)
@@ -2374,6 +2396,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcpowersupplyoutputentry = YList(self)
             self._segment_path = lambda: "cefcPowerSupplyOutputTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable, [], name, value)
@@ -2440,10 +2463,10 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefcpsoutputmodeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcpsoutputmodeindex', YLeaf(YType.uint32, 'cefcPSOutputModeIndex')),
-                    ('cefcpsoutputmodecurrent', YLeaf(YType.int32, 'cefcPSOutputModeCurrent')),
-                    ('cefcpsoutputmodeinoperation', YLeaf(YType.boolean, 'cefcPSOutputModeInOperation')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcpsoutputmodeindex', (YLeaf(YType.uint32, 'cefcPSOutputModeIndex'), ['int'])),
+                    ('cefcpsoutputmodecurrent', (YLeaf(YType.int32, 'cefcPSOutputModeCurrent'), ['int'])),
+                    ('cefcpsoutputmodeinoperation', (YLeaf(YType.boolean, 'cefcPSOutputModeInOperation'), ['bool'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcpsoutputmodeindex = None
@@ -2451,6 +2474,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefcpsoutputmodeinoperation = None
                 self._segment_path = lambda: "cefcPowerSupplyOutputEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefcPSOutputModeIndex='" + str(self.cefcpsoutputmodeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcPowerSupplyOutputTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcPowerSupplyOutputTable.CefcPowerSupplyOutputEntry, ['entphysicalindex', 'cefcpsoutputmodeindex', 'cefcpsoutputmodecurrent', 'cefcpsoutputmodeinoperation'], name, value)
@@ -2489,6 +2513,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcchassiscoolingentry = YList(self)
             self._segment_path = lambda: "cefcChassisCoolingTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable, [], name, value)
@@ -2545,15 +2570,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcchassisperslotcoolingcap', YLeaf(YType.uint32, 'cefcChassisPerSlotCoolingCap')),
-                    ('cefcchassisperslotcoolingunit', YLeaf(YType.enumeration, 'cefcChassisPerSlotCoolingUnit')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcchassisperslotcoolingcap', (YLeaf(YType.uint32, 'cefcChassisPerSlotCoolingCap'), ['int'])),
+                    ('cefcchassisperslotcoolingunit', (YLeaf(YType.enumeration, 'cefcChassisPerSlotCoolingUnit'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'FRUCoolingUnit', '')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcchassisperslotcoolingcap = None
                 self.cefcchassisperslotcoolingunit = None
                 self._segment_path = lambda: "cefcChassisCoolingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcChassisCoolingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcChassisCoolingTable.CefcChassisCoolingEntry, ['entphysicalindex', 'cefcchassisperslotcoolingcap', 'cefcchassisperslotcoolingunit'], name, value)
@@ -2592,6 +2618,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfancoolingentry = YList(self)
             self._segment_path = lambda: "cefcFanCoolingTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable, [], name, value)
@@ -2648,15 +2675,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcfancoolingcapacity', YLeaf(YType.uint32, 'cefcFanCoolingCapacity')),
-                    ('cefcfancoolingcapacityunit', YLeaf(YType.enumeration, 'cefcFanCoolingCapacityUnit')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcfancoolingcapacity', (YLeaf(YType.uint32, 'cefcFanCoolingCapacity'), ['int'])),
+                    ('cefcfancoolingcapacityunit', (YLeaf(YType.enumeration, 'cefcFanCoolingCapacityUnit'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'FRUCoolingUnit', '')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcfancoolingcapacity = None
                 self.cefcfancoolingcapacityunit = None
                 self._segment_path = lambda: "cefcFanCoolingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingTable.CefcFanCoolingEntry, ['entphysicalindex', 'cefcfancoolingcapacity', 'cefcfancoolingcapacityunit'], name, value)
@@ -2694,6 +2722,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcmodulecoolingentry = YList(self)
             self._segment_path = lambda: "cefcModuleCoolingTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable, [], name, value)
@@ -2749,15 +2778,16 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcmodulecooling', YLeaf(YType.uint32, 'cefcModuleCooling')),
-                    ('cefcmodulecoolingunit', YLeaf(YType.enumeration, 'cefcModuleCoolingUnit')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcmodulecooling', (YLeaf(YType.uint32, 'cefcModuleCooling'), ['int'])),
+                    ('cefcmodulecoolingunit', (YLeaf(YType.enumeration, 'cefcModuleCoolingUnit'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'FRUCoolingUnit', '')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcmodulecooling = None
                 self.cefcmodulecoolingunit = None
                 self._segment_path = lambda: "cefcModuleCoolingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModuleCoolingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModuleCoolingTable.CefcModuleCoolingEntry, ['entphysicalindex', 'cefcmodulecooling', 'cefcmodulecoolingunit'], name, value)
@@ -2796,6 +2826,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcfancoolingcapentry = YList(self)
             self._segment_path = lambda: "cefcFanCoolingCapTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable, [], name, value)
@@ -2873,12 +2904,12 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefcfancoolingcapindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcfancoolingcapindex', YLeaf(YType.uint32, 'cefcFanCoolingCapIndex')),
-                    ('cefcfancoolingcapmodedescr', YLeaf(YType.str, 'cefcFanCoolingCapModeDescr')),
-                    ('cefcfancoolingcapcapacity', YLeaf(YType.uint32, 'cefcFanCoolingCapCapacity')),
-                    ('cefcfancoolingcapcurrent', YLeaf(YType.int32, 'cefcFanCoolingCapCurrent')),
-                    ('cefcfancoolingcapcapacityunit', YLeaf(YType.enumeration, 'cefcFanCoolingCapCapacityUnit')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcfancoolingcapindex', (YLeaf(YType.uint32, 'cefcFanCoolingCapIndex'), ['int'])),
+                    ('cefcfancoolingcapmodedescr', (YLeaf(YType.str, 'cefcFanCoolingCapModeDescr'), ['str'])),
+                    ('cefcfancoolingcapcapacity', (YLeaf(YType.uint32, 'cefcFanCoolingCapCapacity'), ['int'])),
+                    ('cefcfancoolingcapcurrent', (YLeaf(YType.int32, 'cefcFanCoolingCapCurrent'), ['int'])),
+                    ('cefcfancoolingcapcapacityunit', (YLeaf(YType.enumeration, 'cefcFanCoolingCapCapacityUnit'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_FRU_CONTROL_MIB', 'FRUCoolingUnit', '')])),
                 ])
                 self.entphysicalindex = None
                 self.cefcfancoolingcapindex = None
@@ -2888,6 +2919,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.cefcfancoolingcapcapacityunit = None
                 self._segment_path = lambda: "cefcFanCoolingCapEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefcFanCoolingCapIndex='" + str(self.cefcfancoolingcapindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcFanCoolingCapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcFanCoolingCapTable.CefcFanCoolingCapEntry, ['entphysicalindex', 'cefcfancoolingcapindex', 'cefcfancoolingcapmodedescr', 'cefcfancoolingcapcapacity', 'cefcfancoolingcapcurrent', 'cefcfancoolingcapcapacityunit'], name, value)
@@ -2927,6 +2959,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcconnectorratingentry = YList(self)
             self._segment_path = lambda: "cefcConnectorRatingTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable, [], name, value)
@@ -2977,13 +3010,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcconnectorrating', YLeaf(YType.int32, 'cefcConnectorRating')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcconnectorrating', (YLeaf(YType.int32, 'cefcConnectorRating'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcconnectorrating = None
                 self._segment_path = lambda: "cefcConnectorRatingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcConnectorRatingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcConnectorRatingTable.CefcConnectorRatingEntry, ['entphysicalindex', 'cefcconnectorrating'], name, value)
@@ -3022,6 +3056,7 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
             self.cefcmodulepowerconsumptionentry = YList(self)
             self._segment_path = lambda: "cefcModulePowerConsumptionTable"
             self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable, [], name, value)
@@ -3072,13 +3107,14 @@ class CISCOENTITYFRUCONTROLMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefcmodulepowerconsumption', YLeaf(YType.int32, 'cefcModulePowerConsumption')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefcmodulepowerconsumption', (YLeaf(YType.int32, 'cefcModulePowerConsumption'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefcmodulepowerconsumption = None
                 self._segment_path = lambda: "cefcModulePowerConsumptionEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-FRU-CONTROL-MIB:CISCO-ENTITY-FRU-CONTROL-MIB/cefcModulePowerConsumptionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYFRUCONTROLMIB.CefcModulePowerConsumptionTable.CefcModulePowerConsumptionEntry, ['entphysicalindex', 'cefcmodulepowerconsumption'], name, value)

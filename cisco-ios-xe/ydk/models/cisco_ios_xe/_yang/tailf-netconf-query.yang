@@ -25,10 +25,20 @@ module tailf-netconf-query {
      The operation 'fetch-query-result' is repeatedly to get result
      chunks from the query evaluation.
 
+     The operation 'immediate-query' is used to start a new query, and return
+     the entire result.
+
      The operation 'reset-query' can be used to restart the query.
 
      Finally 'stop-query' is used to clean up query resources on the
      server.";
+
+  revision 2017-01-06 {
+    description
+      "Released as part of ConfD-6.5.2.1 / NCS-4.5.3.
+
+       Added 'immediate-query' function.";
+  }
 
   revision 2014-11-13 {
     description
@@ -49,6 +59,18 @@ module tailf-netconf-query {
     input {
       uses tfcq:query-handle;
     }
+    output {
+      container query-result {
+        uses tfcq:query-result;
+      }
+    }
+  }
+
+  rpc immediate-query {
+    input {
+      uses tfcq:start-query-parameters;
+    }
+
     output {
       container query-result {
         uses tfcq:query-result;

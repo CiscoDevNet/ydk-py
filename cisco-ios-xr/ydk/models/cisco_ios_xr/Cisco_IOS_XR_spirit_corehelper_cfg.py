@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   exception\: Core dump configuration commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Exception(Entity):
         self.file.parent = self
         self._children_name_map["file"] = "file"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-corehelper-cfg:exception"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Exception, [], name, value)
@@ -93,15 +95,16 @@ class Exception(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('choice2', YLeaf(YType.str, 'choice2')),
-                ('choice1', YLeaf(YType.str, 'choice1')),
-                ('choice3', YLeaf(YType.str, 'choice3')),
+                ('choice2', (YLeaf(YType.str, 'choice2'), ['str'])),
+                ('choice1', (YLeaf(YType.str, 'choice1'), ['str'])),
+                ('choice3', (YLeaf(YType.str, 'choice3'), ['str'])),
             ])
             self.choice2 = None
             self.choice1 = None
             self.choice3 = None
             self._segment_path = lambda: "file"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-corehelper-cfg:exception/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Exception.File, ['choice2', 'choice1', 'choice3'], name, value)

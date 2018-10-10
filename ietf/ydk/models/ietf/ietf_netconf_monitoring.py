@@ -25,6 +25,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class NetconfDatastoreType(Enum):
     """
     NetconfDatastoreType (Enum Class)
@@ -58,8 +59,8 @@ class SchemaFormat(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(SchemaFormat, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:schema-format")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:schema-format"):
+        super(SchemaFormat, self).__init__(ns, pref, tag)
 
 
 class Transport(Identity):
@@ -73,8 +74,8 @@ class Transport(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:transport")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:transport"):
+        super(Transport, self).__init__(ns, pref, tag)
 
 
 class GetSchema(Entity):
@@ -130,6 +131,7 @@ class GetSchema(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-netconf-monitoring:get-schema"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -170,15 +172,16 @@ class GetSchema(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('identifier', YLeaf(YType.str, 'identifier')),
-                ('version', YLeaf(YType.str, 'version')),
-                ('format', YLeaf(YType.identityref, 'format')),
+                ('identifier', (YLeaf(YType.str, 'identifier'), ['str'])),
+                ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                ('format', (YLeaf(YType.identityref, 'format'), [('ydk.models.ietf.ietf_netconf_monitoring', 'SchemaFormat')])),
             ])
             self.identifier = None
             self.version = None
             self.format = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetSchema.Input, ['identifier', 'version', 'format'], name, value)
@@ -210,11 +213,12 @@ class GetSchema(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('data', YLeaf(YType.str, 'data')),
+                ('data', (YLeaf(YType.str, 'data'), ['str'])),
             ])
             self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-netconf-monitoring:get-schema/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetSchema.Output, ['data'], name, value)
@@ -292,6 +296,7 @@ class NetconfState(Entity):
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
         self._segment_path = lambda: "ietf-netconf-monitoring:netconf-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NetconfState, [], name, value)
@@ -324,11 +329,12 @@ class NetconfState(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('capability', YLeafList(YType.str, 'capability')),
+                ('capability', (YLeafList(YType.str, 'capability'), ['str'])),
             ])
             self.capability = []
             self._segment_path = lambda: "capabilities"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Capabilities, ['capability'], name, value)
@@ -364,6 +370,7 @@ class NetconfState(Entity):
             self.datastore = YList(self)
             self._segment_path = lambda: "datastores"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Datastores, [], name, value)
@@ -403,7 +410,7 @@ class NetconfState(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("locks", ("locks", NetconfState.Datastores.Datastore.Locks))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.enumeration, 'name')),
+                    ('name', (YLeaf(YType.enumeration, 'name'), [('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfDatastoreType', '')])),
                 ])
                 self.name = None
 
@@ -411,6 +418,7 @@ class NetconfState(Entity):
                 self._children_name_map["locks"] = "locks"
                 self._segment_path = lambda: "datastore" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/datastores/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfState.Datastores.Datastore, ['name'], name, value)
@@ -467,6 +475,7 @@ class NetconfState(Entity):
 
                     self.partial_lock = YList(self)
                     self._segment_path = lambda: "locks"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfState.Datastores.Datastore.Locks, [], name, value)
@@ -511,12 +520,13 @@ class NetconfState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
-                            ('locked_time', YLeaf(YType.str, 'locked-time')),
+                            ('locked_by_session', (YLeaf(YType.uint32, 'locked-by-session'), ['int'])),
+                            ('locked_time', (YLeaf(YType.str, 'locked-time'), ['str'])),
                         ])
                         self.locked_by_session = None
                         self.locked_time = None
                         self._segment_path = lambda: "global-lock"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetconfState.Datastores.Datastore.Locks.GlobalLock, ['locked_by_session', 'locked_time'], name, value)
@@ -578,11 +588,11 @@ class NetconfState(Entity):
                         self.ylist_key_names = ['lock_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lock_id', YLeaf(YType.uint32, 'lock-id')),
-                            ('locked_by_session', YLeaf(YType.uint32, 'locked-by-session')),
-                            ('locked_time', YLeaf(YType.str, 'locked-time')),
-                            ('select', YLeafList(YType.str, 'select')),
-                            ('locked_node', YLeafList(YType.str, 'locked-node')),
+                            ('lock_id', (YLeaf(YType.uint32, 'lock-id'), ['int'])),
+                            ('locked_by_session', (YLeaf(YType.uint32, 'locked-by-session'), ['int'])),
+                            ('locked_time', (YLeaf(YType.str, 'locked-time'), ['str'])),
+                            ('select', (YLeafList(YType.str, 'select'), ['str'])),
+                            ('locked_node', (YLeafList(YType.str, 'locked-node'), ['str'])),
                         ])
                         self.lock_id = None
                         self.locked_by_session = None
@@ -590,6 +600,7 @@ class NetconfState(Entity):
                         self.select = []
                         self.locked_node = []
                         self._segment_path = lambda: "partial-lock" + "[lock-id='" + str(self.lock_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetconfState.Datastores.Datastore.Locks.PartialLock, ['lock_id', 'locked_by_session', 'locked_time', 'select', 'locked_node'], name, value)
@@ -626,6 +637,7 @@ class NetconfState(Entity):
             self.schema = YList(self)
             self._segment_path = lambda: "schemas"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Schemas, [], name, value)
@@ -683,11 +695,11 @@ class NetconfState(Entity):
                 self.ylist_key_names = ['identifier','version','format']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('identifier', YLeaf(YType.str, 'identifier')),
-                    ('version', YLeaf(YType.str, 'version')),
-                    ('format', YLeaf(YType.identityref, 'format')),
-                    ('namespace', YLeaf(YType.str, 'namespace')),
-                    ('location', YLeafList(YType.str, 'location')),
+                    ('identifier', (YLeaf(YType.str, 'identifier'), ['str'])),
+                    ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                    ('format', (YLeaf(YType.identityref, 'format'), [('ydk.models.ietf.ietf_netconf_monitoring', 'SchemaFormat')])),
+                    ('namespace', (YLeaf(YType.str, 'namespace'), ['str'])),
+                    ('location', (YLeafList(YType.str, 'location'), [('ydk.models.ietf.ietf_netconf_monitoring', 'NetconfState', 'Schemas.Schema.Location'),'str'])),
                 ])
                 self.identifier = None
                 self.version = None
@@ -696,6 +708,7 @@ class NetconfState(Entity):
                 self.location = []
                 self._segment_path = lambda: "schema" + "[identifier='" + str(self.identifier) + "']" + "[version='" + str(self.version) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/schemas/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfState.Schemas.Schema, ['identifier', 'version', 'format', 'namespace', 'location'], name, value)
@@ -758,6 +771,7 @@ class NetconfState(Entity):
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Sessions, [], name, value)
@@ -860,15 +874,15 @@ class NetconfState(Entity):
                 self.ylist_key_names = ['session_id']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('session_id', YLeaf(YType.uint32, 'session-id')),
-                    ('transport', YLeaf(YType.identityref, 'transport')),
-                    ('username', YLeaf(YType.str, 'username')),
-                    ('source_host', YLeaf(YType.str, 'source-host')),
-                    ('login_time', YLeaf(YType.str, 'login-time')),
-                    ('in_rpcs', YLeaf(YType.uint32, 'in-rpcs')),
-                    ('in_bad_rpcs', YLeaf(YType.uint32, 'in-bad-rpcs')),
-                    ('out_rpc_errors', YLeaf(YType.uint32, 'out-rpc-errors')),
-                    ('out_notifications', YLeaf(YType.uint32, 'out-notifications')),
+                    ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                    ('transport', (YLeaf(YType.identityref, 'transport'), [('ydk.models.ietf.ietf_netconf_monitoring', 'Transport')])),
+                    ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                    ('source_host', (YLeaf(YType.str, 'source-host'), ['str','str','str'])),
+                    ('login_time', (YLeaf(YType.str, 'login-time'), ['str'])),
+                    ('in_rpcs', (YLeaf(YType.uint32, 'in-rpcs'), ['int'])),
+                    ('in_bad_rpcs', (YLeaf(YType.uint32, 'in-bad-rpcs'), ['int'])),
+                    ('out_rpc_errors', (YLeaf(YType.uint32, 'out-rpc-errors'), ['int'])),
+                    ('out_notifications', (YLeaf(YType.uint32, 'out-notifications'), ['int'])),
                 ])
                 self.session_id = None
                 self.transport = None
@@ -881,6 +895,7 @@ class NetconfState(Entity):
                 self.out_notifications = None
                 self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                 self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfState.Sessions.Session, ['session_id', 'transport', 'username', 'source_host', 'login_time', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
@@ -963,14 +978,14 @@ class NetconfState(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('netconf_start_time', YLeaf(YType.str, 'netconf-start-time')),
-                ('in_bad_hellos', YLeaf(YType.uint32, 'in-bad-hellos')),
-                ('in_sessions', YLeaf(YType.uint32, 'in-sessions')),
-                ('dropped_sessions', YLeaf(YType.uint32, 'dropped-sessions')),
-                ('in_rpcs', YLeaf(YType.uint32, 'in-rpcs')),
-                ('in_bad_rpcs', YLeaf(YType.uint32, 'in-bad-rpcs')),
-                ('out_rpc_errors', YLeaf(YType.uint32, 'out-rpc-errors')),
-                ('out_notifications', YLeaf(YType.uint32, 'out-notifications')),
+                ('netconf_start_time', (YLeaf(YType.str, 'netconf-start-time'), ['str'])),
+                ('in_bad_hellos', (YLeaf(YType.uint32, 'in-bad-hellos'), ['int'])),
+                ('in_sessions', (YLeaf(YType.uint32, 'in-sessions'), ['int'])),
+                ('dropped_sessions', (YLeaf(YType.uint32, 'dropped-sessions'), ['int'])),
+                ('in_rpcs', (YLeaf(YType.uint32, 'in-rpcs'), ['int'])),
+                ('in_bad_rpcs', (YLeaf(YType.uint32, 'in-bad-rpcs'), ['int'])),
+                ('out_rpc_errors', (YLeaf(YType.uint32, 'out-rpc-errors'), ['int'])),
+                ('out_notifications', (YLeaf(YType.uint32, 'out-notifications'), ['int'])),
             ])
             self.netconf_start_time = None
             self.in_bad_hellos = None
@@ -982,6 +997,7 @@ class NetconfState(Entity):
             self.out_notifications = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "ietf-netconf-monitoring:netconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfState.Statistics, ['netconf_start_time', 'in_bad_hellos', 'in_sessions', 'dropped_sessions', 'in_rpcs', 'in_bad_rpcs', 'out_rpc_errors', 'out_notifications'], name, value)
@@ -990,7 +1006,7 @@ class NetconfState(Entity):
         self._top_entity = NetconfState()
         return self._top_entity
 
-class NetconfBeep(Identity):
+class NetconfBeep(Transport):
     """
     NETCONF over Blocks Extensible Exchange Protocol (BEEP).
     
@@ -1001,11 +1017,11 @@ class NetconfBeep(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(NetconfBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-beep")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-beep"):
+        super(NetconfBeep, self).__init__(ns, pref, tag)
 
 
-class NetconfSsh(Identity):
+class NetconfSsh(Transport):
     """
     NETCONF over Secure Shell (SSH).
     
@@ -1016,11 +1032,11 @@ class NetconfSsh(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(NetconfSsh, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-ssh")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-ssh"):
+        super(NetconfSsh, self).__init__(ns, pref, tag)
 
 
-class Rnc(Identity):
+class Rnc(SchemaFormat):
     """
     Relax NG Compact Syntax
     
@@ -1031,11 +1047,11 @@ class Rnc(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Rnc, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rnc")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:rnc"):
+        super(Rnc, self).__init__(ns, pref, tag)
 
 
-class Yin(Identity):
+class Yin(SchemaFormat):
     """
     The YIN syntax for YANG.
     
@@ -1046,11 +1062,11 @@ class Yin(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Yin, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yin")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:yin"):
+        super(Yin, self).__init__(ns, pref, tag)
 
 
-class Rng(Identity):
+class Rng(SchemaFormat):
     """
     Regular Language for XML Next Generation (RELAX NG).
     
@@ -1061,11 +1077,11 @@ class Rng(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Rng, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:rng")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:rng"):
+        super(Rng, self).__init__(ns, pref, tag)
 
 
-class Xsd(Identity):
+class Xsd(SchemaFormat):
     """
     W3C XML Schema Definition.
     
@@ -1076,11 +1092,11 @@ class Xsd(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Xsd, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:xsd")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:xsd"):
+        super(Xsd, self).__init__(ns, pref, tag)
 
 
-class NetconfSoapOverBeep(Identity):
+class NetconfSoapOverBeep(Transport):
     """
     NETCONF over Simple Object Access Protocol (SOAP) over
     Blocks Extensible Exchange Protocol (BEEP).
@@ -1092,11 +1108,11 @@ class NetconfSoapOverBeep(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(NetconfSoapOverBeep, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-beep")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-beep"):
+        super(NetconfSoapOverBeep, self).__init__(ns, pref, tag)
 
 
-class NetconfTls(Identity):
+class NetconfTls(Transport):
     """
     NETCONF over Transport Layer Security (TLS).
     
@@ -1107,11 +1123,11 @@ class NetconfTls(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(NetconfTls, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-tls")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-tls"):
+        super(NetconfTls, self).__init__(ns, pref, tag)
 
 
-class Yang(Identity):
+class Yang(SchemaFormat):
     """
     The YANG data modeling language for NETCONF.
     
@@ -1122,11 +1138,11 @@ class Yang(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(Yang, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:yang")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:yang"):
+        super(Yang, self).__init__(ns, pref, tag)
 
 
-class NetconfSoapOverHttps(Identity):
+class NetconfSoapOverHttps(Transport):
     """
     NETCONF over Simple Object Access Protocol (SOAP)
     over Hypertext Transfer Protocol Secure (HTTPS).
@@ -1138,7 +1154,7 @@ class NetconfSoapOverHttps(Identity):
     _prefix = 'ncm'
     _revision = '2010-10-04'
 
-    def __init__(self):
-        super(NetconfSoapOverHttps, self).__init__("urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", "ietf-netconf-monitoring", "ietf-netconf-monitoring:netconf-soap-over-https")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring", pref="ietf-netconf-monitoring", tag="ietf-netconf-monitoring:netconf-soap-over-https"):
+        super(NetconfSoapOverHttps, self).__init__(ns, pref, tag)
 
 

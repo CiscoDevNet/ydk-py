@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   vrf\-policy\: VRF Policy PBR configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +51,7 @@ class VrfPolicy(Entity):
 
         self.vrf = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(VrfPolicy, [], name, value)
@@ -88,13 +90,14 @@ class VrfPolicy(Entity):
             self.ylist_key_names = ['vrf_name']
             self._child_classes = OrderedDict([("afi", ("afi", VrfPolicy.Vrf.Afi))])
             self._leafs = OrderedDict([
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
             ])
             self.vrf_name = None
 
             self.afi = YList(self)
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vrf-policy-cfg:vrf-policy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(VrfPolicy.Vrf, ['vrf_name'], name, value)
@@ -109,7 +112,7 @@ class VrfPolicy(Entity):
             	AFI name
             	**type**\: str
             
-            	**pattern:** (ipv4)
+            	**pattern:** (ipv4)\|(ipv6)
             
             .. attribute:: service_policy_in
             
@@ -133,12 +136,13 @@ class VrfPolicy(Entity):
                 self.ylist_key_names = ['afi_type']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('afi_type', YLeaf(YType.str, 'afi-type')),
-                    ('service_policy_in', YLeaf(YType.str, 'service-policy-in')),
+                    ('afi_type', (YLeaf(YType.str, 'afi-type'), ['str'])),
+                    ('service_policy_in', (YLeaf(YType.str, 'service-policy-in'), ['str'])),
                 ])
                 self.afi_type = None
                 self.service_policy_in = None
                 self._segment_path = lambda: "afi" + "[afi-type='" + str(self.afi_type) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VrfPolicy.Vrf.Afi, ['afi_type', 'service_policy_in'], name, value)

@@ -25,9 +25,14 @@ module Cisco-IOS-XE-mdt-oper {
   description
     "This module contains a collection of YANG 
      definitions for operational data of streaming telemetry.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-03-06 {
+    description
+      "New mdt_sub_type SUB_TYPE_PERMANENT";
+    reference "2.2.0";
+  }
   revision 2017-09-20 {
     description
       "TLS support for Native stream";
@@ -61,6 +66,12 @@ module Cisco-IOS-XE-mdt-oper {
            -created, (modified), and deleted by management operations
            -survive reboot
            -receivers are configured ";
+      }
+      enum "sub-type-permanent" {
+        value 3;
+        description
+          "Permanent subscriptions
+           -created during system startup, can not be modified";
       }
     }
     description
@@ -238,10 +249,10 @@ module Cisco-IOS-XE-mdt-oper {
       description
         "Comments related to receiver state.";
     }
-    leaf security-profile {
+    leaf profile {
       type string;
       description
-        "Receiver security profile.";
+        "Receiver's protocol profile name.";
     }
   }
 
@@ -299,10 +310,10 @@ module Cisco-IOS-XE-mdt-oper {
          connection.";
       uses mdt-oper:mdt-sub-con-stats;
     }
-    leaf security-profile {
+    leaf profile {
       type string;
       description
-        "Security profile used with this connection.";
+        "Protocol profile used with this connection.";
     }
   }
 

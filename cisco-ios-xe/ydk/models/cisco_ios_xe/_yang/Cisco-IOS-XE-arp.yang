@@ -33,6 +33,11 @@ module Cisco-IOS-XE-arp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
   revision 2017-11-07 {
     description
       "Add arp vrf";
@@ -82,6 +87,9 @@ module Cisco-IOS-XE-arp {
         leaf vrf-name {
           description
 	    "VPN Routing/Forwarding instance name";
+	  must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	    error-message "VRF must be created 1st, deleted last";
+	  }
           type string;
         }
         uses arp-entry-grouping;

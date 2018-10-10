@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-oam\: MPLS OAM operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class LspvBagInterfaceState(Enum):
@@ -187,6 +188,7 @@ class MplsOam(Entity):
         self.global_.parent = self
         self._children_name_map["global_"] = "global"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsOam, [], name, value)
@@ -233,6 +235,7 @@ class MplsOam(Entity):
             self._children_name_map["details"] = "details"
             self._segment_path = lambda: "interface"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsOam.Interface, [], name, value)
@@ -268,6 +271,7 @@ class MplsOam(Entity):
                 self.brief = YList(self)
                 self._segment_path = lambda: "briefs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Interface.Briefs, [], name, value)
@@ -282,14 +286,14 @@ class MplsOam(Entity):
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface_name_xr
                 
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: state
                 
@@ -348,14 +352,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                        ('prefix_length_v6', YLeaf(YType.uint32, 'prefix-length-v6')),
-                        ('primary_address', YLeaf(YType.str, 'primary-address')),
-                        ('primary_address_v6', YLeaf(YType.str, 'primary-address-v6')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper', 'LspvBagInterfaceState', '')])),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                        ('prefix_length_v6', (YLeaf(YType.uint32, 'prefix-length-v6'), ['int'])),
+                        ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                        ('primary_address_v6', (YLeaf(YType.str, 'primary-address-v6'), ['str'])),
                     ])
                     self.interface_name = None
                     self.interface_name_xr = None
@@ -367,6 +371,7 @@ class MplsOam(Entity):
                     self.primary_address_v6 = None
                     self._segment_path = lambda: "brief" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/briefs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Interface.Briefs.Brief, ['interface_name', u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
@@ -402,6 +407,7 @@ class MplsOam(Entity):
                 self.detail = YList(self)
                 self._segment_path = lambda: "details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Interface.Details, [], name, value)
@@ -416,7 +422,7 @@ class MplsOam(Entity):
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface_brief
                 
@@ -445,7 +451,7 @@ class MplsOam(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("interface-brief", ("interface_brief", MplsOam.Interface.Details.Detail.InterfaceBrief)), ("packet-statistics", ("packet_statistics", MplsOam.Interface.Details.Detail.PacketStatistics))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.interface_name = None
 
@@ -458,6 +464,7 @@ class MplsOam(Entity):
                     self._children_name_map["packet_statistics"] = "packet-statistics"
                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/interface/details/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Interface.Details.Detail, ['interface_name'], name, value)
@@ -472,7 +479,7 @@ class MplsOam(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: state
                     
@@ -531,13 +538,13 @@ class MplsOam(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('mtu', YLeaf(YType.uint32, 'mtu')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('prefix_length_v6', YLeaf(YType.uint32, 'prefix-length-v6')),
-                            ('primary_address', YLeaf(YType.str, 'primary-address')),
-                            ('primary_address_v6', YLeaf(YType.str, 'primary-address-v6')),
+                            ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_oam_oper', 'LspvBagInterfaceState', '')])),
+                            ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('prefix_length_v6', (YLeaf(YType.uint32, 'prefix-length-v6'), ['int'])),
+                            ('primary_address', (YLeaf(YType.str, 'primary-address'), ['str'])),
+                            ('primary_address_v6', (YLeaf(YType.str, 'primary-address-v6'), ['str'])),
                         ])
                         self.interface_name_xr = None
                         self.state = None
@@ -547,6 +554,7 @@ class MplsOam(Entity):
                         self.primary_address = None
                         self.primary_address_v6 = None
                         self._segment_path = lambda: "interface-brief"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsOam.Interface.Details.Detail.InterfaceBrief, [u'interface_name_xr', u'state', u'mtu', u'prefix_length', u'prefix_length_v6', u'primary_address', u'primary_address_v6'], name, value)
@@ -628,6 +636,7 @@ class MplsOam(Entity):
                         self.protect_rep_sent.parent = self
                         self._children_name_map["protect_rep_sent"] = "protect-rep-sent"
                         self._segment_path = lambda: "packet-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics, [], name, value)
@@ -781,6 +790,7 @@ class MplsOam(Entity):
                             self.received_good_bfd_reply.parent = self
                             self._children_name_map["received_good_bfd_reply"] = "received-good-bfd-reply"
                             self._segment_path = lambda: "received"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received, [], name, value)
@@ -823,12 +833,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-good-request"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
@@ -871,12 +882,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-good-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
@@ -919,12 +931,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-unknown"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
@@ -967,12 +980,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-ip-header"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
@@ -1015,12 +1029,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-udp-header"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
@@ -1063,12 +1078,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-runt"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
@@ -1111,12 +1127,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-queue-full"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
@@ -1159,12 +1176,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-general"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
@@ -1207,12 +1225,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-no-interface"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
@@ -1255,12 +1274,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-error-no-memory"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
@@ -1303,12 +1323,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "protect-protocol-received-good-request"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
@@ -1351,12 +1372,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "protect-protocol-received-good-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
@@ -1399,12 +1421,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-good-bfd-request"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
@@ -1447,12 +1470,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "received-good-bfd-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
@@ -1516,6 +1540,7 @@ class MplsOam(Entity):
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                             self._segment_path = lambda: "sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent, [], name, value)
@@ -1558,12 +1583,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -1606,12 +1632,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -1654,12 +1681,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-bfd-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -1703,12 +1731,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "bfd-no-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -1772,6 +1801,7 @@ class MplsOam(Entity):
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                             self._segment_path = lambda: "working-req-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent, [], name, value)
@@ -1814,12 +1844,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -1862,12 +1893,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -1910,12 +1942,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-bfd-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -1959,12 +1992,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "bfd-no-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -2028,6 +2062,7 @@ class MplsOam(Entity):
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                             self._segment_path = lambda: "working-rep-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent, [], name, value)
@@ -2070,12 +2105,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -2118,12 +2154,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -2166,12 +2203,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-bfd-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -2215,12 +2253,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "bfd-no-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -2284,6 +2323,7 @@ class MplsOam(Entity):
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                             self._segment_path = lambda: "protect-req-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent, [], name, value)
@@ -2326,12 +2366,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -2374,12 +2415,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -2422,12 +2464,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-bfd-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -2471,12 +2514,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "bfd-no-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -2540,6 +2584,7 @@ class MplsOam(Entity):
                             self.bfd_no_reply.parent = self
                             self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                             self._segment_path = lambda: "protect-rep-sent"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent, [], name, value)
@@ -2582,12 +2627,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -2630,12 +2676,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -2678,12 +2725,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "transmit-bfd-good"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -2727,12 +2775,13 @@ class MplsOam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('packets', YLeaf(YType.uint64, 'packets')),
-                                    ('bytes', YLeaf(YType.uint64, 'bytes')),
+                                    ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                                    ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                                 ])
                                 self.packets = None
                                 self.bytes = None
                                 self._segment_path = lambda: "bfd-no-reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsOam.Interface.Details.Detail.PacketStatistics.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -2815,6 +2864,7 @@ class MplsOam(Entity):
             self._children_name_map["protect_rep_sent"] = "protect-rep-sent"
             self._segment_path = lambda: "packet"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsOam.Packet, [], name, value)
@@ -2969,6 +3019,7 @@ class MplsOam(Entity):
                 self._children_name_map["received_good_bfd_reply"] = "received-good-bfd-reply"
                 self._segment_path = lambda: "received"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.Received, [], name, value)
@@ -3011,13 +3062,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-good-request"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodRequest, [u'packets', u'bytes'], name, value)
@@ -3060,13 +3112,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-good-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodReply, [u'packets', u'bytes'], name, value)
@@ -3109,13 +3162,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-unknown"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedUnknown, [u'packets', u'bytes'], name, value)
@@ -3158,13 +3212,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-ip-header"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorIpHeader, [u'packets', u'bytes'], name, value)
@@ -3207,13 +3262,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-udp-header"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorUdpHeader, [u'packets', u'bytes'], name, value)
@@ -3256,13 +3312,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-runt"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorRunt, [u'packets', u'bytes'], name, value)
@@ -3305,13 +3362,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-queue-full"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorQueueFull, [u'packets', u'bytes'], name, value)
@@ -3354,13 +3412,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-general"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorGeneral, [u'packets', u'bytes'], name, value)
@@ -3403,13 +3462,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-no-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoInterface, [u'packets', u'bytes'], name, value)
@@ -3452,13 +3512,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-error-no-memory"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedErrorNoMemory, [u'packets', u'bytes'], name, value)
@@ -3501,13 +3562,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "protect-protocol-received-good-request"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodRequest, [u'packets', u'bytes'], name, value)
@@ -3550,13 +3612,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "protect-protocol-received-good-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ProtectProtocolReceivedGoodReply, [u'packets', u'bytes'], name, value)
@@ -3599,13 +3662,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-good-bfd-request"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdRequest, [u'packets', u'bytes'], name, value)
@@ -3648,13 +3712,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "received-good-bfd-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/received/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Received.ReceivedGoodBfdReply, [u'packets', u'bytes'], name, value)
@@ -3719,6 +3784,7 @@ class MplsOam(Entity):
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                 self._segment_path = lambda: "sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.Sent, [], name, value)
@@ -3761,13 +3827,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -3810,13 +3877,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-drop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -3859,13 +3927,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-bfd-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -3909,13 +3978,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "bfd-no-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.Sent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -3980,6 +4050,7 @@ class MplsOam(Entity):
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                 self._segment_path = lambda: "working-req-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.WorkingReqSent, [], name, value)
@@ -4022,13 +4093,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -4071,13 +4143,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-drop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -4120,13 +4193,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-bfd-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -4170,13 +4244,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "bfd-no-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -4241,6 +4316,7 @@ class MplsOam(Entity):
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                 self._segment_path = lambda: "working-rep-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.WorkingRepSent, [], name, value)
@@ -4283,13 +4359,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -4332,13 +4409,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-drop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -4381,13 +4459,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-bfd-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -4431,13 +4510,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "bfd-no-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/working-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.WorkingRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -4502,6 +4582,7 @@ class MplsOam(Entity):
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                 self._segment_path = lambda: "protect-req-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.ProtectReqSent, [], name, value)
@@ -4544,13 +4625,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -4593,13 +4675,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-drop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -4642,13 +4725,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-bfd-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -4692,13 +4776,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "bfd-no-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-req-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectReqSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -4763,6 +4848,7 @@ class MplsOam(Entity):
                 self._children_name_map["bfd_no_reply"] = "bfd-no-reply"
                 self._segment_path = lambda: "protect-rep-sent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Packet.ProtectRepSent, [], name, value)
@@ -4805,13 +4891,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitGood, [u'packets', u'bytes'], name, value)
@@ -4854,13 +4941,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-drop"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitDrop, [u'packets', u'bytes'], name, value)
@@ -4903,13 +4991,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "transmit-bfd-good"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.TransmitBfdGood, [u'packets', u'bytes'], name, value)
@@ -4953,13 +5042,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "bfd-no-reply"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/packet/protect-rep-sent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Packet.ProtectRepSent.BfdNoReply, [u'packets', u'bytes'], name, value)
@@ -5003,7 +5093,7 @@ class MplsOam(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("message-statistics", ("message_statistics", MplsOam.Global.MessageStatistics)), ("collaborator-statistics", ("collaborator_statistics", MplsOam.Global.CollaboratorStatistics))])
             self._leafs = OrderedDict([
-                ('total_clients', YLeaf(YType.uint32, 'total-clients')),
+                ('total_clients', (YLeaf(YType.uint32, 'total-clients'), ['int'])),
             ])
             self.total_clients = None
 
@@ -5016,6 +5106,7 @@ class MplsOam(Entity):
             self._children_name_map["collaborator_statistics"] = "collaborator-statistics"
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsOam.Global, [u'total_clients'], name, value)
@@ -5119,17 +5210,17 @@ class MplsOam(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('register_messages', YLeaf(YType.uint32, 'register-messages')),
-                    ('unregister_messages', YLeaf(YType.uint32, 'unregister-messages')),
-                    ('echo_submit_messages', YLeaf(YType.uint32, 'echo-submit-messages')),
-                    ('echo_cancel_messages', YLeaf(YType.uint32, 'echo-cancel-messages')),
-                    ('get_result_messages', YLeaf(YType.uint32, 'get-result-messages')),
-                    ('get_config_messages', YLeaf(YType.uint32, 'get-config-messages')),
-                    ('get_response_messages', YLeaf(YType.uint32, 'get-response-messages')),
-                    ('property_response_messages', YLeaf(YType.uint32, 'property-response-messages')),
-                    ('property_request_messages', YLeaf(YType.uint32, 'property-request-messages')),
-                    ('property_block_messages', YLeaf(YType.uint32, 'property-block-messages')),
-                    ('thread_request_messages', YLeaf(YType.uint32, 'thread-request-messages')),
+                    ('register_messages', (YLeaf(YType.uint32, 'register-messages'), ['int'])),
+                    ('unregister_messages', (YLeaf(YType.uint32, 'unregister-messages'), ['int'])),
+                    ('echo_submit_messages', (YLeaf(YType.uint32, 'echo-submit-messages'), ['int'])),
+                    ('echo_cancel_messages', (YLeaf(YType.uint32, 'echo-cancel-messages'), ['int'])),
+                    ('get_result_messages', (YLeaf(YType.uint32, 'get-result-messages'), ['int'])),
+                    ('get_config_messages', (YLeaf(YType.uint32, 'get-config-messages'), ['int'])),
+                    ('get_response_messages', (YLeaf(YType.uint32, 'get-response-messages'), ['int'])),
+                    ('property_response_messages', (YLeaf(YType.uint32, 'property-response-messages'), ['int'])),
+                    ('property_request_messages', (YLeaf(YType.uint32, 'property-request-messages'), ['int'])),
+                    ('property_block_messages', (YLeaf(YType.uint32, 'property-block-messages'), ['int'])),
+                    ('thread_request_messages', (YLeaf(YType.uint32, 'thread-request-messages'), ['int'])),
                 ])
                 self.register_messages = None
                 self.unregister_messages = None
@@ -5144,6 +5235,7 @@ class MplsOam(Entity):
                 self.thread_request_messages = None
                 self._segment_path = lambda: "message-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Global.MessageStatistics, [u'register_messages', u'unregister_messages', u'echo_submit_messages', u'echo_cancel_messages', u'get_result_messages', u'get_config_messages', u'get_response_messages', u'property_response_messages', u'property_request_messages', u'property_block_messages', u'thread_request_messages'], name, value)
@@ -5208,6 +5300,7 @@ class MplsOam(Entity):
                 self._children_name_map["collaborator_rib"] = "collaborator-rib"
                 self._segment_path = lambda: "collaborator-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.Global.CollaboratorStatistics, [], name, value)
@@ -5248,13 +5341,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ups', YLeaf(YType.uint32, 'ups')),
-                        ('downs', YLeaf(YType.uint32, 'downs')),
+                        ('ups', (YLeaf(YType.uint32, 'ups'), ['int'])),
+                        ('downs', (YLeaf(YType.uint32, 'downs'), ['int'])),
                     ])
                     self.ups = None
                     self.downs = None
                     self._segment_path = lambda: "collaborator-i-parm"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIParm, [u'ups', u'downs'], name, value)
@@ -5295,13 +5389,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ups', YLeaf(YType.uint32, 'ups')),
-                        ('downs', YLeaf(YType.uint32, 'downs')),
+                        ('ups', (YLeaf(YType.uint32, 'ups'), ['int'])),
+                        ('downs', (YLeaf(YType.uint32, 'downs'), ['int'])),
                     ])
                     self.ups = None
                     self.downs = None
                     self._segment_path = lambda: "collaborator-im"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorIm, [u'ups', u'downs'], name, value)
@@ -5342,13 +5437,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ups', YLeaf(YType.uint32, 'ups')),
-                        ('downs', YLeaf(YType.uint32, 'downs')),
+                        ('ups', (YLeaf(YType.uint32, 'ups'), ['int'])),
+                        ('downs', (YLeaf(YType.uint32, 'downs'), ['int'])),
                     ])
                     self.ups = None
                     self.downs = None
                     self._segment_path = lambda: "collaborator-net-io"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorNetIo, [u'ups', u'downs'], name, value)
@@ -5389,13 +5485,14 @@ class MplsOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ups', YLeaf(YType.uint32, 'ups')),
-                        ('downs', YLeaf(YType.uint32, 'downs')),
+                        ('ups', (YLeaf(YType.uint32, 'ups'), ['int'])),
+                        ('downs', (YLeaf(YType.uint32, 'downs'), ['int'])),
                     ])
                     self.ups = None
                     self.downs = None
                     self._segment_path = lambda: "collaborator-rib"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-oper:mpls-oam/global/collaborator-statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsOam.Global.CollaboratorStatistics.CollaboratorRib, [u'ups', u'downs'], name, value)

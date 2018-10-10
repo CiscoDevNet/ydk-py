@@ -20,6 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class APSPATHS(Identity):
     """
     Base identity for identifying the line paths on an
@@ -32,8 +33,8 @@ class APSPATHS(Identity):
     _prefix = 'oc-line-protect'
     _revision = '2017-03-28'
 
-    def __init__(self):
-        super(APSPATHS, self).__init__("http://openconfig.net/yang/optical-transport-line-protection", "openconfig-transport-line-protection", "openconfig-transport-line-protection:APS_PATHS")
+    def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:APS_PATHS"):
+        super(APSPATHS, self).__init__(ns, pref, tag)
 
 
 class Aps(Entity):
@@ -68,6 +69,7 @@ class Aps(Entity):
         self.aps_modules.parent = self
         self._children_name_map["aps_modules"] = "aps-modules"
         self._segment_path = lambda: "openconfig-transport-line-protection:aps"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Aps, [], name, value)
@@ -104,6 +106,7 @@ class Aps(Entity):
             self.aps_module = YList(self)
             self._segment_path = lambda: "aps-modules"
             self._absolute_path = lambda: "openconfig-transport-line-protection:aps/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aps.ApsModules, [], name, value)
@@ -153,7 +156,7 @@ class Aps(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("config", ("config", Aps.ApsModules.ApsModule.Config)), ("state", ("state", Aps.ApsModules.ApsModule.State)), ("ports", ("ports", Aps.ApsModules.ApsModule.Ports))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -170,6 +173,7 @@ class Aps(Entity):
                 self._children_name_map["ports"] = "ports"
                 self._segment_path = lambda: "aps-module" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-transport-line-protection:aps/aps-modules/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aps.ApsModules.ApsModule, ['name'], name, value)
@@ -245,12 +249,12 @@ class Aps(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('revertive', YLeaf(YType.boolean, 'revertive')),
-                        ('primary_switch_threshold', YLeaf(YType.str, 'primary-switch-threshold')),
-                        ('primary_switch_hysteresis', YLeaf(YType.str, 'primary-switch-hysteresis')),
-                        ('secondary_switch_threshold', YLeaf(YType.str, 'secondary-switch-threshold')),
-                        ('secondary_switch_hysteresis', YLeaf(YType.str, 'secondary-switch-hysteresis')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('revertive', (YLeaf(YType.boolean, 'revertive'), ['bool'])),
+                        ('primary_switch_threshold', (YLeaf(YType.str, 'primary-switch-threshold'), ['Decimal64'])),
+                        ('primary_switch_hysteresis', (YLeaf(YType.str, 'primary-switch-hysteresis'), ['Decimal64'])),
+                        ('secondary_switch_threshold', (YLeaf(YType.str, 'secondary-switch-threshold'), ['Decimal64'])),
+                        ('secondary_switch_hysteresis', (YLeaf(YType.str, 'secondary-switch-hysteresis'), ['Decimal64'])),
                     ])
                     self.name = None
                     self.revertive = None
@@ -259,6 +263,7 @@ class Aps(Entity):
                     self.secondary_switch_threshold = None
                     self.secondary_switch_hysteresis = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aps.ApsModules.ApsModule.Config, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis'], name, value)
@@ -339,13 +344,13 @@ class Aps(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('revertive', YLeaf(YType.boolean, 'revertive')),
-                        ('primary_switch_threshold', YLeaf(YType.str, 'primary-switch-threshold')),
-                        ('primary_switch_hysteresis', YLeaf(YType.str, 'primary-switch-hysteresis')),
-                        ('secondary_switch_threshold', YLeaf(YType.str, 'secondary-switch-threshold')),
-                        ('secondary_switch_hysteresis', YLeaf(YType.str, 'secondary-switch-hysteresis')),
-                        ('active_path', YLeaf(YType.identityref, 'active-path')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('revertive', (YLeaf(YType.boolean, 'revertive'), ['bool'])),
+                        ('primary_switch_threshold', (YLeaf(YType.str, 'primary-switch-threshold'), ['Decimal64'])),
+                        ('primary_switch_hysteresis', (YLeaf(YType.str, 'primary-switch-hysteresis'), ['Decimal64'])),
+                        ('secondary_switch_threshold', (YLeaf(YType.str, 'secondary-switch-threshold'), ['Decimal64'])),
+                        ('secondary_switch_hysteresis', (YLeaf(YType.str, 'secondary-switch-hysteresis'), ['Decimal64'])),
+                        ('active_path', (YLeaf(YType.identityref, 'active-path'), [('ydk.models.openconfig.openconfig_transport_line_protection', 'APSPATHS')])),
                     ])
                     self.name = None
                     self.revertive = None
@@ -355,6 +360,7 @@ class Aps(Entity):
                     self.secondary_switch_hysteresis = None
                     self.active_path = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aps.ApsModules.ApsModule.State, ['name', 'revertive', 'primary_switch_threshold', 'primary_switch_hysteresis', 'secondary_switch_threshold', 'secondary_switch_hysteresis', 'active_path'], name, value)
@@ -436,6 +442,7 @@ class Aps(Entity):
                     self.common_output.parent = self
                     self._children_name_map["common_output"] = "common-output"
                     self._segment_path = lambda: "ports"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aps.ApsModules.ApsModule.Ports, [], name, value)
@@ -482,6 +489,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "line-primary-in"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn, [], name, value)
@@ -524,12 +532,13 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.Config, ['enabled', 'target_attenuation'], name, value)
@@ -586,9 +595,9 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
@@ -598,6 +607,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
@@ -665,19 +675,20 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LinePrimaryOut(Entity):
@@ -721,6 +732,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "line-primary-out"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut, [], name, value)
@@ -756,10 +768,11 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.Config, ['target_attenuation'], name, value)
@@ -809,8 +822,8 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self.attenuation = None
@@ -819,6 +832,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State, ['target_attenuation', 'attenuation'], name, value)
@@ -886,19 +900,20 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LinePrimaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LineSecondaryIn(Entity):
@@ -942,6 +957,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "line-secondary-in"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn, [], name, value)
@@ -984,12 +1000,13 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.Config, ['enabled', 'target_attenuation'], name, value)
@@ -1046,9 +1063,9 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
@@ -1058,6 +1075,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
@@ -1125,19 +1143,20 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LineSecondaryOut(Entity):
@@ -1181,6 +1200,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "line-secondary-out"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut, [], name, value)
@@ -1216,10 +1236,11 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.Config, ['target_attenuation'], name, value)
@@ -1269,8 +1290,8 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self.attenuation = None
@@ -1279,6 +1300,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State, ['target_attenuation', 'attenuation'], name, value)
@@ -1346,19 +1368,20 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.LineSecondaryOut.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class CommonIn(Entity):
@@ -1402,6 +1425,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "common-in"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn, [], name, value)
@@ -1444,12 +1468,13 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.Config, ['enabled', 'target_attenuation'], name, value)
@@ -1506,9 +1531,9 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.enabled = None
                             self.target_attenuation = None
@@ -1518,6 +1543,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State, ['enabled', 'target_attenuation', 'attenuation'], name, value)
@@ -1585,19 +1611,20 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonIn.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class CommonOutput(Entity):
@@ -1641,6 +1668,7 @@ class Aps(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "common-output"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput, [], name, value)
@@ -1676,10 +1704,11 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.Config, ['target_attenuation'], name, value)
@@ -1729,8 +1758,8 @@ class Aps(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("optical-power", ("optical_power", Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower))])
                             self._leafs = OrderedDict([
-                                ('target_attenuation', YLeaf(YType.str, 'target-attenuation')),
-                                ('attenuation', YLeaf(YType.str, 'attenuation')),
+                                ('target_attenuation', (YLeaf(YType.str, 'target-attenuation'), ['Decimal64'])),
+                                ('attenuation', (YLeaf(YType.str, 'attenuation'), ['Decimal64'])),
                             ])
                             self.target_attenuation = None
                             self.attenuation = None
@@ -1739,6 +1768,7 @@ class Aps(Entity):
                             self.optical_power.parent = self
                             self._children_name_map["optical_power"] = "optical-power"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State, ['target_attenuation', 'attenuation'], name, value)
@@ -1806,25 +1836,26 @@ class Aps(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "optical-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Aps.ApsModules.ApsModule.Ports.CommonOutput.State.OpticalPower, ['instant', 'avg', 'min', 'max'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Aps()
         return self._top_entity
 
-class PRIMARY(Identity):
+class PRIMARY(APSPATHS):
     """
     The primary line path connected to an automatic protection
     switch port indicating the primary/preferred path
@@ -1836,11 +1867,11 @@ class PRIMARY(Identity):
     _prefix = 'oc-line-protect'
     _revision = '2017-03-28'
 
-    def __init__(self):
-        super(PRIMARY, self).__init__("http://openconfig.net/yang/optical-transport-line-protection", "openconfig-transport-line-protection", "openconfig-transport-line-protection:PRIMARY")
+    def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:PRIMARY"):
+        super(PRIMARY, self).__init__(ns, pref, tag)
 
 
-class SECONDARY(Identity):
+class SECONDARY(APSPATHS):
     """
     The secondary line path connected to an automatic protection
     switch port indicating the secondary path
@@ -1852,7 +1883,7 @@ class SECONDARY(Identity):
     _prefix = 'oc-line-protect'
     _revision = '2017-03-28'
 
-    def __init__(self):
-        super(SECONDARY, self).__init__("http://openconfig.net/yang/optical-transport-line-protection", "openconfig-transport-line-protection", "openconfig-transport-line-protection:SECONDARY")
+    def __init__(self, ns="http://openconfig.net/yang/optical-transport-line-protection", pref="openconfig-transport-line-protection", tag="openconfig-transport-line-protection:SECONDARY"):
+        super(SECONDARY, self).__init__(ns, pref, tag)
 
 

@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG 
 definitions for configuration of streaming telemetry.
-Copyright (c) 2016\-2017 by Cisco Systems, Inc.
+Copyright (c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MdtXfrmAttrType(Enum):
@@ -30,11 +31,17 @@ class MdtXfrmAttrType(Enum):
 
     	Indicates that mandatory filter is set.
 
+    .. data:: primary = 2
+
+    	Indicates that primary filter is set.
+
     """
 
     mdt_xfrm_attr_none = Enum.YLeaf(0, "mdt-xfrm-attr-none")
 
     mandatory = Enum.YLeaf(1, "mandatory")
+
+    primary = Enum.YLeaf(2, "primary")
 
 
 class MdtXfrmLogicOp(Enum):
@@ -145,45 +152,46 @@ class MdtXfrmOperator(Enum):
 
 
 
-class MdtSubscriptions(Entity):
+class MdtConfigData(Entity):
     """
-    Subscription configuration
+    MDT configuration data
     
     .. attribute:: mdt_subscription
     
     	List of subscriptions
-    	**type**\: list of  		 :py:class:`MdtSubscription <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription>`
+    	**type**\: list of  		 :py:class:`MdtSubscription <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtSubscription>`
     
     .. attribute:: mdt_xfrm
     
     	List of subscription transforms
-    	**type**\: list of  		 :py:class:`MdtXfrm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm>`
+    	**type**\: list of  		 :py:class:`MdtXfrm <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm>`
     
     
 
     """
 
     _prefix = 'mdt-cfg'
-    _revision = '2017-10-29'
+    _revision = '2018-02-12'
 
     def __init__(self):
-        super(MdtSubscriptions, self).__init__()
+        super(MdtConfigData, self).__init__()
         self._top_entity = None
 
-        self.yang_name = "mdt-subscriptions"
+        self.yang_name = "mdt-config-data"
         self.yang_parent_name = "Cisco-IOS-XE-mdt-cfg"
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("mdt-subscription", ("mdt_subscription", MdtSubscriptions.MdtSubscription)), ("mdt-xfrm", ("mdt_xfrm", MdtSubscriptions.MdtXfrm))])
+        self._child_classes = OrderedDict([("mdt-subscription", ("mdt_subscription", MdtConfigData.MdtSubscription)), ("mdt-xfrm", ("mdt_xfrm", MdtConfigData.MdtXfrm))])
         self._leafs = OrderedDict()
 
         self.mdt_subscription = YList(self)
         self.mdt_xfrm = YList(self)
-        self._segment_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions"
+        self._segment_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-config-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(MdtSubscriptions, [], name, value)
+        self._perform_setattr(MdtConfigData, [], name, value)
 
 
     class MdtSubscription(Entity):
@@ -200,44 +208,45 @@ class MdtSubscriptions(Entity):
         .. attribute:: base
         
         	Common subscription information
-        	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.Base>`
+        	**type**\:  :py:class:`Base <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtSubscription.Base>`
         
         .. attribute:: mdt_receivers
         
         	Configuration of receivers of configured  subscriptions
-        	**type**\: list of  		 :py:class:`MdtReceivers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtSubscription.MdtReceivers>`
+        	**type**\: list of  		 :py:class:`MdtReceivers <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtSubscription.MdtReceivers>`
         
         
 
         """
 
         _prefix = 'mdt-cfg'
-        _revision = '2017-10-29'
+        _revision = '2018-02-12'
 
         def __init__(self):
-            super(MdtSubscriptions.MdtSubscription, self).__init__()
+            super(MdtConfigData.MdtSubscription, self).__init__()
 
             self.yang_name = "mdt-subscription"
-            self.yang_parent_name = "mdt-subscriptions"
+            self.yang_parent_name = "mdt-config-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['subscription_id']
-            self._child_classes = OrderedDict([("base", ("base", MdtSubscriptions.MdtSubscription.Base)), ("mdt-receivers", ("mdt_receivers", MdtSubscriptions.MdtSubscription.MdtReceivers))])
+            self._child_classes = OrderedDict([("base", ("base", MdtConfigData.MdtSubscription.Base)), ("mdt-receivers", ("mdt_receivers", MdtConfigData.MdtSubscription.MdtReceivers))])
             self._leafs = OrderedDict([
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
             ])
             self.subscription_id = None
 
-            self.base = MdtSubscriptions.MdtSubscription.Base()
+            self.base = MdtConfigData.MdtSubscription.Base()
             self.base.parent = self
             self._children_name_map["base"] = "base"
 
             self.mdt_receivers = YList(self)
             self._segment_path = lambda: "mdt-subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
-            self._absolute_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-config-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MdtSubscriptions.MdtSubscription, ['subscription_id'], name, value)
+            self._perform_setattr(MdtConfigData.MdtSubscription, ['subscription_id'], name, value)
 
 
         class Base(Entity):
@@ -330,10 +339,10 @@ class MdtSubscriptions(Entity):
             """
 
             _prefix = 'mdt-cfg'
-            _revision = '2017-10-29'
+            _revision = '2018-02-12'
 
             def __init__(self):
-                super(MdtSubscriptions.MdtSubscription.Base, self).__init__()
+                super(MdtConfigData.MdtSubscription.Base, self).__init__()
 
                 self.yang_name = "base"
                 self.yang_parent_name = "mdt-subscription"
@@ -342,17 +351,17 @@ class MdtSubscriptions(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stream', YLeaf(YType.str, 'stream')),
-                    ('encoding', YLeaf(YType.str, 'encoding')),
-                    ('source_vrf', YLeaf(YType.str, 'source-vrf')),
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('no_trigger', YLeaf(YType.uint32, 'no-trigger')),
-                    ('period', YLeaf(YType.uint32, 'period')),
-                    ('no_synch_on_start', YLeaf(YType.boolean, 'no-synch-on-start')),
-                    ('no_filter', YLeaf(YType.uint32, 'no-filter')),
-                    ('xpath', YLeaf(YType.str, 'xpath')),
-                    ('tdl_uri', YLeaf(YType.str, 'tdl-uri')),
-                    ('transform_name', YLeaf(YType.str, 'transform-name')),
+                    ('stream', (YLeaf(YType.str, 'stream'), ['str'])),
+                    ('encoding', (YLeaf(YType.str, 'encoding'), ['str'])),
+                    ('source_vrf', (YLeaf(YType.str, 'source-vrf'), ['str'])),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('no_trigger', (YLeaf(YType.uint32, 'no-trigger'), ['int'])),
+                    ('period', (YLeaf(YType.uint32, 'period'), ['int'])),
+                    ('no_synch_on_start', (YLeaf(YType.boolean, 'no-synch-on-start'), ['bool'])),
+                    ('no_filter', (YLeaf(YType.uint32, 'no-filter'), ['int'])),
+                    ('xpath', (YLeaf(YType.str, 'xpath'), ['str'])),
+                    ('tdl_uri', (YLeaf(YType.str, 'tdl-uri'), ['str'])),
+                    ('transform_name', (YLeaf(YType.str, 'transform-name'), ['str'])),
                 ])
                 self.stream = None
                 self.encoding = None
@@ -366,9 +375,10 @@ class MdtSubscriptions(Entity):
                 self.tdl_uri = None
                 self.transform_name = None
                 self._segment_path = lambda: "base"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtSubscription.Base, ['stream', 'encoding', 'source_vrf', 'source_address', 'no_trigger', 'period', 'no_synch_on_start', 'no_filter', 'xpath', 'tdl_uri', 'transform_name'], name, value)
+                self._perform_setattr(MdtConfigData.MdtSubscription.Base, [u'stream', u'encoding', u'source_vrf', u'source_address', u'no_trigger', u'period', u'no_synch_on_start', u'no_filter', u'xpath', u'tdl_uri', u'transform_name'], name, value)
 
 
         class MdtReceivers(Entity):
@@ -407,9 +417,9 @@ class MdtSubscriptions(Entity):
             
             	**default value**\: netconf
             
-            .. attribute:: security_profile
+            .. attribute:: profile
             
-            	Receiver security profile
+            	Name of protocol profile used by receiver
             	**type**\: str
             
             
@@ -417,10 +427,10 @@ class MdtSubscriptions(Entity):
             """
 
             _prefix = 'mdt-cfg'
-            _revision = '2017-10-29'
+            _revision = '2018-02-12'
 
             def __init__(self):
-                super(MdtSubscriptions.MdtSubscription.MdtReceivers, self).__init__()
+                super(MdtConfigData.MdtSubscription.MdtReceivers, self).__init__()
 
                 self.yang_name = "mdt-receivers"
                 self.yang_parent_name = "mdt-subscription"
@@ -429,19 +439,20 @@ class MdtSubscriptions(Entity):
                 self.ylist_key_names = ['address','port']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('address', YLeaf(YType.str, 'address')),
-                    ('port', YLeaf(YType.uint16, 'port')),
-                    ('protocol', YLeaf(YType.str, 'protocol')),
-                    ('security_profile', YLeaf(YType.str, 'security-profile')),
+                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                    ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                    ('protocol', (YLeaf(YType.str, 'protocol'), ['str'])),
+                    ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                 ])
                 self.address = None
                 self.port = None
                 self.protocol = None
-                self.security_profile = None
+                self.profile = None
                 self._segment_path = lambda: "mdt-receivers" + "[address='" + str(self.address) + "']" + "[port='" + str(self.port) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtSubscription.MdtReceivers, ['address', 'port', 'protocol', 'security_profile'], name, value)
+                self._perform_setattr(MdtConfigData.MdtSubscription.MdtReceivers, [u'address', u'port', 'protocol', 'profile'], name, value)
 
 
     class MdtXfrm(Entity):
@@ -461,32 +472,32 @@ class MdtSubscriptions(Entity):
         .. attribute:: mdt_xfrm_input
         
         	Transform input information
-        	**type**\: list of  		 :py:class:`MdtXfrmInput <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmInput>`
+        	**type**\: list of  		 :py:class:`MdtXfrmInput <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmInput>`
         
         .. attribute:: mdt_xfrm_op
         
         	Transform operations information
-        	**type**\: list of  		 :py:class:`MdtXfrmOp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmOp>`
+        	**type**\: list of  		 :py:class:`MdtXfrmOp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmOp>`
         
         
 
         """
 
         _prefix = 'mdt-cfg'
-        _revision = '2017-10-29'
+        _revision = '2018-02-12'
 
         def __init__(self):
-            super(MdtSubscriptions.MdtXfrm, self).__init__()
+            super(MdtConfigData.MdtXfrm, self).__init__()
 
             self.yang_name = "mdt-xfrm"
-            self.yang_parent_name = "mdt-subscriptions"
+            self.yang_parent_name = "mdt-config-data"
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_classes = OrderedDict([("mdt-xfrm-input", ("mdt_xfrm_input", MdtSubscriptions.MdtXfrm.MdtXfrmInput)), ("mdt-xfrm-op", ("mdt_xfrm_op", MdtSubscriptions.MdtXfrm.MdtXfrmOp))])
+            self._child_classes = OrderedDict([("mdt-xfrm-input", ("mdt_xfrm_input", MdtConfigData.MdtXfrm.MdtXfrmInput)), ("mdt-xfrm-op", ("mdt_xfrm_op", MdtConfigData.MdtXfrm.MdtXfrmOp))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('fully_specify', YLeaf(YType.boolean, 'fully-specify')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('fully_specify', (YLeaf(YType.boolean, 'fully-specify'), ['bool'])),
             ])
             self.name = None
             self.fully_specify = None
@@ -494,10 +505,11 @@ class MdtSubscriptions(Entity):
             self.mdt_xfrm_input = YList(self)
             self.mdt_xfrm_op = YList(self)
             self._segment_path = lambda: "mdt-xfrm" + "[name='" + str(self.name) + "']"
-            self._absolute_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-subscriptions/%s" % self._segment_path()
+            self._absolute_path = lambda: "Cisco-IOS-XE-mdt-cfg:mdt-config-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MdtSubscriptions.MdtXfrm, ['name', 'fully_specify'], name, value)
+            self._perform_setattr(MdtConfigData.MdtXfrm, ['name', 'fully_specify'], name, value)
 
 
         class MdtXfrmInput(Entity):
@@ -517,7 +529,7 @@ class MdtSubscriptions(Entity):
             .. attribute:: mdt_xfrm_input_field
             
             	Transform input URI table fields
-            	**type**\: list of  		 :py:class:`MdtXfrmInputField <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmInput.MdtXfrmInputField>`
+            	**type**\: list of  		 :py:class:`MdtXfrmInputField <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmInput.MdtXfrmInputField>`
             
             .. attribute:: join_key
             
@@ -539,23 +551,23 @@ class MdtSubscriptions(Entity):
             """
 
             _prefix = 'mdt-cfg'
-            _revision = '2017-10-29'
+            _revision = '2018-02-12'
 
             def __init__(self):
-                super(MdtSubscriptions.MdtXfrm.MdtXfrmInput, self).__init__()
+                super(MdtConfigData.MdtXfrm.MdtXfrmInput, self).__init__()
 
                 self.yang_name = "mdt-xfrm-input"
                 self.yang_parent_name = "mdt-xfrm"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['table_name']
-                self._child_classes = OrderedDict([("mdt-xfrm-input-field", ("mdt_xfrm_input_field", MdtSubscriptions.MdtXfrm.MdtXfrmInput.MdtXfrmInputField))])
+                self._child_classes = OrderedDict([("mdt-xfrm-input-field", ("mdt_xfrm_input_field", MdtConfigData.MdtXfrm.MdtXfrmInput.MdtXfrmInputField))])
                 self._leafs = OrderedDict([
-                    ('table_name', YLeaf(YType.str, 'table-name')),
-                    ('uri', YLeaf(YType.str, 'uri')),
-                    ('join_key', YLeaf(YType.str, 'join-key')),
-                    ('attr_type', YLeaf(YType.enumeration, 'attr-type')),
-                    ('lop', YLeaf(YType.enumeration, 'lop')),
+                    ('table_name', (YLeaf(YType.str, 'table-name'), ['str'])),
+                    ('uri', (YLeaf(YType.str, 'uri'), ['str'])),
+                    ('join_key', (YLeaf(YType.str, 'join-key'), ['str'])),
+                    ('attr_type', (YLeaf(YType.enumeration, 'attr-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmAttrType', '')])),
+                    ('lop', (YLeaf(YType.enumeration, 'lop'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmLogicOp', '')])),
                 ])
                 self.table_name = None
                 self.uri = None
@@ -565,9 +577,10 @@ class MdtSubscriptions(Entity):
 
                 self.mdt_xfrm_input_field = YList(self)
                 self._segment_path = lambda: "mdt-xfrm-input" + "[table-name='" + str(self.table_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmInput, ['table_name', 'uri', 'join_key', 'attr_type', 'lop'], name, value)
+                self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmInput, ['table_name', 'uri', 'join_key', 'attr_type', 'lop'], name, value)
 
 
             class MdtXfrmInputField(Entity):
@@ -584,10 +597,10 @@ class MdtSubscriptions(Entity):
                 """
 
                 _prefix = 'mdt-cfg'
-                _revision = '2017-10-29'
+                _revision = '2018-02-12'
 
                 def __init__(self):
-                    super(MdtSubscriptions.MdtXfrm.MdtXfrmInput.MdtXfrmInputField, self).__init__()
+                    super(MdtConfigData.MdtXfrm.MdtXfrmInput.MdtXfrmInputField, self).__init__()
 
                     self.yang_name = "mdt-xfrm-input-field"
                     self.yang_parent_name = "mdt-xfrm-input"
@@ -596,13 +609,14 @@ class MdtSubscriptions(Entity):
                     self.ylist_key_names = ['field']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('field', YLeaf(YType.str, 'field')),
+                        ('field', (YLeaf(YType.str, 'field'), ['str'])),
                     ])
                     self.field = None
                     self._segment_path = lambda: "mdt-xfrm-input-field" + "[field='" + str(self.field) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmInput.MdtXfrmInputField, ['field'], name, value)
+                    self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmInput.MdtXfrmInputField, ['field'], name, value)
 
 
         class MdtXfrmOp(Entity):
@@ -619,40 +633,41 @@ class MdtSubscriptions(Entity):
             .. attribute:: mdt_xfrm_op_filters
             
             	Transform operation filters.  These are evaluated before performing transform action (e.g. subrecord)  on the response record
-            	**type**\: list of  		 :py:class:`MdtXfrmOpFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters>`
+            	**type**\: list of  		 :py:class:`MdtXfrmOpFilters <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters>`
             
             .. attribute:: mdt_xfrm_op_fields
             
             	Transform operation fields.  Default operation is subrecord. It is performed on each field
-            	**type**\: list of  		 :py:class:`MdtXfrmOpFields <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields>`
+            	**type**\: list of  		 :py:class:`MdtXfrmOpFields <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields>`
             
             
 
             """
 
             _prefix = 'mdt-cfg'
-            _revision = '2017-10-29'
+            _revision = '2018-02-12'
 
             def __init__(self):
-                super(MdtSubscriptions.MdtXfrm.MdtXfrmOp, self).__init__()
+                super(MdtConfigData.MdtXfrm.MdtXfrmOp, self).__init__()
 
                 self.yang_name = "mdt-xfrm-op"
                 self.yang_parent_name = "mdt-xfrm"
                 self.is_top_level_class = False
                 self.has_list_ancestor = True
                 self.ylist_key_names = ['id']
-                self._child_classes = OrderedDict([("mdt-xfrm-op-filters", ("mdt_xfrm_op_filters", MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters)), ("mdt-xfrm-op-fields", ("mdt_xfrm_op_fields", MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields))])
+                self._child_classes = OrderedDict([("mdt-xfrm-op-filters", ("mdt_xfrm_op_filters", MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters)), ("mdt-xfrm-op-fields", ("mdt_xfrm_op_fields", MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields))])
                 self._leafs = OrderedDict([
-                    ('id', YLeaf(YType.uint32, 'id')),
+                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
                 ])
                 self.id = None
 
                 self.mdt_xfrm_op_filters = YList(self)
                 self.mdt_xfrm_op_fields = YList(self)
                 self._segment_path = lambda: "mdt-xfrm-op" + "[id='" + str(self.id) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmOp, ['id'], name, value)
+                self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp, ['id'], name, value)
 
 
             class MdtXfrmOpFilters(Entity):
@@ -677,7 +692,7 @@ class MdtSubscriptions(Entity):
                 .. attribute:: op_event
                 
                 	Transform operation event flag (e.g. onchange)
-                	**type**\:  :py:class:`OpEvent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent>`
+                	**type**\:  :py:class:`OpEvent <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent>`
                 
                 .. attribute:: lop
                 
@@ -687,7 +702,7 @@ class MdtSubscriptions(Entity):
                 .. attribute:: condition
                 
                 	Per field condition (e.g. f1 eq 'name')
-                	**type**\:  :py:class:`Condition <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition>`
+                	**type**\:  :py:class:`Condition <ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg.MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition>`
                 
                 .. attribute:: next_lop
                 
@@ -699,39 +714,40 @@ class MdtSubscriptions(Entity):
                 """
 
                 _prefix = 'mdt-cfg'
-                _revision = '2017-10-29'
+                _revision = '2018-02-12'
 
                 def __init__(self):
-                    super(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters, self).__init__()
+                    super(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters, self).__init__()
 
                     self.yang_name = "mdt-xfrm-op-filters"
                     self.yang_parent_name = "mdt-xfrm-op"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['filter_id']
-                    self._child_classes = OrderedDict([("op-event", ("op_event", MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent)), ("condition", ("condition", MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition))])
+                    self._child_classes = OrderedDict([("op-event", ("op_event", MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent)), ("condition", ("condition", MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition))])
                     self._leafs = OrderedDict([
-                        ('filter_id', YLeaf(YType.uint32, 'filter-id')),
-                        ('field', YLeaf(YType.str, 'field')),
-                        ('lop', YLeaf(YType.enumeration, 'lop')),
-                        ('next_lop', YLeaf(YType.enumeration, 'next-lop')),
+                        ('filter_id', (YLeaf(YType.uint32, 'filter-id'), ['int'])),
+                        ('field', (YLeaf(YType.str, 'field'), ['str'])),
+                        ('lop', (YLeaf(YType.enumeration, 'lop'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmLogicOp', '')])),
+                        ('next_lop', (YLeaf(YType.enumeration, 'next-lop'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmLogicOp', '')])),
                     ])
                     self.filter_id = None
                     self.field = None
                     self.lop = None
                     self.next_lop = None
 
-                    self.op_event = MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent()
+                    self.op_event = MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent()
                     self.op_event.parent = self
                     self._children_name_map["op_event"] = "op-event"
 
-                    self.condition = MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition()
+                    self.condition = MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition()
                     self.condition.parent = self
                     self._children_name_map["condition"] = "condition"
                     self._segment_path = lambda: "mdt-xfrm-op-filters" + "[filter-id='" + str(self.filter_id) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters, ['filter_id', 'field', 'lop', 'next_lop'], name, value)
+                    self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters, ['filter_id', 'field', 'lop', 'next_lop'], name, value)
 
 
                 class OpEvent(Entity):
@@ -748,10 +764,10 @@ class MdtSubscriptions(Entity):
                     """
 
                     _prefix = 'mdt-cfg'
-                    _revision = '2017-10-29'
+                    _revision = '2018-02-12'
 
                     def __init__(self):
-                        super(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent, self).__init__()
+                        super(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent, self).__init__()
 
                         self.yang_name = "op-event"
                         self.yang_parent_name = "mdt-xfrm-op-filters"
@@ -760,13 +776,14 @@ class MdtSubscriptions(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('onchange', YLeaf(YType.boolean, 'onchange')),
+                            ('onchange', (YLeaf(YType.boolean, 'onchange'), ['bool'])),
                         ])
                         self.onchange = None
                         self._segment_path = lambda: "op-event"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent, ['onchange'], name, value)
+                        self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.OpEvent, ['onchange'], name, value)
 
 
                 class Condition(Entity):
@@ -788,10 +805,10 @@ class MdtSubscriptions(Entity):
                     """
 
                     _prefix = 'mdt-cfg'
-                    _revision = '2017-10-29'
+                    _revision = '2018-02-12'
 
                     def __init__(self):
-                        super(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition, self).__init__()
+                        super(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition, self).__init__()
 
                         self.yang_name = "condition"
                         self.yang_parent_name = "mdt-xfrm-op-filters"
@@ -800,15 +817,16 @@ class MdtSubscriptions(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('operator', YLeaf(YType.enumeration, 'operator')),
-                            ('value', YLeaf(YType.str, 'value')),
+                            ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmOperator', '')])),
+                            ('value', (YLeaf(YType.str, 'value'), ['str'])),
                         ])
                         self.operator = None
                         self.value = None
                         self._segment_path = lambda: "condition"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition, ['operator', 'value'], name, value)
+                        self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFilters.Condition, ['operator', 'value'], name, value)
 
 
             class MdtXfrmOpFields(Entity):
@@ -839,10 +857,10 @@ class MdtSubscriptions(Entity):
                 """
 
                 _prefix = 'mdt-cfg'
-                _revision = '2017-10-29'
+                _revision = '2018-02-12'
 
                 def __init__(self):
-                    super(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields, self).__init__()
+                    super(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields, self).__init__()
 
                     self.yang_name = "mdt-xfrm-op-fields"
                     self.yang_parent_name = "mdt-xfrm-op"
@@ -851,19 +869,20 @@ class MdtSubscriptions(Entity):
                     self.ylist_key_names = ['field_id']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('field_id', YLeaf(YType.uint32, 'field-id')),
-                        ('field', YLeaf(YType.str, 'field')),
-                        ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                        ('field_id', (YLeaf(YType.uint32, 'field-id'), ['int'])),
+                        ('field', (YLeaf(YType.str, 'field'), ['str'])),
+                        ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_mdt_cfg', 'MdtXfrmOpType', '')])),
                     ])
                     self.field_id = None
                     self.field = None
                     self.op_type = None
                     self._segment_path = lambda: "mdt-xfrm-op-fields" + "[field-id='" + str(self.field_id) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MdtSubscriptions.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields, ['field_id', 'field', 'op_type'], name, value)
+                    self._perform_setattr(MdtConfigData.MdtXfrm.MdtXfrmOp.MdtXfrmOpFields, ['field_id', 'field', 'op_type'], name, value)
 
     def clone_ptr(self):
-        self._top_entity = MdtSubscriptions()
+        self._top_entity = MdtConfigData()
         return self._top_entity
 

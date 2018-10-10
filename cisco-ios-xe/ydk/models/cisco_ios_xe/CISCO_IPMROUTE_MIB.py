@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPMROUTEMIB(Entity):
     """
     
@@ -55,6 +56,7 @@ class CISCOIPMROUTEMIB(Entity):
         self.ciscoipmrouteheartbeattable.parent = self
         self._children_name_map["ciscoipmrouteheartbeattable"] = "ciscoIpMRouteHeartBeatTable"
         self._segment_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPMROUTEMIB, [], name, value)
@@ -88,11 +90,12 @@ class CISCOIPMROUTEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciscoipmroutenumberofentries', YLeaf(YType.uint32, 'ciscoIpMRouteNumberOfEntries')),
+                ('ciscoipmroutenumberofentries', (YLeaf(YType.uint32, 'ciscoIpMRouteNumberOfEntries'), ['int'])),
             ])
             self.ciscoipmroutenumberofentries = None
             self._segment_path = lambda: "ciscoIpMRoute"
             self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRoute, ['ciscoipmroutenumberofentries'], name, value)
@@ -130,6 +133,7 @@ class CISCOIPMROUTEMIB(Entity):
             self.ciscoipmrouteheartbeatentry = YList(self)
             self._segment_path = lambda: "ciscoIpMRouteHeartBeatTable"
             self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable, [], name, value)
@@ -213,14 +217,14 @@ class CISCOIPMROUTEMIB(Entity):
                 self.ylist_key_names = ['ciscoipmrouteheartbeatgroupaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoipmrouteheartbeatgroupaddr', YLeaf(YType.str, 'ciscoIpMRouteHeartBeatGroupAddr')),
-                    ('ciscoipmrouteheartbeatsourceaddr', YLeaf(YType.str, 'ciscoIpMRouteHeartBeatSourceAddr')),
-                    ('ciscoipmrouteheartbeatinterval', YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatInterval')),
-                    ('ciscoipmrouteheartbeatwindowsize', YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatWindowSize')),
-                    ('ciscoipmrouteheartbeatcount', YLeaf(YType.uint32, 'ciscoIpMRouteHeartBeatCount')),
-                    ('ciscoipmrouteheartbeatminimum', YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatMinimum')),
-                    ('ciscoipmrouteheartbeatalerttime', YLeaf(YType.uint32, 'ciscoIpMRouteHeartBeatAlertTime')),
-                    ('ciscoipmrouteheartbeatstatus', YLeaf(YType.enumeration, 'ciscoIpMRouteHeartBeatStatus')),
+                    ('ciscoipmrouteheartbeatgroupaddr', (YLeaf(YType.str, 'ciscoIpMRouteHeartBeatGroupAddr'), ['str'])),
+                    ('ciscoipmrouteheartbeatsourceaddr', (YLeaf(YType.str, 'ciscoIpMRouteHeartBeatSourceAddr'), ['str'])),
+                    ('ciscoipmrouteheartbeatinterval', (YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatInterval'), ['int'])),
+                    ('ciscoipmrouteheartbeatwindowsize', (YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatWindowSize'), ['int'])),
+                    ('ciscoipmrouteheartbeatcount', (YLeaf(YType.uint32, 'ciscoIpMRouteHeartBeatCount'), ['int'])),
+                    ('ciscoipmrouteheartbeatminimum', (YLeaf(YType.int32, 'ciscoIpMRouteHeartBeatMinimum'), ['int'])),
+                    ('ciscoipmrouteheartbeatalerttime', (YLeaf(YType.uint32, 'ciscoIpMRouteHeartBeatAlertTime'), ['int'])),
+                    ('ciscoipmrouteheartbeatstatus', (YLeaf(YType.enumeration, 'ciscoIpMRouteHeartBeatStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ciscoipmrouteheartbeatgroupaddr = None
                 self.ciscoipmrouteheartbeatsourceaddr = None
@@ -232,6 +236,7 @@ class CISCOIPMROUTEMIB(Entity):
                 self.ciscoipmrouteheartbeatstatus = None
                 self._segment_path = lambda: "ciscoIpMRouteHeartBeatEntry" + "[ciscoIpMRouteHeartBeatGroupAddr='" + str(self.ciscoipmrouteheartbeatgroupaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IPMROUTE-MIB:CISCO-IPMROUTE-MIB/ciscoIpMRouteHeartBeatTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPMROUTEMIB.CiscoIpMRouteHeartBeatTable.CiscoIpMRouteHeartBeatEntry, ['ciscoipmrouteheartbeatgroupaddr', 'ciscoipmrouteheartbeatsourceaddr', 'ciscoipmrouteheartbeatinterval', 'ciscoipmrouteheartbeatwindowsize', 'ciscoipmrouteheartbeatcount', 'ciscoipmrouteheartbeatminimum', 'ciscoipmrouteheartbeatalerttime', 'ciscoipmrouteheartbeatstatus'], name, value)

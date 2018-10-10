@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class SNMPv2MIB(Entity):
     """
     
@@ -75,6 +76,7 @@ class SNMPv2MIB(Entity):
         self.sysortable.parent = self
         self._children_name_map["sysortable"] = "sysORTable"
         self._segment_path = lambda: "SNMPv2-MIB:SNMPv2-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SNMPv2MIB, [], name, value)
@@ -157,14 +159,14 @@ class SNMPv2MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sysdescr', YLeaf(YType.str, 'sysDescr')),
-                ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
-                ('sysuptime', YLeaf(YType.uint32, 'sysUpTime')),
-                ('syscontact', YLeaf(YType.str, 'sysContact')),
-                ('sysname', YLeaf(YType.str, 'sysName')),
-                ('syslocation', YLeaf(YType.str, 'sysLocation')),
-                ('sysservices', YLeaf(YType.int32, 'sysServices')),
-                ('sysorlastchange', YLeaf(YType.uint32, 'sysORLastChange')),
+                ('sysdescr', (YLeaf(YType.str, 'sysDescr'), ['str'])),
+                ('sysobjectid', (YLeaf(YType.str, 'sysObjectID'), ['str'])),
+                ('sysuptime', (YLeaf(YType.uint32, 'sysUpTime'), ['int'])),
+                ('syscontact', (YLeaf(YType.str, 'sysContact'), ['str'])),
+                ('sysname', (YLeaf(YType.str, 'sysName'), ['str'])),
+                ('syslocation', (YLeaf(YType.str, 'sysLocation'), ['str'])),
+                ('sysservices', (YLeaf(YType.int32, 'sysServices'), ['int'])),
+                ('sysorlastchange', (YLeaf(YType.uint32, 'sysORLastChange'), ['int'])),
             ])
             self.sysdescr = None
             self.sysobjectid = None
@@ -176,6 +178,7 @@ class SNMPv2MIB(Entity):
             self.sysorlastchange = None
             self._segment_path = lambda: "system"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices', u'sysorlastchange'], name, value)
@@ -454,36 +457,36 @@ class SNMPv2MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
-                ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
-                ('snmpinbadversions', YLeaf(YType.uint32, 'snmpInBadVersions')),
-                ('snmpinbadcommunitynames', YLeaf(YType.uint32, 'snmpInBadCommunityNames')),
-                ('snmpinbadcommunityuses', YLeaf(YType.uint32, 'snmpInBadCommunityUses')),
-                ('snmpinasnparseerrs', YLeaf(YType.uint32, 'snmpInASNParseErrs')),
-                ('snmpintoobigs', YLeaf(YType.uint32, 'snmpInTooBigs')),
-                ('snmpinnosuchnames', YLeaf(YType.uint32, 'snmpInNoSuchNames')),
-                ('snmpinbadvalues', YLeaf(YType.uint32, 'snmpInBadValues')),
-                ('snmpinreadonlys', YLeaf(YType.uint32, 'snmpInReadOnlys')),
-                ('snmpingenerrs', YLeaf(YType.uint32, 'snmpInGenErrs')),
-                ('snmpintotalreqvars', YLeaf(YType.uint32, 'snmpInTotalReqVars')),
-                ('snmpintotalsetvars', YLeaf(YType.uint32, 'snmpInTotalSetVars')),
-                ('snmpingetrequests', YLeaf(YType.uint32, 'snmpInGetRequests')),
-                ('snmpingetnexts', YLeaf(YType.uint32, 'snmpInGetNexts')),
-                ('snmpinsetrequests', YLeaf(YType.uint32, 'snmpInSetRequests')),
-                ('snmpingetresponses', YLeaf(YType.uint32, 'snmpInGetResponses')),
-                ('snmpintraps', YLeaf(YType.uint32, 'snmpInTraps')),
-                ('snmpouttoobigs', YLeaf(YType.uint32, 'snmpOutTooBigs')),
-                ('snmpoutnosuchnames', YLeaf(YType.uint32, 'snmpOutNoSuchNames')),
-                ('snmpoutbadvalues', YLeaf(YType.uint32, 'snmpOutBadValues')),
-                ('snmpoutgenerrs', YLeaf(YType.uint32, 'snmpOutGenErrs')),
-                ('snmpoutgetrequests', YLeaf(YType.uint32, 'snmpOutGetRequests')),
-                ('snmpoutgetnexts', YLeaf(YType.uint32, 'snmpOutGetNexts')),
-                ('snmpoutsetrequests', YLeaf(YType.uint32, 'snmpOutSetRequests')),
-                ('snmpoutgetresponses', YLeaf(YType.uint32, 'snmpOutGetResponses')),
-                ('snmpouttraps', YLeaf(YType.uint32, 'snmpOutTraps')),
-                ('snmpenableauthentraps', YLeaf(YType.enumeration, 'snmpEnableAuthenTraps')),
-                ('snmpsilentdrops', YLeaf(YType.uint32, 'snmpSilentDrops')),
-                ('snmpproxydrops', YLeaf(YType.uint32, 'snmpProxyDrops')),
+                ('snmpinpkts', (YLeaf(YType.uint32, 'snmpInPkts'), ['int'])),
+                ('snmpoutpkts', (YLeaf(YType.uint32, 'snmpOutPkts'), ['int'])),
+                ('snmpinbadversions', (YLeaf(YType.uint32, 'snmpInBadVersions'), ['int'])),
+                ('snmpinbadcommunitynames', (YLeaf(YType.uint32, 'snmpInBadCommunityNames'), ['int'])),
+                ('snmpinbadcommunityuses', (YLeaf(YType.uint32, 'snmpInBadCommunityUses'), ['int'])),
+                ('snmpinasnparseerrs', (YLeaf(YType.uint32, 'snmpInASNParseErrs'), ['int'])),
+                ('snmpintoobigs', (YLeaf(YType.uint32, 'snmpInTooBigs'), ['int'])),
+                ('snmpinnosuchnames', (YLeaf(YType.uint32, 'snmpInNoSuchNames'), ['int'])),
+                ('snmpinbadvalues', (YLeaf(YType.uint32, 'snmpInBadValues'), ['int'])),
+                ('snmpinreadonlys', (YLeaf(YType.uint32, 'snmpInReadOnlys'), ['int'])),
+                ('snmpingenerrs', (YLeaf(YType.uint32, 'snmpInGenErrs'), ['int'])),
+                ('snmpintotalreqvars', (YLeaf(YType.uint32, 'snmpInTotalReqVars'), ['int'])),
+                ('snmpintotalsetvars', (YLeaf(YType.uint32, 'snmpInTotalSetVars'), ['int'])),
+                ('snmpingetrequests', (YLeaf(YType.uint32, 'snmpInGetRequests'), ['int'])),
+                ('snmpingetnexts', (YLeaf(YType.uint32, 'snmpInGetNexts'), ['int'])),
+                ('snmpinsetrequests', (YLeaf(YType.uint32, 'snmpInSetRequests'), ['int'])),
+                ('snmpingetresponses', (YLeaf(YType.uint32, 'snmpInGetResponses'), ['int'])),
+                ('snmpintraps', (YLeaf(YType.uint32, 'snmpInTraps'), ['int'])),
+                ('snmpouttoobigs', (YLeaf(YType.uint32, 'snmpOutTooBigs'), ['int'])),
+                ('snmpoutnosuchnames', (YLeaf(YType.uint32, 'snmpOutNoSuchNames'), ['int'])),
+                ('snmpoutbadvalues', (YLeaf(YType.uint32, 'snmpOutBadValues'), ['int'])),
+                ('snmpoutgenerrs', (YLeaf(YType.uint32, 'snmpOutGenErrs'), ['int'])),
+                ('snmpoutgetrequests', (YLeaf(YType.uint32, 'snmpOutGetRequests'), ['int'])),
+                ('snmpoutgetnexts', (YLeaf(YType.uint32, 'snmpOutGetNexts'), ['int'])),
+                ('snmpoutsetrequests', (YLeaf(YType.uint32, 'snmpOutSetRequests'), ['int'])),
+                ('snmpoutgetresponses', (YLeaf(YType.uint32, 'snmpOutGetResponses'), ['int'])),
+                ('snmpouttraps', (YLeaf(YType.uint32, 'snmpOutTraps'), ['int'])),
+                ('snmpenableauthentraps', (YLeaf(YType.enumeration, 'snmpEnableAuthenTraps'), [('ydk.models.cisco_ios_xe.SNMPv2_MIB', 'SNMPv2MIB', 'Snmp.SnmpEnableAuthenTraps')])),
+                ('snmpsilentdrops', (YLeaf(YType.uint32, 'snmpSilentDrops'), ['int'])),
+                ('snmpproxydrops', (YLeaf(YType.uint32, 'snmpProxyDrops'), ['int'])),
             ])
             self.snmpinpkts = None
             self.snmpoutpkts = None
@@ -517,6 +520,7 @@ class SNMPv2MIB(Entity):
             self.snmpproxydrops = None
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps', u'snmpsilentdrops', u'snmpproxydrops'], name, value)
@@ -583,11 +587,12 @@ class SNMPv2MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('snmpsetserialno', YLeaf(YType.int32, 'snmpSetSerialNo')),
+                ('snmpsetserialno', (YLeaf(YType.int32, 'snmpSetSerialNo'), ['int'])),
             ])
             self.snmpsetserialno = None
             self._segment_path = lambda: "snmpSet"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.SnmpSet, [u'snmpsetserialno'], name, value)
@@ -628,6 +633,7 @@ class SNMPv2MIB(Entity):
             self.sysorentry = YList(self)
             self._segment_path = lambda: "sysORTable"
             self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPv2MIB.SysORTable, [], name, value)
@@ -680,10 +686,10 @@ class SNMPv2MIB(Entity):
                 self.ylist_key_names = ['sysorindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sysorindex', YLeaf(YType.int32, 'sysORIndex')),
-                    ('sysorid', YLeaf(YType.str, 'sysORID')),
-                    ('sysordescr', YLeaf(YType.str, 'sysORDescr')),
-                    ('sysoruptime', YLeaf(YType.uint32, 'sysORUpTime')),
+                    ('sysorindex', (YLeaf(YType.int32, 'sysORIndex'), ['int'])),
+                    ('sysorid', (YLeaf(YType.str, 'sysORID'), ['str'])),
+                    ('sysordescr', (YLeaf(YType.str, 'sysORDescr'), ['str'])),
+                    ('sysoruptime', (YLeaf(YType.uint32, 'sysORUpTime'), ['int'])),
                 ])
                 self.sysorindex = None
                 self.sysorid = None
@@ -691,6 +697,7 @@ class SNMPv2MIB(Entity):
                 self.sysoruptime = None
                 self._segment_path = lambda: "sysOREntry" + "[sysORIndex='" + str(self.sysorindex) + "']"
                 self._absolute_path = lambda: "SNMPv2-MIB:SNMPv2-MIB/sysORTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPv2MIB.SysORTable.SysOREntry, [u'sysorindex', u'sysorid', u'sysordescr', u'sysoruptime'], name, value)

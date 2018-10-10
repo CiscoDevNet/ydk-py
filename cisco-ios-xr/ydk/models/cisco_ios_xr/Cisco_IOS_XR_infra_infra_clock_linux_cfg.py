@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   clock\: Configure time\-of\-day clock
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +54,7 @@ class Clock(Entity):
         self.time_zone = None
         self._children_name_map["time_zone"] = "time-zone"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Clock, [], name, value)
@@ -96,13 +98,14 @@ class Clock(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('time_zone_name', YLeaf(YType.str, 'time-zone-name')),
-                ('area_name', YLeaf(YType.str, 'area-name')),
+                ('time_zone_name', (YLeaf(YType.str, 'time-zone-name'), ['str'])),
+                ('area_name', (YLeaf(YType.str, 'area-name'), ['str'])),
             ])
             self.time_zone_name = None
             self.area_name = None
             self._segment_path = lambda: "time-zone"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-clock-linux-cfg:clock/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Clock.TimeZone, ['time_zone_name', 'area_name'], name, value)

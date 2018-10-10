@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
         self.cvivlaninterfaceindextable.parent = self
         self._children_name_map["cvivlaninterfaceindextable"] = "cviVlanInterfaceIndexTable"
         self._segment_path = lambda: "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOVLANIFTABLERELATIONSHIPMIB, [], name, value)
@@ -97,6 +99,7 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
             self.cvivlaninterfaceindexentry = YList(self)
             self._segment_path = lambda: "cviVlanInterfaceIndexTable"
             self._absolute_path = lambda: "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANIFTABLERELATIONSHIPMIB.CviVlanInterfaceIndexTable, [], name, value)
@@ -154,15 +157,16 @@ class CISCOVLANIFTABLERELATIONSHIPMIB(Entity):
                 self.ylist_key_names = ['cvivlanid','cviphysicalifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cvivlanid', YLeaf(YType.int32, 'cviVlanId')),
-                    ('cviphysicalifindex', YLeaf(YType.int32, 'cviPhysicalIfIndex')),
-                    ('cviroutedvlanifindex', YLeaf(YType.int32, 'cviRoutedVlanIfIndex')),
+                    ('cvivlanid', (YLeaf(YType.int32, 'cviVlanId'), ['int'])),
+                    ('cviphysicalifindex', (YLeaf(YType.int32, 'cviPhysicalIfIndex'), ['int'])),
+                    ('cviroutedvlanifindex', (YLeaf(YType.int32, 'cviRoutedVlanIfIndex'), ['int'])),
                 ])
                 self.cvivlanid = None
                 self.cviphysicalifindex = None
                 self.cviroutedvlanifindex = None
                 self._segment_path = lambda: "cviVlanInterfaceIndexEntry" + "[cviVlanId='" + str(self.cvivlanid) + "']" + "[cviPhysicalIfIndex='" + str(self.cviphysicalifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB:CISCO-VLAN-IFTABLE-RELATIONSHIP-MIB/cviVlanInterfaceIndexTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANIFTABLERELATIONSHIPMIB.CviVlanInterfaceIndexTable.CviVlanInterfaceIndexEntry, ['cvivlanid', 'cviphysicalifindex', 'cviroutedvlanifindex'], name, value)

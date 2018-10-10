@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class TCPMIB(Entity):
     """
     
@@ -77,6 +78,7 @@ class TCPMIB(Entity):
         self.tcplistenertable.parent = self
         self._children_name_map["tcplistenertable"] = "tcpListenerTable"
         self._segment_path = lambda: "TCP-MIB:TCP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TCPMIB, [], name, value)
@@ -217,22 +219,22 @@ class TCPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
-                ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
-                ('tcprtomax', YLeaf(YType.int32, 'tcpRtoMax')),
-                ('tcpmaxconn', YLeaf(YType.int32, 'tcpMaxConn')),
-                ('tcpactiveopens', YLeaf(YType.uint32, 'tcpActiveOpens')),
-                ('tcppassiveopens', YLeaf(YType.uint32, 'tcpPassiveOpens')),
-                ('tcpattemptfails', YLeaf(YType.uint32, 'tcpAttemptFails')),
-                ('tcpestabresets', YLeaf(YType.uint32, 'tcpEstabResets')),
-                ('tcpcurrestab', YLeaf(YType.uint32, 'tcpCurrEstab')),
-                ('tcpinsegs', YLeaf(YType.uint32, 'tcpInSegs')),
-                ('tcpoutsegs', YLeaf(YType.uint32, 'tcpOutSegs')),
-                ('tcpretranssegs', YLeaf(YType.uint32, 'tcpRetransSegs')),
-                ('tcpinerrs', YLeaf(YType.uint32, 'tcpInErrs')),
-                ('tcpoutrsts', YLeaf(YType.uint32, 'tcpOutRsts')),
-                ('tcphcinsegs', YLeaf(YType.uint64, 'tcpHCInSegs')),
-                ('tcphcoutsegs', YLeaf(YType.uint64, 'tcpHCOutSegs')),
+                ('tcprtoalgorithm', (YLeaf(YType.enumeration, 'tcpRtoAlgorithm'), [('ydk.models.cisco_ios_xe.TCP_MIB', 'TCPMIB', 'Tcp.TcpRtoAlgorithm')])),
+                ('tcprtomin', (YLeaf(YType.int32, 'tcpRtoMin'), ['int'])),
+                ('tcprtomax', (YLeaf(YType.int32, 'tcpRtoMax'), ['int'])),
+                ('tcpmaxconn', (YLeaf(YType.int32, 'tcpMaxConn'), ['int'])),
+                ('tcpactiveopens', (YLeaf(YType.uint32, 'tcpActiveOpens'), ['int'])),
+                ('tcppassiveopens', (YLeaf(YType.uint32, 'tcpPassiveOpens'), ['int'])),
+                ('tcpattemptfails', (YLeaf(YType.uint32, 'tcpAttemptFails'), ['int'])),
+                ('tcpestabresets', (YLeaf(YType.uint32, 'tcpEstabResets'), ['int'])),
+                ('tcpcurrestab', (YLeaf(YType.uint32, 'tcpCurrEstab'), ['int'])),
+                ('tcpinsegs', (YLeaf(YType.uint32, 'tcpInSegs'), ['int'])),
+                ('tcpoutsegs', (YLeaf(YType.uint32, 'tcpOutSegs'), ['int'])),
+                ('tcpretranssegs', (YLeaf(YType.uint32, 'tcpRetransSegs'), ['int'])),
+                ('tcpinerrs', (YLeaf(YType.uint32, 'tcpInErrs'), ['int'])),
+                ('tcpoutrsts', (YLeaf(YType.uint32, 'tcpOutRsts'), ['int'])),
+                ('tcphcinsegs', (YLeaf(YType.uint64, 'tcpHCInSegs'), ['int'])),
+                ('tcphcoutsegs', (YLeaf(YType.uint64, 'tcpHCOutSegs'), ['int'])),
             ])
             self.tcprtoalgorithm = None
             self.tcprtomin = None
@@ -252,6 +254,7 @@ class TCPMIB(Entity):
             self.tcphcoutsegs = None
             self._segment_path = lambda: "tcp"
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TCPMIB.Tcp, ['tcprtoalgorithm', 'tcprtomin', 'tcprtomax', 'tcpmaxconn', 'tcpactiveopens', 'tcppassiveopens', 'tcpattemptfails', 'tcpestabresets', 'tcpcurrestab', 'tcpinsegs', 'tcpoutsegs', 'tcpretranssegs', 'tcpinerrs', 'tcpoutrsts', 'tcphcinsegs', 'tcphcoutsegs'], name, value)
@@ -323,6 +326,7 @@ class TCPMIB(Entity):
             self.tcpconnentry = YList(self)
             self._segment_path = lambda: "tcpConnTable"
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TCPMIB.TcpConnTable, [], name, value)
@@ -396,11 +400,11 @@ class TCPMIB(Entity):
                 self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
-                    ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
-                    ('tcpconnremaddress', YLeaf(YType.str, 'tcpConnRemAddress')),
-                    ('tcpconnremport', YLeaf(YType.int32, 'tcpConnRemPort')),
-                    ('tcpconnstate', YLeaf(YType.enumeration, 'tcpConnState')),
+                    ('tcpconnlocaladdress', (YLeaf(YType.str, 'tcpConnLocalAddress'), ['str'])),
+                    ('tcpconnlocalport', (YLeaf(YType.int32, 'tcpConnLocalPort'), ['int'])),
+                    ('tcpconnremaddress', (YLeaf(YType.str, 'tcpConnRemAddress'), ['str'])),
+                    ('tcpconnremport', (YLeaf(YType.int32, 'tcpConnRemPort'), ['int'])),
+                    ('tcpconnstate', (YLeaf(YType.enumeration, 'tcpConnState'), [('ydk.models.cisco_ios_xe.TCP_MIB', 'TCPMIB', 'TcpConnTable.TcpConnEntry.TcpConnState')])),
                 ])
                 self.tcpconnlocaladdress = None
                 self.tcpconnlocalport = None
@@ -409,6 +413,7 @@ class TCPMIB(Entity):
                 self.tcpconnstate = None
                 self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + str(self.tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + str(self.tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + str(self.tcpconnremaddress) + "']" + "[tcpConnRemPort='" + str(self.tcpconnremport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TCPMIB.TcpConnTable.TcpConnEntry, ['tcpconnlocaladdress', 'tcpconnlocalport', 'tcpconnremaddress', 'tcpconnremport', 'tcpconnstate'], name, value)
@@ -527,6 +532,7 @@ class TCPMIB(Entity):
             self.tcpconnectionentry = YList(self)
             self._segment_path = lambda: "tcpConnectionTable"
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TCPMIB.TcpConnectionTable, [], name, value)
@@ -607,14 +613,14 @@ class TCPMIB(Entity):
                 self.ylist_key_names = ['tcpconnectionlocaladdresstype','tcpconnectionlocaladdress','tcpconnectionlocalport','tcpconnectionremaddresstype','tcpconnectionremaddress','tcpconnectionremport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tcpconnectionlocaladdresstype', YLeaf(YType.enumeration, 'tcpConnectionLocalAddressType')),
-                    ('tcpconnectionlocaladdress', YLeaf(YType.str, 'tcpConnectionLocalAddress')),
-                    ('tcpconnectionlocalport', YLeaf(YType.uint16, 'tcpConnectionLocalPort')),
-                    ('tcpconnectionremaddresstype', YLeaf(YType.enumeration, 'tcpConnectionRemAddressType')),
-                    ('tcpconnectionremaddress', YLeaf(YType.str, 'tcpConnectionRemAddress')),
-                    ('tcpconnectionremport', YLeaf(YType.uint16, 'tcpConnectionRemPort')),
-                    ('tcpconnectionstate', YLeaf(YType.enumeration, 'tcpConnectionState')),
-                    ('tcpconnectionprocess', YLeaf(YType.uint32, 'tcpConnectionProcess')),
+                    ('tcpconnectionlocaladdresstype', (YLeaf(YType.enumeration, 'tcpConnectionLocalAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('tcpconnectionlocaladdress', (YLeaf(YType.str, 'tcpConnectionLocalAddress'), ['str'])),
+                    ('tcpconnectionlocalport', (YLeaf(YType.uint16, 'tcpConnectionLocalPort'), ['int'])),
+                    ('tcpconnectionremaddresstype', (YLeaf(YType.enumeration, 'tcpConnectionRemAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('tcpconnectionremaddress', (YLeaf(YType.str, 'tcpConnectionRemAddress'), ['str'])),
+                    ('tcpconnectionremport', (YLeaf(YType.uint16, 'tcpConnectionRemPort'), ['int'])),
+                    ('tcpconnectionstate', (YLeaf(YType.enumeration, 'tcpConnectionState'), [('ydk.models.cisco_ios_xe.TCP_MIB', 'TCPMIB', 'TcpConnectionTable.TcpConnectionEntry.TcpConnectionState')])),
+                    ('tcpconnectionprocess', (YLeaf(YType.uint32, 'tcpConnectionProcess'), ['int'])),
                 ])
                 self.tcpconnectionlocaladdresstype = None
                 self.tcpconnectionlocaladdress = None
@@ -626,6 +632,7 @@ class TCPMIB(Entity):
                 self.tcpconnectionprocess = None
                 self._segment_path = lambda: "tcpConnectionEntry" + "[tcpConnectionLocalAddressType='" + str(self.tcpconnectionlocaladdresstype) + "']" + "[tcpConnectionLocalAddress='" + str(self.tcpconnectionlocaladdress) + "']" + "[tcpConnectionLocalPort='" + str(self.tcpconnectionlocalport) + "']" + "[tcpConnectionRemAddressType='" + str(self.tcpconnectionremaddresstype) + "']" + "[tcpConnectionRemAddress='" + str(self.tcpconnectionremaddress) + "']" + "[tcpConnectionRemPort='" + str(self.tcpconnectionremport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpConnectionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TCPMIB.TcpConnectionTable.TcpConnectionEntry, ['tcpconnectionlocaladdresstype', 'tcpconnectionlocaladdress', 'tcpconnectionlocalport', 'tcpconnectionremaddresstype', 'tcpconnectionremaddress', 'tcpconnectionremport', 'tcpconnectionstate', 'tcpconnectionprocess'], name, value)
@@ -776,6 +783,7 @@ class TCPMIB(Entity):
             self.tcplistenerentry = YList(self)
             self._segment_path = lambda: "tcpListenerTable"
             self._absolute_path = lambda: "TCP-MIB:TCP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TCPMIB.TcpListenerTable, [], name, value)
@@ -829,10 +837,10 @@ class TCPMIB(Entity):
                 self.ylist_key_names = ['tcplistenerlocaladdresstype','tcplistenerlocaladdress','tcplistenerlocalport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tcplistenerlocaladdresstype', YLeaf(YType.enumeration, 'tcpListenerLocalAddressType')),
-                    ('tcplistenerlocaladdress', YLeaf(YType.str, 'tcpListenerLocalAddress')),
-                    ('tcplistenerlocalport', YLeaf(YType.uint16, 'tcpListenerLocalPort')),
-                    ('tcplistenerprocess', YLeaf(YType.uint32, 'tcpListenerProcess')),
+                    ('tcplistenerlocaladdresstype', (YLeaf(YType.enumeration, 'tcpListenerLocalAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('tcplistenerlocaladdress', (YLeaf(YType.str, 'tcpListenerLocalAddress'), ['str'])),
+                    ('tcplistenerlocalport', (YLeaf(YType.uint16, 'tcpListenerLocalPort'), ['int'])),
+                    ('tcplistenerprocess', (YLeaf(YType.uint32, 'tcpListenerProcess'), ['int'])),
                 ])
                 self.tcplistenerlocaladdresstype = None
                 self.tcplistenerlocaladdress = None
@@ -840,6 +848,7 @@ class TCPMIB(Entity):
                 self.tcplistenerprocess = None
                 self._segment_path = lambda: "tcpListenerEntry" + "[tcpListenerLocalAddressType='" + str(self.tcplistenerlocaladdresstype) + "']" + "[tcpListenerLocalAddress='" + str(self.tcplistenerlocaladdress) + "']" + "[tcpListenerLocalPort='" + str(self.tcplistenerlocalport) + "']"
                 self._absolute_path = lambda: "TCP-MIB:TCP-MIB/tcpListenerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TCPMIB.TcpListenerTable.TcpListenerEntry, ['tcplistenerlocaladdresstype', 'tcplistenerlocaladdress', 'tcplistenerlocalport', 'tcplistenerprocess'], name, value)

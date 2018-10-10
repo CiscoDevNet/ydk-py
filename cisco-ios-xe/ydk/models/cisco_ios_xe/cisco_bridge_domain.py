@@ -46,6 +46,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class BridgeDomainStateType(Enum):
     """
     BridgeDomainStateType (Enum Class)
@@ -125,6 +126,7 @@ class BridgeDomainConfig(Entity):
         self.bridge_domains.parent = self
         self._children_name_map["bridge_domains"] = "bridge-domains"
         self._segment_path = lambda: "cisco-bridge-domain:bridge-domain-config"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(BridgeDomainConfig, [], name, value)
@@ -168,8 +170,8 @@ class BridgeDomainConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("pbb", ("pbb", BridgeDomainConfig.Global.Pbb))])
             self._leafs = OrderedDict([
-                ('bd_state_notification_enabled', YLeaf(YType.boolean, 'bd-state-notification-enabled')),
-                ('bd_state_notification_rate', YLeaf(YType.uint32, 'bd-state-notification-rate')),
+                ('bd_state_notification_enabled', (YLeaf(YType.boolean, 'bd-state-notification-enabled'), ['bool'])),
+                ('bd_state_notification_rate', (YLeaf(YType.uint32, 'bd-state-notification-rate'), ['int'])),
             ])
             self.bd_state_notification_enabled = None
             self.bd_state_notification_rate = None
@@ -179,6 +181,7 @@ class BridgeDomainConfig(Entity):
             self._children_name_map["pbb"] = "pbb"
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainConfig.Global, ['bd_state_notification_enabled', 'bd_state_notification_rate'], name, value)
@@ -213,11 +216,12 @@ class BridgeDomainConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('backbone_src_mac', YLeaf(YType.str, 'backbone-src-mac')),
+                    ('backbone_src_mac', (YLeaf(YType.str, 'backbone-src-mac'), ['str'])),
                 ])
                 self.backbone_src_mac = None
                 self._segment_path = lambda: "pbb"
                 self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainConfig.Global.Pbb, ['backbone_src_mac'], name, value)
@@ -259,6 +263,7 @@ class BridgeDomainConfig(Entity):
             self.bridge_group = YList(self)
             self._segment_path = lambda: "bridge-groups"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainConfig.BridgeGroups, [], name, value)
@@ -292,11 +297,12 @@ class BridgeDomainConfig(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
                 self._segment_path = lambda: "bridge-group" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/bridge-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainConfig.BridgeGroups.BridgeGroup, ['name'], name, value)
@@ -332,6 +338,7 @@ class BridgeDomainConfig(Entity):
             self.bridge_domain = YList(self)
             self._segment_path = lambda: "bridge-domains"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainConfig.BridgeDomains, [], name, value)
@@ -442,12 +449,12 @@ class BridgeDomainConfig(Entity):
                 self.ylist_key_names = ['id']
                 self._child_classes = OrderedDict([("members", ("members", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members)), ("mac", ("mac", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac)), ("dynamic-arp-inspection", ("dynamic_arp_inspection", BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection)), ("ip-source-guard", ("ip_source_guard", BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard)), ("storm-control", ("storm_control", BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl)), ("igmp-snooping", ("igmp_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping)), ("mld-snooping", ("mld_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping)), ("dhcp-ipv4-snooping", ("dhcp_ipv4_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping))])
                 self._leafs = OrderedDict([
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('bridge_group', YLeaf(YType.str, 'bridge-group')),
-                    ('enabled', YLeaf(YType.boolean, 'enabled')),
-                    ('bd_status_change_notification', YLeaf(YType.boolean, 'bd-status-change-notification')),
-                    ('mtu', YLeaf(YType.uint16, 'mtu')),
-                    ('flooding_mode', YLeaf(YType.enumeration, 'flooding-mode')),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('bridge_group', (YLeaf(YType.str, 'bridge-group'), ['str'])),
+                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                    ('bd_status_change_notification', (YLeaf(YType.boolean, 'bd-status-change-notification'), ['bool'])),
+                    ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                    ('flooding_mode', (YLeaf(YType.enumeration, 'flooding-mode'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainConfig', 'BridgeDomains.BridgeDomain.FloodingMode')])),
                 ])
                 self.id = None
                 self.bridge_group = None
@@ -487,6 +494,7 @@ class BridgeDomainConfig(Entity):
                 self._children_name_map["dhcp_ipv4_snooping"] = "dhcp-ipv4-snooping"
                 self._segment_path = lambda: "bridge-domain" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-config/bridge-domains/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain, ['id', 'bridge_group', 'enabled', 'bd_status_change_notification', 'mtu', 'flooding_mode'], name, value)
@@ -557,6 +565,7 @@ class BridgeDomainConfig(Entity):
                     self.ac_member = YList(self)
                     self.vfi_member = YList(self)
                     self._segment_path = lambda: "members"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members, [], name, value)
@@ -638,7 +647,7 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("split-horizon-group", ("split_horizon_group", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.SplitHorizonGroup)), ("mac", ("mac", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac)), ("igmp-snooping", ("igmp_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping)), ("mld-snooping", ("mld_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping)), ("dhcp-ipv4-snooping", ("dhcp_ipv4_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping)), ("flooding", ("flooding", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding)), ("storm-control", ("storm_control", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl)), ("dynamic-arp-inspection", ("dynamic_arp_inspection", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection)), ("ip-source-guard", ("ip_source_guard", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                         ])
                         self.interface = None
 
@@ -677,6 +686,7 @@ class BridgeDomainConfig(Entity):
                         self.ip_source_guard.parent = self
                         self._children_name_map["ip_source_guard"] = "ip-source-guard"
                         self._segment_path = lambda: "ac-member" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember, ['interface'], name, value)
@@ -721,10 +731,11 @@ class BridgeDomainConfig(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.uint16, 'id')),
+                                ('id', (YLeaf(YType.uint16, 'id'), ['int'])),
                             ])
                             self.id = None
                             self._segment_path = lambda: "split-horizon-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.SplitHorizonGroup, ['id'], name, value)
@@ -778,7 +789,7 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("limit", ("limit", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit)), ("aging", ("aging", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging)), ("port-down", ("port_down", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown)), ("secure", ("secure", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure))])
                             self._leafs = OrderedDict([
-                                ('learning_enabled', YLeaf(YType.boolean, 'learning-enabled')),
+                                ('learning_enabled', (YLeaf(YType.boolean, 'learning-enabled'), ['bool'])),
                             ])
                             self.learning_enabled = None
 
@@ -798,6 +809,7 @@ class BridgeDomainConfig(Entity):
                             self.secure.parent = self
                             self._children_name_map["secure"] = "secure"
                             self._segment_path = lambda: "mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac, [u'learning_enabled'], name, value)
@@ -841,14 +853,15 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                    ('action', YLeaf(YType.enumeration, 'action')),
-                                    ('notification', YLeaf(YType.identityref, 'notification')),
+                                    ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitAction', '')])),
+                                    ('notification', (YLeaf(YType.identityref, 'notification'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitNotificationType')])),
                                 ])
                                 self.maximum = None
                                 self.action = None
                                 self.notification = None
                                 self._segment_path = lambda: "limit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
@@ -891,12 +904,13 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('time', YLeaf(YType.uint32, 'time')),
-                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('time', (YLeaf(YType.uint32, 'time'), ['int'])),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacAgingType', '')])),
                                 ])
                                 self.time = None
                                 self.type = None
                                 self._segment_path = lambda: "aging"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Aging, [u'time', u'type'], name, value)
@@ -930,10 +944,11 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('flush', YLeaf(YType.boolean, 'flush')),
+                                    ('flush', (YLeaf(YType.boolean, 'flush'), ['bool'])),
                                 ])
                                 self.flush = None
                                 self._segment_path = lambda: "port-down"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.PortDown, [u'flush'], name, value)
@@ -979,14 +994,15 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('action', YLeaf(YType.enumeration, 'action')),
-                                    ('logging', YLeaf(YType.boolean, 'logging')),
-                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacSecureAction', '')])),
+                                    ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ])
                                 self.action = None
                                 self.logging = None
                                 self.enabled = None
                                 self._segment_path = lambda: "secure"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
@@ -1020,10 +1036,11 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                             ])
                             self.profile_name = None
                             self._segment_path = lambda: "igmp-snooping"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IgmpSnooping, [u'profile_name'], name, value)
@@ -1057,10 +1074,11 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                             ])
                             self.profile_name = None
                             self._segment_path = lambda: "mld-snooping"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.MldSnooping, [u'profile_name'], name, value)
@@ -1094,10 +1112,11 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                             ])
                             self.profile_name = None
                             self._segment_path = lambda: "dhcp-ipv4-snooping"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DhcpIpv4Snooping, [u'profile_name'], name, value)
@@ -1134,12 +1153,13 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('disabled', YLeaf(YType.empty, 'disabled')),
-                                ('disabled_unknown_unicast', YLeaf(YType.empty, 'disabled-unknown-unicast')),
+                                ('disabled', (YLeaf(YType.empty, 'disabled'), ['Empty'])),
+                                ('disabled_unknown_unicast', (YLeaf(YType.empty, 'disabled-unknown-unicast'), ['Empty'])),
                             ])
                             self.disabled = None
                             self.disabled_unknown_unicast = None
                             self._segment_path = lambda: "flooding"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
@@ -1177,12 +1197,13 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("thresholds", ("thresholds", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds))])
                             self._leafs = OrderedDict([
-                                ('action', YLeaf(YType.identityref, 'action')),
+                                ('action', (YLeaf(YType.identityref, 'action'), [('ydk.models.cisco_ios_xe.cisco_storm_control', 'StormControlAction')])),
                             ])
                             self.action = None
 
                             self.thresholds = YList(self)
                             self._segment_path = lambda: "storm-control"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl, ['action'], name, value)
@@ -1231,14 +1252,15 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = ['traffic_class']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                                    ('value', YLeaf(YType.uint32, 'value')),
-                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                    ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                    ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainConfig', 'BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds.Unit')])),
                                 ])
                                 self.traffic_class = None
                                 self.value = None
                                 self.unit = None
                                 self._segment_path = lambda: "thresholds" + "[traffic-class='" + str(self.traffic_class) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.Thresholds, ['traffic_class', 'value', 'unit'], name, value)
@@ -1311,8 +1333,8 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("address-validation", ("address_validation", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation))])
                             self._leafs = OrderedDict([
-                                ('logging', YLeaf(YType.boolean, 'logging')),
-                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                             ])
                             self.logging = None
                             self.enable = None
@@ -1320,6 +1342,7 @@ class BridgeDomainConfig(Entity):
                             self.address_validation = None
                             self._children_name_map["address_validation"] = "address-validation"
                             self._segment_path = lambda: "dynamic-arp-inspection"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection, [u'logging', 'enable'], name, value)
@@ -1364,14 +1387,15 @@ class BridgeDomainConfig(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('dst_mac', YLeaf(YType.empty, 'dst-mac')),
-                                    ('src_mac', YLeaf(YType.empty, 'src-mac')),
-                                    ('ipv4', YLeaf(YType.empty, 'ipv4')),
+                                    ('dst_mac', (YLeaf(YType.empty, 'dst-mac'), ['Empty'])),
+                                    ('src_mac', (YLeaf(YType.empty, 'src-mac'), ['Empty'])),
+                                    ('ipv4', (YLeaf(YType.empty, 'ipv4'), ['Empty'])),
                                 ])
                                 self.dst_mac = None
                                 self.src_mac = None
                                 self.ipv4 = None
                                 self._segment_path = lambda: "address-validation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
@@ -1410,12 +1434,13 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('logging', YLeaf(YType.boolean, 'logging')),
-                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                             ])
                             self.logging = None
                             self.enable = None
                             self._segment_path = lambda: "ip-source-guard"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AcMember.IpSourceGuard, [u'logging', 'enable'], name, value)
@@ -1450,10 +1475,11 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                         ])
                         self.interface = None
                         self._segment_path = lambda: "vfi-member" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.VfiMember, ['interface'], name, value)
@@ -1499,6 +1525,7 @@ class BridgeDomainConfig(Entity):
                         self.access_pw_if_member = YList(self)
                         self.pw_neighbor_spec = YList(self)
                         self._segment_path = lambda: "access-pw-member"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember, [], name, value)
@@ -1533,10 +1560,11 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = ['interface']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface', YLeaf(YType.str, 'interface')),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                             ])
                             self.interface = None
                             self._segment_path = lambda: "access-pw-if-member" + "[interface='" + str(self.interface) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.AccessPwIfMember, ['interface'], name, value)
@@ -1657,12 +1685,12 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = ['neighbor_ip_address','vc_id']
                             self._child_classes = OrderedDict([("static-label", ("static_label", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel)), ("split-horizon-group", ("split_horizon_group", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.SplitHorizonGroup)), ("mac", ("mac", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac)), ("igmp-snooping", ("igmp_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping)), ("mld-snooping", ("mld_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping)), ("dhcp-ipv4-snooping", ("dhcp_ipv4_snooping", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping)), ("flooding", ("flooding", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding)), ("storm-control", ("storm_control", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl)), ("backup", ("backup", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup))])
                             self._leafs = OrderedDict([
-                                ('neighbor_ip_address', YLeaf(YType.str, 'neighbor-ip-address')),
-                                ('vc_id', YLeaf(YType.uint32, 'vc-id')),
-                                ('pw_class_template', YLeaf(YType.str, 'pw-class-template')),
-                                ('encap_type', YLeaf(YType.identityref, 'encap-type')),
-                                ('tag_impose_vlan', YLeaf(YType.uint16, 'tag-impose-vlan')),
-                                ('source_ipv6', YLeaf(YType.str, 'source-ipv6')),
+                                ('neighbor_ip_address', (YLeaf(YType.str, 'neighbor-ip-address'), ['str','str'])),
+                                ('vc_id', (YLeaf(YType.uint32, 'vc-id'), ['int'])),
+                                ('pw_class_template', (YLeaf(YType.str, 'pw-class-template'), ['str'])),
+                                ('encap_type', (YLeaf(YType.identityref, 'encap-type'), [('ydk.models.cisco_ios_xe.cisco_pw', 'PwEncapsulationType')])),
+                                ('tag_impose_vlan', (YLeaf(YType.uint16, 'tag-impose-vlan'), ['int'])),
+                                ('source_ipv6', (YLeaf(YType.str, 'source-ipv6'), ['str'])),
                             ])
                             self.neighbor_ip_address = None
                             self.vc_id = None
@@ -1706,9 +1734,10 @@ class BridgeDomainConfig(Entity):
                             self.backup.parent = self
                             self._children_name_map["backup"] = "backup"
                             self._segment_path = lambda: "pw-neighbor-spec" + "[neighbor-ip-address='" + str(self.neighbor_ip_address) + "']" + "[vc-id='" + str(self.vc_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, [u'neighbor_ip_address', u'vc_id', u'pw_class_template', u'encap_type', u'tag_impose_vlan', u'source_ipv6'], name, value)
+                            self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec, ['neighbor_ip_address', 'vc_id', 'pw_class_template', 'encap_type', 'tag_impose_vlan', 'source_ipv6'], name, value)
 
 
                         class StaticLabel(Entity):
@@ -1746,15 +1775,16 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('local_label', YLeaf(YType.uint32, 'local-label')),
-                                    ('remote_label', YLeaf(YType.uint32, 'remote-label')),
+                                    ('local_label', (YLeaf(YType.uint32, 'local-label'), ['int'])),
+                                    ('remote_label', (YLeaf(YType.uint32, 'remote-label'), ['int'])),
                                 ])
                                 self.local_label = None
                                 self.remote_label = None
                                 self._segment_path = lambda: "static-label"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, [u'local_label', u'remote_label'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StaticLabel, ['local_label', 'remote_label'], name, value)
 
 
                         class SplitHorizonGroup(Entity):
@@ -1796,10 +1826,11 @@ class BridgeDomainConfig(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('id', YLeaf(YType.uint16, 'id')),
+                                    ('id', (YLeaf(YType.uint16, 'id'), ['int'])),
                                 ])
                                 self.id = None
                                 self._segment_path = lambda: "split-horizon-group"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.SplitHorizonGroup, ['id'], name, value)
@@ -1853,7 +1884,7 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("limit", ("limit", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit)), ("aging", ("aging", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging)), ("port-down", ("port_down", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown)), ("secure", ("secure", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure))])
                                 self._leafs = OrderedDict([
-                                    ('learning_enabled', YLeaf(YType.boolean, 'learning-enabled')),
+                                    ('learning_enabled', (YLeaf(YType.boolean, 'learning-enabled'), ['bool'])),
                                 ])
                                 self.learning_enabled = None
 
@@ -1873,6 +1904,7 @@ class BridgeDomainConfig(Entity):
                                 self.secure.parent = self
                                 self._children_name_map["secure"] = "secure"
                                 self._segment_path = lambda: "mac"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac, [u'learning_enabled'], name, value)
@@ -1916,14 +1948,15 @@ class BridgeDomainConfig(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                        ('action', YLeaf(YType.enumeration, 'action')),
-                                        ('notification', YLeaf(YType.identityref, 'notification')),
+                                        ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitAction', '')])),
+                                        ('notification', (YLeaf(YType.identityref, 'notification'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitNotificationType')])),
                                     ])
                                     self.maximum = None
                                     self.action = None
                                     self.notification = None
                                     self._segment_path = lambda: "limit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
@@ -1966,12 +1999,13 @@ class BridgeDomainConfig(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('time', YLeaf(YType.uint32, 'time')),
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('time', (YLeaf(YType.uint32, 'time'), ['int'])),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacAgingType', '')])),
                                     ])
                                     self.time = None
                                     self.type = None
                                     self._segment_path = lambda: "aging"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Aging, [u'time', u'type'], name, value)
@@ -2005,10 +2039,11 @@ class BridgeDomainConfig(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('flush', YLeaf(YType.boolean, 'flush')),
+                                        ('flush', (YLeaf(YType.boolean, 'flush'), ['bool'])),
                                     ])
                                     self.flush = None
                                     self._segment_path = lambda: "port-down"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.PortDown, [u'flush'], name, value)
@@ -2054,14 +2089,15 @@ class BridgeDomainConfig(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('action', YLeaf(YType.enumeration, 'action')),
-                                        ('logging', YLeaf(YType.boolean, 'logging')),
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacSecureAction', '')])),
+                                        ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
+                                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                     ])
                                     self.action = None
                                     self.logging = None
                                     self.enabled = None
                                     self._segment_path = lambda: "secure"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Mac.Secure, [u'action', u'logging', 'enabled'], name, value)
@@ -2095,10 +2131,11 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                                 ])
                                 self.profile_name = None
                                 self._segment_path = lambda: "igmp-snooping"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.IgmpSnooping, [u'profile_name'], name, value)
@@ -2132,10 +2169,11 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                                 ])
                                 self.profile_name = None
                                 self._segment_path = lambda: "mld-snooping"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.MldSnooping, [u'profile_name'], name, value)
@@ -2169,10 +2207,11 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                                 ])
                                 self.profile_name = None
                                 self._segment_path = lambda: "dhcp-ipv4-snooping"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.DhcpIpv4Snooping, [u'profile_name'], name, value)
@@ -2209,12 +2248,13 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('disabled', YLeaf(YType.empty, 'disabled')),
-                                    ('disabled_unknown_unicast', YLeaf(YType.empty, 'disabled-unknown-unicast')),
+                                    ('disabled', (YLeaf(YType.empty, 'disabled'), ['Empty'])),
+                                    ('disabled_unknown_unicast', (YLeaf(YType.empty, 'disabled-unknown-unicast'), ['Empty'])),
                                 ])
                                 self.disabled = None
                                 self.disabled_unknown_unicast = None
                                 self._segment_path = lambda: "flooding"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
@@ -2252,12 +2292,13 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("thresholds", ("thresholds", BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds))])
                                 self._leafs = OrderedDict([
-                                    ('action', YLeaf(YType.identityref, 'action')),
+                                    ('action', (YLeaf(YType.identityref, 'action'), [('ydk.models.cisco_ios_xe.cisco_storm_control', 'StormControlAction')])),
                                 ])
                                 self.action = None
 
                                 self.thresholds = YList(self)
                                 self._segment_path = lambda: "storm-control"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl, ['action'], name, value)
@@ -2306,14 +2347,15 @@ class BridgeDomainConfig(Entity):
                                     self.ylist_key_names = ['traffic_class']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainConfig', 'BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds.Unit')])),
                                     ])
                                     self.traffic_class = None
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "thresholds" + "[traffic-class='" + str(self.traffic_class) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.StormControl.Thresholds, ['traffic_class', 'value', 'unit'], name, value)
@@ -2396,17 +2438,18 @@ class BridgeDomainConfig(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('neighbor_ip_address', YLeaf(YType.str, 'neighbor-ip-address')),
-                                    ('vc_id', YLeaf(YType.uint32, 'vc-id')),
-                                    ('pw_class_template', YLeaf(YType.str, 'pw-class-template')),
+                                    ('neighbor_ip_address', (YLeaf(YType.str, 'neighbor-ip-address'), ['str','str'])),
+                                    ('vc_id', (YLeaf(YType.uint32, 'vc-id'), ['int'])),
+                                    ('pw_class_template', (YLeaf(YType.str, 'pw-class-template'), ['str'])),
                                 ])
                                 self.neighbor_ip_address = None
                                 self.vc_id = None
                                 self.pw_class_template = None
                                 self._segment_path = lambda: "backup"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, [u'neighbor_ip_address', u'vc_id', u'pw_class_template'], name, value)
+                                self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Members.AccessPwMember.PwNeighborSpec.Backup, ['neighbor_ip_address', 'vc_id', 'pw_class_template'], name, value)
 
 
             class Mac(Entity):
@@ -2469,7 +2512,7 @@ class BridgeDomainConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("limit", ("limit", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit)), ("aging", ("aging", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging)), ("port-down", ("port_down", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown)), ("flooding", ("flooding", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding)), ("secure", ("secure", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure)), ("static", ("static", BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static))])
                     self._leafs = OrderedDict([
-                        ('learning_enabled', YLeaf(YType.boolean, 'learning-enabled')),
+                        ('learning_enabled', (YLeaf(YType.boolean, 'learning-enabled'), ['bool'])),
                     ])
                     self.learning_enabled = None
 
@@ -2496,6 +2539,7 @@ class BridgeDomainConfig(Entity):
                     self.static.parent = self
                     self._children_name_map["static"] = "static"
                     self._segment_path = lambda: "mac"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac, [u'learning_enabled'], name, value)
@@ -2539,14 +2583,15 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('action', YLeaf(YType.enumeration, 'action')),
-                            ('notification', YLeaf(YType.identityref, 'notification')),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitAction', '')])),
+                            ('notification', (YLeaf(YType.identityref, 'notification'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacLimitNotificationType')])),
                         ])
                         self.maximum = None
                         self.action = None
                         self.notification = None
                         self._segment_path = lambda: "limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Limit, [u'maximum', u'action', u'notification'], name, value)
@@ -2589,12 +2634,13 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('time', YLeaf(YType.uint32, 'time')),
-                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('time', (YLeaf(YType.uint32, 'time'), ['int'])),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacAgingType', '')])),
                         ])
                         self.time = None
                         self.type = None
                         self._segment_path = lambda: "aging"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Aging, [u'time', u'type'], name, value)
@@ -2628,10 +2674,11 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('flush', YLeaf(YType.boolean, 'flush')),
+                            ('flush', (YLeaf(YType.boolean, 'flush'), ['bool'])),
                         ])
                         self.flush = None
                         self._segment_path = lambda: "port-down"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.PortDown, [u'flush'], name, value)
@@ -2668,12 +2715,13 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disabled', YLeaf(YType.empty, 'disabled')),
-                            ('disabled_unknown_unicast', YLeaf(YType.empty, 'disabled-unknown-unicast')),
+                            ('disabled', (YLeaf(YType.empty, 'disabled'), ['Empty'])),
+                            ('disabled_unknown_unicast', (YLeaf(YType.empty, 'disabled-unknown-unicast'), ['Empty'])),
                         ])
                         self.disabled = None
                         self.disabled_unknown_unicast = None
                         self._segment_path = lambda: "flooding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Flooding, [u'disabled', u'disabled_unknown_unicast'], name, value)
@@ -2717,12 +2765,13 @@ class BridgeDomainConfig(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('action', YLeaf(YType.enumeration, 'action')),
-                            ('logging', YLeaf(YType.boolean, 'logging')),
+                            ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'MacSecureAction', '')])),
+                            ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
                         ])
                         self.action = None
                         self.logging = None
                         self._segment_path = lambda: "secure"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Secure, [u'action', u'logging'], name, value)
@@ -2757,6 +2806,7 @@ class BridgeDomainConfig(Entity):
 
                         self.mac_addresses = YList(self)
                         self._segment_path = lambda: "static"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static, [], name, value)
@@ -2797,12 +2847,13 @@ class BridgeDomainConfig(Entity):
                             self.ylist_key_names = ['mac_addr']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mac_addr', YLeaf(YType.str, 'mac-addr')),
-                                ('drop', YLeaf(YType.boolean, 'drop')),
+                                ('mac_addr', (YLeaf(YType.str, 'mac-addr'), ['str'])),
+                                ('drop', (YLeaf(YType.boolean, 'drop'), ['bool'])),
                             ])
                             self.mac_addr = None
                             self.drop = None
                             self._segment_path = lambda: "mac-addresses" + "[mac-addr='" + str(self.mac_addr) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.Mac.Static.MacAddresses, [u'mac_addr', u'drop'], name, value)
@@ -2844,13 +2895,14 @@ class BridgeDomainConfig(Entity):
                     self._child_classes = OrderedDict([("address-validation", ("address_validation", BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('logging', YLeaf(YType.boolean, 'logging')),
+                        ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
                     ])
                     self.logging = None
 
                     self.address_validation = None
                     self._children_name_map["address_validation"] = "address-validation"
                     self._segment_path = lambda: "dynamic-arp-inspection"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection, [u'logging'], name, value)
@@ -2895,14 +2947,15 @@ class BridgeDomainConfig(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('dst_mac', YLeaf(YType.empty, 'dst-mac')),
-                            ('src_mac', YLeaf(YType.empty, 'src-mac')),
-                            ('ipv4', YLeaf(YType.empty, 'ipv4')),
+                            ('dst_mac', (YLeaf(YType.empty, 'dst-mac'), ['Empty'])),
+                            ('src_mac', (YLeaf(YType.empty, 'src-mac'), ['Empty'])),
+                            ('ipv4', (YLeaf(YType.empty, 'ipv4'), ['Empty'])),
                         ])
                         self.dst_mac = None
                         self.src_mac = None
                         self.ipv4 = None
                         self._segment_path = lambda: "address-validation"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DynamicArpInspection.AddressValidation, [u'dst_mac', u'src_mac', u'ipv4'], name, value)
@@ -2939,10 +2992,11 @@ class BridgeDomainConfig(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('logging', YLeaf(YType.boolean, 'logging')),
+                        ('logging', (YLeaf(YType.boolean, 'logging'), ['bool'])),
                     ])
                     self.logging = None
                     self._segment_path = lambda: "ip-source-guard"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging'], name, value)
@@ -2980,12 +3034,13 @@ class BridgeDomainConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("thresholds", ("thresholds", BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds))])
                     self._leafs = OrderedDict([
-                        ('action', YLeaf(YType.identityref, 'action')),
+                        ('action', (YLeaf(YType.identityref, 'action'), [('ydk.models.cisco_ios_xe.cisco_storm_control', 'StormControlAction')])),
                     ])
                     self.action = None
 
                     self.thresholds = YList(self)
                     self._segment_path = lambda: "storm-control"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl, ['action'], name, value)
@@ -3034,14 +3089,15 @@ class BridgeDomainConfig(Entity):
                         self.ylist_key_names = ['traffic_class']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                            ('value', YLeaf(YType.uint32, 'value')),
-                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                            ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                            ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                            ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainConfig', 'BridgeDomains.BridgeDomain.StormControl.Thresholds.Unit')])),
                         ])
                         self.traffic_class = None
                         self.value = None
                         self.unit = None
                         self._segment_path = lambda: "thresholds" + "[traffic-class='" + str(self.traffic_class) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.StormControl.Thresholds, ['traffic_class', 'value', 'unit'], name, value)
@@ -3107,12 +3163,13 @@ class BridgeDomainConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile_name', YLeaf(YType.str, 'profile-name')),
-                        ('disabled', YLeaf(YType.empty, 'disabled')),
+                        ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                        ('disabled', (YLeaf(YType.empty, 'disabled'), ['Empty'])),
                     ])
                     self.profile_name = None
                     self.disabled = None
                     self._segment_path = lambda: "igmp-snooping"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.IgmpSnooping, [u'profile_name', 'disabled'], name, value)
@@ -3146,10 +3203,11 @@ class BridgeDomainConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile_name', YLeaf(YType.str, 'profile-name')),
+                        ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                     ])
                     self.profile_name = None
                     self._segment_path = lambda: "mld-snooping"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.MldSnooping, [u'profile_name'], name, value)
@@ -3183,10 +3241,11 @@ class BridgeDomainConfig(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile_name', YLeaf(YType.str, 'profile-name')),
+                        ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                     ])
                     self.profile_name = None
                     self._segment_path = lambda: "dhcp-ipv4-snooping"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainConfig.BridgeDomains.BridgeDomain.DhcpIpv4Snooping, [u'profile_name'], name, value)
@@ -3252,6 +3311,7 @@ class BridgeDomainState(Entity):
 
         self.mac_table = YList(self)
         self._segment_path = lambda: "cisco-bridge-domain:bridge-domain-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(BridgeDomainState, [], name, value)
@@ -3321,12 +3381,12 @@ class BridgeDomainState(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('max_bd', YLeaf(YType.uint32, 'max-bd')),
-                ('max_ac_per_bd', YLeaf(YType.uint32, 'max-ac-per-bd')),
-                ('max_pw_per_bd', YLeaf(YType.uint32, 'max-pw-per-bd')),
-                ('max_vfi_per_bd', YLeaf(YType.uint32, 'max-vfi-per-bd')),
-                ('max_sh_group_per_bd', YLeaf(YType.uint32, 'max-sh-group-per-bd')),
-                ('max_interflex_if_per_bd', YLeaf(YType.uint32, 'max-interflex-if-per-bd')),
+                ('max_bd', (YLeaf(YType.uint32, 'max-bd'), ['int'])),
+                ('max_ac_per_bd', (YLeaf(YType.uint32, 'max-ac-per-bd'), ['int'])),
+                ('max_pw_per_bd', (YLeaf(YType.uint32, 'max-pw-per-bd'), ['int'])),
+                ('max_vfi_per_bd', (YLeaf(YType.uint32, 'max-vfi-per-bd'), ['int'])),
+                ('max_sh_group_per_bd', (YLeaf(YType.uint32, 'max-sh-group-per-bd'), ['int'])),
+                ('max_interflex_if_per_bd', (YLeaf(YType.uint32, 'max-interflex-if-per-bd'), ['int'])),
             ])
             self.max_bd = None
             self.max_ac_per_bd = None
@@ -3336,6 +3396,7 @@ class BridgeDomainState(Entity):
             self.max_interflex_if_per_bd = None
             self._segment_path = lambda: "system-capabilities"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainState.SystemCapabilities, ['max_bd', 'max_ac_per_bd', 'max_pw_per_bd', 'max_vfi_per_bd', 'max_sh_group_per_bd', 'max_interflex_if_per_bd'], name, value)
@@ -3372,6 +3433,7 @@ class BridgeDomainState(Entity):
             self.modules = YList(self)
             self._segment_path = lambda: "module-capabilities"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainState.ModuleCapabilities, [], name, value)
@@ -3453,14 +3515,14 @@ class BridgeDomainState(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('max_mac_per_bd', YLeaf(YType.uint32, 'max-mac-per-bd')),
-                    ('max_pdd_edge_bd', YLeaf(YType.uint32, 'max-pdd-edge-bd')),
-                    ('max_bd', YLeaf(YType.uint32, 'max-bd')),
-                    ('max_ac_per_bd', YLeaf(YType.uint32, 'max-ac-per-bd')),
-                    ('max_pw_per_bd', YLeaf(YType.uint32, 'max-pw-per-bd')),
-                    ('max_vfi_per_bd', YLeaf(YType.uint32, 'max-vfi-per-bd')),
-                    ('max_sh_group_per_bd', YLeaf(YType.uint32, 'max-sh-group-per-bd')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('max_mac_per_bd', (YLeaf(YType.uint32, 'max-mac-per-bd'), ['int'])),
+                    ('max_pdd_edge_bd', (YLeaf(YType.uint32, 'max-pdd-edge-bd'), ['int'])),
+                    ('max_bd', (YLeaf(YType.uint32, 'max-bd'), ['int'])),
+                    ('max_ac_per_bd', (YLeaf(YType.uint32, 'max-ac-per-bd'), ['int'])),
+                    ('max_pw_per_bd', (YLeaf(YType.uint32, 'max-pw-per-bd'), ['int'])),
+                    ('max_vfi_per_bd', (YLeaf(YType.uint32, 'max-vfi-per-bd'), ['int'])),
+                    ('max_sh_group_per_bd', (YLeaf(YType.uint32, 'max-sh-group-per-bd'), ['int'])),
                 ])
                 self.name = None
                 self.max_mac_per_bd = None
@@ -3472,6 +3534,7 @@ class BridgeDomainState(Entity):
                 self.max_sh_group_per_bd = None
                 self._segment_path = lambda: "modules" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/module-capabilities/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainState.ModuleCapabilities.Modules, ['name', 'max_mac_per_bd', 'max_pdd_edge_bd', 'max_bd', 'max_ac_per_bd', 'max_pw_per_bd', 'max_vfi_per_bd', 'max_sh_group_per_bd'], name, value)
@@ -3507,6 +3570,7 @@ class BridgeDomainState(Entity):
             self.bridge_domain = YList(self)
             self._segment_path = lambda: "bridge-domains"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainState.BridgeDomains, [], name, value)
@@ -3574,12 +3638,12 @@ class BridgeDomainState(Entity):
                 self.ylist_key_names = ['id']
                 self._child_classes = OrderedDict([("members", ("members", BridgeDomainState.BridgeDomains.BridgeDomain.Members))])
                 self._leafs = OrderedDict([
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('bd_state', YLeaf(YType.enumeration, 'bd-state')),
-                    ('create_time', YLeaf(YType.uint32, 'create-time')),
-                    ('last_status_change', YLeaf(YType.uint32, 'last-status-change')),
-                    ('mac_limit_reached', YLeaf(YType.boolean, 'mac-limit-reached')),
-                    ('p2mp_pw_disabled', YLeaf(YType.boolean, 'p2mp-pw-disabled')),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('bd_state', (YLeaf(YType.enumeration, 'bd-state'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainStateType', '')])),
+                    ('create_time', (YLeaf(YType.uint32, 'create-time'), ['int'])),
+                    ('last_status_change', (YLeaf(YType.uint32, 'last-status-change'), ['int'])),
+                    ('mac_limit_reached', (YLeaf(YType.boolean, 'mac-limit-reached'), ['bool'])),
+                    ('p2mp_pw_disabled', (YLeaf(YType.boolean, 'p2mp-pw-disabled'), ['bool'])),
                 ])
                 self.id = None
                 self.bd_state = None
@@ -3593,6 +3657,7 @@ class BridgeDomainState(Entity):
                 self._children_name_map["members"] = "members"
                 self._segment_path = lambda: "bridge-domain" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/bridge-domains/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain, ['id', 'bd_state', 'create_time', 'last_status_change', 'mac_limit_reached', 'p2mp_pw_disabled'], name, value)
@@ -3639,6 +3704,7 @@ class BridgeDomainState(Entity):
                     self.vfi_member = YList(self)
                     self.access_pw_member = YList(self)
                     self._segment_path = lambda: "members"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members, [], name, value)
@@ -3694,8 +3760,8 @@ class BridgeDomainState(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("dai-stats", ("dai_stats", BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats)), ("ipsg-stats", ("ipsg_stats", BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats)), ("storm-control", ("storm_control", BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('static_mac_count', YLeaf(YType.uint32, 'static-mac-count')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('static_mac_count', (YLeaf(YType.uint32, 'static-mac-count'), ['int'])),
                         ])
                         self.interface = None
                         self.static_mac_count = None
@@ -3712,6 +3778,7 @@ class BridgeDomainState(Entity):
                         self.storm_control.parent = self
                         self._children_name_map["storm_control"] = "storm-control"
                         self._segment_path = lambda: "ac-member" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember, ['interface', 'static_mac_count'], name, value)
@@ -3752,12 +3819,13 @@ class BridgeDomainState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('packet_drops', YLeaf(YType.uint64, 'packet-drops')),
-                                ('byte_drops', YLeaf(YType.uint64, 'byte-drops')),
+                                ('packet_drops', (YLeaf(YType.uint64, 'packet-drops'), ['int'])),
+                                ('byte_drops', (YLeaf(YType.uint64, 'byte-drops'), ['int'])),
                             ])
                             self.packet_drops = None
                             self.byte_drops = None
                             self._segment_path = lambda: "dai-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.DaiStats, ['packet_drops', 'byte_drops'], name, value)
@@ -3798,12 +3866,13 @@ class BridgeDomainState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('packet_drops', YLeaf(YType.uint64, 'packet-drops')),
-                                ('byte_drops', YLeaf(YType.uint64, 'byte-drops')),
+                                ('packet_drops', (YLeaf(YType.uint64, 'packet-drops'), ['int'])),
+                                ('byte_drops', (YLeaf(YType.uint64, 'byte-drops'), ['int'])),
                             ])
                             self.packet_drops = None
                             self.byte_drops = None
                             self._segment_path = lambda: "ipsg-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.IpsgStats, ['packet_drops', 'byte_drops'], name, value)
@@ -3838,6 +3907,7 @@ class BridgeDomainState(Entity):
 
                             self.drop_counter = YList(self)
                             self._segment_path = lambda: "storm-control"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl, [], name, value)
@@ -3884,14 +3954,15 @@ class BridgeDomainState(Entity):
                                 self.ylist_key_names = ['traffic_class']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                                    ('packet_drops', YLeaf(YType.uint64, 'packet-drops')),
-                                    ('octate_drops', YLeaf(YType.uint64, 'octate-drops')),
+                                    ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                                    ('packet_drops', (YLeaf(YType.uint64, 'packet-drops'), ['int'])),
+                                    ('octate_drops', (YLeaf(YType.uint64, 'octate-drops'), ['int'])),
                                 ])
                                 self.traffic_class = None
                                 self.packet_drops = None
                                 self.octate_drops = None
                                 self._segment_path = lambda: "drop-counter" + "[traffic-class='" + str(self.traffic_class) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AcMember.StormControl.DropCounter, ['traffic_class', 'packet_drops', 'octate_drops'], name, value)
@@ -3931,7 +4002,7 @@ class BridgeDomainState(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("flooding", ("flooding", BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                         ])
                         self.interface = None
 
@@ -3939,6 +4010,7 @@ class BridgeDomainState(Entity):
                         self.flooding.parent = self
                         self._children_name_map["flooding"] = "flooding"
                         self._segment_path = lambda: "vfi-member" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember, ['interface'], name, value)
@@ -3973,6 +4045,7 @@ class BridgeDomainState(Entity):
 
                             self.status = YList(self)
                             self._segment_path = lambda: "flooding"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding, [], name, value)
@@ -4010,12 +4083,13 @@ class BridgeDomainState(Entity):
                                 self.ylist_key_names = ['traffic_class']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ])
                                 self.traffic_class = None
                                 self.enabled = None
                                 self._segment_path = lambda: "status" + "[traffic-class='" + str(self.traffic_class) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.VfiMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
@@ -4072,8 +4146,8 @@ class BridgeDomainState(Entity):
                         self.ylist_key_names = ['vc_peer_address','vc_id']
                         self._child_classes = OrderedDict([("flooding", ("flooding", BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding))])
                         self._leafs = OrderedDict([
-                            ('vc_peer_address', YLeaf(YType.str, 'vc-peer-address')),
-                            ('vc_id', YLeaf(YType.str, 'vc-id')),
+                            ('vc_peer_address', (YLeaf(YType.str, 'vc-peer-address'), ['str'])),
+                            ('vc_id', (YLeaf(YType.str, 'vc-id'), ['int'])),
                         ])
                         self.vc_peer_address = None
                         self.vc_id = None
@@ -4082,9 +4156,10 @@ class BridgeDomainState(Entity):
                         self.flooding.parent = self
                         self._children_name_map["flooding"] = "flooding"
                         self._segment_path = lambda: "access-pw-member" + "[vc-peer-address='" + str(self.vc_peer_address) + "']" + "[vc-id='" + str(self.vc_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, [u'vc_peer_address', u'vc_id'], name, value)
+                        self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember, ['vc_peer_address', 'vc_id'], name, value)
 
 
                     class Flooding(Entity):
@@ -4116,6 +4191,7 @@ class BridgeDomainState(Entity):
 
                             self.status = YList(self)
                             self._segment_path = lambda: "flooding"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding, [], name, value)
@@ -4153,12 +4229,13 @@ class BridgeDomainState(Entity):
                                 self.ylist_key_names = ['traffic_class']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('traffic_class', YLeaf(YType.enumeration, 'traffic-class')),
-                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                    ('traffic_class', (YLeaf(YType.enumeration, 'traffic-class'), [('ydk.models.cisco_ios_xe.cisco_bridge_common', 'EthTrafficClass', '')])),
+                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                 ])
                                 self.traffic_class = None
                                 self.enabled = None
                                 self._segment_path = lambda: "status" + "[traffic-class='" + str(self.traffic_class) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(BridgeDomainState.BridgeDomains.BridgeDomain.Members.AccessPwMember.Flooding.Status, [u'traffic_class', u'enabled'], name, value)
@@ -4234,14 +4311,14 @@ class BridgeDomainState(Entity):
             self.ylist_key_names = ['bd_id','mac_address']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('bd_id', YLeaf(YType.str, 'bd-id')),
-                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                ('mac_type', YLeaf(YType.enumeration, 'mac-type')),
-                ('interface', YLeaf(YType.str, 'interface')),
-                ('secure_mac', YLeaf(YType.boolean, 'secure-mac')),
-                ('ntfy_mac', YLeaf(YType.boolean, 'ntfy-mac')),
-                ('age', YLeaf(YType.uint32, 'age')),
-                ('location', YLeaf(YType.str, 'location')),
+                ('bd_id', (YLeaf(YType.str, 'bd-id'), ['str'])),
+                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                ('mac_type', (YLeaf(YType.enumeration, 'mac-type'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'BridgeDomainState', 'MacTable.MacType')])),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                ('secure_mac', (YLeaf(YType.boolean, 'secure-mac'), ['bool'])),
+                ('ntfy_mac', (YLeaf(YType.boolean, 'ntfy-mac'), ['bool'])),
+                ('age', (YLeaf(YType.uint32, 'age'), ['int'])),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
             ])
             self.bd_id = None
             self.mac_address = None
@@ -4253,6 +4330,7 @@ class BridgeDomainState(Entity):
             self.location = None
             self._segment_path = lambda: "mac-table" + "[bd-id='" + str(self.bd_id) + "']" + "[mac-address='" + str(self.mac_address) + "']"
             self._absolute_path = lambda: "cisco-bridge-domain:bridge-domain-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BridgeDomainState.MacTable, ['bd_id', 'mac_address', 'mac_type', 'interface', 'secure_mac', 'ntfy_mac', 'age', 'location'], name, value)
@@ -4325,6 +4403,7 @@ class ClearBridgeDomain(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-bridge-domain:clear-bridge-domain"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -4363,15 +4442,16 @@ class ClearBridgeDomain(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('all', YLeaf(YType.empty, 'all')),
-                ('bd_id', YLeaf(YType.str, 'bd-id')),
-                ('bg_id', YLeaf(YType.str, 'bg-id')),
+                ('all', (YLeaf(YType.empty, 'all'), ['Empty'])),
+                ('bd_id', (YLeaf(YType.str, 'bd-id'), ['str'])),
+                ('bg_id', (YLeaf(YType.str, 'bg-id'), ['str'])),
             ])
             self.all = None
             self.bd_id = None
             self.bg_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-bridge-domain:clear-bridge-domain/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBridgeDomain.Input, ['all', 'bd_id', 'bg_id'], name, value)
@@ -4403,11 +4483,12 @@ class ClearBridgeDomain(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('errstr', YLeaf(YType.str, 'errstr')),
+                ('errstr', (YLeaf(YType.str, 'errstr'), ['str'])),
             ])
             self.errstr = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-bridge-domain:clear-bridge-domain/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ClearBridgeDomain.Output, ['errstr'], name, value)
@@ -4458,6 +4539,7 @@ class ClearMacAddress(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-bridge-domain:clear-mac-address"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -4500,8 +4582,8 @@ class ClearMacAddress(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("bridge-domain", ("bridge_domain", ClearMacAddress.Input.BridgeDomain))])
             self._leafs = OrderedDict([
-                ('interface', YLeaf(YType.str, 'interface')),
-                ('mac_address', YLeaf(YType.str, 'mac-address')),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
             ])
             self.interface = None
             self.mac_address = None
@@ -4511,6 +4593,7 @@ class ClearMacAddress(Entity):
             self._children_name_map["bridge_domain"] = "bridge-domain"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-bridge-domain:clear-mac-address/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ClearMacAddress.Input, ['interface', 'mac_address'], name, value)
@@ -4551,13 +4634,14 @@ class ClearMacAddress(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bd_id', YLeaf(YType.str, 'bd-id')),
-                    ('bg_id', YLeaf(YType.str, 'bg-id')),
+                    ('bd_id', (YLeaf(YType.str, 'bd-id'), ['str'])),
+                    ('bg_id', (YLeaf(YType.str, 'bg-id'), ['str'])),
                 ])
                 self.bd_id = None
                 self.bg_id = None
                 self._segment_path = lambda: "bridge-domain"
                 self._absolute_path = lambda: "cisco-bridge-domain:clear-mac-address/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ClearMacAddress.Input.BridgeDomain, ['bd_id', 'bg_id'], name, value)
@@ -4589,11 +4673,12 @@ class ClearMacAddress(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('errstr', YLeaf(YType.str, 'errstr')),
+                ('errstr', (YLeaf(YType.str, 'errstr'), ['str'])),
             ])
             self.errstr = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-bridge-domain:clear-mac-address/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ClearMacAddress.Output, ['errstr'], name, value)
@@ -4644,6 +4729,7 @@ class CreateParameterizedBridgeDomains(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-bridge-domain:create-parameterized-bridge-domains"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -4677,13 +4763,14 @@ class CreateParameterizedBridgeDomains(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("member", ("member", CreateParameterizedBridgeDomains.Input.Member))])
             self._leafs = OrderedDict([
-                ('parameter', YLeaf(YType.enumeration, 'parameter')),
+                ('parameter', (YLeaf(YType.enumeration, 'parameter'), [('ydk.models.cisco_ios_xe.cisco_bridge_domain', 'CreateParameterizedBridgeDomains', 'Input.Parameter')])),
             ])
             self.parameter = None
 
             self.member = YList(self)
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-bridge-domain:create-parameterized-bridge-domains/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CreateParameterizedBridgeDomains.Input, ['parameter'], name, value)
@@ -4734,11 +4821,12 @@ class CreateParameterizedBridgeDomains(Entity):
                 self.ylist_key_names = ['interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeaf(YType.str, 'interface')),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                 ])
                 self.interface = None
                 self._segment_path = lambda: "member" + "[interface='" + str(self.interface) + "']"
                 self._absolute_path = lambda: "cisco-bridge-domain:create-parameterized-bridge-domains/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CreateParameterizedBridgeDomains.Input.Member, ['interface'], name, value)
@@ -4770,11 +4858,12 @@ class CreateParameterizedBridgeDomains(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('errstr', YLeaf(YType.str, 'errstr')),
+                ('errstr', (YLeaf(YType.str, 'errstr'), ['str'])),
             ])
             self.errstr = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-bridge-domain:create-parameterized-bridge-domains/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CreateParameterizedBridgeDomains.Output, ['errstr'], name, value)

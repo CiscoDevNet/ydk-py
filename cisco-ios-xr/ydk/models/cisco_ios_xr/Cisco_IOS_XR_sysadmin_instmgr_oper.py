@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Install(Entity):
     """
     
@@ -136,6 +137,7 @@ class Install(Entity):
         self.committed.parent = self
         self._children_name_map["committed"] = "committed"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Install, [], name, value)
@@ -167,11 +169,12 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('img_info', YLeafList(YType.str, 'img_info')),
+                ('img_info', (YLeafList(YType.str, 'img_info'), ['str'])),
             ])
             self.img_info = []
             self._segment_path = lambda: "version"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Version, ['img_info'], name, value)
@@ -208,7 +211,7 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("summary", ("summary", Install.Inactive.Summary))])
             self._leafs = OrderedDict([
-                ('si_inactive_output', YLeafList(YType.str, 'si_inactive_output')),
+                ('si_inactive_output', (YLeafList(YType.str, 'si_inactive_output'), ['str'])),
             ])
             self.si_inactive_output = []
 
@@ -217,6 +220,7 @@ class Install(Entity):
             self._children_name_map["summary"] = "summary"
             self._segment_path = lambda: "inactive"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Inactive, ['si_inactive_output'], name, value)
@@ -248,11 +252,12 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('si_inactive_summary_output', YLeafList(YType.str, 'si_inactive_summary_output')),
+                    ('si_inactive_summary_output', (YLeafList(YType.str, 'si_inactive_summary_output'), ['str'])),
                 ])
                 self.si_inactive_summary_output = []
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/inactive/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Inactive.Summary, ['si_inactive_summary_output'], name, value)
@@ -284,11 +289,12 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('si_prepare_output', YLeafList(YType.str, 'si_prepare_output')),
+                ('si_prepare_output', (YLeafList(YType.str, 'si_prepare_output'), ['str'])),
             ])
             self.si_prepare_output = []
             self._segment_path = lambda: "prepare"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Prepare, ['si_prepare_output'], name, value)
@@ -324,6 +330,7 @@ class Install(Entity):
             self.pkg_list = YList(self)
             self._segment_path = lambda: "package"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Package, [], name, value)
@@ -370,8 +377,8 @@ class Install(Entity):
                 self.ylist_key_names = ['pkg_name']
                 self._child_classes = OrderedDict([("detail", ("detail", Install.Package.PkgList.Detail)), ("verbose", ("verbose", Install.Package.PkgList.Verbose))])
                 self._leafs = OrderedDict([
-                    ('pkg_name', YLeaf(YType.str, 'pkg_name')),
-                    ('si_package_output', YLeafList(YType.str, 'si_package_output')),
+                    ('pkg_name', (YLeaf(YType.str, 'pkg_name'), ['str'])),
+                    ('si_package_output', (YLeafList(YType.str, 'si_package_output'), ['str'])),
                 ])
                 self.pkg_name = None
                 self.si_package_output = []
@@ -385,6 +392,7 @@ class Install(Entity):
                 self._children_name_map["verbose"] = "verbose"
                 self._segment_path = lambda: "pkg_list" + "[pkg_name='" + str(self.pkg_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/package/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Package.PkgList, ['pkg_name', 'si_package_output'], name, value)
@@ -416,10 +424,11 @@ class Install(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('si_package_detail_output', YLeafList(YType.str, 'si_package_detail_output')),
+                        ('si_package_detail_output', (YLeafList(YType.str, 'si_package_detail_output'), ['str'])),
                     ])
                     self.si_package_detail_output = []
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Package.PkgList.Detail, ['si_package_detail_output'], name, value)
@@ -451,10 +460,11 @@ class Install(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('si_package_verbose_output', YLeafList(YType.str, 'si_package_verbose_output')),
+                        ('si_package_verbose_output', (YLeafList(YType.str, 'si_package_verbose_output'), ['str'])),
                     ])
                     self.si_package_verbose_output = []
                     self._segment_path = lambda: "verbose"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Package.PkgList.Verbose, ['si_package_verbose_output'], name, value)
@@ -491,7 +501,7 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("summary", ("summary", Install.Active.Summary))])
             self._leafs = OrderedDict([
-                ('si_active_output', YLeafList(YType.str, 'si_active_output')),
+                ('si_active_output', (YLeafList(YType.str, 'si_active_output'), ['str'])),
             ])
             self.si_active_output = []
 
@@ -500,6 +510,7 @@ class Install(Entity):
             self._children_name_map["summary"] = "summary"
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Active, ['si_active_output'], name, value)
@@ -531,11 +542,12 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('si_active_summary_output', YLeafList(YType.str, 'si_active_summary_output')),
+                    ('si_active_summary_output', (YLeafList(YType.str, 'si_active_summary_output'), ['str'])),
                 ])
                 self.si_active_summary_output = []
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Active.Summary, ['si_active_summary_output'], name, value)
@@ -544,6 +556,11 @@ class Install(Entity):
     class Superseded(Entity):
         """
         Calvados superseded package(s) list for this node
+        
+        .. attribute:: summary
+        
+        	shows summary information of the show install superseded
+        	**type**\:  :py:class:`Summary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_instmgr_oper.Install.Superseded.Summary>`
         
         .. attribute:: si_superseded_output
         
@@ -565,16 +582,58 @@ class Install(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("summary", ("summary", Install.Superseded.Summary))])
             self._leafs = OrderedDict([
-                ('si_superseded_output', YLeafList(YType.str, 'si_superseded_output')),
+                ('si_superseded_output', (YLeafList(YType.str, 'si_superseded_output'), ['str'])),
             ])
             self.si_superseded_output = []
+
+            self.summary = Install.Superseded.Summary()
+            self.summary.parent = self
+            self._children_name_map["summary"] = "summary"
             self._segment_path = lambda: "superseded"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Superseded, ['si_superseded_output'], name, value)
+
+
+        class Summary(Entity):
+            """
+            shows summary information of the show install superseded
+            
+            .. attribute:: si_superseded_summary_output
+            
+            	
+            	**type**\: list of str
+            
+            
+
+            """
+
+            _prefix = 'install'
+            _revision = '2017-10-13'
+
+            def __init__(self):
+                super(Install.Superseded.Summary, self).__init__()
+
+                self.yang_name = "summary"
+                self.yang_parent_name = "superseded"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('si_superseded_summary_output', (YLeafList(YType.str, 'si_superseded_summary_output'), ['str'])),
+                ])
+                self.si_superseded_summary_output = []
+                self._segment_path = lambda: "summary"
+                self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/superseded/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Install.Superseded.Summary, ['si_superseded_summary_output'], name, value)
 
 
     class Request(Entity):
@@ -603,11 +662,12 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('curr_inst_oper', YLeafList(YType.str, 'curr_inst_oper')),
+                ('curr_inst_oper', (YLeafList(YType.str, 'curr_inst_oper'), ['str'])),
             ])
             self.curr_inst_oper = []
             self._segment_path = lambda: "request"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Request, ['curr_inst_oper'], name, value)
@@ -644,7 +704,7 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("all", ("all", Install.Repository.All))])
             self._leafs = OrderedDict([
-                ('si_repository_output', YLeafList(YType.str, 'si_repository_output')),
+                ('si_repository_output', (YLeafList(YType.str, 'si_repository_output'), ['str'])),
             ])
             self.si_repository_output = []
 
@@ -653,6 +713,7 @@ class Install(Entity):
             self._children_name_map["all"] = "all"
             self._segment_path = lambda: "repository"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Repository, ['si_repository_output'], name, value)
@@ -684,11 +745,12 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('si_repository_all_output', YLeafList(YType.str, 'si_repository_all_output')),
+                    ('si_repository_all_output', (YLeafList(YType.str, 'si_repository_all_output'), ['str'])),
                 ])
                 self.si_repository_all_output = []
                 self._segment_path = lambda: "all"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/repository/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Repository.All, ['si_repository_all_output'], name, value)
@@ -735,7 +797,7 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("id", ("id", Install.Log.Id)), ("reverse", ("reverse", Install.Log.Reverse)), ("detail", ("detail", Install.Log.Detail))])
             self._leafs = OrderedDict([
-                ('si_log_output', YLeafList(YType.str, 'si_log_output')),
+                ('si_log_output', (YLeafList(YType.str, 'si_log_output'), ['str'])),
             ])
             self.si_log_output = []
 
@@ -750,6 +812,7 @@ class Install(Entity):
             self.id = YList(self)
             self._segment_path = lambda: "log"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Log, ['si_log_output'], name, value)
@@ -793,8 +856,8 @@ class Install(Entity):
                 self.ylist_key_names = ['opid']
                 self._child_classes = OrderedDict([("detail", ("detail", Install.Log.Id.Detail))])
                 self._leafs = OrderedDict([
-                    ('opid', YLeaf(YType.uint32, 'opid')),
-                    ('si_log_id_output', YLeafList(YType.str, 'si_log_id_output')),
+                    ('opid', (YLeaf(YType.uint32, 'opid'), ['int'])),
+                    ('si_log_id_output', (YLeafList(YType.str, 'si_log_id_output'), ['str'])),
                 ])
                 self.opid = None
                 self.si_log_id_output = []
@@ -804,6 +867,7 @@ class Install(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "id" + "[opid='" + str(self.opid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/log/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Log.Id, ['opid', 'si_log_id_output'], name, value)
@@ -835,10 +899,11 @@ class Install(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('si_log_id_detail_output', YLeafList(YType.str, 'si_log_id_detail_output')),
+                        ('si_log_id_detail_output', (YLeafList(YType.str, 'si_log_id_detail_output'), ['str'])),
                     ])
                     self.si_log_id_detail_output = []
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Log.Id.Detail, ['si_log_id_detail_output'], name, value)
@@ -875,7 +940,7 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("detail", ("detail", Install.Log.Reverse.Detail))])
                 self._leafs = OrderedDict([
-                    ('si_log_reverse_output', YLeafList(YType.str, 'si_log_reverse_output')),
+                    ('si_log_reverse_output', (YLeafList(YType.str, 'si_log_reverse_output'), ['str'])),
                 ])
                 self.si_log_reverse_output = []
 
@@ -884,6 +949,7 @@ class Install(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "reverse"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/log/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Log.Reverse, ['si_log_reverse_output'], name, value)
@@ -915,11 +981,12 @@ class Install(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('si_log_reverse_detail_output', YLeafList(YType.str, 'si_log_reverse_detail_output')),
+                        ('si_log_reverse_detail_output', (YLeafList(YType.str, 'si_log_reverse_detail_output'), ['str'])),
                     ])
                     self.si_log_reverse_detail_output = []
                     self._segment_path = lambda: "detail"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/log/reverse/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Log.Reverse.Detail, ['si_log_reverse_detail_output'], name, value)
@@ -951,11 +1018,12 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('si_log_detail_output', YLeafList(YType.str, 'si_log_detail_output')),
+                    ('si_log_detail_output', (YLeafList(YType.str, 'si_log_detail_output'), ['str'])),
                 ])
                 self.si_log_detail_output = []
                 self._segment_path = lambda: "detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/log/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Log.Detail, ['si_log_detail_output'], name, value)
@@ -991,6 +1059,7 @@ class Install(Entity):
             self.file_list = YList(self)
             self._segment_path = lambda: "which"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Which, [], name, value)
@@ -1032,8 +1101,8 @@ class Install(Entity):
                 self.ylist_key_names = ['file_name']
                 self._child_classes = OrderedDict([("detail", ("detail", Install.Which.FileList.Detail))])
                 self._leafs = OrderedDict([
-                    ('file_name', YLeaf(YType.str, 'file_name')),
-                    ('si_which_output', YLeafList(YType.str, 'si_which_output')),
+                    ('file_name', (YLeaf(YType.str, 'file_name'), ['str'])),
+                    ('si_which_output', (YLeafList(YType.str, 'si_which_output'), ['str'])),
                 ])
                 self.file_name = None
                 self.si_which_output = []
@@ -1043,6 +1112,7 @@ class Install(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "file_list" + "[file_name='" + str(self.file_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/which/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Which.FileList, ['file_name', 'si_which_output'], name, value)
@@ -1074,10 +1144,11 @@ class Install(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('si_which_detail_output', YLeafList(YType.str, 'si_which_detail_output')),
+                        ('si_which_detail_output', (YLeafList(YType.str, 'si_which_detail_output'), ['str'])),
                     ])
                     self.si_which_detail_output = []
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Install.Which.FileList.Detail, ['si_which_detail_output'], name, value)
@@ -1114,7 +1185,7 @@ class Install(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("summary", ("summary", Install.Committed.Summary))])
             self._leafs = OrderedDict([
-                ('si_committed_output', YLeafList(YType.str, 'si_committed_output')),
+                ('si_committed_output', (YLeafList(YType.str, 'si_committed_output'), ['str'])),
             ])
             self.si_committed_output = []
 
@@ -1123,6 +1194,7 @@ class Install(Entity):
             self._children_name_map["summary"] = "summary"
             self._segment_path = lambda: "committed"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Install.Committed, ['si_committed_output'], name, value)
@@ -1154,11 +1226,12 @@ class Install(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('si_committed_summary_output', YLeafList(YType.str, 'si_committed_summary_output')),
+                    ('si_committed_summary_output', (YLeafList(YType.str, 'si_committed_summary_output'), ['str'])),
                 ])
                 self.si_committed_summary_output = []
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-instmgr-oper:install/committed/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Install.Committed.Summary, ['si_committed_summary_output'], name, value)

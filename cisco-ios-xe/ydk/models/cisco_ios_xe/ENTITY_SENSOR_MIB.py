@@ -16,6 +16,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class EntitySensorDataScale(Enum):
     """
     EntitySensorDataScale (Enum Class)
@@ -286,6 +287,7 @@ class ENTITYSENSORMIB(Entity):
         self.entphysensortable.parent = self
         self._children_name_map["entphysensortable"] = "entPhySensorTable"
         self._segment_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ENTITYSENSORMIB, [], name, value)
@@ -322,6 +324,7 @@ class ENTITYSENSORMIB(Entity):
             self.entphysensorentry = YList(self)
             self._segment_path = lambda: "entPhySensorTable"
             self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYSENSORMIB.EntPhySensorTable, [], name, value)
@@ -416,15 +419,15 @@ class ENTITYSENSORMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entphysensortype', YLeaf(YType.enumeration, 'entPhySensorType')),
-                    ('entphysensorscale', YLeaf(YType.enumeration, 'entPhySensorScale')),
-                    ('entphysensorprecision', YLeaf(YType.int32, 'entPhySensorPrecision')),
-                    ('entphysensorvalue', YLeaf(YType.int32, 'entPhySensorValue')),
-                    ('entphysensoroperstatus', YLeaf(YType.enumeration, 'entPhySensorOperStatus')),
-                    ('entphysensorunitsdisplay', YLeaf(YType.str, 'entPhySensorUnitsDisplay')),
-                    ('entphysensorvaluetimestamp', YLeaf(YType.uint32, 'entPhySensorValueTimeStamp')),
-                    ('entphysensorvalueupdaterate', YLeaf(YType.uint32, 'entPhySensorValueUpdateRate')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entphysensortype', (YLeaf(YType.enumeration, 'entPhySensorType'), [('ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB', 'EntitySensorDataType', '')])),
+                    ('entphysensorscale', (YLeaf(YType.enumeration, 'entPhySensorScale'), [('ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB', 'EntitySensorDataScale', '')])),
+                    ('entphysensorprecision', (YLeaf(YType.int32, 'entPhySensorPrecision'), ['int'])),
+                    ('entphysensorvalue', (YLeaf(YType.int32, 'entPhySensorValue'), ['int'])),
+                    ('entphysensoroperstatus', (YLeaf(YType.enumeration, 'entPhySensorOperStatus'), [('ydk.models.cisco_ios_xe.ENTITY_SENSOR_MIB', 'EntitySensorStatus', '')])),
+                    ('entphysensorunitsdisplay', (YLeaf(YType.str, 'entPhySensorUnitsDisplay'), ['str'])),
+                    ('entphysensorvaluetimestamp', (YLeaf(YType.uint32, 'entPhySensorValueTimeStamp'), ['int'])),
+                    ('entphysensorvalueupdaterate', (YLeaf(YType.uint32, 'entPhySensorValueUpdateRate'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.entphysensortype = None
@@ -437,6 +440,7 @@ class ENTITYSENSORMIB(Entity):
                 self.entphysensorvalueupdaterate = None
                 self._segment_path = lambda: "entPhySensorEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-SENSOR-MIB:ENTITY-SENSOR-MIB/entPhySensorTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYSENSORMIB.EntPhySensorTable.EntPhySensorEntry, ['entphysicalindex', 'entphysensortype', 'entphysensorscale', 'entphysensorprecision', 'entphysensorvalue', 'entphysensoroperstatus', 'entphysensorunitsdisplay', 'entphysensorvaluetimestamp', 'entphysensorvalueupdaterate'], name, value)

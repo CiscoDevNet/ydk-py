@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   optics\-oper\: Optics operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EthernetPmd(Enum):
@@ -280,6 +281,33 @@ class Optics(Enum):
     optics_cwdm = Enum.YLeaf(3, "optics-cwdm")
 
 
+class OpticsAinsStateEt(Enum):
+    """
+    OpticsAinsStateEt (Enum Class)
+
+    Optics ains state et
+
+    .. data:: none = 0
+
+    	None
+
+    .. data:: active_running = 1
+
+    	Running
+
+    .. data:: active_pending = 2
+
+    	Pending
+
+    """
+
+    none = Enum.YLeaf(0, "none")
+
+    active_running = Enum.YLeaf(1, "active-running")
+
+    active_pending = Enum.YLeaf(2, "active-pending")
+
+
 class OpticsAmplifierControlMode(Enum):
     """
     OpticsAmplifierControlMode (Enum Class)
@@ -418,7 +446,7 @@ class OpticsFec(Enum):
 
     .. data:: fec_cl91 = 64
 
-    	FEC CL91 
+    	FEC CL91
 
     """
 
@@ -489,23 +517,31 @@ class OpticsFormFactor(Enum):
 
     	CFP2
 
-    .. data:: cfp4 = 11
+    .. data:: cfp2_aco = 11
+
+    	CFP2 ACO
+
+    .. data:: cfp2_dco = 12
+
+    	CFP2 DCO
+
+    .. data:: cfp4 = 13
 
     	CFP4
 
-    .. data:: xfp = 12
+    .. data:: xfp = 14
 
     	XFP
 
-    .. data:: x2 = 13
+    .. data:: x2 = 15
 
     	X2
 
-    .. data:: non_pluggable = 14
+    .. data:: non_pluggable = 16
 
     	Non pluggable
 
-    .. data:: other = 15
+    .. data:: other = 17
 
     	Other
 
@@ -533,15 +569,19 @@ class OpticsFormFactor(Enum):
 
     cfp2 = Enum.YLeaf(10, "cfp2")
 
-    cfp4 = Enum.YLeaf(11, "cfp4")
+    cfp2_aco = Enum.YLeaf(11, "cfp2-aco")
 
-    xfp = Enum.YLeaf(12, "xfp")
+    cfp2_dco = Enum.YLeaf(12, "cfp2-dco")
 
-    x2 = Enum.YLeaf(13, "x2")
+    cfp4 = Enum.YLeaf(13, "cfp4")
 
-    non_pluggable = Enum.YLeaf(14, "non-pluggable")
+    xfp = Enum.YLeaf(14, "xfp")
 
-    other = Enum.YLeaf(15, "other")
+    x2 = Enum.YLeaf(15, "x2")
+
+    non_pluggable = Enum.YLeaf(16, "non-pluggable")
+
+    other = Enum.YLeaf(17, "other")
 
 
 class OpticsLaserState(Enum):
@@ -566,6 +606,10 @@ class OpticsLaserState(Enum):
 
     	Apr
 
+    .. data:: na = 4
+
+    	N/A
+
     """
 
     on = Enum.YLeaf(0, "on")
@@ -575,6 +619,8 @@ class OpticsLaserState(Enum):
     unknown = Enum.YLeaf(2, "unknown")
 
     apr = Enum.YLeaf(3, "apr")
+
+    na = Enum.YLeaf(4, "na")
 
 
 class OpticsLedState(Enum):
@@ -626,6 +672,81 @@ class OpticsLedState(Enum):
     red_on = Enum.YLeaf(5, "red-on")
 
     red_flashing = Enum.YLeaf(6, "red-flashing")
+
+
+class OpticsModulation(Enum):
+    """
+    OpticsModulation (Enum Class)
+
+    Optics modulation
+
+    .. data:: mod_bpsk = 1
+
+    	BPSK
+
+    .. data:: mod_qpsk = 2
+
+    	QPSK
+
+    .. data:: mod_8qam = 3
+
+    	8QAM
+
+    .. data:: mod_16qam = 4
+
+    	16QAM
+
+    .. data:: mod_32qam = 5
+
+    	32QAM
+
+    .. data:: mod_64qam = 6
+
+    	64QAM
+
+    .. data:: mod_bpsk_qpsk = 7
+
+    	BPSK QPSK
+
+    .. data:: mod_qpsk_8qam = 8
+
+    	QPSK 8QAM
+
+    .. data:: mod_8qam_16qam = 9
+
+    	8QAM 16QAM
+
+    .. data:: mode_16qam_32qam = 10
+
+    	16QAM 32QAM
+
+    .. data:: mod_32qam_64qam = 11
+
+    	32QAM 64QAM
+
+    """
+
+    mod_bpsk = Enum.YLeaf(1, "mod-bpsk")
+
+    mod_qpsk = Enum.YLeaf(2, "mod-qpsk")
+
+    mod_8qam = Enum.YLeaf(3, "mod-8qam")
+
+    mod_16qam = Enum.YLeaf(4, "mod-16qam")
+
+    mod_32qam = Enum.YLeaf(5, "mod-32qam")
+
+    mod_64qam = Enum.YLeaf(6, "mod-64qam")
+
+    mod_bpsk_qpsk = Enum.YLeaf(7, "mod-bpsk-qpsk")
+
+    mod_qpsk_8qam = Enum.YLeaf(8, "mod-qpsk-8qam")
+
+    mod_8qam_16qam = Enum.YLeaf(9, "mod-8qam-16qam")
+
+    mode_16qam_32qam = Enum.YLeaf(10, "mode-16qam-32qam")
+
+    mod_32qam_64qam = Enum.YLeaf(11, "mod-32qam-64qam")
 
 
 class OpticsPhy(Enum):
@@ -898,6 +1019,10 @@ class OpticsPhy(Enum):
 
     	TenGigE Edge Performance 1 Lane
 
+    .. data:: one_gig_csfp = 66
+
+    	OneGig CSFP optics
+
     """
 
     not_set = Enum.YLeaf(0, "not-set")
@@ -1031,6 +1156,8 @@ class OpticsPhy(Enum):
     ten_gig_emrdwdm = Enum.YLeaf(64, "ten-gig-emrdwdm")
 
     ten_gig_e_edge_performance = Enum.YLeaf(65, "ten-gig-e-edge-performance")
+
+    one_gig_csfp = Enum.YLeaf(66, "one-gig-csfp")
 
 
 class OpticsPort(Enum):
@@ -1282,6 +1409,7 @@ class OpticsOper(Entity):
         self.optics_ports.parent = self
         self._children_name_map["optics_ports"] = "optics-ports"
         self._segment_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OpticsOper, [], name, value)
@@ -1317,6 +1445,7 @@ class OpticsOper(Entity):
             self.optics_port = YList(self)
             self._segment_path = lambda: "optics-ports"
             self._absolute_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OpticsOper.OpticsPorts, [], name, value)
@@ -1331,17 +1460,22 @@ class OpticsOper(Entity):
             	Port name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
-            .. attribute:: optics_dwdm_carrrier_channel_map
+            .. attribute:: optics_dwdm_carrier_channel_map
             
             	Optics operational data
-            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap>`
+            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMap <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap>`
             
             .. attribute:: ots_spectrum_info
             
             	Ots Spectrum Operational data
             	**type**\:  :py:class:`OtsSpectrumInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo>`
+            
+            .. attribute:: optics_dwdm_carrier_channel_map_flexi
+            
+            	Optics operational data
+            	**type**\:  :py:class:`OpticsDwdmCarrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi>`
             
             .. attribute:: optics_info
             
@@ -1352,11 +1486,6 @@ class OpticsOper(Entity):
             
             	All Optics Port operational data
             	**type**\:  :py:class:`OpticsLanes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsLanes>`
-            
-            .. attribute:: optics_dwdm_carrrier_channel_map_flexi
-            
-            	Optics operational data
-            	**type**\:  :py:class:`OpticsDwdmCarrrierChannelMapFlexi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi>`
             
             .. attribute:: optics_db_info
             
@@ -1378,19 +1507,23 @@ class OpticsOper(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['name']
-                self._child_classes = OrderedDict([("optics-dwdm-carrrier-channel-map", ("optics_dwdm_carrrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap)), ("ots-spectrum-info", ("ots_spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo)), ("optics-info", ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo)), ("optics-lanes", ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes)), ("optics-dwdm-carrrier-channel-map-flexi", ("optics_dwdm_carrrier_channel_map_flexi", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi)), ("optics-db-info", ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo))])
+                self._child_classes = OrderedDict([("optics-dwdm-carrier-channel-map", ("optics_dwdm_carrier_channel_map", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap)), ("ots-spectrum-info", ("ots_spectrum_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo)), ("optics-dwdm-carrier-channel-map-flexi", ("optics_dwdm_carrier_channel_map_flexi", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi)), ("optics-info", ("optics_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo)), ("optics-lanes", ("optics_lanes", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes)), ("optics-db-info", ("optics_db_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
-                self.optics_dwdm_carrrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap()
-                self.optics_dwdm_carrrier_channel_map.parent = self
-                self._children_name_map["optics_dwdm_carrrier_channel_map"] = "optics-dwdm-carrrier-channel-map"
+                self.optics_dwdm_carrier_channel_map = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap()
+                self.optics_dwdm_carrier_channel_map.parent = self
+                self._children_name_map["optics_dwdm_carrier_channel_map"] = "optics-dwdm-carrier-channel-map"
 
                 self.ots_spectrum_info = OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo()
                 self.ots_spectrum_info.parent = self
                 self._children_name_map["ots_spectrum_info"] = "ots-spectrum-info"
+
+                self.optics_dwdm_carrier_channel_map_flexi = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi()
+                self.optics_dwdm_carrier_channel_map_flexi.parent = self
+                self._children_name_map["optics_dwdm_carrier_channel_map_flexi"] = "optics-dwdm-carrier-channel-map-flexi"
 
                 self.optics_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo()
                 self.optics_info.parent = self
@@ -1400,21 +1533,18 @@ class OpticsOper(Entity):
                 self.optics_lanes.parent = self
                 self._children_name_map["optics_lanes"] = "optics-lanes"
 
-                self.optics_dwdm_carrrier_channel_map_flexi = OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi()
-                self.optics_dwdm_carrrier_channel_map_flexi.parent = self
-                self._children_name_map["optics_dwdm_carrrier_channel_map_flexi"] = "optics-dwdm-carrrier-channel-map-flexi"
-
                 self.optics_db_info = OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo()
                 self.optics_db_info.parent = self
                 self._children_name_map["optics_db_info"] = "optics-db-info"
                 self._segment_path = lambda: "optics-port" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort, ['name'], name, value)
 
 
-            class OpticsDwdmCarrrierChannelMap(Entity):
+            class OpticsDwdmCarrierChannelMap(Entity):
                 """
                 Optics operational data
                 
@@ -1440,7 +1570,7 @@ class OpticsOper(Entity):
                 .. attribute:: dwdm_carrier_map_info
                 
                 	DWDM carrier mapping info
-                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo>`
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo>`
                 
                 
 
@@ -1450,28 +1580,29 @@ class OpticsOper(Entity):
                 _revision = '2017-09-07'
 
                 def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, self).__init__()
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, self).__init__()
 
-                    self.yang_name = "optics-dwdm-carrrier-channel-map"
+                    self.yang_name = "optics-dwdm-carrier-channel-map"
                     self.yang_parent_name = "optics-port"
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo))])
+                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo))])
                     self._leafs = OrderedDict([
-                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
-                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
-                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
+                        ('dwdm_carrier_band', (YLeaf(YType.enumeration, 'dwdm-carrier-band'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsWaveBand', '')])),
+                        ('dwdm_carrier_min', (YLeaf(YType.uint32, 'dwdm-carrier-min'), ['int'])),
+                        ('dwdm_carrier_max', (YLeaf(YType.uint32, 'dwdm-carrier-max'), ['int'])),
                     ])
                     self.dwdm_carrier_band = None
                     self.dwdm_carrier_min = None
                     self.dwdm_carrier_max = None
 
                     self.dwdm_carrier_map_info = YList(self)
-                    self._segment_path = lambda: "optics-dwdm-carrrier-channel-map"
+                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
 
 
                 class DwdmCarrierMapInfo(Entity):
@@ -1514,28 +1645,29 @@ class OpticsOper(Entity):
                     _revision = '2017-09-07'
 
                     def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, self).__init__()
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, self).__init__()
 
                         self.yang_name = "dwdm-carrier-map-info"
-                        self.yang_parent_name = "optics-dwdm-carrrier-channel-map"
+                        self.yang_parent_name = "optics-dwdm-carrier-channel-map"
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
-                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
-                            ('frequency', YLeaf(YType.str, 'frequency')),
-                            ('wavelength', YLeaf(YType.str, 'wavelength')),
+                            ('itu_chan_num', (YLeaf(YType.uint32, 'itu-chan-num'), ['int'])),
+                            ('g694_chan_num', (YLeaf(YType.int32, 'g694-chan-num'), ['int'])),
+                            ('frequency', (YLeaf(YType.str, 'frequency'), ['str'])),
+                            ('wavelength', (YLeaf(YType.str, 'wavelength'), ['str'])),
                         ])
                         self.itu_chan_num = None
                         self.g694_chan_num = None
                         self.frequency = None
                         self.wavelength = None
                         self._segment_path = lambda: "dwdm-carrier-map-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMap.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OtsSpectrumInfo(Entity):
@@ -1569,6 +1701,7 @@ class OpticsOper(Entity):
                     self.spectrum_info.parent = self
                     self._children_name_map["spectrum_info"] = "spectrum-info"
                     self._segment_path = lambda: "ots-spectrum-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo, [], name, value)
@@ -1621,9 +1754,9 @@ class OpticsOper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("spectrum-slice-power-info", ("spectrum_slice_power_info", OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo))])
                         self._leafs = OrderedDict([
-                            ('total_spectrum_slice_count', YLeaf(YType.uint32, 'total-spectrum-slice-count')),
-                            ('spectrum_slice_spacing', YLeaf(YType.uint32, 'spectrum-slice-spacing')),
-                            ('first_slice_wavelength', YLeaf(YType.str, 'first-slice-wavelength')),
+                            ('total_spectrum_slice_count', (YLeaf(YType.uint32, 'total-spectrum-slice-count'), ['int'])),
+                            ('spectrum_slice_spacing', (YLeaf(YType.uint32, 'spectrum-slice-spacing'), ['int'])),
+                            ('first_slice_wavelength', (YLeaf(YType.str, 'first-slice-wavelength'), ['str'])),
                         ])
                         self.total_spectrum_slice_count = None
                         self.spectrum_slice_spacing = None
@@ -1631,6 +1764,7 @@ class OpticsOper(Entity):
 
                         self.spectrum_slice_power_info = YList(self)
                         self._segment_path = lambda: "spectrum-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo, ['total_spectrum_slice_count', 'spectrum_slice_spacing', 'first_slice_wavelength'], name, value)
@@ -1706,13 +1840,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('slice_num', YLeaf(YType.uint32, 'slice-num')),
-                                ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
-                                ('upper_frequency', YLeaf(YType.uint64, 'upper-frequency')),
-                                ('rx_power', YLeaf(YType.int32, 'rx-power')),
-                                ('tx_power', YLeaf(YType.int32, 'tx-power')),
-                                ('rx_psd', YLeaf(YType.str, 'rx-psd')),
-                                ('tx_psd', YLeaf(YType.str, 'tx-psd')),
+                                ('slice_num', (YLeaf(YType.uint32, 'slice-num'), ['int'])),
+                                ('lower_frequency', (YLeaf(YType.uint64, 'lower-frequency'), ['int'])),
+                                ('upper_frequency', (YLeaf(YType.uint64, 'upper-frequency'), ['int'])),
+                                ('rx_power', (YLeaf(YType.int32, 'rx-power'), ['int'])),
+                                ('tx_power', (YLeaf(YType.int32, 'tx-power'), ['int'])),
+                                ('rx_psd', (YLeaf(YType.str, 'rx-psd'), ['str'])),
+                                ('tx_psd', (YLeaf(YType.str, 'tx-psd'), ['str'])),
                             ])
                             self.slice_num = None
                             self.lower_frequency = None
@@ -1722,9 +1856,136 @@ class OpticsOper(Entity):
                             self.rx_psd = None
                             self.tx_psd = None
                             self._segment_path = lambda: "spectrum-slice-power-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OtsSpectrumInfo.SpectrumInfo.SpectrumSlicePowerInfo, ['slice_num', 'lower_frequency', 'upper_frequency', 'rx_power', 'tx_power', 'rx_psd', 'tx_psd'], name, value)
+
+
+            class OpticsDwdmCarrierChannelMapFlexi(Entity):
+                """
+                Optics operational data
+                
+                .. attribute:: dwdm_carrier_band
+                
+                	DWDM carrier band
+                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
+                
+                .. attribute:: dwdm_carrier_min
+                
+                	Lowest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_max
+                
+                	Highest DWDM carrier supported
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: dwdm_carrier_map_info
+                
+                	DWDM carrier mapping info
+                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo>`
+                
+                
+
+                """
+
+                _prefix = 'controller-optics-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, self).__init__()
+
+                    self.yang_name = "optics-dwdm-carrier-channel-map-flexi"
+                    self.yang_parent_name = "optics-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo))])
+                    self._leafs = OrderedDict([
+                        ('dwdm_carrier_band', (YLeaf(YType.enumeration, 'dwdm-carrier-band'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsWaveBand', '')])),
+                        ('dwdm_carrier_min', (YLeaf(YType.uint32, 'dwdm-carrier-min'), ['int'])),
+                        ('dwdm_carrier_max', (YLeaf(YType.uint32, 'dwdm-carrier-max'), ['int'])),
+                    ])
+                    self.dwdm_carrier_band = None
+                    self.dwdm_carrier_min = None
+                    self.dwdm_carrier_max = None
+
+                    self.dwdm_carrier_map_info = YList(self)
+                    self._segment_path = lambda: "optics-dwdm-carrier-channel-map-flexi"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
+
+
+                class DwdmCarrierMapInfo(Entity):
+                    """
+                    DWDM carrier mapping info
+                    
+                    .. attribute:: itu_chan_num
+                    
+                    	ITU channel number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: g694_chan_num
+                    
+                    	G694 channel number
+                    	**type**\: int
+                    
+                    	**range:** \-2147483648..2147483647
+                    
+                    .. attribute:: frequency
+                    
+                    	Frequency
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    .. attribute:: wavelength
+                    
+                    	Wavelength
+                    	**type**\: str
+                    
+                    	**length:** 0..32
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
+
+                        self.yang_name = "dwdm-carrier-map-info"
+                        self.yang_parent_name = "optics-dwdm-carrier-channel-map-flexi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('itu_chan_num', (YLeaf(YType.uint32, 'itu-chan-num'), ['int'])),
+                            ('g694_chan_num', (YLeaf(YType.int32, 'g694-chan-num'), ['int'])),
+                            ('frequency', (YLeaf(YType.str, 'frequency'), ['str'])),
+                            ('wavelength', (YLeaf(YType.str, 'wavelength'), ['str'])),
+                        ])
+                        self.itu_chan_num = None
+                        self.g694_chan_num = None
+                        self.frequency = None
+                        self.wavelength = None
+                        self._segment_path = lambda: "dwdm-carrier-map-info"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OpticsInfo(Entity):
@@ -1766,6 +2027,11 @@ class OpticsOper(Entity):
                 	Extended DOM alarm Information
                 	**type**\:  :py:class:`ExtendedAlarmAlarmInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo>`
                 
+                .. attribute:: ains_info
+                
+                	AINS information
+                	**type**\:  :py:class:`AinsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo>`
+                
                 .. attribute:: transport_admin_state
                 
                 	Transport Admin State
@@ -1803,7 +2069,7 @@ class OpticsOper(Entity):
                 
                 .. attribute:: dwdm_carrier_frequency
                 
-                	DWDM Carrier frequency read from hw in the unit 1THz
+                	DWDM Carrier frequency read from hw in the units of  1THz
                 	**type**\: str
                 
                 .. attribute:: dwdm_carrier_wavelength
@@ -1857,7 +2123,7 @@ class OpticsOper(Entity):
                 
                 .. attribute:: lbc_th_high_default
                 
-                	LBC high threshold default value in unit of 0 .001mA
+                	LBC high threshold default value in units of 0 .001mA
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -1871,28 +2137,28 @@ class OpticsOper(Entity):
                 
                 .. attribute:: temp_low_threshold
                 
-                	Temp Low threshold value in the units 0.01 C
+                	Temp Low threshold value in the units 0.01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_high_threshold
                 
-                	Temp High threshold value in the units of 0.01 C
+                	Temp High threshold value in the units of 0.01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_low_threshold
                 
-                	Volt Low threshold value
+                	Volt Low threshold value in the units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_high_threshold
                 
-                	Volt High threshold value
+                	Volt High threshold value in the units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -1989,6 +2255,11 @@ class OpticsOper(Entity):
                 	Showing laser state.Either ON or OFF or unknown
                 	**type**\:  :py:class:`OpticsLaserState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsLaserState>`
                 
+                .. attribute:: modulation_type
+                
+                	Available Modulation Types
+                	**type**\:  :py:class:`OpticsModulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsModulation>`
+                
                 .. attribute:: led_state
                 
                 	Showing Current Colour of led state
@@ -2011,7 +2282,7 @@ class OpticsOper(Entity):
                 
                 .. attribute:: cfg_tx_power
                 
-                	Configured Tx power value in 0.1 dB
+                	Configured Tx power value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2023,14 +2294,14 @@ class OpticsOper(Entity):
                 
                 .. attribute:: temperature
                 
-                	Temperature value
+                	Temperature value in units of 0.01 C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: voltage
                 
-                	Voltage value
+                	Voltage value in units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2050,6 +2321,13 @@ class OpticsOper(Entity):
                 	Optics FEC
                 	**type**\:  :py:class:`OpticsFec <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsFec>`
                 
+                .. attribute:: skip_snmp_pm_table
+                
+                	PM enabled or not
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
                 .. attribute:: port_type
                 
                 	Showing port type
@@ -2062,28 +2340,28 @@ class OpticsOper(Entity):
                 
                 .. attribute:: rx_voa_attenuation
                 
-                	Rx Voa Attenuation in the unit of 0.01dBm
+                	Rx Voa Attenuation in the units of 0.01dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_voa_attenuation
                 
-                	Tx Voa Attenuation in the unit of 0.01dBm
+                	Tx Voa Attenuation in the units of 0.01dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain
                 
-                	Ampli Gain in the unit of 0.01dBm
+                	Ampli Gain in the units of 0.01dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_tilt
                 
-                	Ampli Tilt in the unit of 0.01dBm
+                	Ampli Tilt in the units of 0.01dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2100,14 +2378,14 @@ class OpticsOper(Entity):
                 
                 .. attribute:: rx_voa_attenuation_config_val
                 
-                	rx voa attenuation config val
+                	RX VOA attenuation configured value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: tx_voa_attenuation_config_val
                 
-                	tx voa attenuation config val
+                	TX VOA attenuation configured value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2124,42 +2402,42 @@ class OpticsOper(Entity):
                 
                 .. attribute:: ampli_gain_config_val
                 
-                	ampli gain config val
+                	Ampli gain configured value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_tilt_config_val
                 
-                	ampli tilt config val
+                	Ampli tilt configured value in units of 0.1dB
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_channel_power_config_val
                 
-                	ampli channel power config val
+                	Ampli channel power configured value in units of 0.1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: channel_power_max_delta_config_val
                 
-                	channel power max delta config val
+                	Channel power max delta configured value in units of 0.1 dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain_thr_deg_low_config_val
                 
-                	ampli gain thr deg low config val
+                	Ampli gain low degrade threshold configured value in units of 0.1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: ampli_gain_thr_deg_high_config_val
                 
-                	ampli gain thr deg high config val
+                	Ampli gain high degrade threshold configured value in units of 0.1dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2186,14 +2464,14 @@ class OpticsOper(Entity):
                 
                 .. attribute:: total_rx_power
                 
-                	Total Receive Power for Multi\-Lane Optics in dBm
+                	Total Receive Power for Multi\-Lane Optics in units of 0.01 dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: total_tx_power
                 
-                	Total Transmit Power for Multi\-Lane Optics in dBm
+                	Total Transmit Power for Multi\-Lane Optics in units of 0.01 dBm
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2243,7 +2521,7 @@ class OpticsOper(Entity):
                 
                 .. attribute:: lbc_th_high_warning_default
                 
-                	LBC high Warning threshold default value in unit of 0.001mA
+                	LBC high Warning threshold default value in units of 0.001mA
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2257,28 +2535,28 @@ class OpticsOper(Entity):
                 
                 .. attribute:: temp_low_warning_threshold
                 
-                	Temp Low warning threshold value in the units 0 .01 C
+                	Temp Low warning threshold value in the units 0 .01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: temp_high_warning_threshold
                 
-                	Temp High warning threshold value in the units of 0.01 C
+                	Temp High warning threshold value in the units of 0.01C
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_low_warning_threshold
                 
-                	Volt Low warning threshold value
+                	Volt Low warning threshold value in the units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
                 
                 .. attribute:: volt_high_warning_threshold
                 
-                	Volt High warning threshold value
+                	Volt High warning threshold value in the units of 0.01V
                 	**type**\: int
                 
                 	**range:** \-2147483648..2147483647
@@ -2330,6 +2608,30 @@ class OpticsOper(Entity):
                 
                 	**range:** \-2147483648..2147483647
                 
+                .. attribute:: rx_span_loss
+                
+                	RX Span Loss in units of 0.01 dB
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: tx_span_loss
+                
+                	TX Span Loss in units of 0.01 dB
+                	**type**\: int
+                
+                	**range:** \-2147483648..2147483647
+                
+                .. attribute:: baud_rate
+                
+                	Baud Rate in GBd
+                	**type**\: str
+                
+                .. attribute:: bits_per_symbol
+                
+                	Bits per Symbol
+                	**type**\: str
+                
                 .. attribute:: lane_data
                 
                 	Lane information
@@ -2350,102 +2652,108 @@ class OpticsOper(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo)), ("optics-alarm-info", ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo)), ("ots-alarm-info", ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo)), ("transceiver-info", ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo)), ("ext-param-val", ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal)), ("ext-param-threshold-val", ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal)), ("extended-alarm-alarm-info", ("extended_alarm_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo)), ("lane-data", ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData))])
+                    self._child_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo)), ("optics-alarm-info", ("optics_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo)), ("ots-alarm-info", ("ots_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo)), ("transceiver-info", ("transceiver_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo)), ("ext-param-val", ("ext_param_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal)), ("ext-param-threshold-val", ("ext_param_threshold_val", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal)), ("extended-alarm-alarm-info", ("extended_alarm_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo)), ("ains-info", ("ains_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo)), ("lane-data", ("lane_data", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData))])
                     self._leafs = OrderedDict([
-                        ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
-                        ('optics_present', YLeaf(YType.boolean, 'optics-present')),
-                        ('optics_type', YLeaf(YType.enumeration, 'optics-type')),
-                        ('derived_optics_type', YLeaf(YType.str, 'derived-optics-type')),
-                        ('optics_module', YLeaf(YType.str, 'optics-module')),
-                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
-                        ('dwdm_carrier_channel', YLeaf(YType.str, 'dwdm-carrier-channel')),
-                        ('dwdm_carrier_frequency', YLeaf(YType.str, 'dwdm-carrier-frequency')),
-                        ('dwdm_carrier_wavelength', YLeaf(YType.str, 'dwdm-carrier-wavelength')),
-                        ('grey_wavelength', YLeaf(YType.uint32, 'grey-wavelength')),
-                        ('rx_low_threshold', YLeaf(YType.int32, 'rx-low-threshold')),
-                        ('rx_high_threshold', YLeaf(YType.int32, 'rx-high-threshold')),
-                        ('lbc_high_threshold', YLeaf(YType.int32, 'lbc-high-threshold')),
-                        ('tx_low_threshold', YLeaf(YType.int32, 'tx-low-threshold')),
-                        ('tx_high_threshold', YLeaf(YType.int32, 'tx-high-threshold')),
-                        ('lbc_th_high_default', YLeaf(YType.int32, 'lbc-th-high-default')),
-                        ('lbc_th_low_default', YLeaf(YType.int32, 'lbc-th-low-default')),
-                        ('temp_low_threshold', YLeaf(YType.int32, 'temp-low-threshold')),
-                        ('temp_high_threshold', YLeaf(YType.int32, 'temp-high-threshold')),
-                        ('volt_low_threshold', YLeaf(YType.int32, 'volt-low-threshold')),
-                        ('volt_high_threshold', YLeaf(YType.int32, 'volt-high-threshold')),
-                        ('cd', YLeaf(YType.int32, 'cd')),
-                        ('cd_min', YLeaf(YType.int32, 'cd-min')),
-                        ('cd_max', YLeaf(YType.int32, 'cd-max')),
-                        ('cd_low_threshold', YLeaf(YType.int32, 'cd-low-threshold')),
-                        ('cd_high_threshold', YLeaf(YType.int32, 'cd-high-threshold')),
-                        ('osnr_low_threshold', YLeaf(YType.str, 'osnr-low-threshold')),
-                        ('dgd_high_threshold', YLeaf(YType.str, 'dgd-high-threshold')),
-                        ('polarization_mode_dispersion', YLeaf(YType.str, 'polarization-mode-dispersion')),
-                        ('second_order_polarization_mode_dispersion', YLeaf(YType.str, 'second-order-polarization-mode-dispersion')),
-                        ('optical_signal_to_noise_ratio', YLeaf(YType.str, 'optical-signal-to-noise-ratio')),
-                        ('polarization_dependent_loss', YLeaf(YType.str, 'polarization-dependent-loss')),
-                        ('polarization_change_rate', YLeaf(YType.str, 'polarization-change-rate')),
-                        ('differential_group_delay', YLeaf(YType.str, 'differential-group-delay')),
-                        ('phase_noise', YLeaf(YType.str, 'phase-noise')),
-                        ('pm_enable', YLeaf(YType.uint32, 'pm-enable')),
-                        ('laser_state', YLeaf(YType.enumeration, 'laser-state')),
-                        ('led_state', YLeaf(YType.enumeration, 'led-state')),
-                        ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
-                        ('form_factor', YLeaf(YType.enumeration, 'form-factor')),
-                        ('phy_type', YLeaf(YType.enumeration, 'phy-type')),
-                        ('cfg_tx_power', YLeaf(YType.int32, 'cfg-tx-power')),
-                        ('cfg_tx_power_configurable', YLeaf(YType.boolean, 'cfg-tx-power-configurable')),
-                        ('temperature', YLeaf(YType.int32, 'temperature')),
-                        ('voltage', YLeaf(YType.int32, 'voltage')),
-                        ('display_volt_temp', YLeaf(YType.boolean, 'display-volt-temp')),
-                        ('cd_configurable', YLeaf(YType.boolean, 'cd-configurable')),
-                        ('optics_fec', YLeaf(YType.enumeration, 'optics-fec')),
-                        ('port_type', YLeaf(YType.enumeration, 'port-type')),
-                        ('port_status', YLeaf(YType.enumeration, 'port-status')),
-                        ('rx_voa_attenuation', YLeaf(YType.int32, 'rx-voa-attenuation')),
-                        ('tx_voa_attenuation', YLeaf(YType.int32, 'tx-voa-attenuation')),
-                        ('ampli_gain', YLeaf(YType.int32, 'ampli-gain')),
-                        ('ampli_tilt', YLeaf(YType.int32, 'ampli-tilt')),
-                        ('rx_power_th_configurable', YLeaf(YType.boolean, 'rx-power-th-configurable')),
-                        ('tx_power_th_configurable', YLeaf(YType.boolean, 'tx-power-th-configurable')),
-                        ('rx_voa_attenuation_config_val', YLeaf(YType.int32, 'rx-voa-attenuation-config-val')),
-                        ('tx_voa_attenuation_config_val', YLeaf(YType.int32, 'tx-voa-attenuation-config-val')),
-                        ('ampli_control_mode_config_val', YLeaf(YType.enumeration, 'ampli-control-mode-config-val')),
-                        ('ampli_gain_range_config_val', YLeaf(YType.enumeration, 'ampli-gain-range-config-val')),
-                        ('ampli_gain_config_val', YLeaf(YType.int32, 'ampli-gain-config-val')),
-                        ('ampli_tilt_config_val', YLeaf(YType.int32, 'ampli-tilt-config-val')),
-                        ('ampli_channel_power_config_val', YLeaf(YType.int32, 'ampli-channel-power-config-val')),
-                        ('channel_power_max_delta_config_val', YLeaf(YType.int32, 'channel-power-max-delta-config-val')),
-                        ('ampli_gain_thr_deg_low_config_val', YLeaf(YType.int32, 'ampli-gain-thr-deg-low-config-val')),
-                        ('ampli_gain_thr_deg_high_config_val', YLeaf(YType.int32, 'ampli-gain-thr-deg-high-config-val')),
-                        ('osri_config_val', YLeaf(YType.boolean, 'osri-config-val')),
-                        ('tx_config_val', YLeaf(YType.boolean, 'tx-config-val')),
-                        ('rx_config_val', YLeaf(YType.boolean, 'rx-config-val')),
-                        ('safety_control_mode_config_val', YLeaf(YType.enumeration, 'safety-control-mode-config-val')),
-                        ('total_rx_power', YLeaf(YType.int32, 'total-rx-power')),
-                        ('total_tx_power', YLeaf(YType.int32, 'total-tx-power')),
-                        ('is_bo_configured', YLeaf(YType.boolean, 'is-bo-configured')),
-                        ('is_ext_param_valid', YLeaf(YType.boolean, 'is-ext-param-valid')),
-                        ('alarm_detected', YLeaf(YType.boolean, 'alarm-detected')),
-                        ('rx_low_warning_threshold', YLeaf(YType.int32, 'rx-low-warning-threshold')),
-                        ('rx_high_warning_threshold', YLeaf(YType.int32, 'rx-high-warning-threshold')),
-                        ('tx_low_warning_threshold', YLeaf(YType.int32, 'tx-low-warning-threshold')),
-                        ('tx_high_warning_threshold', YLeaf(YType.int32, 'tx-high-warning-threshold')),
-                        ('lbc_th_high_warning_default', YLeaf(YType.int32, 'lbc-th-high-warning-default')),
-                        ('lbc_th_low_warning_default', YLeaf(YType.int32, 'lbc-th-low-warning-default')),
-                        ('temp_low_warning_threshold', YLeaf(YType.int32, 'temp-low-warning-threshold')),
-                        ('temp_high_warning_threshold', YLeaf(YType.int32, 'temp-high-warning-threshold')),
-                        ('volt_low_warning_threshold', YLeaf(YType.int32, 'volt-low-warning-threshold')),
-                        ('volt_high_warning_threshold', YLeaf(YType.int32, 'volt-high-warning-threshold')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('ampli_gain_range', YLeaf(YType.enumeration, 'ampli-gain-range')),
-                        ('safety_control_mode', YLeaf(YType.enumeration, 'safety-control-mode')),
-                        ('osri', YLeaf(YType.boolean, 'osri')),
-                        ('tx_enable', YLeaf(YType.boolean, 'tx-enable')),
-                        ('rx_enable', YLeaf(YType.boolean, 'rx-enable')),
-                        ('is_optics_type_string_valid', YLeaf(YType.boolean, 'is-optics-type-string-valid')),
-                        ('optics_type_str', YLeaf(YType.str, 'optics-type-str')),
-                        ('rx_low_threshold_current', YLeaf(YType.int32, 'rx-low-threshold-current')),
+                        ('transport_admin_state', (YLeaf(YType.enumeration, 'transport-admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsTas', '')])),
+                        ('optics_present', (YLeaf(YType.boolean, 'optics-present'), ['bool'])),
+                        ('optics_type', (YLeaf(YType.enumeration, 'optics-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'Optics', '')])),
+                        ('derived_optics_type', (YLeaf(YType.str, 'derived-optics-type'), ['str'])),
+                        ('optics_module', (YLeaf(YType.str, 'optics-module'), ['str'])),
+                        ('dwdm_carrier_band', (YLeaf(YType.enumeration, 'dwdm-carrier-band'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsWaveBand', '')])),
+                        ('dwdm_carrier_channel', (YLeaf(YType.str, 'dwdm-carrier-channel'), ['str'])),
+                        ('dwdm_carrier_frequency', (YLeaf(YType.str, 'dwdm-carrier-frequency'), ['str'])),
+                        ('dwdm_carrier_wavelength', (YLeaf(YType.str, 'dwdm-carrier-wavelength'), ['str'])),
+                        ('grey_wavelength', (YLeaf(YType.uint32, 'grey-wavelength'), ['int'])),
+                        ('rx_low_threshold', (YLeaf(YType.int32, 'rx-low-threshold'), ['int'])),
+                        ('rx_high_threshold', (YLeaf(YType.int32, 'rx-high-threshold'), ['int'])),
+                        ('lbc_high_threshold', (YLeaf(YType.int32, 'lbc-high-threshold'), ['int'])),
+                        ('tx_low_threshold', (YLeaf(YType.int32, 'tx-low-threshold'), ['int'])),
+                        ('tx_high_threshold', (YLeaf(YType.int32, 'tx-high-threshold'), ['int'])),
+                        ('lbc_th_high_default', (YLeaf(YType.int32, 'lbc-th-high-default'), ['int'])),
+                        ('lbc_th_low_default', (YLeaf(YType.int32, 'lbc-th-low-default'), ['int'])),
+                        ('temp_low_threshold', (YLeaf(YType.int32, 'temp-low-threshold'), ['int'])),
+                        ('temp_high_threshold', (YLeaf(YType.int32, 'temp-high-threshold'), ['int'])),
+                        ('volt_low_threshold', (YLeaf(YType.int32, 'volt-low-threshold'), ['int'])),
+                        ('volt_high_threshold', (YLeaf(YType.int32, 'volt-high-threshold'), ['int'])),
+                        ('cd', (YLeaf(YType.int32, 'cd'), ['int'])),
+                        ('cd_min', (YLeaf(YType.int32, 'cd-min'), ['int'])),
+                        ('cd_max', (YLeaf(YType.int32, 'cd-max'), ['int'])),
+                        ('cd_low_threshold', (YLeaf(YType.int32, 'cd-low-threshold'), ['int'])),
+                        ('cd_high_threshold', (YLeaf(YType.int32, 'cd-high-threshold'), ['int'])),
+                        ('osnr_low_threshold', (YLeaf(YType.str, 'osnr-low-threshold'), ['str'])),
+                        ('dgd_high_threshold', (YLeaf(YType.str, 'dgd-high-threshold'), ['str'])),
+                        ('polarization_mode_dispersion', (YLeaf(YType.str, 'polarization-mode-dispersion'), ['str'])),
+                        ('second_order_polarization_mode_dispersion', (YLeaf(YType.str, 'second-order-polarization-mode-dispersion'), ['str'])),
+                        ('optical_signal_to_noise_ratio', (YLeaf(YType.str, 'optical-signal-to-noise-ratio'), ['str'])),
+                        ('polarization_dependent_loss', (YLeaf(YType.str, 'polarization-dependent-loss'), ['str'])),
+                        ('polarization_change_rate', (YLeaf(YType.str, 'polarization-change-rate'), ['str'])),
+                        ('differential_group_delay', (YLeaf(YType.str, 'differential-group-delay'), ['str'])),
+                        ('phase_noise', (YLeaf(YType.str, 'phase-noise'), ['str'])),
+                        ('pm_enable', (YLeaf(YType.uint32, 'pm-enable'), ['int'])),
+                        ('laser_state', (YLeaf(YType.enumeration, 'laser-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsLaserState', '')])),
+                        ('modulation_type', (YLeaf(YType.enumeration, 'modulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsModulation', '')])),
+                        ('led_state', (YLeaf(YType.enumeration, 'led-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsLedState', '')])),
+                        ('controller_state', (YLeaf(YType.enumeration, 'controller-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsControllerState', '')])),
+                        ('form_factor', (YLeaf(YType.enumeration, 'form-factor'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsFormFactor', '')])),
+                        ('phy_type', (YLeaf(YType.enumeration, 'phy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsPhy', '')])),
+                        ('cfg_tx_power', (YLeaf(YType.int32, 'cfg-tx-power'), ['int'])),
+                        ('cfg_tx_power_configurable', (YLeaf(YType.boolean, 'cfg-tx-power-configurable'), ['bool'])),
+                        ('temperature', (YLeaf(YType.int32, 'temperature'), ['int'])),
+                        ('voltage', (YLeaf(YType.int32, 'voltage'), ['int'])),
+                        ('display_volt_temp', (YLeaf(YType.boolean, 'display-volt-temp'), ['bool'])),
+                        ('cd_configurable', (YLeaf(YType.boolean, 'cd-configurable'), ['bool'])),
+                        ('optics_fec', (YLeaf(YType.enumeration, 'optics-fec'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsFec', '')])),
+                        ('skip_snmp_pm_table', (YLeaf(YType.int32, 'skip-snmp-pm-table'), ['int'])),
+                        ('port_type', (YLeaf(YType.enumeration, 'port-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsPort', '')])),
+                        ('port_status', (YLeaf(YType.enumeration, 'port-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsPortStatus', '')])),
+                        ('rx_voa_attenuation', (YLeaf(YType.int32, 'rx-voa-attenuation'), ['int'])),
+                        ('tx_voa_attenuation', (YLeaf(YType.int32, 'tx-voa-attenuation'), ['int'])),
+                        ('ampli_gain', (YLeaf(YType.int32, 'ampli-gain'), ['int'])),
+                        ('ampli_tilt', (YLeaf(YType.int32, 'ampli-tilt'), ['int'])),
+                        ('rx_power_th_configurable', (YLeaf(YType.boolean, 'rx-power-th-configurable'), ['bool'])),
+                        ('tx_power_th_configurable', (YLeaf(YType.boolean, 'tx-power-th-configurable'), ['bool'])),
+                        ('rx_voa_attenuation_config_val', (YLeaf(YType.int32, 'rx-voa-attenuation-config-val'), ['int'])),
+                        ('tx_voa_attenuation_config_val', (YLeaf(YType.int32, 'tx-voa-attenuation-config-val'), ['int'])),
+                        ('ampli_control_mode_config_val', (YLeaf(YType.enumeration, 'ampli-control-mode-config-val'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAmplifierControlMode', '')])),
+                        ('ampli_gain_range_config_val', (YLeaf(YType.enumeration, 'ampli-gain-range-config-val'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAmplifierGainRange', '')])),
+                        ('ampli_gain_config_val', (YLeaf(YType.int32, 'ampli-gain-config-val'), ['int'])),
+                        ('ampli_tilt_config_val', (YLeaf(YType.int32, 'ampli-tilt-config-val'), ['int'])),
+                        ('ampli_channel_power_config_val', (YLeaf(YType.int32, 'ampli-channel-power-config-val'), ['int'])),
+                        ('channel_power_max_delta_config_val', (YLeaf(YType.int32, 'channel-power-max-delta-config-val'), ['int'])),
+                        ('ampli_gain_thr_deg_low_config_val', (YLeaf(YType.int32, 'ampli-gain-thr-deg-low-config-val'), ['int'])),
+                        ('ampli_gain_thr_deg_high_config_val', (YLeaf(YType.int32, 'ampli-gain-thr-deg-high-config-val'), ['int'])),
+                        ('osri_config_val', (YLeaf(YType.boolean, 'osri-config-val'), ['bool'])),
+                        ('tx_config_val', (YLeaf(YType.boolean, 'tx-config-val'), ['bool'])),
+                        ('rx_config_val', (YLeaf(YType.boolean, 'rx-config-val'), ['bool'])),
+                        ('safety_control_mode_config_val', (YLeaf(YType.enumeration, 'safety-control-mode-config-val'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAmplifierSafetyControlMode', '')])),
+                        ('total_rx_power', (YLeaf(YType.int32, 'total-rx-power'), ['int'])),
+                        ('total_tx_power', (YLeaf(YType.int32, 'total-tx-power'), ['int'])),
+                        ('is_bo_configured', (YLeaf(YType.boolean, 'is-bo-configured'), ['bool'])),
+                        ('is_ext_param_valid', (YLeaf(YType.boolean, 'is-ext-param-valid'), ['bool'])),
+                        ('alarm_detected', (YLeaf(YType.boolean, 'alarm-detected'), ['bool'])),
+                        ('rx_low_warning_threshold', (YLeaf(YType.int32, 'rx-low-warning-threshold'), ['int'])),
+                        ('rx_high_warning_threshold', (YLeaf(YType.int32, 'rx-high-warning-threshold'), ['int'])),
+                        ('tx_low_warning_threshold', (YLeaf(YType.int32, 'tx-low-warning-threshold'), ['int'])),
+                        ('tx_high_warning_threshold', (YLeaf(YType.int32, 'tx-high-warning-threshold'), ['int'])),
+                        ('lbc_th_high_warning_default', (YLeaf(YType.int32, 'lbc-th-high-warning-default'), ['int'])),
+                        ('lbc_th_low_warning_default', (YLeaf(YType.int32, 'lbc-th-low-warning-default'), ['int'])),
+                        ('temp_low_warning_threshold', (YLeaf(YType.int32, 'temp-low-warning-threshold'), ['int'])),
+                        ('temp_high_warning_threshold', (YLeaf(YType.int32, 'temp-high-warning-threshold'), ['int'])),
+                        ('volt_low_warning_threshold', (YLeaf(YType.int32, 'volt-low-warning-threshold'), ['int'])),
+                        ('volt_high_warning_threshold', (YLeaf(YType.int32, 'volt-high-warning-threshold'), ['int'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('ampli_gain_range', (YLeaf(YType.enumeration, 'ampli-gain-range'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAmplifierGainRange', '')])),
+                        ('safety_control_mode', (YLeaf(YType.enumeration, 'safety-control-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAmplifierSafetyControlMode', '')])),
+                        ('osri', (YLeaf(YType.boolean, 'osri'), ['bool'])),
+                        ('tx_enable', (YLeaf(YType.boolean, 'tx-enable'), ['bool'])),
+                        ('rx_enable', (YLeaf(YType.boolean, 'rx-enable'), ['bool'])),
+                        ('is_optics_type_string_valid', (YLeaf(YType.boolean, 'is-optics-type-string-valid'), ['bool'])),
+                        ('optics_type_str', (YLeaf(YType.str, 'optics-type-str'), ['str'])),
+                        ('rx_low_threshold_current', (YLeaf(YType.int32, 'rx-low-threshold-current'), ['int'])),
+                        ('rx_span_loss', (YLeaf(YType.int32, 'rx-span-loss'), ['int'])),
+                        ('tx_span_loss', (YLeaf(YType.int32, 'tx-span-loss'), ['int'])),
+                        ('baud_rate', (YLeaf(YType.str, 'baud-rate'), ['str'])),
+                        ('bits_per_symbol', (YLeaf(YType.str, 'bits-per-symbol'), ['str'])),
                     ])
                     self.transport_admin_state = None
                     self.optics_present = None
@@ -2484,6 +2792,7 @@ class OpticsOper(Entity):
                     self.phase_noise = None
                     self.pm_enable = None
                     self.laser_state = None
+                    self.modulation_type = None
                     self.led_state = None
                     self.controller_state = None
                     self.form_factor = None
@@ -2495,6 +2804,7 @@ class OpticsOper(Entity):
                     self.display_volt_temp = None
                     self.cd_configurable = None
                     self.optics_fec = None
+                    self.skip_snmp_pm_table = None
                     self.port_type = None
                     self.port_status = None
                     self.rx_voa_attenuation = None
@@ -2541,6 +2851,10 @@ class OpticsOper(Entity):
                     self.is_optics_type_string_valid = None
                     self.optics_type_str = None
                     self.rx_low_threshold_current = None
+                    self.rx_span_loss = None
+                    self.tx_span_loss = None
+                    self.baud_rate = None
+                    self.bits_per_symbol = None
 
                     self.network_srlg_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo()
                     self.network_srlg_info.parent = self
@@ -2570,11 +2884,16 @@ class OpticsOper(Entity):
                     self.extended_alarm_alarm_info.parent = self
                     self._children_name_map["extended_alarm_alarm_info"] = "extended-alarm-alarm-info"
 
+                    self.ains_info = OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo()
+                    self.ains_info.parent = self
+                    self._children_name_map["ains_info"] = "ains-info"
+
                     self.lane_data = YList(self)
                     self._segment_path = lambda: "optics-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current'], name, value)
+                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo, ['transport_admin_state', 'optics_present', 'optics_type', 'derived_optics_type', 'optics_module', 'dwdm_carrier_band', 'dwdm_carrier_channel', 'dwdm_carrier_frequency', 'dwdm_carrier_wavelength', 'grey_wavelength', 'rx_low_threshold', 'rx_high_threshold', 'lbc_high_threshold', 'tx_low_threshold', 'tx_high_threshold', 'lbc_th_high_default', 'lbc_th_low_default', 'temp_low_threshold', 'temp_high_threshold', 'volt_low_threshold', 'volt_high_threshold', 'cd', 'cd_min', 'cd_max', 'cd_low_threshold', 'cd_high_threshold', 'osnr_low_threshold', 'dgd_high_threshold', 'polarization_mode_dispersion', 'second_order_polarization_mode_dispersion', 'optical_signal_to_noise_ratio', 'polarization_dependent_loss', 'polarization_change_rate', 'differential_group_delay', 'phase_noise', 'pm_enable', 'laser_state', 'modulation_type', 'led_state', 'controller_state', 'form_factor', 'phy_type', 'cfg_tx_power', 'cfg_tx_power_configurable', 'temperature', 'voltage', 'display_volt_temp', 'cd_configurable', 'optics_fec', 'skip_snmp_pm_table', 'port_type', 'port_status', 'rx_voa_attenuation', 'tx_voa_attenuation', 'ampli_gain', 'ampli_tilt', 'rx_power_th_configurable', 'tx_power_th_configurable', 'rx_voa_attenuation_config_val', 'tx_voa_attenuation_config_val', 'ampli_control_mode_config_val', 'ampli_gain_range_config_val', 'ampli_gain_config_val', 'ampli_tilt_config_val', 'ampli_channel_power_config_val', 'channel_power_max_delta_config_val', 'ampli_gain_thr_deg_low_config_val', 'ampli_gain_thr_deg_high_config_val', 'osri_config_val', 'tx_config_val', 'rx_config_val', 'safety_control_mode_config_val', 'total_rx_power', 'total_tx_power', 'is_bo_configured', 'is_ext_param_valid', 'alarm_detected', 'rx_low_warning_threshold', 'rx_high_warning_threshold', 'tx_low_warning_threshold', 'tx_high_warning_threshold', 'lbc_th_high_warning_default', 'lbc_th_low_warning_default', 'temp_low_warning_threshold', 'temp_high_warning_threshold', 'volt_low_warning_threshold', 'volt_high_warning_threshold', 'description', 'ampli_gain_range', 'safety_control_mode', 'osri', 'tx_enable', 'rx_enable', 'is_optics_type_string_valid', 'optics_type_str', 'rx_low_threshold_current', 'rx_span_loss', 'tx_span_loss', 'baud_rate', 'bits_per_symbol'], name, value)
 
 
                 class NetworkSrlgInfo(Entity):
@@ -2606,6 +2925,7 @@ class OpticsOper(Entity):
 
                         self.network_srlg_array = YList(self)
                         self._segment_path = lambda: "network-srlg-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo, [], name, value)
@@ -2646,12 +2966,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_number', YLeaf(YType.uint32, 'set-number')),
-                                ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
+                                ('set_number', (YLeaf(YType.uint32, 'set-number'), ['int'])),
+                                ('network_srlg', (YLeafList(YType.uint32, 'network-srlg'), ['int'])),
                             ])
                             self.set_number = None
                             self.network_srlg = []
                             self._segment_path = lambda: "network-srlg-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)
@@ -2663,22 +2984,22 @@ class OpticsOper(Entity):
                     
                     .. attribute:: high_rx_power
                     
-                    	High Rx Power in uints of 0.1 dBm
+                    	High Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower>`
                     
                     .. attribute:: low_rx_power
                     
-                    	Low Rx Power in uints of 0.1 dBm
+                    	Low Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower>`
                     
                     .. attribute:: high_tx_power
                     
-                    	High Tx Power in uints of 0.1 dBm
+                    	High Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower>`
                     
                     .. attribute:: low_tx_power
                     
-                    	Low Tx Power in uints of 0.1 dBm
+                    	Low Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower>`
                     
                     .. attribute:: high_lbc
@@ -2708,82 +3029,82 @@ class OpticsOper(Entity):
                     
                     .. attribute:: high_rx1_power
                     
-                    	High Rx1 Power in uints of 0.1 dBm
+                    	High Rx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power>`
                     
                     .. attribute:: high_rx2_power
                     
-                    	High Rx2 Power in uints of 0.1 dBm
+                    	High Rx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power>`
                     
                     .. attribute:: high_rx3_power
                     
-                    	High Rx3 Power in uints of 0.1 dBm
+                    	High Rx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power>`
                     
                     .. attribute:: high_rx4_power
                     
-                    	High Rx4 Power in uints of 0.1 dBm
+                    	High Rx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power>`
                     
                     .. attribute:: low_rx1_power
                     
-                    	Low Rx1 Power in uints of 0.1 dBm
+                    	Low Rx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power>`
                     
                     .. attribute:: low_rx2_power
                     
-                    	Low Rx2 Power in uints of 0.1 dBm
+                    	Low Rx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power>`
                     
                     .. attribute:: low_rx3_power
                     
-                    	Low Rx3 Power in uints of 0.1 dBm
+                    	Low Rx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power>`
                     
                     .. attribute:: low_rx4_power
                     
-                    	Low Rx4 Power in uints of 0.1 dBm
+                    	Low Rx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power>`
                     
                     .. attribute:: high_tx1_power
                     
-                    	High Tx1 Power in uints of 0.1 dBm
+                    	High Tx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power>`
                     
                     .. attribute:: high_tx2_power
                     
-                    	High Tx2 Power in uints of 0.1 dBm
+                    	High Tx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power>`
                     
                     .. attribute:: high_tx3_power
                     
-                    	High Tx3 Power in uints of 0.1 dBm
+                    	High Tx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power>`
                     
                     .. attribute:: high_tx4_power
                     
-                    	High Tx4 Power in uints of 0.1 dBm
+                    	High Tx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`HighTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power>`
                     
                     .. attribute:: low_tx1_power
                     
-                    	Low Tx1 Power in uints of 0.1 dBm
+                    	Low Tx1 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx1Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power>`
                     
                     .. attribute:: low_tx2_power
                     
-                    	Low Tx2 Power in uints of 0.1 dBm
+                    	Low Tx2 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx2Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power>`
                     
                     .. attribute:: low_tx3_power
                     
-                    	Low Tx3 Power in uints of 0.1 dBm
+                    	Low Tx3 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx3Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power>`
                     
                     .. attribute:: low_tx4_power
                     
-                    	Low Tx4 Power in uints of 0.1 dBm
+                    	Low Tx4 Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTx4Power <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power>`
                     
                     .. attribute:: high_tx1lbc
@@ -3111,6 +3432,7 @@ class OpticsOper(Entity):
                         self.txpwr_mismatch.parent = self
                         self._children_name_map["txpwr_mismatch"] = "txpwr-mismatch"
                         self._segment_path = lambda: "optics-alarm-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo, [], name, value)
@@ -3118,7 +3440,7 @@ class OpticsOper(Entity):
 
                     class HighRxPower(Entity):
                         """
-                        High Rx Power in uints of 0.1 dBm
+                        High Rx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3149,12 +3471,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-rx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
@@ -3162,7 +3485,7 @@ class OpticsOper(Entity):
 
                     class LowRxPower(Entity):
                         """
-                        Low Rx Power in uints of 0.1 dBm
+                        Low Rx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3193,12 +3516,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
@@ -3206,7 +3530,7 @@ class OpticsOper(Entity):
 
                     class HighTxPower(Entity):
                         """
-                        High Tx Power in uints of 0.1 dBm
+                        High Tx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3237,12 +3561,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
@@ -3250,7 +3575,7 @@ class OpticsOper(Entity):
 
                     class LowTxPower(Entity):
                         """
-                        Low Tx Power in uints of 0.1 dBm
+                        Low Tx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3281,12 +3606,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
@@ -3325,12 +3651,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
@@ -3369,12 +3696,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-temperature"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTemperature, ['is_detected', 'counter'], name, value)
@@ -3413,12 +3741,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-temperature"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTemperature, ['is_detected', 'counter'], name, value)
@@ -3457,12 +3786,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-voltage"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowVoltage, ['is_detected', 'counter'], name, value)
@@ -3501,12 +3831,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-voltage"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighVoltage, ['is_detected', 'counter'], name, value)
@@ -3514,7 +3845,7 @@ class OpticsOper(Entity):
 
                     class HighRx1Power(Entity):
                         """
-                        High Rx1 Power in uints of 0.1 dBm
+                        High Rx1 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3545,12 +3876,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-rx1-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx1Power, ['is_detected', 'counter'], name, value)
@@ -3558,7 +3890,7 @@ class OpticsOper(Entity):
 
                     class HighRx2Power(Entity):
                         """
-                        High Rx2 Power in uints of 0.1 dBm
+                        High Rx2 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3589,12 +3921,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-rx2-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx2Power, ['is_detected', 'counter'], name, value)
@@ -3602,7 +3935,7 @@ class OpticsOper(Entity):
 
                     class HighRx3Power(Entity):
                         """
-                        High Rx3 Power in uints of 0.1 dBm
+                        High Rx3 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3633,12 +3966,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-rx3-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx3Power, ['is_detected', 'counter'], name, value)
@@ -3646,7 +3980,7 @@ class OpticsOper(Entity):
 
                     class HighRx4Power(Entity):
                         """
-                        High Rx4 Power in uints of 0.1 dBm
+                        High Rx4 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3677,12 +4011,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-rx4-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighRx4Power, ['is_detected', 'counter'], name, value)
@@ -3690,7 +4025,7 @@ class OpticsOper(Entity):
 
                     class LowRx1Power(Entity):
                         """
-                        Low Rx1 Power in uints of 0.1 dBm
+                        Low Rx1 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3721,12 +4056,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx1-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx1Power, ['is_detected', 'counter'], name, value)
@@ -3734,7 +4070,7 @@ class OpticsOper(Entity):
 
                     class LowRx2Power(Entity):
                         """
-                        Low Rx2 Power in uints of 0.1 dBm
+                        Low Rx2 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3765,12 +4101,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx2-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx2Power, ['is_detected', 'counter'], name, value)
@@ -3778,7 +4115,7 @@ class OpticsOper(Entity):
 
                     class LowRx3Power(Entity):
                         """
-                        Low Rx3 Power in uints of 0.1 dBm
+                        Low Rx3 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3809,12 +4146,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx3-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx3Power, ['is_detected', 'counter'], name, value)
@@ -3822,7 +4160,7 @@ class OpticsOper(Entity):
 
                     class LowRx4Power(Entity):
                         """
-                        Low Rx4 Power in uints of 0.1 dBm
+                        Low Rx4 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3853,12 +4191,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx4-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowRx4Power, ['is_detected', 'counter'], name, value)
@@ -3866,7 +4205,7 @@ class OpticsOper(Entity):
 
                     class HighTx1Power(Entity):
                         """
-                        High Tx1 Power in uints of 0.1 dBm
+                        High Tx1 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3897,12 +4236,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx1-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1Power, ['is_detected', 'counter'], name, value)
@@ -3910,7 +4250,7 @@ class OpticsOper(Entity):
 
                     class HighTx2Power(Entity):
                         """
-                        High Tx2 Power in uints of 0.1 dBm
+                        High Tx2 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3941,12 +4281,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx2-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2Power, ['is_detected', 'counter'], name, value)
@@ -3954,7 +4295,7 @@ class OpticsOper(Entity):
 
                     class HighTx3Power(Entity):
                         """
-                        High Tx3 Power in uints of 0.1 dBm
+                        High Tx3 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -3985,12 +4326,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx3-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3Power, ['is_detected', 'counter'], name, value)
@@ -3998,7 +4340,7 @@ class OpticsOper(Entity):
 
                     class HighTx4Power(Entity):
                         """
-                        High Tx4 Power in uints of 0.1 dBm
+                        High Tx4 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -4029,12 +4371,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx4-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4Power, ['is_detected', 'counter'], name, value)
@@ -4042,7 +4385,7 @@ class OpticsOper(Entity):
 
                     class LowTx1Power(Entity):
                         """
-                        Low Tx1 Power in uints of 0.1 dBm
+                        Low Tx1 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -4073,12 +4416,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx1-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1Power, ['is_detected', 'counter'], name, value)
@@ -4086,7 +4430,7 @@ class OpticsOper(Entity):
 
                     class LowTx2Power(Entity):
                         """
-                        Low Tx2 Power in uints of 0.1 dBm
+                        Low Tx2 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -4117,12 +4461,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx2-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2Power, ['is_detected', 'counter'], name, value)
@@ -4130,7 +4475,7 @@ class OpticsOper(Entity):
 
                     class LowTx3Power(Entity):
                         """
-                        Low Tx3 Power in uints of 0.1 dBm
+                        Low Tx3 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -4161,12 +4506,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx3-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3Power, ['is_detected', 'counter'], name, value)
@@ -4174,7 +4520,7 @@ class OpticsOper(Entity):
 
                     class LowTx4Power(Entity):
                         """
-                        Low Tx4 Power in uints of 0.1 dBm
+                        Low Tx4 Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -4205,12 +4551,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx4-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4Power, ['is_detected', 'counter'], name, value)
@@ -4250,12 +4597,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx1lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx1lbc, ['is_detected', 'counter'], name, value)
@@ -4295,12 +4643,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx2lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx2lbc, ['is_detected', 'counter'], name, value)
@@ -4340,12 +4689,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx3lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx3lbc, ['is_detected', 'counter'], name, value)
@@ -4385,12 +4735,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "high-tx4lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.HighTx4lbc, ['is_detected', 'counter'], name, value)
@@ -4430,12 +4781,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx1lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx1lbc, ['is_detected', 'counter'], name, value)
@@ -4475,12 +4827,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx2lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx2lbc, ['is_detected', 'counter'], name, value)
@@ -4520,12 +4873,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx3lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx3lbc, ['is_detected', 'counter'], name, value)
@@ -4565,12 +4919,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx4lbc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.LowTx4lbc, ['is_detected', 'counter'], name, value)
@@ -4609,12 +4964,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "rx-los"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLos, ['is_detected', 'counter'], name, value)
@@ -4653,12 +5009,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "tx-los"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLos, ['is_detected', 'counter'], name, value)
@@ -4697,12 +5054,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "rx-lol"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLol, ['is_detected', 'counter'], name, value)
@@ -4741,12 +5099,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "tx-lol"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxLol, ['is_detected', 'counter'], name, value)
@@ -4785,12 +5144,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "tx-fault"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxFault, ['is_detected', 'counter'], name, value)
@@ -4829,12 +5189,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hidgd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Hidgd, ['is_detected', 'counter'], name, value)
@@ -4873,12 +5234,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "oorcd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Oorcd, ['is_detected', 'counter'], name, value)
@@ -4917,12 +5279,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "osnr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Osnr, ['is_detected', 'counter'], name, value)
@@ -4961,12 +5324,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "wvlool"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Wvlool, ['is_detected', 'counter'], name, value)
@@ -5005,12 +5369,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "mea"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.Mea, ['is_detected', 'counter'], name, value)
@@ -5049,12 +5414,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "imp-removal"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.ImpRemoval, ['is_detected', 'counter'], name, value)
@@ -5093,12 +5459,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "rx-loc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
@@ -5137,12 +5504,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-low"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
@@ -5181,12 +5549,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-high"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
@@ -5225,12 +5594,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "txpwr-mismatch"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OpticsAlarmInfo.TxpwrMismatch, ['is_detected', 'counter'], name, value)
@@ -5242,12 +5612,12 @@ class OpticsOper(Entity):
                     
                     .. attribute:: low_tx_power
                     
-                    	Low Tx Power in uints of 0.1 dBm
+                    	Low Tx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowTxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower>`
                     
                     .. attribute:: low_rx_power
                     
-                    	Low Rx Power in uints of 0.1 dBm
+                    	Low Rx Power in units of 0.1 dBm
                     	**type**\:  :py:class:`LowRxPower <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower>`
                     
                     .. attribute:: rx_los_p
@@ -5366,6 +5736,7 @@ class OpticsOper(Entity):
                         self.auto_ampli_ctrl_running.parent = self
                         self._children_name_map["auto_ampli_ctrl_running"] = "auto-ampli-ctrl-running"
                         self._segment_path = lambda: "ots-alarm-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo, [], name, value)
@@ -5373,7 +5744,7 @@ class OpticsOper(Entity):
 
                     class LowTxPower(Entity):
                         """
-                        Low Tx Power in uints of 0.1 dBm
+                        Low Tx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -5404,12 +5775,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-tx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
@@ -5417,7 +5789,7 @@ class OpticsOper(Entity):
 
                     class LowRxPower(Entity):
                         """
-                        Low Rx Power in uints of 0.1 dBm
+                        Low Rx Power in units of 0.1 dBm
                         
                         .. attribute:: is_detected
                         
@@ -5448,12 +5820,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "low-rx-power"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
@@ -5492,12 +5865,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "rx-los-p"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLosP, ['is_detected', 'counter'], name, value)
@@ -5536,12 +5910,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "rx-loc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.RxLoc, ['is_detected', 'counter'], name, value)
@@ -5580,12 +5955,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-low"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegLow, ['is_detected', 'counter'], name, value)
@@ -5624,12 +6000,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "amp-gain-deg-high"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AmpGainDegHigh, ['is_detected', 'counter'], name, value)
@@ -5668,12 +6045,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "auto-laser-shut"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoLaserShut, ['is_detected', 'counter'], name, value)
@@ -5712,12 +6090,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "auto-power-red"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoPowerRed, ['is_detected', 'counter'], name, value)
@@ -5756,12 +6135,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-disabled"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlDisabled, ['is_detected', 'counter'], name, value)
@@ -5800,12 +6180,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-config-mismatch"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlConfigMismatch, ['is_detected', 'counter'], name, value)
@@ -5844,12 +6225,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "switch-to-protect"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.SwitchToProtect, ['is_detected', 'counter'], name, value)
@@ -5888,12 +6270,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "auto-ampli-ctrl-running"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.OtsAlarmInfo.AutoAmpliCtrlRunning, ['is_detected', 'counter'], name, value)
@@ -5980,7 +6363,7 @@ class OpticsOper(Entity):
                     
                     .. attribute:: internal_temperature
                     
-                    	Internal Temperature in C
+                    	Internal Temperature in units of C
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -6002,22 +6385,22 @@ class OpticsOper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('vendor_info', YLeaf(YType.str, 'vendor-info')),
-                            ('adapter_vendor_info', YLeaf(YType.str, 'adapter-vendor-info')),
-                            ('date', YLeaf(YType.str, 'date')),
-                            ('optics_vendor_rev', YLeaf(YType.str, 'optics-vendor-rev')),
-                            ('optics_serial_no', YLeaf(YType.str, 'optics-serial-no')),
-                            ('optics_vendor_part', YLeaf(YType.str, 'optics-vendor-part')),
-                            ('optics_type', YLeaf(YType.str, 'optics-type')),
-                            ('vendor_name', YLeaf(YType.str, 'vendor-name')),
-                            ('oui_no', YLeaf(YType.str, 'oui-no')),
-                            ('optics_pid', YLeaf(YType.str, 'optics-pid')),
-                            ('optics_vid', YLeaf(YType.str, 'optics-vid')),
-                            ('connector_type', YLeaf(YType.enumeration, 'connector-type')),
-                            ('otn_application_code', YLeaf(YType.enumeration, 'otn-application-code')),
-                            ('sonet_application_code', YLeaf(YType.enumeration, 'sonet-application-code')),
-                            ('ethernet_compliance_code', YLeaf(YType.enumeration, 'ethernet-compliance-code')),
-                            ('internal_temperature', YLeaf(YType.int32, 'internal-temperature')),
+                            ('vendor_info', (YLeaf(YType.str, 'vendor-info'), ['str'])),
+                            ('adapter_vendor_info', (YLeaf(YType.str, 'adapter-vendor-info'), ['str'])),
+                            ('date', (YLeaf(YType.str, 'date'), ['str'])),
+                            ('optics_vendor_rev', (YLeaf(YType.str, 'optics-vendor-rev'), ['str'])),
+                            ('optics_serial_no', (YLeaf(YType.str, 'optics-serial-no'), ['str'])),
+                            ('optics_vendor_part', (YLeaf(YType.str, 'optics-vendor-part'), ['str'])),
+                            ('optics_type', (YLeaf(YType.str, 'optics-type'), ['str'])),
+                            ('vendor_name', (YLeaf(YType.str, 'vendor-name'), ['str'])),
+                            ('oui_no', (YLeaf(YType.str, 'oui-no'), ['str'])),
+                            ('optics_pid', (YLeaf(YType.str, 'optics-pid'), ['str'])),
+                            ('optics_vid', (YLeaf(YType.str, 'optics-vid'), ['str'])),
+                            ('connector_type', (YLeaf(YType.enumeration, 'connector-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'FiberConnector', '')])),
+                            ('otn_application_code', (YLeaf(YType.enumeration, 'otn-application-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OtnApplicationCode', '')])),
+                            ('sonet_application_code', (YLeaf(YType.enumeration, 'sonet-application-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'SonetApplicationCode', '')])),
+                            ('ethernet_compliance_code', (YLeaf(YType.enumeration, 'ethernet-compliance-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'EthernetPmd', '')])),
+                            ('internal_temperature', (YLeaf(YType.int32, 'internal-temperature'), ['int'])),
                         ])
                         self.vendor_info = None
                         self.adapter_vendor_info = None
@@ -6036,6 +6419,7 @@ class OpticsOper(Entity):
                         self.ethernet_compliance_code = None
                         self.internal_temperature = None
                         self._segment_path = lambda: "transceiver-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.TransceiverInfo, ['vendor_info', 'adapter_vendor_info', 'date', 'optics_vendor_rev', 'optics_serial_no', 'optics_vendor_part', 'optics_type', 'vendor_name', 'oui_no', 'optics_pid', 'optics_vid', 'connector_type', 'otn_application_code', 'sonet_application_code', 'ethernet_compliance_code', 'internal_temperature'], name, value)
@@ -6216,28 +6600,28 @@ class OpticsOper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('snr_lane1', YLeaf(YType.int32, 'snr-lane1')),
-                            ('snr_lane2', YLeaf(YType.int32, 'snr-lane2')),
-                            ('isi_correction_lane1', YLeaf(YType.int32, 'isi-correction-lane1')),
-                            ('isi_correction_lane2', YLeaf(YType.int32, 'isi-correction-lane2')),
-                            ('pam_rate_lane1', YLeaf(YType.int32, 'pam-rate-lane1')),
-                            ('pam_rate_lane2', YLeaf(YType.int32, 'pam-rate-lane2')),
-                            ('pre_fec_ber', YLeaf(YType.int64, 'pre-fec-ber')),
-                            ('uncorrected_ber', YLeaf(YType.int64, 'uncorrected-ber')),
-                            ('tec_current_lane1', YLeaf(YType.int32, 'tec-current-lane1')),
-                            ('tec_current_lane2', YLeaf(YType.int32, 'tec-current-lane2')),
-                            ('laser_diff_frequency_lane1', YLeaf(YType.int32, 'laser-diff-frequency-lane1')),
-                            ('laser_diff_frequency_lane2', YLeaf(YType.int32, 'laser-diff-frequency-lane2')),
-                            ('laser_diff_temperature_lane1', YLeaf(YType.int32, 'laser-diff-temperature-lane1')),
-                            ('laser_diff_temperature_lane2', YLeaf(YType.int32, 'laser-diff-temperature-lane2')),
-                            ('pre_fec_ber_latched_min', YLeaf(YType.int64, 'pre-fec-ber-latched-min')),
-                            ('pre_fec_ber_latched_max', YLeaf(YType.int64, 'pre-fec-ber-latched-max')),
-                            ('pre_fec_ber_accumulated', YLeaf(YType.int64, 'pre-fec-ber-accumulated')),
-                            ('pre_fec_ber_instantaneous', YLeaf(YType.int64, 'pre-fec-ber-instantaneous')),
-                            ('uncorrected_ber_latched_min', YLeaf(YType.int64, 'uncorrected-ber-latched-min')),
-                            ('uncorrected_ber_latched_max', YLeaf(YType.int64, 'uncorrected-ber-latched-max')),
-                            ('uncorrected_ber_accumulated', YLeaf(YType.int64, 'uncorrected-ber-accumulated')),
-                            ('uncorrected_ber_instantaneous', YLeaf(YType.int64, 'uncorrected-ber-instantaneous')),
+                            ('snr_lane1', (YLeaf(YType.int32, 'snr-lane1'), ['int'])),
+                            ('snr_lane2', (YLeaf(YType.int32, 'snr-lane2'), ['int'])),
+                            ('isi_correction_lane1', (YLeaf(YType.int32, 'isi-correction-lane1'), ['int'])),
+                            ('isi_correction_lane2', (YLeaf(YType.int32, 'isi-correction-lane2'), ['int'])),
+                            ('pam_rate_lane1', (YLeaf(YType.int32, 'pam-rate-lane1'), ['int'])),
+                            ('pam_rate_lane2', (YLeaf(YType.int32, 'pam-rate-lane2'), ['int'])),
+                            ('pre_fec_ber', (YLeaf(YType.int64, 'pre-fec-ber'), ['int'])),
+                            ('uncorrected_ber', (YLeaf(YType.int64, 'uncorrected-ber'), ['int'])),
+                            ('tec_current_lane1', (YLeaf(YType.int32, 'tec-current-lane1'), ['int'])),
+                            ('tec_current_lane2', (YLeaf(YType.int32, 'tec-current-lane2'), ['int'])),
+                            ('laser_diff_frequency_lane1', (YLeaf(YType.int32, 'laser-diff-frequency-lane1'), ['int'])),
+                            ('laser_diff_frequency_lane2', (YLeaf(YType.int32, 'laser-diff-frequency-lane2'), ['int'])),
+                            ('laser_diff_temperature_lane1', (YLeaf(YType.int32, 'laser-diff-temperature-lane1'), ['int'])),
+                            ('laser_diff_temperature_lane2', (YLeaf(YType.int32, 'laser-diff-temperature-lane2'), ['int'])),
+                            ('pre_fec_ber_latched_min', (YLeaf(YType.int64, 'pre-fec-ber-latched-min'), ['int'])),
+                            ('pre_fec_ber_latched_max', (YLeaf(YType.int64, 'pre-fec-ber-latched-max'), ['int'])),
+                            ('pre_fec_ber_accumulated', (YLeaf(YType.int64, 'pre-fec-ber-accumulated'), ['int'])),
+                            ('pre_fec_ber_instantaneous', (YLeaf(YType.int64, 'pre-fec-ber-instantaneous'), ['int'])),
+                            ('uncorrected_ber_latched_min', (YLeaf(YType.int64, 'uncorrected-ber-latched-min'), ['int'])),
+                            ('uncorrected_ber_latched_max', (YLeaf(YType.int64, 'uncorrected-ber-latched-max'), ['int'])),
+                            ('uncorrected_ber_accumulated', (YLeaf(YType.int64, 'uncorrected-ber-accumulated'), ['int'])),
+                            ('uncorrected_ber_instantaneous', (YLeaf(YType.int64, 'uncorrected-ber-instantaneous'), ['int'])),
                         ])
                         self.snr_lane1 = None
                         self.snr_lane2 = None
@@ -6262,6 +6646,7 @@ class OpticsOper(Entity):
                         self.uncorrected_ber_accumulated = None
                         self.uncorrected_ber_instantaneous = None
                         self._segment_path = lambda: "ext-param-val"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamVal, ['snr_lane1', 'snr_lane2', 'isi_correction_lane1', 'isi_correction_lane2', 'pam_rate_lane1', 'pam_rate_lane2', 'pre_fec_ber', 'uncorrected_ber', 'tec_current_lane1', 'tec_current_lane2', 'laser_diff_frequency_lane1', 'laser_diff_frequency_lane2', 'laser_diff_temperature_lane1', 'laser_diff_temperature_lane2', 'pre_fec_ber_latched_min', 'pre_fec_ber_latched_max', 'pre_fec_ber_accumulated', 'pre_fec_ber_instantaneous', 'uncorrected_ber_latched_min', 'uncorrected_ber_latched_max', 'uncorrected_ber_accumulated', 'uncorrected_ber_instantaneous'], name, value)
@@ -6736,70 +7121,70 @@ class OpticsOper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('snr_alarm_high_threshold', YLeaf(YType.int32, 'snr-alarm-high-threshold')),
-                            ('snr_alarm_low_threshold', YLeaf(YType.int32, 'snr-alarm-low-threshold')),
-                            ('snr_warn_high_threshold', YLeaf(YType.int32, 'snr-warn-high-threshold')),
-                            ('snr_warn_low_threshold', YLeaf(YType.int32, 'snr-warn-low-threshold')),
-                            ('isi_correction_alarm_high_threshold', YLeaf(YType.int32, 'isi-correction-alarm-high-threshold')),
-                            ('isi_correction_alarm_low_threshold', YLeaf(YType.int32, 'isi-correction-alarm-low-threshold')),
-                            ('isi_correction_warn_high_threshold', YLeaf(YType.int32, 'isi-correction-warn-high-threshold')),
-                            ('isi_correction_warn_low_threshold', YLeaf(YType.int32, 'isi-correction-warn-low-threshold')),
-                            ('pam_rate_alarm_high_threshold', YLeaf(YType.int32, 'pam-rate-alarm-high-threshold')),
-                            ('pam_rate_alarm_low_threshold', YLeaf(YType.int32, 'pam-rate-alarm-low-threshold')),
-                            ('pam_rate_warn_high_threshold', YLeaf(YType.int32, 'pam-rate-warn-high-threshold')),
-                            ('pam_rate_warn_low_threshold', YLeaf(YType.int32, 'pam-rate-warn-low-threshold')),
-                            ('pre_fec_ber_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-alarm-high-threshold')),
-                            ('pre_fec_ber_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-alarm-low-threshold')),
-                            ('pre_fec_ber_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-warn-high-threshold')),
-                            ('pre_fec_ber_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-warn-low-threshold')),
-                            ('uncorrected_ber_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-alarm-high-threshold')),
-                            ('uncorrected_ber_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-alarm-low-threshold')),
-                            ('uncorrected_ber_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-warn-high-threshold')),
-                            ('uncorrected_ber_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-warn-low-threshold')),
-                            ('tec_current_alarm_high_threshold', YLeaf(YType.int32, 'tec-current-alarm-high-threshold')),
-                            ('tec_current_alarm_low_threshold', YLeaf(YType.int32, 'tec-current-alarm-low-threshold')),
-                            ('tec_current_warn_high_threshold', YLeaf(YType.int32, 'tec-current-warn-high-threshold')),
-                            ('tec_current_warn_low_threshold', YLeaf(YType.int32, 'tec-current-warn-low-threshold')),
-                            ('laser_diff_frequency_alarm_high_threshold', YLeaf(YType.int32, 'laser-diff-frequency-alarm-high-threshold')),
-                            ('laser_diff_frequency_alarm_low_threshold', YLeaf(YType.int32, 'laser-diff-frequency-alarm-low-threshold')),
-                            ('laser_diff_frequency_warn_high_threshold', YLeaf(YType.int32, 'laser-diff-frequency-warn-high-threshold')),
-                            ('laser_diff_frequency_warn_low_threshold', YLeaf(YType.int32, 'laser-diff-frequency-warn-low-threshold')),
-                            ('laser_diff_temperature_alarm_high_threshold', YLeaf(YType.int32, 'laser-diff-temperature-alarm-high-threshold')),
-                            ('laser_diff_temperature_alarm_low_threshold', YLeaf(YType.int32, 'laser-diff-temperature-alarm-low-threshold')),
-                            ('laser_diff_temperature_warn_high_threshold', YLeaf(YType.int32, 'laser-diff-temperature-warn-high-threshold')),
-                            ('laser_diff_temperature_warn_low_threshold', YLeaf(YType.int32, 'laser-diff-temperature-warn-low-threshold')),
-                            ('pre_fec_ber_latched_min_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-high-threshold')),
-                            ('pre_fec_ber_latched_min_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-low-threshold')),
-                            ('pre_fec_ber_latched_min_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-high-threshold')),
-                            ('pre_fec_ber_latched_min_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-low-threshold')),
-                            ('pre_fec_ber_latched_max_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-high-threshold')),
-                            ('pre_fec_ber_latched_max_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-low-threshold')),
-                            ('pre_fec_ber_latched_max_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-high-threshold')),
-                            ('pre_fec_ber_latched_max_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-low-threshold')),
-                            ('pre_fec_ber_accumulated_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-high-threshold')),
-                            ('pre_fec_ber_accumulated_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-low-threshold')),
-                            ('pre_fec_ber_accumulated_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-high-threshold')),
-                            ('pre_fec_ber_accumulated_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-low-threshold')),
-                            ('pre_fec_ber_instantaneous_alarm_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-high-threshold')),
-                            ('pre_fec_ber_instantaneous_alarm_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-low-threshold')),
-                            ('pre_fec_ber_instantaneous_warn_high_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-high-threshold')),
-                            ('pre_fec_ber_instantaneous_warn_low_threshold', YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-low-threshold')),
-                            ('uncorrected_ber_latched_min_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-high-threshold')),
-                            ('uncorrected_ber_latched_min_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-low-threshold')),
-                            ('uncorrected_ber_latched_min_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-high-threshold')),
-                            ('uncorrected_ber_latched_min_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-low-threshold')),
-                            ('uncorrected_ber_latched_max_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-high-threshold')),
-                            ('uncorrected_ber_latched_max_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-low-threshold')),
-                            ('uncorrected_ber_latched_max_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-high-threshold')),
-                            ('uncorrected_ber_latched_max_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-low-threshold')),
-                            ('uncorrected_ber_accumulated_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-high-threshold')),
-                            ('uncorrected_ber_accumulated_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-low-threshold')),
-                            ('uncorrected_ber_accumulated_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-high-threshold')),
-                            ('uncorrected_ber_accumulated_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-low-threshold')),
-                            ('uncorrected_ber_instantaneous_alarm_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-high-threshold')),
-                            ('uncorrected_ber_instantaneous_alarm_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-low-threshold')),
-                            ('uncorrected_ber_instantaneous_warn_high_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-high-threshold')),
-                            ('uncorrected_ber_instantaneous_warn_low_threshold', YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-low-threshold')),
+                            ('snr_alarm_high_threshold', (YLeaf(YType.int32, 'snr-alarm-high-threshold'), ['int'])),
+                            ('snr_alarm_low_threshold', (YLeaf(YType.int32, 'snr-alarm-low-threshold'), ['int'])),
+                            ('snr_warn_high_threshold', (YLeaf(YType.int32, 'snr-warn-high-threshold'), ['int'])),
+                            ('snr_warn_low_threshold', (YLeaf(YType.int32, 'snr-warn-low-threshold'), ['int'])),
+                            ('isi_correction_alarm_high_threshold', (YLeaf(YType.int32, 'isi-correction-alarm-high-threshold'), ['int'])),
+                            ('isi_correction_alarm_low_threshold', (YLeaf(YType.int32, 'isi-correction-alarm-low-threshold'), ['int'])),
+                            ('isi_correction_warn_high_threshold', (YLeaf(YType.int32, 'isi-correction-warn-high-threshold'), ['int'])),
+                            ('isi_correction_warn_low_threshold', (YLeaf(YType.int32, 'isi-correction-warn-low-threshold'), ['int'])),
+                            ('pam_rate_alarm_high_threshold', (YLeaf(YType.int32, 'pam-rate-alarm-high-threshold'), ['int'])),
+                            ('pam_rate_alarm_low_threshold', (YLeaf(YType.int32, 'pam-rate-alarm-low-threshold'), ['int'])),
+                            ('pam_rate_warn_high_threshold', (YLeaf(YType.int32, 'pam-rate-warn-high-threshold'), ['int'])),
+                            ('pam_rate_warn_low_threshold', (YLeaf(YType.int32, 'pam-rate-warn-low-threshold'), ['int'])),
+                            ('pre_fec_ber_alarm_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-alarm-high-threshold'), ['int'])),
+                            ('pre_fec_ber_alarm_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-alarm-low-threshold'), ['int'])),
+                            ('pre_fec_ber_warn_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-warn-high-threshold'), ['int'])),
+                            ('pre_fec_ber_warn_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-warn-low-threshold'), ['int'])),
+                            ('uncorrected_ber_alarm_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-alarm-high-threshold'), ['int'])),
+                            ('uncorrected_ber_alarm_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-alarm-low-threshold'), ['int'])),
+                            ('uncorrected_ber_warn_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-warn-high-threshold'), ['int'])),
+                            ('uncorrected_ber_warn_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-warn-low-threshold'), ['int'])),
+                            ('tec_current_alarm_high_threshold', (YLeaf(YType.int32, 'tec-current-alarm-high-threshold'), ['int'])),
+                            ('tec_current_alarm_low_threshold', (YLeaf(YType.int32, 'tec-current-alarm-low-threshold'), ['int'])),
+                            ('tec_current_warn_high_threshold', (YLeaf(YType.int32, 'tec-current-warn-high-threshold'), ['int'])),
+                            ('tec_current_warn_low_threshold', (YLeaf(YType.int32, 'tec-current-warn-low-threshold'), ['int'])),
+                            ('laser_diff_frequency_alarm_high_threshold', (YLeaf(YType.int32, 'laser-diff-frequency-alarm-high-threshold'), ['int'])),
+                            ('laser_diff_frequency_alarm_low_threshold', (YLeaf(YType.int32, 'laser-diff-frequency-alarm-low-threshold'), ['int'])),
+                            ('laser_diff_frequency_warn_high_threshold', (YLeaf(YType.int32, 'laser-diff-frequency-warn-high-threshold'), ['int'])),
+                            ('laser_diff_frequency_warn_low_threshold', (YLeaf(YType.int32, 'laser-diff-frequency-warn-low-threshold'), ['int'])),
+                            ('laser_diff_temperature_alarm_high_threshold', (YLeaf(YType.int32, 'laser-diff-temperature-alarm-high-threshold'), ['int'])),
+                            ('laser_diff_temperature_alarm_low_threshold', (YLeaf(YType.int32, 'laser-diff-temperature-alarm-low-threshold'), ['int'])),
+                            ('laser_diff_temperature_warn_high_threshold', (YLeaf(YType.int32, 'laser-diff-temperature-warn-high-threshold'), ['int'])),
+                            ('laser_diff_temperature_warn_low_threshold', (YLeaf(YType.int32, 'laser-diff-temperature-warn-low-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_min_alarm_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-high-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_min_alarm_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-min-alarm-low-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_min_warn_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-high-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_min_warn_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-min-warn-low-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_max_alarm_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-high-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_max_alarm_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-max-alarm-low-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_max_warn_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-high-threshold'), ['int'])),
+                            ('pre_fec_ber_latched_max_warn_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-latched-max-warn-low-threshold'), ['int'])),
+                            ('pre_fec_ber_accumulated_alarm_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-high-threshold'), ['int'])),
+                            ('pre_fec_ber_accumulated_alarm_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-accumulated-alarm-low-threshold'), ['int'])),
+                            ('pre_fec_ber_accumulated_warn_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-high-threshold'), ['int'])),
+                            ('pre_fec_ber_accumulated_warn_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-accumulated-warn-low-threshold'), ['int'])),
+                            ('pre_fec_ber_instantaneous_alarm_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-high-threshold'), ['int'])),
+                            ('pre_fec_ber_instantaneous_alarm_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-instantaneous-alarm-low-threshold'), ['int'])),
+                            ('pre_fec_ber_instantaneous_warn_high_threshold', (YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-high-threshold'), ['int'])),
+                            ('pre_fec_ber_instantaneous_warn_low_threshold', (YLeaf(YType.int64, 'pre-fec-ber-instantaneous-warn-low-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_min_alarm_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-high-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_min_alarm_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-min-alarm-low-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_min_warn_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-high-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_min_warn_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-min-warn-low-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_max_alarm_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-high-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_max_alarm_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-max-alarm-low-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_max_warn_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-high-threshold'), ['int'])),
+                            ('uncorrected_ber_latched_max_warn_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-latched-max-warn-low-threshold'), ['int'])),
+                            ('uncorrected_ber_accumulated_alarm_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-high-threshold'), ['int'])),
+                            ('uncorrected_ber_accumulated_alarm_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-accumulated-alarm-low-threshold'), ['int'])),
+                            ('uncorrected_ber_accumulated_warn_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-high-threshold'), ['int'])),
+                            ('uncorrected_ber_accumulated_warn_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-accumulated-warn-low-threshold'), ['int'])),
+                            ('uncorrected_ber_instantaneous_alarm_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-high-threshold'), ['int'])),
+                            ('uncorrected_ber_instantaneous_alarm_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-instantaneous-alarm-low-threshold'), ['int'])),
+                            ('uncorrected_ber_instantaneous_warn_high_threshold', (YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-high-threshold'), ['int'])),
+                            ('uncorrected_ber_instantaneous_warn_low_threshold', (YLeaf(YType.int64, 'uncorrected-ber-instantaneous-warn-low-threshold'), ['int'])),
                         ])
                         self.snr_alarm_high_threshold = None
                         self.snr_alarm_low_threshold = None
@@ -6866,6 +7251,7 @@ class OpticsOper(Entity):
                         self.uncorrected_ber_instantaneous_warn_high_threshold = None
                         self.uncorrected_ber_instantaneous_warn_low_threshold = None
                         self._segment_path = lambda: "ext-param-threshold-val"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtParamThresholdVal, ['snr_alarm_high_threshold', 'snr_alarm_low_threshold', 'snr_warn_high_threshold', 'snr_warn_low_threshold', 'isi_correction_alarm_high_threshold', 'isi_correction_alarm_low_threshold', 'isi_correction_warn_high_threshold', 'isi_correction_warn_low_threshold', 'pam_rate_alarm_high_threshold', 'pam_rate_alarm_low_threshold', 'pam_rate_warn_high_threshold', 'pam_rate_warn_low_threshold', 'pre_fec_ber_alarm_high_threshold', 'pre_fec_ber_alarm_low_threshold', 'pre_fec_ber_warn_high_threshold', 'pre_fec_ber_warn_low_threshold', 'uncorrected_ber_alarm_high_threshold', 'uncorrected_ber_alarm_low_threshold', 'uncorrected_ber_warn_high_threshold', 'uncorrected_ber_warn_low_threshold', 'tec_current_alarm_high_threshold', 'tec_current_alarm_low_threshold', 'tec_current_warn_high_threshold', 'tec_current_warn_low_threshold', 'laser_diff_frequency_alarm_high_threshold', 'laser_diff_frequency_alarm_low_threshold', 'laser_diff_frequency_warn_high_threshold', 'laser_diff_frequency_warn_low_threshold', 'laser_diff_temperature_alarm_high_threshold', 'laser_diff_temperature_alarm_low_threshold', 'laser_diff_temperature_warn_high_threshold', 'laser_diff_temperature_warn_low_threshold', 'pre_fec_ber_latched_min_alarm_high_threshold', 'pre_fec_ber_latched_min_alarm_low_threshold', 'pre_fec_ber_latched_min_warn_high_threshold', 'pre_fec_ber_latched_min_warn_low_threshold', 'pre_fec_ber_latched_max_alarm_high_threshold', 'pre_fec_ber_latched_max_alarm_low_threshold', 'pre_fec_ber_latched_max_warn_high_threshold', 'pre_fec_ber_latched_max_warn_low_threshold', 'pre_fec_ber_accumulated_alarm_high_threshold', 'pre_fec_ber_accumulated_alarm_low_threshold', 'pre_fec_ber_accumulated_warn_high_threshold', 'pre_fec_ber_accumulated_warn_low_threshold', 'pre_fec_ber_instantaneous_alarm_high_threshold', 'pre_fec_ber_instantaneous_alarm_low_threshold', 'pre_fec_ber_instantaneous_warn_high_threshold', 'pre_fec_ber_instantaneous_warn_low_threshold', 'uncorrected_ber_latched_min_alarm_high_threshold', 'uncorrected_ber_latched_min_alarm_low_threshold', 'uncorrected_ber_latched_min_warn_high_threshold', 'uncorrected_ber_latched_min_warn_low_threshold', 'uncorrected_ber_latched_max_alarm_high_threshold', 'uncorrected_ber_latched_max_alarm_low_threshold', 'uncorrected_ber_latched_max_warn_high_threshold', 'uncorrected_ber_latched_max_warn_low_threshold', 'uncorrected_ber_accumulated_alarm_high_threshold', 'uncorrected_ber_accumulated_alarm_low_threshold', 'uncorrected_ber_accumulated_warn_high_threshold', 'uncorrected_ber_accumulated_warn_low_threshold', 'uncorrected_ber_instantaneous_alarm_high_threshold', 'uncorrected_ber_instantaneous_alarm_low_threshold', 'uncorrected_ber_instantaneous_warn_high_threshold', 'uncorrected_ber_instantaneous_warn_low_threshold'], name, value)
@@ -7163,6 +7549,7 @@ class OpticsOper(Entity):
                         self.hi_uncorrected_ber_cur.parent = self
                         self._children_name_map["hi_uncorrected_ber_cur"] = "hi-uncorrected-ber-cur"
                         self._segment_path = lambda: "extended-alarm-alarm-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo, [], name, value)
@@ -7201,12 +7588,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-snr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr, ['is_detected', 'counter'], name, value)
@@ -7245,12 +7633,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-snr1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr1, ['is_detected', 'counter'], name, value)
@@ -7289,12 +7678,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-snr1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoSnr1, ['is_detected', 'counter'], name, value)
@@ -7333,12 +7723,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-snr2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiSnr2, ['is_detected', 'counter'], name, value)
@@ -7377,12 +7768,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-isi1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi1, ['is_detected', 'counter'], name, value)
@@ -7421,12 +7813,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-isi1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi1, ['is_detected', 'counter'], name, value)
@@ -7465,12 +7858,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-isi2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoIsi2, ['is_detected', 'counter'], name, value)
@@ -7509,12 +7903,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-isi2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiIsi2, ['is_detected', 'counter'], name, value)
@@ -7553,12 +7948,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-pam1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam1, ['is_detected', 'counter'], name, value)
@@ -7597,12 +7993,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pam1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam1, ['is_detected', 'counter'], name, value)
@@ -7641,12 +8038,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-pam2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoPam2, ['is_detected', 'counter'], name, value)
@@ -7685,12 +8083,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pam2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPam2, ['is_detected', 'counter'], name, value)
@@ -7729,12 +8128,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-tec1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec1, ['is_detected', 'counter'], name, value)
@@ -7773,12 +8173,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-tec1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec1, ['is_detected', 'counter'], name, value)
@@ -7817,12 +8218,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-tec2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoTec2, ['is_detected', 'counter'], name, value)
@@ -7861,12 +8263,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-tec2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiTec2, ['is_detected', 'counter'], name, value)
@@ -7905,12 +8308,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-laser-freq1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq1, ['is_detected', 'counter'], name, value)
@@ -7950,12 +8354,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-laser-freq1"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq1, ['is_detected', 'counter'], name, value)
@@ -7994,12 +8399,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "lo-laser-freq2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.LoLaserFreq2, ['is_detected', 'counter'], name, value)
@@ -8039,12 +8445,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-laser-freq2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiLaserFreq2, ['is_detected', 'counter'], name, value)
@@ -8083,12 +8490,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pre-fecber-cur-acc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCurAcc, ['is_detected', 'counter'], name, value)
@@ -8127,12 +8535,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pre-fecber-min"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMin, ['is_detected', 'counter'], name, value)
@@ -8171,12 +8580,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pre-fecber-max"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberMax, ['is_detected', 'counter'], name, value)
@@ -8215,12 +8625,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pre-fecber-prior-acc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberPriorAcc, ['is_detected', 'counter'], name, value)
@@ -8259,12 +8670,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-pre-fecber-cur"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiPreFecberCur, ['is_detected', 'counter'], name, value)
@@ -8303,12 +8715,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-uncorrected-ber-cur-acc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCurAcc, ['is_detected', 'counter'], name, value)
@@ -8347,12 +8760,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-uncorrected-ber-min"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMin, ['is_detected', 'counter'], name, value)
@@ -8391,12 +8805,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-uncorrected-ber-max"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerMax, ['is_detected', 'counter'], name, value)
@@ -8435,12 +8850,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-uncorrected-ber-prior-acc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerPriorAcc, ['is_detected', 'counter'], name, value)
@@ -8479,15 +8895,74 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('counter', YLeaf(YType.uint32, 'counter')),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                             ])
                             self.is_detected = None
                             self.counter = None
                             self._segment_path = lambda: "hi-uncorrected-ber-cur"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.ExtendedAlarmAlarmInfo.HiUncorrectedBerCur, ['is_detected', 'counter'], name, value)
+
+
+                class AinsInfo(Entity):
+                    """
+                    AINS information
+                    
+                    .. attribute:: ains_state
+                    
+                    	AINS State
+                    	**type**\:  :py:class:`OpticsAinsStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsAinsStateEt>`
+                    
+                    .. attribute:: ains_timer_minutes
+                    
+                    	AINS Timer in Minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: ains_remaining_secs
+                    
+                    	AINS Remaining Seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-optics-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, self).__init__()
+
+                        self.yang_name = "ains-info"
+                        self.yang_parent_name = "optics-info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ains_state', (YLeaf(YType.enumeration, 'ains-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsAinsStateEt', '')])),
+                            ('ains_timer_minutes', (YLeaf(YType.uint32, 'ains-timer-minutes'), ['int'])),
+                            ('ains_remaining_secs', (YLeaf(YType.uint32, 'ains-remaining-secs'), ['int'])),
+                        ])
+                        self.ains_state = None
+                        self.ains_timer_minutes = None
+                        self.ains_remaining_secs = None
+                        self._segment_path = lambda: "ains-info"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.AinsInfo, ['ains_state', 'ains_timer_minutes', 'ains_remaining_secs'], name, value)
 
 
                 class LaneData(Entity):
@@ -8524,42 +8999,42 @@ class OpticsOper(Entity):
                     
                     .. attribute:: transmit_power
                     
-                    	Transmit power in the unit of 0.01dBm
+                    	Transmit power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power
                     
-                    	Transponder receive power in the unit of 0.01dBm
+                    	Transponder receive power in the units of 0 .01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_signal_power
                     
-                    	Transponder receive signal power in the unit of 0.01dBm
+                    	Transponder receive signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_signal_power
                     
-                    	Transmit Signal power in the unit of 0.01dBm
+                    	Transmit Signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: output_frequency
                     
-                    	Output frequency read from hw in the unit 100MHz
+                    	Output frequency read from hw in the units of 100MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_offset
                     
-                    	Frequency Offset read from hw in unit of MHz
+                    	Frequency Offset read from hw in units of MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -8581,15 +9056,15 @@ class OpticsOper(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo))])
                         self._leafs = OrderedDict([
-                            ('lane_index', YLeaf(YType.uint32, 'lane-index')),
-                            ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
-                            ('laser_bias_current_milli_amps', YLeaf(YType.uint32, 'laser-bias-current-milli-amps')),
-                            ('transmit_power', YLeaf(YType.int32, 'transmit-power')),
-                            ('receive_power', YLeaf(YType.int32, 'receive-power')),
-                            ('receive_signal_power', YLeaf(YType.int32, 'receive-signal-power')),
-                            ('transmit_signal_power', YLeaf(YType.int32, 'transmit-signal-power')),
-                            ('output_frequency', YLeaf(YType.int32, 'output-frequency')),
-                            ('frequency_offset', YLeaf(YType.int32, 'frequency-offset')),
+                            ('lane_index', (YLeaf(YType.uint32, 'lane-index'), ['int'])),
+                            ('laser_bias_current_percent', (YLeaf(YType.uint32, 'laser-bias-current-percent'), ['int'])),
+                            ('laser_bias_current_milli_amps', (YLeaf(YType.uint32, 'laser-bias-current-milli-amps'), ['int'])),
+                            ('transmit_power', (YLeaf(YType.int32, 'transmit-power'), ['int'])),
+                            ('receive_power', (YLeaf(YType.int32, 'receive-power'), ['int'])),
+                            ('receive_signal_power', (YLeaf(YType.int32, 'receive-signal-power'), ['int'])),
+                            ('transmit_signal_power', (YLeaf(YType.int32, 'transmit-signal-power'), ['int'])),
+                            ('output_frequency', (YLeaf(YType.int32, 'output-frequency'), ['int'])),
+                            ('frequency_offset', (YLeaf(YType.int32, 'frequency-offset'), ['int'])),
                         ])
                         self.lane_index = None
                         self.laser_bias_current_percent = None
@@ -8605,6 +9080,7 @@ class OpticsOper(Entity):
                         self.lane_alarm_info.parent = self
                         self._children_name_map["lane_alarm_info"] = "lane-alarm-info"
                         self._segment_path = lambda: "lane-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData, ['lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
@@ -8677,6 +9153,7 @@ class OpticsOper(Entity):
                             self.high_lbc.parent = self
                             self._children_name_map["high_lbc"] = "high-lbc"
                             self._segment_path = lambda: "lane-alarm-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo, [], name, value)
@@ -8715,12 +9192,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-rx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
@@ -8759,12 +9237,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "low-rx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
@@ -8803,12 +9282,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-tx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
@@ -8847,12 +9327,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "low-tx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
@@ -8891,12 +9372,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-lbc"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsInfo.LaneData.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
@@ -8931,6 +9413,7 @@ class OpticsOper(Entity):
 
                     self.optics_lane = YList(self)
                     self._segment_path = lambda: "optics-lanes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes, [], name, value)
@@ -8977,42 +9460,42 @@ class OpticsOper(Entity):
                     
                     .. attribute:: transmit_power
                     
-                    	Transmit power in the unit of 0.01dBm
+                    	Transmit power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_power
                     
-                    	Transponder receive power in the unit of 0.01dBm
+                    	Transponder receive power in the units of 0 .01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: receive_signal_power
                     
-                    	Transponder receive signal power in the unit of 0.01dBm
+                    	Transponder receive signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: transmit_signal_power
                     
-                    	Transmit Signal power in the unit of 0.01dBm
+                    	Transmit Signal power in the units of 0.01dBm
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: output_frequency
                     
-                    	Output frequency read from hw in the unit 100MHz
+                    	Output frequency read from hw in the units of 100MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
                     
                     .. attribute:: frequency_offset
                     
-                    	Frequency Offset read from hw in unit of MHz
+                    	Frequency Offset read from hw in units of MHz
                     	**type**\: int
                     
                     	**range:** \-2147483648..2147483647
@@ -9034,16 +9517,16 @@ class OpticsOper(Entity):
                         self.ylist_key_names = ['number']
                         self._child_classes = OrderedDict([("lane-alarm-info", ("lane_alarm_info", OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo))])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('lane_index', YLeaf(YType.uint32, 'lane-index')),
-                            ('laser_bias_current_percent', YLeaf(YType.uint32, 'laser-bias-current-percent')),
-                            ('laser_bias_current_milli_amps', YLeaf(YType.uint32, 'laser-bias-current-milli-amps')),
-                            ('transmit_power', YLeaf(YType.int32, 'transmit-power')),
-                            ('receive_power', YLeaf(YType.int32, 'receive-power')),
-                            ('receive_signal_power', YLeaf(YType.int32, 'receive-signal-power')),
-                            ('transmit_signal_power', YLeaf(YType.int32, 'transmit-signal-power')),
-                            ('output_frequency', YLeaf(YType.int32, 'output-frequency')),
-                            ('frequency_offset', YLeaf(YType.int32, 'frequency-offset')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('lane_index', (YLeaf(YType.uint32, 'lane-index'), ['int'])),
+                            ('laser_bias_current_percent', (YLeaf(YType.uint32, 'laser-bias-current-percent'), ['int'])),
+                            ('laser_bias_current_milli_amps', (YLeaf(YType.uint32, 'laser-bias-current-milli-amps'), ['int'])),
+                            ('transmit_power', (YLeaf(YType.int32, 'transmit-power'), ['int'])),
+                            ('receive_power', (YLeaf(YType.int32, 'receive-power'), ['int'])),
+                            ('receive_signal_power', (YLeaf(YType.int32, 'receive-signal-power'), ['int'])),
+                            ('transmit_signal_power', (YLeaf(YType.int32, 'transmit-signal-power'), ['int'])),
+                            ('output_frequency', (YLeaf(YType.int32, 'output-frequency'), ['int'])),
+                            ('frequency_offset', (YLeaf(YType.int32, 'frequency-offset'), ['int'])),
                         ])
                         self.number = None
                         self.lane_index = None
@@ -9060,6 +9543,7 @@ class OpticsOper(Entity):
                         self.lane_alarm_info.parent = self
                         self._children_name_map["lane_alarm_info"] = "lane-alarm-info"
                         self._segment_path = lambda: "optics-lane" + "[number='" + str(self.number) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane, ['number', 'lane_index', 'laser_bias_current_percent', 'laser_bias_current_milli_amps', 'transmit_power', 'receive_power', 'receive_signal_power', 'transmit_signal_power', 'output_frequency', 'frequency_offset'], name, value)
@@ -9132,6 +9616,7 @@ class OpticsOper(Entity):
                             self.high_lbc.parent = self
                             self._children_name_map["high_lbc"] = "high-lbc"
                             self._segment_path = lambda: "lane-alarm-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo, [], name, value)
@@ -9170,12 +9655,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-rx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighRxPower, ['is_detected', 'counter'], name, value)
@@ -9214,12 +9700,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "low-rx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowRxPower, ['is_detected', 'counter'], name, value)
@@ -9258,12 +9745,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-tx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighTxPower, ['is_detected', 'counter'], name, value)
@@ -9302,12 +9790,13 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "low-tx-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.LowTxPower, ['is_detected', 'counter'], name, value)
@@ -9346,139 +9835,16 @@ class OpticsOper(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                    ('counter', YLeaf(YType.uint32, 'counter')),
+                                    ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                    ('counter', (YLeaf(YType.uint32, 'counter'), ['int'])),
                                 ])
                                 self.is_detected = None
                                 self.counter = None
                                 self._segment_path = lambda: "high-lbc"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsLanes.OpticsLane.LaneAlarmInfo.HighLbc, ['is_detected', 'counter'], name, value)
-
-
-            class OpticsDwdmCarrrierChannelMapFlexi(Entity):
-                """
-                Optics operational data
-                
-                .. attribute:: dwdm_carrier_band
-                
-                	DWDM carrier band
-                	**type**\:  :py:class:`OpticsWaveBand <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsWaveBand>`
-                
-                .. attribute:: dwdm_carrier_min
-                
-                	Lowest DWDM carrier supported
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dwdm_carrier_max
-                
-                	Highest DWDM carrier supported
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: dwdm_carrier_map_info
-                
-                	DWDM carrier mapping info
-                	**type**\: list of  		 :py:class:`DwdmCarrierMapInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper.OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo>`
-                
-                
-
-                """
-
-                _prefix = 'controller-optics-oper'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi, self).__init__()
-
-                    self.yang_name = "optics-dwdm-carrrier-channel-map-flexi"
-                    self.yang_parent_name = "optics-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("dwdm-carrier-map-info", ("dwdm_carrier_map_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo))])
-                    self._leafs = OrderedDict([
-                        ('dwdm_carrier_band', YLeaf(YType.enumeration, 'dwdm-carrier-band')),
-                        ('dwdm_carrier_min', YLeaf(YType.uint32, 'dwdm-carrier-min')),
-                        ('dwdm_carrier_max', YLeaf(YType.uint32, 'dwdm-carrier-max')),
-                    ])
-                    self.dwdm_carrier_band = None
-                    self.dwdm_carrier_min = None
-                    self.dwdm_carrier_max = None
-
-                    self.dwdm_carrier_map_info = YList(self)
-                    self._segment_path = lambda: "optics-dwdm-carrrier-channel-map-flexi"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi, ['dwdm_carrier_band', 'dwdm_carrier_min', 'dwdm_carrier_max'], name, value)
-
-
-                class DwdmCarrierMapInfo(Entity):
-                    """
-                    DWDM carrier mapping info
-                    
-                    .. attribute:: itu_chan_num
-                    
-                    	ITU channel number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
-                    
-                    .. attribute:: g694_chan_num
-                    
-                    	G694 channel number
-                    	**type**\: int
-                    
-                    	**range:** \-2147483648..2147483647
-                    
-                    .. attribute:: frequency
-                    
-                    	Frequency
-                    	**type**\: str
-                    
-                    	**length:** 0..32
-                    
-                    .. attribute:: wavelength
-                    
-                    	Wavelength
-                    	**type**\: str
-                    
-                    	**length:** 0..32
-                    
-                    
-
-                    """
-
-                    _prefix = 'controller-optics-oper'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo, self).__init__()
-
-                        self.yang_name = "dwdm-carrier-map-info"
-                        self.yang_parent_name = "optics-dwdm-carrrier-channel-map-flexi"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('itu_chan_num', YLeaf(YType.uint32, 'itu-chan-num')),
-                            ('g694_chan_num', YLeaf(YType.int32, 'g694-chan-num')),
-                            ('frequency', YLeaf(YType.str, 'frequency')),
-                            ('wavelength', YLeaf(YType.str, 'wavelength')),
-                        ])
-                        self.itu_chan_num = None
-                        self.g694_chan_num = None
-                        self.frequency = None
-                        self.wavelength = None
-                        self._segment_path = lambda: "dwdm-carrier-map-info"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDwdmCarrrierChannelMapFlexi.DwdmCarrierMapInfo, ['itu_chan_num', 'g694_chan_num', 'frequency', 'wavelength'], name, value)
 
 
             class OpticsDbInfo(Entity):
@@ -9517,8 +9883,8 @@ class OpticsOper(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("network-srlg-info", ("network_srlg_info", OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo))])
                     self._leafs = OrderedDict([
-                        ('transport_admin_state', YLeaf(YType.enumeration, 'transport-admin-state')),
-                        ('controller_state', YLeaf(YType.enumeration, 'controller-state')),
+                        ('transport_admin_state', (YLeaf(YType.enumeration, 'transport-admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsTas', '')])),
+                        ('controller_state', (YLeaf(YType.enumeration, 'controller-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper', 'OpticsControllerState', '')])),
                     ])
                     self.transport_admin_state = None
                     self.controller_state = None
@@ -9527,6 +9893,7 @@ class OpticsOper(Entity):
                     self.network_srlg_info.parent = self
                     self._children_name_map["network_srlg_info"] = "network-srlg-info"
                     self._segment_path = lambda: "optics-db-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo, ['transport_admin_state', 'controller_state'], name, value)
@@ -9561,6 +9928,7 @@ class OpticsOper(Entity):
 
                         self.network_srlg_array = YList(self)
                         self._segment_path = lambda: "network-srlg-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo, [], name, value)
@@ -9601,12 +9969,13 @@ class OpticsOper(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_number', YLeaf(YType.uint32, 'set-number')),
-                                ('network_srlg', YLeafList(YType.uint32, 'network-srlg')),
+                                ('set_number', (YLeaf(YType.uint32, 'set-number'), ['int'])),
+                                ('network_srlg', (YLeafList(YType.uint32, 'network-srlg'), ['int'])),
                             ])
                             self.set_number = None
                             self.network_srlg = []
                             self._segment_path = lambda: "network-srlg-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OpticsOper.OpticsPorts.OpticsPort.OpticsDbInfo.NetworkSrlgInfo.NetworkSrlgArray, ['set_number', 'network_srlg'], name, value)

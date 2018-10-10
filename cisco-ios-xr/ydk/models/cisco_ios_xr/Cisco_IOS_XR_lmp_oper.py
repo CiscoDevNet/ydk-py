@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lmp\: Main common UCP/OLM operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class OlmAddrTypeId(Enum):
@@ -582,6 +583,7 @@ class Lmp(Entity):
         self.component_link_ids.parent = self
         self._children_name_map["component_link_ids"] = "component-link-ids"
         self._segment_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Lmp, [], name, value)
@@ -648,11 +650,11 @@ class Lmp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("local-ouni-lmp-node-id", ("local_ouni_lmp_node_id", Lmp.GlobalStatus.LocalOuniLmpNodeId)), ("local-mpls-te-lmp-node-id", ("local_mpls_te_lmp_node_id", Lmp.GlobalStatus.LocalMplsTeLmpNodeId)), ("local-gmpls-uni-lmp-node-id", ("local_gmpls_uni_lmp_node_id", Lmp.GlobalStatus.LocalGmplsUniLmpNodeId))])
             self._leafs = OrderedDict([
-                ('local_ouni_lmp_node_id_interface', YLeaf(YType.str, 'local-ouni-lmp-node-id-interface')),
-                ('local_ouni_lmp_node_id_type', YLeaf(YType.enumeration, 'local-ouni-lmp-node-id-type')),
-                ('is_ouni_config_exist', YLeaf(YType.boolean, 'is-ouni-config-exist')),
-                ('is_gmpls_nni_config_exist', YLeaf(YType.boolean, 'is-gmpls-nni-config-exist')),
-                ('is_gmpls_uni_config_exist', YLeaf(YType.boolean, 'is-gmpls-uni-config-exist')),
+                ('local_ouni_lmp_node_id_interface', (YLeaf(YType.str, 'local-ouni-lmp-node-id-interface'), ['str'])),
+                ('local_ouni_lmp_node_id_type', (YLeaf(YType.enumeration, 'local-ouni-lmp-node-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmRouterId', '')])),
+                ('is_ouni_config_exist', (YLeaf(YType.boolean, 'is-ouni-config-exist'), ['bool'])),
+                ('is_gmpls_nni_config_exist', (YLeaf(YType.boolean, 'is-gmpls-nni-config-exist'), ['bool'])),
+                ('is_gmpls_uni_config_exist', (YLeaf(YType.boolean, 'is-gmpls-uni-config-exist'), ['bool'])),
             ])
             self.local_ouni_lmp_node_id_interface = None
             self.local_ouni_lmp_node_id_type = None
@@ -673,9 +675,10 @@ class Lmp(Entity):
             self._children_name_map["local_gmpls_uni_lmp_node_id"] = "local-gmpls-uni-lmp-node-id"
             self._segment_path = lambda: "global-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Lmp.GlobalStatus, [u'local_ouni_lmp_node_id_interface', u'local_ouni_lmp_node_id_type', u'is_ouni_config_exist', u'is_gmpls_nni_config_exist', u'is_gmpls_uni_config_exist'], name, value)
+            self._perform_setattr(Lmp.GlobalStatus, ['local_ouni_lmp_node_id_interface', 'local_ouni_lmp_node_id_type', 'is_ouni_config_exist', 'is_gmpls_nni_config_exist', 'is_gmpls_uni_config_exist'], name, value)
 
 
         class LocalOuniLmpNodeId(Entity):
@@ -710,6 +713,7 @@ class Lmp(Entity):
                 self._children_name_map["address"] = "address"
                 self._segment_path = lambda: "local-ouni-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId, [], name, value)
@@ -762,10 +766,10 @@ class Lmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                        ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                        ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                        ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                     ])
                     self.address_type = None
                     self.ipv4_address = None
@@ -773,9 +777,10 @@ class Lmp(Entity):
                     self.unnumbered_address = None
                     self._segment_path = lambda: "address"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-ouni-lmp-node-id/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalOuniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
         class LocalMplsTeLmpNodeId(Entity):
@@ -810,6 +815,7 @@ class Lmp(Entity):
                 self._children_name_map["address"] = "address"
                 self._segment_path = lambda: "local-mpls-te-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId, [], name, value)
@@ -862,10 +868,10 @@ class Lmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                        ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                        ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                        ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                     ])
                     self.address_type = None
                     self.ipv4_address = None
@@ -873,9 +879,10 @@ class Lmp(Entity):
                     self.unnumbered_address = None
                     self._segment_path = lambda: "address"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-mpls-te-lmp-node-id/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalMplsTeLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
         class LocalGmplsUniLmpNodeId(Entity):
@@ -910,6 +917,7 @@ class Lmp(Entity):
                 self._children_name_map["address"] = "address"
                 self._segment_path = lambda: "local-gmpls-uni-lmp-node-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId, [], name, value)
@@ -962,10 +970,10 @@ class Lmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                        ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                        ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                        ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                     ])
                     self.address_type = None
                     self.ipv4_address = None
@@ -973,9 +981,10 @@ class Lmp(Entity):
                     self.unnumbered_address = None
                     self._segment_path = lambda: "address"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/global-status/local-gmpls-uni-lmp-node-id/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                    self._perform_setattr(Lmp.GlobalStatus.LocalGmplsUniLmpNodeId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
     class Clients(Entity):
@@ -1008,6 +1017,7 @@ class Lmp(Entity):
             self.client = YList(self)
             self._segment_path = lambda: "clients"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lmp.Clients, [], name, value)
@@ -1051,8 +1061,8 @@ class Lmp(Entity):
                 self.ylist_key_names = ['client_name']
                 self._child_classes = OrderedDict([("connected-time", ("connected_time", Lmp.Clients.Client.ConnectedTime))])
                 self._leafs = OrderedDict([
-                    ('client_name', YLeaf(YType.str, 'client-name')),
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.client_name = None
                 self.node_name = None
@@ -1062,9 +1072,10 @@ class Lmp(Entity):
                 self._children_name_map["connected_time"] = "connected-time"
                 self._segment_path = lambda: "client" + "[client-name='" + str(self.client_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/clients/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.Clients.Client, ['client_name', u'node_name'], name, value)
+                self._perform_setattr(Lmp.Clients.Client, ['client_name', 'node_name'], name, value)
 
 
             class ConnectedTime(Entity):
@@ -1095,13 +1106,14 @@ class Lmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_connected', YLeaf(YType.uint32, 'time-connected')),
+                        ('time_connected', (YLeaf(YType.uint32, 'time-connected'), ['int'])),
                     ])
                     self.time_connected = None
                     self._segment_path = lambda: "connected-time"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, [u'time_connected'], name, value)
+                    self._perform_setattr(Lmp.Clients.Client.ConnectedTime, ['time_connected'], name, value)
 
 
     class GmplsUni(Entity):
@@ -1145,6 +1157,7 @@ class Lmp(Entity):
             self._children_name_map["neighbors"] = "neighbors"
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lmp.GmplsUni, [], name, value)
@@ -1180,6 +1193,7 @@ class Lmp(Entity):
                 self.te_link = YList(self)
                 self._segment_path = lambda: "te-links"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.TeLinks, [], name, value)
@@ -1194,7 +1208,7 @@ class Lmp(Entity):
                 	Controller name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: local_link_id
                 
@@ -1370,28 +1384,28 @@ class Lmp(Entity):
                     self.ylist_key_names = ['controller_name']
                     self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress))])
                     self._leafs = OrderedDict([
-                        ('controller_name', YLeaf(YType.str, 'controller-name')),
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('protocol_owner', YLeaf(YType.enumeration, 'protocol-owner')),
-                        ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
-                        ('ipcc_id', YLeaf(YType.uint32, 'ipcc-id')),
-                        ('ipc_ctype', YLeaf(YType.enumeration, 'ipc-ctype')),
-                        ('ipcc_name', YLeaf(YType.str, 'ipcc-name')),
-                        ('local_mux_cap', YLeaf(YType.enumeration, 'local-mux-cap')),
-                        ('remote_mux_cap', YLeaf(YType.enumeration, 'remote-mux-cap')),
-                        ('im_state', YLeaf(YType.enumeration, 'im-state')),
-                        ('lmp_state', YLeaf(YType.enumeration, 'lmp-state')),
-                        ('te_link_lmp_state', YLeaf(YType.enumeration, 'te-link-lmp-state')),
-                        ('gmpls_te_link_local_minimum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-local-minimum-bandwidth')),
-                        ('gmpls_te_link_local_maximum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-local-maximum-bandwidth')),
-                        ('gmpls_te_link_neighbor_minimum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-neighbor-minimum-bandwidth')),
-                        ('gmpls_te_link_neighbor_maximum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-neighbor-maximum-bandwidth')),
-                        ('gmpls_te_link_local_encoding_type', YLeaf(YType.enumeration, 'gmpls-te-link-local-encoding-type')),
-                        ('gmpls_te_link_neighbor_encoding_type', YLeaf(YType.enumeration, 'gmpls-te-link-neighbor-encoding-type')),
-                        ('is_lmp_enabled', YLeaf(YType.boolean, 'is-lmp-enabled')),
-                        ('lmp_transmit_msg_id', YLeaf(YType.uint32, 'lmp-transmit-msg-id')),
-                        ('lmp_receive_msg_id', YLeaf(YType.uint32, 'lmp-receive-msg-id')),
-                        ('lmp_comp_link_status', YLeafList(YType.enumeration, 'lmp-comp-link-status')),
+                        ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('protocol_owner', (YLeaf(YType.enumeration, 'protocol-owner'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmObjectOwner', '')])),
+                        ('neighbor_name', (YLeaf(YType.str, 'neighbor-name'), ['str'])),
+                        ('ipcc_id', (YLeaf(YType.uint32, 'ipcc-id'), ['int'])),
+                        ('ipc_ctype', (YLeaf(YType.enumeration, 'ipc-ctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'Olmipcc', '')])),
+                        ('ipcc_name', (YLeaf(YType.str, 'ipcc-name'), ['str'])),
+                        ('local_mux_cap', (YLeaf(YType.enumeration, 'local-mux-cap'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmMuxCap', '')])),
+                        ('remote_mux_cap', (YLeaf(YType.enumeration, 'remote-mux-cap'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmMuxCap', '')])),
+                        ('im_state', (YLeaf(YType.enumeration, 'im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkImState', '')])),
+                        ('lmp_state', (YLeaf(YType.enumeration, 'lmp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkLmpState', '')])),
+                        ('te_link_lmp_state', (YLeaf(YType.enumeration, 'te-link-lmp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmteLinkLmpState', '')])),
+                        ('gmpls_te_link_local_minimum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-local-minimum-bandwidth'), ['int'])),
+                        ('gmpls_te_link_local_maximum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-local-maximum-bandwidth'), ['int'])),
+                        ('gmpls_te_link_neighbor_minimum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-neighbor-minimum-bandwidth'), ['int'])),
+                        ('gmpls_te_link_neighbor_maximum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-neighbor-maximum-bandwidth'), ['int'])),
+                        ('gmpls_te_link_local_encoding_type', (YLeaf(YType.enumeration, 'gmpls-te-link-local-encoding-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmLinkEncoding', '')])),
+                        ('gmpls_te_link_neighbor_encoding_type', (YLeaf(YType.enumeration, 'gmpls-te-link-neighbor-encoding-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmLinkEncoding', '')])),
+                        ('is_lmp_enabled', (YLeaf(YType.boolean, 'is-lmp-enabled'), ['bool'])),
+                        ('lmp_transmit_msg_id', (YLeaf(YType.uint32, 'lmp-transmit-msg-id'), ['int'])),
+                        ('lmp_receive_msg_id', (YLeaf(YType.uint32, 'lmp-receive-msg-id'), ['int'])),
+                        ('lmp_comp_link_status', (YLeafList(YType.enumeration, 'lmp-comp-link-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkLmpStatus', '')])),
                     ])
                     self.controller_name = None
                     self.interface_name = None
@@ -1441,9 +1455,10 @@ class Lmp(Entity):
                     self._children_name_map["remote_ipcc_address"] = "remote-ipcc-address"
                     self._segment_path = lambda: "te-link" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/te-links/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink, ['controller_name', 'interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
 
 
                 class LocalLinkId(Entity):
@@ -1477,6 +1492,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "local-link-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId, [], name, value)
@@ -1529,19 +1545,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class RemoteLinkId(Entity):
@@ -1575,6 +1592,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "remote-link-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId, [], name, value)
@@ -1627,19 +1645,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class LocalTeLinkId(Entity):
@@ -1673,6 +1692,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "local-te-link-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId, [], name, value)
@@ -1725,19 +1745,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class RemoteTeLinkId(Entity):
@@ -1771,6 +1792,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "remote-te-link-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId, [], name, value)
@@ -1823,19 +1845,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class NeighborAddress(Entity):
@@ -1869,6 +1892,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "neighbor-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress, [], name, value)
@@ -1921,19 +1945,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class RemoteIpccAddress(Entity):
@@ -1967,6 +1992,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "remote-ipcc-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress, [], name, value)
@@ -2019,19 +2045,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.TeLinks.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
         class Neighbors(Entity):
@@ -2064,6 +2091,7 @@ class Lmp(Entity):
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "neighbors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.Neighbors, [], name, value)
@@ -2162,15 +2190,15 @@ class Lmp(Entity):
                     self.ylist_key_names = ['neighbor_name']
                     self._child_classes = OrderedDict([("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress)), ("te-link", ("te_link", Lmp.GmplsUni.Neighbors.Neighbor.TeLink)), ("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
                     self._leafs = OrderedDict([
-                        ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
-                        ('protocol_owner', YLeaf(YType.enumeration, 'protocol-owner')),
-                        ('ipcc_id', YLeaf(YType.uint32, 'ipcc-id')),
-                        ('is_lmp_enabled', YLeaf(YType.boolean, 'is-lmp-enabled')),
-                        ('is_lmp_config_disabled', YLeaf(YType.boolean, 'is-lmp-config-disabled')),
-                        ('lmp_transmit_msg_id', YLeaf(YType.uint32, 'lmp-transmit-msg-id')),
-                        ('lmp_receive_msg_id', YLeaf(YType.uint32, 'lmp-receive-msg-id')),
-                        ('lmp_link_sum_transmit_packets', YLeaf(YType.uint32, 'lmp-link-sum-transmit-packets')),
-                        ('lmp_link_sum_receive_packets', YLeaf(YType.uint32, 'lmp-link-sum-receive-packets')),
+                        ('neighbor_name', (YLeaf(YType.str, 'neighbor-name'), ['str'])),
+                        ('protocol_owner', (YLeaf(YType.enumeration, 'protocol-owner'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmObjectOwner', '')])),
+                        ('ipcc_id', (YLeaf(YType.uint32, 'ipcc-id'), ['int'])),
+                        ('is_lmp_enabled', (YLeaf(YType.boolean, 'is-lmp-enabled'), ['bool'])),
+                        ('is_lmp_config_disabled', (YLeaf(YType.boolean, 'is-lmp-config-disabled'), ['bool'])),
+                        ('lmp_transmit_msg_id', (YLeaf(YType.uint32, 'lmp-transmit-msg-id'), ['int'])),
+                        ('lmp_receive_msg_id', (YLeaf(YType.uint32, 'lmp-receive-msg-id'), ['int'])),
+                        ('lmp_link_sum_transmit_packets', (YLeaf(YType.uint32, 'lmp-link-sum-transmit-packets'), ['int'])),
+                        ('lmp_link_sum_receive_packets', (YLeaf(YType.uint32, 'lmp-link-sum-receive-packets'), ['int'])),
                     ])
                     self.neighbor_name = None
                     self.protocol_owner = None
@@ -2190,9 +2218,10 @@ class Lmp(Entity):
                     self.ipcc = YList(self)
                     self._segment_path = lambda: "neighbor" + "[neighbor-name='" + str(self.neighbor_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/gmpls-uni/neighbors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', u'protocol_owner', u'ipcc_id', u'is_lmp_enabled', u'is_lmp_config_disabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
+                    self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', 'protocol_owner', 'ipcc_id', 'is_lmp_enabled', 'is_lmp_config_disabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
 
 
                 class NeighborAddress(Entity):
@@ -2226,6 +2255,7 @@ class Lmp(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "neighbor-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress, [], name, value)
@@ -2278,19 +2308,20 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                             ])
                             self.address_type = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self.unnumbered_address = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                            self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class TeLink(Entity):
@@ -2471,27 +2502,27 @@ class Lmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId)), ("remote-link-id", ("remote_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId)), ("local-te-link-id", ("local_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId)), ("remote-te-link-id", ("remote_te_link_id", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId)), ("neighbor-address", ("neighbor_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress)), ("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('protocol_owner', YLeaf(YType.enumeration, 'protocol-owner')),
-                            ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
-                            ('ipcc_id', YLeaf(YType.uint32, 'ipcc-id')),
-                            ('ipc_ctype', YLeaf(YType.enumeration, 'ipc-ctype')),
-                            ('ipcc_name', YLeaf(YType.str, 'ipcc-name')),
-                            ('local_mux_cap', YLeaf(YType.enumeration, 'local-mux-cap')),
-                            ('remote_mux_cap', YLeaf(YType.enumeration, 'remote-mux-cap')),
-                            ('im_state', YLeaf(YType.enumeration, 'im-state')),
-                            ('lmp_state', YLeaf(YType.enumeration, 'lmp-state')),
-                            ('te_link_lmp_state', YLeaf(YType.enumeration, 'te-link-lmp-state')),
-                            ('gmpls_te_link_local_minimum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-local-minimum-bandwidth')),
-                            ('gmpls_te_link_local_maximum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-local-maximum-bandwidth')),
-                            ('gmpls_te_link_neighbor_minimum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-neighbor-minimum-bandwidth')),
-                            ('gmpls_te_link_neighbor_maximum_bandwidth', YLeaf(YType.uint64, 'gmpls-te-link-neighbor-maximum-bandwidth')),
-                            ('gmpls_te_link_local_encoding_type', YLeaf(YType.enumeration, 'gmpls-te-link-local-encoding-type')),
-                            ('gmpls_te_link_neighbor_encoding_type', YLeaf(YType.enumeration, 'gmpls-te-link-neighbor-encoding-type')),
-                            ('is_lmp_enabled', YLeaf(YType.boolean, 'is-lmp-enabled')),
-                            ('lmp_transmit_msg_id', YLeaf(YType.uint32, 'lmp-transmit-msg-id')),
-                            ('lmp_receive_msg_id', YLeaf(YType.uint32, 'lmp-receive-msg-id')),
-                            ('lmp_comp_link_status', YLeafList(YType.enumeration, 'lmp-comp-link-status')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('protocol_owner', (YLeaf(YType.enumeration, 'protocol-owner'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmObjectOwner', '')])),
+                            ('neighbor_name', (YLeaf(YType.str, 'neighbor-name'), ['str'])),
+                            ('ipcc_id', (YLeaf(YType.uint32, 'ipcc-id'), ['int'])),
+                            ('ipc_ctype', (YLeaf(YType.enumeration, 'ipc-ctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'Olmipcc', '')])),
+                            ('ipcc_name', (YLeaf(YType.str, 'ipcc-name'), ['str'])),
+                            ('local_mux_cap', (YLeaf(YType.enumeration, 'local-mux-cap'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmMuxCap', '')])),
+                            ('remote_mux_cap', (YLeaf(YType.enumeration, 'remote-mux-cap'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmMuxCap', '')])),
+                            ('im_state', (YLeaf(YType.enumeration, 'im-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkImState', '')])),
+                            ('lmp_state', (YLeaf(YType.enumeration, 'lmp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkLmpState', '')])),
+                            ('te_link_lmp_state', (YLeaf(YType.enumeration, 'te-link-lmp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmteLinkLmpState', '')])),
+                            ('gmpls_te_link_local_minimum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-local-minimum-bandwidth'), ['int'])),
+                            ('gmpls_te_link_local_maximum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-local-maximum-bandwidth'), ['int'])),
+                            ('gmpls_te_link_neighbor_minimum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-neighbor-minimum-bandwidth'), ['int'])),
+                            ('gmpls_te_link_neighbor_maximum_bandwidth', (YLeaf(YType.uint64, 'gmpls-te-link-neighbor-maximum-bandwidth'), ['int'])),
+                            ('gmpls_te_link_local_encoding_type', (YLeaf(YType.enumeration, 'gmpls-te-link-local-encoding-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmLinkEncoding', '')])),
+                            ('gmpls_te_link_neighbor_encoding_type', (YLeaf(YType.enumeration, 'gmpls-te-link-neighbor-encoding-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmLinkEncoding', '')])),
+                            ('is_lmp_enabled', (YLeaf(YType.boolean, 'is-lmp-enabled'), ['bool'])),
+                            ('lmp_transmit_msg_id', (YLeaf(YType.uint32, 'lmp-transmit-msg-id'), ['int'])),
+                            ('lmp_receive_msg_id', (YLeaf(YType.uint32, 'lmp-receive-msg-id'), ['int'])),
+                            ('lmp_comp_link_status', (YLeafList(YType.enumeration, 'lmp-comp-link-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmCompLinkLmpStatus', '')])),
                         ])
                         self.interface_name = None
                         self.protocol_owner = None
@@ -2539,9 +2570,10 @@ class Lmp(Entity):
                         self.remote_ipcc_address.parent = self
                         self._children_name_map["remote_ipcc_address"] = "remote-ipcc-address"
                         self._segment_path = lambda: "te-link"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, [u'interface_name', u'protocol_owner', u'neighbor_name', u'ipcc_id', u'ipc_ctype', u'ipcc_name', u'local_mux_cap', u'remote_mux_cap', u'im_state', u'lmp_state', u'te_link_lmp_state', u'gmpls_te_link_local_minimum_bandwidth', u'gmpls_te_link_local_maximum_bandwidth', u'gmpls_te_link_neighbor_minimum_bandwidth', u'gmpls_te_link_neighbor_maximum_bandwidth', u'gmpls_te_link_local_encoding_type', u'gmpls_te_link_neighbor_encoding_type', u'is_lmp_enabled', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_comp_link_status'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink, ['interface_name', 'protocol_owner', 'neighbor_name', 'ipcc_id', 'ipc_ctype', 'ipcc_name', 'local_mux_cap', 'remote_mux_cap', 'im_state', 'lmp_state', 'te_link_lmp_state', 'gmpls_te_link_local_minimum_bandwidth', 'gmpls_te_link_local_maximum_bandwidth', 'gmpls_te_link_neighbor_minimum_bandwidth', 'gmpls_te_link_neighbor_maximum_bandwidth', 'gmpls_te_link_local_encoding_type', 'gmpls_te_link_neighbor_encoding_type', 'is_lmp_enabled', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_comp_link_status'], name, value)
 
 
                     class LocalLinkId(Entity):
@@ -2575,6 +2607,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "local-link-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId, [], name, value)
@@ -2627,19 +2660,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class RemoteLinkId(Entity):
@@ -2673,6 +2707,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "remote-link-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId, [], name, value)
@@ -2725,19 +2760,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class LocalTeLinkId(Entity):
@@ -2771,6 +2807,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "local-te-link-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId, [], name, value)
@@ -2823,19 +2860,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.LocalTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class RemoteTeLinkId(Entity):
@@ -2869,6 +2907,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "remote-te-link-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId, [], name, value)
@@ -2921,19 +2960,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteTeLinkId.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class NeighborAddress(Entity):
@@ -2967,6 +3007,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "neighbor-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress, [], name, value)
@@ -3019,19 +3060,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.NeighborAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class RemoteIpccAddress(Entity):
@@ -3065,6 +3107,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "remote-ipcc-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress, [], name, value)
@@ -3117,19 +3160,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.TeLink.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                 class Ipcc(Entity):
@@ -3288,25 +3332,25 @@ class Lmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("remote-ipcc-address", ("remote_ipcc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress)), ("source-ip-cc-address", ("source_ip_cc_address", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress))])
                         self._leafs = OrderedDict([
-                            ('ipcc_id', YLeaf(YType.uint32, 'ipcc-id')),
-                            ('ipc_ctype', YLeaf(YType.enumeration, 'ipc-ctype')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
-                            ('ipcc_state', YLeaf(YType.enumeration, 'ipcc-state')),
-                            ('lmp_hello_interval', YLeaf(YType.uint32, 'lmp-hello-interval')),
-                            ('lmp_hello_interval_minimum', YLeaf(YType.uint32, 'lmp-hello-interval-minimum')),
-                            ('lmp_hello_interval_maximum', YLeaf(YType.uint32, 'lmp-hello-interval-maximum')),
-                            ('lmp_hello_dead_interval', YLeaf(YType.uint32, 'lmp-hello-dead-interval')),
-                            ('lmp_hello_dead_interval_minimum', YLeaf(YType.uint32, 'lmp-hello-dead-interval-minimum')),
-                            ('lmp_hello_dead_interval_maximum', YLeaf(YType.uint32, 'lmp-hello-dead-interval-maximum')),
-                            ('lmp_hello_transmit_packets', YLeaf(YType.uint32, 'lmp-hello-transmit-packets')),
-                            ('lmp_hello_receive_packets', YLeaf(YType.uint32, 'lmp-hello-receive-packets')),
-                            ('lmp_hello_transmit_packet_sequence_number', YLeaf(YType.uint32, 'lmp-hello-transmit-packet-sequence-number')),
-                            ('lmp_hello_receive_packet_sequence_number', YLeaf(YType.uint32, 'lmp-hello-receive-packet-sequence-number')),
-                            ('lmp_transmit_msg_id', YLeaf(YType.uint32, 'lmp-transmit-msg-id')),
-                            ('lmp_receive_msg_id', YLeaf(YType.uint32, 'lmp-receive-msg-id')),
-                            ('lmp_link_sum_transmit_packets', YLeaf(YType.uint32, 'lmp-link-sum-transmit-packets')),
-                            ('lmp_link_sum_receive_packets', YLeaf(YType.uint32, 'lmp-link-sum-receive-packets')),
+                            ('ipcc_id', (YLeaf(YType.uint32, 'ipcc-id'), ['int'])),
+                            ('ipc_ctype', (YLeaf(YType.enumeration, 'ipc-ctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'Olmipcc', '')])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('neighbor_name', (YLeaf(YType.str, 'neighbor-name'), ['str'])),
+                            ('ipcc_state', (YLeaf(YType.enumeration, 'ipcc-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmipccState', '')])),
+                            ('lmp_hello_interval', (YLeaf(YType.uint32, 'lmp-hello-interval'), ['int'])),
+                            ('lmp_hello_interval_minimum', (YLeaf(YType.uint32, 'lmp-hello-interval-minimum'), ['int'])),
+                            ('lmp_hello_interval_maximum', (YLeaf(YType.uint32, 'lmp-hello-interval-maximum'), ['int'])),
+                            ('lmp_hello_dead_interval', (YLeaf(YType.uint32, 'lmp-hello-dead-interval'), ['int'])),
+                            ('lmp_hello_dead_interval_minimum', (YLeaf(YType.uint32, 'lmp-hello-dead-interval-minimum'), ['int'])),
+                            ('lmp_hello_dead_interval_maximum', (YLeaf(YType.uint32, 'lmp-hello-dead-interval-maximum'), ['int'])),
+                            ('lmp_hello_transmit_packets', (YLeaf(YType.uint32, 'lmp-hello-transmit-packets'), ['int'])),
+                            ('lmp_hello_receive_packets', (YLeaf(YType.uint32, 'lmp-hello-receive-packets'), ['int'])),
+                            ('lmp_hello_transmit_packet_sequence_number', (YLeaf(YType.uint32, 'lmp-hello-transmit-packet-sequence-number'), ['int'])),
+                            ('lmp_hello_receive_packet_sequence_number', (YLeaf(YType.uint32, 'lmp-hello-receive-packet-sequence-number'), ['int'])),
+                            ('lmp_transmit_msg_id', (YLeaf(YType.uint32, 'lmp-transmit-msg-id'), ['int'])),
+                            ('lmp_receive_msg_id', (YLeaf(YType.uint32, 'lmp-receive-msg-id'), ['int'])),
+                            ('lmp_link_sum_transmit_packets', (YLeaf(YType.uint32, 'lmp-link-sum-transmit-packets'), ['int'])),
+                            ('lmp_link_sum_receive_packets', (YLeaf(YType.uint32, 'lmp-link-sum-receive-packets'), ['int'])),
                         ])
                         self.ipcc_id = None
                         self.ipc_ctype = None
@@ -3336,9 +3380,10 @@ class Lmp(Entity):
                         self.source_ip_cc_address.parent = self
                         self._children_name_map["source_ip_cc_address"] = "source-ip-cc-address"
                         self._segment_path = lambda: "ipcc"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, [u'ipcc_id', u'ipc_ctype', u'interface_name', u'neighbor_name', u'ipcc_state', u'lmp_hello_interval', u'lmp_hello_interval_minimum', u'lmp_hello_interval_maximum', u'lmp_hello_dead_interval', u'lmp_hello_dead_interval_minimum', u'lmp_hello_dead_interval_maximum', u'lmp_hello_transmit_packets', u'lmp_hello_receive_packets', u'lmp_hello_transmit_packet_sequence_number', u'lmp_hello_receive_packet_sequence_number', u'lmp_transmit_msg_id', u'lmp_receive_msg_id', u'lmp_link_sum_transmit_packets', u'lmp_link_sum_receive_packets'], name, value)
+                        self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, ['ipcc_id', 'ipc_ctype', 'interface_name', 'neighbor_name', 'ipcc_state', 'lmp_hello_interval', 'lmp_hello_interval_minimum', 'lmp_hello_interval_maximum', 'lmp_hello_dead_interval', 'lmp_hello_dead_interval_minimum', 'lmp_hello_dead_interval_maximum', 'lmp_hello_transmit_packets', 'lmp_hello_receive_packets', 'lmp_hello_transmit_packet_sequence_number', 'lmp_hello_receive_packet_sequence_number', 'lmp_transmit_msg_id', 'lmp_receive_msg_id', 'lmp_link_sum_transmit_packets', 'lmp_link_sum_receive_packets'], name, value)
 
 
                     class RemoteIpccAddress(Entity):
@@ -3372,6 +3417,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "remote-ipcc-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress, [], name, value)
@@ -3424,19 +3470,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.RemoteIpccAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
                     class SourceIpCcAddress(Entity):
@@ -3470,6 +3517,7 @@ class Lmp(Entity):
                             self.address.parent = self
                             self._children_name_map["address"] = "address"
                             self._segment_path = lambda: "source-ip-cc-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress, [], name, value)
@@ -3522,19 +3570,20 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('unnumbered_address', YLeaf(YType.uint32, 'unnumbered-address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_oper', 'OlmAddrTypeId', '')])),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('unnumbered_address', (YLeaf(YType.uint32, 'unnumbered-address'), ['int'])),
                                 ])
                                 self.address_type = None
                                 self.ipv4_address = None
                                 self.ipv6_address = None
                                 self.unnumbered_address = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, [u'address_type', u'ipv4_address', u'ipv6_address', u'unnumbered_address'], name, value)
+                                self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.SourceIpCcAddress.Address, ['address_type', 'ipv4_address', 'ipv6_address', 'unnumbered_address'], name, value)
 
 
     class ComponentLinkIds(Entity):
@@ -3567,6 +3616,7 @@ class Lmp(Entity):
             self.component_link_id = YList(self)
             self._segment_path = lambda: "component-link-ids"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lmp.ComponentLinkIds, [], name, value)
@@ -3582,7 +3632,7 @@ class Lmp(Entity):
             	Controller name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: component_interface_id
             
@@ -3608,16 +3658,17 @@ class Lmp(Entity):
                 self.ylist_key_names = ['controller_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('controller_name', YLeaf(YType.str, 'controller-name')),
-                    ('component_interface_id', YLeaf(YType.uint32, 'component-interface-id')),
+                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                    ('component_interface_id', (YLeaf(YType.uint32, 'component-interface-id'), ['int'])),
                 ])
                 self.controller_name = None
                 self.component_interface_id = None
                 self._segment_path = lambda: "component-link-id" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-oper:lmp/component-link-ids/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', u'component_interface_id'], name, value)
+                self._perform_setattr(Lmp.ComponentLinkIds.ComponentLinkId, ['controller_name', 'component_interface_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Lmp()

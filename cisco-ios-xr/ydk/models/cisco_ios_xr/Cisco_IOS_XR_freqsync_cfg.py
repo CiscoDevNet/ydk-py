@@ -13,7 +13,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,6 +23,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FsyncClockSource(Enum):
@@ -110,25 +111,17 @@ class FrequencySynchronization(Entity):
     	Source selection logging option
     	**type**\:  :py:class:`FsyncSourceSelectionLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSourceSelectionLogging>`
     
-    	**mandatory**\: True
-    
     .. attribute:: clock_interface_source_type
     
     	Clock interface source type
     	**type**\:  :py:class:`FsyncClockSource <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncClockSource>`
-    
-    	**mandatory**\: True
     
     .. attribute:: system_timing_mode
     
     	System timing mode
     	**type**\:  :py:class:`FsyncSystemTimingMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg.FsyncSystemTimingMode>`
     
-    	**mandatory**\: True
     
-    
-
-    This class is a :ref:`presence class<presence-class>`
 
     """
 
@@ -145,13 +138,12 @@ class FrequencySynchronization(Entity):
         self.has_list_ancestor = False
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
-        self.is_presence_container = True
         self._leafs = OrderedDict([
-            ('quality_level_option', YLeaf(YType.enumeration, 'quality-level-option')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('source_selection_logging', YLeaf(YType.enumeration, 'source-selection-logging')),
-            ('clock_interface_source_type', YLeaf(YType.enumeration, 'clock-interface-source-type')),
-            ('system_timing_mode', YLeaf(YType.enumeration, 'system-timing-mode')),
+            ('quality_level_option', (YLeaf(YType.enumeration, 'quality-level-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_datatypes', 'FsyncQlOption', '')])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('source_selection_logging', (YLeaf(YType.enumeration, 'source-selection-logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg', 'FsyncSourceSelectionLogging', '')])),
+            ('clock_interface_source_type', (YLeaf(YType.enumeration, 'clock-interface-source-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg', 'FsyncClockSource', '')])),
+            ('system_timing_mode', (YLeaf(YType.enumeration, 'system-timing-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg', 'FsyncSystemTimingMode', '')])),
         ])
         self.quality_level_option = None
         self.enable = None
@@ -159,6 +151,7 @@ class FrequencySynchronization(Entity):
         self.clock_interface_source_type = None
         self.system_timing_mode = None
         self._segment_path = lambda: "Cisco-IOS-XR-freqsync-cfg:frequency-synchronization"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(FrequencySynchronization, ['quality_level_option', 'enable', 'source_selection_logging', 'clock_interface_source_type', 'system_timing_mode'], name, value)

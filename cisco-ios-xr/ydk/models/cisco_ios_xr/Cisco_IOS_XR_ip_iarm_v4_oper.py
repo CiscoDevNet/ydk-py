@@ -8,7 +8,7 @@ for the following management objects\:
   ipv4arm\: IPv4 Address Repository Manager (IPv4 ARM)
     operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -51,7 +52,7 @@ class Ipv4arm(Entity):
     	Default multicast host interface
     	**type**\: str
     
-    	**pattern:** [a\-zA\-Z0\-9./\-]+
+    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
     
     
 
@@ -71,7 +72,7 @@ class Ipv4arm(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("addresses", ("addresses", Ipv4arm.Addresses)), ("summary", ("summary", Ipv4arm.Summary)), ("vrf-summaries", ("vrf_summaries", Ipv4arm.VrfSummaries)), ("router-id", ("router_id", Ipv4arm.RouterId))])
         self._leafs = OrderedDict([
-            ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+            ('multicast_host_interface', (YLeaf(YType.str, 'multicast-host-interface'), ['str'])),
         ])
         self.multicast_host_interface = None
 
@@ -91,6 +92,7 @@ class Ipv4arm(Entity):
         self.router_id.parent = self
         self._children_name_map["router_id"] = "router-id"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv4arm, ['multicast_host_interface'], name, value)
@@ -128,6 +130,7 @@ class Ipv4arm(Entity):
             self._children_name_map["vrfs"] = "vrfs"
             self._segment_path = lambda: "addresses"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4arm.Addresses, [], name, value)
@@ -163,6 +166,7 @@ class Ipv4arm(Entity):
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/addresses/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4arm.Addresses.Vrfs, [], name, value)
@@ -204,7 +208,7 @@ class Ipv4arm(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([("networks", ("networks", Ipv4arm.Addresses.Vrfs.Vrf.Networks)), ("interfaces", ("interfaces", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces))])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                     ])
                     self.vrf_name = None
 
@@ -217,6 +221,7 @@ class Ipv4arm(Entity):
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/addresses/vrfs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -252,6 +257,7 @@ class Ipv4arm(Entity):
 
                         self.network = YList(self)
                         self._segment_path = lambda: "networks"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks, [], name, value)
@@ -280,7 +286,7 @@ class Ipv4arm(Entity):
                         	Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: address_xr
                         
@@ -319,12 +325,12 @@ class Ipv4arm(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("address-xr", ("address_xr", Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr))])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('handle', YLeaf(YType.str, 'handle')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('referenced_interface', YLeaf(YType.str, 'referenced-interface')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('handle', (YLeaf(YType.str, 'handle'), ['str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('referenced_interface', (YLeaf(YType.str, 'referenced-interface'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.address = None
                             self.prefix_length = None
@@ -337,9 +343,10 @@ class Ipv4arm(Entity):
                             self.address_xr.parent = self
                             self._children_name_map["address_xr"] = "address-xr"
                             self._segment_path = lambda: "network"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', u'interface_name', u'referenced_interface', u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network, ['address', 'prefix_length', 'handle', 'interface_name', 'referenced_interface', 'vrf_name'], name, value)
 
 
                         class AddressXr(Entity):
@@ -402,12 +409,12 @@ class Ipv4arm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address))])
                                 self._leafs = OrderedDict([
-                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                    ('route_tag', YLeaf(YType.uint32, 'route-tag')),
-                                    ('is_primary', YLeaf(YType.boolean, 'is-primary')),
-                                    ('is_tentative', YLeaf(YType.boolean, 'is-tentative')),
-                                    ('is_prefix_sid', YLeaf(YType.boolean, 'is-prefix-sid')),
-                                    ('producer', YLeaf(YType.str, 'producer')),
+                                    ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                    ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
+                                    ('is_primary', (YLeaf(YType.boolean, 'is-primary'), ['bool'])),
+                                    ('is_tentative', (YLeaf(YType.boolean, 'is-tentative'), ['bool'])),
+                                    ('is_prefix_sid', (YLeaf(YType.boolean, 'is-prefix-sid'), ['bool'])),
+                                    ('producer', (YLeaf(YType.str, 'producer'), ['str'])),
                                 ])
                                 self.prefix_length = None
                                 self.route_tag = None
@@ -420,9 +427,10 @@ class Ipv4arm(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "address-xr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
                             class Address(Entity):
@@ -467,17 +475,18 @@ class Ipv4arm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('afi', YLeaf(YType.int32, 'afi')),
-                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                        ('afi', (YLeaf(YType.int32, 'afi'), ['int'])),
+                                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                     ])
                                     self.afi = None
                                     self.ipv4_address = None
                                     self.ipv6_address = None
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Networks.Network.AddressXr.Address, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                 class Interfaces(Entity):
@@ -510,6 +519,7 @@ class Ipv4arm(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces, [], name, value)
@@ -524,7 +534,7 @@ class Ipv4arm(Entity):
                         	Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: referenced_interface
                         
@@ -558,9 +568,9 @@ class Ipv4arm(Entity):
                             self.ylist_key_names = ['interface']
                             self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address))])
                             self._leafs = OrderedDict([
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('referenced_interface', YLeaf(YType.str, 'referenced-interface')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('referenced_interface', (YLeaf(YType.str, 'referenced-interface'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.interface = None
                             self.referenced_interface = None
@@ -568,9 +578,10 @@ class Ipv4arm(Entity):
 
                             self.address = YList(self)
                             self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', u'referenced_interface', u'vrf_name'], name, value)
+                            self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface, ['interface', 'referenced_interface', 'vrf_name'], name, value)
 
 
                         class Address(Entity):
@@ -633,12 +644,12 @@ class Ipv4arm(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_))])
                                 self._leafs = OrderedDict([
-                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                    ('route_tag', YLeaf(YType.uint32, 'route-tag')),
-                                    ('is_primary', YLeaf(YType.boolean, 'is-primary')),
-                                    ('is_tentative', YLeaf(YType.boolean, 'is-tentative')),
-                                    ('is_prefix_sid', YLeaf(YType.boolean, 'is-prefix-sid')),
-                                    ('producer', YLeaf(YType.str, 'producer')),
+                                    ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                    ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
+                                    ('is_primary', (YLeaf(YType.boolean, 'is-primary'), ['bool'])),
+                                    ('is_tentative', (YLeaf(YType.boolean, 'is-tentative'), ['bool'])),
+                                    ('is_prefix_sid', (YLeaf(YType.boolean, 'is-prefix-sid'), ['bool'])),
+                                    ('producer', (YLeaf(YType.str, 'producer'), ['str'])),
                                 ])
                                 self.prefix_length = None
                                 self.route_tag = None
@@ -651,9 +662,10 @@ class Ipv4arm(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, [u'prefix_length', u'route_tag', u'is_primary', u'is_tentative', u'is_prefix_sid', u'producer'], name, value)
+                                self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address, ['prefix_length', 'route_tag', 'is_primary', 'is_tentative', 'is_prefix_sid', 'producer'], name, value)
 
 
                             class Address_(Entity):
@@ -698,17 +710,18 @@ class Ipv4arm(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('afi', YLeaf(YType.int32, 'afi')),
-                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                        ('afi', (YLeaf(YType.int32, 'afi'), ['int'])),
+                                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                     ])
                                     self.afi = None
                                     self.ipv4_address = None
                                     self.ipv6_address = None
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, [u'afi', u'ipv4_address', u'ipv6_address'], name, value)
+                                    self._perform_setattr(Ipv4arm.Addresses.Vrfs.Vrf.Interfaces.Interface.Address.Address_, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
 
 
     class Summary(Entity):
@@ -767,11 +780,11 @@ class Ipv4arm(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('producer_count', YLeaf(YType.int32, 'producer-count')),
-                ('address_conflict_count', YLeaf(YType.int32, 'address-conflict-count')),
-                ('unnumbered_conflict_count', YLeaf(YType.int32, 'unnumbered-conflict-count')),
-                ('db_master_version', YLeaf(YType.uint32, 'db-master-version')),
-                ('vrf_count', YLeaf(YType.int32, 'vrf-count')),
+                ('producer_count', (YLeaf(YType.int32, 'producer-count'), ['int'])),
+                ('address_conflict_count', (YLeaf(YType.int32, 'address-conflict-count'), ['int'])),
+                ('unnumbered_conflict_count', (YLeaf(YType.int32, 'unnumbered-conflict-count'), ['int'])),
+                ('db_master_version', (YLeaf(YType.uint32, 'db-master-version'), ['int'])),
+                ('vrf_count', (YLeaf(YType.int32, 'vrf-count'), ['int'])),
             ])
             self.producer_count = None
             self.address_conflict_count = None
@@ -780,9 +793,10 @@ class Ipv4arm(Entity):
             self.vrf_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.Summary, [u'producer_count', u'address_conflict_count', u'unnumbered_conflict_count', u'db_master_version', u'vrf_count'], name, value)
+            self._perform_setattr(Ipv4arm.Summary, ['producer_count', 'address_conflict_count', 'unnumbered_conflict_count', 'db_master_version', 'vrf_count'], name, value)
 
 
     class VrfSummaries(Entity):
@@ -815,6 +829,7 @@ class Ipv4arm(Entity):
             self.vrf_summary = YList(self)
             self._segment_path = lambda: "vrf-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4arm.VrfSummaries, [], name, value)
@@ -858,18 +873,19 @@ class Ipv4arm(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                    ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.vrf_id = None
                 self.vrf_name_xr = None
                 self._segment_path = lambda: "vrf-summary" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/vrf-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', u'vrf_id', u'vrf_name_xr'], name, value)
+                self._perform_setattr(Ipv4arm.VrfSummaries.VrfSummary, ['vrf_name', 'vrf_id', 'vrf_name_xr'], name, value)
 
 
     class RouterId(Entity):
@@ -917,10 +933,10 @@ class Ipv4arm(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                ('router_id', YLeaf(YType.str, 'router-id')),
+                ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
             ])
             self.vrf_id = None
             self.vrf_name = None
@@ -928,9 +944,10 @@ class Ipv4arm(Entity):
             self.router_id = None
             self._segment_path = lambda: "router-id"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-v4-oper:ipv4arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipv4arm.RouterId, [u'vrf_id', u'vrf_name', u'interface_name', u'router_id'], name, value)
+            self._perform_setattr(Ipv4arm.RouterId, ['vrf_id', 'vrf_name', 'interface_name', 'router_id'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4arm()

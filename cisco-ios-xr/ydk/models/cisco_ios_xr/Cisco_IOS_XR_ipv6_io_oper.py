@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-io\: IPv6 IO Operational Data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Ipv6Io(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-io-oper:ipv6-io"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Io, [], name, value)
@@ -87,6 +89,7 @@ class Ipv6Io(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Io.Nodes, [], name, value)
@@ -126,7 +129,7 @@ class Ipv6Io(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("statistics", ("statistics", Ipv6Io.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -135,6 +138,7 @@ class Ipv6Io(Entity):
                 self._children_name_map["statistics"] = "statistics"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-oper:ipv6-io/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6Io.Nodes.Node, ['node_name'], name, value)
@@ -172,6 +176,7 @@ class Ipv6Io(Entity):
                     self.traffic.parent = self
                     self._children_name_map["traffic"] = "traffic"
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6Io.Nodes.Node.Statistics, [], name, value)
@@ -226,6 +231,7 @@ class Ipv6Io(Entity):
                         self.ipv6_node_discovery.parent = self
                         self._children_name_map["ipv6_node_discovery"] = "ipv6-node-discovery"
                         self._segment_path = lambda: "traffic"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic, [], name, value)
@@ -469,37 +475,37 @@ class Ipv6Io(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('total_packets', YLeaf(YType.uint32, 'total-packets')),
-                                ('local_destination_packets', YLeaf(YType.uint32, 'local-destination-packets')),
-                                ('format_errors', YLeaf(YType.uint32, 'format-errors')),
-                                ('truncated_packets', YLeaf(YType.uint32, 'truncated-packets')),
-                                ('hop_count_exceeded_packets', YLeaf(YType.uint32, 'hop-count-exceeded-packets')),
-                                ('bad_source_address_packets', YLeaf(YType.uint32, 'bad-source-address-packets')),
-                                ('bad_header_packets', YLeaf(YType.uint32, 'bad-header-packets')),
-                                ('unknown_option_type_packets', YLeaf(YType.uint32, 'unknown-option-type-packets')),
-                                ('unknown_protocol_packets', YLeaf(YType.uint32, 'unknown-protocol-packets')),
-                                ('fragments', YLeaf(YType.uint32, 'fragments')),
-                                ('reassembled_packets', YLeaf(YType.uint32, 'reassembled-packets')),
-                                ('reassembly_timeouts', YLeaf(YType.uint32, 'reassembly-timeouts')),
-                                ('reassembly_failures', YLeaf(YType.uint32, 'reassembly-failures')),
-                                ('reassembly_maximum_drops', YLeaf(YType.uint32, 'reassembly-maximum-drops')),
-                                ('generated_packets', YLeaf(YType.uint32, 'generated-packets')),
-                                ('forwarded_packets', YLeaf(YType.uint32, 'forwarded-packets')),
-                                ('source_routed_packets', YLeaf(YType.uint32, 'source-routed-packets')),
-                                ('fragmented_packets', YLeaf(YType.uint32, 'fragmented-packets')),
-                                ('fragment_count', YLeaf(YType.uint32, 'fragment-count')),
-                                ('fragment_failures', YLeaf(YType.uint32, 'fragment-failures')),
-                                ('no_route_packets', YLeaf(YType.uint32, 'no-route-packets')),
-                                ('too_big_packets', YLeaf(YType.uint32, 'too-big-packets')),
-                                ('received_multicast_packets', YLeaf(YType.uint32, 'received-multicast-packets')),
-                                ('sent_multicast_packets', YLeaf(YType.uint32, 'sent-multicast-packets')),
-                                ('miscellaneous_drops', YLeaf(YType.uint32, 'miscellaneous-drops')),
-                                ('lisp_v4_encap_packets', YLeaf(YType.uint32, 'lisp-v4-encap-packets')),
-                                ('lisp_v4_decap_packets', YLeaf(YType.uint32, 'lisp-v4-decap-packets')),
-                                ('lisp_v6_encap_packets', YLeaf(YType.uint32, 'lisp-v6-encap-packets')),
-                                ('lisp_v6_decap_packets', YLeaf(YType.uint32, 'lisp-v6-decap-packets')),
-                                ('lisp_encap_errors', YLeaf(YType.uint32, 'lisp-encap-errors')),
-                                ('lisp_decap_errors', YLeaf(YType.uint32, 'lisp-decap-errors')),
+                                ('total_packets', (YLeaf(YType.uint32, 'total-packets'), ['int'])),
+                                ('local_destination_packets', (YLeaf(YType.uint32, 'local-destination-packets'), ['int'])),
+                                ('format_errors', (YLeaf(YType.uint32, 'format-errors'), ['int'])),
+                                ('truncated_packets', (YLeaf(YType.uint32, 'truncated-packets'), ['int'])),
+                                ('hop_count_exceeded_packets', (YLeaf(YType.uint32, 'hop-count-exceeded-packets'), ['int'])),
+                                ('bad_source_address_packets', (YLeaf(YType.uint32, 'bad-source-address-packets'), ['int'])),
+                                ('bad_header_packets', (YLeaf(YType.uint32, 'bad-header-packets'), ['int'])),
+                                ('unknown_option_type_packets', (YLeaf(YType.uint32, 'unknown-option-type-packets'), ['int'])),
+                                ('unknown_protocol_packets', (YLeaf(YType.uint32, 'unknown-protocol-packets'), ['int'])),
+                                ('fragments', (YLeaf(YType.uint32, 'fragments'), ['int'])),
+                                ('reassembled_packets', (YLeaf(YType.uint32, 'reassembled-packets'), ['int'])),
+                                ('reassembly_timeouts', (YLeaf(YType.uint32, 'reassembly-timeouts'), ['int'])),
+                                ('reassembly_failures', (YLeaf(YType.uint32, 'reassembly-failures'), ['int'])),
+                                ('reassembly_maximum_drops', (YLeaf(YType.uint32, 'reassembly-maximum-drops'), ['int'])),
+                                ('generated_packets', (YLeaf(YType.uint32, 'generated-packets'), ['int'])),
+                                ('forwarded_packets', (YLeaf(YType.uint32, 'forwarded-packets'), ['int'])),
+                                ('source_routed_packets', (YLeaf(YType.uint32, 'source-routed-packets'), ['int'])),
+                                ('fragmented_packets', (YLeaf(YType.uint32, 'fragmented-packets'), ['int'])),
+                                ('fragment_count', (YLeaf(YType.uint32, 'fragment-count'), ['int'])),
+                                ('fragment_failures', (YLeaf(YType.uint32, 'fragment-failures'), ['int'])),
+                                ('no_route_packets', (YLeaf(YType.uint32, 'no-route-packets'), ['int'])),
+                                ('too_big_packets', (YLeaf(YType.uint32, 'too-big-packets'), ['int'])),
+                                ('received_multicast_packets', (YLeaf(YType.uint32, 'received-multicast-packets'), ['int'])),
+                                ('sent_multicast_packets', (YLeaf(YType.uint32, 'sent-multicast-packets'), ['int'])),
+                                ('miscellaneous_drops', (YLeaf(YType.uint32, 'miscellaneous-drops'), ['int'])),
+                                ('lisp_v4_encap_packets', (YLeaf(YType.uint32, 'lisp-v4-encap-packets'), ['int'])),
+                                ('lisp_v4_decap_packets', (YLeaf(YType.uint32, 'lisp-v4-decap-packets'), ['int'])),
+                                ('lisp_v6_encap_packets', (YLeaf(YType.uint32, 'lisp-v6-encap-packets'), ['int'])),
+                                ('lisp_v6_decap_packets', (YLeaf(YType.uint32, 'lisp-v6-decap-packets'), ['int'])),
+                                ('lisp_encap_errors', (YLeaf(YType.uint32, 'lisp-encap-errors'), ['int'])),
+                                ('lisp_decap_errors', (YLeaf(YType.uint32, 'lisp-decap-errors'), ['int'])),
                             ])
                             self.total_packets = None
                             self.local_destination_packets = None
@@ -533,9 +539,10 @@ class Ipv6Io(Entity):
                             self.lisp_encap_errors = None
                             self.lisp_decap_errors = None
                             self._segment_path = lambda: "ipv6"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, ['total_packets', 'local_destination_packets', 'format_errors', 'truncated_packets', 'hop_count_exceeded_packets', 'bad_source_address_packets', 'bad_header_packets', 'unknown_option_type_packets', 'unknown_protocol_packets', 'fragments', 'reassembled_packets', 'reassembly_timeouts', 'reassembly_failures', 'reassembly_maximum_drops', 'generated_packets', 'forwarded_packets', 'source_routed_packets', 'fragmented_packets', 'fragment_count', 'fragment_failures', 'no_route_packets', 'too_big_packets', 'received_multicast_packets', 'sent_multicast_packets', 'miscellaneous_drops', 'lisp_v4_encap_packets', 'lisp_v4_decap_packets', 'lisp_v6_encap_packets', 'lisp_v6_decap_packets', 'lisp_encap_errors', 'lisp_decap_errors'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6, [u'total_packets', u'local_destination_packets', u'format_errors', u'truncated_packets', u'hop_count_exceeded_packets', u'bad_source_address_packets', u'bad_header_packets', u'unknown_option_type_packets', u'unknown_protocol_packets', u'fragments', u'reassembled_packets', u'reassembly_timeouts', u'reassembly_failures', u'reassembly_maximum_drops', u'generated_packets', u'forwarded_packets', u'source_routed_packets', u'fragmented_packets', u'fragment_count', u'fragment_failures', u'no_route_packets', u'too_big_packets', u'received_multicast_packets', u'sent_multicast_packets', u'miscellaneous_drops', u'lisp_v4_encap_packets', u'lisp_v4_decap_packets', u'lisp_v6_encap_packets', u'lisp_v6_decap_packets', u'lisp_encap_errors', u'lisp_decap_errors'], name, value)
 
 
                     class Icmp(Entity):
@@ -825,44 +832,44 @@ class Ipv6Io(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('total_messages', YLeaf(YType.uint32, 'total-messages')),
-                                ('too_short_error_messages', YLeaf(YType.uint32, 'too-short-error-messages')),
-                                ('checksum_error_messages', YLeaf(YType.uint32, 'checksum-error-messages')),
-                                ('unknown_error_type_messages', YLeaf(YType.uint32, 'unknown-error-type-messages')),
-                                ('output_messages', YLeaf(YType.uint32, 'output-messages')),
-                                ('sent_rate_limited_packets', YLeaf(YType.uint32, 'sent-rate-limited-packets')),
-                                ('sent_unreachable_routing_messages', YLeaf(YType.uint32, 'sent-unreachable-routing-messages')),
-                                ('sent_unreachable_admin_messages', YLeaf(YType.uint32, 'sent-unreachable-admin-messages')),
-                                ('sent_unreachable_neighbor_messages', YLeaf(YType.uint32, 'sent-unreachable-neighbor-messages')),
-                                ('sent_unreachable_address_messages', YLeaf(YType.uint32, 'sent-unreachable-address-messages')),
-                                ('sent_unreachable_port_messages', YLeaf(YType.uint32, 'sent-unreachable-port-messages')),
-                                ('received_unreachable_routing_messages', YLeaf(YType.uint32, 'received-unreachable-routing-messages')),
-                                ('received_unreachable_admin_messages', YLeaf(YType.uint32, 'received-unreachable-admin-messages')),
-                                ('received_unreachable_neighbor_messages', YLeaf(YType.uint32, 'received-unreachable-neighbor-messages')),
-                                ('received_unreachable_address_messages', YLeaf(YType.uint32, 'received-unreachable-address-messages')),
-                                ('received_unreachable_port_messages', YLeaf(YType.uint32, 'received-unreachable-port-messages')),
-                                ('sent_hop_count_expired_messages', YLeaf(YType.uint32, 'sent-hop-count-expired-messages')),
-                                ('sent_reassembly_timeouts', YLeaf(YType.uint32, 'sent-reassembly-timeouts')),
-                                ('received_hop_count_expired_messages', YLeaf(YType.uint32, 'received-hop-count-expired-messages')),
-                                ('received_reassembly_timeouts', YLeaf(YType.uint32, 'received-reassembly-timeouts')),
-                                ('sent_too_big_messages', YLeaf(YType.uint32, 'sent-too-big-messages')),
-                                ('received_too_big_messages', YLeaf(YType.uint32, 'received-too-big-messages')),
-                                ('sent_parameter_error_messages', YLeaf(YType.uint32, 'sent-parameter-error-messages')),
-                                ('sent_parameter_header_messages', YLeaf(YType.uint32, 'sent-parameter-header-messages')),
-                                ('sent_parameter_option_messages', YLeaf(YType.uint32, 'sent-parameter-option-messages')),
-                                ('received_parameter_error_messages', YLeaf(YType.uint32, 'received-parameter-error-messages')),
-                                ('received_parameter_header_messages', YLeaf(YType.uint32, 'received-parameter-header-messages')),
-                                ('received_parameter_option_messages', YLeaf(YType.uint32, 'received-parameter-option-messages')),
-                                ('sent_echo_request_messages', YLeaf(YType.uint32, 'sent-echo-request-messages')),
-                                ('sent_echo_reply_messages', YLeaf(YType.uint32, 'sent-echo-reply-messages')),
-                                ('received_echo_request_messages', YLeaf(YType.uint32, 'received-echo-request-messages')),
-                                ('received_echo_reply_messages', YLeaf(YType.uint32, 'received-echo-reply-messages')),
-                                ('sent_unknown_timeout_messages', YLeaf(YType.uint32, 'sent-unknown-timeout-messages')),
-                                ('received_unknown_timeout_messages', YLeaf(YType.uint32, 'received-unknown-timeout-messages')),
-                                ('sent_parameter_unknown_type_messages', YLeaf(YType.uint32, 'sent-parameter-unknown-type-messages')),
-                                ('received_parameter_unknown_type_messages', YLeaf(YType.uint32, 'received-parameter-unknown-type-messages')),
-                                ('sent_unreachable_unknown_type_messages', YLeaf(YType.uint32, 'sent-unreachable-unknown-type-messages')),
-                                ('received_unreachable_unknown_type_messages', YLeaf(YType.uint32, 'received-unreachable-unknown-type-messages')),
+                                ('total_messages', (YLeaf(YType.uint32, 'total-messages'), ['int'])),
+                                ('too_short_error_messages', (YLeaf(YType.uint32, 'too-short-error-messages'), ['int'])),
+                                ('checksum_error_messages', (YLeaf(YType.uint32, 'checksum-error-messages'), ['int'])),
+                                ('unknown_error_type_messages', (YLeaf(YType.uint32, 'unknown-error-type-messages'), ['int'])),
+                                ('output_messages', (YLeaf(YType.uint32, 'output-messages'), ['int'])),
+                                ('sent_rate_limited_packets', (YLeaf(YType.uint32, 'sent-rate-limited-packets'), ['int'])),
+                                ('sent_unreachable_routing_messages', (YLeaf(YType.uint32, 'sent-unreachable-routing-messages'), ['int'])),
+                                ('sent_unreachable_admin_messages', (YLeaf(YType.uint32, 'sent-unreachable-admin-messages'), ['int'])),
+                                ('sent_unreachable_neighbor_messages', (YLeaf(YType.uint32, 'sent-unreachable-neighbor-messages'), ['int'])),
+                                ('sent_unreachable_address_messages', (YLeaf(YType.uint32, 'sent-unreachable-address-messages'), ['int'])),
+                                ('sent_unreachable_port_messages', (YLeaf(YType.uint32, 'sent-unreachable-port-messages'), ['int'])),
+                                ('received_unreachable_routing_messages', (YLeaf(YType.uint32, 'received-unreachable-routing-messages'), ['int'])),
+                                ('received_unreachable_admin_messages', (YLeaf(YType.uint32, 'received-unreachable-admin-messages'), ['int'])),
+                                ('received_unreachable_neighbor_messages', (YLeaf(YType.uint32, 'received-unreachable-neighbor-messages'), ['int'])),
+                                ('received_unreachable_address_messages', (YLeaf(YType.uint32, 'received-unreachable-address-messages'), ['int'])),
+                                ('received_unreachable_port_messages', (YLeaf(YType.uint32, 'received-unreachable-port-messages'), ['int'])),
+                                ('sent_hop_count_expired_messages', (YLeaf(YType.uint32, 'sent-hop-count-expired-messages'), ['int'])),
+                                ('sent_reassembly_timeouts', (YLeaf(YType.uint32, 'sent-reassembly-timeouts'), ['int'])),
+                                ('received_hop_count_expired_messages', (YLeaf(YType.uint32, 'received-hop-count-expired-messages'), ['int'])),
+                                ('received_reassembly_timeouts', (YLeaf(YType.uint32, 'received-reassembly-timeouts'), ['int'])),
+                                ('sent_too_big_messages', (YLeaf(YType.uint32, 'sent-too-big-messages'), ['int'])),
+                                ('received_too_big_messages', (YLeaf(YType.uint32, 'received-too-big-messages'), ['int'])),
+                                ('sent_parameter_error_messages', (YLeaf(YType.uint32, 'sent-parameter-error-messages'), ['int'])),
+                                ('sent_parameter_header_messages', (YLeaf(YType.uint32, 'sent-parameter-header-messages'), ['int'])),
+                                ('sent_parameter_option_messages', (YLeaf(YType.uint32, 'sent-parameter-option-messages'), ['int'])),
+                                ('received_parameter_error_messages', (YLeaf(YType.uint32, 'received-parameter-error-messages'), ['int'])),
+                                ('received_parameter_header_messages', (YLeaf(YType.uint32, 'received-parameter-header-messages'), ['int'])),
+                                ('received_parameter_option_messages', (YLeaf(YType.uint32, 'received-parameter-option-messages'), ['int'])),
+                                ('sent_echo_request_messages', (YLeaf(YType.uint32, 'sent-echo-request-messages'), ['int'])),
+                                ('sent_echo_reply_messages', (YLeaf(YType.uint32, 'sent-echo-reply-messages'), ['int'])),
+                                ('received_echo_request_messages', (YLeaf(YType.uint32, 'received-echo-request-messages'), ['int'])),
+                                ('received_echo_reply_messages', (YLeaf(YType.uint32, 'received-echo-reply-messages'), ['int'])),
+                                ('sent_unknown_timeout_messages', (YLeaf(YType.uint32, 'sent-unknown-timeout-messages'), ['int'])),
+                                ('received_unknown_timeout_messages', (YLeaf(YType.uint32, 'received-unknown-timeout-messages'), ['int'])),
+                                ('sent_parameter_unknown_type_messages', (YLeaf(YType.uint32, 'sent-parameter-unknown-type-messages'), ['int'])),
+                                ('received_parameter_unknown_type_messages', (YLeaf(YType.uint32, 'received-parameter-unknown-type-messages'), ['int'])),
+                                ('sent_unreachable_unknown_type_messages', (YLeaf(YType.uint32, 'sent-unreachable-unknown-type-messages'), ['int'])),
+                                ('received_unreachable_unknown_type_messages', (YLeaf(YType.uint32, 'received-unreachable-unknown-type-messages'), ['int'])),
                             ])
                             self.total_messages = None
                             self.too_short_error_messages = None
@@ -903,9 +910,10 @@ class Ipv6Io(Entity):
                             self.sent_unreachable_unknown_type_messages = None
                             self.received_unreachable_unknown_type_messages = None
                             self._segment_path = lambda: "icmp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, ['total_messages', 'too_short_error_messages', 'checksum_error_messages', 'unknown_error_type_messages', 'output_messages', 'sent_rate_limited_packets', 'sent_unreachable_routing_messages', 'sent_unreachable_admin_messages', 'sent_unreachable_neighbor_messages', 'sent_unreachable_address_messages', 'sent_unreachable_port_messages', 'received_unreachable_routing_messages', 'received_unreachable_admin_messages', 'received_unreachable_neighbor_messages', 'received_unreachable_address_messages', 'received_unreachable_port_messages', 'sent_hop_count_expired_messages', 'sent_reassembly_timeouts', 'received_hop_count_expired_messages', 'received_reassembly_timeouts', 'sent_too_big_messages', 'received_too_big_messages', 'sent_parameter_error_messages', 'sent_parameter_header_messages', 'sent_parameter_option_messages', 'received_parameter_error_messages', 'received_parameter_header_messages', 'received_parameter_option_messages', 'sent_echo_request_messages', 'sent_echo_reply_messages', 'received_echo_request_messages', 'received_echo_reply_messages', 'sent_unknown_timeout_messages', 'received_unknown_timeout_messages', 'sent_parameter_unknown_type_messages', 'received_parameter_unknown_type_messages', 'sent_unreachable_unknown_type_messages', 'received_unreachable_unknown_type_messages'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Icmp, [u'total_messages', u'too_short_error_messages', u'checksum_error_messages', u'unknown_error_type_messages', u'output_messages', u'sent_rate_limited_packets', u'sent_unreachable_routing_messages', u'sent_unreachable_admin_messages', u'sent_unreachable_neighbor_messages', u'sent_unreachable_address_messages', u'sent_unreachable_port_messages', u'received_unreachable_routing_messages', u'received_unreachable_admin_messages', u'received_unreachable_neighbor_messages', u'received_unreachable_address_messages', u'received_unreachable_port_messages', u'sent_hop_count_expired_messages', u'sent_reassembly_timeouts', u'received_hop_count_expired_messages', u'received_reassembly_timeouts', u'sent_too_big_messages', u'received_too_big_messages', u'sent_parameter_error_messages', u'sent_parameter_header_messages', u'sent_parameter_option_messages', u'received_parameter_error_messages', u'received_parameter_header_messages', u'received_parameter_option_messages', u'sent_echo_request_messages', u'sent_echo_reply_messages', u'received_echo_request_messages', u'received_echo_reply_messages', u'sent_unknown_timeout_messages', u'received_unknown_timeout_messages', u'sent_parameter_unknown_type_messages', u'received_parameter_unknown_type_messages', u'sent_unreachable_unknown_type_messages', u'received_unreachable_unknown_type_messages'], name, value)
 
 
                     class Ipv6NodeDiscovery(Entity):
@@ -999,16 +1007,16 @@ class Ipv6Io(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent_router_solicitation_messages', YLeaf(YType.uint32, 'sent-router-solicitation-messages')),
-                                ('sent_router_advertisement_messages', YLeaf(YType.uint32, 'sent-router-advertisement-messages')),
-                                ('sent_neighbor_solicitation_messages', YLeaf(YType.uint32, 'sent-neighbor-solicitation-messages')),
-                                ('sent_neighbor_advertisement_messages', YLeaf(YType.uint32, 'sent-neighbor-advertisement-messages')),
-                                ('sent_redirect_messages', YLeaf(YType.uint32, 'sent-redirect-messages')),
-                                ('received_router_solicitation_messages', YLeaf(YType.uint32, 'received-router-solicitation-messages')),
-                                ('received_router_advertisement_messages', YLeaf(YType.uint32, 'received-router-advertisement-messages')),
-                                ('received_neighbor_solicitation_messages', YLeaf(YType.uint32, 'received-neighbor-solicitation-messages')),
-                                ('received_neighbor_advertisement_messages', YLeaf(YType.uint32, 'received-neighbor-advertisement-messages')),
-                                ('received_redirect_messages', YLeaf(YType.uint32, 'received-redirect-messages')),
+                                ('sent_router_solicitation_messages', (YLeaf(YType.uint32, 'sent-router-solicitation-messages'), ['int'])),
+                                ('sent_router_advertisement_messages', (YLeaf(YType.uint32, 'sent-router-advertisement-messages'), ['int'])),
+                                ('sent_neighbor_solicitation_messages', (YLeaf(YType.uint32, 'sent-neighbor-solicitation-messages'), ['int'])),
+                                ('sent_neighbor_advertisement_messages', (YLeaf(YType.uint32, 'sent-neighbor-advertisement-messages'), ['int'])),
+                                ('sent_redirect_messages', (YLeaf(YType.uint32, 'sent-redirect-messages'), ['int'])),
+                                ('received_router_solicitation_messages', (YLeaf(YType.uint32, 'received-router-solicitation-messages'), ['int'])),
+                                ('received_router_advertisement_messages', (YLeaf(YType.uint32, 'received-router-advertisement-messages'), ['int'])),
+                                ('received_neighbor_solicitation_messages', (YLeaf(YType.uint32, 'received-neighbor-solicitation-messages'), ['int'])),
+                                ('received_neighbor_advertisement_messages', (YLeaf(YType.uint32, 'received-neighbor-advertisement-messages'), ['int'])),
+                                ('received_redirect_messages', (YLeaf(YType.uint32, 'received-redirect-messages'), ['int'])),
                             ])
                             self.sent_router_solicitation_messages = None
                             self.sent_router_advertisement_messages = None
@@ -1021,9 +1029,10 @@ class Ipv6Io(Entity):
                             self.received_neighbor_advertisement_messages = None
                             self.received_redirect_messages = None
                             self._segment_path = lambda: "ipv6-node-discovery"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, ['sent_router_solicitation_messages', 'sent_router_advertisement_messages', 'sent_neighbor_solicitation_messages', 'sent_neighbor_advertisement_messages', 'sent_redirect_messages', 'received_router_solicitation_messages', 'received_router_advertisement_messages', 'received_neighbor_solicitation_messages', 'received_neighbor_advertisement_messages', 'received_redirect_messages'], name, value)
+                            self._perform_setattr(Ipv6Io.Nodes.Node.Statistics.Traffic.Ipv6NodeDiscovery, [u'sent_router_solicitation_messages', u'sent_router_advertisement_messages', u'sent_neighbor_solicitation_messages', u'sent_neighbor_advertisement_messages', u'sent_redirect_messages', u'received_router_solicitation_messages', u'received_router_advertisement_messages', u'received_neighbor_solicitation_messages', u'received_neighbor_advertisement_messages', u'received_redirect_messages'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6Io()

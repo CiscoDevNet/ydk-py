@@ -8,7 +8,7 @@ for the following management objects\:
   hardware\-module\: PRM data
   prm\: prm
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +54,7 @@ class HardwareModule(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-prm-server-oper:hardware-module"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(HardwareModule, [], name, value)
@@ -88,6 +90,7 @@ class HardwareModule(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:hardware-module/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(HardwareModule.Nodes, [], name, value)
@@ -126,7 +129,7 @@ class HardwareModule(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("np", ("np", HardwareModule.Nodes.Node.Np))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -135,6 +138,7 @@ class HardwareModule(Entity):
                 self._children_name_map["np"] = "np"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:hardware-module/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HardwareModule.Nodes.Node, ['node_name'], name, value)
@@ -180,6 +184,7 @@ class HardwareModule(Entity):
                     self.platform_drop.parent = self
                     self._children_name_map["platform_drop"] = "platform-drop"
                     self._segment_path = lambda: "np"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HardwareModule.Nodes.Node.Np, [], name, value)
@@ -216,6 +221,7 @@ class HardwareModule(Entity):
                         self.indexes.parent = self
                         self._children_name_map["indexes"] = "indexes"
                         self._segment_path = lambda: "cpu"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu, [], name, value)
@@ -250,6 +256,7 @@ class HardwareModule(Entity):
 
                             self.index = YList(self)
                             self._segment_path = lambda: "indexes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes, [], name, value)
@@ -332,14 +339,14 @@ class HardwareModule(Entity):
                                 self.ylist_key_names = ['index']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.uint32, 'index')),
-                                    ('cos_q_name', YLeaf(YType.str, 'cos-q-name')),
-                                    ('cos_q', YLeaf(YType.uint8, 'cos-q')),
-                                    ('rx_channel', YLeaf(YType.uint32, 'rx-channel')),
-                                    ('flow_rate', YLeaf(YType.uint32, 'flow-rate')),
-                                    ('burst', YLeaf(YType.uint32, 'burst')),
-                                    ('accepted', YLeaf(YType.uint64, 'accepted')),
-                                    ('dropped', YLeaf(YType.uint64, 'dropped')),
+                                    ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                    ('cos_q_name', (YLeaf(YType.str, 'cos-q-name'), ['str'])),
+                                    ('cos_q', (YLeaf(YType.uint8, 'cos-q'), ['int'])),
+                                    ('rx_channel', (YLeaf(YType.uint32, 'rx-channel'), ['int'])),
+                                    ('flow_rate', (YLeaf(YType.uint32, 'flow-rate'), ['int'])),
+                                    ('burst', (YLeaf(YType.uint32, 'burst'), ['int'])),
+                                    ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                                    ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
                                 ])
                                 self.index = None
                                 self.cos_q_name = None
@@ -350,9 +357,10 @@ class HardwareModule(Entity):
                                 self.accepted = None
                                 self.dropped = None
                                 self._segment_path = lambda: "index" + "[index='" + str(self.index) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', u'cos_q_name', u'cos_q', u'rx_channel', u'flow_rate', u'burst', u'accepted', u'dropped'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.Cpu.Indexes.Index, ['index', 'cos_q_name', 'cos_q', 'rx_channel', 'flow_rate', 'burst', 'accepted', 'dropped'], name, value)
 
 
                 class PlatformDrop(Entity):
@@ -395,6 +403,7 @@ class HardwareModule(Entity):
                         self.idxes.parent = self
                         self._children_name_map["idxes"] = "idxes"
                         self._segment_path = lambda: "platform-drop"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop, [], name, value)
@@ -429,6 +438,7 @@ class HardwareModule(Entity):
 
                             self.indx = YList(self)
                             self._segment_path = lambda: "indxes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes, [], name, value)
@@ -554,19 +564,19 @@ class HardwareModule(Entity):
                                 self.ylist_key_names = ['index']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.uint32, 'index')),
-                                    ('total_captured', YLeaf(YType.uint32, 'total-captured')),
-                                    ('captured_pak', YLeaf(YType.str, 'captured-pak')),
-                                    ('pkt_index', YLeaf(YType.uint8, 'pkt-index')),
-                                    ('ifhandle', YLeaf(YType.uint32, 'ifhandle')),
-                                    ('buffer_len', YLeaf(YType.uint32, 'buffer-len')),
-                                    ('reason_hi', YLeaf(YType.uint32, 'reason-hi')),
-                                    ('reason', YLeaf(YType.uint32, 'reason')),
-                                    ('years', YLeaf(YType.uint64, 'years')),
-                                    ('hours', YLeaf(YType.uint64, 'hours')),
-                                    ('days', YLeaf(YType.uint64, 'days')),
-                                    ('mins', YLeaf(YType.uint64, 'mins')),
-                                    ('secs', YLeaf(YType.uint64, 'secs')),
+                                    ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                    ('total_captured', (YLeaf(YType.uint32, 'total-captured'), ['int'])),
+                                    ('captured_pak', (YLeaf(YType.str, 'captured-pak'), ['str'])),
+                                    ('pkt_index', (YLeaf(YType.uint8, 'pkt-index'), ['int'])),
+                                    ('ifhandle', (YLeaf(YType.uint32, 'ifhandle'), ['int'])),
+                                    ('buffer_len', (YLeaf(YType.uint32, 'buffer-len'), ['int'])),
+                                    ('reason_hi', (YLeaf(YType.uint32, 'reason-hi'), ['int'])),
+                                    ('reason', (YLeaf(YType.uint32, 'reason'), ['int'])),
+                                    ('years', (YLeaf(YType.uint64, 'years'), ['int'])),
+                                    ('hours', (YLeaf(YType.uint64, 'hours'), ['int'])),
+                                    ('days', (YLeaf(YType.uint64, 'days'), ['int'])),
+                                    ('mins', (YLeaf(YType.uint64, 'mins'), ['int'])),
+                                    ('secs', (YLeaf(YType.uint64, 'secs'), ['int'])),
                                 ])
                                 self.index = None
                                 self.total_captured = None
@@ -582,9 +592,10 @@ class HardwareModule(Entity):
                                 self.mins = None
                                 self.secs = None
                                 self._segment_path = lambda: "indx" + "[index='" + str(self.index) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', u'total_captured', u'captured_pak', u'pkt_index', u'ifhandle', u'buffer_len', u'reason_hi', u'reason', u'years', u'hours', u'days', u'mins', u'secs'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Indxes.Indx, ['index', 'total_captured', 'captured_pak', 'pkt_index', 'ifhandle', 'buffer_len', 'reason_hi', 'reason', 'years', 'hours', 'days', 'mins', 'secs'], name, value)
 
 
                     class Idxes(Entity):
@@ -616,6 +627,7 @@ class HardwareModule(Entity):
 
                             self.idx = YList(self)
                             self._segment_path = lambda: "idxes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes, [], name, value)
@@ -663,17 +675,18 @@ class HardwareModule(Entity):
                                 self.ylist_key_names = ['index']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.uint32, 'index')),
-                                    ('drop_reason', YLeaf(YType.str, 'drop-reason')),
-                                    ('counters', YLeaf(YType.uint32, 'counters')),
+                                    ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                    ('drop_reason', (YLeaf(YType.str, 'drop-reason'), ['str'])),
+                                    ('counters', (YLeaf(YType.uint32, 'counters'), ['int'])),
                                 ])
                                 self.index = None
                                 self.drop_reason = None
                                 self.counters = None
                                 self._segment_path = lambda: "idx" + "[index='" + str(self.index) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', u'drop_reason', u'counters'], name, value)
+                                self._perform_setattr(HardwareModule.Nodes.Node.Np.PlatformDrop.Idxes.Idx, ['index', 'drop_reason', 'counters'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HardwareModule()
@@ -711,6 +724,7 @@ class Prm(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-prm-server-oper:prm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Prm, [], name, value)
@@ -746,6 +760,7 @@ class Prm(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:prm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Prm.Nodes, [], name, value)
@@ -784,7 +799,7 @@ class Prm(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("server", ("server", Prm.Nodes.Node.Server))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -793,6 +808,7 @@ class Prm(Entity):
                 self._children_name_map["server"] = "server"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-prm-server-oper:prm/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Prm.Nodes.Node, ['node_name'], name, value)
@@ -829,6 +845,7 @@ class Prm(Entity):
                     self.resource.parent = self
                     self._children_name_map["resource"] = "resource"
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Prm.Nodes.Node.Server, [], name, value)
@@ -865,6 +882,7 @@ class Prm(Entity):
                         self.indexes.parent = self
                         self._children_name_map["indexes"] = "indexes"
                         self._segment_path = lambda: "resource"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Prm.Nodes.Node.Server.Resource, [], name, value)
@@ -899,6 +917,7 @@ class Prm(Entity):
 
                             self.index = YList(self)
                             self._segment_path = lambda: "indexes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes, [], name, value)
@@ -991,16 +1010,16 @@ class Prm(Entity):
                                 self.ylist_key_names = ['index']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('index', YLeaf(YType.uint32, 'index')),
-                                    ('resource_name', YLeaf(YType.str, 'resource-name')),
-                                    ('resource_type', YLeaf(YType.uint32, 'resource-type')),
-                                    ('total_num', YLeaf(YType.uint32, 'total-num')),
-                                    ('free_num', YLeaf(YType.uint32, 'free-num')),
-                                    ('first_available_index', YLeaf(YType.uint32, 'first-available-index')),
-                                    ('start_index', YLeaf(YType.uint32, 'start-index')),
-                                    ('availability_status', YLeaf(YType.boolean, 'availability-status')),
-                                    ('flags', YLeaf(YType.uint8, 'flags')),
-                                    ('inconsistent', YLeaf(YType.boolean, 'inconsistent')),
+                                    ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                    ('resource_name', (YLeaf(YType.str, 'resource-name'), ['str'])),
+                                    ('resource_type', (YLeaf(YType.uint32, 'resource-type'), ['int'])),
+                                    ('total_num', (YLeaf(YType.uint32, 'total-num'), ['int'])),
+                                    ('free_num', (YLeaf(YType.uint32, 'free-num'), ['int'])),
+                                    ('first_available_index', (YLeaf(YType.uint32, 'first-available-index'), ['int'])),
+                                    ('start_index', (YLeaf(YType.uint32, 'start-index'), ['int'])),
+                                    ('availability_status', (YLeaf(YType.boolean, 'availability-status'), ['bool'])),
+                                    ('flags', (YLeaf(YType.uint8, 'flags'), ['int'])),
+                                    ('inconsistent', (YLeaf(YType.boolean, 'inconsistent'), ['bool'])),
                                 ])
                                 self.index = None
                                 self.resource_name = None
@@ -1013,9 +1032,10 @@ class Prm(Entity):
                                 self.flags = None
                                 self.inconsistent = None
                                 self._segment_path = lambda: "index" + "[index='" + str(self.index) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', u'resource_name', u'resource_type', u'total_num', u'free_num', u'first_available_index', u'start_index', u'availability_status', u'flags', u'inconsistent'], name, value)
+                                self._perform_setattr(Prm.Nodes.Node.Server.Resource.Indexes.Index, ['index', 'resource_name', 'resource_type', 'total_num', 'free_num', 'first_available_index', 'start_index', 'availability_status', 'flags', 'inconsistent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Prm()

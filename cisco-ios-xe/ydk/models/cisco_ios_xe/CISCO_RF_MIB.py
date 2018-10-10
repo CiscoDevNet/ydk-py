@@ -25,6 +25,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class RFAction(Enum):
     """
     RFAction (Enum Class)
@@ -716,6 +717,7 @@ class CISCORFMIB(Entity):
         self.crfstatusrfclienttable.parent = self
         self._children_name_map["crfstatusrfclienttable"] = "cRFStatusRFClientTable"
         self._segment_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCORFMIB, [], name, value)
@@ -822,20 +824,20 @@ class CISCORFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('crfstatusunitid', YLeaf(YType.int32, 'cRFStatusUnitId')),
-                ('crfstatusunitstate', YLeaf(YType.enumeration, 'cRFStatusUnitState')),
-                ('crfstatuspeerunitid', YLeaf(YType.int32, 'cRFStatusPeerUnitId')),
-                ('crfstatuspeerunitstate', YLeaf(YType.enumeration, 'cRFStatusPeerUnitState')),
-                ('crfstatusprimarymode', YLeaf(YType.boolean, 'cRFStatusPrimaryMode')),
-                ('crfstatusduplexmode', YLeaf(YType.boolean, 'cRFStatusDuplexMode')),
-                ('crfstatusmanualswactinhibit', YLeaf(YType.boolean, 'cRFStatusManualSwactInhibit')),
-                ('crfstatuslastswactreasoncode', YLeaf(YType.enumeration, 'cRFStatusLastSwactReasonCode')),
-                ('crfstatusfailovertime', YLeaf(YType.uint32, 'cRFStatusFailoverTime')),
-                ('crfstatuspeerstandbyentrytime', YLeaf(YType.uint32, 'cRFStatusPeerStandByEntryTime')),
-                ('crfstatusissustate', YLeaf(YType.enumeration, 'cRFStatusIssuState')),
-                ('crfstatusissustaterev1', YLeaf(YType.enumeration, 'cRFStatusIssuStateRev1')),
-                ('crfstatusissufromversion', YLeaf(YType.str, 'cRFStatusIssuFromVersion')),
-                ('crfstatusissutoversion', YLeaf(YType.str, 'cRFStatusIssuToVersion')),
+                ('crfstatusunitid', (YLeaf(YType.int32, 'cRFStatusUnitId'), ['int'])),
+                ('crfstatusunitstate', (YLeaf(YType.enumeration, 'cRFStatusUnitState'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFState', '')])),
+                ('crfstatuspeerunitid', (YLeaf(YType.int32, 'cRFStatusPeerUnitId'), ['int'])),
+                ('crfstatuspeerunitstate', (YLeaf(YType.enumeration, 'cRFStatusPeerUnitState'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFState', '')])),
+                ('crfstatusprimarymode', (YLeaf(YType.boolean, 'cRFStatusPrimaryMode'), ['bool'])),
+                ('crfstatusduplexmode', (YLeaf(YType.boolean, 'cRFStatusDuplexMode'), ['bool'])),
+                ('crfstatusmanualswactinhibit', (YLeaf(YType.boolean, 'cRFStatusManualSwactInhibit'), ['bool'])),
+                ('crfstatuslastswactreasoncode', (YLeaf(YType.enumeration, 'cRFStatusLastSwactReasonCode'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFSwactReasonType', '')])),
+                ('crfstatusfailovertime', (YLeaf(YType.uint32, 'cRFStatusFailoverTime'), ['int'])),
+                ('crfstatuspeerstandbyentrytime', (YLeaf(YType.uint32, 'cRFStatusPeerStandByEntryTime'), ['int'])),
+                ('crfstatusissustate', (YLeaf(YType.enumeration, 'cRFStatusIssuState'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFIssuState', '')])),
+                ('crfstatusissustaterev1', (YLeaf(YType.enumeration, 'cRFStatusIssuStateRev1'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFIssuStateRev1', '')])),
+                ('crfstatusissufromversion', (YLeaf(YType.str, 'cRFStatusIssuFromVersion'), ['str'])),
+                ('crfstatusissutoversion', (YLeaf(YType.str, 'cRFStatusIssuToVersion'), ['str'])),
             ])
             self.crfstatusunitid = None
             self.crfstatusunitstate = None
@@ -853,6 +855,7 @@ class CISCORFMIB(Entity):
             self.crfstatusissutoversion = None
             self._segment_path = lambda: "cRFStatus"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFStatus, ['crfstatusunitid', 'crfstatusunitstate', 'crfstatuspeerunitid', 'crfstatuspeerunitstate', 'crfstatusprimarymode', 'crfstatusduplexmode', 'crfstatusmanualswactinhibit', 'crfstatuslastswactreasoncode', 'crfstatusfailovertime', 'crfstatuspeerstandbyentrytime', 'crfstatusissustate', 'crfstatusissustaterev1', 'crfstatusissufromversion', 'crfstatusissutoversion'], name, value)
@@ -991,22 +994,22 @@ class CISCORFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('crfcfgsplitmode', YLeaf(YType.boolean, 'cRFCfgSplitMode')),
-                ('crfcfgkeepalivethresh', YLeaf(YType.uint32, 'cRFCfgKeepaliveThresh')),
-                ('crfcfgkeepalivethreshmin', YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMin')),
-                ('crfcfgkeepalivethreshmax', YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMax')),
-                ('crfcfgkeepalivetimer', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimer')),
-                ('crfcfgkeepalivetimermin', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMin')),
-                ('crfcfgkeepalivetimermax', YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMax')),
-                ('crfcfgnotiftimer', YLeaf(YType.uint32, 'cRFCfgNotifTimer')),
-                ('crfcfgnotiftimermin', YLeaf(YType.uint32, 'cRFCfgNotifTimerMin')),
-                ('crfcfgnotiftimermax', YLeaf(YType.uint32, 'cRFCfgNotifTimerMax')),
-                ('crfcfgadminaction', YLeaf(YType.enumeration, 'cRFCfgAdminAction')),
-                ('crfcfgnotifsenabled', YLeaf(YType.boolean, 'cRFCfgNotifsEnabled')),
-                ('crfcfgmaintenancemode', YLeaf(YType.boolean, 'cRFCfgMaintenanceMode')),
-                ('crfcfgredundancymode', YLeaf(YType.enumeration, 'cRFCfgRedundancyMode')),
-                ('crfcfgredundancymodedescr', YLeaf(YType.str, 'cRFCfgRedundancyModeDescr')),
-                ('crfcfgredundancyopermode', YLeaf(YType.enumeration, 'cRFCfgRedundancyOperMode')),
+                ('crfcfgsplitmode', (YLeaf(YType.boolean, 'cRFCfgSplitMode'), ['bool'])),
+                ('crfcfgkeepalivethresh', (YLeaf(YType.uint32, 'cRFCfgKeepaliveThresh'), ['int'])),
+                ('crfcfgkeepalivethreshmin', (YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMin'), ['int'])),
+                ('crfcfgkeepalivethreshmax', (YLeaf(YType.uint32, 'cRFCfgKeepaliveThreshMax'), ['int'])),
+                ('crfcfgkeepalivetimer', (YLeaf(YType.uint32, 'cRFCfgKeepaliveTimer'), ['int'])),
+                ('crfcfgkeepalivetimermin', (YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMin'), ['int'])),
+                ('crfcfgkeepalivetimermax', (YLeaf(YType.uint32, 'cRFCfgKeepaliveTimerMax'), ['int'])),
+                ('crfcfgnotiftimer', (YLeaf(YType.uint32, 'cRFCfgNotifTimer'), ['int'])),
+                ('crfcfgnotiftimermin', (YLeaf(YType.uint32, 'cRFCfgNotifTimerMin'), ['int'])),
+                ('crfcfgnotiftimermax', (YLeaf(YType.uint32, 'cRFCfgNotifTimerMax'), ['int'])),
+                ('crfcfgadminaction', (YLeaf(YType.enumeration, 'cRFCfgAdminAction'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFAction', '')])),
+                ('crfcfgnotifsenabled', (YLeaf(YType.boolean, 'cRFCfgNotifsEnabled'), ['bool'])),
+                ('crfcfgmaintenancemode', (YLeaf(YType.boolean, 'cRFCfgMaintenanceMode'), ['bool'])),
+                ('crfcfgredundancymode', (YLeaf(YType.enumeration, 'cRFCfgRedundancyMode'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFMode', '')])),
+                ('crfcfgredundancymodedescr', (YLeaf(YType.str, 'cRFCfgRedundancyModeDescr'), ['str'])),
+                ('crfcfgredundancyopermode', (YLeaf(YType.enumeration, 'cRFCfgRedundancyOperMode'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFMode', '')])),
             ])
             self.crfcfgsplitmode = None
             self.crfcfgkeepalivethresh = None
@@ -1026,6 +1029,7 @@ class CISCORFMIB(Entity):
             self.crfcfgredundancyopermode = None
             self._segment_path = lambda: "cRFCfg"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFCfg, ['crfcfgsplitmode', 'crfcfgkeepalivethresh', 'crfcfgkeepalivethreshmin', 'crfcfgkeepalivethreshmax', 'crfcfgkeepalivetimer', 'crfcfgkeepalivetimermin', 'crfcfgkeepalivetimermax', 'crfcfgnotiftimer', 'crfcfgnotiftimermin', 'crfcfgnotiftimermax', 'crfcfgadminaction', 'crfcfgnotifsenabled', 'crfcfgmaintenancemode', 'crfcfgredundancymode', 'crfcfgredundancymodedescr', 'crfcfgredundancyopermode'], name, value)
@@ -1073,15 +1077,16 @@ class CISCORFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('crfhistorytablemaxlength', YLeaf(YType.uint32, 'cRFHistoryTableMaxLength')),
-                ('crfhistorycoldstarts', YLeaf(YType.uint32, 'cRFHistoryColdStarts')),
-                ('crfhistorystandbyavailtime', YLeaf(YType.int32, 'cRFHistoryStandByAvailTime')),
+                ('crfhistorytablemaxlength', (YLeaf(YType.uint32, 'cRFHistoryTableMaxLength'), ['int'])),
+                ('crfhistorycoldstarts', (YLeaf(YType.uint32, 'cRFHistoryColdStarts'), ['int'])),
+                ('crfhistorystandbyavailtime', (YLeaf(YType.int32, 'cRFHistoryStandByAvailTime'), ['int'])),
             ])
             self.crfhistorytablemaxlength = None
             self.crfhistorycoldstarts = None
             self.crfhistorystandbyavailtime = None
             self._segment_path = lambda: "cRFHistory"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFHistory, ['crfhistorytablemaxlength', 'crfhistorycoldstarts', 'crfhistorystandbyavailtime'], name, value)
@@ -1118,6 +1123,7 @@ class CISCORFMIB(Entity):
             self.crfstatusrfmodecapsentry = YList(self)
             self._segment_path = lambda: "cRFStatusRFModeCapsTable"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFStatusRFModeCapsTable, [], name, value)
@@ -1156,13 +1162,14 @@ class CISCORFMIB(Entity):
                 self.ylist_key_names = ['crfstatusrfmodecapsmode']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('crfstatusrfmodecapsmode', YLeaf(YType.enumeration, 'cRFStatusRFModeCapsMode')),
-                    ('crfstatusrfmodecapsmodedescr', YLeaf(YType.str, 'cRFStatusRFModeCapsModeDescr')),
+                    ('crfstatusrfmodecapsmode', (YLeaf(YType.enumeration, 'cRFStatusRFModeCapsMode'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFMode', '')])),
+                    ('crfstatusrfmodecapsmodedescr', (YLeaf(YType.str, 'cRFStatusRFModeCapsModeDescr'), ['str'])),
                 ])
                 self.crfstatusrfmodecapsmode = None
                 self.crfstatusrfmodecapsmodedescr = None
                 self._segment_path = lambda: "cRFStatusRFModeCapsEntry" + "[cRFStatusRFModeCapsMode='" + str(self.crfstatusrfmodecapsmode) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFModeCapsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCORFMIB.CRFStatusRFModeCapsTable.CRFStatusRFModeCapsEntry, ['crfstatusrfmodecapsmode', 'crfstatusrfmodecapsmodedescr'], name, value)
@@ -1203,6 +1210,7 @@ class CISCORFMIB(Entity):
             self.crfhistoryswitchoverentry = YList(self)
             self._segment_path = lambda: "cRFHistorySwitchOverTable"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFHistorySwitchOverTable, [], name, value)
@@ -1263,11 +1271,11 @@ class CISCORFMIB(Entity):
                 self.ylist_key_names = ['crfhistoryswitchoverindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('crfhistoryswitchoverindex', YLeaf(YType.uint32, 'cRFHistorySwitchOverIndex')),
-                    ('crfhistoryprevactiveunitid', YLeaf(YType.int32, 'cRFHistoryPrevActiveUnitId')),
-                    ('crfhistorycurractiveunitid', YLeaf(YType.int32, 'cRFHistoryCurrActiveUnitId')),
-                    ('crfhistoryswitchoverreason', YLeaf(YType.enumeration, 'cRFHistorySwitchOverReason')),
-                    ('crfhistoryswacttime', YLeaf(YType.str, 'cRFHistorySwactTime')),
+                    ('crfhistoryswitchoverindex', (YLeaf(YType.uint32, 'cRFHistorySwitchOverIndex'), ['int'])),
+                    ('crfhistoryprevactiveunitid', (YLeaf(YType.int32, 'cRFHistoryPrevActiveUnitId'), ['int'])),
+                    ('crfhistorycurractiveunitid', (YLeaf(YType.int32, 'cRFHistoryCurrActiveUnitId'), ['int'])),
+                    ('crfhistoryswitchoverreason', (YLeaf(YType.enumeration, 'cRFHistorySwitchOverReason'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFSwactReasonType', '')])),
+                    ('crfhistoryswacttime', (YLeaf(YType.str, 'cRFHistorySwactTime'), ['str'])),
                 ])
                 self.crfhistoryswitchoverindex = None
                 self.crfhistoryprevactiveunitid = None
@@ -1276,6 +1284,7 @@ class CISCORFMIB(Entity):
                 self.crfhistoryswacttime = None
                 self._segment_path = lambda: "cRFHistorySwitchOverEntry" + "[cRFHistorySwitchOverIndex='" + str(self.crfhistoryswitchoverindex) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFHistorySwitchOverTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCORFMIB.CRFHistorySwitchOverTable.CRFHistorySwitchOverEntry, ['crfhistoryswitchoverindex', 'crfhistoryprevactiveunitid', 'crfhistorycurractiveunitid', 'crfhistoryswitchoverreason', 'crfhistoryswacttime'], name, value)
@@ -1317,6 +1326,7 @@ class CISCORFMIB(Entity):
             self.crfstatusrfcliententry = YList(self)
             self._segment_path = lambda: "cRFStatusRFClientTable"
             self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCORFMIB.CRFStatusRFClientTable, [], name, value)
@@ -1383,11 +1393,11 @@ class CISCORFMIB(Entity):
                 self.ylist_key_names = ['crfstatusrfclientid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('crfstatusrfclientid', YLeaf(YType.uint32, 'cRFStatusRFClientID')),
-                    ('crfstatusrfclientdescr', YLeaf(YType.str, 'cRFStatusRFClientDescr')),
-                    ('crfstatusrfclientseq', YLeaf(YType.uint32, 'cRFStatusRFClientSeq')),
-                    ('crfstatusrfclientredtime', YLeaf(YType.uint32, 'cRFStatusRFClientRedTime')),
-                    ('crfstatusrfclientstatus', YLeaf(YType.enumeration, 'cRFStatusRFClientStatus')),
+                    ('crfstatusrfclientid', (YLeaf(YType.uint32, 'cRFStatusRFClientID'), ['int'])),
+                    ('crfstatusrfclientdescr', (YLeaf(YType.str, 'cRFStatusRFClientDescr'), ['str'])),
+                    ('crfstatusrfclientseq', (YLeaf(YType.uint32, 'cRFStatusRFClientSeq'), ['int'])),
+                    ('crfstatusrfclientredtime', (YLeaf(YType.uint32, 'cRFStatusRFClientRedTime'), ['int'])),
+                    ('crfstatusrfclientstatus', (YLeaf(YType.enumeration, 'cRFStatusRFClientStatus'), [('ydk.models.cisco_ios_xe.CISCO_RF_MIB', 'RFClientStatus', '')])),
                 ])
                 self.crfstatusrfclientid = None
                 self.crfstatusrfclientdescr = None
@@ -1396,6 +1406,7 @@ class CISCORFMIB(Entity):
                 self.crfstatusrfclientstatus = None
                 self._segment_path = lambda: "cRFStatusRFClientEntry" + "[cRFStatusRFClientID='" + str(self.crfstatusrfclientid) + "']"
                 self._absolute_path = lambda: "CISCO-RF-MIB:CISCO-RF-MIB/cRFStatusRFClientTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCORFMIB.CRFStatusRFClientTable.CRFStatusRFClientEntry, ['crfstatusrfclientid', 'crfstatusrfclientdescr', 'crfstatusrfclientseq', 'crfstatusrfclientredtime', 'crfstatusrfclientstatus'], name, value)

@@ -11,6 +11,10 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_event_notifications import Error
+from ydk.models.ietf.ietf_event_notifications import Stream
+from ydk.models.ietf.ietf_event_notifications import Transport
+
 
 class ChangeType(Enum):
     """
@@ -42,7 +46,7 @@ class ChangeType(Enum):
 
 
 
-class CustomStream(Identity):
+class CustomStream(Stream):
     """
     A conceptual datastream for datastore
     updates with custom updates as defined by a user.
@@ -54,11 +58,11 @@ class CustomStream(Identity):
     _prefix = 'yp'
     _revision = '2016-10-28'
 
-    def __init__(self):
-        super(CustomStream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:custom-stream")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:custom-stream"):
+        super(CustomStream, self).__init__(ns, pref, tag)
 
 
-class YangPush(Identity):
+class YangPush(Stream):
     """
     A conceptual datastream consisting of all datastore
     updates, including operational and configuration data.
@@ -70,11 +74,11 @@ class YangPush(Identity):
     _prefix = 'yp'
     _revision = '2016-10-28'
 
-    def __init__(self):
-        super(YangPush, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:yang-push")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:yang-push"):
+        super(YangPush, self).__init__(ns, pref, tag)
 
 
-class ErrorDataNotAuthorized(Identity):
+class ErrorDataNotAuthorized(Error):
     """
     No read authorization for a requested data node.
     
@@ -85,11 +89,11 @@ class ErrorDataNotAuthorized(Identity):
     _prefix = 'yp'
     _revision = '2016-10-28'
 
-    def __init__(self):
-        super(ErrorDataNotAuthorized, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:error-data-not-authorized")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:error-data-not-authorized"):
+        super(ErrorDataNotAuthorized, self).__init__(ns, pref, tag)
 
 
-class Http2(Identity):
+class Http2(Transport):
     """
     HTTP2 notifications as a transport
     
@@ -100,7 +104,7 @@ class Http2(Identity):
     _prefix = 'yp'
     _revision = '2016-10-28'
 
-    def __init__(self):
-        super(Http2, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-push", "ietf-yang-push", "ietf-yang-push:http2")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-push", pref="ietf-yang-push", tag="ietf-yang-push:http2"):
+        super(Http2, self).__init__(ns, pref, tag)
 
 

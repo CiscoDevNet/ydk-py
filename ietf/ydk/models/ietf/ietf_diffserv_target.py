@@ -26,6 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Direction(Identity):
     """
     This is identity of traffic direction
@@ -37,11 +38,11 @@ class Direction(Identity):
     _prefix = 'target'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Direction, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:direction")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:direction"):
+        super(Direction, self).__init__(ns, pref, tag)
 
 
-class Inbound(Identity):
+class Inbound(Direction):
     """
     Direction of traffic coming into the network entry
     
@@ -52,11 +53,11 @@ class Inbound(Identity):
     _prefix = 'target'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Inbound, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:inbound")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:inbound"):
+        super(Inbound, self).__init__(ns, pref, tag)
 
 
-class Outbound(Identity):
+class Outbound(Direction):
     """
     Direction of traffic going out of the network entry
     
@@ -67,7 +68,7 @@ class Outbound(Identity):
     _prefix = 'target'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Outbound, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-target", "ietf-diffserv-target", "ietf-diffserv-target:outbound")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-target", pref="ietf-diffserv-target", tag="ietf-diffserv-target:outbound"):
+        super(Outbound, self).__init__(ns, pref, tag)
 
 

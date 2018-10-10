@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   fib\: CEF configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FibPbtsFallback(Enum):
@@ -76,9 +77,24 @@ class Fib(Entity):
     	FIB platform parameters
     	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg.Fib.Platform>`
     
+    .. attribute:: auto_hash_recover
+    
+    	Set option for automatcially recovering consistent\-hashing state on interface up
+    	**type**\: bool
+    
     .. attribute:: prefer_aib_routes
     
     	Set options for adjacency routes overriding RIB routes
+    	**type**\: bool
+    
+    .. attribute:: encap_sharing_disable
+    
+    	Set true to disable encapsulation sharing
+    	**type**\: bool
+    
+    .. attribute:: frr_follow_bgp_pic
+    
+    	Set option for fast\-reroute to follow BGP PIC update, not to wait for timeout
     	**type**\: bool
     
     
@@ -99,9 +115,15 @@ class Fib(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("pbts-forward-class-fallbacks", ("pbts_forward_class_fallbacks", Fib.PbtsForwardClassFallbacks)), ("platform", ("platform", Fib.Platform))])
         self._leafs = OrderedDict([
-            ('prefer_aib_routes', YLeaf(YType.boolean, 'prefer-aib-routes')),
+            ('auto_hash_recover', (YLeaf(YType.boolean, 'auto-hash-recover'), ['bool'])),
+            ('prefer_aib_routes', (YLeaf(YType.boolean, 'prefer-aib-routes'), ['bool'])),
+            ('encap_sharing_disable', (YLeaf(YType.boolean, 'encap-sharing-disable'), ['bool'])),
+            ('frr_follow_bgp_pic', (YLeaf(YType.boolean, 'frr-follow-bgp-pic'), ['bool'])),
         ])
+        self.auto_hash_recover = None
         self.prefer_aib_routes = None
+        self.encap_sharing_disable = None
+        self.frr_follow_bgp_pic = None
 
         self.pbts_forward_class_fallbacks = Fib.PbtsForwardClassFallbacks()
         self.pbts_forward_class_fallbacks.parent = self
@@ -111,9 +133,10 @@ class Fib(Entity):
         self.platform.parent = self
         self._children_name_map["platform"] = "platform"
         self._segment_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Fib, ['prefer_aib_routes'], name, value)
+        self._perform_setattr(Fib, ['auto_hash_recover', 'prefer_aib_routes', 'encap_sharing_disable', 'frr_follow_bgp_pic'], name, value)
 
 
     class PbtsForwardClassFallbacks(Entity):
@@ -146,6 +169,7 @@ class Fib(Entity):
             self.pbts_forward_class_fallback = YList(self)
             self._segment_path = lambda: "pbts-forward-class-fallbacks"
             self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fib.PbtsForwardClassFallbacks, [], name, value)
@@ -197,15 +221,16 @@ class Fib(Entity):
                 self.ylist_key_names = ['forward_class_number']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('forward_class_number', YLeaf(YType.str, 'forward-class-number')),
-                    ('fallback_type', YLeaf(YType.enumeration, 'fallback-type')),
-                    ('fallback_class_number_array', YLeafList(YType.uint32, 'fallback-class-number-array')),
+                    ('forward_class_number', (YLeaf(YType.str, 'forward-class-number'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg', 'FibPbtsForwardClass', ''),'int'])),
+                    ('fallback_type', (YLeaf(YType.enumeration, 'fallback-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_common_cfg', 'FibPbtsFallback', '')])),
+                    ('fallback_class_number_array', (YLeafList(YType.uint32, 'fallback-class-number-array'), ['int'])),
                 ])
                 self.forward_class_number = None
                 self.fallback_type = None
                 self.fallback_class_number_array = []
                 self._segment_path = lambda: "pbts-forward-class-fallback" + "[forward-class-number='" + str(self.forward_class_number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/pbts-forward-class-fallbacks/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fib.PbtsForwardClassFallbacks.PbtsForwardClassFallback, ['forward_class_number', 'fallback_type', 'fallback_class_number_array'], name, value)
@@ -243,6 +268,7 @@ class Fib(Entity):
             self._children_name_map["label_switched_multicast"] = "label-switched-multicast"
             self._segment_path = lambda: "platform"
             self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fib.Platform, [], name, value)
@@ -278,11 +304,12 @@ class Fib(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('frr_holdtime', YLeaf(YType.uint32, 'frr-holdtime')),
+                    ('frr_holdtime', (YLeaf(YType.uint32, 'frr-holdtime'), ['int'])),
                 ])
                 self.frr_holdtime = None
                 self._segment_path = lambda: "label-switched-multicast"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fib-common-cfg:fib/platform/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fib.Platform.LabelSwitchedMulticast, ['frr_holdtime'], name, value)

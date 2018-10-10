@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-l2vpn\-cfg,
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class QosFieldNotSupported(Enum):
@@ -89,7 +90,7 @@ class Qos(Entity):
     """
 
     _prefix = 'qos-ma-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-02-27'
 
     def __init__(self):
         super(Qos, self).__init__()
@@ -102,10 +103,11 @@ class Qos(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('fabric_service_policy', YLeaf(YType.str, 'fabric-service-policy')),
+            ('fabric_service_policy', (YLeaf(YType.str, 'fabric-service-policy'), ['str'])),
         ])
         self.fabric_service_policy = None
         self._segment_path = lambda: "Cisco-IOS-XR-qos-ma-cfg:qos"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Qos, ['fabric_service_policy'], name, value)

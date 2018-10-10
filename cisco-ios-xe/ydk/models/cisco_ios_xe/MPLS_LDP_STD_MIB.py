@@ -22,6 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MPLSLDPSTDMIB(Entity):
     """
     
@@ -153,6 +154,7 @@ class MPLSLDPSTDMIB(Entity):
         self.mplsldpsessionpeeraddrtable.parent = self
         self._children_name_map["mplsldpsessionpeeraddrtable"] = "mplsLdpSessionPeerAddrTable"
         self._segment_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MPLSLDPSTDMIB, [], name, value)
@@ -191,13 +193,14 @@ class MPLSLDPSTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsldplsrid', YLeaf(YType.str, 'mplsLdpLsrId')),
-                ('mplsldplsrloopdetectioncapable', YLeaf(YType.enumeration, 'mplsLdpLsrLoopDetectionCapable')),
+                ('mplsldplsrid', (YLeaf(YType.str, 'mplsLdpLsrId'), ['str'])),
+                ('mplsldplsrloopdetectioncapable', (YLeaf(YType.enumeration, 'mplsLdpLsrLoopDetectionCapable'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpLsrObjects.MplsLdpLsrLoopDetectionCapable')])),
             ])
             self.mplsldplsrid = None
             self.mplsldplsrloopdetectioncapable = None
             self._segment_path = lambda: "mplsLdpLsrObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLsrObjects, [u'mplsldplsrid', u'mplsldplsrloopdetectioncapable'], name, value)
@@ -307,13 +310,14 @@ class MPLSLDPSTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsldpentitylastchange', YLeaf(YType.uint32, 'mplsLdpEntityLastChange')),
-                ('mplsldpentityindexnext', YLeaf(YType.uint32, 'mplsLdpEntityIndexNext')),
+                ('mplsldpentitylastchange', (YLeaf(YType.uint32, 'mplsLdpEntityLastChange'), ['int'])),
+                ('mplsldpentityindexnext', (YLeaf(YType.uint32, 'mplsLdpEntityIndexNext'), ['int'])),
             ])
             self.mplsldpentitylastchange = None
             self.mplsldpentityindexnext = None
             self._segment_path = lambda: "mplsLdpEntityObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityObjects, [u'mplsldpentitylastchange', u'mplsldpentityindexnext'], name, value)
@@ -354,13 +358,14 @@ class MPLSLDPSTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsldppeerlastchange', YLeaf(YType.uint32, 'mplsLdpPeerLastChange')),
-                ('mplsldplspfeclastchange', YLeaf(YType.uint32, 'mplsLdpLspFecLastChange')),
+                ('mplsldppeerlastchange', (YLeaf(YType.uint32, 'mplsLdpPeerLastChange'), ['int'])),
+                ('mplsldplspfeclastchange', (YLeaf(YType.uint32, 'mplsLdpLspFecLastChange'), ['int'])),
             ])
             self.mplsldppeerlastchange = None
             self.mplsldplspfeclastchange = None
             self._segment_path = lambda: "mplsLdpSessionObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionObjects, [u'mplsldppeerlastchange', u'mplsldplspfeclastchange'], name, value)
@@ -401,13 +406,14 @@ class MPLSLDPSTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsfeclastchange', YLeaf(YType.uint32, 'mplsFecLastChange')),
-                ('mplsfecindexnext', YLeaf(YType.uint32, 'mplsFecIndexNext')),
+                ('mplsfeclastchange', (YLeaf(YType.uint32, 'mplsFecLastChange'), ['int'])),
+                ('mplsfecindexnext', (YLeaf(YType.uint32, 'mplsFecIndexNext'), ['int'])),
             ])
             self.mplsfeclastchange = None
             self.mplsfecindexnext = None
             self._segment_path = lambda: "mplsFecObjects"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsFecObjects, [u'mplsfeclastchange', u'mplsfecindexnext'], name, value)
@@ -446,6 +452,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsldpentityentry = YList(self)
             self._segment_path = lambda: "mplsLdpEntityTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable, [], name, value)
@@ -710,42 +717,42 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.uint32, 'mplsLdpEntityIndex')),
-                    ('mplsldpentityprotocolversion', YLeaf(YType.uint32, 'mplsLdpEntityProtocolVersion')),
-                    ('mplsldpentityadminstatus', YLeaf(YType.enumeration, 'mplsLdpEntityAdminStatus')),
-                    ('mplsldpentityoperstatus', YLeaf(YType.enumeration, 'mplsLdpEntityOperStatus')),
-                    ('mplsldpentitytcpport', YLeaf(YType.uint16, 'mplsLdpEntityTcpPort')),
-                    ('mplsldpentityudpdscport', YLeaf(YType.uint16, 'mplsLdpEntityUdpDscPort')),
-                    ('mplsldpentitymaxpdulength', YLeaf(YType.uint32, 'mplsLdpEntityMaxPduLength')),
-                    ('mplsldpentitykeepaliveholdtimer', YLeaf(YType.uint32, 'mplsLdpEntityKeepAliveHoldTimer')),
-                    ('mplsldpentityhelloholdtimer', YLeaf(YType.uint32, 'mplsLdpEntityHelloHoldTimer')),
-                    ('mplsldpentityinitsessionthreshold', YLeaf(YType.int32, 'mplsLdpEntityInitSessionThreshold')),
-                    ('mplsldpentitylabeldistmethod', YLeaf(YType.enumeration, 'mplsLdpEntityLabelDistMethod')),
-                    ('mplsldpentitylabelretentionmode', YLeaf(YType.enumeration, 'mplsLdpEntityLabelRetentionMode')),
-                    ('mplsldpentitypathvectorlimit', YLeaf(YType.int32, 'mplsLdpEntityPathVectorLimit')),
-                    ('mplsldpentityhopcountlimit', YLeaf(YType.int32, 'mplsLdpEntityHopCountLimit')),
-                    ('mplsldpentitytransportaddrkind', YLeaf(YType.enumeration, 'mplsLdpEntityTransportAddrKind')),
-                    ('mplsldpentitytargetpeer', YLeaf(YType.boolean, 'mplsLdpEntityTargetPeer')),
-                    ('mplsldpentitytargetpeeraddrtype', YLeaf(YType.enumeration, 'mplsLdpEntityTargetPeerAddrType')),
-                    ('mplsldpentitytargetpeeraddr', YLeaf(YType.str, 'mplsLdpEntityTargetPeerAddr')),
-                    ('mplsldpentitylabeltype', YLeaf(YType.enumeration, 'mplsLdpEntityLabelType')),
-                    ('mplsldpentitydiscontinuitytime', YLeaf(YType.uint32, 'mplsLdpEntityDiscontinuityTime')),
-                    ('mplsldpentitystoragetype', YLeaf(YType.enumeration, 'mplsLdpEntityStorageType')),
-                    ('mplsldpentityrowstatus', YLeaf(YType.enumeration, 'mplsLdpEntityRowStatus')),
-                    ('mplsldpentitystatssessionattempts', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionAttempts')),
-                    ('mplsldpentitystatssessionrejectednohelloerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedNoHelloErrors')),
-                    ('mplsldpentitystatssessionrejectedaderrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedAdErrors')),
-                    ('mplsldpentitystatssessionrejectedmaxpduerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedMaxPduErrors')),
-                    ('mplsldpentitystatssessionrejectedlrerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedLRErrors')),
-                    ('mplsldpentitystatsbadldpidentifiererrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadLdpIdentifierErrors')),
-                    ('mplsldpentitystatsbadpdulengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadPduLengthErrors')),
-                    ('mplsldpentitystatsbadmessagelengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadMessageLengthErrors')),
-                    ('mplsldpentitystatsbadtlvlengtherrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsBadTlvLengthErrors')),
-                    ('mplsldpentitystatsmalformedtlvvalueerrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsMalformedTlvValueErrors')),
-                    ('mplsldpentitystatskeepalivetimerexperrors', YLeaf(YType.uint32, 'mplsLdpEntityStatsKeepAliveTimerExpErrors')),
-                    ('mplsldpentitystatsshutdownreceivednotifications', YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownReceivedNotifications')),
-                    ('mplsldpentitystatsshutdownsentnotifications', YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownSentNotifications')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.uint32, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldpentityprotocolversion', (YLeaf(YType.uint32, 'mplsLdpEntityProtocolVersion'), ['int'])),
+                    ('mplsldpentityadminstatus', (YLeaf(YType.enumeration, 'mplsLdpEntityAdminStatus'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityAdminStatus')])),
+                    ('mplsldpentityoperstatus', (YLeaf(YType.enumeration, 'mplsLdpEntityOperStatus'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityOperStatus')])),
+                    ('mplsldpentitytcpport', (YLeaf(YType.uint16, 'mplsLdpEntityTcpPort'), ['int'])),
+                    ('mplsldpentityudpdscport', (YLeaf(YType.uint16, 'mplsLdpEntityUdpDscPort'), ['int'])),
+                    ('mplsldpentitymaxpdulength', (YLeaf(YType.uint32, 'mplsLdpEntityMaxPduLength'), ['int'])),
+                    ('mplsldpentitykeepaliveholdtimer', (YLeaf(YType.uint32, 'mplsLdpEntityKeepAliveHoldTimer'), ['int'])),
+                    ('mplsldpentityhelloholdtimer', (YLeaf(YType.uint32, 'mplsLdpEntityHelloHoldTimer'), ['int'])),
+                    ('mplsldpentityinitsessionthreshold', (YLeaf(YType.int32, 'mplsLdpEntityInitSessionThreshold'), ['int'])),
+                    ('mplsldpentitylabeldistmethod', (YLeaf(YType.enumeration, 'mplsLdpEntityLabelDistMethod'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLabelDistributionMethod', '')])),
+                    ('mplsldpentitylabelretentionmode', (YLeaf(YType.enumeration, 'mplsLdpEntityLabelRetentionMode'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsRetentionMode', '')])),
+                    ('mplsldpentitypathvectorlimit', (YLeaf(YType.int32, 'mplsLdpEntityPathVectorLimit'), ['int'])),
+                    ('mplsldpentityhopcountlimit', (YLeaf(YType.int32, 'mplsLdpEntityHopCountLimit'), ['int'])),
+                    ('mplsldpentitytransportaddrkind', (YLeaf(YType.enumeration, 'mplsLdpEntityTransportAddrKind'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpEntityTable.MplsLdpEntityEntry.MplsLdpEntityTransportAddrKind')])),
+                    ('mplsldpentitytargetpeer', (YLeaf(YType.boolean, 'mplsLdpEntityTargetPeer'), ['bool'])),
+                    ('mplsldpentitytargetpeeraddrtype', (YLeaf(YType.enumeration, 'mplsLdpEntityTargetPeerAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsldpentitytargetpeeraddr', (YLeaf(YType.str, 'mplsLdpEntityTargetPeerAddr'), ['str'])),
+                    ('mplsldpentitylabeltype', (YLeaf(YType.enumeration, 'mplsLdpEntityLabelType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLdpLabelType', '')])),
+                    ('mplsldpentitydiscontinuitytime', (YLeaf(YType.uint32, 'mplsLdpEntityDiscontinuityTime'), ['int'])),
+                    ('mplsldpentitystoragetype', (YLeaf(YType.enumeration, 'mplsLdpEntityStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsldpentityrowstatus', (YLeaf(YType.enumeration, 'mplsLdpEntityRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsldpentitystatssessionattempts', (YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionAttempts'), ['int'])),
+                    ('mplsldpentitystatssessionrejectednohelloerrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedNoHelloErrors'), ['int'])),
+                    ('mplsldpentitystatssessionrejectedaderrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedAdErrors'), ['int'])),
+                    ('mplsldpentitystatssessionrejectedmaxpduerrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedMaxPduErrors'), ['int'])),
+                    ('mplsldpentitystatssessionrejectedlrerrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsSessionRejectedLRErrors'), ['int'])),
+                    ('mplsldpentitystatsbadldpidentifiererrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsBadLdpIdentifierErrors'), ['int'])),
+                    ('mplsldpentitystatsbadpdulengtherrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsBadPduLengthErrors'), ['int'])),
+                    ('mplsldpentitystatsbadmessagelengtherrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsBadMessageLengthErrors'), ['int'])),
+                    ('mplsldpentitystatsbadtlvlengtherrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsBadTlvLengthErrors'), ['int'])),
+                    ('mplsldpentitystatsmalformedtlvvalueerrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsMalformedTlvValueErrors'), ['int'])),
+                    ('mplsldpentitystatskeepalivetimerexperrors', (YLeaf(YType.uint32, 'mplsLdpEntityStatsKeepAliveTimerExpErrors'), ['int'])),
+                    ('mplsldpentitystatsshutdownreceivednotifications', (YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownReceivedNotifications'), ['int'])),
+                    ('mplsldpentitystatsshutdownsentnotifications', (YLeaf(YType.uint32, 'mplsLdpEntityStatsShutdownSentNotifications'), ['int'])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -785,6 +792,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsldpentitystatsshutdownsentnotifications = None
                 self._segment_path = lambda: "mplsLdpEntityEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpEntityTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsLdpEntityTable.MplsLdpEntityEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldpentityprotocolversion', u'mplsldpentityadminstatus', u'mplsldpentityoperstatus', u'mplsldpentitytcpport', u'mplsldpentityudpdscport', u'mplsldpentitymaxpdulength', u'mplsldpentitykeepaliveholdtimer', u'mplsldpentityhelloholdtimer', u'mplsldpentityinitsessionthreshold', u'mplsldpentitylabeldistmethod', u'mplsldpentitylabelretentionmode', u'mplsldpentitypathvectorlimit', u'mplsldpentityhopcountlimit', u'mplsldpentitytransportaddrkind', u'mplsldpentitytargetpeer', u'mplsldpentitytargetpeeraddrtype', u'mplsldpentitytargetpeeraddr', u'mplsldpentitylabeltype', u'mplsldpentitydiscontinuitytime', u'mplsldpentitystoragetype', u'mplsldpentityrowstatus', u'mplsldpentitystatssessionattempts', u'mplsldpentitystatssessionrejectednohelloerrors', u'mplsldpentitystatssessionrejectedaderrors', u'mplsldpentitystatssessionrejectedmaxpduerrors', u'mplsldpentitystatssessionrejectedlrerrors', u'mplsldpentitystatsbadldpidentifiererrors', u'mplsldpentitystatsbadpdulengtherrors', u'mplsldpentitystatsbadmessagelengtherrors', u'mplsldpentitystatsbadtlvlengtherrors', u'mplsldpentitystatsmalformedtlvvalueerrors', u'mplsldpentitystatskeepalivetimerexperrors', u'mplsldpentitystatsshutdownreceivednotifications', u'mplsldpentitystatsshutdownsentnotifications'], name, value)
@@ -940,6 +948,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsldppeerentry = YList(self)
             self._segment_path = lambda: "mplsLdpPeerTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable, [], name, value)
@@ -1083,23 +1092,23 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsldppeerlabeldistmethod', YLeaf(YType.enumeration, 'mplsLdpPeerLabelDistMethod')),
-                    ('mplsldppeerpathvectorlimit', YLeaf(YType.int32, 'mplsLdpPeerPathVectorLimit')),
-                    ('mplsldppeertransportaddrtype', YLeaf(YType.enumeration, 'mplsLdpPeerTransportAddrType')),
-                    ('mplsldppeertransportaddr', YLeaf(YType.str, 'mplsLdpPeerTransportAddr')),
-                    ('mplsldpsessionstatelastchange', YLeaf(YType.uint32, 'mplsLdpSessionStateLastChange')),
-                    ('mplsldpsessionstate', YLeaf(YType.enumeration, 'mplsLdpSessionState')),
-                    ('mplsldpsessionrole', YLeaf(YType.enumeration, 'mplsLdpSessionRole')),
-                    ('mplsldpsessionprotocolversion', YLeaf(YType.uint32, 'mplsLdpSessionProtocolVersion')),
-                    ('mplsldpsessionkeepaliveholdtimerem', YLeaf(YType.int32, 'mplsLdpSessionKeepAliveHoldTimeRem')),
-                    ('mplsldpsessionkeepalivetime', YLeaf(YType.uint32, 'mplsLdpSessionKeepAliveTime')),
-                    ('mplsldpsessionmaxpdulength', YLeaf(YType.uint32, 'mplsLdpSessionMaxPduLength')),
-                    ('mplsldpsessiondiscontinuitytime', YLeaf(YType.uint32, 'mplsLdpSessionDiscontinuityTime')),
-                    ('mplsldpsessionstatsunknownmestypeerrors', YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownMesTypeErrors')),
-                    ('mplsldpsessionstatsunknowntlverrors', YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownTlvErrors')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsldppeerlabeldistmethod', (YLeaf(YType.enumeration, 'mplsLdpPeerLabelDistMethod'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLabelDistributionMethod', '')])),
+                    ('mplsldppeerpathvectorlimit', (YLeaf(YType.int32, 'mplsLdpPeerPathVectorLimit'), ['int'])),
+                    ('mplsldppeertransportaddrtype', (YLeaf(YType.enumeration, 'mplsLdpPeerTransportAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsldppeertransportaddr', (YLeaf(YType.str, 'mplsLdpPeerTransportAddr'), ['str'])),
+                    ('mplsldpsessionstatelastchange', (YLeaf(YType.uint32, 'mplsLdpSessionStateLastChange'), ['int'])),
+                    ('mplsldpsessionstate', (YLeaf(YType.enumeration, 'mplsLdpSessionState'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionState')])),
+                    ('mplsldpsessionrole', (YLeaf(YType.enumeration, 'mplsLdpSessionRole'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpPeerTable.MplsLdpPeerEntry.MplsLdpSessionRole')])),
+                    ('mplsldpsessionprotocolversion', (YLeaf(YType.uint32, 'mplsLdpSessionProtocolVersion'), ['int'])),
+                    ('mplsldpsessionkeepaliveholdtimerem', (YLeaf(YType.int32, 'mplsLdpSessionKeepAliveHoldTimeRem'), ['int'])),
+                    ('mplsldpsessionkeepalivetime', (YLeaf(YType.uint32, 'mplsLdpSessionKeepAliveTime'), ['int'])),
+                    ('mplsldpsessionmaxpdulength', (YLeaf(YType.uint32, 'mplsLdpSessionMaxPduLength'), ['int'])),
+                    ('mplsldpsessiondiscontinuitytime', (YLeaf(YType.uint32, 'mplsLdpSessionDiscontinuityTime'), ['int'])),
+                    ('mplsldpsessionstatsunknownmestypeerrors', (YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownMesTypeErrors'), ['int'])),
+                    ('mplsldpsessionstatsunknowntlverrors', (YLeaf(YType.uint32, 'mplsLdpSessionStatsUnknownTlvErrors'), ['int'])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -1120,6 +1129,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsldpsessionstatsunknowntlverrors = None
                 self._segment_path = lambda: "mplsLdpPeerEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpPeerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsLdpPeerTable.MplsLdpPeerEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldppeerlabeldistmethod', u'mplsldppeerpathvectorlimit', u'mplsldppeertransportaddrtype', u'mplsldppeertransportaddr', u'mplsldpsessionstatelastchange', u'mplsldpsessionstate', u'mplsldpsessionrole', u'mplsldpsessionprotocolversion', u'mplsldpsessionkeepaliveholdtimerem', u'mplsldpsessionkeepalivetime', u'mplsldpsessionmaxpdulength', u'mplsldpsessiondiscontinuitytime', u'mplsldpsessionstatsunknownmestypeerrors', u'mplsldpsessionstatsunknowntlverrors'], name, value)
@@ -1221,6 +1231,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsldphelloadjacencyentry = YList(self)
             self._segment_path = lambda: "mplsLdpHelloAdjacencyTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable, [], name, value)
@@ -1300,13 +1311,13 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldphelloadjacencyindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsldphelloadjacencyindex', YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyIndex')),
-                    ('mplsldphelloadjacencyholdtimerem', YLeaf(YType.int32, 'mplsLdpHelloAdjacencyHoldTimeRem')),
-                    ('mplsldphelloadjacencyholdtime', YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyHoldTime')),
-                    ('mplsldphelloadjacencytype', YLeaf(YType.enumeration, 'mplsLdpHelloAdjacencyType')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsldphelloadjacencyindex', (YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyIndex'), ['int'])),
+                    ('mplsldphelloadjacencyholdtimerem', (YLeaf(YType.int32, 'mplsLdpHelloAdjacencyHoldTimeRem'), ['int'])),
+                    ('mplsldphelloadjacencyholdtime', (YLeaf(YType.uint32, 'mplsLdpHelloAdjacencyHoldTime'), ['int'])),
+                    ('mplsldphelloadjacencytype', (YLeaf(YType.enumeration, 'mplsLdpHelloAdjacencyType'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry.MplsLdpHelloAdjacencyType')])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -1317,6 +1328,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsldphelloadjacencytype = None
                 self._segment_path = lambda: "mplsLdpHelloAdjacencyEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpHelloAdjacencyIndex='" + str(self.mplsldphelloadjacencyindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpHelloAdjacencyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsLdpHelloAdjacencyTable.MplsLdpHelloAdjacencyEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldphelloadjacencyindex', u'mplsldphelloadjacencyholdtimerem', u'mplsldphelloadjacencyholdtime', u'mplsldphelloadjacencytype'], name, value)
@@ -1377,6 +1389,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsinsegmentldplspentry = YList(self)
             self._segment_path = lambda: "mplsInSegmentLdpLspTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable, [], name, value)
@@ -1451,12 +1464,12 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsinsegmentldplspindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsinsegmentldplspindex', YLeaf(YType.str, 'mplsInSegmentLdpLspIndex')),
-                    ('mplsinsegmentldplsplabeltype', YLeaf(YType.enumeration, 'mplsInSegmentLdpLspLabelType')),
-                    ('mplsinsegmentldplsptype', YLeaf(YType.enumeration, 'mplsInSegmentLdpLspType')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsinsegmentldplspindex', (YLeaf(YType.str, 'mplsInSegmentLdpLspIndex'), ['str'])),
+                    ('mplsinsegmentldplsplabeltype', (YLeaf(YType.enumeration, 'mplsInSegmentLdpLspLabelType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLdpLabelType', '')])),
+                    ('mplsinsegmentldplsptype', (YLeaf(YType.enumeration, 'mplsInSegmentLdpLspType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLspType', '')])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -1466,6 +1479,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsinsegmentldplsptype = None
                 self._segment_path = lambda: "mplsInSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsInSegmentLdpLspIndex='" + str(self.mplsinsegmentldplspindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsInSegmentLdpLspTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsInSegmentLdpLspTable.MplsInSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsinsegmentldplspindex', u'mplsinsegmentldplsplabeltype', u'mplsinsegmentldplsptype'], name, value)
@@ -1503,6 +1517,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsoutsegmentldplspentry = YList(self)
             self._segment_path = lambda: "mplsOutSegmentLdpLspTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable, [], name, value)
@@ -1576,12 +1591,12 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsoutsegmentldplspindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsoutsegmentldplspindex', YLeaf(YType.str, 'mplsOutSegmentLdpLspIndex')),
-                    ('mplsoutsegmentldplsplabeltype', YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspLabelType')),
-                    ('mplsoutsegmentldplsptype', YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspType')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsoutsegmentldplspindex', (YLeaf(YType.str, 'mplsOutSegmentLdpLspIndex'), ['str'])),
+                    ('mplsoutsegmentldplsplabeltype', (YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspLabelType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLdpLabelType', '')])),
+                    ('mplsoutsegmentldplsptype', (YLeaf(YType.enumeration, 'mplsOutSegmentLdpLspType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsLspType', '')])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -1591,6 +1606,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsoutsegmentldplsptype = None
                 self._segment_path = lambda: "mplsOutSegmentLdpLspEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsOutSegmentLdpLspIndex='" + str(self.mplsoutsegmentldplspindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsOutSegmentLdpLspTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsOutSegmentLdpLspTable.MplsOutSegmentLdpLspEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsoutsegmentldplspindex', u'mplsoutsegmentldplsplabeltype', u'mplsoutsegmentldplsptype'], name, value)
@@ -1628,6 +1644,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsfecentry = YList(self)
             self._segment_path = lambda: "mplsFecTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable, [], name, value)
@@ -1695,13 +1712,13 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsfecindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsfecindex', YLeaf(YType.uint32, 'mplsFecIndex')),
-                    ('mplsfectype', YLeaf(YType.enumeration, 'mplsFecType')),
-                    ('mplsfecaddrprefixlength', YLeaf(YType.uint32, 'mplsFecAddrPrefixLength')),
-                    ('mplsfecaddrtype', YLeaf(YType.enumeration, 'mplsFecAddrType')),
-                    ('mplsfecaddr', YLeaf(YType.str, 'mplsFecAddr')),
-                    ('mplsfecstoragetype', YLeaf(YType.enumeration, 'mplsFecStorageType')),
-                    ('mplsfecrowstatus', YLeaf(YType.enumeration, 'mplsFecRowStatus')),
+                    ('mplsfecindex', (YLeaf(YType.uint32, 'mplsFecIndex'), ['int'])),
+                    ('mplsfectype', (YLeaf(YType.enumeration, 'mplsFecType'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsFecTable.MplsFecEntry.MplsFecType')])),
+                    ('mplsfecaddrprefixlength', (YLeaf(YType.uint32, 'mplsFecAddrPrefixLength'), ['int'])),
+                    ('mplsfecaddrtype', (YLeaf(YType.enumeration, 'mplsFecAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsfecaddr', (YLeaf(YType.str, 'mplsFecAddr'), ['str'])),
+                    ('mplsfecstoragetype', (YLeaf(YType.enumeration, 'mplsFecStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsfecrowstatus', (YLeaf(YType.enumeration, 'mplsFecRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mplsfecindex = None
                 self.mplsfectype = None
@@ -1712,6 +1729,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsfecrowstatus = None
                 self._segment_path = lambda: "mplsFecEntry" + "[mplsFecIndex='" + str(self.mplsfecindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsFecTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsFecTable.MplsFecEntry, [u'mplsfecindex', u'mplsfectype', u'mplsfecaddrprefixlength', u'mplsfecaddrtype', u'mplsfecaddr', u'mplsfecstoragetype', u'mplsfecrowstatus'], name, value)
@@ -1774,6 +1792,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsldplspfecentry = YList(self)
             self._segment_path = lambda: "mplsLdpLspFecTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable, [], name, value)
@@ -1853,14 +1872,14 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldplspfecsegment','mplsldplspfecsegmentindex','mplsldplspfecindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsldplspfecsegment', YLeaf(YType.enumeration, 'mplsLdpLspFecSegment')),
-                    ('mplsldplspfecsegmentindex', YLeaf(YType.str, 'mplsLdpLspFecSegmentIndex')),
-                    ('mplsldplspfecindex', YLeaf(YType.uint32, 'mplsLdpLspFecIndex')),
-                    ('mplsldplspfecstoragetype', YLeaf(YType.enumeration, 'mplsLdpLspFecStorageType')),
-                    ('mplsldplspfecrowstatus', YLeaf(YType.enumeration, 'mplsLdpLspFecRowStatus')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsldplspfecsegment', (YLeaf(YType.enumeration, 'mplsLdpLspFecSegment'), [('ydk.models.cisco_ios_xe.MPLS_LDP_STD_MIB', 'MPLSLDPSTDMIB', 'MplsLdpLspFecTable.MplsLdpLspFecEntry.MplsLdpLspFecSegment')])),
+                    ('mplsldplspfecsegmentindex', (YLeaf(YType.str, 'mplsLdpLspFecSegmentIndex'), ['str'])),
+                    ('mplsldplspfecindex', (YLeaf(YType.uint32, 'mplsLdpLspFecIndex'), ['int'])),
+                    ('mplsldplspfecstoragetype', (YLeaf(YType.enumeration, 'mplsLdpLspFecStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsldplspfecrowstatus', (YLeaf(YType.enumeration, 'mplsLdpLspFecRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -1872,6 +1891,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsldplspfecrowstatus = None
                 self._segment_path = lambda: "mplsLdpLspFecEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpLspFecSegment='" + str(self.mplsldplspfecsegment) + "']" + "[mplsLdpLspFecSegmentIndex='" + str(self.mplsldplspfecsegmentindex) + "']" + "[mplsLdpLspFecIndex='" + str(self.mplsldplspfecindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpLspFecTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsLdpLspFecTable.MplsLdpLspFecEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldplspfecsegment', u'mplsldplspfecsegmentindex', u'mplsldplspfecindex', u'mplsldplspfecstoragetype', u'mplsldplspfecrowstatus'], name, value)
@@ -1951,6 +1971,7 @@ class MPLSLDPSTDMIB(Entity):
             self.mplsldpsessionpeeraddrentry = YList(self)
             self._segment_path = lambda: "mplsLdpSessionPeerAddrTable"
             self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable, [], name, value)
@@ -2022,12 +2043,12 @@ class MPLSLDPSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldppeerldpid','mplsldpsessionpeeraddrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldppeerldpid', YLeaf(YType.str, 'mplsLdpPeerLdpId')),
-                    ('mplsldpsessionpeeraddrindex', YLeaf(YType.uint32, 'mplsLdpSessionPeerAddrIndex')),
-                    ('mplsldpsessionpeernexthopaddrtype', YLeaf(YType.enumeration, 'mplsLdpSessionPeerNextHopAddrType')),
-                    ('mplsldpsessionpeernexthopaddr', YLeaf(YType.str, 'mplsLdpSessionPeerNextHopAddr')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldppeerldpid', (YLeaf(YType.str, 'mplsLdpPeerLdpId'), ['str'])),
+                    ('mplsldpsessionpeeraddrindex', (YLeaf(YType.uint32, 'mplsLdpSessionPeerAddrIndex'), ['int'])),
+                    ('mplsldpsessionpeernexthopaddrtype', (YLeaf(YType.enumeration, 'mplsLdpSessionPeerNextHopAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsldpsessionpeernexthopaddr', (YLeaf(YType.str, 'mplsLdpSessionPeerNextHopAddr'), ['str'])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -2037,6 +2058,7 @@ class MPLSLDPSTDMIB(Entity):
                 self.mplsldpsessionpeernexthopaddr = None
                 self._segment_path = lambda: "mplsLdpSessionPeerAddrEntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpPeerLdpId='" + str(self.mplsldppeerldpid) + "']" + "[mplsLdpSessionPeerAddrIndex='" + str(self.mplsldpsessionpeeraddrindex) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-STD-MIB:MPLS-LDP-STD-MIB/mplsLdpSessionPeerAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPSTDMIB.MplsLdpSessionPeerAddrTable.MplsLdpSessionPeerAddrEntry, [u'mplsldpentityldpid', u'mplsldpentityindex', u'mplsldppeerldpid', u'mplsldpsessionpeeraddrindex', u'mplsldpsessionpeernexthopaddrtype', u'mplsldpsessionpeernexthopaddr'], name, value)

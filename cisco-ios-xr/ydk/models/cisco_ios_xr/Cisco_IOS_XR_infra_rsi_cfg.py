@@ -16,7 +16,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -26,6 +26,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SrlgPriority(Enum):
@@ -146,6 +147,7 @@ class Vrfs(Entity):
 
         self.vrf = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrfs"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vrfs, [], name, value)
@@ -205,7 +207,7 @@ class Vrfs(Entity):
         
         .. attribute:: bgp_global
         
-        	BGP related VRF GBL config
+        	BGP related VRF Global config
         	**type**\:  :py:class:`BgpGlobal <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal>`
         
         .. attribute:: multicast_host
@@ -230,12 +232,12 @@ class Vrfs(Entity):
             self.ylist_key_names = ['vrf_name']
             self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vrfs.Vrf.VpnId)), ("afs", ("afs", Vrfs.Vrf.Afs)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global", ("bgp_global", Vrfs.Vrf.BgpGlobal)), ("Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host", ("multicast_host", Vrfs.Vrf.MulticastHost))])
             self._leafs = OrderedDict([
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('fallback_vrf', YLeaf(YType.str, 'fallback-vrf')),
-                ('remote_route_filter_disable', YLeaf(YType.empty, 'remote-route-filter-disable')),
-                ('create', YLeaf(YType.empty, 'create')),
-                ('mode_big', YLeaf(YType.empty, 'mode-big')),
-                ('description', YLeaf(YType.str, 'description')),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('fallback_vrf', (YLeaf(YType.str, 'fallback-vrf'), ['str'])),
+                ('remote_route_filter_disable', (YLeaf(YType.empty, 'remote-route-filter-disable'), ['Empty'])),
+                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                ('mode_big', (YLeaf(YType.empty, 'mode-big'), ['Empty'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
             ])
             self.vrf_name = None
             self.fallback_vrf = None
@@ -260,6 +262,7 @@ class Vrfs(Entity):
             self._children_name_map["multicast_host"] = "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrfs/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vrfs.Vrf, [u'vrf_name', u'fallback_vrf', u'remote_route_filter_disable', u'create', u'mode_big', u'description'], name, value)
@@ -307,12 +310,13 @@ class Vrfs(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('vpn_oui', YLeaf(YType.uint32, 'vpn-oui')),
-                    ('vpn_index', YLeaf(YType.uint32, 'vpn-index')),
+                    ('vpn_oui', (YLeaf(YType.uint32, 'vpn-oui'), ['int'])),
+                    ('vpn_index', (YLeaf(YType.uint32, 'vpn-index'), ['int'])),
                 ])
                 self.vpn_oui = None
                 self.vpn_index = None
                 self._segment_path = lambda: "vpn-id"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.VpnId, [u'vpn_oui', u'vpn_index'], name, value)
@@ -347,6 +351,7 @@ class Vrfs(Entity):
 
                 self.af = YList(self)
                 self._segment_path = lambda: "afs"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.Afs, [], name, value)
@@ -378,17 +383,17 @@ class Vrfs(Entity):
                 	VRF configuration for a particular address family
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
-                .. attribute:: bgp
-                
-                	BGP AF VRF config
-                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
-                
                 .. attribute:: maximum_prefix
                 
                 	Set maximum prefix limits
                 	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.MaximumPrefix>`
                 
                 	**presence node**\: True
+                
+                .. attribute:: bgp
+                
+                	BGP AF VRF config
+                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.Afs.Af.Bgp>`
                 
                 
 
@@ -405,28 +410,81 @@ class Vrfs(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = ['af_name','saf_name','topology_name']
-                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix))])
+                    self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", Vrfs.Vrf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", Vrfs.Vrf.Afs.Af.Bgp))])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
-                        ('topology_name', YLeaf(YType.str, 'topology-name')),
-                        ('create', YLeaf(YType.empty, 'create')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
+                        ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
+                        ('topology_name', (YLeaf(YType.str, 'topology-name'), ['str'])),
+                        ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                     ])
                     self.af_name = None
                     self.saf_name = None
                     self.topology_name = None
                     self.create = None
 
+                    self.maximum_prefix = None
+                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
                     self.bgp = Vrfs.Vrf.Afs.Af.Bgp()
                     self.bgp.parent = self
                     self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-
-                    self.maximum_prefix = None
-                    self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                     self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+
+
+                class MaximumPrefix(Entity):
+                    """
+                    Set maximum prefix limits
+                    
+                    .. attribute:: prefix_limit
+                    
+                    	Set table's maximum prefix limit
+                    	**type**\: int
+                    
+                    	**range:** 32..10000000
+                    
+                    	**mandatory**\: True
+                    
+                    .. attribute:: mid_threshold
+                    
+                    	Mid\-threshold (% of maximum)
+                    	**type**\: int
+                    
+                    	**range:** 1..100
+                    
+                    
+
+                    This class is a :ref:`presence class<presence-class>`
+
+                    """
+
+                    _prefix = 'ip-rib-cfg'
+                    _revision = '2017-07-31'
+
+                    def __init__(self):
+                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
+
+                        self.yang_name = "maximum-prefix"
+                        self.yang_parent_name = "af"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self.is_presence_container = True
+                        self._leafs = OrderedDict([
+                            ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                            ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                        ])
+                        self.prefix_limit = None
+                        self.mid_threshold = None
+                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
 
 
                 class Bgp(Entity):
@@ -482,7 +540,7 @@ class Vrfs(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(Vrfs.Vrf.Afs.Af.Bgp, self).__init__()
@@ -494,9 +552,9 @@ class Vrfs(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("import-route-targets", ("import_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
                         self._leafs = OrderedDict([
-                            ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
-                            ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
-                            ('import_vrf_options', YLeaf(YType.boolean, 'import-vrf-options')),
+                            ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
+                            ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
+                            ('import_vrf_options', (YLeaf(YType.boolean, 'import-vrf-options'), ['bool'])),
                         ])
                         self.export_route_policy = None
                         self.import_route_policy = None
@@ -520,6 +578,7 @@ class Vrfs(Entity):
                         self.global_to_vrf_import_route_policy = None
                         self._children_name_map["global_to_vrf_import_route_policy"] = "global-to-vrf-import-route-policy"
                         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options'], name, value)
@@ -539,7 +598,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -556,6 +615,7 @@ class Vrfs(Entity):
                             self.route_targets.parent = self
                             self._children_name_map["route_targets"] = "route-targets"
                             self._segment_path = lambda: "import-route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
@@ -575,7 +635,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-01-18'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -590,6 +650,7 @@ class Vrfs(Entity):
 
                                 self.route_target = YList(self)
                                 self._segment_path = lambda: "route-targets"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, [], name, value)
@@ -619,7 +680,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -631,13 +692,14 @@ class Vrfs(Entity):
                                     self.ylist_key_names = ['type']
                                     self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget', '')])),
                                     ])
                                     self.type = None
 
                                     self.as_or_four_byte_as = YList(self)
                                     self.ipv4_address = YList(self)
                                     self._segment_path = lambda: "route-target" + "[type='" + str(self.type) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
@@ -680,7 +742,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-01-18'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -692,16 +754,17 @@ class Vrfs(Entity):
                                         self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                                            ('as_', YLeaf(YType.uint32, 'as')),
-                                            ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                            ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                            ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                                            ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                            ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                            ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                         ])
                                         self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
                                         self.stitching_rt = None
                                         self._segment_path = lambda: "as-or-four-byte-as" + "[as-xx='" + str(self.as_xx) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
@@ -737,7 +800,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-01-18'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -749,14 +812,15 @@ class Vrfs(Entity):
                                         self.ylist_key_names = ['address','address_index','stitching_rt']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('address_index', YLeaf(YType.uint32, 'address-index')),
-                                            ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                                            ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                         ])
                                         self.address = None
                                         self.address_index = None
                                         self.stitching_rt = None
                                         self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[address-index='" + str(self.address_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
@@ -776,7 +840,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -793,6 +857,7 @@ class Vrfs(Entity):
                             self.route_targets.parent = self
                             self._children_name_map["route_targets"] = "route-targets"
                             self._segment_path = lambda: "export-route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
@@ -812,7 +877,7 @@ class Vrfs(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-01-18'
 
                             def __init__(self):
                                 super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -827,6 +892,7 @@ class Vrfs(Entity):
 
                                 self.route_target = YList(self)
                                 self._segment_path = lambda: "route-targets"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, [], name, value)
@@ -856,7 +922,7 @@ class Vrfs(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -868,13 +934,14 @@ class Vrfs(Entity):
                                     self.ylist_key_names = ['type']
                                     self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget', '')])),
                                     ])
                                     self.type = None
 
                                     self.as_or_four_byte_as = YList(self)
                                     self.ipv4_address = YList(self)
                                     self._segment_path = lambda: "route-target" + "[type='" + str(self.type) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
@@ -917,7 +984,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-01-18'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -929,16 +996,17 @@ class Vrfs(Entity):
                                         self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                                            ('as_', YLeaf(YType.uint32, 'as')),
-                                            ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                            ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                            ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                                            ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                            ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                            ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                         ])
                                         self.as_xx = None
                                         self.as_ = None
                                         self.as_index = None
                                         self.stitching_rt = None
                                         self._segment_path = lambda: "as-or-four-byte-as" + "[as-xx='" + str(self.as_xx) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
@@ -974,7 +1042,7 @@ class Vrfs(Entity):
                                     """
 
                                     _prefix = 'ipv4-bgp-cfg'
-                                    _revision = '2017-11-05'
+                                    _revision = '2018-01-18'
 
                                     def __init__(self):
                                         super(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -986,14 +1054,15 @@ class Vrfs(Entity):
                                         self.ylist_key_names = ['address','address_index','stitching_rt']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('address_index', YLeaf(YType.uint32, 'address-index')),
-                                            ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                                            ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                         ])
                                         self.address = None
                                         self.address_index = None
                                         self.stitching_rt = None
                                         self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[address-index='" + str(self.address_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
@@ -1022,7 +1091,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -1035,12 +1104,13 @@ class Vrfs(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                                ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
+                                ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                                ('allow_imported_vpn', (YLeaf(YType.boolean, 'allow-imported-vpn'), ['bool'])),
                             ])
                             self.route_policy_name = None
                             self.allow_imported_vpn = None
                             self._segment_path = lambda: "vrf-to-global-export-route-policy"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
@@ -1065,7 +1135,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -1077,12 +1147,13 @@ class Vrfs(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
-                                ('import_stitching_rt', YLeaf(YType.boolean, 'import-stitching-rt')),
+                                ('allow_imported_vpn', (YLeaf(YType.boolean, 'allow-imported-vpn'), ['bool'])),
+                                ('import_stitching_rt', (YLeaf(YType.boolean, 'import-stitching-rt'), ['bool'])),
                             ])
                             self.allow_imported_vpn = None
                             self.import_stitching_rt = None
                             self._segment_path = lambda: "export-vrf-options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
@@ -1111,7 +1182,7 @@ class Vrfs(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -1124,75 +1195,25 @@ class Vrfs(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                                ('advertise_as_vpn', YLeaf(YType.boolean, 'advertise-as-vpn')),
+                                ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                                ('advertise_as_vpn', (YLeaf(YType.boolean, 'advertise-as-vpn'), ['bool'])),
                             ])
                             self.route_policy_name = None
                             self.advertise_as_vpn = None
                             self._segment_path = lambda: "global-to-vrf-import-route-policy"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vrfs.Vrf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
 
 
-                class MaximumPrefix(Entity):
-                    """
-                    Set maximum prefix limits
-                    
-                    .. attribute:: prefix_limit
-                    
-                    	Set table's maximum prefix limit
-                    	**type**\: int
-                    
-                    	**range:** 32..10000000
-                    
-                    	**mandatory**\: True
-                    
-                    .. attribute:: mid_threshold
-                    
-                    	Mid\-threshold (% of maximum)
-                    	**type**\: int
-                    
-                    	**range:** 1..100
-                    
-                    
-
-                    This class is a :ref:`presence class<presence-class>`
-
-                    """
-
-                    _prefix = 'ip-rib-cfg'
-                    _revision = '2017-07-31'
-
-                    def __init__(self):
-                        super(Vrfs.Vrf.Afs.Af.MaximumPrefix, self).__init__()
-
-                        self.yang_name = "maximum-prefix"
-                        self.yang_parent_name = "af"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self.is_presence_container = True
-                        self._leafs = OrderedDict([
-                            ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
-                            ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
-                        ])
-                        self.prefix_limit = None
-                        self.mid_threshold = None
-                        self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Vrfs.Vrf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
-
-
         class BgpGlobal(Entity):
             """
-            BGP related VRF GBL config
+            BGP related VRF Global config
             
             .. attribute:: route_distinguisher
             
-            	Global Route distinguisher
+            	Route distinguisher
             	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.Vrfs.Vrf.BgpGlobal.RouteDistinguisher>`
             
             
@@ -1200,7 +1221,7 @@ class Vrfs(Entity):
             """
 
             _prefix = 'ipv4-bgp-cfg'
-            _revision = '2017-11-05'
+            _revision = '2018-01-18'
 
             def __init__(self):
                 super(Vrfs.Vrf.BgpGlobal, self).__init__()
@@ -1217,6 +1238,7 @@ class Vrfs(Entity):
                 self.route_distinguisher.parent = self
                 self._children_name_map["route_distinguisher"] = "route-distinguisher"
                 self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp-global"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.BgpGlobal, [], name, value)
@@ -1224,7 +1246,7 @@ class Vrfs(Entity):
 
             class RouteDistinguisher(Entity):
                 """
-                Global Route distinguisher
+                Route distinguisher
                 
                 .. attribute:: type
                 
@@ -1271,7 +1293,7 @@ class Vrfs(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-01-18'
 
                 def __init__(self):
                     super(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, self).__init__()
@@ -1283,12 +1305,12 @@ class Vrfs(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                        ('as_', YLeaf(YType.uint32, 'as')),
-                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('address_index', YLeaf(YType.uint32, 'address-index')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpGlobalRouteDistinguisher', '')])),
+                        ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
                     ])
                     self.type = None
                     self.as_xx = None
@@ -1297,6 +1319,7 @@ class Vrfs(Entity):
                     self.address = None
                     self.address_index = None
                     self._segment_path = lambda: "route-distinguisher"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.BgpGlobal.RouteDistinguisher, ['type', 'as_xx', 'as_', 'as_index', 'address', 'address_index'], name, value)
@@ -1342,6 +1365,7 @@ class Vrfs(Entity):
                 self.ipv6.parent = self
                 self._children_name_map["ipv6"] = "ipv6"
                 self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-vrf-cfg:multicast-host"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vrfs.Vrf.MulticastHost, [], name, value)
@@ -1356,7 +1380,7 @@ class Vrfs(Entity):
                 	Default multicast host interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 
 
@@ -1375,10 +1399,11 @@ class Vrfs(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                     ])
                     self.interface = None
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv4, ['interface'], name, value)
@@ -1393,7 +1418,7 @@ class Vrfs(Entity):
                 	Default multicast host interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 
 
@@ -1412,10 +1437,11 @@ class Vrfs(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                     ])
                     self.interface = None
                     self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vrfs.Vrf.MulticastHost.Ipv6, ['interface'], name, value)
@@ -1456,6 +1482,7 @@ class GlobalAf(Entity):
         self.afs.parent = self
         self._children_name_map["afs"] = "afs"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(GlobalAf, [], name, value)
@@ -1491,6 +1518,7 @@ class GlobalAf(Entity):
             self.af = YList(self)
             self._segment_path = lambda: "afs"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GlobalAf.Afs, [], name, value)
@@ -1522,17 +1550,17 @@ class GlobalAf(Entity):
             	VRF configuration for a particular address family
             	**type**\: :py:class:`Empty<ydk.types.Empty>`
             
-            .. attribute:: bgp
-            
-            	BGP AF VRF config
-            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
-            
             .. attribute:: maximum_prefix
             
             	Set maximum prefix limits
             	**type**\:  :py:class:`MaximumPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.MaximumPrefix>`
             
             	**presence node**\: True
+            
+            .. attribute:: bgp
+            
+            	BGP AF VRF config
+            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg.GlobalAf.Afs.Af.Bgp>`
             
             
 
@@ -1549,29 +1577,82 @@ class GlobalAf(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['af_name','saf_name','topology_name']
-                self._child_classes = OrderedDict([("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp)), ("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix))])
+                self._child_classes = OrderedDict([("Cisco-IOS-XR-ip-rib-cfg:maximum-prefix", ("maximum_prefix", GlobalAf.Afs.Af.MaximumPrefix)), ("Cisco-IOS-XR-ipv4-bgp-cfg:bgp", ("bgp", GlobalAf.Afs.Af.Bgp))])
                 self._leafs = OrderedDict([
-                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                    ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
-                    ('topology_name', YLeaf(YType.str, 'topology-name')),
-                    ('create', YLeaf(YType.empty, 'create')),
+                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfAddressFamily', '')])),
+                    ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'VrfSubAddressFamily', '')])),
+                    ('topology_name', (YLeaf(YType.str, 'topology-name'), ['str'])),
+                    ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                 ])
                 self.af_name = None
                 self.saf_name = None
                 self.topology_name = None
                 self.create = None
 
+                self.maximum_prefix = None
+                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+
                 self.bgp = GlobalAf.Afs.Af.Bgp()
                 self.bgp.parent = self
                 self._children_name_map["bgp"] = "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
-
-                self.maximum_prefix = None
-                self._children_name_map["maximum_prefix"] = "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
                 self._segment_path = lambda: "af" + "[af-name='" + str(self.af_name) + "']" + "[saf-name='" + str(self.saf_name) + "']" + "[topology-name='" + str(self.topology_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:global-af/afs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GlobalAf.Afs.Af, [u'af_name', u'saf_name', u'topology_name', u'create'], name, value)
+
+
+            class MaximumPrefix(Entity):
+                """
+                Set maximum prefix limits
+                
+                .. attribute:: prefix_limit
+                
+                	Set table's maximum prefix limit
+                	**type**\: int
+                
+                	**range:** 32..10000000
+                
+                	**mandatory**\: True
+                
+                .. attribute:: mid_threshold
+                
+                	Mid\-threshold (% of maximum)
+                	**type**\: int
+                
+                	**range:** 1..100
+                
+                
+
+                This class is a :ref:`presence class<presence-class>`
+
+                """
+
+                _prefix = 'ip-rib-cfg'
+                _revision = '2017-07-31'
+
+                def __init__(self):
+                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
+
+                    self.yang_name = "maximum-prefix"
+                    self.yang_parent_name = "af"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self.is_presence_container = True
+                    self._leafs = OrderedDict([
+                        ('prefix_limit', (YLeaf(YType.uint32, 'prefix-limit'), ['int'])),
+                        ('mid_threshold', (YLeaf(YType.uint32, 'mid-threshold'), ['int'])),
+                    ])
+                    self.prefix_limit = None
+                    self.mid_threshold = None
+                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
 
 
             class Bgp(Entity):
@@ -1627,7 +1708,7 @@ class GlobalAf(Entity):
                 """
 
                 _prefix = 'ipv4-bgp-cfg'
-                _revision = '2017-11-05'
+                _revision = '2018-01-18'
 
                 def __init__(self):
                     super(GlobalAf.Afs.Af.Bgp, self).__init__()
@@ -1639,9 +1720,9 @@ class GlobalAf(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("import-route-targets", ("import_route_targets", GlobalAf.Afs.Af.Bgp.ImportRouteTargets)), ("export-route-targets", ("export_route_targets", GlobalAf.Afs.Af.Bgp.ExportRouteTargets)), ("vrf-to-global-export-route-policy", ("vrf_to_global_export_route_policy", GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy)), ("export-vrf-options", ("export_vrf_options", GlobalAf.Afs.Af.Bgp.ExportVrfOptions)), ("global-to-vrf-import-route-policy", ("global_to_vrf_import_route_policy", GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy))])
                     self._leafs = OrderedDict([
-                        ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
-                        ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
-                        ('import_vrf_options', YLeaf(YType.boolean, 'import-vrf-options')),
+                        ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
+                        ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
+                        ('import_vrf_options', (YLeaf(YType.boolean, 'import-vrf-options'), ['bool'])),
                     ])
                     self.export_route_policy = None
                     self.import_route_policy = None
@@ -1665,6 +1746,7 @@ class GlobalAf(Entity):
                     self.global_to_vrf_import_route_policy = None
                     self._children_name_map["global_to_vrf_import_route_policy"] = "global-to-vrf-import-route-policy"
                     self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-cfg:bgp"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(GlobalAf.Afs.Af.Bgp, ['export_route_policy', 'import_route_policy', 'import_vrf_options'], name, value)
@@ -1684,7 +1766,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, self).__init__()
@@ -1701,6 +1783,7 @@ class GlobalAf(Entity):
                         self.route_targets.parent = self
                         self._children_name_map["route_targets"] = "route-targets"
                         self._segment_path = lambda: "import-route-targets"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets, [], name, value)
@@ -1720,7 +1803,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, self).__init__()
@@ -1735,6 +1818,7 @@ class GlobalAf(Entity):
 
                             self.route_target = YList(self)
                             self._segment_path = lambda: "route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets, [], name, value)
@@ -1764,7 +1848,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-01-18'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -1776,13 +1860,14 @@ class GlobalAf(Entity):
                                 self.ylist_key_names = ['type']
                                 self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                 self._leafs = OrderedDict([
-                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget', '')])),
                                 ])
                                 self.type = None
 
                                 self.as_or_four_byte_as = YList(self)
                                 self.ipv4_address = YList(self)
                                 self._segment_path = lambda: "route-target" + "[type='" + str(self.type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
@@ -1825,7 +1910,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -1837,16 +1922,17 @@ class GlobalAf(Entity):
                                     self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                                        ('as_', YLeaf(YType.uint32, 'as')),
-                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                        ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                        ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                        ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                     ])
                                     self.as_xx = None
                                     self.as_ = None
                                     self.as_index = None
                                     self.stitching_rt = None
                                     self._segment_path = lambda: "as-or-four-byte-as" + "[as-xx='" + str(self.as_xx) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
@@ -1882,7 +1968,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -1894,14 +1980,15 @@ class GlobalAf(Entity):
                                     self.ylist_key_names = ['address','address_index','stitching_rt']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('address_index', YLeaf(YType.uint32, 'address-index')),
-                                        ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                                        ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                     ])
                                     self.address = None
                                     self.address_index = None
                                     self.stitching_rt = None
                                     self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[address-index='" + str(self.address_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ImportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
@@ -1921,7 +2008,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, self).__init__()
@@ -1938,6 +2025,7 @@ class GlobalAf(Entity):
                         self.route_targets.parent = self
                         self._children_name_map["route_targets"] = "route-targets"
                         self._segment_path = lambda: "export-route-targets"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets, [], name, value)
@@ -1957,7 +2045,7 @@ class GlobalAf(Entity):
                         """
 
                         _prefix = 'ipv4-bgp-cfg'
-                        _revision = '2017-11-05'
+                        _revision = '2018-01-18'
 
                         def __init__(self):
                             super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, self).__init__()
@@ -1972,6 +2060,7 @@ class GlobalAf(Entity):
 
                             self.route_target = YList(self)
                             self._segment_path = lambda: "route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets, [], name, value)
@@ -2001,7 +2090,7 @@ class GlobalAf(Entity):
                             """
 
                             _prefix = 'ipv4-bgp-cfg'
-                            _revision = '2017-11-05'
+                            _revision = '2018-01-18'
 
                             def __init__(self):
                                 super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, self).__init__()
@@ -2013,13 +2102,14 @@ class GlobalAf(Entity):
                                 self.ylist_key_names = ['type']
                                 self._child_classes = OrderedDict([("as-or-four-byte-as", ("as_or_four_byte_as", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs)), ("ipv4-address", ("ipv4_address", GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address))])
                                 self._leafs = OrderedDict([
-                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg', 'BgpVrfRouteTarget', '')])),
                                 ])
                                 self.type = None
 
                                 self.as_or_four_byte_as = YList(self)
                                 self.ipv4_address = YList(self)
                                 self._segment_path = lambda: "route-target" + "[type='" + str(self.type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget, ['type'], name, value)
@@ -2062,7 +2152,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, self).__init__()
@@ -2074,16 +2164,17 @@ class GlobalAf(Entity):
                                     self.ylist_key_names = ['as_xx','as_','as_index','stitching_rt']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                                        ('as_', YLeaf(YType.uint32, 'as')),
-                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                        ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                        ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                        ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                     ])
                                     self.as_xx = None
                                     self.as_ = None
                                     self.as_index = None
                                     self.stitching_rt = None
                                     self._segment_path = lambda: "as-or-four-byte-as" + "[as-xx='" + str(self.as_xx) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.AsOrFourByteAs, ['as_xx', 'as_', 'as_index', 'stitching_rt'], name, value)
@@ -2119,7 +2210,7 @@ class GlobalAf(Entity):
                                 """
 
                                 _prefix = 'ipv4-bgp-cfg'
-                                _revision = '2017-11-05'
+                                _revision = '2018-01-18'
 
                                 def __init__(self):
                                     super(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
@@ -2131,14 +2222,15 @@ class GlobalAf(Entity):
                                     self.ylist_key_names = ['address','address_index','stitching_rt']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('address_index', YLeaf(YType.uint32, 'address-index')),
-                                        ('stitching_rt', YLeaf(YType.uint32, 'stitching-rt')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                                        ('stitching_rt', (YLeaf(YType.uint32, 'stitching-rt'), ['int'])),
                                     ])
                                     self.address = None
                                     self.address_index = None
                                     self.stitching_rt = None
                                     self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[address-index='" + str(self.address_index) + "']" + "[stitching-rt='" + str(self.stitching_rt) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportRouteTargets.RouteTargets.RouteTarget.Ipv4Address, ['address', 'address_index', 'stitching_rt'], name, value)
@@ -2167,7 +2259,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, self).__init__()
@@ -2180,12 +2272,13 @@ class GlobalAf(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('allow_imported_vpn', (YLeaf(YType.boolean, 'allow-imported-vpn'), ['bool'])),
                         ])
                         self.route_policy_name = None
                         self.allow_imported_vpn = None
                         self._segment_path = lambda: "vrf-to-global-export-route-policy"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.VrfToGlobalExportRoutePolicy, ['route_policy_name', 'allow_imported_vpn'], name, value)
@@ -2210,7 +2303,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, self).__init__()
@@ -2222,12 +2315,13 @@ class GlobalAf(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('allow_imported_vpn', YLeaf(YType.boolean, 'allow-imported-vpn')),
-                            ('import_stitching_rt', YLeaf(YType.boolean, 'import-stitching-rt')),
+                            ('allow_imported_vpn', (YLeaf(YType.boolean, 'allow-imported-vpn'), ['bool'])),
+                            ('import_stitching_rt', (YLeaf(YType.boolean, 'import-stitching-rt'), ['bool'])),
                         ])
                         self.allow_imported_vpn = None
                         self.import_stitching_rt = None
                         self._segment_path = lambda: "export-vrf-options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.ExportVrfOptions, ['allow_imported_vpn', 'import_stitching_rt'], name, value)
@@ -2256,7 +2350,7 @@ class GlobalAf(Entity):
                     """
 
                     _prefix = 'ipv4-bgp-cfg'
-                    _revision = '2017-11-05'
+                    _revision = '2018-01-18'
 
                     def __init__(self):
                         super(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, self).__init__()
@@ -2269,66 +2363,16 @@ class GlobalAf(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('advertise_as_vpn', YLeaf(YType.boolean, 'advertise-as-vpn')),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('advertise_as_vpn', (YLeaf(YType.boolean, 'advertise-as-vpn'), ['bool'])),
                         ])
                         self.route_policy_name = None
                         self.advertise_as_vpn = None
                         self._segment_path = lambda: "global-to-vrf-import-route-policy"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(GlobalAf.Afs.Af.Bgp.GlobalToVrfImportRoutePolicy, ['route_policy_name', 'advertise_as_vpn'], name, value)
-
-
-            class MaximumPrefix(Entity):
-                """
-                Set maximum prefix limits
-                
-                .. attribute:: prefix_limit
-                
-                	Set table's maximum prefix limit
-                	**type**\: int
-                
-                	**range:** 32..10000000
-                
-                	**mandatory**\: True
-                
-                .. attribute:: mid_threshold
-                
-                	Mid\-threshold (% of maximum)
-                	**type**\: int
-                
-                	**range:** 1..100
-                
-                
-
-                This class is a :ref:`presence class<presence-class>`
-
-                """
-
-                _prefix = 'ip-rib-cfg'
-                _revision = '2017-07-31'
-
-                def __init__(self):
-                    super(GlobalAf.Afs.Af.MaximumPrefix, self).__init__()
-
-                    self.yang_name = "maximum-prefix"
-                    self.yang_parent_name = "af"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self.is_presence_container = True
-                    self._leafs = OrderedDict([
-                        ('prefix_limit', YLeaf(YType.uint32, 'prefix-limit')),
-                        ('mid_threshold', YLeaf(YType.uint32, 'mid-threshold')),
-                    ])
-                    self.prefix_limit = None
-                    self.mid_threshold = None
-                    self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:maximum-prefix"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(GlobalAf.Afs.Af.MaximumPrefix, ['prefix_limit', 'mid_threshold'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GlobalAf()
@@ -2381,7 +2425,7 @@ class Srlg(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("interfaces", ("interfaces", Srlg.Interfaces)), ("srlg-names", ("srlg_names", Srlg.SrlgNames)), ("groups", ("groups", Srlg.Groups)), ("inherit-nodes", ("inherit_nodes", Srlg.InheritNodes))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
         ])
         self.enable = None
 
@@ -2401,6 +2445,7 @@ class Srlg(Entity):
         self.inherit_nodes.parent = self
         self._children_name_map["inherit_nodes"] = "inherit-nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Srlg, [u'enable'], name, value)
@@ -2436,6 +2481,7 @@ class Srlg(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srlg.Interfaces, [], name, value)
@@ -2450,7 +2496,7 @@ class Srlg(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: include_optical
             
@@ -2494,8 +2540,8 @@ class Srlg(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("include-optical", ("include_optical", Srlg.Interfaces.Interface.IncludeOptical)), ("interface-group", ("interface_group", Srlg.Interfaces.Interface.InterfaceGroup)), ("values", ("values", Srlg.Interfaces.Interface.Values)), ("interface-srlg-names", ("interface_srlg_names", Srlg.Interfaces.Interface.InterfaceSrlgNames))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.interface_name = None
                 self.enable = None
@@ -2517,6 +2563,7 @@ class Srlg(Entity):
                 self._children_name_map["interface_srlg_names"] = "interface-srlg-names"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.Interfaces.Interface, [u'interface_name', u'enable'], name, value)
@@ -2555,12 +2602,13 @@ class Srlg(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority', '')])),
                     ])
                     self.enable = None
                     self.priority = None
                     self._segment_path = lambda: "include-optical"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Interfaces.Interface.IncludeOptical, [u'enable', u'priority'], name, value)
@@ -2597,7 +2645,7 @@ class Srlg(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("group-names", ("group_names", Srlg.Interfaces.Interface.InterfaceGroup.GroupNames))])
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.enable = None
 
@@ -2605,6 +2653,7 @@ class Srlg(Entity):
                     self.group_names.parent = self
                     self._children_name_map["group_names"] = "group-names"
                     self._segment_path = lambda: "interface-group"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup, [u'enable'], name, value)
@@ -2639,6 +2688,7 @@ class Srlg(Entity):
 
                         self.group_name = YList(self)
                         self._segment_path = lambda: "group-names"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames, [], name, value)
@@ -2686,14 +2736,15 @@ class Srlg(Entity):
                             self.ylist_key_names = ['group_name_index']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_name_index', YLeaf(YType.uint32, 'group-name-index')),
-                                ('group_name', YLeaf(YType.str, 'group-name')),
-                                ('srlg_priority', YLeaf(YType.enumeration, 'srlg-priority')),
+                                ('group_name_index', (YLeaf(YType.uint32, 'group-name-index'), ['int'])),
+                                ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                                ('srlg_priority', (YLeaf(YType.enumeration, 'srlg-priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority', '')])),
                             ])
                             self.group_name_index = None
                             self.group_name = None
                             self.srlg_priority = None
                             self._segment_path = lambda: "group-name" + "[group-name-index='" + str(self.group_name_index) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srlg.Interfaces.Interface.InterfaceGroup.GroupNames.GroupName, [u'group_name_index', u'group_name', u'srlg_priority'], name, value)
@@ -2728,6 +2779,7 @@ class Srlg(Entity):
 
                     self.value = YList(self)
                     self._segment_path = lambda: "values"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Interfaces.Interface.Values, [], name, value)
@@ -2777,14 +2829,15 @@ class Srlg(Entity):
                         self.ylist_key_names = ['srlg_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
-                            ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
-                            ('srlg_priority', YLeaf(YType.enumeration, 'srlg-priority')),
+                            ('srlg_index', (YLeaf(YType.uint32, 'srlg-index'), ['int'])),
+                            ('srlg_value', (YLeaf(YType.uint32, 'srlg-value'), ['int'])),
+                            ('srlg_priority', (YLeaf(YType.enumeration, 'srlg-priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority', '')])),
                         ])
                         self.srlg_index = None
                         self.srlg_value = None
                         self.srlg_priority = None
                         self._segment_path = lambda: "value" + "[srlg-index='" + str(self.srlg_index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.Values.Value, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
@@ -2819,6 +2872,7 @@ class Srlg(Entity):
 
                     self.interface_srlg_name = YList(self)
                     self._segment_path = lambda: "interface-srlg-names"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames, [], name, value)
@@ -2852,10 +2906,11 @@ class Srlg(Entity):
                         self.ylist_key_names = ['srlg_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('srlg_name', YLeaf(YType.str, 'srlg-name')),
+                            ('srlg_name', (YLeaf(YType.str, 'srlg-name'), ['str'])),
                         ])
                         self.srlg_name = None
                         self._segment_path = lambda: "interface-srlg-name" + "[srlg-name='" + str(self.srlg_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Interfaces.Interface.InterfaceSrlgNames.InterfaceSrlgName, [u'srlg_name'], name, value)
@@ -2891,6 +2946,7 @@ class Srlg(Entity):
             self.srlg_name = YList(self)
             self._segment_path = lambda: "srlg-names"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srlg.SrlgNames, [], name, value)
@@ -2933,13 +2989,14 @@ class Srlg(Entity):
                 self.ylist_key_names = ['srlg_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('srlg_name', YLeaf(YType.str, 'srlg-name')),
-                    ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
+                    ('srlg_name', (YLeaf(YType.str, 'srlg-name'), ['str'])),
+                    ('srlg_value', (YLeaf(YType.uint32, 'srlg-value'), ['int'])),
                 ])
                 self.srlg_name = None
                 self.srlg_value = None
                 self._segment_path = lambda: "srlg-name" + "[srlg-name='" + str(self.srlg_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/srlg-names/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.SrlgNames.SrlgName, [u'srlg_name', u'srlg_value'], name, value)
@@ -2975,6 +3032,7 @@ class Srlg(Entity):
             self.group = YList(self)
             self._segment_path = lambda: "groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srlg.Groups, [], name, value)
@@ -3018,8 +3076,8 @@ class Srlg(Entity):
                 self.ylist_key_names = ['group_name']
                 self._child_classes = OrderedDict([("group-values", ("group_values", Srlg.Groups.Group.GroupValues))])
                 self._leafs = OrderedDict([
-                    ('group_name', YLeaf(YType.str, 'group-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('group_name', (YLeaf(YType.str, 'group-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.group_name = None
                 self.enable = None
@@ -3029,6 +3087,7 @@ class Srlg(Entity):
                 self._children_name_map["group_values"] = "group-values"
                 self._segment_path = lambda: "group" + "[group-name='" + str(self.group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.Groups.Group, [u'group_name', u'enable'], name, value)
@@ -3063,6 +3122,7 @@ class Srlg(Entity):
 
                     self.group_value = YList(self)
                     self._segment_path = lambda: "group-values"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.Groups.Group.GroupValues, [], name, value)
@@ -3112,14 +3172,15 @@ class Srlg(Entity):
                         self.ylist_key_names = ['srlg_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
-                            ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
-                            ('srlg_priority', YLeaf(YType.enumeration, 'srlg-priority')),
+                            ('srlg_index', (YLeaf(YType.uint32, 'srlg-index'), ['int'])),
+                            ('srlg_value', (YLeaf(YType.uint32, 'srlg-value'), ['int'])),
+                            ('srlg_priority', (YLeaf(YType.enumeration, 'srlg-priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority', '')])),
                         ])
                         self.srlg_index = None
                         self.srlg_value = None
                         self.srlg_priority = None
                         self._segment_path = lambda: "group-value" + "[srlg-index='" + str(self.srlg_index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.Groups.Group.GroupValues.GroupValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
@@ -3155,6 +3216,7 @@ class Srlg(Entity):
             self.inherit_node = YList(self)
             self._segment_path = lambda: "inherit-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srlg.InheritNodes, [], name, value)
@@ -3198,8 +3260,8 @@ class Srlg(Entity):
                 self.ylist_key_names = ['inherit_node_name']
                 self._child_classes = OrderedDict([("inherit-node-values", ("inherit_node_values", Srlg.InheritNodes.InheritNode.InheritNodeValues))])
                 self._leafs = OrderedDict([
-                    ('inherit_node_name', YLeaf(YType.str, 'inherit-node-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('inherit_node_name', (YLeaf(YType.str, 'inherit-node-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.inherit_node_name = None
                 self.enable = None
@@ -3209,6 +3271,7 @@ class Srlg(Entity):
                 self._children_name_map["inherit_node_values"] = "inherit-node-values"
                 self._segment_path = lambda: "inherit-node" + "[inherit-node-name='" + str(self.inherit_node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:srlg/inherit-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srlg.InheritNodes.InheritNode, [u'inherit_node_name', u'enable'], name, value)
@@ -3244,6 +3307,7 @@ class Srlg(Entity):
 
                     self.inherit_node_value = YList(self)
                     self._segment_path = lambda: "inherit-node-values"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues, [], name, value)
@@ -3293,14 +3357,15 @@ class Srlg(Entity):
                         self.ylist_key_names = ['srlg_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('srlg_index', YLeaf(YType.uint32, 'srlg-index')),
-                            ('srlg_value', YLeaf(YType.uint32, 'srlg-value')),
-                            ('srlg_priority', YLeaf(YType.enumeration, 'srlg-priority')),
+                            ('srlg_index', (YLeaf(YType.uint32, 'srlg-index'), ['int'])),
+                            ('srlg_value', (YLeaf(YType.uint32, 'srlg-value'), ['int'])),
+                            ('srlg_priority', (YLeaf(YType.enumeration, 'srlg-priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rsi_cfg', 'SrlgPriority', '')])),
                         ])
                         self.srlg_index = None
                         self.srlg_value = None
                         self.srlg_priority = None
                         self._segment_path = lambda: "inherit-node-value" + "[srlg-index='" + str(self.srlg_index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srlg.InheritNodes.InheritNode.InheritNodeValues.InheritNodeValue, [u'srlg_index', u'srlg_value', u'srlg_priority'], name, value)
@@ -3339,6 +3404,7 @@ class VrfGroups(Entity):
 
         self.vrf_group = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrf-groups"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(VrfGroups, [], name, value)
@@ -3382,8 +3448,8 @@ class VrfGroups(Entity):
             self.ylist_key_names = ['vrf_group_name']
             self._child_classes = OrderedDict([("vrfs", ("vrfs", VrfGroups.VrfGroup.Vrfs))])
             self._leafs = OrderedDict([
-                ('vrf_group_name', YLeaf(YType.str, 'vrf-group-name')),
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('vrf_group_name', (YLeaf(YType.str, 'vrf-group-name'), ['str'])),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.vrf_group_name = None
             self.enable = None
@@ -3393,6 +3459,7 @@ class VrfGroups(Entity):
             self._children_name_map["vrfs"] = "vrfs"
             self._segment_path = lambda: "vrf-group" + "[vrf-group-name='" + str(self.vrf_group_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:vrf-groups/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(VrfGroups.VrfGroup, [u'vrf_group_name', u'enable'], name, value)
@@ -3427,6 +3494,7 @@ class VrfGroups(Entity):
 
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VrfGroups.VrfGroup.Vrfs, [], name, value)
@@ -3460,10 +3528,11 @@ class VrfGroups(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                     ])
                     self.vrf_name = None
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VrfGroups.VrfGroup.Vrfs.Vrf, [u'vrf_name'], name, value)
@@ -3499,10 +3568,11 @@ class SelectiveVrfDownload(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('disable', YLeaf(YType.empty, 'disable')),
+            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
         ])
         self.disable = None
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rsi-cfg:selective-vrf-download"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SelectiveVrfDownload, [u'disable'], name, value)

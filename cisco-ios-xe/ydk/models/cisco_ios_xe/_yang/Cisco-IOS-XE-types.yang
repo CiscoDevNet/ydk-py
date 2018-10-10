@@ -23,12 +23,16 @@ module Cisco-IOS-XE-types {
 
   description
     "Cisco XE Native Common Type Definitions
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-22 {
+     description
+       "Change range-string pattern to single quotes";
+  }
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -690,7 +694,7 @@ module Cisco-IOS-XE-types {
   typedef range-string {
     type string {
       pattern
-        "((\d+(-\d+)?)(,(\d+(-\d+)?))*)";
+        '((\d+(-\d+)?)(,(\d+(-\d+)?))*)';
     }
   }
 

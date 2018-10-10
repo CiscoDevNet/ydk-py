@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class StpLinkRole(Enum):
     """
     StpLinkRole (Enum Class)
@@ -230,6 +231,7 @@ class StpDetails(Entity):
 
         self.stp_detail = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(StpDetails, [], name, value)
@@ -357,20 +359,20 @@ class StpDetails(Entity):
             self.ylist_key_names = ['instance']
             self._child_classes = OrderedDict([("interfaces", ("interfaces", StpDetails.StpDetail.Interfaces))])
             self._leafs = OrderedDict([
-                ('instance', YLeaf(YType.str, 'instance')),
-                ('hello_time', YLeaf(YType.int32, 'hello-time')),
-                ('max_age', YLeaf(YType.int32, 'max-age')),
-                ('forwarding_delay', YLeaf(YType.int32, 'forwarding-delay')),
-                ('hold_count', YLeaf(YType.uint32, 'hold-count')),
-                ('bridge_priority', YLeaf(YType.uint16, 'bridge-priority')),
-                ('bridge_address', YLeaf(YType.str, 'bridge-address')),
-                ('designated_root_priority', YLeaf(YType.uint32, 'designated-root-priority')),
-                ('designated_root_address', YLeaf(YType.str, 'designated-root-address')),
-                ('root_port', YLeaf(YType.uint16, 'root-port')),
-                ('root_cost', YLeaf(YType.uint64, 'root-cost')),
-                ('hold_time', YLeaf(YType.uint64, 'hold-time')),
-                ('topology_changes', YLeaf(YType.uint64, 'topology-changes')),
-                ('time_of_last_topology_change', YLeaf(YType.str, 'time-of-last-topology-change')),
+                ('instance', (YLeaf(YType.str, 'instance'), ['str'])),
+                ('hello_time', (YLeaf(YType.int32, 'hello-time'), ['int'])),
+                ('max_age', (YLeaf(YType.int32, 'max-age'), ['int'])),
+                ('forwarding_delay', (YLeaf(YType.int32, 'forwarding-delay'), ['int'])),
+                ('hold_count', (YLeaf(YType.uint32, 'hold-count'), ['int'])),
+                ('bridge_priority', (YLeaf(YType.uint16, 'bridge-priority'), ['int'])),
+                ('bridge_address', (YLeaf(YType.str, 'bridge-address'), ['str'])),
+                ('designated_root_priority', (YLeaf(YType.uint32, 'designated-root-priority'), ['int'])),
+                ('designated_root_address', (YLeaf(YType.str, 'designated-root-address'), ['str'])),
+                ('root_port', (YLeaf(YType.uint16, 'root-port'), ['int'])),
+                ('root_cost', (YLeaf(YType.uint64, 'root-cost'), ['int'])),
+                ('hold_time', (YLeaf(YType.uint64, 'hold-time'), ['int'])),
+                ('topology_changes', (YLeaf(YType.uint64, 'topology-changes'), ['int'])),
+                ('time_of_last_topology_change', (YLeaf(YType.str, 'time-of-last-topology-change'), ['str'])),
             ])
             self.instance = None
             self.hello_time = None
@@ -392,6 +394,7 @@ class StpDetails(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "stp-detail" + "[instance='" + str(self.instance) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(StpDetails.StpDetail, ['instance', 'hello_time', 'max_age', 'forwarding_delay', 'hold_count', 'bridge_priority', 'bridge_address', 'designated_root_priority', 'designated_root_address', 'root_port', 'root_cost', 'hold_time', 'topology_changes', 'time_of_last_topology_change'], name, value)
@@ -426,6 +429,7 @@ class StpDetails(Entity):
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(StpDetails.StpDetail.Interfaces, [], name, value)
@@ -578,26 +582,26 @@ class StpDetails(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('cost', YLeaf(YType.uint64, 'cost')),
-                        ('port_priority', YLeaf(YType.uint16, 'port-priority')),
-                        ('port_num', YLeaf(YType.uint16, 'port-num')),
-                        ('role', YLeaf(YType.enumeration, 'role')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('designated_root_priority', YLeaf(YType.uint32, 'designated-root-priority')),
-                        ('designated_root_address', YLeaf(YType.str, 'designated-root-address')),
-                        ('designated_cost', YLeaf(YType.uint32, 'designated-cost')),
-                        ('designated_bridge_priority', YLeaf(YType.uint32, 'designated-bridge-priority')),
-                        ('designated_bridge_address', YLeaf(YType.str, 'designated-bridge-address')),
-                        ('designated_port_priority', YLeaf(YType.uint16, 'designated-port-priority')),
-                        ('designated_port_num', YLeaf(YType.uint16, 'designated-port-num')),
-                        ('forward_transitions', YLeaf(YType.uint64, 'forward-transitions')),
-                        ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                        ('guard', YLeaf(YType.enumeration, 'guard')),
-                        ('bpdu_guard', YLeaf(YType.enumeration, 'bpdu-guard')),
-                        ('bpdu_filter', YLeaf(YType.enumeration, 'bpdu-filter')),
-                        ('bpdu_sent', YLeaf(YType.uint64, 'bpdu-sent')),
-                        ('bpdu_received', YLeaf(YType.uint64, 'bpdu-received')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('cost', (YLeaf(YType.uint64, 'cost'), ['int'])),
+                        ('port_priority', (YLeaf(YType.uint16, 'port-priority'), ['int'])),
+                        ('port_num', (YLeaf(YType.uint16, 'port-num'), ['int'])),
+                        ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpPortRole', '')])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpPortState', '')])),
+                        ('designated_root_priority', (YLeaf(YType.uint32, 'designated-root-priority'), ['int'])),
+                        ('designated_root_address', (YLeaf(YType.str, 'designated-root-address'), ['str'])),
+                        ('designated_cost', (YLeaf(YType.uint32, 'designated-cost'), ['int'])),
+                        ('designated_bridge_priority', (YLeaf(YType.uint32, 'designated-bridge-priority'), ['int'])),
+                        ('designated_bridge_address', (YLeaf(YType.str, 'designated-bridge-address'), ['str'])),
+                        ('designated_port_priority', (YLeaf(YType.uint16, 'designated-port-priority'), ['int'])),
+                        ('designated_port_num', (YLeaf(YType.uint16, 'designated-port-num'), ['int'])),
+                        ('forward_transitions', (YLeaf(YType.uint64, 'forward-transitions'), ['int'])),
+                        ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpLinkRole', '')])),
+                        ('guard', (YLeaf(YType.enumeration, 'guard'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpPortGuard', '')])),
+                        ('bpdu_guard', (YLeaf(YType.enumeration, 'bpdu-guard'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpPortBpduguard', '')])),
+                        ('bpdu_filter', (YLeaf(YType.enumeration, 'bpdu-filter'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpPortBpdufilter', '')])),
+                        ('bpdu_sent', (YLeaf(YType.uint64, 'bpdu-sent'), ['int'])),
+                        ('bpdu_received', (YLeaf(YType.uint64, 'bpdu-received'), ['int'])),
                     ])
                     self.name = None
                     self.cost = None
@@ -620,6 +624,7 @@ class StpDetails(Entity):
                     self.bpdu_sent = None
                     self.bpdu_received = None
                     self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(StpDetails.StpDetail.Interfaces.Interface, ['name', 'cost', 'port_priority', 'port_num', 'role', 'state', 'designated_root_priority', 'designated_root_address', 'designated_cost', 'designated_bridge_priority', 'designated_bridge_address', 'designated_port_priority', 'designated_port_num', 'forward_transitions', 'link_type', 'guard', 'bpdu_guard', 'bpdu_filter', 'bpdu_sent', 'bpdu_received'], name, value)
@@ -684,12 +689,12 @@ class StpDetails(Entity):
             self._child_classes = OrderedDict([("mst-only", ("mst_only", StpDetails.StpGlobal.MstOnly))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('mode', YLeaf(YType.enumeration, 'mode')),
-                ('bridge_assurance', YLeaf(YType.empty, 'bridge-assurance')),
-                ('loop_guard', YLeaf(YType.empty, 'loop-guard')),
-                ('bpdu_guard', YLeaf(YType.empty, 'bpdu-guard')),
-                ('bpdu_filter', YLeaf(YType.empty, 'bpdu-filter')),
-                ('etherchannel_misconfig_guard', YLeaf(YType.empty, 'etherchannel-misconfig-guard')),
+                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_spanning_tree_oper', 'StpMode', '')])),
+                ('bridge_assurance', (YLeaf(YType.empty, 'bridge-assurance'), ['Empty'])),
+                ('loop_guard', (YLeaf(YType.empty, 'loop-guard'), ['Empty'])),
+                ('bpdu_guard', (YLeaf(YType.empty, 'bpdu-guard'), ['Empty'])),
+                ('bpdu_filter', (YLeaf(YType.empty, 'bpdu-filter'), ['Empty'])),
+                ('etherchannel_misconfig_guard', (YLeaf(YType.empty, 'etherchannel-misconfig-guard'), ['Empty'])),
             ])
             self.mode = None
             self.bridge_assurance = None
@@ -703,6 +708,7 @@ class StpDetails(Entity):
             self._children_name_map["mst_only"] = "mst-only"
             self._segment_path = lambda: "stp-global"
             self._absolute_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(StpDetails.StpGlobal, ['mode', 'bridge_assurance', 'loop_guard', 'bpdu_guard', 'bpdu_filter', 'etherchannel_misconfig_guard'], name, value)
@@ -748,15 +754,16 @@ class StpDetails(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mst_config_revision', YLeaf(YType.uint16, 'mst-config-revision')),
-                    ('mst_config_name', YLeaf(YType.str, 'mst-config-name')),
-                    ('max_hops', YLeaf(YType.uint16, 'max-hops')),
+                    ('mst_config_revision', (YLeaf(YType.uint16, 'mst-config-revision'), ['int'])),
+                    ('mst_config_name', (YLeaf(YType.str, 'mst-config-name'), ['str'])),
+                    ('max_hops', (YLeaf(YType.uint16, 'max-hops'), ['int'])),
                 ])
                 self.mst_config_revision = None
                 self.mst_config_name = None
                 self.max_hops = None
                 self._segment_path = lambda: "mst-only"
                 self._absolute_path = lambda: "Cisco-IOS-XE-spanning-tree-oper:stp-details/stp-global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(StpDetails.StpGlobal.MstOnly, ['mst_config_revision', 'mst_config_name', 'max_hops'], name, value)

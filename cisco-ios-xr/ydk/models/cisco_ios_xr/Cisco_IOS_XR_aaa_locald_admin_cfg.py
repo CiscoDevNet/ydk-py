@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   aaa\: Admin plane AAA configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AaaAdminPassword(Enum):
@@ -79,6 +80,7 @@ class Aaa(Entity):
         self.usernames.parent = self
         self._children_name_map["usernames"] = "usernames"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Aaa, [], name, value)
@@ -114,6 +116,7 @@ class Aaa(Entity):
             self.username = YList(self)
             self._segment_path = lambda: "usernames"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.Usernames, [], name, value)
@@ -155,7 +158,7 @@ class Aaa(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("usergroup-under-usernames", ("usergroup_under_usernames", Aaa.Usernames.Username.UsergroupUnderUsernames)), ("secret", ("secret", Aaa.Usernames.Username.Secret))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -168,6 +171,7 @@ class Aaa(Entity):
                 self._children_name_map["secret"] = "secret"
                 self._segment_path = lambda: "username" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-locald-admin-cfg:aaa/usernames/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Usernames.Username, ['name'], name, value)
@@ -203,6 +207,7 @@ class Aaa(Entity):
 
                     self.usergroup_under_username = YList(self)
                     self._segment_path = lambda: "usergroup-under-usernames"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames, [], name, value)
@@ -236,10 +241,11 @@ class Aaa(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
                         self._segment_path = lambda: "usergroup-under-username" + "[name='" + str(self.name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Usernames.Username.UsergroupUnderUsernames.UsergroupUnderUsername, ['name'], name, value)
@@ -292,16 +298,17 @@ class Aaa(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('secret5', YLeaf(YType.str, 'secret5')),
-                        ('secret8', YLeaf(YType.str, 'secret8')),
-                        ('secret9', YLeaf(YType.str, 'secret9')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_locald_admin_cfg', 'AaaAdminPassword', '')])),
+                        ('secret5', (YLeaf(YType.str, 'secret5'), ['str'])),
+                        ('secret8', (YLeaf(YType.str, 'secret8'), ['str'])),
+                        ('secret9', (YLeaf(YType.str, 'secret9'), ['str'])),
                     ])
                     self.type = None
                     self.secret5 = None
                     self.secret8 = None
                     self.secret9 = None
                     self._segment_path = lambda: "secret"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Usernames.Username.Secret, ['type', 'secret5', 'secret8', 'secret9'], name, value)

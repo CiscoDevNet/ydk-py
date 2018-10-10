@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class SONETMIB(Entity):
     """
     
@@ -183,6 +184,7 @@ class SONETMIB(Entity):
         self.sonetfarendvtintervaltable.parent = self
         self._children_name_map["sonetfarendvtintervaltable"] = "sonetFarEndVTIntervalTable"
         self._segment_path = lambda: "SONET-MIB:SONET-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SONETMIB, [], name, value)
@@ -214,11 +216,12 @@ class SONETMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sonetsesthresholdset', YLeaf(YType.enumeration, 'sonetSESthresholdSet')),
+                ('sonetsesthresholdset', (YLeaf(YType.enumeration, 'sonetSESthresholdSet'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetMedium.SonetSESthresholdSet')])),
             ])
             self.sonetsesthresholdset = None
             self._segment_path = lambda: "sonetMedium"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetMedium, [u'sonetsesthresholdset'], name, value)
@@ -321,6 +324,7 @@ class SONETMIB(Entity):
             self.sonetmediumentry = YList(self)
             self._segment_path = lambda: "sonetMediumTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetMediumTable, [], name, value)
@@ -404,15 +408,15 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetmediumtype', YLeaf(YType.enumeration, 'sonetMediumType')),
-                    ('sonetmediumtimeelapsed', YLeaf(YType.int32, 'sonetMediumTimeElapsed')),
-                    ('sonetmediumvalidintervals', YLeaf(YType.int32, 'sonetMediumValidIntervals')),
-                    ('sonetmediumlinecoding', YLeaf(YType.enumeration, 'sonetMediumLineCoding')),
-                    ('sonetmediumlinetype', YLeaf(YType.enumeration, 'sonetMediumLineType')),
-                    ('sonetmediumcircuitidentifier', YLeaf(YType.str, 'sonetMediumCircuitIdentifier')),
-                    ('sonetmediuminvalidintervals', YLeaf(YType.int32, 'sonetMediumInvalidIntervals')),
-                    ('sonetmediumloopbackconfig', YLeaf(YType.bits, 'sonetMediumLoopbackConfig')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetmediumtype', (YLeaf(YType.enumeration, 'sonetMediumType'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetMediumTable.SonetMediumEntry.SonetMediumType')])),
+                    ('sonetmediumtimeelapsed', (YLeaf(YType.int32, 'sonetMediumTimeElapsed'), ['int'])),
+                    ('sonetmediumvalidintervals', (YLeaf(YType.int32, 'sonetMediumValidIntervals'), ['int'])),
+                    ('sonetmediumlinecoding', (YLeaf(YType.enumeration, 'sonetMediumLineCoding'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetMediumTable.SonetMediumEntry.SonetMediumLineCoding')])),
+                    ('sonetmediumlinetype', (YLeaf(YType.enumeration, 'sonetMediumLineType'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetMediumTable.SonetMediumEntry.SonetMediumLineType')])),
+                    ('sonetmediumcircuitidentifier', (YLeaf(YType.str, 'sonetMediumCircuitIdentifier'), ['str'])),
+                    ('sonetmediuminvalidintervals', (YLeaf(YType.int32, 'sonetMediumInvalidIntervals'), ['int'])),
+                    ('sonetmediumloopbackconfig', (YLeaf(YType.bits, 'sonetMediumLoopbackConfig'), ['Bits'])),
                 ])
                 self.ifindex = None
                 self.sonetmediumtype = None
@@ -425,6 +429,7 @@ class SONETMIB(Entity):
                 self.sonetmediumloopbackconfig = Bits()
                 self._segment_path = lambda: "sonetMediumEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetMediumTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetMediumTable.SonetMediumEntry, [u'ifindex', u'sonetmediumtype', u'sonetmediumtimeelapsed', u'sonetmediumvalidintervals', u'sonetmediumlinecoding', u'sonetmediumlinetype', u'sonetmediumcircuitidentifier', u'sonetmediuminvalidintervals', u'sonetmediumloopbackconfig'], name, value)
@@ -561,6 +566,7 @@ class SONETMIB(Entity):
             self.sonetsectioncurrententry = YList(self)
             self._segment_path = lambda: "sonetSectionCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetSectionCurrentTable, [], name, value)
@@ -631,12 +637,12 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetsectioncurrentstatus', YLeaf(YType.int32, 'sonetSectionCurrentStatus')),
-                    ('sonetsectioncurrentess', YLeaf(YType.uint32, 'sonetSectionCurrentESs')),
-                    ('sonetsectioncurrentsess', YLeaf(YType.uint32, 'sonetSectionCurrentSESs')),
-                    ('sonetsectioncurrentsefss', YLeaf(YType.uint32, 'sonetSectionCurrentSEFSs')),
-                    ('sonetsectioncurrentcvs', YLeaf(YType.uint32, 'sonetSectionCurrentCVs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetsectioncurrentstatus', (YLeaf(YType.int32, 'sonetSectionCurrentStatus'), ['int'])),
+                    ('sonetsectioncurrentess', (YLeaf(YType.uint32, 'sonetSectionCurrentESs'), ['int'])),
+                    ('sonetsectioncurrentsess', (YLeaf(YType.uint32, 'sonetSectionCurrentSESs'), ['int'])),
+                    ('sonetsectioncurrentsefss', (YLeaf(YType.uint32, 'sonetSectionCurrentSEFSs'), ['int'])),
+                    ('sonetsectioncurrentcvs', (YLeaf(YType.uint32, 'sonetSectionCurrentCVs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetsectioncurrentstatus = None
@@ -646,6 +652,7 @@ class SONETMIB(Entity):
                 self.sonetsectioncurrentcvs = None
                 self._segment_path = lambda: "sonetSectionCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetSectionCurrentTable.SonetSectionCurrentEntry, [u'ifindex', u'sonetsectioncurrentstatus', u'sonetsectioncurrentess', u'sonetsectioncurrentsess', u'sonetsectioncurrentsefss', u'sonetsectioncurrentcvs'], name, value)
@@ -681,6 +688,7 @@ class SONETMIB(Entity):
             self.sonetsectionintervalentry = YList(self)
             self._segment_path = lambda: "sonetSectionIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetSectionIntervalTable, [], name, value)
@@ -756,13 +764,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetsectionintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetsectionintervalnumber', YLeaf(YType.int32, 'sonetSectionIntervalNumber')),
-                    ('sonetsectionintervaless', YLeaf(YType.uint32, 'sonetSectionIntervalESs')),
-                    ('sonetsectionintervalsess', YLeaf(YType.uint32, 'sonetSectionIntervalSESs')),
-                    ('sonetsectionintervalsefss', YLeaf(YType.uint32, 'sonetSectionIntervalSEFSs')),
-                    ('sonetsectionintervalcvs', YLeaf(YType.uint32, 'sonetSectionIntervalCVs')),
-                    ('sonetsectionintervalvaliddata', YLeaf(YType.boolean, 'sonetSectionIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetsectionintervalnumber', (YLeaf(YType.int32, 'sonetSectionIntervalNumber'), ['int'])),
+                    ('sonetsectionintervaless', (YLeaf(YType.uint32, 'sonetSectionIntervalESs'), ['int'])),
+                    ('sonetsectionintervalsess', (YLeaf(YType.uint32, 'sonetSectionIntervalSESs'), ['int'])),
+                    ('sonetsectionintervalsefss', (YLeaf(YType.uint32, 'sonetSectionIntervalSEFSs'), ['int'])),
+                    ('sonetsectionintervalcvs', (YLeaf(YType.uint32, 'sonetSectionIntervalCVs'), ['int'])),
+                    ('sonetsectionintervalvaliddata', (YLeaf(YType.boolean, 'sonetSectionIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetsectionintervalnumber = None
@@ -773,6 +781,7 @@ class SONETMIB(Entity):
                 self.sonetsectionintervalvaliddata = None
                 self._segment_path = lambda: "sonetSectionIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetSectionIntervalNumber='" + str(self.sonetsectionintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetSectionIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetSectionIntervalTable.SonetSectionIntervalEntry, [u'ifindex', u'sonetsectionintervalnumber', u'sonetsectionintervaless', u'sonetsectionintervalsess', u'sonetsectionintervalsefss', u'sonetsectionintervalcvs', u'sonetsectionintervalvaliddata'], name, value)
@@ -808,6 +817,7 @@ class SONETMIB(Entity):
             self.sonetlinecurrententry = YList(self)
             self._segment_path = lambda: "sonetLineCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetLineCurrentTable, [], name, value)
@@ -878,12 +888,12 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetlinecurrentstatus', YLeaf(YType.int32, 'sonetLineCurrentStatus')),
-                    ('sonetlinecurrentess', YLeaf(YType.uint32, 'sonetLineCurrentESs')),
-                    ('sonetlinecurrentsess', YLeaf(YType.uint32, 'sonetLineCurrentSESs')),
-                    ('sonetlinecurrentcvs', YLeaf(YType.uint32, 'sonetLineCurrentCVs')),
-                    ('sonetlinecurrentuass', YLeaf(YType.uint32, 'sonetLineCurrentUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetlinecurrentstatus', (YLeaf(YType.int32, 'sonetLineCurrentStatus'), ['int'])),
+                    ('sonetlinecurrentess', (YLeaf(YType.uint32, 'sonetLineCurrentESs'), ['int'])),
+                    ('sonetlinecurrentsess', (YLeaf(YType.uint32, 'sonetLineCurrentSESs'), ['int'])),
+                    ('sonetlinecurrentcvs', (YLeaf(YType.uint32, 'sonetLineCurrentCVs'), ['int'])),
+                    ('sonetlinecurrentuass', (YLeaf(YType.uint32, 'sonetLineCurrentUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetlinecurrentstatus = None
@@ -893,6 +903,7 @@ class SONETMIB(Entity):
                 self.sonetlinecurrentuass = None
                 self._segment_path = lambda: "sonetLineCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetLineCurrentTable.SonetLineCurrentEntry, [u'ifindex', u'sonetlinecurrentstatus', u'sonetlinecurrentess', u'sonetlinecurrentsess', u'sonetlinecurrentcvs', u'sonetlinecurrentuass'], name, value)
@@ -928,6 +939,7 @@ class SONETMIB(Entity):
             self.sonetlineintervalentry = YList(self)
             self._segment_path = lambda: "sonetLineIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetLineIntervalTable, [], name, value)
@@ -1003,13 +1015,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetlineintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetlineintervalnumber', YLeaf(YType.int32, 'sonetLineIntervalNumber')),
-                    ('sonetlineintervaless', YLeaf(YType.uint32, 'sonetLineIntervalESs')),
-                    ('sonetlineintervalsess', YLeaf(YType.uint32, 'sonetLineIntervalSESs')),
-                    ('sonetlineintervalcvs', YLeaf(YType.uint32, 'sonetLineIntervalCVs')),
-                    ('sonetlineintervaluass', YLeaf(YType.uint32, 'sonetLineIntervalUASs')),
-                    ('sonetlineintervalvaliddata', YLeaf(YType.boolean, 'sonetLineIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetlineintervalnumber', (YLeaf(YType.int32, 'sonetLineIntervalNumber'), ['int'])),
+                    ('sonetlineintervaless', (YLeaf(YType.uint32, 'sonetLineIntervalESs'), ['int'])),
+                    ('sonetlineintervalsess', (YLeaf(YType.uint32, 'sonetLineIntervalSESs'), ['int'])),
+                    ('sonetlineintervalcvs', (YLeaf(YType.uint32, 'sonetLineIntervalCVs'), ['int'])),
+                    ('sonetlineintervaluass', (YLeaf(YType.uint32, 'sonetLineIntervalUASs'), ['int'])),
+                    ('sonetlineintervalvaliddata', (YLeaf(YType.boolean, 'sonetLineIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetlineintervalnumber = None
@@ -1020,6 +1032,7 @@ class SONETMIB(Entity):
                 self.sonetlineintervalvaliddata = None
                 self._segment_path = lambda: "sonetLineIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetLineIntervalNumber='" + str(self.sonetlineintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetLineIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetLineIntervalTable.SonetLineIntervalEntry, [u'ifindex', u'sonetlineintervalnumber', u'sonetlineintervaless', u'sonetlineintervalsess', u'sonetlineintervalcvs', u'sonetlineintervaluass', u'sonetlineintervalvaliddata'], name, value)
@@ -1055,6 +1068,7 @@ class SONETMIB(Entity):
             self.sonetfarendlinecurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndLineCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable, [], name, value)
@@ -1118,11 +1132,11 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendlinecurrentess', YLeaf(YType.uint32, 'sonetFarEndLineCurrentESs')),
-                    ('sonetfarendlinecurrentsess', YLeaf(YType.uint32, 'sonetFarEndLineCurrentSESs')),
-                    ('sonetfarendlinecurrentcvs', YLeaf(YType.uint32, 'sonetFarEndLineCurrentCVs')),
-                    ('sonetfarendlinecurrentuass', YLeaf(YType.uint32, 'sonetFarEndLineCurrentUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendlinecurrentess', (YLeaf(YType.uint32, 'sonetFarEndLineCurrentESs'), ['int'])),
+                    ('sonetfarendlinecurrentsess', (YLeaf(YType.uint32, 'sonetFarEndLineCurrentSESs'), ['int'])),
+                    ('sonetfarendlinecurrentcvs', (YLeaf(YType.uint32, 'sonetFarEndLineCurrentCVs'), ['int'])),
+                    ('sonetfarendlinecurrentuass', (YLeaf(YType.uint32, 'sonetFarEndLineCurrentUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendlinecurrentess = None
@@ -1131,6 +1145,7 @@ class SONETMIB(Entity):
                 self.sonetfarendlinecurrentuass = None
                 self._segment_path = lambda: "sonetFarEndLineCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndLineCurrentTable.SonetFarEndLineCurrentEntry, [u'ifindex', u'sonetfarendlinecurrentess', u'sonetfarendlinecurrentsess', u'sonetfarendlinecurrentcvs', u'sonetfarendlinecurrentuass'], name, value)
@@ -1166,6 +1181,7 @@ class SONETMIB(Entity):
             self.sonetfarendlineintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndLineIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable, [], name, value)
@@ -1242,13 +1258,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetfarendlineintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendlineintervalnumber', YLeaf(YType.int32, 'sonetFarEndLineIntervalNumber')),
-                    ('sonetfarendlineintervaless', YLeaf(YType.uint32, 'sonetFarEndLineIntervalESs')),
-                    ('sonetfarendlineintervalsess', YLeaf(YType.uint32, 'sonetFarEndLineIntervalSESs')),
-                    ('sonetfarendlineintervalcvs', YLeaf(YType.uint32, 'sonetFarEndLineIntervalCVs')),
-                    ('sonetfarendlineintervaluass', YLeaf(YType.uint32, 'sonetFarEndLineIntervalUASs')),
-                    ('sonetfarendlineintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndLineIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendlineintervalnumber', (YLeaf(YType.int32, 'sonetFarEndLineIntervalNumber'), ['int'])),
+                    ('sonetfarendlineintervaless', (YLeaf(YType.uint32, 'sonetFarEndLineIntervalESs'), ['int'])),
+                    ('sonetfarendlineintervalsess', (YLeaf(YType.uint32, 'sonetFarEndLineIntervalSESs'), ['int'])),
+                    ('sonetfarendlineintervalcvs', (YLeaf(YType.uint32, 'sonetFarEndLineIntervalCVs'), ['int'])),
+                    ('sonetfarendlineintervaluass', (YLeaf(YType.uint32, 'sonetFarEndLineIntervalUASs'), ['int'])),
+                    ('sonetfarendlineintervalvaliddata', (YLeaf(YType.boolean, 'sonetFarEndLineIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendlineintervalnumber = None
@@ -1259,6 +1275,7 @@ class SONETMIB(Entity):
                 self.sonetfarendlineintervalvaliddata = None
                 self._segment_path = lambda: "sonetFarEndLineIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndLineIntervalNumber='" + str(self.sonetfarendlineintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndLineIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndLineIntervalTable.SonetFarEndLineIntervalEntry, [u'ifindex', u'sonetfarendlineintervalnumber', u'sonetfarendlineintervaless', u'sonetfarendlineintervalsess', u'sonetfarendlineintervalcvs', u'sonetfarendlineintervaluass', u'sonetfarendlineintervalvaliddata'], name, value)
@@ -1294,6 +1311,7 @@ class SONETMIB(Entity):
             self.sonetpathcurrententry = YList(self)
             self._segment_path = lambda: "sonetPathCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetPathCurrentTable, [], name, value)
@@ -1389,17 +1407,17 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetpathcurrentwidth', YLeaf(YType.enumeration, 'sonetPathCurrentWidth')),
-                    ('sonetpathcurrentstatus', YLeaf(YType.int32, 'sonetPathCurrentStatus')),
-                    ('sonetpathcurrentess', YLeaf(YType.uint32, 'sonetPathCurrentESs')),
-                    ('sonetpathcurrentsess', YLeaf(YType.uint32, 'sonetPathCurrentSESs')),
-                    ('sonetpathcurrentcvs', YLeaf(YType.uint32, 'sonetPathCurrentCVs')),
-                    ('sonetpathcurrentuass', YLeaf(YType.uint32, 'sonetPathCurrentUASs')),
-                    ('cspsonetpathpayload', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSonetPathPayload')),
-                    ('csptributarymappingtype', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryMappingType')),
-                    ('cspsignallingtransportmode', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSignallingTransportMode')),
-                    ('csptributarygroupingtype', YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryGroupingType')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetpathcurrentwidth', (YLeaf(YType.enumeration, 'sonetPathCurrentWidth'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetPathCurrentTable.SonetPathCurrentEntry.SonetPathCurrentWidth')])),
+                    ('sonetpathcurrentstatus', (YLeaf(YType.int32, 'sonetPathCurrentStatus'), ['int'])),
+                    ('sonetpathcurrentess', (YLeaf(YType.uint32, 'sonetPathCurrentESs'), ['int'])),
+                    ('sonetpathcurrentsess', (YLeaf(YType.uint32, 'sonetPathCurrentSESs'), ['int'])),
+                    ('sonetpathcurrentcvs', (YLeaf(YType.uint32, 'sonetPathCurrentCVs'), ['int'])),
+                    ('sonetpathcurrentuass', (YLeaf(YType.uint32, 'sonetPathCurrentUASs'), ['int'])),
+                    ('cspsonetpathpayload', (YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSonetPathPayload'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetPathCurrentTable.SonetPathCurrentEntry.CspSonetPathPayload')])),
+                    ('csptributarymappingtype', (YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryMappingType'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryMappingType')])),
+                    ('cspsignallingtransportmode', (YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspSignallingTransportMode'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetPathCurrentTable.SonetPathCurrentEntry.CspSignallingTransportMode')])),
+                    ('csptributarygroupingtype', (YLeaf(YType.enumeration, 'CISCO-SONET-MIB:cspTributaryGroupingType'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetPathCurrentTable.SonetPathCurrentEntry.CspTributaryGroupingType')])),
                 ])
                 self.ifindex = None
                 self.sonetpathcurrentwidth = None
@@ -1414,6 +1432,7 @@ class SONETMIB(Entity):
                 self.csptributarygroupingtype = None
                 self._segment_path = lambda: "sonetPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetPathCurrentTable.SonetPathCurrentEntry, [u'ifindex', u'sonetpathcurrentwidth', u'sonetpathcurrentstatus', u'sonetpathcurrentess', u'sonetpathcurrentsess', u'sonetpathcurrentcvs', u'sonetpathcurrentuass', 'cspsonetpathpayload', 'csptributarymappingtype', 'cspsignallingtransportmode', 'csptributarygroupingtype'], name, value)
@@ -1672,6 +1691,7 @@ class SONETMIB(Entity):
             self.sonetpathintervalentry = YList(self)
             self._segment_path = lambda: "sonetPathIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetPathIntervalTable, [], name, value)
@@ -1747,13 +1767,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetpathintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetpathintervalnumber', YLeaf(YType.int32, 'sonetPathIntervalNumber')),
-                    ('sonetpathintervaless', YLeaf(YType.uint32, 'sonetPathIntervalESs')),
-                    ('sonetpathintervalsess', YLeaf(YType.uint32, 'sonetPathIntervalSESs')),
-                    ('sonetpathintervalcvs', YLeaf(YType.uint32, 'sonetPathIntervalCVs')),
-                    ('sonetpathintervaluass', YLeaf(YType.uint32, 'sonetPathIntervalUASs')),
-                    ('sonetpathintervalvaliddata', YLeaf(YType.boolean, 'sonetPathIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetpathintervalnumber', (YLeaf(YType.int32, 'sonetPathIntervalNumber'), ['int'])),
+                    ('sonetpathintervaless', (YLeaf(YType.uint32, 'sonetPathIntervalESs'), ['int'])),
+                    ('sonetpathintervalsess', (YLeaf(YType.uint32, 'sonetPathIntervalSESs'), ['int'])),
+                    ('sonetpathintervalcvs', (YLeaf(YType.uint32, 'sonetPathIntervalCVs'), ['int'])),
+                    ('sonetpathintervaluass', (YLeaf(YType.uint32, 'sonetPathIntervalUASs'), ['int'])),
+                    ('sonetpathintervalvaliddata', (YLeaf(YType.boolean, 'sonetPathIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetpathintervalnumber = None
@@ -1764,6 +1784,7 @@ class SONETMIB(Entity):
                 self.sonetpathintervalvaliddata = None
                 self._segment_path = lambda: "sonetPathIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetPathIntervalNumber='" + str(self.sonetpathintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetPathIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetPathIntervalTable.SonetPathIntervalEntry, [u'ifindex', u'sonetpathintervalnumber', u'sonetpathintervaless', u'sonetpathintervalsess', u'sonetpathintervalcvs', u'sonetpathintervaluass', u'sonetpathintervalvaliddata'], name, value)
@@ -1799,6 +1820,7 @@ class SONETMIB(Entity):
             self.sonetfarendpathcurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndPathCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable, [], name, value)
@@ -1862,11 +1884,11 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendpathcurrentess', YLeaf(YType.uint32, 'sonetFarEndPathCurrentESs')),
-                    ('sonetfarendpathcurrentsess', YLeaf(YType.uint32, 'sonetFarEndPathCurrentSESs')),
-                    ('sonetfarendpathcurrentcvs', YLeaf(YType.uint32, 'sonetFarEndPathCurrentCVs')),
-                    ('sonetfarendpathcurrentuass', YLeaf(YType.uint32, 'sonetFarEndPathCurrentUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendpathcurrentess', (YLeaf(YType.uint32, 'sonetFarEndPathCurrentESs'), ['int'])),
+                    ('sonetfarendpathcurrentsess', (YLeaf(YType.uint32, 'sonetFarEndPathCurrentSESs'), ['int'])),
+                    ('sonetfarendpathcurrentcvs', (YLeaf(YType.uint32, 'sonetFarEndPathCurrentCVs'), ['int'])),
+                    ('sonetfarendpathcurrentuass', (YLeaf(YType.uint32, 'sonetFarEndPathCurrentUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendpathcurrentess = None
@@ -1875,6 +1897,7 @@ class SONETMIB(Entity):
                 self.sonetfarendpathcurrentuass = None
                 self._segment_path = lambda: "sonetFarEndPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndPathCurrentTable.SonetFarEndPathCurrentEntry, [u'ifindex', u'sonetfarendpathcurrentess', u'sonetfarendpathcurrentsess', u'sonetfarendpathcurrentcvs', u'sonetfarendpathcurrentuass'], name, value)
@@ -1910,6 +1933,7 @@ class SONETMIB(Entity):
             self.sonetfarendpathintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndPathIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable, [], name, value)
@@ -1986,13 +2010,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetfarendpathintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendpathintervalnumber', YLeaf(YType.int32, 'sonetFarEndPathIntervalNumber')),
-                    ('sonetfarendpathintervaless', YLeaf(YType.uint32, 'sonetFarEndPathIntervalESs')),
-                    ('sonetfarendpathintervalsess', YLeaf(YType.uint32, 'sonetFarEndPathIntervalSESs')),
-                    ('sonetfarendpathintervalcvs', YLeaf(YType.uint32, 'sonetFarEndPathIntervalCVs')),
-                    ('sonetfarendpathintervaluass', YLeaf(YType.uint32, 'sonetFarEndPathIntervalUASs')),
-                    ('sonetfarendpathintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndPathIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendpathintervalnumber', (YLeaf(YType.int32, 'sonetFarEndPathIntervalNumber'), ['int'])),
+                    ('sonetfarendpathintervaless', (YLeaf(YType.uint32, 'sonetFarEndPathIntervalESs'), ['int'])),
+                    ('sonetfarendpathintervalsess', (YLeaf(YType.uint32, 'sonetFarEndPathIntervalSESs'), ['int'])),
+                    ('sonetfarendpathintervalcvs', (YLeaf(YType.uint32, 'sonetFarEndPathIntervalCVs'), ['int'])),
+                    ('sonetfarendpathintervaluass', (YLeaf(YType.uint32, 'sonetFarEndPathIntervalUASs'), ['int'])),
+                    ('sonetfarendpathintervalvaliddata', (YLeaf(YType.boolean, 'sonetFarEndPathIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendpathintervalnumber = None
@@ -2003,6 +2027,7 @@ class SONETMIB(Entity):
                 self.sonetfarendpathintervalvaliddata = None
                 self._segment_path = lambda: "sonetFarEndPathIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndPathIntervalNumber='" + str(self.sonetfarendpathintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndPathIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndPathIntervalTable.SonetFarEndPathIntervalEntry, [u'ifindex', u'sonetfarendpathintervalnumber', u'sonetfarendpathintervaless', u'sonetfarendpathintervalsess', u'sonetfarendpathintervalcvs', u'sonetfarendpathintervaluass', u'sonetfarendpathintervalvaliddata'], name, value)
@@ -2038,6 +2063,7 @@ class SONETMIB(Entity):
             self.sonetvtcurrententry = YList(self)
             self._segment_path = lambda: "sonetVTCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetVTCurrentTable, [], name, value)
@@ -2113,13 +2139,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetvtcurrentwidth', YLeaf(YType.enumeration, 'sonetVTCurrentWidth')),
-                    ('sonetvtcurrentstatus', YLeaf(YType.int32, 'sonetVTCurrentStatus')),
-                    ('sonetvtcurrentess', YLeaf(YType.uint32, 'sonetVTCurrentESs')),
-                    ('sonetvtcurrentsess', YLeaf(YType.uint32, 'sonetVTCurrentSESs')),
-                    ('sonetvtcurrentcvs', YLeaf(YType.uint32, 'sonetVTCurrentCVs')),
-                    ('sonetvtcurrentuass', YLeaf(YType.uint32, 'sonetVTCurrentUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetvtcurrentwidth', (YLeaf(YType.enumeration, 'sonetVTCurrentWidth'), [('ydk.models.cisco_ios_xe.SONET_MIB', 'SONETMIB', 'SonetVTCurrentTable.SonetVTCurrentEntry.SonetVTCurrentWidth')])),
+                    ('sonetvtcurrentstatus', (YLeaf(YType.int32, 'sonetVTCurrentStatus'), ['int'])),
+                    ('sonetvtcurrentess', (YLeaf(YType.uint32, 'sonetVTCurrentESs'), ['int'])),
+                    ('sonetvtcurrentsess', (YLeaf(YType.uint32, 'sonetVTCurrentSESs'), ['int'])),
+                    ('sonetvtcurrentcvs', (YLeaf(YType.uint32, 'sonetVTCurrentCVs'), ['int'])),
+                    ('sonetvtcurrentuass', (YLeaf(YType.uint32, 'sonetVTCurrentUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetvtcurrentwidth = None
@@ -2130,6 +2156,7 @@ class SONETMIB(Entity):
                 self.sonetvtcurrentuass = None
                 self._segment_path = lambda: "sonetVTCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetVTCurrentTable.SonetVTCurrentEntry, [u'ifindex', u'sonetvtcurrentwidth', u'sonetvtcurrentstatus', u'sonetvtcurrentess', u'sonetvtcurrentsess', u'sonetvtcurrentcvs', u'sonetvtcurrentuass'], name, value)
@@ -2198,6 +2225,7 @@ class SONETMIB(Entity):
             self.sonetvtintervalentry = YList(self)
             self._segment_path = lambda: "sonetVTIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetVTIntervalTable, [], name, value)
@@ -2273,13 +2301,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetvtintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetvtintervalnumber', YLeaf(YType.int32, 'sonetVTIntervalNumber')),
-                    ('sonetvtintervaless', YLeaf(YType.uint32, 'sonetVTIntervalESs')),
-                    ('sonetvtintervalsess', YLeaf(YType.uint32, 'sonetVTIntervalSESs')),
-                    ('sonetvtintervalcvs', YLeaf(YType.uint32, 'sonetVTIntervalCVs')),
-                    ('sonetvtintervaluass', YLeaf(YType.uint32, 'sonetVTIntervalUASs')),
-                    ('sonetvtintervalvaliddata', YLeaf(YType.boolean, 'sonetVTIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetvtintervalnumber', (YLeaf(YType.int32, 'sonetVTIntervalNumber'), ['int'])),
+                    ('sonetvtintervaless', (YLeaf(YType.uint32, 'sonetVTIntervalESs'), ['int'])),
+                    ('sonetvtintervalsess', (YLeaf(YType.uint32, 'sonetVTIntervalSESs'), ['int'])),
+                    ('sonetvtintervalcvs', (YLeaf(YType.uint32, 'sonetVTIntervalCVs'), ['int'])),
+                    ('sonetvtintervaluass', (YLeaf(YType.uint32, 'sonetVTIntervalUASs'), ['int'])),
+                    ('sonetvtintervalvaliddata', (YLeaf(YType.boolean, 'sonetVTIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetvtintervalnumber = None
@@ -2290,6 +2318,7 @@ class SONETMIB(Entity):
                 self.sonetvtintervalvaliddata = None
                 self._segment_path = lambda: "sonetVTIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetVTIntervalNumber='" + str(self.sonetvtintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetVTIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetVTIntervalTable.SonetVTIntervalEntry, [u'ifindex', u'sonetvtintervalnumber', u'sonetvtintervaless', u'sonetvtintervalsess', u'sonetvtintervalcvs', u'sonetvtintervaluass', u'sonetvtintervalvaliddata'], name, value)
@@ -2325,6 +2354,7 @@ class SONETMIB(Entity):
             self.sonetfarendvtcurrententry = YList(self)
             self._segment_path = lambda: "sonetFarEndVTCurrentTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable, [], name, value)
@@ -2388,11 +2418,11 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendvtcurrentess', YLeaf(YType.uint32, 'sonetFarEndVTCurrentESs')),
-                    ('sonetfarendvtcurrentsess', YLeaf(YType.uint32, 'sonetFarEndVTCurrentSESs')),
-                    ('sonetfarendvtcurrentcvs', YLeaf(YType.uint32, 'sonetFarEndVTCurrentCVs')),
-                    ('sonetfarendvtcurrentuass', YLeaf(YType.uint32, 'sonetFarEndVTCurrentUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendvtcurrentess', (YLeaf(YType.uint32, 'sonetFarEndVTCurrentESs'), ['int'])),
+                    ('sonetfarendvtcurrentsess', (YLeaf(YType.uint32, 'sonetFarEndVTCurrentSESs'), ['int'])),
+                    ('sonetfarendvtcurrentcvs', (YLeaf(YType.uint32, 'sonetFarEndVTCurrentCVs'), ['int'])),
+                    ('sonetfarendvtcurrentuass', (YLeaf(YType.uint32, 'sonetFarEndVTCurrentUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendvtcurrentess = None
@@ -2401,6 +2431,7 @@ class SONETMIB(Entity):
                 self.sonetfarendvtcurrentuass = None
                 self._segment_path = lambda: "sonetFarEndVTCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndVTCurrentTable.SonetFarEndVTCurrentEntry, [u'ifindex', u'sonetfarendvtcurrentess', u'sonetfarendvtcurrentsess', u'sonetfarendvtcurrentcvs', u'sonetfarendvtcurrentuass'], name, value)
@@ -2436,6 +2467,7 @@ class SONETMIB(Entity):
             self.sonetfarendvtintervalentry = YList(self)
             self._segment_path = lambda: "sonetFarEndVTIntervalTable"
             self._absolute_path = lambda: "SONET-MIB:SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable, [], name, value)
@@ -2512,13 +2544,13 @@ class SONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','sonetfarendvtintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('sonetfarendvtintervalnumber', YLeaf(YType.int32, 'sonetFarEndVTIntervalNumber')),
-                    ('sonetfarendvtintervaless', YLeaf(YType.uint32, 'sonetFarEndVTIntervalESs')),
-                    ('sonetfarendvtintervalsess', YLeaf(YType.uint32, 'sonetFarEndVTIntervalSESs')),
-                    ('sonetfarendvtintervalcvs', YLeaf(YType.uint32, 'sonetFarEndVTIntervalCVs')),
-                    ('sonetfarendvtintervaluass', YLeaf(YType.uint32, 'sonetFarEndVTIntervalUASs')),
-                    ('sonetfarendvtintervalvaliddata', YLeaf(YType.boolean, 'sonetFarEndVTIntervalValidData')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('sonetfarendvtintervalnumber', (YLeaf(YType.int32, 'sonetFarEndVTIntervalNumber'), ['int'])),
+                    ('sonetfarendvtintervaless', (YLeaf(YType.uint32, 'sonetFarEndVTIntervalESs'), ['int'])),
+                    ('sonetfarendvtintervalsess', (YLeaf(YType.uint32, 'sonetFarEndVTIntervalSESs'), ['int'])),
+                    ('sonetfarendvtintervalcvs', (YLeaf(YType.uint32, 'sonetFarEndVTIntervalCVs'), ['int'])),
+                    ('sonetfarendvtintervaluass', (YLeaf(YType.uint32, 'sonetFarEndVTIntervalUASs'), ['int'])),
+                    ('sonetfarendvtintervalvaliddata', (YLeaf(YType.boolean, 'sonetFarEndVTIntervalValidData'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.sonetfarendvtintervalnumber = None
@@ -2529,6 +2561,7 @@ class SONETMIB(Entity):
                 self.sonetfarendvtintervalvaliddata = None
                 self._segment_path = lambda: "sonetFarEndVTIntervalEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[sonetFarEndVTIntervalNumber='" + str(self.sonetfarendvtintervalnumber) + "']"
                 self._absolute_path = lambda: "SONET-MIB:SONET-MIB/sonetFarEndVTIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SONETMIB.SonetFarEndVTIntervalTable.SonetFarEndVTIntervalEntry, [u'ifindex', u'sonetfarendvtintervalnumber', u'sonetfarendvtintervaless', u'sonetfarendvtintervalsess', u'sonetfarendvtintervalcvs', u'sonetfarendvtintervaluass', u'sonetfarendvtintervalvaliddata'], name, value)

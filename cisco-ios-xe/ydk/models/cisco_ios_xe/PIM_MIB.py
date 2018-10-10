@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class PIMMIB(Entity):
     """
     
@@ -118,6 +119,7 @@ class PIMMIB(Entity):
         self.pimcomponenttable.parent = self
         self._children_name_map["pimcomponenttable"] = "pimComponentTable"
         self._segment_path = lambda: "PIM-MIB:PIM-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PIMMIB, [], name, value)
@@ -153,14 +155,15 @@ class PIMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('pimjoinpruneinterval', YLeaf(YType.int32, 'pimJoinPruneInterval')),
+                ('pimjoinpruneinterval', (YLeaf(YType.int32, 'pimJoinPruneInterval'), ['int'])),
             ])
             self.pimjoinpruneinterval = None
             self._segment_path = lambda: "pim"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(PIMMIB.Pim, ['pimjoinpruneinterval'], name, value)
+            self._perform_setattr(PIMMIB.Pim, [u'pimjoinpruneinterval'], name, value)
 
 
     class PimInterfaceTable(Entity):
@@ -195,6 +198,7 @@ class PIMMIB(Entity):
             self.piminterfaceentry = YList(self)
             self._segment_path = lambda: "pimInterfaceTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimInterfaceTable, [], name, value)
@@ -284,15 +288,15 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['piminterfaceifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('piminterfaceifindex', YLeaf(YType.int32, 'pimInterfaceIfIndex')),
-                    ('piminterfaceaddress', YLeaf(YType.str, 'pimInterfaceAddress')),
-                    ('piminterfacenetmask', YLeaf(YType.str, 'pimInterfaceNetMask')),
-                    ('piminterfacemode', YLeaf(YType.enumeration, 'pimInterfaceMode')),
-                    ('piminterfacedr', YLeaf(YType.str, 'pimInterfaceDR')),
-                    ('piminterfacehellointerval', YLeaf(YType.int32, 'pimInterfaceHelloInterval')),
-                    ('piminterfacestatus', YLeaf(YType.enumeration, 'pimInterfaceStatus')),
-                    ('piminterfacejoinpruneinterval', YLeaf(YType.int32, 'pimInterfaceJoinPruneInterval')),
-                    ('piminterfacecbsrpreference', YLeaf(YType.int32, 'pimInterfaceCBSRPreference')),
+                    ('piminterfaceifindex', (YLeaf(YType.int32, 'pimInterfaceIfIndex'), ['int'])),
+                    ('piminterfaceaddress', (YLeaf(YType.str, 'pimInterfaceAddress'), ['str'])),
+                    ('piminterfacenetmask', (YLeaf(YType.str, 'pimInterfaceNetMask'), ['str'])),
+                    ('piminterfacemode', (YLeaf(YType.enumeration, 'pimInterfaceMode'), [('ydk.models.cisco_ios_xe.PIM_MIB', 'PIMMIB', 'PimInterfaceTable.PimInterfaceEntry.PimInterfaceMode')])),
+                    ('piminterfacedr', (YLeaf(YType.str, 'pimInterfaceDR'), ['str'])),
+                    ('piminterfacehellointerval', (YLeaf(YType.int32, 'pimInterfaceHelloInterval'), ['int'])),
+                    ('piminterfacestatus', (YLeaf(YType.enumeration, 'pimInterfaceStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('piminterfacejoinpruneinterval', (YLeaf(YType.int32, 'pimInterfaceJoinPruneInterval'), ['int'])),
+                    ('piminterfacecbsrpreference', (YLeaf(YType.int32, 'pimInterfaceCBSRPreference'), ['int'])),
                 ])
                 self.piminterfaceifindex = None
                 self.piminterfaceaddress = None
@@ -305,9 +309,10 @@ class PIMMIB(Entity):
                 self.piminterfacecbsrpreference = None
                 self._segment_path = lambda: "pimInterfaceEntry" + "[pimInterfaceIfIndex='" + str(self.piminterfaceifindex) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimInterfaceTable.PimInterfaceEntry, ['piminterfaceifindex', 'piminterfaceaddress', 'piminterfacenetmask', 'piminterfacemode', 'piminterfacedr', 'piminterfacehellointerval', 'piminterfacestatus', 'piminterfacejoinpruneinterval', 'piminterfacecbsrpreference'], name, value)
+                self._perform_setattr(PIMMIB.PimInterfaceTable.PimInterfaceEntry, [u'piminterfaceifindex', u'piminterfaceaddress', u'piminterfacenetmask', u'piminterfacemode', u'piminterfacedr', u'piminterfacehellointerval', u'piminterfacestatus', u'piminterfacejoinpruneinterval', u'piminterfacecbsrpreference'], name, value)
 
             class PimInterfaceMode(Enum):
                 """
@@ -363,6 +368,7 @@ class PIMMIB(Entity):
             self.pimneighborentry = YList(self)
             self._segment_path = lambda: "pimNeighborTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimNeighborTable, [], name, value)
@@ -424,11 +430,11 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['pimneighboraddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pimneighboraddress', YLeaf(YType.str, 'pimNeighborAddress')),
-                    ('pimneighborifindex', YLeaf(YType.int32, 'pimNeighborIfIndex')),
-                    ('pimneighboruptime', YLeaf(YType.uint32, 'pimNeighborUpTime')),
-                    ('pimneighborexpirytime', YLeaf(YType.uint32, 'pimNeighborExpiryTime')),
-                    ('pimneighbormode', YLeaf(YType.enumeration, 'pimNeighborMode')),
+                    ('pimneighboraddress', (YLeaf(YType.str, 'pimNeighborAddress'), ['str'])),
+                    ('pimneighborifindex', (YLeaf(YType.int32, 'pimNeighborIfIndex'), ['int'])),
+                    ('pimneighboruptime', (YLeaf(YType.uint32, 'pimNeighborUpTime'), ['int'])),
+                    ('pimneighborexpirytime', (YLeaf(YType.uint32, 'pimNeighborExpiryTime'), ['int'])),
+                    ('pimneighbormode', (YLeaf(YType.enumeration, 'pimNeighborMode'), [('ydk.models.cisco_ios_xe.PIM_MIB', 'PIMMIB', 'PimNeighborTable.PimNeighborEntry.PimNeighborMode')])),
                 ])
                 self.pimneighboraddress = None
                 self.pimneighborifindex = None
@@ -437,9 +443,10 @@ class PIMMIB(Entity):
                 self.pimneighbormode = None
                 self._segment_path = lambda: "pimNeighborEntry" + "[pimNeighborAddress='" + str(self.pimneighboraddress) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimNeighborTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimNeighborTable.PimNeighborEntry, ['pimneighboraddress', 'pimneighborifindex', 'pimneighboruptime', 'pimneighborexpirytime', 'pimneighbormode'], name, value)
+                self._perform_setattr(PIMMIB.PimNeighborTable.PimNeighborEntry, [u'pimneighboraddress', u'pimneighborifindex', u'pimneighboruptime', u'pimneighborexpirytime', u'pimneighbormode'], name, value)
 
             class PimNeighborMode(Enum):
                 """
@@ -497,6 +504,7 @@ class PIMMIB(Entity):
             self.pimipmrouteentry = YList(self)
             self._segment_path = lambda: "pimIpMRouteTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimIpMRouteTable, [], name, value)
@@ -585,14 +593,14 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['ipmroutegroup','ipmroutesource','ipmroutesourcemask']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipmroutegroup', YLeaf(YType.str, 'ipMRouteGroup')),
-                    ('ipmroutesource', YLeaf(YType.str, 'ipMRouteSource')),
-                    ('ipmroutesourcemask', YLeaf(YType.str, 'ipMRouteSourceMask')),
-                    ('pimipmrouteupstreamasserttimer', YLeaf(YType.uint32, 'pimIpMRouteUpstreamAssertTimer')),
-                    ('pimipmrouteassertmetric', YLeaf(YType.int32, 'pimIpMRouteAssertMetric')),
-                    ('pimipmrouteassertmetricpref', YLeaf(YType.int32, 'pimIpMRouteAssertMetricPref')),
-                    ('pimipmrouteassertrptbit', YLeaf(YType.boolean, 'pimIpMRouteAssertRPTBit')),
-                    ('pimipmrouteflags', YLeaf(YType.str, 'pimIpMRouteFlags')),
+                    ('ipmroutegroup', (YLeaf(YType.str, 'ipMRouteGroup'), ['str'])),
+                    ('ipmroutesource', (YLeaf(YType.str, 'ipMRouteSource'), ['str'])),
+                    ('ipmroutesourcemask', (YLeaf(YType.str, 'ipMRouteSourceMask'), ['str'])),
+                    ('pimipmrouteupstreamasserttimer', (YLeaf(YType.uint32, 'pimIpMRouteUpstreamAssertTimer'), ['int'])),
+                    ('pimipmrouteassertmetric', (YLeaf(YType.int32, 'pimIpMRouteAssertMetric'), ['int'])),
+                    ('pimipmrouteassertmetricpref', (YLeaf(YType.int32, 'pimIpMRouteAssertMetricPref'), ['int'])),
+                    ('pimipmrouteassertrptbit', (YLeaf(YType.boolean, 'pimIpMRouteAssertRPTBit'), ['bool'])),
+                    ('pimipmrouteflags', (YLeaf(YType.str, 'pimIpMRouteFlags'), ['str'])),
                 ])
                 self.ipmroutegroup = None
                 self.ipmroutesource = None
@@ -604,9 +612,10 @@ class PIMMIB(Entity):
                 self.pimipmrouteflags = None
                 self._segment_path = lambda: "pimIpMRouteEntry" + "[ipMRouteGroup='" + str(self.ipmroutegroup) + "']" + "[ipMRouteSource='" + str(self.ipmroutesource) + "']" + "[ipMRouteSourceMask='" + str(self.ipmroutesourcemask) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimIpMRouteTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, ['ipmroutegroup', 'ipmroutesource', 'ipmroutesourcemask', 'pimipmrouteupstreamasserttimer', 'pimipmrouteassertmetric', 'pimipmrouteassertmetricpref', 'pimipmrouteassertrptbit', 'pimipmrouteflags'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteTable.PimIpMRouteEntry, [u'ipmroutegroup', u'ipmroutesource', u'ipmroutesourcemask', u'pimipmrouteupstreamasserttimer', u'pimipmrouteassertmetric', u'pimipmrouteassertmetricpref', u'pimipmrouteassertrptbit', u'pimipmrouteflags'], name, value)
 
 
     class PimRPTable(Entity):
@@ -644,6 +653,7 @@ class PIMMIB(Entity):
             self.pimrpentry = YList(self)
             self._segment_path = lambda: "pimRPTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimRPTable, [], name, value)
@@ -721,12 +731,12 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['pimrpgroupaddress','pimrpaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pimrpgroupaddress', YLeaf(YType.str, 'pimRPGroupAddress')),
-                    ('pimrpaddress', YLeaf(YType.str, 'pimRPAddress')),
-                    ('pimrpstate', YLeaf(YType.enumeration, 'pimRPState')),
-                    ('pimrpstatetimer', YLeaf(YType.uint32, 'pimRPStateTimer')),
-                    ('pimrplastchange', YLeaf(YType.uint32, 'pimRPLastChange')),
-                    ('pimrprowstatus', YLeaf(YType.enumeration, 'pimRPRowStatus')),
+                    ('pimrpgroupaddress', (YLeaf(YType.str, 'pimRPGroupAddress'), ['str'])),
+                    ('pimrpaddress', (YLeaf(YType.str, 'pimRPAddress'), ['str'])),
+                    ('pimrpstate', (YLeaf(YType.enumeration, 'pimRPState'), [('ydk.models.cisco_ios_xe.PIM_MIB', 'PIMMIB', 'PimRPTable.PimRPEntry.PimRPState')])),
+                    ('pimrpstatetimer', (YLeaf(YType.uint32, 'pimRPStateTimer'), ['int'])),
+                    ('pimrplastchange', (YLeaf(YType.uint32, 'pimRPLastChange'), ['int'])),
+                    ('pimrprowstatus', (YLeaf(YType.enumeration, 'pimRPRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.pimrpgroupaddress = None
                 self.pimrpaddress = None
@@ -736,9 +746,10 @@ class PIMMIB(Entity):
                 self.pimrprowstatus = None
                 self._segment_path = lambda: "pimRPEntry" + "[pimRPGroupAddress='" + str(self.pimrpgroupaddress) + "']" + "[pimRPAddress='" + str(self.pimrpaddress) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimRPTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimRPTable.PimRPEntry, ['pimrpgroupaddress', 'pimrpaddress', 'pimrpstate', 'pimrpstatetimer', 'pimrplastchange', 'pimrprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimRPTable.PimRPEntry, [u'pimrpgroupaddress', u'pimrpaddress', u'pimrpstate', u'pimrpstatetimer', u'pimrplastchange', u'pimrprowstatus'], name, value)
 
             class PimRPState(Enum):
                 """
@@ -793,6 +804,7 @@ class PIMMIB(Entity):
             self.pimrpsetentry = YList(self)
             self._segment_path = lambda: "pimRPSetTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimRPSetTable, [], name, value)
@@ -863,12 +875,12 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['pimrpsetcomponent','pimrpsetgroupaddress','pimrpsetgroupmask','pimrpsetaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pimrpsetcomponent', YLeaf(YType.int32, 'pimRPSetComponent')),
-                    ('pimrpsetgroupaddress', YLeaf(YType.str, 'pimRPSetGroupAddress')),
-                    ('pimrpsetgroupmask', YLeaf(YType.str, 'pimRPSetGroupMask')),
-                    ('pimrpsetaddress', YLeaf(YType.str, 'pimRPSetAddress')),
-                    ('pimrpsetholdtime', YLeaf(YType.int32, 'pimRPSetHoldTime')),
-                    ('pimrpsetexpirytime', YLeaf(YType.uint32, 'pimRPSetExpiryTime')),
+                    ('pimrpsetcomponent', (YLeaf(YType.int32, 'pimRPSetComponent'), ['int'])),
+                    ('pimrpsetgroupaddress', (YLeaf(YType.str, 'pimRPSetGroupAddress'), ['str'])),
+                    ('pimrpsetgroupmask', (YLeaf(YType.str, 'pimRPSetGroupMask'), ['str'])),
+                    ('pimrpsetaddress', (YLeaf(YType.str, 'pimRPSetAddress'), ['str'])),
+                    ('pimrpsetholdtime', (YLeaf(YType.int32, 'pimRPSetHoldTime'), ['int'])),
+                    ('pimrpsetexpirytime', (YLeaf(YType.uint32, 'pimRPSetExpiryTime'), ['int'])),
                 ])
                 self.pimrpsetcomponent = None
                 self.pimrpsetgroupaddress = None
@@ -878,9 +890,10 @@ class PIMMIB(Entity):
                 self.pimrpsetexpirytime = None
                 self._segment_path = lambda: "pimRPSetEntry" + "[pimRPSetComponent='" + str(self.pimrpsetcomponent) + "']" + "[pimRPSetGroupAddress='" + str(self.pimrpsetgroupaddress) + "']" + "[pimRPSetGroupMask='" + str(self.pimrpsetgroupmask) + "']" + "[pimRPSetAddress='" + str(self.pimrpsetaddress) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimRPSetTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimRPSetTable.PimRPSetEntry, ['pimrpsetcomponent', 'pimrpsetgroupaddress', 'pimrpsetgroupmask', 'pimrpsetaddress', 'pimrpsetholdtime', 'pimrpsetexpirytime'], name, value)
+                self._perform_setattr(PIMMIB.PimRPSetTable.PimRPSetEntry, [u'pimrpsetcomponent', u'pimrpsetgroupaddress', u'pimrpsetgroupmask', u'pimrpsetaddress', u'pimrpsetholdtime', u'pimrpsetexpirytime'], name, value)
 
 
     class PimIpMRouteNextHopTable(Entity):
@@ -915,6 +928,7 @@ class PIMMIB(Entity):
             self.pimipmroutenexthopentry = YList(self)
             self._segment_path = lambda: "pimIpMRouteNextHopTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable, [], name, value)
@@ -994,12 +1008,12 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['ipmroutenexthopgroup','ipmroutenexthopsource','ipmroutenexthopsourcemask','ipmroutenexthopifindex','ipmroutenexthopaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipmroutenexthopgroup', YLeaf(YType.str, 'ipMRouteNextHopGroup')),
-                    ('ipmroutenexthopsource', YLeaf(YType.str, 'ipMRouteNextHopSource')),
-                    ('ipmroutenexthopsourcemask', YLeaf(YType.str, 'ipMRouteNextHopSourceMask')),
-                    ('ipmroutenexthopifindex', YLeaf(YType.str, 'ipMRouteNextHopIfIndex')),
-                    ('ipmroutenexthopaddress', YLeaf(YType.str, 'ipMRouteNextHopAddress')),
-                    ('pimipmroutenexthopprunereason', YLeaf(YType.enumeration, 'pimIpMRouteNextHopPruneReason')),
+                    ('ipmroutenexthopgroup', (YLeaf(YType.str, 'ipMRouteNextHopGroup'), ['str'])),
+                    ('ipmroutenexthopsource', (YLeaf(YType.str, 'ipMRouteNextHopSource'), ['str'])),
+                    ('ipmroutenexthopsourcemask', (YLeaf(YType.str, 'ipMRouteNextHopSourceMask'), ['str'])),
+                    ('ipmroutenexthopifindex', (YLeaf(YType.str, 'ipMRouteNextHopIfIndex'), ['int'])),
+                    ('ipmroutenexthopaddress', (YLeaf(YType.str, 'ipMRouteNextHopAddress'), ['str'])),
+                    ('pimipmroutenexthopprunereason', (YLeaf(YType.enumeration, 'pimIpMRouteNextHopPruneReason'), [('ydk.models.cisco_ios_xe.PIM_MIB', 'PIMMIB', 'PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry.PimIpMRouteNextHopPruneReason')])),
                 ])
                 self.ipmroutenexthopgroup = None
                 self.ipmroutenexthopsource = None
@@ -1009,9 +1023,10 @@ class PIMMIB(Entity):
                 self.pimipmroutenexthopprunereason = None
                 self._segment_path = lambda: "pimIpMRouteNextHopEntry" + "[ipMRouteNextHopGroup='" + str(self.ipmroutenexthopgroup) + "']" + "[ipMRouteNextHopSource='" + str(self.ipmroutenexthopsource) + "']" + "[ipMRouteNextHopSourceMask='" + str(self.ipmroutenexthopsourcemask) + "']" + "[ipMRouteNextHopIfIndex='" + str(self.ipmroutenexthopifindex) + "']" + "[ipMRouteNextHopAddress='" + str(self.ipmroutenexthopaddress) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimIpMRouteNextHopTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, ['ipmroutenexthopgroup', 'ipmroutenexthopsource', 'ipmroutenexthopsourcemask', 'ipmroutenexthopifindex', 'ipmroutenexthopaddress', 'pimipmroutenexthopprunereason'], name, value)
+                self._perform_setattr(PIMMIB.PimIpMRouteNextHopTable.PimIpMRouteNextHopEntry, [u'ipmroutenexthopgroup', u'ipmroutenexthopsource', u'ipmroutenexthopsourcemask', u'ipmroutenexthopifindex', u'ipmroutenexthopaddress', u'pimipmroutenexthopprunereason'], name, value)
 
             class PimIpMRouteNextHopPruneReason(Enum):
                 """
@@ -1080,6 +1095,7 @@ class PIMMIB(Entity):
             self.pimcandidaterpentry = YList(self)
             self._segment_path = lambda: "pimCandidateRPTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimCandidateRPTable, [], name, value)
@@ -1132,10 +1148,10 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['pimcandidaterpgroupaddress','pimcandidaterpgroupmask']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pimcandidaterpgroupaddress', YLeaf(YType.str, 'pimCandidateRPGroupAddress')),
-                    ('pimcandidaterpgroupmask', YLeaf(YType.str, 'pimCandidateRPGroupMask')),
-                    ('pimcandidaterpaddress', YLeaf(YType.str, 'pimCandidateRPAddress')),
-                    ('pimcandidaterprowstatus', YLeaf(YType.enumeration, 'pimCandidateRPRowStatus')),
+                    ('pimcandidaterpgroupaddress', (YLeaf(YType.str, 'pimCandidateRPGroupAddress'), ['str'])),
+                    ('pimcandidaterpgroupmask', (YLeaf(YType.str, 'pimCandidateRPGroupMask'), ['str'])),
+                    ('pimcandidaterpaddress', (YLeaf(YType.str, 'pimCandidateRPAddress'), ['str'])),
+                    ('pimcandidaterprowstatus', (YLeaf(YType.enumeration, 'pimCandidateRPRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.pimcandidaterpgroupaddress = None
                 self.pimcandidaterpgroupmask = None
@@ -1143,9 +1159,10 @@ class PIMMIB(Entity):
                 self.pimcandidaterprowstatus = None
                 self._segment_path = lambda: "pimCandidateRPEntry" + "[pimCandidateRPGroupAddress='" + str(self.pimcandidaterpgroupaddress) + "']" + "[pimCandidateRPGroupMask='" + str(self.pimcandidaterpgroupmask) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimCandidateRPTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, ['pimcandidaterpgroupaddress', 'pimcandidaterpgroupmask', 'pimcandidaterpaddress', 'pimcandidaterprowstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimCandidateRPTable.PimCandidateRPEntry, [u'pimcandidaterpgroupaddress', u'pimcandidaterpgroupmask', u'pimcandidaterpaddress', u'pimcandidaterprowstatus'], name, value)
 
 
     class PimComponentTable(Entity):
@@ -1185,6 +1202,7 @@ class PIMMIB(Entity):
             self.pimcomponententry = YList(self)
             self._segment_path = lambda: "pimComponentTable"
             self._absolute_path = lambda: "PIM-MIB:PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PIMMIB.PimComponentTable, [], name, value)
@@ -1246,11 +1264,11 @@ class PIMMIB(Entity):
                 self.ylist_key_names = ['pimcomponentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pimcomponentindex', YLeaf(YType.int32, 'pimComponentIndex')),
-                    ('pimcomponentbsraddress', YLeaf(YType.str, 'pimComponentBSRAddress')),
-                    ('pimcomponentbsrexpirytime', YLeaf(YType.uint32, 'pimComponentBSRExpiryTime')),
-                    ('pimcomponentcrpholdtime', YLeaf(YType.int32, 'pimComponentCRPHoldTime')),
-                    ('pimcomponentstatus', YLeaf(YType.enumeration, 'pimComponentStatus')),
+                    ('pimcomponentindex', (YLeaf(YType.int32, 'pimComponentIndex'), ['int'])),
+                    ('pimcomponentbsraddress', (YLeaf(YType.str, 'pimComponentBSRAddress'), ['str'])),
+                    ('pimcomponentbsrexpirytime', (YLeaf(YType.uint32, 'pimComponentBSRExpiryTime'), ['int'])),
+                    ('pimcomponentcrpholdtime', (YLeaf(YType.int32, 'pimComponentCRPHoldTime'), ['int'])),
+                    ('pimcomponentstatus', (YLeaf(YType.enumeration, 'pimComponentStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.pimcomponentindex = None
                 self.pimcomponentbsraddress = None
@@ -1259,9 +1277,10 @@ class PIMMIB(Entity):
                 self.pimcomponentstatus = None
                 self._segment_path = lambda: "pimComponentEntry" + "[pimComponentIndex='" + str(self.pimcomponentindex) + "']"
                 self._absolute_path = lambda: "PIM-MIB:PIM-MIB/pimComponentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PIMMIB.PimComponentTable.PimComponentEntry, ['pimcomponentindex', 'pimcomponentbsraddress', 'pimcomponentbsrexpirytime', 'pimcomponentcrpholdtime', 'pimcomponentstatus'], name, value)
+                self._perform_setattr(PIMMIB.PimComponentTable.PimComponentEntry, [u'pimcomponentindex', u'pimcomponentbsraddress', u'pimcomponentbsrexpirytime', u'pimcomponentcrpholdtime', u'pimcomponentstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PIMMIB()

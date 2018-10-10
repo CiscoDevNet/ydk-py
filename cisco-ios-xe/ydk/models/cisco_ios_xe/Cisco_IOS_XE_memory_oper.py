@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MemoryStatistics(Entity):
     """
     Data nodes for All Memory Pool Statistics.
@@ -45,6 +46,7 @@ class MemoryStatistics(Entity):
 
         self.memory_statistic = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-memory-oper:memory-statistics"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MemoryStatistics, [], name, value)
@@ -121,12 +123,12 @@ class MemoryStatistics(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('total_memory', YLeaf(YType.uint64, 'total-memory')),
-                ('used_memory', YLeaf(YType.uint64, 'used-memory')),
-                ('free_memory', YLeaf(YType.uint64, 'free-memory')),
-                ('lowest_usage', YLeaf(YType.uint64, 'lowest-usage')),
-                ('highest_usage', YLeaf(YType.uint64, 'highest-usage')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('total_memory', (YLeaf(YType.uint64, 'total-memory'), ['int'])),
+                ('used_memory', (YLeaf(YType.uint64, 'used-memory'), ['int'])),
+                ('free_memory', (YLeaf(YType.uint64, 'free-memory'), ['int'])),
+                ('lowest_usage', (YLeaf(YType.uint64, 'lowest-usage'), ['int'])),
+                ('highest_usage', (YLeaf(YType.uint64, 'highest-usage'), ['int'])),
             ])
             self.name = None
             self.total_memory = None
@@ -136,6 +138,7 @@ class MemoryStatistics(Entity):
             self.highest_usage = None
             self._segment_path = lambda: "memory-statistic" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-memory-oper:memory-statistics/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MemoryStatistics.MemoryStatistic, ['name', 'total_memory', 'used_memory', 'free_memory', 'lowest_usage', 'highest_usage'], name, value)

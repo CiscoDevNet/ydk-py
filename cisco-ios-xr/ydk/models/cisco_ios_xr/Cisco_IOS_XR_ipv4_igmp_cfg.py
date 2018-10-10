@@ -9,7 +9,7 @@ for the following management objects\:
   amt\: amt
   mld\: mld
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +19,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IgmpFilter(Enum):
@@ -91,6 +92,7 @@ class Igmp(Entity):
         self.default_context = None
         self._children_name_map["default_context"] = "default-context"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Igmp, [], name, value)
@@ -126,6 +128,7 @@ class Igmp(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Igmp.Vrfs, [], name, value)
@@ -198,9 +201,9 @@ class Igmp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("traffic", ("traffic", Igmp.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Igmp.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Igmp.Vrfs.Vrf.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
-                    ('robustness', YLeaf(YType.uint32, 'robustness')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('ssmdns_query_group', (YLeaf(YType.empty, 'ssmdns-query-group'), ['Empty'])),
+                    ('robustness', (YLeaf(YType.uint32, 'robustness'), ['int'])),
                 ])
                 self.vrf_name = None
                 self.ssmdns_query_group = None
@@ -227,6 +230,7 @@ class Igmp(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.Vrfs.Vrf, ['vrf_name', 'ssmdns_query_group', 'robustness'], name, value)
@@ -260,10 +264,11 @@ class Igmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "traffic"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Vrfs.Vrf.Traffic, ['profile'], name, value)
@@ -358,12 +363,12 @@ class Igmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
                     self._leafs = OrderedDict([
-                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                        ('access_group', YLeaf(YType.str, 'access-group')),
-                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                        ('version', YLeaf(YType.uint32, 'version')),
-                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                        ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                        ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                        ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                        ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                        ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                     ])
                     self.query_timeout = None
                     self.access_group = None
@@ -378,6 +383,7 @@ class Igmp(Entity):
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._segment_path = lambda: "inheritable-defaults"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Vrfs.Vrf.InheritableDefaults, ['query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -433,14 +439,15 @@ class Igmp(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.maximum_groups = None
                         self.warning_threshold = None
                         self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -484,12 +491,13 @@ class Igmp(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.enable = None
                         self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.InheritableDefaults.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -524,6 +532,7 @@ class Igmp(Entity):
 
                     self.ssm_access_group = YList(self)
                     self._segment_path = lambda: "ssm-access-groups"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Vrfs.Vrf.SsmAccessGroups, [], name, value)
@@ -572,12 +581,13 @@ class Igmp(Entity):
                         self.ylist_key_names = ['source_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.source_address = None
                         self.access_list_name = None
                         self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -613,10 +623,11 @@ class Igmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                        ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
                     ])
                     self.maximum_groups = None
                     self._segment_path = lambda: "maximum"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Vrfs.Vrf.Maximum, ['maximum_groups'], name, value)
@@ -651,6 +662,7 @@ class Igmp(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces, [], name, value)
@@ -665,7 +677,7 @@ class Igmp(Entity):
                     	Name of the interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: join_groups
                     
@@ -764,13 +776,13 @@ class Igmp(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("join-groups", ("join_groups", Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                            ('access_group', YLeaf(YType.str, 'access-group')),
-                            ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                            ('version', YLeaf(YType.uint32, 'version')),
-                            ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                            ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                            ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                            ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                            ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                            ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                         ])
                         self.interface_name = None
                         self.query_timeout = None
@@ -793,6 +805,7 @@ class Igmp(Entity):
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -836,6 +849,7 @@ class Igmp(Entity):
                             self.join_group = YList(self)
                             self.join_group_source_address = YList(self)
                             self._segment_path = lambda: "join-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups, [], name, value)
@@ -883,12 +897,13 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                                 ])
                                 self.group_address = None
                                 self.mode = None
                                 self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -949,14 +964,15 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
                                 self.mode = None
                                 self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -1021,6 +1037,7 @@ class Igmp(Entity):
                             self.static_group_group_address_group_address_mask_source_address = YList(self)
                             self.static_group_group_address_group_address_mask_source_address_source_address_mask = YList(self)
                             self._segment_path = lambda: "static-group-group-addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses, [], name, value)
@@ -1086,16 +1103,17 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_count = None
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1174,11 +1192,11 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
@@ -1186,6 +1204,7 @@ class Igmp(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1277,12 +1296,12 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','source_address','source_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
@@ -1291,6 +1310,7 @@ class Igmp(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1369,11 +1389,11 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -1381,6 +1401,7 @@ class Igmp(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1472,12 +1493,12 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -1486,6 +1507,7 @@ class Igmp(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1590,13 +1612,13 @@ class Igmp(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -1606,6 +1628,7 @@ class Igmp(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -1661,14 +1684,15 @@ class Igmp(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.maximum_groups = None
                             self.warning_threshold = None
                             self.access_list_name = None
                             self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -1712,12 +1736,13 @@ class Igmp(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.boolean, 'enable')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.enable = None
                             self.access_list_name = None
                             self._segment_path = lambda: "explicit-tracking"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -1801,8 +1826,8 @@ class Igmp(Entity):
             self._child_classes = OrderedDict([("nsf", ("nsf", Igmp.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Igmp.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Igmp.DefaultContext.Accounting)), ("traffic", ("traffic", Igmp.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Igmp.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Igmp.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Igmp.DefaultContext.Maximum)), ("interfaces", ("interfaces", Igmp.DefaultContext.Interfaces))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
-                ('robustness', YLeaf(YType.uint32, 'robustness')),
+                ('ssmdns_query_group', (YLeaf(YType.empty, 'ssmdns-query-group'), ['Empty'])),
+                ('robustness', (YLeaf(YType.uint32, 'robustness'), ['int'])),
             ])
             self.ssmdns_query_group = None
             self.robustness = None
@@ -1840,6 +1865,7 @@ class Igmp(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Igmp.DefaultContext, ['ssmdns_query_group', 'robustness'], name, value)
@@ -1877,11 +1903,12 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                    ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
                 ])
                 self.lifetime = None
                 self._segment_path = lambda: "nsf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.Nsf, ['lifetime'], name, value)
@@ -1942,15 +1969,16 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('download_interval', YLeaf(YType.uint32, 'download-interval')),
-                    ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
-                    ('hold_off', YLeaf(YType.uint32, 'hold-off')),
+                    ('download_interval', (YLeaf(YType.uint32, 'download-interval'), ['int'])),
+                    ('adjustment_delay', (YLeaf(YType.uint32, 'adjustment-delay'), ['int'])),
+                    ('hold_off', (YLeaf(YType.uint32, 'hold-off'), ['int'])),
                 ])
                 self.download_interval = None
                 self.adjustment_delay = None
                 self.hold_off = None
                 self._segment_path = lambda: "unicast-qos-adjust"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.UnicastQosAdjust, ['download_interval', 'adjustment_delay', 'hold_off'], name, value)
@@ -1989,11 +2017,12 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('max_history', YLeaf(YType.uint32, 'max-history')),
+                    ('max_history', (YLeaf(YType.uint32, 'max-history'), ['int'])),
                 ])
                 self.max_history = None
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.Accounting, ['max_history'], name, value)
@@ -2027,11 +2056,12 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('profile', YLeaf(YType.str, 'profile')),
+                    ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                 ])
                 self.profile = None
                 self._segment_path = lambda: "traffic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.Traffic, ['profile'], name, value)
@@ -2126,12 +2156,12 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.InheritableDefaults.ExplicitTracking))])
                 self._leafs = OrderedDict([
-                    ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                    ('access_group', YLeaf(YType.str, 'access-group')),
-                    ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                    ('version', YLeaf(YType.uint32, 'version')),
-                    ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                    ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                    ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                    ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                    ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                    ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                    ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                 ])
                 self.query_timeout = None
                 self.access_group = None
@@ -2147,6 +2177,7 @@ class Igmp(Entity):
                 self._children_name_map["explicit_tracking"] = "explicit-tracking"
                 self._segment_path = lambda: "inheritable-defaults"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.InheritableDefaults, ['query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -2202,15 +2233,16 @@ class Igmp(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                        ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                        ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.maximum_groups = None
                     self.warning_threshold = None
                     self.access_list_name = None
                     self._segment_path = lambda: "maximum-groups-per-interface-oor"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -2254,13 +2286,14 @@ class Igmp(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.enable = None
                     self.access_list_name = None
                     self._segment_path = lambda: "explicit-tracking"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/inheritable-defaults/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.DefaultContext.InheritableDefaults.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -2296,6 +2329,7 @@ class Igmp(Entity):
                 self.ssm_access_group = YList(self)
                 self._segment_path = lambda: "ssm-access-groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.SsmAccessGroups, [], name, value)
@@ -2344,13 +2378,14 @@ class Igmp(Entity):
                     self.ylist_key_names = ['source_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_address', YLeaf(YType.str, 'source-address')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.source_address = None
                     self.access_list_name = None
                     self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/ssm-access-groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.DefaultContext.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -2386,11 +2421,12 @@ class Igmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                    ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
                 ])
                 self.maximum_groups = None
                 self._segment_path = lambda: "maximum"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.Maximum, ['maximum_groups'], name, value)
@@ -2426,6 +2462,7 @@ class Igmp(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Igmp.DefaultContext.Interfaces, [], name, value)
@@ -2440,7 +2477,7 @@ class Igmp(Entity):
                 	Name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: join_groups
                 
@@ -2539,13 +2576,13 @@ class Igmp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("join-groups", ("join_groups", Igmp.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                        ('access_group', YLeaf(YType.str, 'access-group')),
-                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                        ('version', YLeaf(YType.uint32, 'version')),
-                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                        ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                        ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                        ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                        ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                        ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                     ])
                     self.interface_name = None
                     self.query_timeout = None
@@ -2569,6 +2606,7 @@ class Igmp(Entity):
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:igmp/default-context/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -2612,6 +2650,7 @@ class Igmp(Entity):
                         self.join_group = YList(self)
                         self.join_group_source_address = YList(self)
                         self._segment_path = lambda: "join-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.JoinGroups, [], name, value)
@@ -2659,12 +2698,13 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                             ])
                             self.group_address = None
                             self.mode = None
                             self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -2725,14 +2765,15 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                             ])
                             self.group_address = None
                             self.source_address = None
                             self.mode = None
                             self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -2797,6 +2838,7 @@ class Igmp(Entity):
                         self.static_group_group_address_group_address_mask_source_address = YList(self)
                         self.static_group_group_address_group_address_mask_source_address_source_address_mask = YList(self)
                         self._segment_path = lambda: "static-group-group-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses, [], name, value)
@@ -2862,16 +2904,17 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_count = None
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -2950,11 +2993,11 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.source_address = None
@@ -2962,6 +3005,7 @@ class Igmp(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3053,12 +3097,12 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','source_address','source_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.source_address = None
@@ -3067,6 +3111,7 @@ class Igmp(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3145,11 +3190,11 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -3157,6 +3202,7 @@ class Igmp(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3248,12 +3294,12 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -3262,6 +3308,7 @@ class Igmp(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3366,13 +3413,13 @@ class Igmp(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -3382,6 +3429,7 @@ class Igmp(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -3437,14 +3485,15 @@ class Igmp(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.maximum_groups = None
                         self.warning_threshold = None
                         self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -3488,12 +3537,13 @@ class Igmp(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.enable = None
                         self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Igmp.DefaultContext.Interfaces.Interface.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -3608,16 +3658,16 @@ class Amt(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("relay-adv-add", ("relay_adv_add", Amt.RelayAdvAdd)), ("relay-anycast-prefix", ("relay_anycast_prefix", Amt.RelayAnycastPrefix))])
         self._leafs = OrderedDict([
-            ('maximum_v4_route_gateway', YLeaf(YType.uint32, 'maximum-v4-route-gateway')),
-            ('gateway_filter', YLeaf(YType.str, 'gateway-filter')),
-            ('maximum_v4_routes', YLeaf(YType.uint32, 'maximum-v4-routes')),
-            ('amttos', YLeaf(YType.uint32, 'amttos')),
-            ('amtttl', YLeaf(YType.uint32, 'amtttl')),
-            ('maximum_v6_route_gateway', YLeaf(YType.uint32, 'maximum-v6-route-gateway')),
-            ('maximum_gateway', YLeaf(YType.uint32, 'maximum-gateway')),
-            ('maximum_v6_routes', YLeaf(YType.uint32, 'maximum-v6-routes')),
-            ('amtqqic', YLeaf(YType.uint32, 'amtqqic')),
-            ('amtmtu', YLeaf(YType.uint32, 'amtmtu')),
+            ('maximum_v4_route_gateway', (YLeaf(YType.uint32, 'maximum-v4-route-gateway'), ['int'])),
+            ('gateway_filter', (YLeaf(YType.str, 'gateway-filter'), ['str'])),
+            ('maximum_v4_routes', (YLeaf(YType.uint32, 'maximum-v4-routes'), ['int'])),
+            ('amttos', (YLeaf(YType.uint32, 'amttos'), ['int'])),
+            ('amtttl', (YLeaf(YType.uint32, 'amtttl'), ['int'])),
+            ('maximum_v6_route_gateway', (YLeaf(YType.uint32, 'maximum-v6-route-gateway'), ['int'])),
+            ('maximum_gateway', (YLeaf(YType.uint32, 'maximum-gateway'), ['int'])),
+            ('maximum_v6_routes', (YLeaf(YType.uint32, 'maximum-v6-routes'), ['int'])),
+            ('amtqqic', (YLeaf(YType.uint32, 'amtqqic'), ['int'])),
+            ('amtmtu', (YLeaf(YType.uint32, 'amtmtu'), ['int'])),
         ])
         self.maximum_v4_route_gateway = None
         self.gateway_filter = None
@@ -3636,6 +3686,7 @@ class Amt(Entity):
         self.relay_anycast_prefix = None
         self._children_name_map["relay_anycast_prefix"] = "relay-anycast-prefix"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Amt, ['maximum_v4_route_gateway', 'gateway_filter', 'maximum_v4_routes', 'amttos', 'amtttl', 'maximum_v6_route_gateway', 'maximum_gateway', 'maximum_v6_routes', 'amtqqic', 'amtmtu'], name, value)
@@ -3659,7 +3710,7 @@ class Amt(Entity):
         	Relay Advertisement Interface
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         
 
@@ -3681,13 +3732,14 @@ class Amt(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('address', YLeaf(YType.str, 'address')),
-                ('interface', YLeaf(YType.str, 'interface')),
+                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
             ])
             self.address = None
             self.interface = None
             self._segment_path = lambda: "relay-adv-add"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Amt.RelayAdvAdd, ['address', 'interface'], name, value)
@@ -3733,13 +3785,14 @@ class Amt(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('address', YLeaf(YType.str, 'address')),
-                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
             ])
             self.address = None
             self.prefix_length = None
             self._segment_path = lambda: "relay-anycast-prefix"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:amt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Amt.RelayAnycastPrefix, ['address', 'prefix_length'], name, value)
@@ -3790,6 +3843,7 @@ class Mld(Entity):
         self.default_context = None
         self._children_name_map["default_context"] = "default-context"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Mld, [], name, value)
@@ -3825,6 +3879,7 @@ class Mld(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Mld.Vrfs, [], name, value)
@@ -3897,9 +3952,9 @@ class Mld(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("traffic", ("traffic", Mld.Vrfs.Vrf.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.Vrfs.Vrf.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.Vrfs.Vrf.SsmAccessGroups)), ("maximum", ("maximum", Mld.Vrfs.Vrf.Maximum)), ("interfaces", ("interfaces", Mld.Vrfs.Vrf.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
-                    ('robustness', YLeaf(YType.uint32, 'robustness')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('ssmdns_query_group', (YLeaf(YType.empty, 'ssmdns-query-group'), ['Empty'])),
+                    ('robustness', (YLeaf(YType.uint32, 'robustness'), ['int'])),
                 ])
                 self.vrf_name = None
                 self.ssmdns_query_group = None
@@ -3926,6 +3981,7 @@ class Mld(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.Vrfs.Vrf, ['vrf_name', 'ssmdns_query_group', 'robustness'], name, value)
@@ -3959,10 +4015,11 @@ class Mld(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "traffic"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Vrfs.Vrf.Traffic, ['profile'], name, value)
@@ -4057,12 +4114,12 @@ class Mld(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking))])
                     self._leafs = OrderedDict([
-                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                        ('access_group', YLeaf(YType.str, 'access-group')),
-                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                        ('version', YLeaf(YType.uint32, 'version')),
-                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                        ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                        ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                        ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                        ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                        ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                     ])
                     self.query_timeout = None
                     self.access_group = None
@@ -4077,6 +4134,7 @@ class Mld(Entity):
                     self.explicit_tracking = None
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._segment_path = lambda: "inheritable-defaults"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Vrfs.Vrf.InheritableDefaults, ['query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -4132,14 +4190,15 @@ class Mld(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.maximum_groups = None
                         self.warning_threshold = None
                         self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.InheritableDefaults.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -4183,12 +4242,13 @@ class Mld(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.enable = None
                         self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.InheritableDefaults.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -4223,6 +4283,7 @@ class Mld(Entity):
 
                     self.ssm_access_group = YList(self)
                     self._segment_path = lambda: "ssm-access-groups"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Vrfs.Vrf.SsmAccessGroups, [], name, value)
@@ -4271,12 +4332,13 @@ class Mld(Entity):
                         self.ylist_key_names = ['source_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.source_address = None
                         self.access_list_name = None
                         self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -4312,10 +4374,11 @@ class Mld(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                        ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
                     ])
                     self.maximum_groups = None
                     self._segment_path = lambda: "maximum"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Vrfs.Vrf.Maximum, ['maximum_groups'], name, value)
@@ -4350,6 +4413,7 @@ class Mld(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.Vrfs.Vrf.Interfaces, [], name, value)
@@ -4364,7 +4428,7 @@ class Mld(Entity):
                     	Name of the interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: join_groups
                     
@@ -4463,13 +4527,13 @@ class Mld(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("join-groups", ("join_groups", Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                            ('access_group', YLeaf(YType.str, 'access-group')),
-                            ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                            ('version', YLeaf(YType.uint32, 'version')),
-                            ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                            ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                            ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                            ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                            ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                            ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                         ])
                         self.interface_name = None
                         self.query_timeout = None
@@ -4492,6 +4556,7 @@ class Mld(Entity):
                         self.explicit_tracking = None
                         self._children_name_map["explicit_tracking"] = "explicit-tracking"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -4535,6 +4600,7 @@ class Mld(Entity):
                             self.join_group = YList(self)
                             self.join_group_source_address = YList(self)
                             self._segment_path = lambda: "join-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups, [], name, value)
@@ -4582,12 +4648,13 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                                 ])
                                 self.group_address = None
                                 self.mode = None
                                 self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -4648,14 +4715,15 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
                                 self.mode = None
                                 self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -4720,6 +4788,7 @@ class Mld(Entity):
                             self.static_group_group_address_group_address_mask_source_address = YList(self)
                             self.static_group_group_address_group_address_mask_source_address_source_address_mask = YList(self)
                             self._segment_path = lambda: "static-group-group-addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses, [], name, value)
@@ -4785,16 +4854,17 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_count = None
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -4873,11 +4943,11 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
@@ -4885,6 +4955,7 @@ class Mld(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -4976,12 +5047,12 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','source_address','source_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.source_address = None
@@ -4990,6 +5061,7 @@ class Mld(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5068,11 +5140,11 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -5080,6 +5152,7 @@ class Mld(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5171,12 +5244,12 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -5185,6 +5258,7 @@ class Mld(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5289,13 +5363,13 @@ class Mld(Entity):
                                 self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_address', YLeaf(YType.str, 'group-address')),
-                                    ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                    ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                    ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                    ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                    ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                    ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                    ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                    ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                    ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                    ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                                 ])
                                 self.group_address = None
                                 self.group_address_mask = None
@@ -5305,6 +5379,7 @@ class Mld(Entity):
                                 self.source_count = None
                                 self.suppress_report = None
                                 self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -5360,14 +5435,15 @@ class Mld(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.maximum_groups = None
                             self.warning_threshold = None
                             self.access_list_name = None
                             self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -5411,12 +5487,13 @@ class Mld(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.boolean, 'enable')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.enable = None
                             self.access_list_name = None
                             self._segment_path = lambda: "explicit-tracking"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.Vrfs.Vrf.Interfaces.Interface.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -5500,8 +5577,8 @@ class Mld(Entity):
             self._child_classes = OrderedDict([("nsf", ("nsf", Mld.DefaultContext.Nsf)), ("unicast-qos-adjust", ("unicast_qos_adjust", Mld.DefaultContext.UnicastQosAdjust)), ("accounting", ("accounting", Mld.DefaultContext.Accounting)), ("traffic", ("traffic", Mld.DefaultContext.Traffic)), ("inheritable-defaults", ("inheritable_defaults", Mld.DefaultContext.InheritableDefaults)), ("ssm-access-groups", ("ssm_access_groups", Mld.DefaultContext.SsmAccessGroups)), ("maximum", ("maximum", Mld.DefaultContext.Maximum)), ("interfaces", ("interfaces", Mld.DefaultContext.Interfaces))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('ssmdns_query_group', YLeaf(YType.empty, 'ssmdns-query-group')),
-                ('robustness', YLeaf(YType.uint32, 'robustness')),
+                ('ssmdns_query_group', (YLeaf(YType.empty, 'ssmdns-query-group'), ['Empty'])),
+                ('robustness', (YLeaf(YType.uint32, 'robustness'), ['int'])),
             ])
             self.ssmdns_query_group = None
             self.robustness = None
@@ -5539,6 +5616,7 @@ class Mld(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Mld.DefaultContext, ['ssmdns_query_group', 'robustness'], name, value)
@@ -5576,11 +5654,12 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                    ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
                 ])
                 self.lifetime = None
                 self._segment_path = lambda: "nsf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.Nsf, ['lifetime'], name, value)
@@ -5641,15 +5720,16 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('download_interval', YLeaf(YType.uint32, 'download-interval')),
-                    ('adjustment_delay', YLeaf(YType.uint32, 'adjustment-delay')),
-                    ('hold_off', YLeaf(YType.uint32, 'hold-off')),
+                    ('download_interval', (YLeaf(YType.uint32, 'download-interval'), ['int'])),
+                    ('adjustment_delay', (YLeaf(YType.uint32, 'adjustment-delay'), ['int'])),
+                    ('hold_off', (YLeaf(YType.uint32, 'hold-off'), ['int'])),
                 ])
                 self.download_interval = None
                 self.adjustment_delay = None
                 self.hold_off = None
                 self._segment_path = lambda: "unicast-qos-adjust"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.UnicastQosAdjust, ['download_interval', 'adjustment_delay', 'hold_off'], name, value)
@@ -5688,11 +5768,12 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('max_history', YLeaf(YType.uint32, 'max-history')),
+                    ('max_history', (YLeaf(YType.uint32, 'max-history'), ['int'])),
                 ])
                 self.max_history = None
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.Accounting, ['max_history'], name, value)
@@ -5726,11 +5807,12 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('profile', YLeaf(YType.str, 'profile')),
+                    ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                 ])
                 self.profile = None
                 self._segment_path = lambda: "traffic"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.Traffic, ['profile'], name, value)
@@ -5825,12 +5907,12 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.InheritableDefaults.ExplicitTracking))])
                 self._leafs = OrderedDict([
-                    ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                    ('access_group', YLeaf(YType.str, 'access-group')),
-                    ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                    ('version', YLeaf(YType.uint32, 'version')),
-                    ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                    ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                    ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                    ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                    ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                    ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                    ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                    ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                 ])
                 self.query_timeout = None
                 self.access_group = None
@@ -5846,6 +5928,7 @@ class Mld(Entity):
                 self._children_name_map["explicit_tracking"] = "explicit-tracking"
                 self._segment_path = lambda: "inheritable-defaults"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.InheritableDefaults, ['query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -5901,15 +5984,16 @@ class Mld(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                        ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                        ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.maximum_groups = None
                     self.warning_threshold = None
                     self.access_list_name = None
                     self._segment_path = lambda: "maximum-groups-per-interface-oor"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.DefaultContext.InheritableDefaults.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -5953,13 +6037,14 @@ class Mld(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.enable = None
                     self.access_list_name = None
                     self._segment_path = lambda: "explicit-tracking"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/inheritable-defaults/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.DefaultContext.InheritableDefaults.ExplicitTracking, ['enable', 'access_list_name'], name, value)
@@ -5995,6 +6080,7 @@ class Mld(Entity):
                 self.ssm_access_group = YList(self)
                 self._segment_path = lambda: "ssm-access-groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.SsmAccessGroups, [], name, value)
@@ -6043,13 +6129,14 @@ class Mld(Entity):
                     self.ylist_key_names = ['source_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_address', YLeaf(YType.str, 'source-address')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.source_address = None
                     self.access_list_name = None
                     self._segment_path = lambda: "ssm-access-group" + "[source-address='" + str(self.source_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/ssm-access-groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.DefaultContext.SsmAccessGroups.SsmAccessGroup, ['source_address', 'access_list_name'], name, value)
@@ -6085,11 +6172,12 @@ class Mld(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
+                    ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
                 ])
                 self.maximum_groups = None
                 self._segment_path = lambda: "maximum"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.Maximum, ['maximum_groups'], name, value)
@@ -6125,6 +6213,7 @@ class Mld(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Mld.DefaultContext.Interfaces, [], name, value)
@@ -6139,7 +6228,7 @@ class Mld(Entity):
                 	Name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: join_groups
                 
@@ -6238,13 +6327,13 @@ class Mld(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("join-groups", ("join_groups", Mld.DefaultContext.Interfaces.Interface.JoinGroups)), ("static-group-group-addresses", ("static_group_group_addresses", Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses)), ("maximum-groups-per-interface-oor", ("maximum_groups_per_interface_oor", Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor)), ("explicit-tracking", ("explicit_tracking", Mld.DefaultContext.Interfaces.Interface.ExplicitTracking))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('query_timeout', YLeaf(YType.uint32, 'query-timeout')),
-                        ('access_group', YLeaf(YType.str, 'access-group')),
-                        ('query_max_response_time', YLeaf(YType.uint32, 'query-max-response-time')),
-                        ('version', YLeaf(YType.uint32, 'version')),
-                        ('router_enable', YLeaf(YType.boolean, 'router-enable')),
-                        ('query_interval', YLeaf(YType.uint32, 'query-interval')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('query_timeout', (YLeaf(YType.uint32, 'query-timeout'), ['int'])),
+                        ('access_group', (YLeaf(YType.str, 'access-group'), ['str'])),
+                        ('query_max_response_time', (YLeaf(YType.uint32, 'query-max-response-time'), ['int'])),
+                        ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                        ('router_enable', (YLeaf(YType.boolean, 'router-enable'), ['bool'])),
+                        ('query_interval', (YLeaf(YType.uint32, 'query-interval'), ['int'])),
                     ])
                     self.interface_name = None
                     self.query_timeout = None
@@ -6268,6 +6357,7 @@ class Mld(Entity):
                     self._children_name_map["explicit_tracking"] = "explicit-tracking"
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-igmp-cfg:mld/default-context/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Mld.DefaultContext.Interfaces.Interface, ['interface_name', 'query_timeout', 'access_group', 'query_max_response_time', 'version', 'router_enable', 'query_interval'], name, value)
@@ -6311,6 +6401,7 @@ class Mld(Entity):
                         self.join_group = YList(self)
                         self.join_group_source_address = YList(self)
                         self._segment_path = lambda: "join-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.JoinGroups, [], name, value)
@@ -6358,12 +6449,13 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                             ])
                             self.group_address = None
                             self.mode = None
                             self._segment_path = lambda: "join-group" + "[group-address='" + str(self.group_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroup, ['group_address', 'mode'], name, value)
@@ -6424,14 +6516,15 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_igmp_cfg', 'IgmpFilter', '')])),
                             ])
                             self.group_address = None
                             self.source_address = None
                             self.mode = None
                             self._segment_path = lambda: "join-group-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.JoinGroups.JoinGroupSourceAddress, ['group_address', 'source_address', 'mode'], name, value)
@@ -6496,6 +6589,7 @@ class Mld(Entity):
                         self.static_group_group_address_group_address_mask_source_address = YList(self)
                         self.static_group_group_address_group_address_mask_source_address_source_address_mask = YList(self)
                         self._segment_path = lambda: "static-group-group-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses, [], name, value)
@@ -6561,16 +6655,17 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_count = None
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address" + "[group-address='" + str(self.group_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddress, ['group_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6649,11 +6744,11 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.source_address = None
@@ -6661,6 +6756,7 @@ class Mld(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-source-address" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddress, ['group_address', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6752,12 +6848,12 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','source_address','source_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.source_address = None
@@ -6766,6 +6862,7 @@ class Mld(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressSourceAddressSourceAddressMask, ['group_address', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6844,11 +6941,11 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -6856,6 +6953,7 @@ class Mld(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMask, ['group_address', 'group_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -6947,12 +7045,12 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask','source_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -6961,6 +7059,7 @@ class Mld(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddress, ['group_address', 'group_address_mask', 'source_address', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -7065,13 +7164,13 @@ class Mld(Entity):
                             self.ylist_key_names = ['group_address','group_address_mask','source_address','source_address_mask']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('group_address', YLeaf(YType.str, 'group-address')),
-                                ('group_address_mask', YLeaf(YType.str, 'group-address-mask')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                                ('source_count', YLeaf(YType.uint32, 'source-count')),
-                                ('suppress_report', YLeaf(YType.boolean, 'suppress-report')),
+                                ('group_address', (YLeaf(YType.str, 'group-address'), ['str','str'])),
+                                ('group_address_mask', (YLeaf(YType.str, 'group-address-mask'), ['str','str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str','str'])),
+                                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                                ('source_count', (YLeaf(YType.uint32, 'source-count'), ['int'])),
+                                ('suppress_report', (YLeaf(YType.boolean, 'suppress-report'), ['bool'])),
                             ])
                             self.group_address = None
                             self.group_address_mask = None
@@ -7081,6 +7180,7 @@ class Mld(Entity):
                             self.source_count = None
                             self.suppress_report = None
                             self._segment_path = lambda: "static-group-group-address-group-address-mask-source-address-source-address-mask" + "[group-address='" + str(self.group_address) + "']" + "[group-address-mask='" + str(self.group_address_mask) + "']" + "[source-address='" + str(self.source_address) + "']" + "[source-address-mask='" + str(self.source_address_mask) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.StaticGroupGroupAddresses.StaticGroupGroupAddressGroupAddressMaskSourceAddressSourceAddressMask, ['group_address', 'group_address_mask', 'source_address', 'source_address_mask', 'group_count', 'source_count', 'suppress_report'], name, value)
@@ -7136,14 +7236,15 @@ class Mld(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_groups', YLeaf(YType.uint32, 'maximum-groups')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('maximum_groups', (YLeaf(YType.uint32, 'maximum-groups'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.maximum_groups = None
                         self.warning_threshold = None
                         self.access_list_name = None
                         self._segment_path = lambda: "maximum-groups-per-interface-oor"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.MaximumGroupsPerInterfaceOor, ['maximum_groups', 'warning_threshold', 'access_list_name'], name, value)
@@ -7187,12 +7288,13 @@ class Mld(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.enable = None
                         self.access_list_name = None
                         self._segment_path = lambda: "explicit-tracking"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Mld.DefaultContext.Interfaces.Interface.ExplicitTracking, ['enable', 'access_list_name'], name, value)

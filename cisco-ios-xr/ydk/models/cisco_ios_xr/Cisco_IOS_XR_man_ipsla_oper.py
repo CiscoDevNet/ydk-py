@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipsla\: IPSLA operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IpslaLspGrpPathStatusEnum(Enum):
@@ -798,6 +799,7 @@ class Ipsla(Entity):
         self.application_info.parent = self
         self._children_name_map["application_info"] = "application-info"
         self._segment_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipsla, [], name, value)
@@ -844,6 +846,7 @@ class Ipsla(Entity):
             self._children_name_map["discovery"] = "discovery"
             self._segment_path = lambda: "mpls-data"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.MplsData, [], name, value)
@@ -879,6 +882,7 @@ class Ipsla(Entity):
                 self.lsp_monitor = YList(self)
                 self._segment_path = lambda: "lsp-monitors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsData.LspMonitors, [], name, value)
@@ -927,7 +931,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['monitor_id']
                     self._child_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.State)), ("operations", ("operations", Ipsla.MplsData.LspMonitors.LspMonitor.Operations)), ("scan-queues", ("scan_queues", Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues))])
                     self._leafs = OrderedDict([
-                        ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
+                        ('monitor_id', (YLeaf(YType.uint32, 'monitor-id'), ['int'])),
                     ])
                     self.monitor_id = None
 
@@ -944,6 +948,7 @@ class Ipsla(Entity):
                     self._children_name_map["scan_queues"] = "scan-queues"
                     self._segment_path = lambda: "lsp-monitor" + "[monitor-id='" + str(self.monitor_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/lsp-monitors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor, ['monitor_id'], name, value)
@@ -1006,16 +1011,17 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('scan_remaining', YLeaf(YType.uint32, 'scan-remaining')),
-                            ('delete_scan_remaining', YLeaf(YType.uint32, 'delete-scan-remaining')),
-                            ('rediscovery_remaining', YLeaf(YType.uint32, 'rediscovery-remaining')),
-                            ('lpd_compeletion_time', YLeaf(YType.uint32, 'lpd-compeletion-time')),
+                            ('scan_remaining', (YLeaf(YType.uint32, 'scan-remaining'), ['int'])),
+                            ('delete_scan_remaining', (YLeaf(YType.uint32, 'delete-scan-remaining'), ['int'])),
+                            ('rediscovery_remaining', (YLeaf(YType.uint32, 'rediscovery-remaining'), ['int'])),
+                            ('lpd_compeletion_time', (YLeaf(YType.uint32, 'lpd-compeletion-time'), ['int'])),
                         ])
                         self.scan_remaining = None
                         self.delete_scan_remaining = None
                         self.rediscovery_remaining = None
                         self.lpd_compeletion_time = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.State, [u'scan_remaining', u'delete_scan_remaining', u'rediscovery_remaining', u'lpd_compeletion_time'], name, value)
@@ -1050,6 +1056,7 @@ class Ipsla(Entity):
 
                         self.operation_ = YList(self)
                         self._segment_path = lambda: "operations"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations, [], name, value)
@@ -1093,7 +1100,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = ['operation_id']
                             self._child_classes = OrderedDict([("state", ("state", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State)), ("lpd-paths", ("lpd_paths", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths))])
                             self._leafs = OrderedDict([
-                                ('operation_id', YLeaf(YType.uint32, 'operation-id')),
+                                ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
                             ])
                             self.operation_id = None
 
@@ -1105,6 +1112,7 @@ class Ipsla(Entity):
                             self.lpd_paths.parent = self
                             self._children_name_map["lpd_paths"] = "lpd-paths"
                             self._segment_path = lambda: "operation" + "[operation-id='" + str(self.operation_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation, ['operation_id'], name, value)
@@ -1157,16 +1165,17 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('target_address', YLeaf(YType.str, 'target-address')),
-                                    ('target_mask', YLeaf(YType.uint32, 'target-mask')),
-                                    ('group_status', YLeaf(YType.enumeration, 'group-status')),
-                                    ('operation_time', YLeaf(YType.uint64, 'operation-time')),
+                                    ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
+                                    ('target_mask', (YLeaf(YType.uint32, 'target-mask'), ['int'])),
+                                    ('group_status', (YLeaf(YType.enumeration, 'group-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaLspGrpStatusEnum', '')])),
+                                    ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
                                 ])
                                 self.target_address = None
                                 self.target_mask = None
                                 self.group_status = None
                                 self.operation_time = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.State, [u'target_address', u'target_mask', u'group_status', u'operation_time'], name, value)
@@ -1202,6 +1211,7 @@ class Ipsla(Entity):
 
                                 self.lpd_path = YList(self)
                                 self._segment_path = lambda: "lpd-paths"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths, [], name, value)
@@ -1274,12 +1284,12 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['path_index']
                                     self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
-                                        ('path_status', YLeaf(YType.enumeration, 'path-status')),
-                                        ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                        ('success_count', YLeaf(YType.uint32, 'success-count')),
-                                        ('failure_count', YLeaf(YType.uint32, 'failure-count')),
+                                        ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
+                                        ('path_status', (YLeaf(YType.enumeration, 'path-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaLspGrpPathStatusEnum', '')])),
+                                        ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                        ('success_count', (YLeaf(YType.uint32, 'success-count'), ['int'])),
+                                        ('failure_count', (YLeaf(YType.uint32, 'failure-count'), ['int'])),
                                     ])
                                     self.path_index = None
                                     self.path_status = None
@@ -1292,6 +1302,7 @@ class Ipsla(Entity):
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath, ['path_index', u'path_status', u'operation_time', u'response_time', u'success_count', u'failure_count'], name, value)
@@ -1313,7 +1324,7 @@ class Ipsla(Entity):
                                     	Output interface
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -1346,16 +1357,17 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                            ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                            ('nexthop_address', YLeaf(YType.str, 'nexthop-address')),
-                                            ('downstream_label', YLeafList(YType.uint32, 'downstream-label')),
+                                            ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                            ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                            ('nexthop_address', (YLeaf(YType.str, 'nexthop-address'), ['str'])),
+                                            ('downstream_label', (YLeafList(YType.uint32, 'downstream-label'), ['int'])),
                                         ])
                                         self.lsp_selector = None
                                         self.output_interface = None
                                         self.nexthop_address = None
                                         self.downstream_label = []
                                         self._segment_path = lambda: "path-id"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.Operations.Operation.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
@@ -1391,6 +1403,7 @@ class Ipsla(Entity):
 
                         self.scan_queue = YList(self)
                         self._segment_path = lambda: "scan-queues"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues, [], name, value)
@@ -1444,16 +1457,17 @@ class Ipsla(Entity):
                             self.ylist_key_names = ['address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('target_address', YLeaf(YType.str, 'target-address')),
-                                ('target_mask', YLeaf(YType.uint32, 'target-mask')),
-                                ('entry', YLeaf(YType.enumeration, 'entry')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
+                                ('target_mask', (YLeaf(YType.uint32, 'target-mask'), ['int'])),
+                                ('entry', (YLeaf(YType.enumeration, 'entry'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsAddDeleteEnum', '')])),
                             ])
                             self.address = None
                             self.target_address = None
                             self.target_mask = None
                             self.entry = None
                             self._segment_path = lambda: "scan-queue" + "[address='" + str(self.address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsData.LspMonitors.LspMonitor.ScanQueues.ScanQueue, ['address', u'target_address', u'target_mask', u'entry'], name, value)
@@ -1491,6 +1505,7 @@ class Ipsla(Entity):
                 self._children_name_map["vpn"] = "vpn"
                 self._segment_path = lambda: "discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsData.Discovery, [], name, value)
@@ -1537,6 +1552,7 @@ class Ipsla(Entity):
                     self._children_name_map["nexthops"] = "nexthops"
                     self._segment_path = lambda: "vpn"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.MplsData.Discovery.Vpn, [], name, value)
@@ -1572,11 +1588,12 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('refresh_remaining', YLeaf(YType.uint32, 'refresh-remaining')),
+                            ('refresh_remaining', (YLeaf(YType.uint32, 'refresh-remaining'), ['int'])),
                         ])
                         self.refresh_remaining = None
                         self._segment_path = lambda: "state"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.State, [u'refresh_remaining'], name, value)
@@ -1613,6 +1630,7 @@ class Ipsla(Entity):
                         self.nexthop = YList(self)
                         self._segment_path = lambda: "nexthops"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops, [], name, value)
@@ -1656,7 +1674,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = ['address']
                             self._child_classes = OrderedDict([("vrfs", ("vrfs", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs)), ("prefix", ("prefix", Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix))])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                             ])
                             self.address = None
 
@@ -1669,6 +1687,7 @@ class Ipsla(Entity):
                             self._children_name_map["prefix"] = "prefix"
                             self._segment_path = lambda: "nexthop" + "[address='" + str(self.address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/mpls-data/discovery/vpn/nexthops/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop, ['address'], name, value)
@@ -1703,6 +1722,7 @@ class Ipsla(Entity):
 
                                 self.vrf = YList(self)
                                 self._segment_path = lambda: "vrfs"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs, [], name, value)
@@ -1743,12 +1763,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['vrf_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                        ('prefix_count', YLeaf(YType.uint32, 'prefix-count')),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('prefix_count', (YLeaf(YType.uint32, 'prefix-count'), ['int'])),
                                     ])
                                     self.vrf_name = None
                                     self.prefix_count = None
                                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Vrfs.Vrf, ['vrf_name', u'prefix_count'], name, value)
@@ -1789,12 +1810,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('target_address', YLeaf(YType.str, 'target-address')),
-                                    ('target_mask', YLeaf(YType.uint32, 'target-mask')),
+                                    ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
+                                    ('target_mask', (YLeaf(YType.uint32, 'target-mask'), ['int'])),
                                 ])
                                 self.target_address = None
                                 self.target_mask = None
                                 self._segment_path = lambda: "prefix"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsData.Discovery.Vpn.Nexthops.Nexthop.Prefix, [u'target_address', u'target_mask'], name, value)
@@ -1832,6 +1854,7 @@ class Ipsla(Entity):
             self._children_name_map["ports"] = "ports"
             self._segment_path = lambda: "responder"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.Responder, [], name, value)
@@ -1867,6 +1890,7 @@ class Ipsla(Entity):
                 self.port = YList(self)
                 self._segment_path = lambda: "ports"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/responder/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Responder.Ports, [], name, value)
@@ -1967,17 +1991,17 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['port']
                     self._child_classes = OrderedDict([("sender", ("sender", Ipsla.Responder.Ports.Port.Sender))])
                     self._leafs = OrderedDict([
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
-                        ('local_address', YLeaf(YType.str, 'local-address')),
-                        ('num_probes', YLeaf(YType.uint32, 'num-probes')),
-                        ('ctrl_probes', YLeaf(YType.uint32, 'ctrl-probes')),
-                        ('permanent', YLeaf(YType.boolean, 'permanent')),
-                        ('discard_on', YLeaf(YType.boolean, 'discard-on')),
-                        ('pd_time_stamp_failed', YLeaf(YType.boolean, 'pd-time-stamp-failed')),
-                        ('is_ipsla', YLeaf(YType.boolean, 'is-ipsla')),
-                        ('drop_counter', YLeaf(YType.uint32, 'drop-counter')),
-                        ('socket', YLeaf(YType.int32, 'socket')),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('port_xr', (YLeaf(YType.uint16, 'port-xr'), ['int'])),
+                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                        ('num_probes', (YLeaf(YType.uint32, 'num-probes'), ['int'])),
+                        ('ctrl_probes', (YLeaf(YType.uint32, 'ctrl-probes'), ['int'])),
+                        ('permanent', (YLeaf(YType.boolean, 'permanent'), ['bool'])),
+                        ('discard_on', (YLeaf(YType.boolean, 'discard-on'), ['bool'])),
+                        ('pd_time_stamp_failed', (YLeaf(YType.boolean, 'pd-time-stamp-failed'), ['bool'])),
+                        ('is_ipsla', (YLeaf(YType.boolean, 'is-ipsla'), ['bool'])),
+                        ('drop_counter', (YLeaf(YType.uint32, 'drop-counter'), ['int'])),
+                        ('socket', (YLeaf(YType.int32, 'socket'), ['int'])),
                     ])
                     self.port = None
                     self.port_xr = None
@@ -1994,9 +2018,10 @@ class Ipsla(Entity):
                     self.sender = YList(self)
                     self._segment_path = lambda: "port" + "[port='" + str(self.port) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/responder/ports/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', 'port_xr', 'local_address', 'num_probes', 'ctrl_probes', 'permanent', 'discard_on', 'pd_time_stamp_failed', 'is_ipsla', 'drop_counter', 'socket'], name, value)
+                    self._perform_setattr(Ipsla.Responder.Ports.Port, ['port', u'port_xr', u'local_address', u'num_probes', u'ctrl_probes', u'permanent', u'discard_on', u'pd_time_stamp_failed', u'is_ipsla', u'drop_counter', u'socket'], name, value)
 
 
                 class Sender(Entity):
@@ -2041,17 +2066,18 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip_address', YLeaf(YType.uint32, 'ip-address')),
-                            ('port', YLeaf(YType.uint16, 'port')),
-                            ('last_recv_time', YLeaf(YType.uint64, 'last-recv-time')),
+                            ('ip_address', (YLeaf(YType.uint32, 'ip-address'), ['int'])),
+                            ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                            ('last_recv_time', (YLeaf(YType.uint64, 'last-recv-time'), ['int'])),
                         ])
                         self.ip_address = None
                         self.port = None
                         self.last_recv_time = None
                         self._segment_path = lambda: "sender"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, ['ip_address', 'port', 'last_recv_time'], name, value)
+                        self._perform_setattr(Ipsla.Responder.Ports.Port.Sender, [u'ip_address', u'port', u'last_recv_time'], name, value)
 
 
     class OperationData(Entity):
@@ -2086,6 +2112,7 @@ class Ipsla(Entity):
             self._children_name_map["operations"] = "operations"
             self._segment_path = lambda: "operation-data"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.OperationData, [], name, value)
@@ -2121,6 +2148,7 @@ class Ipsla(Entity):
                 self.operation_ = YList(self)
                 self._segment_path = lambda: "operations"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.OperationData.Operations, [], name, value)
@@ -2174,7 +2202,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['operation_id']
                     self._child_classes = OrderedDict([("common", ("common", Ipsla.OperationData.Operations.Operation.Common)), ("lpd", ("lpd", Ipsla.OperationData.Operations.Operation.Lpd)), ("history", ("history", Ipsla.OperationData.Operations.Operation.History)), ("statistics", ("statistics", Ipsla.OperationData.Operations.Operation.Statistics))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
                     ])
                     self.operation_id = None
 
@@ -2195,6 +2223,7 @@ class Ipsla(Entity):
                     self._children_name_map["statistics"] = "statistics"
                     self._segment_path = lambda: "operation" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/operation-data/operations/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.OperationData.Operations.Operation, ['operation_id'], name, value)
@@ -2231,6 +2260,7 @@ class Ipsla(Entity):
                         self.operational_state.parent = self
                         self._children_name_map["operational_state"] = "operational-state"
                         self._segment_path = lambda: "common"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common, [], name, value)
@@ -2346,19 +2376,19 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('modification_time', YLeaf(YType.uint64, 'modification-time')),
-                                ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                ('attempt_count', YLeaf(YType.uint32, 'attempt-count')),
-                                ('skipped_count', YLeaf(YType.uint32, 'skipped-count')),
-                                ('life_remaining', YLeaf(YType.uint32, 'life-remaining')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('recurring', YLeaf(YType.boolean, 'recurring')),
-                                ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
-                                ('flags', YLeaf(YType.uint32, 'flags')),
-                                ('local_port', YLeaf(YType.uint16, 'local-port')),
-                                ('unexpected_packets', YLeaf(YType.uint32, 'unexpected-packets')),
-                                ('unexpected_control_packets', YLeaf(YType.uint32, 'unexpected-control-packets')),
-                                ('operation_time', YLeaf(YType.uint64, 'operation-time')),
+                                ('modification_time', (YLeaf(YType.uint64, 'modification-time'), ['int'])),
+                                ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                ('attempt_count', (YLeaf(YType.uint32, 'attempt-count'), ['int'])),
+                                ('skipped_count', (YLeaf(YType.uint32, 'skipped-count'), ['int'])),
+                                ('life_remaining', (YLeaf(YType.uint32, 'life-remaining'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('recurring', (YLeaf(YType.boolean, 'recurring'), ['bool'])),
+                                ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaOperStateEnum', '')])),
+                                ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
+                                ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                ('unexpected_packets', (YLeaf(YType.uint32, 'unexpected-packets'), ['int'])),
+                                ('unexpected_control_packets', (YLeaf(YType.uint32, 'unexpected-control-packets'), ['int'])),
+                                ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
                             ])
                             self.modification_time = None
                             self.start_time = None
@@ -2374,6 +2404,7 @@ class Ipsla(Entity):
                             self.unexpected_control_packets = None
                             self.operation_time = None
                             self._segment_path = lambda: "operational-state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Common.OperationalState, [u'modification_time', u'start_time', u'attempt_count', u'skipped_count', u'life_remaining', u'frequency', u'recurring', u'operational_state', u'flags', u'local_port', u'unexpected_packets', u'unexpected_control_packets', u'operation_time'], name, value)
@@ -2420,6 +2451,7 @@ class Ipsla(Entity):
                         self.status.parent = self
                         self._children_name_map["status"] = "status"
                         self._segment_path = lambda: "lpd"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd, [], name, value)
@@ -2465,6 +2497,7 @@ class Ipsla(Entity):
                             self.aggregated.parent = self
                             self._children_name_map["aggregated"] = "aggregated"
                             self._segment_path = lambda: "statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics, [], name, value)
@@ -2502,6 +2535,7 @@ class Ipsla(Entity):
                                 self.target.parent = self
                                 self._children_name_map["target"] = "target"
                                 self._segment_path = lambda: "latest"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest, [], name, value)
@@ -2657,24 +2691,24 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress))])
                                     self._leafs = OrderedDict([
-                                        ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                        ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                        ('completion_time_count', YLeaf(YType.uint32, 'completion-time-count')),
-                                        ('completion_time', YLeaf(YType.uint32, 'completion-time')),
-                                        ('min_completion_time', YLeaf(YType.uint32, 'min-completion-time')),
-                                        ('max_completion_time', YLeaf(YType.uint32, 'max-completion-time')),
-                                        ('sum_completion_time', YLeaf(YType.uint32, 'sum-completion-time')),
-                                        ('path_count', YLeaf(YType.uint32, 'path-count')),
-                                        ('min_path_count', YLeaf(YType.uint32, 'min-path-count')),
-                                        ('max_path_count', YLeaf(YType.uint32, 'max-path-count')),
-                                        ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                        ('no_path_count', YLeaf(YType.uint32, 'no-path-count')),
-                                        ('all_paths_broken_count', YLeaf(YType.uint32, 'all-paths-broken-count')),
-                                        ('all_paths_unexplorable_count', YLeaf(YType.uint32, 'all-paths-unexplorable-count')),
-                                        ('all_paths_broken_or_unexplorable_count', YLeaf(YType.uint32, 'all-paths-broken-or-unexplorable-count')),
-                                        ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                        ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                                        ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                        ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsLpdRetCode', '')])),
+                                        ('completion_time_count', (YLeaf(YType.uint32, 'completion-time-count'), ['int'])),
+                                        ('completion_time', (YLeaf(YType.uint32, 'completion-time'), ['int'])),
+                                        ('min_completion_time', (YLeaf(YType.uint32, 'min-completion-time'), ['int'])),
+                                        ('max_completion_time', (YLeaf(YType.uint32, 'max-completion-time'), ['int'])),
+                                        ('sum_completion_time', (YLeaf(YType.uint32, 'sum-completion-time'), ['int'])),
+                                        ('path_count', (YLeaf(YType.uint32, 'path-count'), ['int'])),
+                                        ('min_path_count', (YLeaf(YType.uint32, 'min-path-count'), ['int'])),
+                                        ('max_path_count', (YLeaf(YType.uint32, 'max-path-count'), ['int'])),
+                                        ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                        ('no_path_count', (YLeaf(YType.uint32, 'no-path-count'), ['int'])),
+                                        ('all_paths_broken_count', (YLeaf(YType.uint32, 'all-paths-broken-count'), ['int'])),
+                                        ('all_paths_unexplorable_count', (YLeaf(YType.uint32, 'all-paths-unexplorable-count'), ['int'])),
+                                        ('all_paths_broken_or_unexplorable_count', (YLeaf(YType.uint32, 'all-paths-broken-or-unexplorable-count'), ['int'])),
+                                        ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                        ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                                     ])
                                     self.start_time = None
                                     self.return_code = None
@@ -2699,6 +2733,7 @@ class Ipsla(Entity):
                                     self.target_address.parent = self
                                     self._children_name_map["target_address"] = "target-address"
                                     self._segment_path = lambda: "target"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target, [u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
@@ -2759,9 +2794,9 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget))])
                                         self._leafs = OrderedDict([
-                                            ('target_type', YLeaf(YType.enumeration, 'target-type')),
-                                            ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
-                                            ('ipv6_address_target', YLeaf(YType.str, 'ipv6-address-target')),
+                                            ('target_type', (YLeaf(YType.enumeration, 'target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaTargetTypeEnum', '')])),
+                                            ('ipv4_address_target', (YLeaf(YType.str, 'ipv4-address-target'), ['str'])),
+                                            ('ipv6_address_target', (YLeaf(YType.str, 'ipv6-address-target'), ['str'])),
                                         ])
                                         self.target_type = None
                                         self.ipv4_address_target = None
@@ -2779,6 +2814,7 @@ class Ipsla(Entity):
                                         self.ipv4_pseudowire_target.parent = self
                                         self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
                                         self._segment_path = lambda: "target-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
@@ -2819,12 +2855,13 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('mask_length', YLeaf(YType.uint8, 'mask-length')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                ('mask_length', (YLeaf(YType.uint8, 'mask-length'), ['int'])),
                                             ])
                                             self.address = None
                                             self.mask_length = None
                                             self._segment_path = lambda: "ipv4-prefix-target"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
@@ -2858,10 +2895,11 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                                ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                                             ])
                                             self.tunnel_id = None
                                             self._segment_path = lambda: "tunnel-id-target"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
@@ -2902,12 +2940,13 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                ('virtual_circuit_id', (YLeaf(YType.uint32, 'virtual-circuit-id'), ['int'])),
                                             ])
                                             self.address = None
                                             self.virtual_circuit_id = None
                                             self._segment_path = lambda: "ipv4-pseudowire-target"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Latest.Target.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
@@ -2945,6 +2984,7 @@ class Ipsla(Entity):
                                 self.hours.parent = self
                                 self._children_name_map["hours"] = "hours"
                                 self._segment_path = lambda: "aggregated"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated, [], name, value)
@@ -2980,6 +3020,7 @@ class Ipsla(Entity):
 
                                     self.hour = YList(self)
                                     self._segment_path = lambda: "hours"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours, [], name, value)
@@ -3143,25 +3184,25 @@ class Ipsla(Entity):
                                         self.ylist_key_names = ['hour_index']
                                         self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress))])
                                         self._leafs = OrderedDict([
-                                            ('hour_index', YLeaf(YType.uint32, 'hour-index')),
-                                            ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                            ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                            ('completion_time_count', YLeaf(YType.uint32, 'completion-time-count')),
-                                            ('completion_time', YLeaf(YType.uint32, 'completion-time')),
-                                            ('min_completion_time', YLeaf(YType.uint32, 'min-completion-time')),
-                                            ('max_completion_time', YLeaf(YType.uint32, 'max-completion-time')),
-                                            ('sum_completion_time', YLeaf(YType.uint32, 'sum-completion-time')),
-                                            ('path_count', YLeaf(YType.uint32, 'path-count')),
-                                            ('min_path_count', YLeaf(YType.uint32, 'min-path-count')),
-                                            ('max_path_count', YLeaf(YType.uint32, 'max-path-count')),
-                                            ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                            ('no_path_count', YLeaf(YType.uint32, 'no-path-count')),
-                                            ('all_paths_broken_count', YLeaf(YType.uint32, 'all-paths-broken-count')),
-                                            ('all_paths_unexplorable_count', YLeaf(YType.uint32, 'all-paths-unexplorable-count')),
-                                            ('all_paths_broken_or_unexplorable_count', YLeaf(YType.uint32, 'all-paths-broken-or-unexplorable-count')),
-                                            ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                            ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                            ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                                            ('hour_index', (YLeaf(YType.uint32, 'hour-index'), ['int'])),
+                                            ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                            ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsLpdRetCode', '')])),
+                                            ('completion_time_count', (YLeaf(YType.uint32, 'completion-time-count'), ['int'])),
+                                            ('completion_time', (YLeaf(YType.uint32, 'completion-time'), ['int'])),
+                                            ('min_completion_time', (YLeaf(YType.uint32, 'min-completion-time'), ['int'])),
+                                            ('max_completion_time', (YLeaf(YType.uint32, 'max-completion-time'), ['int'])),
+                                            ('sum_completion_time', (YLeaf(YType.uint32, 'sum-completion-time'), ['int'])),
+                                            ('path_count', (YLeaf(YType.uint32, 'path-count'), ['int'])),
+                                            ('min_path_count', (YLeaf(YType.uint32, 'min-path-count'), ['int'])),
+                                            ('max_path_count', (YLeaf(YType.uint32, 'max-path-count'), ['int'])),
+                                            ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                            ('no_path_count', (YLeaf(YType.uint32, 'no-path-count'), ['int'])),
+                                            ('all_paths_broken_count', (YLeaf(YType.uint32, 'all-paths-broken-count'), ['int'])),
+                                            ('all_paths_unexplorable_count', (YLeaf(YType.uint32, 'all-paths-unexplorable-count'), ['int'])),
+                                            ('all_paths_broken_or_unexplorable_count', (YLeaf(YType.uint32, 'all-paths-broken-or-unexplorable-count'), ['int'])),
+                                            ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                            ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                            ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                                         ])
                                         self.hour_index = None
                                         self.start_time = None
@@ -3187,6 +3228,7 @@ class Ipsla(Entity):
                                         self.target_address.parent = self
                                         self._children_name_map["target_address"] = "target-address"
                                         self._segment_path = lambda: "hour" + "[hour-index='" + str(self.hour_index) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour, ['hour_index', u'start_time', u'return_code', u'completion_time_count', u'completion_time', u'min_completion_time', u'max_completion_time', u'sum_completion_time', u'path_count', u'min_path_count', u'max_path_count', u'ok_count', u'no_path_count', u'all_paths_broken_count', u'all_paths_unexplorable_count', u'all_paths_broken_or_unexplorable_count', u'timeout_count', u'internal_error_count', u'unknown_count'], name, value)
@@ -3247,9 +3289,9 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget))])
                                             self._leafs = OrderedDict([
-                                                ('target_type', YLeaf(YType.enumeration, 'target-type')),
-                                                ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
-                                                ('ipv6_address_target', YLeaf(YType.str, 'ipv6-address-target')),
+                                                ('target_type', (YLeaf(YType.enumeration, 'target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaTargetTypeEnum', '')])),
+                                                ('ipv4_address_target', (YLeaf(YType.str, 'ipv4-address-target'), ['str'])),
+                                                ('ipv6_address_target', (YLeaf(YType.str, 'ipv6-address-target'), ['str'])),
                                             ])
                                             self.target_type = None
                                             self.ipv4_address_target = None
@@ -3267,6 +3309,7 @@ class Ipsla(Entity):
                                             self.ipv4_pseudowire_target.parent = self
                                             self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
                                             self._segment_path = lambda: "target-address"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
@@ -3307,12 +3350,13 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
-                                                    ('mask_length', YLeaf(YType.uint8, 'mask-length')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('mask_length', (YLeaf(YType.uint8, 'mask-length'), ['int'])),
                                                 ])
                                                 self.address = None
                                                 self.mask_length = None
                                                 self._segment_path = lambda: "ipv4-prefix-target"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
@@ -3346,10 +3390,11 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                                    ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                                                 ])
                                                 self.tunnel_id = None
                                                 self._segment_path = lambda: "tunnel-id-target"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
@@ -3390,12 +3435,13 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
-                                                    ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('virtual_circuit_id', (YLeaf(YType.uint32, 'virtual-circuit-id'), ['int'])),
                                                 ])
                                                 self.address = None
                                                 self.virtual_circuit_id = None
                                                 self._segment_path = lambda: "ipv4-pseudowire-target"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Statistics.Aggregated.Hours.Hour.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
@@ -3441,6 +3487,7 @@ class Ipsla(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status, [], name, value)
@@ -3475,6 +3522,7 @@ class Ipsla(Entity):
 
                                 self.lpd_path = YList(self)
                                 self._segment_path = lambda: "lpd-paths"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths, [], name, value)
@@ -3519,8 +3567,8 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['path_index']
                                     self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
-                                        ('path_status', YLeaf(YType.enumeration, 'path-status')),
+                                        ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
+                                        ('path_status', (YLeaf(YType.enumeration, 'path-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsLpdPathDiscoveryStatus', '')])),
                                     ])
                                     self.path_index = None
                                     self.path_status = None
@@ -3529,6 +3577,7 @@ class Ipsla(Entity):
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath, ['path_index', u'path_status'], name, value)
@@ -3550,7 +3599,7 @@ class Ipsla(Entity):
                                     	Output interface
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -3583,16 +3632,17 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                            ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                            ('nexthop_address', YLeaf(YType.str, 'nexthop-address')),
-                                            ('downstream_label', YLeafList(YType.uint32, 'downstream-label')),
+                                            ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                            ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                            ('nexthop_address', (YLeaf(YType.str, 'nexthop-address'), ['str'])),
+                                            ('downstream_label', (YLeafList(YType.uint32, 'downstream-label'), ['int'])),
                                         ])
                                         self.lsp_selector = None
                                         self.output_interface = None
                                         self.nexthop_address = None
                                         self.downstream_label = []
                                         self._segment_path = lambda: "path-id"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
@@ -3662,12 +3712,12 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress))])
                                 self._leafs = OrderedDict([
-                                    ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
-                                    ('discovery_mode', YLeaf(YType.enumeration, 'discovery-mode')),
-                                    ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                    ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                    ('completion_time', YLeaf(YType.uint32, 'completion-time')),
-                                    ('path_count', YLeaf(YType.uint32, 'path-count')),
+                                    ('monitor_id', (YLeaf(YType.uint32, 'monitor-id'), ['int'])),
+                                    ('discovery_mode', (YLeaf(YType.enumeration, 'discovery-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsLpdDiscoveryModeEnum', '')])),
+                                    ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                    ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaMplsLpdRetCode', '')])),
+                                    ('completion_time', (YLeaf(YType.uint32, 'completion-time'), ['int'])),
+                                    ('path_count', (YLeaf(YType.uint32, 'path-count'), ['int'])),
                                 ])
                                 self.monitor_id = None
                                 self.discovery_mode = None
@@ -3680,6 +3730,7 @@ class Ipsla(Entity):
                                 self.target_address.parent = self
                                 self._children_name_map["target_address"] = "target-address"
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State, [u'monitor_id', u'discovery_mode', u'start_time', u'return_code', u'completion_time', u'path_count'], name, value)
@@ -3740,9 +3791,9 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget))])
                                     self._leafs = OrderedDict([
-                                        ('target_type', YLeaf(YType.enumeration, 'target-type')),
-                                        ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
-                                        ('ipv6_address_target', YLeaf(YType.str, 'ipv6-address-target')),
+                                        ('target_type', (YLeaf(YType.enumeration, 'target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaTargetTypeEnum', '')])),
+                                        ('ipv4_address_target', (YLeaf(YType.str, 'ipv4-address-target'), ['str'])),
+                                        ('ipv6_address_target', (YLeaf(YType.str, 'ipv6-address-target'), ['str'])),
                                     ])
                                     self.target_type = None
                                     self.ipv4_address_target = None
@@ -3760,6 +3811,7 @@ class Ipsla(Entity):
                                     self.ipv4_pseudowire_target.parent = self
                                     self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
                                     self._segment_path = lambda: "target-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
@@ -3800,12 +3852,13 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('mask_length', YLeaf(YType.uint8, 'mask-length')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('mask_length', (YLeaf(YType.uint8, 'mask-length'), ['int'])),
                                         ])
                                         self.address = None
                                         self.mask_length = None
                                         self._segment_path = lambda: "ipv4-prefix-target"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
@@ -3839,10 +3892,11 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                                         ])
                                         self.tunnel_id = None
                                         self._segment_path = lambda: "tunnel-id-target"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
@@ -3883,12 +3937,13 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('virtual_circuit_id', (YLeaf(YType.uint32, 'virtual-circuit-id'), ['int'])),
                                         ])
                                         self.address = None
                                         self.virtual_circuit_id = None
                                         self._segment_path = lambda: "ipv4-pseudowire-target"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Lpd.Status.State.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
@@ -3934,6 +3989,7 @@ class Ipsla(Entity):
                         self.target.parent = self
                         self._children_name_map["target"] = "target"
                         self._segment_path = lambda: "history"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History, [], name, value)
@@ -3971,6 +4027,7 @@ class Ipsla(Entity):
                             self.lifes.parent = self
                             self._children_name_map["lifes"] = "lifes"
                             self._segment_path = lambda: "path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path, [], name, value)
@@ -4005,6 +4062,7 @@ class Ipsla(Entity):
 
                                 self.life = YList(self)
                                 self._segment_path = lambda: "lifes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes, [], name, value)
@@ -4044,7 +4102,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['life_index']
                                     self._child_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets))])
                                     self._leafs = OrderedDict([
-                                        ('life_index', YLeaf(YType.uint32, 'life-index')),
+                                        ('life_index', (YLeaf(YType.uint32, 'life-index'), ['int'])),
                                     ])
                                     self.life_index = None
 
@@ -4052,6 +4110,7 @@ class Ipsla(Entity):
                                     self.buckets.parent = self
                                     self._children_name_map["buckets"] = "buckets"
                                     self._segment_path = lambda: "life" + "[life-index='" + str(self.life_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life, ['life_index'], name, value)
@@ -4087,6 +4146,7 @@ class Ipsla(Entity):
 
                                         self.bucket = YList(self)
                                         self._segment_path = lambda: "buckets"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets, [], name, value)
@@ -4125,7 +4185,7 @@ class Ipsla(Entity):
                                             self.ylist_key_names = ['bucket_index']
                                             self._child_classes = OrderedDict([("samples", ("samples", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples))])
                                             self._leafs = OrderedDict([
-                                                ('bucket_index', YLeaf(YType.uint32, 'bucket-index')),
+                                                ('bucket_index', (YLeaf(YType.uint32, 'bucket-index'), ['int'])),
                                             ])
                                             self.bucket_index = None
 
@@ -4133,6 +4193,7 @@ class Ipsla(Entity):
                                             self.samples.parent = self
                                             self._children_name_map["samples"] = "samples"
                                             self._segment_path = lambda: "bucket" + "[bucket-index='" + str(self.bucket_index) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket, ['bucket_index'], name, value)
@@ -4167,6 +4228,7 @@ class Ipsla(Entity):
 
                                                 self.sample = YList(self)
                                                 self._segment_path = lambda: "samples"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples, [], name, value)
@@ -4226,10 +4288,10 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = ['sample_index']
                                                     self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress))])
                                                     self._leafs = OrderedDict([
-                                                        ('sample_index', YLeaf(YType.uint32, 'sample-index')),
-                                                        ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                        ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                                                        ('sample_index', (YLeaf(YType.uint32, 'sample-index'), ['int'])),
+                                                        ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                        ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
                                                     ])
                                                     self.sample_index = None
                                                     self.start_time = None
@@ -4240,6 +4302,7 @@ class Ipsla(Entity):
                                                     self.target_address.parent = self
                                                     self._children_name_map["target_address"] = "target-address"
                                                     self._segment_path = lambda: "sample" + "[sample-index='" + str(self.sample_index) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample, ['sample_index', u'start_time', u'response_time', u'return_code'], name, value)
@@ -4300,9 +4363,9 @@ class Ipsla(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget))])
                                                         self._leafs = OrderedDict([
-                                                            ('target_type', YLeaf(YType.enumeration, 'target-type')),
-                                                            ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
-                                                            ('ipv6_address_target', YLeaf(YType.str, 'ipv6-address-target')),
+                                                            ('target_type', (YLeaf(YType.enumeration, 'target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaTargetTypeEnum', '')])),
+                                                            ('ipv4_address_target', (YLeaf(YType.str, 'ipv4-address-target'), ['str'])),
+                                                            ('ipv6_address_target', (YLeaf(YType.str, 'ipv6-address-target'), ['str'])),
                                                         ])
                                                         self.target_type = None
                                                         self.ipv4_address_target = None
@@ -4320,6 +4383,7 @@ class Ipsla(Entity):
                                                         self.ipv4_pseudowire_target.parent = self
                                                         self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
                                                         self._segment_path = lambda: "target-address"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
@@ -4360,12 +4424,13 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('address', YLeaf(YType.str, 'address')),
-                                                                ('mask_length', YLeaf(YType.uint8, 'mask-length')),
+                                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                                ('mask_length', (YLeaf(YType.uint8, 'mask-length'), ['int'])),
                                                             ])
                                                             self.address = None
                                                             self.mask_length = None
                                                             self._segment_path = lambda: "ipv4-prefix-target"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
@@ -4399,10 +4464,11 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                                                ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                                                             ])
                                                             self.tunnel_id = None
                                                             self._segment_path = lambda: "tunnel-id-target"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
@@ -4443,12 +4509,13 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('address', YLeaf(YType.str, 'address')),
-                                                                ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
+                                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                                ('virtual_circuit_id', (YLeaf(YType.uint32, 'virtual-circuit-id'), ['int'])),
                                                             ])
                                                             self.address = None
                                                             self.virtual_circuit_id = None
                                                             self._segment_path = lambda: "ipv4-pseudowire-target"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Path.Lifes.Life.Buckets.Bucket.Samples.Sample.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
@@ -4485,6 +4552,7 @@ class Ipsla(Entity):
                             self.lifes.parent = self
                             self._children_name_map["lifes"] = "lifes"
                             self._segment_path = lambda: "target"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target, [], name, value)
@@ -4519,6 +4587,7 @@ class Ipsla(Entity):
 
                                 self.life = YList(self)
                                 self._segment_path = lambda: "lifes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes, [], name, value)
@@ -4558,7 +4627,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['life_index']
                                     self._child_classes = OrderedDict([("buckets", ("buckets", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets))])
                                     self._leafs = OrderedDict([
-                                        ('life_index', YLeaf(YType.uint32, 'life-index')),
+                                        ('life_index', (YLeaf(YType.uint32, 'life-index'), ['int'])),
                                     ])
                                     self.life_index = None
 
@@ -4566,6 +4635,7 @@ class Ipsla(Entity):
                                     self.buckets.parent = self
                                     self._children_name_map["buckets"] = "buckets"
                                     self._segment_path = lambda: "life" + "[life-index='" + str(self.life_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life, ['life_index'], name, value)
@@ -4601,6 +4671,7 @@ class Ipsla(Entity):
 
                                         self.bucket = YList(self)
                                         self._segment_path = lambda: "buckets"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets, [], name, value)
@@ -4660,10 +4731,10 @@ class Ipsla(Entity):
                                             self.ylist_key_names = ['bucket_index']
                                             self._child_classes = OrderedDict([("target-address", ("target_address", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress))])
                                             self._leafs = OrderedDict([
-                                                ('bucket_index', YLeaf(YType.uint32, 'bucket-index')),
-                                                ('start_time', YLeaf(YType.uint64, 'start-time')),
-                                                ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                                                ('bucket_index', (YLeaf(YType.uint32, 'bucket-index'), ['int'])),
+                                                ('start_time', (YLeaf(YType.uint64, 'start-time'), ['int'])),
+                                                ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
                                             ])
                                             self.bucket_index = None
                                             self.start_time = None
@@ -4674,6 +4745,7 @@ class Ipsla(Entity):
                                             self.target_address.parent = self
                                             self._children_name_map["target_address"] = "target-address"
                                             self._segment_path = lambda: "bucket" + "[bucket-index='" + str(self.bucket_index) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket, ['bucket_index', u'start_time', u'response_time', u'return_code'], name, value)
@@ -4734,9 +4806,9 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("ipv4-prefix-target", ("ipv4_prefix_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget)), ("tunnel-id-target", ("tunnel_id_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget)), ("ipv4-pseudowire-target", ("ipv4_pseudowire_target", Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget))])
                                                 self._leafs = OrderedDict([
-                                                    ('target_type', YLeaf(YType.enumeration, 'target-type')),
-                                                    ('ipv4_address_target', YLeaf(YType.str, 'ipv4-address-target')),
-                                                    ('ipv6_address_target', YLeaf(YType.str, 'ipv6-address-target')),
+                                                    ('target_type', (YLeaf(YType.enumeration, 'target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaTargetTypeEnum', '')])),
+                                                    ('ipv4_address_target', (YLeaf(YType.str, 'ipv4-address-target'), ['str'])),
+                                                    ('ipv6_address_target', (YLeaf(YType.str, 'ipv6-address-target'), ['str'])),
                                                 ])
                                                 self.target_type = None
                                                 self.ipv4_address_target = None
@@ -4754,6 +4826,7 @@ class Ipsla(Entity):
                                                 self.ipv4_pseudowire_target.parent = self
                                                 self._children_name_map["ipv4_pseudowire_target"] = "ipv4-pseudowire-target"
                                                 self._segment_path = lambda: "target-address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress, [u'target_type', u'ipv4_address_target', u'ipv6_address_target'], name, value)
@@ -4794,12 +4867,13 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('address', YLeaf(YType.str, 'address')),
-                                                        ('mask_length', YLeaf(YType.uint8, 'mask-length')),
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                        ('mask_length', (YLeaf(YType.uint8, 'mask-length'), ['int'])),
                                                     ])
                                                     self.address = None
                                                     self.mask_length = None
                                                     self._segment_path = lambda: "ipv4-prefix-target"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PrefixTarget, [u'address', u'mask_length'], name, value)
@@ -4833,10 +4907,11 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                                                        ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                                                     ])
                                                     self.tunnel_id = None
                                                     self._segment_path = lambda: "tunnel-id-target"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.TunnelIdTarget, [u'tunnel_id'], name, value)
@@ -4877,12 +4952,13 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('address', YLeaf(YType.str, 'address')),
-                                                        ('virtual_circuit_id', YLeaf(YType.uint32, 'virtual-circuit-id')),
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                        ('virtual_circuit_id', (YLeaf(YType.uint32, 'virtual-circuit-id'), ['int'])),
                                                     ])
                                                     self.address = None
                                                     self.virtual_circuit_id = None
                                                     self._segment_path = lambda: "ipv4-pseudowire-target"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.History.Target.Lifes.Life.Buckets.Bucket.TargetAddress.Ipv4PseudowireTarget, [u'address', u'virtual_circuit_id'], name, value)
@@ -4928,6 +5004,7 @@ class Ipsla(Entity):
                         self.aggregated.parent = self
                         self._children_name_map["aggregated"] = "aggregated"
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics, [], name, value)
@@ -4983,6 +5060,7 @@ class Ipsla(Entity):
                             self.lpd_paths.parent = self
                             self._children_name_map["lpd_paths"] = "lpd-paths"
                             self._segment_path = lambda: "latest"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest, [], name, value)
@@ -5028,6 +5106,7 @@ class Ipsla(Entity):
                                 self.specific_stats.parent = self
                                 self._children_name_map["specific_stats"] = "specific-stats"
                                 self._segment_path = lambda: "target"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target, [], name, value)
@@ -5178,24 +5257,24 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                        ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                        ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                        ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                        ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                        ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                        ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                        ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                        ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                        ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                        ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                        ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                        ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                        ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                        ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                        ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                        ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                        ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                        ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                        ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                        ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                        ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                        ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                        ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                        ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                        ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                        ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                        ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                        ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                        ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                        ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                        ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                        ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                        ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                     ])
                                     self.operation_time = None
                                     self.return_code = None
@@ -5216,6 +5295,7 @@ class Ipsla(Entity):
                                     self.sequence_error_count = None
                                     self.verify_error_count = None
                                     self._segment_path = lambda: "common-stats"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -5257,7 +5337,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats))])
                                     self._leafs = OrderedDict([
-                                        ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                        ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                     ])
                                     self.op_type = None
 
@@ -5269,6 +5349,7 @@ class Ipsla(Entity):
                                     self.udp_jitter_stats.parent = self
                                     self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                     self._segment_path = lambda: "specific-stats"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats, [u'op_type'], name, value)
@@ -5484,33 +5565,33 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('source_address', YLeaf(YType.str, 'source-address')),
-                                            ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                            ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                            ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                            ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                            ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                            ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                            ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                            ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                            ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                            ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                            ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                            ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                            ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                            ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                            ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                            ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                            ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                            ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                            ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                            ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                            ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                            ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                            ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                            ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                            ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                            ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                            ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                            ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                            ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                            ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                            ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                            ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                            ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                            ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                            ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                            ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                            ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                            ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                            ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                            ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                            ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                            ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                            ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                            ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                            ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                            ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                            ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                            ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                            ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                            ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                            ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                            ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                         ])
                                         self.source_address = None
                                         self.dest_address = None
@@ -5540,6 +5621,7 @@ class Ipsla(Entity):
                                         self.neg_jitter_sum2 = None
                                         self.neg_jitter_count = None
                                         self._segment_path = lambda: "icmp-path-jitter-stats"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -5854,46 +5936,46 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                            ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                            ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                            ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                            ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                            ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                            ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                            ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                            ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                            ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                            ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                            ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                            ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                            ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                            ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                            ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                            ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                            ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                            ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                            ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                            ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                            ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                            ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                            ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                            ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                            ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                            ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                            ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                            ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                            ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                            ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                            ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                            ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                            ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                            ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                            ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                            ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                            ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                            ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                            ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                            ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                            ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                            ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                            ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                            ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                            ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                            ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                            ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                            ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                            ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                            ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                            ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                            ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                            ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                            ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                            ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                            ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                            ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                            ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                            ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                            ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                            ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                            ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                            ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                            ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                            ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                            ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                            ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                            ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                            ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                            ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                            ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                            ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                            ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                            ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                            ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                            ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                            ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                            ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                            ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                         ])
                                         self.jitter_in = None
                                         self.jitter_out = None
@@ -5936,6 +6018,7 @@ class Ipsla(Entity):
                                         self.one_way_ds_sum = None
                                         self.one_way_ds_sum2 = None
                                         self._segment_path = lambda: "udp-jitter-stats"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -5971,6 +6054,7 @@ class Ipsla(Entity):
 
                                 self.hop = YList(self)
                                 self._segment_path = lambda: "hops"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops, [], name, value)
@@ -6015,7 +6099,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['hop_index']
                                     self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats))])
                                     self._leafs = OrderedDict([
-                                        ('hop_index', YLeaf(YType.uint32, 'hop-index')),
+                                        ('hop_index', (YLeaf(YType.uint32, 'hop-index'), ['int'])),
                                     ])
                                     self.hop_index = None
 
@@ -6027,6 +6111,7 @@ class Ipsla(Entity):
                                     self.specific_stats.parent = self
                                     self._children_name_map["specific_stats"] = "specific-stats"
                                     self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop, ['hop_index'], name, value)
@@ -6177,24 +6262,24 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                            ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                            ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                            ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                            ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                            ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                            ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                            ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                            ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                            ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                            ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                            ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                            ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                            ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                            ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                            ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                            ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                            ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                            ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                            ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                            ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                            ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                            ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                            ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                            ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                            ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                            ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                            ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                            ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                            ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                            ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                            ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                            ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                            ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                            ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                            ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                         ])
                                         self.operation_time = None
                                         self.return_code = None
@@ -6215,6 +6300,7 @@ class Ipsla(Entity):
                                         self.sequence_error_count = None
                                         self.verify_error_count = None
                                         self._segment_path = lambda: "common-stats"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -6256,7 +6342,7 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats))])
                                         self._leafs = OrderedDict([
-                                            ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                            ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                         ])
                                         self.op_type = None
 
@@ -6268,6 +6354,7 @@ class Ipsla(Entity):
                                         self.udp_jitter_stats.parent = self
                                         self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                         self._segment_path = lambda: "specific-stats"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats, [u'op_type'], name, value)
@@ -6483,33 +6570,33 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                             ])
                                             self.source_address = None
                                             self.dest_address = None
@@ -6539,6 +6626,7 @@ class Ipsla(Entity):
                                             self.neg_jitter_sum2 = None
                                             self.neg_jitter_count = None
                                             self._segment_path = lambda: "icmp-path-jitter-stats"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -6853,46 +6941,46 @@ class Ipsla(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                             ])
                                             self.jitter_in = None
                                             self.jitter_out = None
@@ -6935,6 +7023,7 @@ class Ipsla(Entity):
                                             self.one_way_ds_sum = None
                                             self.one_way_ds_sum2 = None
                                             self._segment_path = lambda: "udp-jitter-stats"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -6969,6 +7058,7 @@ class Ipsla(Entity):
 
                                 self.lpd_path = YList(self)
                                 self._segment_path = lambda: "lpd-paths"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths, [], name, value)
@@ -7013,8 +7103,8 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['path_index']
                                     self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId))])
                                     self._leafs = OrderedDict([
-                                        ('path_index', YLeaf(YType.uint32, 'path-index')),
-                                        ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                                        ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
+                                        ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
                                     ])
                                     self.path_index = None
                                     self.return_code = None
@@ -7023,6 +7113,7 @@ class Ipsla(Entity):
                                     self.path_id.parent = self
                                     self._children_name_map["path_id"] = "path-id"
                                     self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
@@ -7044,7 +7135,7 @@ class Ipsla(Entity):
                                     	Output interface
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: nexthop_address
                                     
@@ -7077,16 +7168,17 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                            ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                            ('nexthop_address', YLeaf(YType.str, 'nexthop-address')),
-                                            ('downstream_label', YLeafList(YType.uint32, 'downstream-label')),
+                                            ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                            ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                            ('nexthop_address', (YLeaf(YType.str, 'nexthop-address'), ['str'])),
+                                            ('downstream_label', (YLeafList(YType.uint32, 'downstream-label'), ['int'])),
                                         ])
                                         self.lsp_selector = None
                                         self.output_interface = None
                                         self.nexthop_address = None
                                         self.downstream_label = []
                                         self._segment_path = lambda: "path-id"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Latest.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
@@ -7133,6 +7225,7 @@ class Ipsla(Entity):
                             self.hours.parent = self
                             self._children_name_map["hours"] = "hours"
                             self._segment_path = lambda: "aggregated"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated, [], name, value)
@@ -7168,6 +7261,7 @@ class Ipsla(Entity):
 
                                 self.enhanced_interval = YList(self)
                                 self._segment_path = lambda: "enhanced-intervals"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals, [], name, value)
@@ -7211,7 +7305,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['enhanced_interval']
                                     self._child_classes = OrderedDict([("start-times", ("start_times", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes))])
                                     self._leafs = OrderedDict([
-                                        ('enhanced_interval', YLeaf(YType.uint32, 'enhanced-interval')),
+                                        ('enhanced_interval', (YLeaf(YType.uint32, 'enhanced-interval'), ['int'])),
                                     ])
                                     self.enhanced_interval = None
 
@@ -7219,6 +7313,7 @@ class Ipsla(Entity):
                                     self.start_times.parent = self
                                     self._children_name_map["start_times"] = "start-times"
                                     self._segment_path = lambda: "enhanced-interval" + "[enhanced-interval='" + str(self.enhanced_interval) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval, ['enhanced_interval'], name, value)
@@ -7253,6 +7348,7 @@ class Ipsla(Entity):
 
                                         self.start_time = YList(self)
                                         self._segment_path = lambda: "start-times"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes, [], name, value)
@@ -7297,7 +7393,7 @@ class Ipsla(Entity):
                                             self.ylist_key_names = ['interval_start_time']
                                             self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats))])
                                             self._leafs = OrderedDict([
-                                                ('interval_start_time', YLeaf(YType.str, 'interval-start-time')),
+                                                ('interval_start_time', (YLeaf(YType.str, 'interval-start-time'), ['str'])),
                                             ])
                                             self.interval_start_time = None
 
@@ -7309,6 +7405,7 @@ class Ipsla(Entity):
                                             self.specific_stats.parent = self
                                             self._children_name_map["specific_stats"] = "specific-stats"
                                             self._segment_path = lambda: "start-time" + "[interval-start-time='" + str(self.interval_start_time) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime, ['interval_start_time'], name, value)
@@ -7459,24 +7556,24 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                                    ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                                    ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                    ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                    ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                    ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                    ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                    ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                    ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                                    ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                                    ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                                    ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                                    ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                                    ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                                    ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                                    ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                                    ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                                    ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                                    ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                                    ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                                    ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                    ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                    ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                    ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                    ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                    ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                    ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                                    ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                                    ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                                    ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                                    ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                                    ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                                    ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                                    ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                                    ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                                    ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                                 ])
                                                 self.operation_time = None
                                                 self.return_code = None
@@ -7497,6 +7594,7 @@ class Ipsla(Entity):
                                                 self.sequence_error_count = None
                                                 self.verify_error_count = None
                                                 self._segment_path = lambda: "common-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -7538,7 +7636,7 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats))])
                                                 self._leafs = OrderedDict([
-                                                    ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                                    ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                                 ])
                                                 self.op_type = None
 
@@ -7550,6 +7648,7 @@ class Ipsla(Entity):
                                                 self.udp_jitter_stats.parent = self
                                                 self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                                 self._segment_path = lambda: "specific-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats, [u'op_type'], name, value)
@@ -7765,33 +7864,33 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('source_address', YLeaf(YType.str, 'source-address')),
-                                                        ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                        ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                        ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                        ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                        ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                        ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                        ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                        ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                        ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                        ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                        ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                        ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                        ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                        ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                        ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                        ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                        ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                        ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                        ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                        ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                        ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                        ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                        ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                        ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                        ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                        ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                        ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                        ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                        ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                        ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                        ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                        ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                        ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                        ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                        ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                        ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                        ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                        ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                        ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                        ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                        ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                        ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                        ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                        ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                        ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                        ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                        ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                        ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                        ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                        ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                                     ])
                                                     self.source_address = None
                                                     self.dest_address = None
@@ -7821,6 +7920,7 @@ class Ipsla(Entity):
                                                     self.neg_jitter_sum2 = None
                                                     self.neg_jitter_count = None
                                                     self._segment_path = lambda: "icmp-path-jitter-stats"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -8135,46 +8235,46 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                        ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                        ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                        ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                        ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                        ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                        ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                        ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                        ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                        ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                        ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                        ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                        ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                        ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                        ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                        ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                        ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                        ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                        ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                        ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                        ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                        ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                        ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                        ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                        ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                        ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                        ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                        ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                        ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                        ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                        ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                        ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                        ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                        ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                        ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                        ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                        ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                        ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                        ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                        ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                        ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                        ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                        ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                        ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                        ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                        ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                        ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                        ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                        ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                        ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                        ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                        ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                        ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                        ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                        ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                        ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                        ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                        ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                        ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                        ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                        ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                        ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                        ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                        ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                        ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                        ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                        ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                        ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                        ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                        ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                        ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                        ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                        ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                        ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                        ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                        ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                        ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                        ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                        ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                        ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                                     ])
                                                     self.jitter_in = None
                                                     self.jitter_out = None
@@ -8217,6 +8317,7 @@ class Ipsla(Entity):
                                                     self.one_way_ds_sum = None
                                                     self.one_way_ds_sum2 = None
                                                     self._segment_path = lambda: "udp-jitter-stats"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.EnhancedIntervals.EnhancedInterval.StartTimes.StartTime.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -8252,6 +8353,7 @@ class Ipsla(Entity):
 
                                 self.hour = YList(self)
                                 self._segment_path = lambda: "hours"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours, [], name, value)
@@ -8296,7 +8398,7 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['hour_index']
                                     self._child_classes = OrderedDict([("distributed", ("distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed)), ("non-distributed", ("non_distributed", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed))])
                                     self._leafs = OrderedDict([
-                                        ('hour_index', YLeaf(YType.uint32, 'hour-index')),
+                                        ('hour_index', (YLeaf(YType.uint32, 'hour-index'), ['int'])),
                                     ])
                                     self.hour_index = None
 
@@ -8308,6 +8410,7 @@ class Ipsla(Entity):
                                     self.non_distributed.parent = self
                                     self._children_name_map["non_distributed"] = "non-distributed"
                                     self._segment_path = lambda: "hour" + "[hour-index='" + str(self.hour_index) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour, ['hour_index'], name, value)
@@ -8354,6 +8457,7 @@ class Ipsla(Entity):
                                         self.target.parent = self
                                         self._children_name_map["target"] = "target"
                                         self._segment_path = lambda: "distributed"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed, [], name, value)
@@ -8389,6 +8493,7 @@ class Ipsla(Entity):
 
                                             self.path = YList(self)
                                             self._segment_path = lambda: "paths"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths, [], name, value)
@@ -8427,7 +8532,7 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = ['path_index']
                                                 self._child_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
+                                                    ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
                                                 ])
                                                 self.path_index = None
 
@@ -8435,6 +8540,7 @@ class Ipsla(Entity):
                                                 self.hops.parent = self
                                                 self._children_name_map["hops"] = "hops"
                                                 self._segment_path = lambda: "path" + "[path-index='" + str(self.path_index) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path, ['path_index'], name, value)
@@ -8469,6 +8575,7 @@ class Ipsla(Entity):
 
                                                     self.hop = YList(self)
                                                     self._segment_path = lambda: "hops"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops, [], name, value)
@@ -8508,7 +8615,7 @@ class Ipsla(Entity):
                                                         self.ylist_key_names = ['hop_index']
                                                         self._child_classes = OrderedDict([("distribution-intervals", ("distribution_intervals", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals))])
                                                         self._leafs = OrderedDict([
-                                                            ('hop_index', YLeaf(YType.uint32, 'hop-index')),
+                                                            ('hop_index', (YLeaf(YType.uint32, 'hop-index'), ['int'])),
                                                         ])
                                                         self.hop_index = None
 
@@ -8516,6 +8623,7 @@ class Ipsla(Entity):
                                                         self.distribution_intervals.parent = self
                                                         self._children_name_map["distribution_intervals"] = "distribution-intervals"
                                                         self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop, ['hop_index'], name, value)
@@ -8551,6 +8659,7 @@ class Ipsla(Entity):
 
                                                             self.distribution_interval = YList(self)
                                                             self._segment_path = lambda: "distribution-intervals"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals, [], name, value)
@@ -8595,7 +8704,7 @@ class Ipsla(Entity):
                                                                 self.ylist_key_names = ['distribution_index']
                                                                 self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats))])
                                                                 self._leafs = OrderedDict([
-                                                                    ('distribution_index', YLeaf(YType.uint32, 'distribution-index')),
+                                                                    ('distribution_index', (YLeaf(YType.uint32, 'distribution-index'), ['int'])),
                                                                 ])
                                                                 self.distribution_index = None
 
@@ -8607,6 +8716,7 @@ class Ipsla(Entity):
                                                                 self.specific_stats.parent = self
                                                                 self._children_name_map["specific_stats"] = "specific-stats"
                                                                 self._segment_path = lambda: "distribution-interval" + "[distribution-index='" + str(self.distribution_index) + "']"
+                                                                self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval, ['distribution_index'], name, value)
@@ -8757,24 +8867,24 @@ class Ipsla(Entity):
                                                                     self.ylist_key_names = []
                                                                     self._child_classes = OrderedDict([])
                                                                     self._leafs = OrderedDict([
-                                                                        ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                                                        ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                                                        ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                                        ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                                        ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                                        ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                                        ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                                        ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                                                        ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                                                        ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                                                        ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                                                        ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                                                        ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                                                        ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                                                        ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                                                        ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                                                        ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                                                        ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                                                        ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                                                        ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                                        ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                                        ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                                        ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                                        ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                                        ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                                                        ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                                                        ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                                                        ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                                                        ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                                                        ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                                                        ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                                                        ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                                                        ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                                                        ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                                                     ])
                                                                     self.operation_time = None
                                                                     self.return_code = None
@@ -8795,6 +8905,7 @@ class Ipsla(Entity):
                                                                     self.sequence_error_count = None
                                                                     self.verify_error_count = None
                                                                     self._segment_path = lambda: "common-stats"
+                                                                    self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
                                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -8836,7 +8947,7 @@ class Ipsla(Entity):
                                                                     self.ylist_key_names = []
                                                                     self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
                                                                     self._leafs = OrderedDict([
-                                                                        ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                                                        ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                                                     ])
                                                                     self.op_type = None
 
@@ -8848,6 +8959,7 @@ class Ipsla(Entity):
                                                                     self.udp_jitter_stats.parent = self
                                                                     self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                                                     self._segment_path = lambda: "specific-stats"
+                                                                    self._is_frozen = True
 
                                                                 def __setattr__(self, name, value):
                                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
@@ -9063,33 +9175,33 @@ class Ipsla(Entity):
                                                                         self.ylist_key_names = []
                                                                         self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
-                                                                            ('source_address', YLeaf(YType.str, 'source-address')),
-                                                                            ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                                            ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                                            ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                                            ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                                            ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                                            ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                                            ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                                            ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                                            ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                                            ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                                            ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                                            ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                                            ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                                            ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                                            ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                                            ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                                            ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                                            ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                                            ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                                            ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                                            ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                                            ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                                            ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                                            ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                                            ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                                            ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                                            ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                                            ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                                            ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                                            ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                                            ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                                            ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                                            ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                                            ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                                            ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                                            ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                                            ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                                            ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                                            ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                                            ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                                            ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                                            ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                                            ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                                            ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                                            ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                                            ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                                            ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                                            ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                                            ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                                            ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                                            ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                                            ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                                                         ])
                                                                         self.source_address = None
                                                                         self.dest_address = None
@@ -9119,6 +9231,7 @@ class Ipsla(Entity):
                                                                         self.neg_jitter_sum2 = None
                                                                         self.neg_jitter_count = None
                                                                         self._segment_path = lambda: "icmp-path-jitter-stats"
+                                                                        self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -9433,46 +9546,46 @@ class Ipsla(Entity):
                                                                         self.ylist_key_names = []
                                                                         self._child_classes = OrderedDict([])
                                                                         self._leafs = OrderedDict([
-                                                                            ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                                            ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                                            ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                                            ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                                            ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                                            ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                                            ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                                            ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                                            ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                                            ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                                            ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                                            ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                                            ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                                            ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                                            ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                                            ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                                            ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                                            ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                                            ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                                            ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                                            ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                                            ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                                            ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                                            ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                                            ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                                            ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                                            ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                                            ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                                            ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                                            ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                                            ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                                            ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                                            ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                                            ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                                            ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                                            ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                                            ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                                            ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                                            ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                                            ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                                            ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                                            ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                                            ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                                            ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                                            ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                                            ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                                            ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                                            ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                                            ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                                            ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                                            ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                                            ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                                            ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                                            ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                                            ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                                            ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                                            ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                                            ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                                            ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                                            ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                                            ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                                            ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                                            ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                                            ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                                            ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                                            ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                                            ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                                            ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                                            ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                                            ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                                            ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                                            ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                                            ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                                            ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                                            ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                                            ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                                            ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                                            ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                                            ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                                            ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                                                         ])
                                                                         self.jitter_in = None
                                                                         self.jitter_out = None
@@ -9515,6 +9628,7 @@ class Ipsla(Entity):
                                                                         self.one_way_ds_sum = None
                                                                         self.one_way_ds_sum2 = None
                                                                         self._segment_path = lambda: "udp-jitter-stats"
+                                                                        self._is_frozen = True
 
                                                                     def __setattr__(self, name, value):
                                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Paths.Path.Hops.Hop.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -9552,6 +9666,7 @@ class Ipsla(Entity):
                                             self.distribution_intervals.parent = self
                                             self._children_name_map["distribution_intervals"] = "distribution-intervals"
                                             self._segment_path = lambda: "target"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target, [], name, value)
@@ -9587,6 +9702,7 @@ class Ipsla(Entity):
 
                                                 self.distribution_interval = YList(self)
                                                 self._segment_path = lambda: "distribution-intervals"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals, [], name, value)
@@ -9631,7 +9747,7 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = ['distribution_index']
                                                     self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats))])
                                                     self._leafs = OrderedDict([
-                                                        ('distribution_index', YLeaf(YType.uint32, 'distribution-index')),
+                                                        ('distribution_index', (YLeaf(YType.uint32, 'distribution-index'), ['int'])),
                                                     ])
                                                     self.distribution_index = None
 
@@ -9643,6 +9759,7 @@ class Ipsla(Entity):
                                                     self.specific_stats.parent = self
                                                     self._children_name_map["specific_stats"] = "specific-stats"
                                                     self._segment_path = lambda: "distribution-interval" + "[distribution-index='" + str(self.distribution_index) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval, ['distribution_index'], name, value)
@@ -9793,24 +9910,24 @@ class Ipsla(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                                            ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                                            ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                            ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                            ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                            ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                            ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                            ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                            ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                                            ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                                            ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                                            ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                                            ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                                            ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                                            ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                                            ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                                            ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                                            ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                                            ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                                            ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                                            ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                            ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                            ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                            ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                            ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                            ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                            ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                                            ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                                            ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                                            ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                                            ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                                            ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                                            ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                                            ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                                            ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                                            ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                                         ])
                                                         self.operation_time = None
                                                         self.return_code = None
@@ -9831,6 +9948,7 @@ class Ipsla(Entity):
                                                         self.sequence_error_count = None
                                                         self.verify_error_count = None
                                                         self._segment_path = lambda: "common-stats"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -9872,7 +9990,7 @@ class Ipsla(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats))])
                                                         self._leafs = OrderedDict([
-                                                            ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                                            ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                                         ])
                                                         self.op_type = None
 
@@ -9884,6 +10002,7 @@ class Ipsla(Entity):
                                                         self.udp_jitter_stats.parent = self
                                                         self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                                         self._segment_path = lambda: "specific-stats"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats, [u'op_type'], name, value)
@@ -10099,33 +10218,33 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                                ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                                ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                                ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                                ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                                ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                                ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                                ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                                ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                                ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                                ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                                ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                                ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                                ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                                ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                                ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                                ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                                ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                                ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                                ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                                ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                                ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                                ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                                ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                                ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                                ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                                ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                                ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                                ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                                ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                                ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                                ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                                ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                                ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                                ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                                ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                                ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                                ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                                ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                                ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                                ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                                ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                                ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                                ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                                ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                                ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                                ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                                ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                                ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                                ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                                             ])
                                                             self.source_address = None
                                                             self.dest_address = None
@@ -10155,6 +10274,7 @@ class Ipsla(Entity):
                                                             self.neg_jitter_sum2 = None
                                                             self.neg_jitter_count = None
                                                             self._segment_path = lambda: "icmp-path-jitter-stats"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -10469,46 +10589,46 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                                ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                                ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                                ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                                ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                                ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                                ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                                ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                                ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                                ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                                ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                                ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                                ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                                ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                                ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                                ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                                ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                                ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                                ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                                ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                                ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                                ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                                ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                                ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                                ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                                ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                                ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                                ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                                ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                                ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                                ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                                ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                                ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                                ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                                ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                                ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                                ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                                ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                                ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                                ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                                ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                                ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                                ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                                ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                                ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                                ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                                ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                                ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                                ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                                ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                                ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                                ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                                ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                                ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                                ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                                ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                                ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                                ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                                ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                                ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                                ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                                ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                                ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                                ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                                ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                                ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                                ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                                ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                                ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                                ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                                ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                                ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                                ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                                ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                                ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                                ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                                ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                                ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                                ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                                ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                                             ])
                                                             self.jitter_in = None
                                                             self.jitter_out = None
@@ -10551,6 +10671,7 @@ class Ipsla(Entity):
                                                             self.one_way_ds_sum = None
                                                             self.one_way_ds_sum2 = None
                                                             self._segment_path = lambda: "udp-jitter-stats"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.Distributed.Target.DistributionIntervals.DistributionInterval.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -10606,6 +10727,7 @@ class Ipsla(Entity):
                                         self.lpd_paths.parent = self
                                         self._children_name_map["lpd_paths"] = "lpd-paths"
                                         self._segment_path = lambda: "non-distributed"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed, [], name, value)
@@ -10652,6 +10774,7 @@ class Ipsla(Entity):
                                             self.specific_stats.parent = self
                                             self._children_name_map["specific_stats"] = "specific-stats"
                                             self._segment_path = lambda: "target"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target, [], name, value)
@@ -10802,24 +10925,24 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                                    ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                                    ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                    ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                    ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                    ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                    ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                    ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                    ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                                    ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                                    ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                                    ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                                    ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                                    ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                                    ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                                    ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                                    ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                                    ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                                    ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                                    ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                                    ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                    ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                    ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                    ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                    ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                    ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                    ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                                    ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                                    ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                                    ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                                    ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                                    ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                                    ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                                    ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                                    ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                                    ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                                 ])
                                                 self.operation_time = None
                                                 self.return_code = None
@@ -10840,6 +10963,7 @@ class Ipsla(Entity):
                                                 self.sequence_error_count = None
                                                 self.verify_error_count = None
                                                 self._segment_path = lambda: "common-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -10881,7 +11005,7 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats))])
                                                 self._leafs = OrderedDict([
-                                                    ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                                    ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                                 ])
                                                 self.op_type = None
 
@@ -10893,6 +11017,7 @@ class Ipsla(Entity):
                                                 self.udp_jitter_stats.parent = self
                                                 self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                                 self._segment_path = lambda: "specific-stats"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats, [u'op_type'], name, value)
@@ -11108,33 +11233,33 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('source_address', YLeaf(YType.str, 'source-address')),
-                                                        ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                        ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                        ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                        ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                        ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                        ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                        ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                        ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                        ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                        ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                        ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                        ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                        ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                        ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                        ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                        ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                        ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                        ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                        ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                        ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                        ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                        ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                        ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                        ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                        ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                        ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                        ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                        ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                        ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                        ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                        ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                        ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                        ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                        ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                        ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                        ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                        ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                        ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                        ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                        ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                        ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                        ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                        ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                        ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                        ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                        ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                        ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                        ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                        ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                        ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                        ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                        ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                                     ])
                                                     self.source_address = None
                                                     self.dest_address = None
@@ -11164,6 +11289,7 @@ class Ipsla(Entity):
                                                     self.neg_jitter_sum2 = None
                                                     self.neg_jitter_count = None
                                                     self._segment_path = lambda: "icmp-path-jitter-stats"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -11478,46 +11604,46 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                        ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                        ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                        ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                        ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                        ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                        ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                        ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                        ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                        ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                        ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                        ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                        ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                        ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                        ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                        ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                        ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                        ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                        ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                        ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                        ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                        ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                        ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                        ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                        ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                        ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                        ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                        ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                        ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                        ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                        ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                        ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                        ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                        ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                        ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                        ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                        ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                        ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                        ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                        ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                        ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                        ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                        ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                        ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                        ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                        ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                        ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                        ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                        ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                        ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                        ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                        ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                        ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                        ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                        ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                        ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                        ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                        ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                        ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                        ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                        ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                        ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                        ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                        ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                        ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                        ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                        ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                        ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                        ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                        ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                        ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                        ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                        ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                        ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                        ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                        ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                        ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                        ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                        ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                        ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                                     ])
                                                     self.jitter_in = None
                                                     self.jitter_out = None
@@ -11560,6 +11686,7 @@ class Ipsla(Entity):
                                                     self.one_way_ds_sum = None
                                                     self.one_way_ds_sum2 = None
                                                     self._segment_path = lambda: "udp-jitter-stats"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Target.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -11595,6 +11722,7 @@ class Ipsla(Entity):
 
                                             self.path = YList(self)
                                             self._segment_path = lambda: "paths"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths, [], name, value)
@@ -11633,7 +11761,7 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = ['path_index']
                                                 self._child_classes = OrderedDict([("hops", ("hops", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
+                                                    ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
                                                 ])
                                                 self.path_index = None
 
@@ -11641,6 +11769,7 @@ class Ipsla(Entity):
                                                 self.hops.parent = self
                                                 self._children_name_map["hops"] = "hops"
                                                 self._segment_path = lambda: "path" + "[path-index='" + str(self.path_index) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path, ['path_index'], name, value)
@@ -11675,6 +11804,7 @@ class Ipsla(Entity):
 
                                                     self.hop = YList(self)
                                                     self._segment_path = lambda: "hops"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops, [], name, value)
@@ -11719,7 +11849,7 @@ class Ipsla(Entity):
                                                         self.ylist_key_names = ['hop_index']
                                                         self._child_classes = OrderedDict([("common-stats", ("common_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats)), ("specific-stats", ("specific_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats))])
                                                         self._leafs = OrderedDict([
-                                                            ('hop_index', YLeaf(YType.uint32, 'hop-index')),
+                                                            ('hop_index', (YLeaf(YType.uint32, 'hop-index'), ['int'])),
                                                         ])
                                                         self.hop_index = None
 
@@ -11731,6 +11861,7 @@ class Ipsla(Entity):
                                                         self.specific_stats.parent = self
                                                         self._children_name_map["specific_stats"] = "specific-stats"
                                                         self._segment_path = lambda: "hop" + "[hop-index='" + str(self.hop_index) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop, ['hop_index'], name, value)
@@ -11881,24 +12012,24 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('operation_time', YLeaf(YType.uint64, 'operation-time')),
-                                                                ('return_code', YLeaf(YType.enumeration, 'return-code')),
-                                                                ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                                ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                                ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                                ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                                ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                                ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                                ('update_count', YLeaf(YType.uint32, 'update-count')),
-                                                                ('ok_count', YLeaf(YType.uint32, 'ok-count')),
-                                                                ('disconnect_count', YLeaf(YType.uint32, 'disconnect-count')),
-                                                                ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                                                                ('busy_count', YLeaf(YType.uint32, 'busy-count')),
-                                                                ('no_connection_count', YLeaf(YType.uint32, 'no-connection-count')),
-                                                                ('dropped_count', YLeaf(YType.uint32, 'dropped-count')),
-                                                                ('internal_error_count', YLeaf(YType.uint32, 'internal-error-count')),
-                                                                ('sequence_error_count', YLeaf(YType.uint32, 'sequence-error-count')),
-                                                                ('verify_error_count', YLeaf(YType.uint32, 'verify-error-count')),
+                                                                ('operation_time', (YLeaf(YType.uint64, 'operation-time'), ['int'])),
+                                                                ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
+                                                                ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                                ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                                ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                                ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                                ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                                ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                                ('update_count', (YLeaf(YType.uint32, 'update-count'), ['int'])),
+                                                                ('ok_count', (YLeaf(YType.uint32, 'ok-count'), ['int'])),
+                                                                ('disconnect_count', (YLeaf(YType.uint32, 'disconnect-count'), ['int'])),
+                                                                ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                                                                ('busy_count', (YLeaf(YType.uint32, 'busy-count'), ['int'])),
+                                                                ('no_connection_count', (YLeaf(YType.uint32, 'no-connection-count'), ['int'])),
+                                                                ('dropped_count', (YLeaf(YType.uint32, 'dropped-count'), ['int'])),
+                                                                ('internal_error_count', (YLeaf(YType.uint32, 'internal-error-count'), ['int'])),
+                                                                ('sequence_error_count', (YLeaf(YType.uint32, 'sequence-error-count'), ['int'])),
+                                                                ('verify_error_count', (YLeaf(YType.uint32, 'verify-error-count'), ['int'])),
                                                             ])
                                                             self.operation_time = None
                                                             self.return_code = None
@@ -11919,6 +12050,7 @@ class Ipsla(Entity):
                                                             self.sequence_error_count = None
                                                             self.verify_error_count = None
                                                             self._segment_path = lambda: "common-stats"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.CommonStats, [u'operation_time', u'return_code', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'update_count', u'ok_count', u'disconnect_count', u'timeout_count', u'busy_count', u'no_connection_count', u'dropped_count', u'internal_error_count', u'sequence_error_count', u'verify_error_count'], name, value)
@@ -11960,7 +12092,7 @@ class Ipsla(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([("icmp-path-jitter-stats", ("icmp_path_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats)), ("udp-jitter-stats", ("udp_jitter_stats", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats))])
                                                             self._leafs = OrderedDict([
-                                                                ('op_type', YLeaf(YType.enumeration, 'op-type')),
+                                                                ('op_type', (YLeaf(YType.enumeration, 'op-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'OpTypeEnum', '')])),
                                                             ])
                                                             self.op_type = None
 
@@ -11972,6 +12104,7 @@ class Ipsla(Entity):
                                                             self.udp_jitter_stats.parent = self
                                                             self._children_name_map["udp_jitter_stats"] = "udp-jitter-stats"
                                                             self._segment_path = lambda: "specific-stats"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats, [u'op_type'], name, value)
@@ -12187,33 +12320,33 @@ class Ipsla(Entity):
                                                                 self.ylist_key_names = []
                                                                 self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
-                                                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                                                    ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                                                    ('hop_address', YLeaf(YType.str, 'hop-address')),
-                                                                    ('packet_interval', YLeaf(YType.uint32, 'packet-interval')),
-                                                                    ('response_time_count', YLeaf(YType.uint32, 'response-time-count')),
-                                                                    ('response_time', YLeaf(YType.uint32, 'response-time')),
-                                                                    ('min_response_time', YLeaf(YType.uint32, 'min-response-time')),
-                                                                    ('max_response_time', YLeaf(YType.uint32, 'max-response-time')),
-                                                                    ('sum_response_time', YLeaf(YType.uint32, 'sum-response-time')),
-                                                                    ('sum2_response_time', YLeaf(YType.uint64, 'sum2-response-time')),
-                                                                    ('packet_count', YLeaf(YType.uint32, 'packet-count')),
-                                                                    ('packet_loss_count', YLeaf(YType.uint32, 'packet-loss-count')),
-                                                                    ('out_of_sequence_count', YLeaf(YType.uint32, 'out-of-sequence-count')),
-                                                                    ('discarded_sample_count', YLeaf(YType.uint32, 'discarded-sample-count')),
-                                                                    ('verify_errors_count', YLeaf(YType.uint32, 'verify-errors-count')),
-                                                                    ('dropped_error_count', YLeaf(YType.uint32, 'dropped-error-count')),
-                                                                    ('jitter', YLeaf(YType.uint32, 'jitter')),
-                                                                    ('pos_jitter_sum', YLeaf(YType.uint32, 'pos-jitter-sum')),
-                                                                    ('pos_jitter_sum2', YLeaf(YType.uint64, 'pos-jitter-sum2')),
-                                                                    ('pos_jitter_min', YLeaf(YType.uint32, 'pos-jitter-min')),
-                                                                    ('pos_jitter_max', YLeaf(YType.uint32, 'pos-jitter-max')),
-                                                                    ('pos_jitter_count', YLeaf(YType.uint32, 'pos-jitter-count')),
-                                                                    ('neg_jitter_sum', YLeaf(YType.uint32, 'neg-jitter-sum')),
-                                                                    ('neg_jitter_min', YLeaf(YType.uint32, 'neg-jitter-min')),
-                                                                    ('neg_jitter_max', YLeaf(YType.uint32, 'neg-jitter-max')),
-                                                                    ('neg_jitter_sum2', YLeaf(YType.uint64, 'neg-jitter-sum2')),
-                                                                    ('neg_jitter_count', YLeaf(YType.uint32, 'neg-jitter-count')),
+                                                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                                                    ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                                                    ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
+                                                                    ('packet_interval', (YLeaf(YType.uint32, 'packet-interval'), ['int'])),
+                                                                    ('response_time_count', (YLeaf(YType.uint32, 'response-time-count'), ['int'])),
+                                                                    ('response_time', (YLeaf(YType.uint32, 'response-time'), ['int'])),
+                                                                    ('min_response_time', (YLeaf(YType.uint32, 'min-response-time'), ['int'])),
+                                                                    ('max_response_time', (YLeaf(YType.uint32, 'max-response-time'), ['int'])),
+                                                                    ('sum_response_time', (YLeaf(YType.uint32, 'sum-response-time'), ['int'])),
+                                                                    ('sum2_response_time', (YLeaf(YType.uint64, 'sum2-response-time'), ['int'])),
+                                                                    ('packet_count', (YLeaf(YType.uint32, 'packet-count'), ['int'])),
+                                                                    ('packet_loss_count', (YLeaf(YType.uint32, 'packet-loss-count'), ['int'])),
+                                                                    ('out_of_sequence_count', (YLeaf(YType.uint32, 'out-of-sequence-count'), ['int'])),
+                                                                    ('discarded_sample_count', (YLeaf(YType.uint32, 'discarded-sample-count'), ['int'])),
+                                                                    ('verify_errors_count', (YLeaf(YType.uint32, 'verify-errors-count'), ['int'])),
+                                                                    ('dropped_error_count', (YLeaf(YType.uint32, 'dropped-error-count'), ['int'])),
+                                                                    ('jitter', (YLeaf(YType.uint32, 'jitter'), ['int'])),
+                                                                    ('pos_jitter_sum', (YLeaf(YType.uint32, 'pos-jitter-sum'), ['int'])),
+                                                                    ('pos_jitter_sum2', (YLeaf(YType.uint64, 'pos-jitter-sum2'), ['int'])),
+                                                                    ('pos_jitter_min', (YLeaf(YType.uint32, 'pos-jitter-min'), ['int'])),
+                                                                    ('pos_jitter_max', (YLeaf(YType.uint32, 'pos-jitter-max'), ['int'])),
+                                                                    ('pos_jitter_count', (YLeaf(YType.uint32, 'pos-jitter-count'), ['int'])),
+                                                                    ('neg_jitter_sum', (YLeaf(YType.uint32, 'neg-jitter-sum'), ['int'])),
+                                                                    ('neg_jitter_min', (YLeaf(YType.uint32, 'neg-jitter-min'), ['int'])),
+                                                                    ('neg_jitter_max', (YLeaf(YType.uint32, 'neg-jitter-max'), ['int'])),
+                                                                    ('neg_jitter_sum2', (YLeaf(YType.uint64, 'neg-jitter-sum2'), ['int'])),
+                                                                    ('neg_jitter_count', (YLeaf(YType.uint32, 'neg-jitter-count'), ['int'])),
                                                                 ])
                                                                 self.source_address = None
                                                                 self.dest_address = None
@@ -12243,6 +12376,7 @@ class Ipsla(Entity):
                                                                 self.neg_jitter_sum2 = None
                                                                 self.neg_jitter_count = None
                                                                 self._segment_path = lambda: "icmp-path-jitter-stats"
+                                                                self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.IcmpPathJitterStats, [u'source_address', u'dest_address', u'hop_address', u'packet_interval', u'response_time_count', u'response_time', u'min_response_time', u'max_response_time', u'sum_response_time', u'sum2_response_time', u'packet_count', u'packet_loss_count', u'out_of_sequence_count', u'discarded_sample_count', u'verify_errors_count', u'dropped_error_count', u'jitter', u'pos_jitter_sum', u'pos_jitter_sum2', u'pos_jitter_min', u'pos_jitter_max', u'pos_jitter_count', u'neg_jitter_sum', u'neg_jitter_min', u'neg_jitter_max', u'neg_jitter_sum2', u'neg_jitter_count'], name, value)
@@ -12557,46 +12691,46 @@ class Ipsla(Entity):
                                                                 self.ylist_key_names = []
                                                                 self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
-                                                                    ('jitter_in', YLeaf(YType.uint32, 'jitter-in')),
-                                                                    ('jitter_out', YLeaf(YType.uint32, 'jitter-out')),
-                                                                    ('packet_loss_sd', YLeaf(YType.uint32, 'packet-loss-sd')),
-                                                                    ('packet_loss_ds', YLeaf(YType.uint32, 'packet-loss-ds')),
-                                                                    ('packet_out_of_sequence', YLeaf(YType.uint32, 'packet-out-of-sequence')),
-                                                                    ('packet_mia', YLeaf(YType.uint32, 'packet-mia')),
-                                                                    ('packet_skipped', YLeaf(YType.uint32, 'packet-skipped')),
-                                                                    ('packet_late_arrivals', YLeaf(YType.uint32, 'packet-late-arrivals')),
-                                                                    ('packet_invalid_tstamp', YLeaf(YType.uint32, 'packet-invalid-tstamp')),
-                                                                    ('internal_errors_count', YLeaf(YType.uint32, 'internal-errors-count')),
-                                                                    ('busies_count', YLeaf(YType.uint32, 'busies-count')),
-                                                                    ('positive_sd_sum', YLeaf(YType.uint32, 'positive-sd-sum')),
-                                                                    ('positive_sd_sum2', YLeaf(YType.uint64, 'positive-sd-sum2')),
-                                                                    ('positive_sd_min', YLeaf(YType.uint32, 'positive-sd-min')),
-                                                                    ('positive_sd_max', YLeaf(YType.uint32, 'positive-sd-max')),
-                                                                    ('positive_sd_count', YLeaf(YType.uint32, 'positive-sd-count')),
-                                                                    ('negative_sd_sum', YLeaf(YType.uint32, 'negative-sd-sum')),
-                                                                    ('negative_sd_sum2', YLeaf(YType.uint64, 'negative-sd-sum2')),
-                                                                    ('negative_sd_min', YLeaf(YType.uint32, 'negative-sd-min')),
-                                                                    ('negative_sd_max', YLeaf(YType.uint32, 'negative-sd-max')),
-                                                                    ('negative_sd_count', YLeaf(YType.uint32, 'negative-sd-count')),
-                                                                    ('positive_ds_sum', YLeaf(YType.uint32, 'positive-ds-sum')),
-                                                                    ('positive_ds_sum2', YLeaf(YType.uint64, 'positive-ds-sum2')),
-                                                                    ('positive_ds_min', YLeaf(YType.uint32, 'positive-ds-min')),
-                                                                    ('positive_ds_max', YLeaf(YType.uint32, 'positive-ds-max')),
-                                                                    ('positive_ds_count', YLeaf(YType.uint32, 'positive-ds-count')),
-                                                                    ('negative_ds_sum', YLeaf(YType.uint32, 'negative-ds-sum')),
-                                                                    ('negative_ds_sum2', YLeaf(YType.uint64, 'negative-ds-sum2')),
-                                                                    ('negative_ds_min', YLeaf(YType.uint32, 'negative-ds-min')),
-                                                                    ('negative_ds_max', YLeaf(YType.uint32, 'negative-ds-max')),
-                                                                    ('negative_ds_count', YLeaf(YType.uint32, 'negative-ds-count')),
-                                                                    ('one_way_count', YLeaf(YType.uint32, 'one-way-count')),
-                                                                    ('one_way_sd_min', YLeaf(YType.uint32, 'one-way-sd-min')),
-                                                                    ('one_way_sd_max', YLeaf(YType.uint32, 'one-way-sd-max')),
-                                                                    ('one_way_sd_sum', YLeaf(YType.uint32, 'one-way-sd-sum')),
-                                                                    ('one_way_sd_sum2', YLeaf(YType.uint64, 'one-way-sd-sum2')),
-                                                                    ('one_way_ds_min', YLeaf(YType.uint32, 'one-way-ds-min')),
-                                                                    ('one_way_ds_max', YLeaf(YType.uint32, 'one-way-ds-max')),
-                                                                    ('one_way_ds_sum', YLeaf(YType.uint32, 'one-way-ds-sum')),
-                                                                    ('one_way_ds_sum2', YLeaf(YType.uint64, 'one-way-ds-sum2')),
+                                                                    ('jitter_in', (YLeaf(YType.uint32, 'jitter-in'), ['int'])),
+                                                                    ('jitter_out', (YLeaf(YType.uint32, 'jitter-out'), ['int'])),
+                                                                    ('packet_loss_sd', (YLeaf(YType.uint32, 'packet-loss-sd'), ['int'])),
+                                                                    ('packet_loss_ds', (YLeaf(YType.uint32, 'packet-loss-ds'), ['int'])),
+                                                                    ('packet_out_of_sequence', (YLeaf(YType.uint32, 'packet-out-of-sequence'), ['int'])),
+                                                                    ('packet_mia', (YLeaf(YType.uint32, 'packet-mia'), ['int'])),
+                                                                    ('packet_skipped', (YLeaf(YType.uint32, 'packet-skipped'), ['int'])),
+                                                                    ('packet_late_arrivals', (YLeaf(YType.uint32, 'packet-late-arrivals'), ['int'])),
+                                                                    ('packet_invalid_tstamp', (YLeaf(YType.uint32, 'packet-invalid-tstamp'), ['int'])),
+                                                                    ('internal_errors_count', (YLeaf(YType.uint32, 'internal-errors-count'), ['int'])),
+                                                                    ('busies_count', (YLeaf(YType.uint32, 'busies-count'), ['int'])),
+                                                                    ('positive_sd_sum', (YLeaf(YType.uint32, 'positive-sd-sum'), ['int'])),
+                                                                    ('positive_sd_sum2', (YLeaf(YType.uint64, 'positive-sd-sum2'), ['int'])),
+                                                                    ('positive_sd_min', (YLeaf(YType.uint32, 'positive-sd-min'), ['int'])),
+                                                                    ('positive_sd_max', (YLeaf(YType.uint32, 'positive-sd-max'), ['int'])),
+                                                                    ('positive_sd_count', (YLeaf(YType.uint32, 'positive-sd-count'), ['int'])),
+                                                                    ('negative_sd_sum', (YLeaf(YType.uint32, 'negative-sd-sum'), ['int'])),
+                                                                    ('negative_sd_sum2', (YLeaf(YType.uint64, 'negative-sd-sum2'), ['int'])),
+                                                                    ('negative_sd_min', (YLeaf(YType.uint32, 'negative-sd-min'), ['int'])),
+                                                                    ('negative_sd_max', (YLeaf(YType.uint32, 'negative-sd-max'), ['int'])),
+                                                                    ('negative_sd_count', (YLeaf(YType.uint32, 'negative-sd-count'), ['int'])),
+                                                                    ('positive_ds_sum', (YLeaf(YType.uint32, 'positive-ds-sum'), ['int'])),
+                                                                    ('positive_ds_sum2', (YLeaf(YType.uint64, 'positive-ds-sum2'), ['int'])),
+                                                                    ('positive_ds_min', (YLeaf(YType.uint32, 'positive-ds-min'), ['int'])),
+                                                                    ('positive_ds_max', (YLeaf(YType.uint32, 'positive-ds-max'), ['int'])),
+                                                                    ('positive_ds_count', (YLeaf(YType.uint32, 'positive-ds-count'), ['int'])),
+                                                                    ('negative_ds_sum', (YLeaf(YType.uint32, 'negative-ds-sum'), ['int'])),
+                                                                    ('negative_ds_sum2', (YLeaf(YType.uint64, 'negative-ds-sum2'), ['int'])),
+                                                                    ('negative_ds_min', (YLeaf(YType.uint32, 'negative-ds-min'), ['int'])),
+                                                                    ('negative_ds_max', (YLeaf(YType.uint32, 'negative-ds-max'), ['int'])),
+                                                                    ('negative_ds_count', (YLeaf(YType.uint32, 'negative-ds-count'), ['int'])),
+                                                                    ('one_way_count', (YLeaf(YType.uint32, 'one-way-count'), ['int'])),
+                                                                    ('one_way_sd_min', (YLeaf(YType.uint32, 'one-way-sd-min'), ['int'])),
+                                                                    ('one_way_sd_max', (YLeaf(YType.uint32, 'one-way-sd-max'), ['int'])),
+                                                                    ('one_way_sd_sum', (YLeaf(YType.uint32, 'one-way-sd-sum'), ['int'])),
+                                                                    ('one_way_sd_sum2', (YLeaf(YType.uint64, 'one-way-sd-sum2'), ['int'])),
+                                                                    ('one_way_ds_min', (YLeaf(YType.uint32, 'one-way-ds-min'), ['int'])),
+                                                                    ('one_way_ds_max', (YLeaf(YType.uint32, 'one-way-ds-max'), ['int'])),
+                                                                    ('one_way_ds_sum', (YLeaf(YType.uint32, 'one-way-ds-sum'), ['int'])),
+                                                                    ('one_way_ds_sum2', (YLeaf(YType.uint64, 'one-way-ds-sum2'), ['int'])),
                                                                 ])
                                                                 self.jitter_in = None
                                                                 self.jitter_out = None
@@ -12639,6 +12773,7 @@ class Ipsla(Entity):
                                                                 self.one_way_ds_sum = None
                                                                 self.one_way_ds_sum2 = None
                                                                 self._segment_path = lambda: "udp-jitter-stats"
+                                                                self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.Paths.Path.Hops.Hop.SpecificStats.UdpJitterStats, [u'jitter_in', u'jitter_out', u'packet_loss_sd', u'packet_loss_ds', u'packet_out_of_sequence', u'packet_mia', u'packet_skipped', u'packet_late_arrivals', u'packet_invalid_tstamp', u'internal_errors_count', u'busies_count', u'positive_sd_sum', u'positive_sd_sum2', u'positive_sd_min', u'positive_sd_max', u'positive_sd_count', u'negative_sd_sum', u'negative_sd_sum2', u'negative_sd_min', u'negative_sd_max', u'negative_sd_count', u'positive_ds_sum', u'positive_ds_sum2', u'positive_ds_min', u'positive_ds_max', u'positive_ds_count', u'negative_ds_sum', u'negative_ds_sum2', u'negative_ds_min', u'negative_ds_max', u'negative_ds_count', u'one_way_count', u'one_way_sd_min', u'one_way_sd_max', u'one_way_sd_sum', u'one_way_sd_sum2', u'one_way_ds_min', u'one_way_ds_max', u'one_way_ds_sum', u'one_way_ds_sum2'], name, value)
@@ -12673,6 +12808,7 @@ class Ipsla(Entity):
 
                                             self.lpd_path = YList(self)
                                             self._segment_path = lambda: "lpd-paths"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths, [], name, value)
@@ -12717,8 +12853,8 @@ class Ipsla(Entity):
                                                 self.ylist_key_names = ['path_index']
                                                 self._child_classes = OrderedDict([("path-id", ("path_id", Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId))])
                                                 self._leafs = OrderedDict([
-                                                    ('path_index', YLeaf(YType.uint32, 'path-index')),
-                                                    ('return_code', YLeaf(YType.enumeration, 'return-code')),
+                                                    ('path_index', (YLeaf(YType.uint32, 'path-index'), ['int'])),
+                                                    ('return_code', (YLeaf(YType.enumeration, 'return-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'IpslaRetCode', '')])),
                                                 ])
                                                 self.path_index = None
                                                 self.return_code = None
@@ -12727,6 +12863,7 @@ class Ipsla(Entity):
                                                 self.path_id.parent = self
                                                 self._children_name_map["path_id"] = "path-id"
                                                 self._segment_path = lambda: "lpd-path" + "[path-index='" + str(self.path_index) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath, ['path_index', u'return_code'], name, value)
@@ -12748,7 +12885,7 @@ class Ipsla(Entity):
                                                 	Output interface
                                                 	**type**\: str
                                                 
-                                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                                 
                                                 .. attribute:: nexthop_address
                                                 
@@ -12781,16 +12918,17 @@ class Ipsla(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                                        ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                                        ('nexthop_address', YLeaf(YType.str, 'nexthop-address')),
-                                                        ('downstream_label', YLeafList(YType.uint32, 'downstream-label')),
+                                                        ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                                        ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                                        ('nexthop_address', (YLeaf(YType.str, 'nexthop-address'), ['str'])),
+                                                        ('downstream_label', (YLeafList(YType.uint32, 'downstream-label'), ['int'])),
                                                     ])
                                                     self.lsp_selector = None
                                                     self.output_interface = None
                                                     self.nexthop_address = None
                                                     self.downstream_label = []
                                                     self._segment_path = lambda: "path-id"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(Ipsla.OperationData.Operations.Operation.Statistics.Aggregated.Hours.Hour.NonDistributed.LpdPaths.LpdPath.PathId, [u'lsp_selector', u'output_interface', u'nexthop_address', u'downstream_label'], name, value)
@@ -12881,16 +13019,16 @@ class Ipsla(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('version', YLeaf(YType.str, 'version')),
-                ('max_entries', YLeaf(YType.uint32, 'max-entries')),
-                ('entries_configured', YLeaf(YType.uint32, 'entries-configured')),
-                ('active_entries', YLeaf(YType.uint32, 'active-entries')),
-                ('pending_entries', YLeaf(YType.uint32, 'pending-entries')),
-                ('inactive_entries', YLeaf(YType.uint32, 'inactive-entries')),
-                ('configurable_probes', YLeaf(YType.uint32, 'configurable-probes')),
-                ('min_memory', YLeaf(YType.uint32, 'min-memory')),
-                ('hw_timestamp_disabled', YLeaf(YType.boolean, 'hw-timestamp-disabled')),
-                ('operation_type', YLeafList(YType.enumeration, 'operation-type')),
+                ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                ('max_entries', (YLeaf(YType.uint32, 'max-entries'), ['int'])),
+                ('entries_configured', (YLeaf(YType.uint32, 'entries-configured'), ['int'])),
+                ('active_entries', (YLeaf(YType.uint32, 'active-entries'), ['int'])),
+                ('pending_entries', (YLeaf(YType.uint32, 'pending-entries'), ['int'])),
+                ('inactive_entries', (YLeaf(YType.uint32, 'inactive-entries'), ['int'])),
+                ('configurable_probes', (YLeaf(YType.uint32, 'configurable-probes'), ['int'])),
+                ('min_memory', (YLeaf(YType.uint32, 'min-memory'), ['int'])),
+                ('hw_timestamp_disabled', (YLeaf(YType.boolean, 'hw-timestamp-disabled'), ['bool'])),
+                ('operation_type', (YLeafList(YType.enumeration, 'operation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_oper', 'SlaOpTypes', '')])),
             ])
             self.version = None
             self.max_entries = None
@@ -12904,9 +13042,10 @@ class Ipsla(Entity):
             self.operation_type = []
             self._segment_path = lambda: "application-info"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-oper:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipsla.ApplicationInfo, ['version', 'max_entries', 'entries_configured', 'active_entries', 'pending_entries', 'inactive_entries', 'configurable_probes', 'min_memory', 'hw_timestamp_disabled', 'operation_type'], name, value)
+            self._perform_setattr(Ipsla.ApplicationInfo, [u'version', u'max_entries', u'entries_configured', u'active_entries', u'pending_entries', u'inactive_entries', u'configurable_probes', u'min_memory', u'hw_timestamp_disabled', u'operation_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipsla()

@@ -50,6 +50,9 @@ module Cisco-IOS-XE-atm {
       leaf address {
         type inet:ipv4-address;
       }
+      leaf split-horizon{
+        type empty;
+      }
     }
     container atm {
       description
@@ -66,6 +69,16 @@ module Cisco-IOS-XE-atm {
           "Enable-ilmi-trap";
         type boolean;
       }
+      leaf ilmi-keepalive{
+            type empty;
+      }
+      leaf route-bridged{
+             type enumeration{
+                 enum "ip";
+                 enum "ipv6";
+             }
+       }
+
       list pvp {
         description
           "PVP";
@@ -86,6 +99,12 @@ module Cisco-IOS-XE-atm {
         "Load interval";
       type uint32;
     }
+    leaf cdp {
+         type enumeration{
+             enum "enable";
+         }
+     }
+
     list cem {
       description
         "CEM";
@@ -117,6 +136,84 @@ module Cisco-IOS-XE-atm {
           "UBR";
         type uint32;
       }
+      container ubrplus{
+        leaf PCR{
+            type uint32;
+        }
+        leaf MCR{
+            type uint32;
+        }
+      }
+      leaf cbr{
+         description
+             "CBR";
+         type uint32;
+       }
+       leaf vbr{
+         description
+             "VBR";
+         type uint32;
+       }
+       leaf vbr-rt{
+         type uint32;
+       }
+       leaf vbr-nrt{
+         type uint32;
+       }
+       container oam-pvc{
+         presence true;
+         leaf loopback-frequency{
+             type uint32{
+                 range 0..600;
+             }
+         }
+         leaf manage{
+             type empty;
+         }
+ 
+       }
+       container service-policy{
+            leaf input {
+                description
+                "Assign policy-map to the input of an interface";
+                type string;
+            }
+            leaf output {
+                description
+                "Assign policy-map to the output of an interface";
+                type string;
+            }
+        }
+
+       container encapsulation{
+         container aal5autoppp{
+         leaf Virtual-Template{
+             type uint32;
+         }
+       }
+       container aal5ciscoppp{
+         leaf Virtual-Template{
+             type uint32;
+         }
+       }
+       container aal5mux{
+         container ppp{
+             leaf Virtual-Template{
+                 type uint32;
+             }
+             leaf dialer{
+                 type empty;
+             }
+         }
+       }
+       leaf aal5nlpid{
+         type empty;
+       }
+       leaf aal5snap{
+         type empty;
+       }
+ 
+       }
       uses ios-l2vpn:config-interface-efp-xconnect-grouping;
     }
   }

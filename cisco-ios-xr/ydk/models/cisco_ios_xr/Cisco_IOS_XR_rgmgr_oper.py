@@ -8,7 +8,7 @@ for the following management objects\:
   redundancy\-group\-manager\: Redundancy group manager operational
     data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +54,7 @@ class RedundancyGroupManager(Entity):
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
         self._segment_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RedundancyGroupManager, [], name, value)
@@ -88,6 +90,7 @@ class RedundancyGroupManager(Entity):
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
             self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RedundancyGroupManager.Controllers, [], name, value)
@@ -102,7 +105,7 @@ class RedundancyGroupManager(Entity):
             	Controller name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: multi_router_aps_group_number
             
@@ -123,7 +126,7 @@ class RedundancyGroupManager(Entity):
             	Handle of controller being backed up
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: backup_interface_name
             
@@ -137,7 +140,7 @@ class RedundancyGroupManager(Entity):
             	Backup interface handle
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: backup_interface_next_hop_ip_address
             
@@ -170,14 +173,14 @@ class RedundancyGroupManager(Entity):
                 self.ylist_key_names = ['controller_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('controller_name', YLeaf(YType.str, 'controller-name')),
-                    ('multi_router_aps_group_number', YLeaf(YType.str, 'multi-router-aps-group-number')),
-                    ('controller_name_xr', YLeaf(YType.str, 'controller-name-xr')),
-                    ('controller_handle', YLeaf(YType.str, 'controller-handle')),
-                    ('backup_interface_name', YLeaf(YType.str, 'backup-interface-name')),
-                    ('backup_interface_handle', YLeaf(YType.str, 'backup-interface-handle')),
-                    ('backup_interface_next_hop_ip_address', YLeaf(YType.str, 'backup-interface-next-hop-ip-address')),
-                    ('inter_chassis_group_state', YLeaf(YType.str, 'inter-chassis-group-state')),
+                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                    ('multi_router_aps_group_number', (YLeaf(YType.str, 'multi-router-aps-group-number'), ['str'])),
+                    ('controller_name_xr', (YLeaf(YType.str, 'controller-name-xr'), ['str'])),
+                    ('controller_handle', (YLeaf(YType.str, 'controller-handle'), ['str'])),
+                    ('backup_interface_name', (YLeaf(YType.str, 'backup-interface-name'), ['str'])),
+                    ('backup_interface_handle', (YLeaf(YType.str, 'backup-interface-handle'), ['str'])),
+                    ('backup_interface_next_hop_ip_address', (YLeaf(YType.str, 'backup-interface-next-hop-ip-address'), ['str'])),
+                    ('inter_chassis_group_state', (YLeaf(YType.str, 'inter-chassis-group-state'), ['str'])),
                 ])
                 self.controller_name = None
                 self.multi_router_aps_group_number = None
@@ -189,6 +192,7 @@ class RedundancyGroupManager(Entity):
                 self.inter_chassis_group_state = None
                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-rgmgr-oper:redundancy-group-manager/controllers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RedundancyGroupManager.Controllers.Controller, ['controller_name', 'multi_router_aps_group_number', 'controller_name_xr', 'controller_handle', 'backup_interface_name', 'backup_interface_handle', 'backup_interface_next_hop_ip_address', 'inter_chassis_group_state'], name, value)

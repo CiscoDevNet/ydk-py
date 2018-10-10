@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   control\-plane\: Configure control Plane
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class ControlPlane(Entity):
         self.management_plane_protection.parent = self
         self._children_name_map["management_plane_protection"] = "management-plane-protection"
         self._segment_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ControlPlane, [], name, value)
@@ -107,6 +109,7 @@ class ControlPlane(Entity):
             self._children_name_map["tpa"] = "tpa"
             self._segment_path = lambda: "management-plane-protection"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ControlPlane.ManagementPlaneProtection, [], name, value)
@@ -143,7 +146,7 @@ class ControlPlane(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("interface-selection", ("interface_selection", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection))])
                 self._leafs = OrderedDict([
-                    ('outband_vrf', YLeaf(YType.str, 'outband-vrf')),
+                    ('outband_vrf', (YLeaf(YType.str, 'outband-vrf'), ['str'])),
                 ])
                 self.outband_vrf = None
 
@@ -152,6 +155,7 @@ class ControlPlane(Entity):
                 self._children_name_map["interface_selection"] = "interface-selection"
                 self._segment_path = lambda: "outband"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband, ['outband_vrf'], name, value)
@@ -198,6 +202,7 @@ class ControlPlane(Entity):
                     self._children_name_map["all_interfaces"] = "all-interfaces"
                     self._segment_path = lambda: "interface-selection"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection, [], name, value)
@@ -233,6 +238,7 @@ class ControlPlane(Entity):
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces, [], name, value)
@@ -247,7 +253,7 @@ class ControlPlane(Entity):
                         	Name of the Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: http_protocol
                         
@@ -306,7 +312,7 @@ class ControlPlane(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
 
@@ -343,6 +349,7 @@ class ControlPlane(Entity):
                             self._children_name_map["all_protocols"] = "all-protocols"
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface, ['interface_name'], name, value)
@@ -379,6 +386,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "http-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
@@ -420,7 +428,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -432,6 +440,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, ['peer_all'], name, value)
@@ -477,6 +486,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
@@ -511,6 +521,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -550,10 +561,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -588,6 +600,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -627,10 +640,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -676,6 +690,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
@@ -710,6 +725,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -749,10 +765,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -787,6 +804,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -826,10 +844,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -866,6 +885,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "tftp-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
@@ -907,7 +927,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -919,6 +939,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, ['peer_all'], name, value)
@@ -964,6 +985,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
@@ -998,6 +1020,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -1037,10 +1060,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -1075,6 +1099,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -1114,10 +1139,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -1163,6 +1189,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
@@ -1197,6 +1224,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -1236,10 +1264,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -1274,6 +1303,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -1313,10 +1343,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -1353,6 +1384,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "netconf-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
@@ -1394,7 +1426,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -1406,6 +1438,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, ['peer_all'], name, value)
@@ -1451,6 +1484,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
@@ -1485,6 +1519,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -1524,10 +1559,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -1562,6 +1598,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -1601,10 +1638,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -1650,6 +1688,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
@@ -1684,6 +1723,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -1723,10 +1763,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -1761,6 +1802,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -1800,10 +1842,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -1840,6 +1883,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "xr-xml"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
@@ -1881,7 +1925,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -1893,6 +1937,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, ['peer_all'], name, value)
@@ -1938,6 +1983,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
@@ -1972,6 +2018,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, [], name, value)
@@ -2011,10 +2058,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -2049,6 +2097,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -2088,10 +2137,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -2137,6 +2187,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
@@ -2171,6 +2222,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, [], name, value)
@@ -2210,10 +2262,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -2248,6 +2301,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -2287,10 +2341,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -2327,6 +2382,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "ssh-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
@@ -2368,7 +2424,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -2380,6 +2436,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, ['peer_all'], name, value)
@@ -2425,6 +2482,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
@@ -2459,6 +2517,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -2498,10 +2557,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -2536,6 +2596,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -2575,10 +2636,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -2624,6 +2686,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
@@ -2658,6 +2721,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -2697,10 +2761,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -2735,6 +2800,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -2774,10 +2840,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -2814,6 +2881,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "snmp-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
@@ -2855,7 +2923,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -2867,6 +2935,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, ['peer_all'], name, value)
@@ -2912,6 +2981,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
@@ -2946,6 +3016,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -2985,10 +3056,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -3023,6 +3095,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -3062,10 +3135,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -3111,6 +3185,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
@@ -3145,6 +3220,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -3184,10 +3260,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -3222,6 +3299,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -3261,10 +3339,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -3301,6 +3380,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "telnet-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
@@ -3342,7 +3422,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -3354,6 +3434,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, ['peer_all'], name, value)
@@ -3399,6 +3480,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
@@ -3433,6 +3515,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -3472,10 +3555,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -3510,6 +3594,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -3549,10 +3634,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -3598,6 +3684,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
@@ -3632,6 +3719,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -3671,10 +3759,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -3709,6 +3798,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -3748,10 +3838,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -3788,6 +3879,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "all-protocols"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
@@ -3829,7 +3921,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -3841,6 +3933,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, ['peer_all'], name, value)
@@ -3886,6 +3979,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
@@ -3920,6 +4014,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
@@ -3959,10 +4054,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -3997,6 +4093,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -4036,10 +4133,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -4085,6 +4183,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
@@ -4119,6 +4218,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
@@ -4158,10 +4258,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -4196,6 +4297,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -4235,10 +4337,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -4339,6 +4442,7 @@ class ControlPlane(Entity):
                         self._children_name_map["all_protocols"] = "all-protocols"
                         self._segment_path = lambda: "all-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces, [], name, value)
@@ -4376,6 +4480,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "http-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
@@ -4417,7 +4522,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -4430,6 +4535,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, ['peer_all'], name, value)
@@ -4476,6 +4582,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
@@ -4511,6 +4618,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -4550,11 +4658,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -4590,6 +4699,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -4629,11 +4739,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -4680,6 +4791,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
@@ -4715,6 +4827,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -4754,11 +4867,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -4794,6 +4908,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -4833,11 +4948,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -4875,6 +4991,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "tftp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
@@ -4916,7 +5033,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -4929,6 +5046,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, ['peer_all'], name, value)
@@ -4975,6 +5093,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
@@ -5010,6 +5129,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -5049,11 +5169,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -5089,6 +5210,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -5128,11 +5250,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -5179,6 +5302,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
@@ -5214,6 +5338,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -5253,11 +5378,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -5293,6 +5419,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -5332,11 +5459,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -5374,6 +5502,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "netconf-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
@@ -5415,7 +5544,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -5428,6 +5557,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, ['peer_all'], name, value)
@@ -5474,6 +5604,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
@@ -5509,6 +5640,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -5548,11 +5680,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -5588,6 +5721,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -5627,11 +5761,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -5678,6 +5813,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
@@ -5713,6 +5849,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -5752,11 +5889,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -5792,6 +5930,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -5831,11 +5970,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -5873,6 +6013,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "xr-xml"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
@@ -5914,7 +6055,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -5927,6 +6068,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, ['peer_all'], name, value)
@@ -5973,6 +6115,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
@@ -6008,6 +6151,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, [], name, value)
@@ -6047,11 +6191,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -6087,6 +6232,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -6126,11 +6272,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -6177,6 +6324,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
@@ -6212,6 +6360,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, [], name, value)
@@ -6251,11 +6400,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -6291,6 +6441,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -6330,11 +6481,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -6372,6 +6524,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "ssh-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
@@ -6413,7 +6566,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -6426,6 +6579,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, ['peer_all'], name, value)
@@ -6472,6 +6626,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
@@ -6507,6 +6662,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -6546,11 +6702,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -6586,6 +6743,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -6625,11 +6783,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -6676,6 +6835,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
@@ -6711,6 +6871,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -6750,11 +6911,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -6790,6 +6952,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -6829,11 +6992,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -6871,6 +7035,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "snmp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
@@ -6912,7 +7077,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -6925,6 +7090,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, ['peer_all'], name, value)
@@ -6971,6 +7137,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
@@ -7006,6 +7173,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -7045,11 +7213,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -7085,6 +7254,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -7124,11 +7294,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -7175,6 +7346,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
@@ -7210,6 +7382,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -7249,11 +7422,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -7289,6 +7463,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -7328,11 +7503,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -7370,6 +7546,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "telnet-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
@@ -7411,7 +7588,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -7424,6 +7601,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, ['peer_all'], name, value)
@@ -7470,6 +7648,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
@@ -7505,6 +7684,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -7544,11 +7724,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -7584,6 +7765,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -7623,11 +7805,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -7674,6 +7857,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
@@ -7709,6 +7893,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -7748,11 +7933,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -7788,6 +7974,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -7827,11 +8014,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -7869,6 +8057,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "all-protocols"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
@@ -7910,7 +8099,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -7923,6 +8112,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, ['peer_all'], name, value)
@@ -7969,6 +8159,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
@@ -8004,6 +8195,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
@@ -8043,11 +8235,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -8083,6 +8276,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -8122,11 +8316,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -8173,6 +8368,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
@@ -8208,6 +8404,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
@@ -8247,11 +8444,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -8287,6 +8485,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -8326,11 +8525,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/outband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Outband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -8368,6 +8568,7 @@ class ControlPlane(Entity):
                 self._children_name_map["interface_selection"] = "interface-selection"
                 self._segment_path = lambda: "inband"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband, [], name, value)
@@ -8414,6 +8615,7 @@ class ControlPlane(Entity):
                     self._children_name_map["all_interfaces"] = "all-interfaces"
                     self._segment_path = lambda: "interface-selection"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection, [], name, value)
@@ -8449,6 +8651,7 @@ class ControlPlane(Entity):
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces, [], name, value)
@@ -8463,7 +8666,7 @@ class ControlPlane(Entity):
                         	Name of the Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: http_protocol
                         
@@ -8522,7 +8725,7 @@ class ControlPlane(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("http-protocol", ("http_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol)), ("tftp-protocol", ("tftp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol)), ("netconf-protocol", ("netconf_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol)), ("xr-xml", ("xr_xml", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml)), ("ssh-protocol", ("ssh_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol)), ("snmp-protocol", ("snmp_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol)), ("telnet-protocol", ("telnet_protocol", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol)), ("all-protocols", ("all_protocols", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
 
@@ -8559,6 +8762,7 @@ class ControlPlane(Entity):
                             self._children_name_map["all_protocols"] = "all-protocols"
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface, ['interface_name'], name, value)
@@ -8595,6 +8799,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "http-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol, [], name, value)
@@ -8636,7 +8841,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -8648,6 +8853,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass, ['peer_all'], name, value)
@@ -8693,6 +8899,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4, [], name, value)
@@ -8727,6 +8934,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -8766,10 +8974,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -8804,6 +9013,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -8843,10 +9053,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -8892,6 +9103,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6, [], name, value)
@@ -8926,6 +9138,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -8965,10 +9178,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -9003,6 +9217,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -9042,10 +9257,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -9082,6 +9298,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "tftp-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol, [], name, value)
@@ -9123,7 +9340,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -9135,6 +9352,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass, ['peer_all'], name, value)
@@ -9180,6 +9398,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4, [], name, value)
@@ -9214,6 +9433,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -9253,10 +9473,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -9291,6 +9512,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -9330,10 +9552,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -9379,6 +9602,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6, [], name, value)
@@ -9413,6 +9637,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -9452,10 +9677,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -9490,6 +9716,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -9529,10 +9756,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -9569,6 +9797,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "netconf-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol, [], name, value)
@@ -9610,7 +9839,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -9622,6 +9851,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass, ['peer_all'], name, value)
@@ -9667,6 +9897,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4, [], name, value)
@@ -9701,6 +9932,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -9740,10 +9972,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -9778,6 +10011,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -9817,10 +10051,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -9866,6 +10101,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6, [], name, value)
@@ -9900,6 +10136,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -9939,10 +10176,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -9977,6 +10215,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -10016,10 +10255,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -10056,6 +10296,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "xr-xml"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml, [], name, value)
@@ -10097,7 +10338,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -10109,6 +10350,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass, ['peer_all'], name, value)
@@ -10154,6 +10396,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4, [], name, value)
@@ -10188,6 +10431,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers, [], name, value)
@@ -10227,10 +10471,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -10265,6 +10510,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -10304,10 +10550,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -10353,6 +10600,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6, [], name, value)
@@ -10387,6 +10635,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers, [], name, value)
@@ -10426,10 +10675,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -10464,6 +10714,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -10503,10 +10754,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -10543,6 +10795,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "ssh-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol, [], name, value)
@@ -10584,7 +10837,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -10596,6 +10849,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass, ['peer_all'], name, value)
@@ -10641,6 +10895,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4, [], name, value)
@@ -10675,6 +10930,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -10714,10 +10970,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -10752,6 +11009,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -10791,10 +11049,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -10840,6 +11099,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6, [], name, value)
@@ -10874,6 +11134,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -10913,10 +11174,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -10951,6 +11213,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -10990,10 +11253,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -11030,6 +11294,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "snmp-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol, [], name, value)
@@ -11071,7 +11336,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -11083,6 +11348,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass, ['peer_all'], name, value)
@@ -11128,6 +11394,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4, [], name, value)
@@ -11162,6 +11429,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -11201,10 +11469,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -11239,6 +11508,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -11278,10 +11548,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -11327,6 +11598,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6, [], name, value)
@@ -11361,6 +11633,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -11400,10 +11673,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -11438,6 +11712,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -11477,10 +11752,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -11517,6 +11793,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "telnet-protocol"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol, [], name, value)
@@ -11558,7 +11835,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -11570,6 +11847,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass, ['peer_all'], name, value)
@@ -11615,6 +11893,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4, [], name, value)
@@ -11649,6 +11928,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -11688,10 +11968,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -11726,6 +12007,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -11765,10 +12047,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -11814,6 +12097,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6, [], name, value)
@@ -11848,6 +12132,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -11887,10 +12172,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -11925,6 +12211,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -11964,10 +12251,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -12004,6 +12292,7 @@ class ControlPlane(Entity):
                                 self.peer_class.parent = self
                                 self._children_name_map["peer_class"] = "peer-class"
                                 self._segment_path = lambda: "all-protocols"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols, [], name, value)
@@ -12045,7 +12334,7 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6))])
                                     self._leafs = OrderedDict([
-                                        ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                        ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                     ])
                                     self.peer_all = None
 
@@ -12057,6 +12346,7 @@ class ControlPlane(Entity):
                                     self.peer_v6.parent = self
                                     self._children_name_map["peer_v6"] = "peer-v6"
                                     self._segment_path = lambda: "peer-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass, ['peer_all'], name, value)
@@ -12102,6 +12392,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v4"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4, [], name, value)
@@ -12136,6 +12427,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
@@ -12175,10 +12467,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -12213,6 +12506,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -12252,10 +12546,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -12301,6 +12596,7 @@ class ControlPlane(Entity):
                                         self.peer_prefixes.parent = self
                                         self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                         self._segment_path = lambda: "peer-v6"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6, [], name, value)
@@ -12335,6 +12631,7 @@ class ControlPlane(Entity):
 
                                             self.peer = YList(self)
                                             self._segment_path = lambda: "peers"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
@@ -12374,10 +12671,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                                 ])
                                                 self.address = None
                                                 self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -12412,6 +12710,7 @@ class ControlPlane(Entity):
 
                                             self.peer_prefix = YList(self)
                                             self._segment_path = lambda: "peer-prefixes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -12451,10 +12750,11 @@ class ControlPlane(Entity):
                                                 self.ylist_key_names = ['address_prefix']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                    ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                                 ])
                                                 self.address_prefix = None
                                                 self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.Interfaces.Interface.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -12555,6 +12855,7 @@ class ControlPlane(Entity):
                         self._children_name_map["all_protocols"] = "all-protocols"
                         self._segment_path = lambda: "all-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces, [], name, value)
@@ -12592,6 +12893,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "http-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol, [], name, value)
@@ -12633,7 +12935,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -12646,6 +12948,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass, ['peer_all'], name, value)
@@ -12692,6 +12995,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4, [], name, value)
@@ -12727,6 +13031,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -12766,11 +13071,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -12806,6 +13112,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -12845,11 +13152,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -12896,6 +13204,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6, [], name, value)
@@ -12931,6 +13240,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -12970,11 +13280,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -13010,6 +13321,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -13049,11 +13361,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/http-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.HttpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -13091,6 +13404,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "tftp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol, [], name, value)
@@ -13132,7 +13446,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -13145,6 +13459,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass, ['peer_all'], name, value)
@@ -13191,6 +13506,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4, [], name, value)
@@ -13226,6 +13542,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -13265,11 +13582,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -13305,6 +13623,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -13344,11 +13663,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -13395,6 +13715,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6, [], name, value)
@@ -13430,6 +13751,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -13469,11 +13791,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -13509,6 +13832,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -13548,11 +13872,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/tftp-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TftpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -13590,6 +13915,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "netconf-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol, [], name, value)
@@ -13631,7 +13957,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -13644,6 +13970,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass, ['peer_all'], name, value)
@@ -13690,6 +14017,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4, [], name, value)
@@ -13725,6 +14053,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -13764,11 +14093,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -13804,6 +14134,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -13843,11 +14174,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -13894,6 +14226,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6, [], name, value)
@@ -13929,6 +14262,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -13968,11 +14302,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -14008,6 +14343,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -14047,11 +14383,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/netconf-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.NetconfProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -14089,6 +14426,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "xr-xml"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml, [], name, value)
@@ -14130,7 +14468,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -14143,6 +14481,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass, ['peer_all'], name, value)
@@ -14189,6 +14528,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4, [], name, value)
@@ -14224,6 +14564,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers, [], name, value)
@@ -14263,11 +14604,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -14303,6 +14645,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -14342,11 +14685,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -14393,6 +14737,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6, [], name, value)
@@ -14428,6 +14773,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers, [], name, value)
@@ -14467,11 +14813,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -14507,6 +14854,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -14546,11 +14894,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/xr-xml/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.XrXml.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -14588,6 +14937,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "ssh-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol, [], name, value)
@@ -14629,7 +14979,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -14642,6 +14992,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass, ['peer_all'], name, value)
@@ -14688,6 +15039,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4, [], name, value)
@@ -14723,6 +15075,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -14762,11 +15115,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -14802,6 +15156,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -14841,11 +15196,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -14892,6 +15248,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6, [], name, value)
@@ -14927,6 +15284,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -14966,11 +15324,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -15006,6 +15365,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -15045,11 +15405,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/ssh-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SshProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -15087,6 +15448,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "snmp-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol, [], name, value)
@@ -15128,7 +15490,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -15141,6 +15503,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass, ['peer_all'], name, value)
@@ -15187,6 +15550,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4, [], name, value)
@@ -15222,6 +15586,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -15261,11 +15626,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -15301,6 +15667,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -15340,11 +15707,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -15391,6 +15759,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6, [], name, value)
@@ -15426,6 +15795,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -15465,11 +15835,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -15505,6 +15876,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -15544,11 +15916,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/snmp-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.SnmpProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -15586,6 +15959,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "telnet-protocol"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol, [], name, value)
@@ -15627,7 +16001,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -15640,6 +16014,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass, ['peer_all'], name, value)
@@ -15686,6 +16061,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4, [], name, value)
@@ -15721,6 +16097,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers, [], name, value)
@@ -15760,11 +16137,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -15800,6 +16178,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -15839,11 +16218,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -15890,6 +16270,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6, [], name, value)
@@ -15925,6 +16306,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers, [], name, value)
@@ -15964,11 +16346,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -16004,6 +16387,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -16043,11 +16427,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/telnet-protocol/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.TelnetProtocol.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -16085,6 +16470,7 @@ class ControlPlane(Entity):
                             self._children_name_map["peer_class"] = "peer-class"
                             self._segment_path = lambda: "all-protocols"
                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols, [], name, value)
@@ -16126,7 +16512,7 @@ class ControlPlane(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("peer-v4", ("peer_v4", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4)), ("peer-v6", ("peer_v6", ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6))])
                                 self._leafs = OrderedDict([
-                                    ('peer_all', YLeaf(YType.empty, 'peer-all')),
+                                    ('peer_all', (YLeaf(YType.empty, 'peer-all'), ['Empty'])),
                                 ])
                                 self.peer_all = None
 
@@ -16139,6 +16525,7 @@ class ControlPlane(Entity):
                                 self._children_name_map["peer_v6"] = "peer-v6"
                                 self._segment_path = lambda: "peer-class"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass, ['peer_all'], name, value)
@@ -16185,6 +16572,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v4"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4, [], name, value)
@@ -16220,6 +16608,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers, [], name, value)
@@ -16259,11 +16648,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.Peers.Peer, ['address'], name, value)
@@ -16299,6 +16689,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes, [], name, value)
@@ -16338,11 +16729,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v4/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV4.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -16389,6 +16781,7 @@ class ControlPlane(Entity):
                                     self._children_name_map["peer_prefixes"] = "peer-prefixes"
                                     self._segment_path = lambda: "peer-v6"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6, [], name, value)
@@ -16424,6 +16817,7 @@ class ControlPlane(Entity):
                                         self.peer = YList(self)
                                         self._segment_path = lambda: "peers"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers, [], name, value)
@@ -16463,11 +16857,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "peer" + "[address='" + str(self.address) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peers/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.Peers.Peer, ['address'], name, value)
@@ -16503,6 +16898,7 @@ class ControlPlane(Entity):
                                         self.peer_prefix = YList(self)
                                         self._segment_path = lambda: "peer-prefixes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes, [], name, value)
@@ -16542,11 +16938,12 @@ class ControlPlane(Entity):
                                             self.ylist_key_names = ['address_prefix']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address_prefix', YLeaf(YType.str, 'address-prefix')),
+                                                ('address_prefix', (YLeaf(YType.str, 'address-prefix'), ['str','str'])),
                                             ])
                                             self.address_prefix = None
                                             self._segment_path = lambda: "peer-prefix" + "[address-prefix='" + str(self.address_prefix) + "']"
                                             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/inband/interface-selection/all-interfaces/all-protocols/peer-class/peer-v6/peer-prefixes/%s" % self._segment_path()
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Inband.InterfaceSelection.AllInterfaces.AllProtocols.PeerClass.PeerV6.PeerPrefixes.PeerPrefix, ['address_prefix'], name, value)
@@ -16585,6 +16982,7 @@ class ControlPlane(Entity):
                 self._children_name_map["vrfs"] = "vrfs"
                 self._segment_path = lambda: "tpa"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa, [], name, value)
@@ -16620,6 +17018,7 @@ class ControlPlane(Entity):
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs, [], name, value)
@@ -16658,7 +17057,7 @@ class ControlPlane(Entity):
                         self.ylist_key_names = ['vrf_name']
                         self._child_classes = OrderedDict([("address-family", ("address_family", ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily))])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                         ])
                         self.vrf_name = None
 
@@ -16667,6 +17066,7 @@ class ControlPlane(Entity):
                         self._children_name_map["address_family"] = "address-family"
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-cfg:control-plane/management-plane-protection/tpa/vrfs/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -16712,6 +17112,7 @@ class ControlPlane(Entity):
                             self.ipv6_table.parent = self
                             self._children_name_map["ipv6_table"] = "ipv6-table"
                             self._segment_path = lambda: "address-family"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily, [], name, value)
@@ -16746,6 +17147,7 @@ class ControlPlane(Entity):
 
                                 self.tpa_allow = YList(self)
                                 self._segment_path = lambda: "ipv4-table"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table, [], name, value)
@@ -16827,13 +17229,13 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = ['local_port','protocol']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('local_port', YLeaf(YType.uint16, 'local-port')),
-                                        ('protocol', YLeaf(YType.uint32, 'protocol')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('remote_address', YLeaf(YType.str, 'remote-address')),
-                                        ('remote_address_prefix', YLeaf(YType.uint32, 'remote-address-prefix')),
-                                        ('local_address', YLeaf(YType.str, 'local-address')),
-                                        ('local_address_prefix', YLeaf(YType.uint32, 'local-address-prefix')),
+                                        ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                        ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
+                                        ('remote_address_prefix', (YLeaf(YType.uint32, 'remote-address-prefix'), ['int'])),
+                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                        ('local_address_prefix', (YLeaf(YType.uint32, 'local-address-prefix'), ['int'])),
                                     ])
                                     self.local_port = None
                                     self.protocol = None
@@ -16843,6 +17245,7 @@ class ControlPlane(Entity):
                                     self.local_address = None
                                     self.local_address_prefix = None
                                     self._segment_path = lambda: "tpa-allow" + "[local-port='" + str(self.local_port) + "']" + "[protocol='" + str(self.protocol) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv4Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)
@@ -16877,6 +17280,7 @@ class ControlPlane(Entity):
 
                                 self.tpa_allow = YList(self)
                                 self._segment_path = lambda: "ipv6-table"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table, [], name, value)
@@ -16958,13 +17362,13 @@ class ControlPlane(Entity):
                                     self.ylist_key_names = ['local_port','protocol']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('local_port', YLeaf(YType.uint16, 'local-port')),
-                                        ('protocol', YLeaf(YType.uint32, 'protocol')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('remote_address', YLeaf(YType.str, 'remote-address')),
-                                        ('remote_address_prefix', YLeaf(YType.uint32, 'remote-address-prefix')),
-                                        ('local_address', YLeaf(YType.str, 'local-address')),
-                                        ('local_address_prefix', YLeaf(YType.uint32, 'local-address-prefix')),
+                                        ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                                        ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
+                                        ('remote_address_prefix', (YLeaf(YType.uint32, 'remote-address-prefix'), ['int'])),
+                                        ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                        ('local_address_prefix', (YLeaf(YType.uint32, 'local-address-prefix'), ['int'])),
                                     ])
                                     self.local_port = None
                                     self.protocol = None
@@ -16974,6 +17378,7 @@ class ControlPlane(Entity):
                                     self.local_address = None
                                     self.local_address_prefix = None
                                     self._segment_path = lambda: "tpa-allow" + "[local-port='" + str(self.local_port) + "']" + "[protocol='" + str(self.protocol) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ControlPlane.ManagementPlaneProtection.Tpa.Vrfs.Vrf.AddressFamily.Ipv6Table.TpaAllow, ['local_port', 'protocol', 'interface_name', 'remote_address', 'remote_address_prefix', 'local_address', 'local_address_prefix'], name, value)

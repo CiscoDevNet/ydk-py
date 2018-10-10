@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv4\-acl\-and\-prefix\-list\: Root class of IPv4 Oper schema tree
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AclAce1(Enum):
@@ -553,6 +554,7 @@ class Ipv4AclAndPrefixList(Entity):
         self.oor.parent = self
         self._children_name_map["oor"] = "oor"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv4AclAndPrefixList, [], name, value)
@@ -609,6 +611,7 @@ class Ipv4AclAndPrefixList(Entity):
             self._children_name_map["usages"] = "usages"
             self._segment_path = lambda: "access-list-manager"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager, [], name, value)
@@ -644,6 +647,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.prefix = YList(self)
                 self._segment_path = lambda: "prefixes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes, [], name, value)
@@ -680,7 +684,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = ['prefix_list_name']
                     self._child_classes = OrderedDict([("prefix-list-sequences", ("prefix_list_sequences", Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences))])
                     self._leafs = OrderedDict([
-                        ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
+                        ('prefix_list_name', (YLeaf(YType.str, 'prefix-list-name'), ['str'])),
                     ])
                     self.prefix_list_name = None
 
@@ -689,6 +693,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._children_name_map["prefix_list_sequences"] = "prefix-list-sequences"
                     self._segment_path = lambda: "prefix" + "[prefix-list-name='" + str(self.prefix_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/prefixes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix, ['prefix_list_name'], name, value)
@@ -724,6 +729,7 @@ class Ipv4AclAndPrefixList(Entity):
 
                         self.prefix_list_sequence = YList(self)
                         self._segment_path = lambda: "prefix-list-sequences"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences, [], name, value)
@@ -824,18 +830,18 @@ class Ipv4AclAndPrefixList(Entity):
                             self.ylist_key_names = ['sequence_number']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                                ('item_type', YLeaf(YType.enumeration, 'item-type')),
-                                ('sequence', YLeaf(YType.uint32, 'sequence')),
-                                ('grant', YLeaf(YType.enumeration, 'grant')),
-                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('operator', YLeaf(YType.enumeration, 'operator')),
-                                ('minimum_length', YLeaf(YType.uint32, 'minimum-length')),
-                                ('maximum_length', YLeaf(YType.uint32, 'maximum-length')),
-                                ('hits', YLeaf(YType.uint32, 'hits')),
-                                ('remark', YLeaf(YType.str, 'remark')),
-                                ('acl_name', YLeaf(YType.str, 'acl-name')),
+                                ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                                ('item_type', (YLeaf(YType.enumeration, 'item-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1_', '')])),
+                                ('sequence', (YLeaf(YType.uint32, 'sequence'), ['int'])),
+                                ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclAction', '')])),
+                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('operator', (YLeaf(YType.enumeration, 'operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('minimum_length', (YLeaf(YType.uint32, 'minimum-length'), ['int'])),
+                                ('maximum_length', (YLeaf(YType.uint32, 'maximum-length'), ['int'])),
+                                ('hits', (YLeaf(YType.uint32, 'hits'), ['int'])),
+                                ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
                             ])
                             self.sequence_number = None
                             self.item_type = None
@@ -850,6 +856,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self.remark = None
                             self.acl_name = None
                             self._segment_path = lambda: "prefix-list-sequence" + "[sequence-number='" + str(self.sequence_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Prefixes.Prefix.PrefixListSequences.PrefixListSequence, ['sequence_number', u'item_type', u'sequence', u'grant', u'prefix', u'prefix_length', u'operator', u'minimum_length', u'maximum_length', u'hits', u'remark', u'acl_name'], name, value)
@@ -885,6 +892,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.access = YList(self)
                 self._segment_path = lambda: "accesses"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses, [], name, value)
@@ -926,7 +934,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = ['access_list_name']
                     self._child_classes = OrderedDict([("access-list-sequences", ("access_list_sequences", Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences)), ("object-group", ("object_group", Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup))])
                     self._leafs = OrderedDict([
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.access_list_name = None
 
@@ -939,6 +947,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self._children_name_map["object_group"] = "object-group"
                     self._segment_path = lambda: "access" + "[access-list-name='" + str(self.access_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/accesses/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access, ['access_list_name'], name, value)
@@ -974,6 +983,7 @@ class Ipv4AclAndPrefixList(Entity):
 
                         self.access_list_sequence = YList(self)
                         self._segment_path = lambda: "access-list-sequences"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences, [], name, value)
@@ -1364,63 +1374,63 @@ class Ipv4AclAndPrefixList(Entity):
                             self.ylist_key_names = ['sequence_number']
                             self._child_classes = OrderedDict([("hw-next-hop-info", ("hw_next_hop_info", Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo)), ("next-hop-info", ("next_hop_info", Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo)), ("udf", ("udf", Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf))])
                             self._leafs = OrderedDict([
-                                ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                                ('item_type', YLeaf(YType.enumeration, 'item-type')),
-                                ('sequence', YLeaf(YType.uint32, 'sequence')),
-                                ('grant', YLeaf(YType.enumeration, 'grant')),
-                                ('protocol_operator', YLeaf(YType.uint16, 'protocol-operator')),
-                                ('protocol', YLeaf(YType.uint16, 'protocol')),
-                                ('protocol2', YLeaf(YType.uint16, 'protocol2')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_address_mask', YLeaf(YType.str, 'source-address-mask')),
-                                ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('destination_address_mask', YLeaf(YType.str, 'destination-address-mask')),
-                                ('source_operator', YLeaf(YType.enumeration, 'source-operator')),
-                                ('source_port1', YLeaf(YType.uint16, 'source-port1')),
-                                ('source_port2', YLeaf(YType.uint16, 'source-port2')),
-                                ('sorce_operator', YLeaf(YType.enumeration, 'sorce-operator')),
-                                ('sorce_port1', YLeaf(YType.uint16, 'sorce-port1')),
-                                ('sorce_port2', YLeaf(YType.uint16, 'sorce-port2')),
-                                ('destination_operator', YLeaf(YType.enumeration, 'destination-operator')),
-                                ('destination_port1', YLeaf(YType.uint16, 'destination-port1')),
-                                ('destination_port2', YLeaf(YType.uint16, 'destination-port2')),
-                                ('log_option', YLeaf(YType.enumeration, 'log-option')),
-                                ('counter_name', YLeaf(YType.str, 'counter-name')),
-                                ('capture', YLeaf(YType.boolean, 'capture')),
-                                ('dscp_present', YLeaf(YType.boolean, 'dscp-present')),
-                                ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                ('dscp2', YLeaf(YType.uint8, 'dscp2')),
-                                ('dscp_operator', YLeaf(YType.uint8, 'dscp-operator')),
-                                ('precedence_present', YLeaf(YType.boolean, 'precedence-present')),
-                                ('precedence', YLeaf(YType.uint8, 'precedence')),
-                                ('tcp_flags_operator', YLeaf(YType.enumeration, 'tcp-flags-operator')),
-                                ('tcp_flags', YLeaf(YType.uint8, 'tcp-flags')),
-                                ('tcp_flags_mask', YLeaf(YType.uint8, 'tcp-flags-mask')),
-                                ('fragments', YLeaf(YType.uint8, 'fragments')),
-                                ('packet_length_operator', YLeaf(YType.enumeration, 'packet-length-operator')),
-                                ('packet_length1', YLeaf(YType.uint16, 'packet-length1')),
-                                ('packet_length2', YLeaf(YType.uint16, 'packet-length2')),
-                                ('ttl_operator', YLeaf(YType.enumeration, 'ttl-operator')),
-                                ('ttl1', YLeaf(YType.uint16, 'ttl1')),
-                                ('ttl2', YLeaf(YType.uint16, 'ttl2')),
-                                ('no_stats', YLeaf(YType.boolean, 'no-stats')),
-                                ('hits', YLeaf(YType.uint64, 'hits')),
-                                ('is_icmp_off', YLeaf(YType.boolean, 'is-icmp-off')),
-                                ('qos_group', YLeaf(YType.uint16, 'qos-group')),
-                                ('next_hop_type', YLeaf(YType.enumeration, 'next-hop-type')),
-                                ('remark', YLeaf(YType.str, 'remark')),
-                                ('dynamic', YLeaf(YType.boolean, 'dynamic')),
-                                ('source_prefix_group', YLeaf(YType.str, 'source-prefix-group')),
-                                ('destination_prefix_group', YLeaf(YType.str, 'destination-prefix-group')),
-                                ('source_port_group', YLeaf(YType.str, 'source-port-group')),
-                                ('destination_port_group', YLeaf(YType.str, 'destination-port-group')),
-                                ('acl_name', YLeaf(YType.str, 'acl-name')),
-                                ('sequence_str', YLeaf(YType.str, 'sequence-str')),
-                                ('fragment_offset_operator', YLeaf(YType.enumeration, 'fragment-offset-operator')),
-                                ('fragment_offset1', YLeaf(YType.uint16, 'fragment-offset1')),
-                                ('fragment_offset2', YLeaf(YType.uint16, 'fragment-offset2')),
-                                ('set_ttl', YLeaf(YType.uint16, 'set-ttl')),
-                                ('fragment_flags', YLeaf(YType.uint8, 'fragment-flags')),
+                                ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                                ('item_type', (YLeaf(YType.enumeration, 'item-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclAce1_', '')])),
+                                ('sequence', (YLeaf(YType.uint32, 'sequence'), ['int'])),
+                                ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclAction', '')])),
+                                ('protocol_operator', (YLeaf(YType.uint16, 'protocol-operator'), ['int'])),
+                                ('protocol', (YLeaf(YType.uint16, 'protocol'), ['int'])),
+                                ('protocol2', (YLeaf(YType.uint16, 'protocol2'), ['int'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('source_address_mask', (YLeaf(YType.str, 'source-address-mask'), ['str'])),
+                                ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                ('destination_address_mask', (YLeaf(YType.str, 'destination-address-mask'), ['str'])),
+                                ('source_operator', (YLeaf(YType.enumeration, 'source-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('source_port1', (YLeaf(YType.uint16, 'source-port1'), ['int'])),
+                                ('source_port2', (YLeaf(YType.uint16, 'source-port2'), ['int'])),
+                                ('sorce_operator', (YLeaf(YType.enumeration, 'sorce-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('sorce_port1', (YLeaf(YType.uint16, 'sorce-port1'), ['int'])),
+                                ('sorce_port2', (YLeaf(YType.uint16, 'sorce-port2'), ['int'])),
+                                ('destination_operator', (YLeaf(YType.enumeration, 'destination-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('destination_port1', (YLeaf(YType.uint16, 'destination-port1'), ['int'])),
+                                ('destination_port2', (YLeaf(YType.uint16, 'destination-port2'), ['int'])),
+                                ('log_option', (YLeaf(YType.enumeration, 'log-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclLog', '')])),
+                                ('counter_name', (YLeaf(YType.str, 'counter-name'), ['str'])),
+                                ('capture', (YLeaf(YType.boolean, 'capture'), ['bool'])),
+                                ('dscp_present', (YLeaf(YType.boolean, 'dscp-present'), ['bool'])),
+                                ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                ('dscp2', (YLeaf(YType.uint8, 'dscp2'), ['int'])),
+                                ('dscp_operator', (YLeaf(YType.uint8, 'dscp-operator'), ['int'])),
+                                ('precedence_present', (YLeaf(YType.boolean, 'precedence-present'), ['bool'])),
+                                ('precedence', (YLeaf(YType.uint8, 'precedence'), ['int'])),
+                                ('tcp_flags_operator', (YLeaf(YType.enumeration, 'tcp-flags-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclTcpflagsOperator', '')])),
+                                ('tcp_flags', (YLeaf(YType.uint8, 'tcp-flags'), ['int'])),
+                                ('tcp_flags_mask', (YLeaf(YType.uint8, 'tcp-flags-mask'), ['int'])),
+                                ('fragments', (YLeaf(YType.uint8, 'fragments'), ['int'])),
+                                ('packet_length_operator', (YLeaf(YType.enumeration, 'packet-length-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('packet_length1', (YLeaf(YType.uint16, 'packet-length1'), ['int'])),
+                                ('packet_length2', (YLeaf(YType.uint16, 'packet-length2'), ['int'])),
+                                ('ttl_operator', (YLeaf(YType.enumeration, 'ttl-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('ttl1', (YLeaf(YType.uint16, 'ttl1'), ['int'])),
+                                ('ttl2', (YLeaf(YType.uint16, 'ttl2'), ['int'])),
+                                ('no_stats', (YLeaf(YType.boolean, 'no-stats'), ['bool'])),
+                                ('hits', (YLeaf(YType.uint64, 'hits'), ['int'])),
+                                ('is_icmp_off', (YLeaf(YType.boolean, 'is-icmp-off'), ['bool'])),
+                                ('qos_group', (YLeaf(YType.uint16, 'qos-group'), ['int'])),
+                                ('next_hop_type', (YLeaf(YType.enumeration, 'next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNh', '')])),
+                                ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
+                                ('dynamic', (YLeaf(YType.boolean, 'dynamic'), ['bool'])),
+                                ('source_prefix_group', (YLeaf(YType.str, 'source-prefix-group'), ['str'])),
+                                ('destination_prefix_group', (YLeaf(YType.str, 'destination-prefix-group'), ['str'])),
+                                ('source_port_group', (YLeaf(YType.str, 'source-port-group'), ['str'])),
+                                ('destination_port_group', (YLeaf(YType.str, 'destination-port-group'), ['str'])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                                ('sequence_str', (YLeaf(YType.str, 'sequence-str'), ['str'])),
+                                ('fragment_offset_operator', (YLeaf(YType.enumeration, 'fragment-offset-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'AclPortOperator___', '')])),
+                                ('fragment_offset1', (YLeaf(YType.uint16, 'fragment-offset1'), ['int'])),
+                                ('fragment_offset2', (YLeaf(YType.uint16, 'fragment-offset2'), ['int'])),
+                                ('set_ttl', (YLeaf(YType.uint16, 'set-ttl'), ['int'])),
+                                ('fragment_flags', (YLeaf(YType.uint8, 'fragment-flags'), ['int'])),
                             ])
                             self.sequence_number = None
                             self.item_type = None
@@ -1487,6 +1497,7 @@ class Ipv4AclAndPrefixList(Entity):
                             self.next_hop_info = YList(self)
                             self.udf = YList(self)
                             self._segment_path = lambda: "access-list-sequence" + "[sequence-number='" + str(self.sequence_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence, ['sequence_number', u'item_type', u'sequence', u'grant', u'protocol_operator', u'protocol', u'protocol2', u'source_address', u'source_address_mask', u'destination_address', u'destination_address_mask', u'source_operator', u'source_port1', u'source_port2', u'sorce_operator', u'sorce_port1', u'sorce_port2', u'destination_operator', u'destination_port1', u'destination_port2', u'log_option', u'counter_name', u'capture', u'dscp_present', u'dscp', u'dscp2', u'dscp_operator', u'precedence_present', u'precedence', u'tcp_flags_operator', u'tcp_flags', u'tcp_flags_mask', u'fragments', u'packet_length_operator', u'packet_length1', u'packet_length2', u'ttl_operator', u'ttl1', u'ttl2', u'no_stats', u'hits', u'is_icmp_off', u'qos_group', u'next_hop_type', u'remark', u'dynamic', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'acl_name', u'sequence_str', u'fragment_offset_operator', u'fragment_offset1', u'fragment_offset2', u'set_ttl', u'fragment_flags'], name, value)
@@ -1532,14 +1543,15 @@ class Ipv4AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('next_hop', YLeaf(YType.uint32, 'next-hop')),
-                                    ('type', YLeaf(YType.enumeration, 'type')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('next_hop', (YLeaf(YType.uint32, 'next-hop'), ['int'])),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNh', '')])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.next_hop = None
                                 self.type = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "hw-next-hop-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.HwNextHopInfo, [u'next_hop', u'type', u'vrf_name'], name, value)
@@ -1593,11 +1605,11 @@ class Ipv4AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                    ('track_name', YLeaf(YType.str, 'track-name')),
-                                    ('status', YLeaf(YType.enumeration, 'status')),
-                                    ('at_status', YLeaf(YType.enumeration, 'at-status')),
-                                    ('is_acl_next_hop_exist', YLeaf(YType.boolean, 'is-acl-next-hop-exist')),
+                                    ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
+                                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
+                                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhStatus', '')])),
+                                    ('at_status', (YLeaf(YType.enumeration, 'at-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_acl_oper', 'BagAclNhAtStatus', '')])),
+                                    ('is_acl_next_hop_exist', (YLeaf(YType.boolean, 'is-acl-next-hop-exist'), ['bool'])),
                                 ])
                                 self.next_hop = None
                                 self.track_name = None
@@ -1605,6 +1617,7 @@ class Ipv4AclAndPrefixList(Entity):
                                 self.at_status = None
                                 self.is_acl_next_hop_exist = None
                                 self._segment_path = lambda: "next-hop-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.NextHopInfo, [u'next_hop', u'track_name', u'status', u'at_status', u'is_acl_next_hop_exist'], name, value)
@@ -1652,14 +1665,15 @@ class Ipv4AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('udf_name', YLeaf(YType.str, 'udf-name')),
-                                    ('udf_value', YLeaf(YType.uint32, 'udf-value')),
-                                    ('udf_mask', YLeaf(YType.uint32, 'udf-mask')),
+                                    ('udf_name', (YLeaf(YType.str, 'udf-name'), ['str'])),
+                                    ('udf_value', (YLeaf(YType.uint32, 'udf-value'), ['int'])),
+                                    ('udf_mask', (YLeaf(YType.uint32, 'udf-mask'), ['int'])),
                                 ])
                                 self.udf_name = None
                                 self.udf_value = None
                                 self.udf_mask = None
                                 self._segment_path = lambda: "udf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.AccessListSequences.AccessListSequence.Udf, [u'udf_name', u'udf_value', u'udf_mask'], name, value)
@@ -1694,6 +1708,7 @@ class Ipv4AclAndPrefixList(Entity):
 
                         self.obj_grp_info = YList(self)
                         self._segment_path = lambda: "object-group"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup, [], name, value)
@@ -1734,12 +1749,13 @@ class Ipv4AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('obj_grp_name', YLeaf(YType.str, 'obj-grp-name')),
-                                ('obj_grp_type', YLeaf(YType.uint32, 'obj-grp-type')),
+                                ('obj_grp_name', (YLeaf(YType.str, 'obj-grp-name'), ['str'])),
+                                ('obj_grp_type', (YLeaf(YType.uint32, 'obj-grp-type'), ['int'])),
                             ])
                             self.obj_grp_name = None
                             self.obj_grp_type = None
                             self._segment_path = lambda: "obj-grp-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Accesses.Access.ObjectGroup.ObjGrpInfo, [u'obj_grp_name', u'obj_grp_type'], name, value)
@@ -1776,6 +1792,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.usage = YList(self)
                 self._segment_path = lambda: "usages"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Usages, [], name, value)
@@ -1826,10 +1843,10 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
-                        ('application_id', YLeaf(YType.enumeration, 'application-id')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                        ('usage_details', YLeaf(YType.str, 'usage-details')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                        ('application_id', (YLeaf(YType.enumeration, 'application-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes', 'AclUsageAppIdEnum', '')])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                        ('usage_details', (YLeaf(YType.str, 'usage-details'), ['str'])),
                     ])
                     self.node_name = None
                     self.application_id = None
@@ -1837,6 +1854,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.usage_details = None
                     self._segment_path = lambda: "usage"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/access-list-manager/usages/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.AccessListManager.Usages.Usage, ['node_name', 'application_id', 'access_list_name', 'usage_details'], name, value)
@@ -1911,6 +1929,7 @@ class Ipv4AclAndPrefixList(Entity):
             self._children_name_map["prefix_list_summary"] = "prefix-list-summary"
             self._segment_path = lambda: "oor"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4AclAndPrefixList.Oor, [], name, value)
@@ -1993,14 +2012,14 @@ class Ipv4AclAndPrefixList(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('default_max_ac_ls', YLeaf(YType.uint32, 'default-max-ac-ls')),
-                    ('default_max_ac_es', YLeaf(YType.uint32, 'default-max-ac-es')),
-                    ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                    ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                    ('current_max_configurable_ac_ls', YLeaf(YType.uint32, 'current-max-configurable-ac-ls')),
-                    ('current_max_configurable_ac_es', YLeaf(YType.uint32, 'current-max-configurable-ac-es')),
-                    ('max_configurable_ac_ls', YLeaf(YType.uint32, 'max-configurable-ac-ls')),
-                    ('max_configurable_ac_es', YLeaf(YType.uint32, 'max-configurable-ac-es')),
+                    ('default_max_ac_ls', (YLeaf(YType.uint32, 'default-max-ac-ls'), ['int'])),
+                    ('default_max_ac_es', (YLeaf(YType.uint32, 'default-max-ac-es'), ['int'])),
+                    ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                    ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                    ('current_max_configurable_ac_ls', (YLeaf(YType.uint32, 'current-max-configurable-ac-ls'), ['int'])),
+                    ('current_max_configurable_ac_es', (YLeaf(YType.uint32, 'current-max-configurable-ac-es'), ['int'])),
+                    ('max_configurable_ac_ls', (YLeaf(YType.uint32, 'max-configurable-ac-ls'), ['int'])),
+                    ('max_configurable_ac_es', (YLeaf(YType.uint32, 'max-configurable-ac-es'), ['int'])),
                 ])
                 self.default_max_ac_ls = None
                 self.default_max_ac_es = None
@@ -2012,6 +2031,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.max_configurable_ac_es = None
                 self._segment_path = lambda: "details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
@@ -2047,6 +2067,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.oor_prefix = YList(self)
                 self._segment_path = lambda: "oor-prefixes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorPrefixes, [], name, value)
@@ -2135,15 +2156,15 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = ['prefix_list_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('prefix_list_name', YLeaf(YType.str, 'prefix-list-name')),
-                        ('default_max_ac_ls', YLeaf(YType.uint32, 'default-max-ac-ls')),
-                        ('default_max_ac_es', YLeaf(YType.uint32, 'default-max-ac-es')),
-                        ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                        ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                        ('current_max_configurable_ac_ls', YLeaf(YType.uint32, 'current-max-configurable-ac-ls')),
-                        ('current_max_configurable_ac_es', YLeaf(YType.uint32, 'current-max-configurable-ac-es')),
-                        ('max_configurable_ac_ls', YLeaf(YType.uint32, 'max-configurable-ac-ls')),
-                        ('max_configurable_ac_es', YLeaf(YType.uint32, 'max-configurable-ac-es')),
+                        ('prefix_list_name', (YLeaf(YType.str, 'prefix-list-name'), ['str'])),
+                        ('default_max_ac_ls', (YLeaf(YType.uint32, 'default-max-ac-ls'), ['int'])),
+                        ('default_max_ac_es', (YLeaf(YType.uint32, 'default-max-ac-es'), ['int'])),
+                        ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                        ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                        ('current_max_configurable_ac_ls', (YLeaf(YType.uint32, 'current-max-configurable-ac-ls'), ['int'])),
+                        ('current_max_configurable_ac_es', (YLeaf(YType.uint32, 'current-max-configurable-ac-es'), ['int'])),
+                        ('max_configurable_ac_ls', (YLeaf(YType.uint32, 'max-configurable-ac-ls'), ['int'])),
+                        ('max_configurable_ac_es', (YLeaf(YType.uint32, 'max-configurable-ac-es'), ['int'])),
                     ])
                     self.prefix_list_name = None
                     self.default_max_ac_ls = None
@@ -2156,6 +2177,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.max_configurable_ac_es = None
                     self._segment_path = lambda: "oor-prefix" + "[prefix-list-name='" + str(self.prefix_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/oor-prefixes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorPrefixes.OorPrefix, ['prefix_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
@@ -2191,6 +2213,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self.oor_access = YList(self)
                 self._segment_path = lambda: "oor-accesses"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorAccesses, [], name, value)
@@ -2279,15 +2302,15 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = ['access_list_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                        ('default_max_ac_ls', YLeaf(YType.uint32, 'default-max-ac-ls')),
-                        ('default_max_ac_es', YLeaf(YType.uint32, 'default-max-ac-es')),
-                        ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                        ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                        ('current_max_configurable_ac_ls', YLeaf(YType.uint32, 'current-max-configurable-ac-ls')),
-                        ('current_max_configurable_ac_es', YLeaf(YType.uint32, 'current-max-configurable-ac-es')),
-                        ('max_configurable_ac_ls', YLeaf(YType.uint32, 'max-configurable-ac-ls')),
-                        ('max_configurable_ac_es', YLeaf(YType.uint32, 'max-configurable-ac-es')),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                        ('default_max_ac_ls', (YLeaf(YType.uint32, 'default-max-ac-ls'), ['int'])),
+                        ('default_max_ac_es', (YLeaf(YType.uint32, 'default-max-ac-es'), ['int'])),
+                        ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                        ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                        ('current_max_configurable_ac_ls', (YLeaf(YType.uint32, 'current-max-configurable-ac-ls'), ['int'])),
+                        ('current_max_configurable_ac_es', (YLeaf(YType.uint32, 'current-max-configurable-ac-es'), ['int'])),
+                        ('max_configurable_ac_ls', (YLeaf(YType.uint32, 'max-configurable-ac-ls'), ['int'])),
+                        ('max_configurable_ac_es', (YLeaf(YType.uint32, 'max-configurable-ac-es'), ['int'])),
                     ])
                     self.access_list_name = None
                     self.default_max_ac_ls = None
@@ -2300,6 +2323,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.max_configurable_ac_es = None
                     self._segment_path = lambda: "oor-access" + "[access-list-name='" + str(self.access_list_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/oor-accesses/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.OorAccesses.OorAccess, ['access_list_name', u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
@@ -2337,6 +2361,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._children_name_map["details"] = "details"
                 self._segment_path = lambda: "access-list-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.AccessListSummary, [], name, value)
@@ -2420,14 +2445,14 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('default_max_ac_ls', YLeaf(YType.uint32, 'default-max-ac-ls')),
-                        ('default_max_ac_es', YLeaf(YType.uint32, 'default-max-ac-es')),
-                        ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                        ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                        ('current_max_configurable_ac_ls', YLeaf(YType.uint32, 'current-max-configurable-ac-ls')),
-                        ('current_max_configurable_ac_es', YLeaf(YType.uint32, 'current-max-configurable-ac-es')),
-                        ('max_configurable_ac_ls', YLeaf(YType.uint32, 'max-configurable-ac-ls')),
-                        ('max_configurable_ac_es', YLeaf(YType.uint32, 'max-configurable-ac-es')),
+                        ('default_max_ac_ls', (YLeaf(YType.uint32, 'default-max-ac-ls'), ['int'])),
+                        ('default_max_ac_es', (YLeaf(YType.uint32, 'default-max-ac-es'), ['int'])),
+                        ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                        ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                        ('current_max_configurable_ac_ls', (YLeaf(YType.uint32, 'current-max-configurable-ac-ls'), ['int'])),
+                        ('current_max_configurable_ac_es', (YLeaf(YType.uint32, 'current-max-configurable-ac-es'), ['int'])),
+                        ('max_configurable_ac_ls', (YLeaf(YType.uint32, 'max-configurable-ac-ls'), ['int'])),
+                        ('max_configurable_ac_es', (YLeaf(YType.uint32, 'max-configurable-ac-es'), ['int'])),
                     ])
                     self.default_max_ac_ls = None
                     self.default_max_ac_es = None
@@ -2439,6 +2464,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.max_configurable_ac_es = None
                     self._segment_path = lambda: "details"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/access-list-summary/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.AccessListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)
@@ -2477,6 +2503,7 @@ class Ipv4AclAndPrefixList(Entity):
                 self._children_name_map["details"] = "details"
                 self._segment_path = lambda: "prefix-list-summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4AclAndPrefixList.Oor.PrefixListSummary, [], name, value)
@@ -2560,14 +2587,14 @@ class Ipv4AclAndPrefixList(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('default_max_ac_ls', YLeaf(YType.uint32, 'default-max-ac-ls')),
-                        ('default_max_ac_es', YLeaf(YType.uint32, 'default-max-ac-es')),
-                        ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                        ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                        ('current_max_configurable_ac_ls', YLeaf(YType.uint32, 'current-max-configurable-ac-ls')),
-                        ('current_max_configurable_ac_es', YLeaf(YType.uint32, 'current-max-configurable-ac-es')),
-                        ('max_configurable_ac_ls', YLeaf(YType.uint32, 'max-configurable-ac-ls')),
-                        ('max_configurable_ac_es', YLeaf(YType.uint32, 'max-configurable-ac-es')),
+                        ('default_max_ac_ls', (YLeaf(YType.uint32, 'default-max-ac-ls'), ['int'])),
+                        ('default_max_ac_es', (YLeaf(YType.uint32, 'default-max-ac-es'), ['int'])),
+                        ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                        ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                        ('current_max_configurable_ac_ls', (YLeaf(YType.uint32, 'current-max-configurable-ac-ls'), ['int'])),
+                        ('current_max_configurable_ac_es', (YLeaf(YType.uint32, 'current-max-configurable-ac-es'), ['int'])),
+                        ('max_configurable_ac_ls', (YLeaf(YType.uint32, 'max-configurable-ac-ls'), ['int'])),
+                        ('max_configurable_ac_es', (YLeaf(YType.uint32, 'max-configurable-ac-es'), ['int'])),
                     ])
                     self.default_max_ac_ls = None
                     self.default_max_ac_es = None
@@ -2579,6 +2606,7 @@ class Ipv4AclAndPrefixList(Entity):
                     self.max_configurable_ac_es = None
                     self._segment_path = lambda: "details"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-acl-oper:ipv4-acl-and-prefix-list/oor/prefix-list-summary/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4AclAndPrefixList.Oor.PrefixListSummary.Details, [u'default_max_ac_ls', u'default_max_ac_es', u'current_configured_ac_ls', u'current_configured_ac_es', u'current_max_configurable_ac_ls', u'current_max_configurable_ac_es', u'max_configurable_ac_ls', u'max_configurable_ac_es'], name, value)

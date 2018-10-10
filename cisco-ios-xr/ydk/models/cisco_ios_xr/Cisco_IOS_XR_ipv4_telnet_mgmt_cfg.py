@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   telnet\: Global Telnet configuration commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Telnet(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Telnet, [], name, value)
@@ -87,6 +89,7 @@ class Telnet(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Telnet.Vrfs, [], name, value)
@@ -125,7 +128,7 @@ class Telnet(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("ipv4", ("ipv4", Telnet.Vrfs.Vrf.Ipv4))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -134,6 +137,7 @@ class Telnet(Entity):
                 self._children_name_map["ipv4"] = "ipv4"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-telnet-mgmt-cfg:telnet/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Telnet.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -167,10 +171,11 @@ class Telnet(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('dscp', YLeaf(YType.uint32, 'dscp')),
+                        ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
                     ])
                     self.dscp = None
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Telnet.Vrfs.Vrf.Ipv4, ['dscp'], name, value)

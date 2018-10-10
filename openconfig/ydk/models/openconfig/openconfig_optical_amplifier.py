@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class OPTICALAMPLIFIERTYPE(Identity):
     """
     Type definition for different types of optical amplifiers
@@ -25,8 +26,8 @@ class OPTICALAMPLIFIERTYPE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(OPTICALAMPLIFIERTYPE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_TYPE"):
+        super(OPTICALAMPLIFIERTYPE, self).__init__(ns, pref, tag)
 
 
 class OPTICALAMPLIFIERMODE(Identity):
@@ -41,8 +42,8 @@ class OPTICALAMPLIFIERMODE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(OPTICALAMPLIFIERMODE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:OPTICAL_AMPLIFIER_MODE"):
+        super(OPTICALAMPLIFIERMODE, self).__init__(ns, pref, tag)
 
 
 class GAINRANGE(Identity):
@@ -59,8 +60,8 @@ class GAINRANGE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(GAINRANGE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:GAIN_RANGE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:GAIN_RANGE"):
+        super(GAINRANGE, self).__init__(ns, pref, tag)
 
 
 class OpticalAmplifier(Entity):
@@ -104,6 +105,7 @@ class OpticalAmplifier(Entity):
         self.supervisory_channels.parent = self
         self._children_name_map["supervisory_channels"] = "supervisory-channels"
         self._segment_path = lambda: "openconfig-optical-amplifier:optical-amplifier"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OpticalAmplifier, [], name, value)
@@ -139,6 +141,7 @@ class OpticalAmplifier(Entity):
             self.amplifier = YList(self)
             self._segment_path = lambda: "amplifiers"
             self._absolute_path = lambda: "openconfig-optical-amplifier:optical-amplifier/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OpticalAmplifier.Amplifiers, [], name, value)
@@ -182,7 +185,7 @@ class OpticalAmplifier(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("config", ("config", OpticalAmplifier.Amplifiers.Amplifier.Config)), ("state", ("state", OpticalAmplifier.Amplifiers.Amplifier.State))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -195,6 +198,7 @@ class OpticalAmplifier(Entity):
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "amplifier" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-optical-amplifier:optical-amplifier/amplifiers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier, ['name'], name, value)
@@ -273,14 +277,14 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('target_gain', YLeaf(YType.str, 'target-gain')),
-                        ('target_gain_tilt', YLeaf(YType.str, 'target-gain-tilt')),
-                        ('gain_range', YLeaf(YType.identityref, 'gain-range')),
-                        ('amp_mode', YLeaf(YType.identityref, 'amp-mode')),
-                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERTYPE')])),
+                        ('target_gain', (YLeaf(YType.str, 'target-gain'), ['Decimal64'])),
+                        ('target_gain_tilt', (YLeaf(YType.str, 'target-gain-tilt'), ['Decimal64'])),
+                        ('gain_range', (YLeaf(YType.identityref, 'gain-range'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'GAINRANGE')])),
+                        ('amp_mode', (YLeaf(YType.identityref, 'amp-mode'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERMODE')])),
+                        ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                     ])
                     self.name = None
                     self.type = None
@@ -291,6 +295,7 @@ class OpticalAmplifier(Entity):
                     self.target_output_power = None
                     self.enabled = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.Config, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled'], name, value)
@@ -433,16 +438,16 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("actual-gain", ("actual_gain", OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain)), ("actual-gain-tilt", ("actual_gain_tilt", OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt)), ("input-power-total", ("input_power_total", OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal)), ("input-power-c-band", ("input_power_c_band", OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand)), ("input-power-l-band", ("input_power_l_band", OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand)), ("output-power-total", ("output_power_total", OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal)), ("output-power-c-band", ("output_power_c_band", OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand)), ("output-power-l-band", ("output_power_l_band", OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand)), ("laser-bias-current", ("laser_bias_current", OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent)), ("optical-return-loss", ("optical_return_loss", OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('target_gain', YLeaf(YType.str, 'target-gain')),
-                        ('target_gain_tilt', YLeaf(YType.str, 'target-gain-tilt')),
-                        ('gain_range', YLeaf(YType.identityref, 'gain-range')),
-                        ('amp_mode', YLeaf(YType.identityref, 'amp-mode')),
-                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('ingress_port', YLeaf(YType.str, 'ingress-port')),
-                        ('egress_port', YLeaf(YType.str, 'egress-port')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERTYPE')])),
+                        ('target_gain', (YLeaf(YType.str, 'target-gain'), ['Decimal64'])),
+                        ('target_gain_tilt', (YLeaf(YType.str, 'target-gain-tilt'), ['Decimal64'])),
+                        ('gain_range', (YLeaf(YType.identityref, 'gain-range'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'GAINRANGE')])),
+                        ('amp_mode', (YLeaf(YType.identityref, 'amp-mode'), [('ydk.models.openconfig.openconfig_optical_amplifier', 'OPTICALAMPLIFIERMODE')])),
+                        ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('ingress_port', (YLeaf(YType.str, 'ingress-port'), ['str'])),
+                        ('egress_port', (YLeaf(YType.str, 'egress-port'), ['str'])),
                     ])
                     self.name = None
                     self.type = None
@@ -495,6 +500,7 @@ class OpticalAmplifier(Entity):
                     self.optical_return_loss.parent = self
                     self._children_name_map["optical_return_loss"] = "optical-return-loss"
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State, ['name', 'type', 'target_gain', 'target_gain_tilt', 'gain_range', 'amp_mode', 'target_output_power', 'enabled', 'ingress_port', 'egress_port'], name, value)
@@ -559,19 +565,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "actual-gain"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGain, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class ActualGainTilt(Entity):
@@ -633,19 +640,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "actual-gain-tilt"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.ActualGainTilt, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class InputPowerTotal(Entity):
@@ -707,19 +715,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "input-power-total"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class InputPowerCBand(Entity):
@@ -782,19 +791,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "input-power-c-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class InputPowerLBand(Entity):
@@ -857,19 +867,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "input-power-l-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.InputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class OutputPowerTotal(Entity):
@@ -931,19 +942,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "output-power-total"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerTotal, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class OutputPowerCBand(Entity):
@@ -1006,19 +1018,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "output-power-c-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerCBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class OutputPowerLBand(Entity):
@@ -1081,19 +1094,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "output-power-l-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OutputPowerLBand, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LaserBiasCurrent(Entity):
@@ -1156,19 +1170,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "laser-bias-current"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class OpticalReturnLoss(Entity):
@@ -1231,19 +1246,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "optical-return-loss"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.Amplifiers.Amplifier.State.OpticalReturnLoss, ['instant', 'avg', 'min', 'max'], name, value)
 
 
     class SupervisoryChannels(Entity):
@@ -1276,6 +1292,7 @@ class OpticalAmplifier(Entity):
             self.supervisory_channel = YList(self)
             self._segment_path = lambda: "supervisory-channels"
             self._absolute_path = lambda: "openconfig-optical-amplifier:optical-amplifier/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OpticalAmplifier.SupervisoryChannels, [], name, value)
@@ -1319,7 +1336,7 @@ class OpticalAmplifier(Entity):
                 self.ylist_key_names = ['interface']
                 self._child_classes = OrderedDict([("config", ("config", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config)), ("state", ("state", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State))])
                 self._leafs = OrderedDict([
-                    ('interface', YLeaf(YType.str, 'interface')),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                 ])
                 self.interface = None
 
@@ -1332,6 +1349,7 @@ class OpticalAmplifier(Entity):
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "supervisory-channel" + "[interface='" + str(self.interface) + "']"
                 self._absolute_path = lambda: "openconfig-optical-amplifier:optical-amplifier/supervisory-channels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel, ['interface'], name, value)
@@ -1365,10 +1383,11 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', YLeafList(YType.str, 'interface')),
+                        ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
                     ])
                     self.interface = []
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.Config, [u'interface'], name, value)
@@ -1417,7 +1436,7 @@ class OpticalAmplifier(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("input-power", ("input_power", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower)), ("output-power", ("output_power", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower)), ("laser-bias-current", ("laser_bias_current", OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent))])
                     self._leafs = OrderedDict([
-                        ('interface', YLeafList(YType.str, 'interface')),
+                        ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
                     ])
                     self.interface = []
 
@@ -1433,6 +1452,7 @@ class OpticalAmplifier(Entity):
                     self.laser_bias_current.parent = self
                     self._children_name_map["laser_bias_current"] = "laser-bias-current"
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State, [u'interface'], name, value)
@@ -1497,19 +1517,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "input-power"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class OutputPower(Entity):
@@ -1571,19 +1592,20 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "output-power"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LaserBiasCurrent(Entity):
@@ -1647,25 +1669,26 @@ class OpticalAmplifier(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "laser-bias-current"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(OpticalAmplifier.SupervisoryChannels.SupervisoryChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OpticalAmplifier()
         return self._top_entity
 
-class LOWGAINRANGE(Identity):
+class LOWGAINRANGE(GAINRANGE):
     """
     LOW gain range setting
     
@@ -1676,11 +1699,11 @@ class LOWGAINRANGE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(LOWGAINRANGE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:LOW_GAIN_RANGE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:LOW_GAIN_RANGE"):
+        super(LOWGAINRANGE, self).__init__(ns, pref, tag)
 
 
-class BACKWARDRAMAN(Identity):
+class BACKWARDRAMAN(OPTICALAMPLIFIERTYPE):
     """
     Backward pumping Raman amplifier
     
@@ -1691,11 +1714,11 @@ class BACKWARDRAMAN(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(BACKWARDRAMAN, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:BACKWARD_RAMAN")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:BACKWARD_RAMAN"):
+        super(BACKWARDRAMAN, self).__init__(ns, pref, tag)
 
 
-class CONSTANTGAIN(Identity):
+class CONSTANTGAIN(OPTICALAMPLIFIERMODE):
     """
     Constant gain mode
     
@@ -1706,11 +1729,11 @@ class CONSTANTGAIN(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(CONSTANTGAIN, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:CONSTANT_GAIN")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_GAIN"):
+        super(CONSTANTGAIN, self).__init__(ns, pref, tag)
 
 
-class FIXEDGAINRANGE(Identity):
+class FIXEDGAINRANGE(GAINRANGE):
     """
     Fixed or non\-switched gain amplfier
     
@@ -1721,11 +1744,11 @@ class FIXEDGAINRANGE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(FIXEDGAINRANGE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:FIXED_GAIN_RANGE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FIXED_GAIN_RANGE"):
+        super(FIXEDGAINRANGE, self).__init__(ns, pref, tag)
 
 
-class MIDGAINRANGE(Identity):
+class MIDGAINRANGE(GAINRANGE):
     """
     MID gain range setting
     
@@ -1736,11 +1759,11 @@ class MIDGAINRANGE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(MIDGAINRANGE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:MID_GAIN_RANGE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:MID_GAIN_RANGE"):
+        super(MIDGAINRANGE, self).__init__(ns, pref, tag)
 
 
-class HIGHGAINRANGE(Identity):
+class HIGHGAINRANGE(GAINRANGE):
     """
     HIGH gain range setting
     
@@ -1751,11 +1774,11 @@ class HIGHGAINRANGE(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(HIGHGAINRANGE, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:HIGH_GAIN_RANGE")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HIGH_GAIN_RANGE"):
+        super(HIGHGAINRANGE, self).__init__(ns, pref, tag)
 
 
-class HYBRID(Identity):
+class HYBRID(OPTICALAMPLIFIERTYPE):
     """
     Hybrid backward pumping Raman + EDFA amplifier
     
@@ -1766,11 +1789,11 @@ class HYBRID(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(HYBRID, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:HYBRID")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:HYBRID"):
+        super(HYBRID, self).__init__(ns, pref, tag)
 
 
-class FORWARDRAMAN(Identity):
+class FORWARDRAMAN(OPTICALAMPLIFIERTYPE):
     """
     Forward pumping Raman amplifier
     
@@ -1781,11 +1804,11 @@ class FORWARDRAMAN(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(FORWARDRAMAN, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:FORWARD_RAMAN")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:FORWARD_RAMAN"):
+        super(FORWARDRAMAN, self).__init__(ns, pref, tag)
 
 
-class EDFA(Identity):
+class EDFA(OPTICALAMPLIFIERTYPE):
     """
     Erbium doped fiber amplifer (EDFA)
     
@@ -1796,11 +1819,11 @@ class EDFA(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(EDFA, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:EDFA")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:EDFA"):
+        super(EDFA, self).__init__(ns, pref, tag)
 
 
-class CONSTANTPOWER(Identity):
+class CONSTANTPOWER(OPTICALAMPLIFIERMODE):
     """
     Constant power mode
     
@@ -1811,7 +1834,7 @@ class CONSTANTPOWER(Identity):
     _prefix = 'oc-opt-amp'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(CONSTANTPOWER, self).__init__("http://openconfig.net/yang/optical-amplfier", "openconfig-optical-amplifier", "openconfig-optical-amplifier:CONSTANT_POWER")
+    def __init__(self, ns="http://openconfig.net/yang/optical-amplfier", pref="openconfig-optical-amplifier", tag="openconfig-optical-amplifier:CONSTANT_POWER"):
+        super(CONSTANTPOWER, self).__init__(ns, pref, tag)
 
 

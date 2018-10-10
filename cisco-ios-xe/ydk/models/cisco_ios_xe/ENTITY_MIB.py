@@ -16,6 +16,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class PhysicalClass(Enum):
     """
     PhysicalClass (Enum Class)
@@ -265,6 +266,7 @@ class ENTITYMIB(Entity):
         self.entphysicalcontainstable.parent = self
         self._children_name_map["entphysicalcontainstable"] = "entPhysicalContainsTable"
         self._segment_path = lambda: "ENTITY-MIB:ENTITY-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ENTITYMIB, [], name, value)
@@ -298,11 +300,12 @@ class ENTITYMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('entlastchangetime', YLeaf(YType.uint32, 'entLastChangeTime')),
+                ('entlastchangetime', (YLeaf(YType.uint32, 'entLastChangeTime'), ['int'])),
             ])
             self.entlastchangetime = None
             self._segment_path = lambda: "entityGeneral"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntityGeneral, [u'entlastchangetime'], name, value)
@@ -339,6 +342,7 @@ class ENTITYMIB(Entity):
             self.entphysicalentry = YList(self)
             self._segment_path = lambda: "entPhysicalTable"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntPhysicalTable, [], name, value)
@@ -483,25 +487,25 @@ class ENTITYMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.int32, 'entPhysicalIndex')),
-                    ('entphysicaldescr', YLeaf(YType.str, 'entPhysicalDescr')),
-                    ('entphysicalvendortype', YLeaf(YType.str, 'entPhysicalVendorType')),
-                    ('entphysicalcontainedin', YLeaf(YType.int32, 'entPhysicalContainedIn')),
-                    ('entphysicalclass', YLeaf(YType.enumeration, 'entPhysicalClass')),
-                    ('entphysicalparentrelpos', YLeaf(YType.int32, 'entPhysicalParentRelPos')),
-                    ('entphysicalname', YLeaf(YType.str, 'entPhysicalName')),
-                    ('entphysicalhardwarerev', YLeaf(YType.str, 'entPhysicalHardwareRev')),
-                    ('entphysicalfirmwarerev', YLeaf(YType.str, 'entPhysicalFirmwareRev')),
-                    ('entphysicalsoftwarerev', YLeaf(YType.str, 'entPhysicalSoftwareRev')),
-                    ('entphysicalserialnum', YLeaf(YType.str, 'entPhysicalSerialNum')),
-                    ('entphysicalmfgname', YLeaf(YType.str, 'entPhysicalMfgName')),
-                    ('entphysicalmodelname', YLeaf(YType.str, 'entPhysicalModelName')),
-                    ('entphysicalalias', YLeaf(YType.str, 'entPhysicalAlias')),
-                    ('entphysicalassetid', YLeaf(YType.str, 'entPhysicalAssetID')),
-                    ('entphysicalisfru', YLeaf(YType.boolean, 'entPhysicalIsFRU')),
-                    ('entphysicalmfgdate', YLeaf(YType.str, 'entPhysicalMfgDate')),
-                    ('entphysicaluris', YLeaf(YType.str, 'entPhysicalUris')),
-                    ('ceentphysicalsecondserialnum', YLeaf(YType.str, 'CISCO-ENTITY-EXT-MIB:ceEntPhysicalSecondSerialNum')),
+                    ('entphysicalindex', (YLeaf(YType.int32, 'entPhysicalIndex'), ['int'])),
+                    ('entphysicaldescr', (YLeaf(YType.str, 'entPhysicalDescr'), ['str'])),
+                    ('entphysicalvendortype', (YLeaf(YType.str, 'entPhysicalVendorType'), ['str'])),
+                    ('entphysicalcontainedin', (YLeaf(YType.int32, 'entPhysicalContainedIn'), ['int'])),
+                    ('entphysicalclass', (YLeaf(YType.enumeration, 'entPhysicalClass'), [('ydk.models.cisco_ios_xe.ENTITY_MIB', 'PhysicalClass', '')])),
+                    ('entphysicalparentrelpos', (YLeaf(YType.int32, 'entPhysicalParentRelPos'), ['int'])),
+                    ('entphysicalname', (YLeaf(YType.str, 'entPhysicalName'), ['str'])),
+                    ('entphysicalhardwarerev', (YLeaf(YType.str, 'entPhysicalHardwareRev'), ['str'])),
+                    ('entphysicalfirmwarerev', (YLeaf(YType.str, 'entPhysicalFirmwareRev'), ['str'])),
+                    ('entphysicalsoftwarerev', (YLeaf(YType.str, 'entPhysicalSoftwareRev'), ['str'])),
+                    ('entphysicalserialnum', (YLeaf(YType.str, 'entPhysicalSerialNum'), ['str'])),
+                    ('entphysicalmfgname', (YLeaf(YType.str, 'entPhysicalMfgName'), ['str'])),
+                    ('entphysicalmodelname', (YLeaf(YType.str, 'entPhysicalModelName'), ['str'])),
+                    ('entphysicalalias', (YLeaf(YType.str, 'entPhysicalAlias'), ['str'])),
+                    ('entphysicalassetid', (YLeaf(YType.str, 'entPhysicalAssetID'), ['str'])),
+                    ('entphysicalisfru', (YLeaf(YType.boolean, 'entPhysicalIsFRU'), ['bool'])),
+                    ('entphysicalmfgdate', (YLeaf(YType.str, 'entPhysicalMfgDate'), ['str'])),
+                    ('entphysicaluris', (YLeaf(YType.str, 'entPhysicalUris'), ['str'])),
+                    ('ceentphysicalsecondserialnum', (YLeaf(YType.str, 'CISCO-ENTITY-EXT-MIB:ceEntPhysicalSecondSerialNum'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.entphysicaldescr = None
@@ -524,6 +528,7 @@ class ENTITYMIB(Entity):
                 self.ceentphysicalsecondserialnum = None
                 self._segment_path = lambda: "entPhysicalEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/entPhysicalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntPhysicalTable.EntPhysicalEntry, [u'entphysicalindex', u'entphysicaldescr', u'entphysicalvendortype', u'entphysicalcontainedin', u'entphysicalclass', u'entphysicalparentrelpos', u'entphysicalname', u'entphysicalhardwarerev', u'entphysicalfirmwarerev', u'entphysicalsoftwarerev', u'entphysicalserialnum', u'entphysicalmfgname', u'entphysicalmodelname', u'entphysicalalias', u'entphysicalassetid', u'entphysicalisfru', u'entphysicalmfgdate', u'entphysicaluris', 'ceentphysicalsecondserialnum'], name, value)
@@ -563,6 +568,7 @@ class ENTITYMIB(Entity):
             self.entlogicalentry = YList(self)
             self._segment_path = lambda: "entLogicalTable"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntLogicalTable, [], name, value)
@@ -645,14 +651,14 @@ class ENTITYMIB(Entity):
                 self.ylist_key_names = ['entlogicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entlogicalindex', YLeaf(YType.int32, 'entLogicalIndex')),
-                    ('entlogicaldescr', YLeaf(YType.str, 'entLogicalDescr')),
-                    ('entlogicaltype', YLeaf(YType.str, 'entLogicalType')),
-                    ('entlogicalcommunity', YLeaf(YType.str, 'entLogicalCommunity')),
-                    ('entlogicaltaddress', YLeaf(YType.str, 'entLogicalTAddress')),
-                    ('entlogicaltdomain', YLeaf(YType.str, 'entLogicalTDomain')),
-                    ('entlogicalcontextengineid', YLeaf(YType.str, 'entLogicalContextEngineID')),
-                    ('entlogicalcontextname', YLeaf(YType.str, 'entLogicalContextName')),
+                    ('entlogicalindex', (YLeaf(YType.int32, 'entLogicalIndex'), ['int'])),
+                    ('entlogicaldescr', (YLeaf(YType.str, 'entLogicalDescr'), ['str'])),
+                    ('entlogicaltype', (YLeaf(YType.str, 'entLogicalType'), ['str'])),
+                    ('entlogicalcommunity', (YLeaf(YType.str, 'entLogicalCommunity'), ['str'])),
+                    ('entlogicaltaddress', (YLeaf(YType.str, 'entLogicalTAddress'), ['str'])),
+                    ('entlogicaltdomain', (YLeaf(YType.str, 'entLogicalTDomain'), ['str'])),
+                    ('entlogicalcontextengineid', (YLeaf(YType.str, 'entLogicalContextEngineID'), ['str'])),
+                    ('entlogicalcontextname', (YLeaf(YType.str, 'entLogicalContextName'), ['str'])),
                 ])
                 self.entlogicalindex = None
                 self.entlogicaldescr = None
@@ -664,6 +670,7 @@ class ENTITYMIB(Entity):
                 self.entlogicalcontextname = None
                 self._segment_path = lambda: "entLogicalEntry" + "[entLogicalIndex='" + str(self.entlogicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/entLogicalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntLogicalTable.EntLogicalEntry, [u'entlogicalindex', u'entlogicaldescr', u'entlogicaltype', u'entlogicalcommunity', u'entlogicaltaddress', u'entlogicaltdomain', u'entlogicalcontextengineid', u'entlogicalcontextname'], name, value)
@@ -728,6 +735,7 @@ class ENTITYMIB(Entity):
             self.entlpmappingentry = YList(self)
             self._segment_path = lambda: "entLPMappingTable"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntLPMappingTable, [], name, value)
@@ -775,13 +783,14 @@ class ENTITYMIB(Entity):
                 self.ylist_key_names = ['entlogicalindex','entlpphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entlogicalindex', YLeaf(YType.str, 'entLogicalIndex')),
-                    ('entlpphysicalindex', YLeaf(YType.int32, 'entLPPhysicalIndex')),
+                    ('entlogicalindex', (YLeaf(YType.str, 'entLogicalIndex'), ['int'])),
+                    ('entlpphysicalindex', (YLeaf(YType.int32, 'entLPPhysicalIndex'), ['int'])),
                 ])
                 self.entlogicalindex = None
                 self.entlpphysicalindex = None
                 self._segment_path = lambda: "entLPMappingEntry" + "[entLogicalIndex='" + str(self.entlogicalindex) + "']" + "[entLPPhysicalIndex='" + str(self.entlpphysicalindex) + "']"
                 self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/entLPMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntLPMappingTable.EntLPMappingEntry, [u'entlogicalindex', u'entlpphysicalindex'], name, value)
@@ -824,6 +833,7 @@ class ENTITYMIB(Entity):
             self.entaliasmappingentry = YList(self)
             self._segment_path = lambda: "entAliasMappingTable"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntAliasMappingTable, [], name, value)
@@ -884,15 +894,16 @@ class ENTITYMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','entaliaslogicalindexorzero']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entaliaslogicalindexorzero', YLeaf(YType.int32, 'entAliasLogicalIndexOrZero')),
-                    ('entaliasmappingidentifier', YLeaf(YType.str, 'entAliasMappingIdentifier')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entaliaslogicalindexorzero', (YLeaf(YType.int32, 'entAliasLogicalIndexOrZero'), ['int'])),
+                    ('entaliasmappingidentifier', (YLeaf(YType.str, 'entAliasMappingIdentifier'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.entaliaslogicalindexorzero = None
                 self.entaliasmappingidentifier = None
                 self._segment_path = lambda: "entAliasMappingEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entAliasLogicalIndexOrZero='" + str(self.entaliaslogicalindexorzero) + "']"
                 self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/entAliasMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntAliasMappingTable.EntAliasMappingEntry, [u'entphysicalindex', u'entaliaslogicalindexorzero', u'entaliasmappingidentifier'], name, value)
@@ -938,6 +949,7 @@ class ENTITYMIB(Entity):
             self.entphysicalcontainsentry = YList(self)
             self._segment_path = lambda: "entPhysicalContainsTable"
             self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable, [], name, value)
@@ -980,13 +992,14 @@ class ENTITYMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','entphysicalchildindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entphysicalchildindex', YLeaf(YType.int32, 'entPhysicalChildIndex')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entphysicalchildindex', (YLeaf(YType.int32, 'entPhysicalChildIndex'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.entphysicalchildindex = None
                 self._segment_path = lambda: "entPhysicalContainsEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entPhysicalChildIndex='" + str(self.entphysicalchildindex) + "']"
                 self._absolute_path = lambda: "ENTITY-MIB:ENTITY-MIB/entPhysicalContainsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ENTITYMIB.EntPhysicalContainsTable.EntPhysicalContainsEntry, [u'entphysicalindex', u'entphysicalchildindex'], name, value)

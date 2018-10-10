@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class TelemetryStreamProtocol(Enum):
     """
     TelemetryStreamProtocol (Enum Class)
@@ -87,6 +88,7 @@ class TelemetrySystem(Entity):
         self.subscriptions.parent = self
         self._children_name_map["subscriptions"] = "subscriptions"
         self._segment_path = lambda: "openconfig-telemetry:telemetry-system"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TelemetrySystem, [], name, value)
@@ -122,6 +124,7 @@ class TelemetrySystem(Entity):
             self.sensor_group = YList(self)
             self._segment_path = lambda: "sensor-groups"
             self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetrySystem.SensorGroups, [], name, value)
@@ -172,7 +175,7 @@ class TelemetrySystem(Entity):
                 self.ylist_key_names = ['sensor_group_id']
                 self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths))])
                 self._leafs = OrderedDict([
-                    ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
+                    ('sensor_group_id', (YLeaf(YType.str, 'sensor-group-id'), ['str'])),
                 ])
                 self.sensor_group_id = None
 
@@ -189,6 +192,7 @@ class TelemetrySystem(Entity):
                 self._children_name_map["sensor_paths"] = "sensor-paths"
                 self._segment_path = lambda: "sensor-group" + "[sensor-group-id='" + str(self.sensor_group_id) + "']"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/sensor-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup, ['sensor_group_id'], name, value)
@@ -221,10 +225,11 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
+                        ('sensor_group_id', (YLeaf(YType.str, 'sensor-group-id'), ['str'])),
                     ])
                     self.sensor_group_id = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.Config, ['sensor_group_id'], name, value)
@@ -257,10 +262,11 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('sensor_group_id', YLeaf(YType.str, 'sensor-group-id')),
+                        ('sensor_group_id', (YLeaf(YType.str, 'sensor-group-id'), ['str'])),
                     ])
                     self.sensor_group_id = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.State, ['sensor_group_id'], name, value)
@@ -296,6 +302,7 @@ class TelemetrySystem(Entity):
 
                     self.sensor_path = YList(self)
                     self._segment_path = lambda: "sensor-paths"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths, [], name, value)
@@ -341,7 +348,7 @@ class TelemetrySystem(Entity):
                         self.ylist_key_names = ['path']
                         self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config)), ("state", ("state", TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State))])
                         self._leafs = OrderedDict([
-                            ('path', YLeaf(YType.str, 'path')),
+                            ('path', (YLeaf(YType.str, 'path'), ['str'])),
                         ])
                         self.path = None
 
@@ -353,6 +360,7 @@ class TelemetrySystem(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "sensor-path" + "[path='" + str(self.path) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath, ['path'], name, value)
@@ -390,12 +398,13 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path', YLeaf(YType.str, 'path')),
-                                ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),
+                                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                ('exclude_filter', (YLeaf(YType.str, 'exclude-filter'), ['str'])),
                             ])
                             self.path = None
                             self.exclude_filter = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.Config, ['path', 'exclude_filter'], name, value)
@@ -433,12 +442,13 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path', YLeaf(YType.str, 'path')),
-                                ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),
+                                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                ('exclude_filter', (YLeaf(YType.str, 'exclude-filter'), ['str'])),
                             ])
                             self.path = None
                             self.exclude_filter = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.SensorGroups.SensorGroup.SensorPaths.SensorPath.State, ['path', 'exclude_filter'], name, value)
@@ -475,6 +485,7 @@ class TelemetrySystem(Entity):
             self.destination_group = YList(self)
             self._segment_path = lambda: "destination-groups"
             self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetrySystem.DestinationGroups, [], name, value)
@@ -530,7 +541,7 @@ class TelemetrySystem(Entity):
                 self.ylist_key_names = ['group_id']
                 self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.State)), ("destinations", ("destinations", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations))])
                 self._leafs = OrderedDict([
-                    ('group_id', YLeaf(YType.str, 'group-id')),
+                    ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                 ])
                 self.group_id = None
 
@@ -547,6 +558,7 @@ class TelemetrySystem(Entity):
                 self._children_name_map["destinations"] = "destinations"
                 self._segment_path = lambda: "destination-group" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/destination-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup, ['group_id'], name, value)
@@ -578,10 +590,11 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('group_id', YLeaf(YType.str, 'group-id')),
+                        ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                     ])
                     self.group_id = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Config, ['group_id'], name, value)
@@ -613,10 +626,11 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('group_id', YLeaf(YType.str, 'group-id')),
+                        ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                     ])
                     self.group_id = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.State, ['group_id'], name, value)
@@ -653,6 +667,7 @@ class TelemetrySystem(Entity):
 
                     self.destination = YList(self)
                     self._segment_path = lambda: "destinations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations, [], name, value)
@@ -713,8 +728,8 @@ class TelemetrySystem(Entity):
                         self.ylist_key_names = ['destination_address','destination_port']
                         self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config)), ("state", ("state", TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State))])
                         self._leafs = OrderedDict([
-                            ('destination_address', YLeaf(YType.str, 'destination-address')),
-                            ('destination_port', YLeaf(YType.str, 'destination-port')),
+                            ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                            ('destination_port', (YLeaf(YType.str, 'destination-port'), ['int'])),
                         ])
                         self.destination_address = None
                         self.destination_port = None
@@ -727,6 +742,7 @@ class TelemetrySystem(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "destination" + "[destination-address='" + str(self.destination_address) + "']" + "[destination-port='" + str(self.destination_port) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination, ['destination_address', 'destination_port'], name, value)
@@ -779,14 +795,15 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                                ('destination_protocol', YLeaf(YType.enumeration, 'destination-protocol')),
+                                ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                                ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                                ('destination_protocol', (YLeaf(YType.enumeration, 'destination-protocol'), [('ydk.models.openconfig.openconfig_telemetry', 'TelemetryStreamProtocol', '')])),
                             ])
                             self.destination_address = None
                             self.destination_port = None
                             self.destination_protocol = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.Config, ['destination_address', 'destination_port', 'destination_protocol'], name, value)
@@ -839,14 +856,15 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                                ('destination_protocol', YLeaf(YType.enumeration, 'destination-protocol')),
+                                ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                                ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                                ('destination_protocol', (YLeaf(YType.enumeration, 'destination-protocol'), [('ydk.models.openconfig.openconfig_telemetry', 'TelemetryStreamProtocol', '')])),
                             ])
                             self.destination_address = None
                             self.destination_port = None
                             self.destination_protocol = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.DestinationGroups.DestinationGroup.Destinations.Destination.State, ['destination_address', 'destination_port', 'destination_protocol'], name, value)
@@ -894,6 +912,7 @@ class TelemetrySystem(Entity):
             self._children_name_map["dynamic"] = "dynamic"
             self._segment_path = lambda: "subscriptions"
             self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetrySystem.Subscriptions, [], name, value)
@@ -933,6 +952,7 @@ class TelemetrySystem(Entity):
                 self.subscription = YList(self)
                 self._segment_path = lambda: "persistent"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent, [], name, value)
@@ -991,7 +1011,7 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = ['subscription_id']
                     self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.State)), ("sensor-profiles", ("sensor_profiles", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles)), ("destination-groups", ("destination_groups", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups))])
                     self._leafs = OrderedDict([
-                        ('subscription_id', YLeaf(YType.str, 'subscription-id')),
+                        ('subscription_id', (YLeaf(YType.str, 'subscription-id'), ['int'])),
                     ])
                     self.subscription_id = None
 
@@ -1012,6 +1032,7 @@ class TelemetrySystem(Entity):
                     self._children_name_map["destination_groups"] = "destination-groups"
                     self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
                     self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/persistent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription, ['subscription_id'], name, value)
@@ -1066,14 +1087,15 @@ class TelemetrySystem(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
-                            ('local_source_address', YLeaf(YType.str, 'local-source-address')),
-                            ('originated_qos_marking', YLeaf(YType.uint8, 'originated-qos-marking')),
+                            ('subscription_id', (YLeaf(YType.uint64, 'subscription-id'), ['int'])),
+                            ('local_source_address', (YLeaf(YType.str, 'local-source-address'), ['str','str'])),
+                            ('originated_qos_marking', (YLeaf(YType.uint8, 'originated-qos-marking'), ['int'])),
                         ])
                         self.subscription_id = None
                         self.local_source_address = None
                         self.originated_qos_marking = None
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.Config, ['subscription_id', 'local_source_address', 'originated_qos_marking'], name, value)
@@ -1128,14 +1150,15 @@ class TelemetrySystem(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
-                            ('local_source_address', YLeaf(YType.str, 'local-source-address')),
-                            ('originated_qos_marking', YLeaf(YType.uint8, 'originated-qos-marking')),
+                            ('subscription_id', (YLeaf(YType.uint64, 'subscription-id'), ['int'])),
+                            ('local_source_address', (YLeaf(YType.str, 'local-source-address'), ['str','str'])),
+                            ('originated_qos_marking', (YLeaf(YType.uint8, 'originated-qos-marking'), ['int'])),
                         ])
                         self.subscription_id = None
                         self.local_source_address = None
                         self.originated_qos_marking = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.State, ['subscription_id', 'local_source_address', 'originated_qos_marking'], name, value)
@@ -1174,6 +1197,7 @@ class TelemetrySystem(Entity):
 
                         self.sensor_profile = YList(self)
                         self._segment_path = lambda: "sensor-profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles, [], name, value)
@@ -1218,7 +1242,7 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = ['sensor_group']
                             self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State))])
                             self._leafs = OrderedDict([
-                                ('sensor_group', YLeaf(YType.str, 'sensor-group')),
+                                ('sensor_group', (YLeaf(YType.str, 'sensor-group'), ['str'])),
                             ])
                             self.sensor_group = None
 
@@ -1230,6 +1254,7 @@ class TelemetrySystem(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "sensor-profile" + "[sensor-group='" + str(self.sensor_group) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile, ['sensor_group'], name, value)
@@ -1283,16 +1308,17 @@ class TelemetrySystem(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sensor_group', YLeaf(YType.str, 'sensor-group')),
-                                    ('sample_interval', YLeaf(YType.uint64, 'sample-interval')),
-                                    ('heartbeat_interval', YLeaf(YType.uint64, 'heartbeat-interval')),
-                                    ('suppress_redundant', YLeaf(YType.boolean, 'suppress-redundant')),
+                                    ('sensor_group', (YLeaf(YType.str, 'sensor-group'), ['str'])),
+                                    ('sample_interval', (YLeaf(YType.uint64, 'sample-interval'), ['int'])),
+                                    ('heartbeat_interval', (YLeaf(YType.uint64, 'heartbeat-interval'), ['int'])),
+                                    ('suppress_redundant', (YLeaf(YType.boolean, 'suppress-redundant'), ['bool'])),
                                 ])
                                 self.sensor_group = None
                                 self.sample_interval = None
                                 self.heartbeat_interval = None
                                 self.suppress_redundant = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.Config, ['sensor_group', 'sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
@@ -1346,16 +1372,17 @@ class TelemetrySystem(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sensor_group', YLeaf(YType.str, 'sensor-group')),
-                                    ('sample_interval', YLeaf(YType.uint64, 'sample-interval')),
-                                    ('heartbeat_interval', YLeaf(YType.uint64, 'heartbeat-interval')),
-                                    ('suppress_redundant', YLeaf(YType.boolean, 'suppress-redundant')),
+                                    ('sensor_group', (YLeaf(YType.str, 'sensor-group'), ['str'])),
+                                    ('sample_interval', (YLeaf(YType.uint64, 'sample-interval'), ['int'])),
+                                    ('heartbeat_interval', (YLeaf(YType.uint64, 'heartbeat-interval'), ['int'])),
+                                    ('suppress_redundant', (YLeaf(YType.boolean, 'suppress-redundant'), ['bool'])),
                                 ])
                                 self.sensor_group = None
                                 self.sample_interval = None
                                 self.heartbeat_interval = None
                                 self.suppress_redundant = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.SensorProfiles.SensorProfile.State, ['sensor_group', 'sample_interval', 'heartbeat_interval', 'suppress_redundant'], name, value)
@@ -1407,6 +1434,7 @@ class TelemetrySystem(Entity):
 
                         self.destination_group = YList(self)
                         self._segment_path = lambda: "destination-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups, [], name, value)
@@ -1451,7 +1479,7 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = ['group_id']
                             self._child_classes = OrderedDict([("config", ("config", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config)), ("state", ("state", TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State))])
                             self._leafs = OrderedDict([
-                                ('group_id', YLeaf(YType.str, 'group-id')),
+                                ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                             ])
                             self.group_id = None
 
@@ -1463,6 +1491,7 @@ class TelemetrySystem(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "destination-group" + "[group-id='" + str(self.group_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup, ['group_id'], name, value)
@@ -1497,10 +1526,11 @@ class TelemetrySystem(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_id', YLeaf(YType.str, 'group-id')),
+                                    ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                                 ])
                                 self.group_id = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.Config, ['group_id'], name, value)
@@ -1535,10 +1565,11 @@ class TelemetrySystem(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('group_id', YLeaf(YType.str, 'group-id')),
+                                    ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
                                 ])
                                 self.group_id = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Persistent.Subscription.DestinationGroups.DestinationGroup.State, ['group_id'], name, value)
@@ -1578,6 +1609,7 @@ class TelemetrySystem(Entity):
                 self.subscription = YList(self)
                 self._segment_path = lambda: "dynamic"
                 self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic, [], name, value)
@@ -1625,7 +1657,7 @@ class TelemetrySystem(Entity):
                     self.ylist_key_names = ['subscription_id']
                     self._child_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.State)), ("sensor-paths", ("sensor_paths", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths))])
                     self._leafs = OrderedDict([
-                        ('subscription_id', YLeaf(YType.str, 'subscription-id')),
+                        ('subscription_id', (YLeaf(YType.str, 'subscription-id'), ['int'])),
                     ])
                     self.subscription_id = None
 
@@ -1638,6 +1670,7 @@ class TelemetrySystem(Entity):
                     self._children_name_map["sensor_paths"] = "sensor-paths"
                     self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
                     self._absolute_path = lambda: "openconfig-telemetry:telemetry-system/subscriptions/dynamic/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription, ['subscription_id'], name, value)
@@ -1723,14 +1756,14 @@ class TelemetrySystem(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('subscription_id', YLeaf(YType.uint64, 'subscription-id')),
-                            ('destination_address', YLeaf(YType.str, 'destination-address')),
-                            ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                            ('destination_protocol', YLeaf(YType.enumeration, 'destination-protocol')),
-                            ('sample_interval', YLeaf(YType.uint64, 'sample-interval')),
-                            ('heartbeat_interval', YLeaf(YType.uint64, 'heartbeat-interval')),
-                            ('suppress_redundant', YLeaf(YType.boolean, 'suppress-redundant')),
-                            ('originated_qos_marking', YLeaf(YType.uint8, 'originated-qos-marking')),
+                            ('subscription_id', (YLeaf(YType.uint64, 'subscription-id'), ['int'])),
+                            ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                            ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                            ('destination_protocol', (YLeaf(YType.enumeration, 'destination-protocol'), [('ydk.models.openconfig.openconfig_telemetry', 'TelemetryStreamProtocol', '')])),
+                            ('sample_interval', (YLeaf(YType.uint64, 'sample-interval'), ['int'])),
+                            ('heartbeat_interval', (YLeaf(YType.uint64, 'heartbeat-interval'), ['int'])),
+                            ('suppress_redundant', (YLeaf(YType.boolean, 'suppress-redundant'), ['bool'])),
+                            ('originated_qos_marking', (YLeaf(YType.uint8, 'originated-qos-marking'), ['int'])),
                         ])
                         self.subscription_id = None
                         self.destination_address = None
@@ -1741,6 +1774,7 @@ class TelemetrySystem(Entity):
                         self.suppress_redundant = None
                         self.originated_qos_marking = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.State, ['subscription_id', 'destination_address', 'destination_port', 'destination_protocol', 'sample_interval', 'heartbeat_interval', 'suppress_redundant', 'originated_qos_marking'], name, value)
@@ -1776,6 +1810,7 @@ class TelemetrySystem(Entity):
 
                         self.sensor_path = YList(self)
                         self._segment_path = lambda: "sensor-paths"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths, [], name, value)
@@ -1816,7 +1851,7 @@ class TelemetrySystem(Entity):
                             self.ylist_key_names = ['path']
                             self._child_classes = OrderedDict([("state", ("state", TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State))])
                             self._leafs = OrderedDict([
-                                ('path', YLeaf(YType.str, 'path')),
+                                ('path', (YLeaf(YType.str, 'path'), ['str'])),
                             ])
                             self.path = None
 
@@ -1824,6 +1859,7 @@ class TelemetrySystem(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "sensor-path" + "[path='" + str(self.path) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath, ['path'], name, value)
@@ -1861,12 +1897,13 @@ class TelemetrySystem(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('path', YLeaf(YType.str, 'path')),
-                                    ('exclude_filter', YLeaf(YType.str, 'exclude-filter')),
+                                    ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                                    ('exclude_filter', (YLeaf(YType.str, 'exclude-filter'), ['str'])),
                                 ])
                                 self.path = None
                                 self.exclude_filter = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(TelemetrySystem.Subscriptions.Dynamic.Subscription.SensorPaths.SensorPath.State, ['path', 'exclude_filter'], name, value)

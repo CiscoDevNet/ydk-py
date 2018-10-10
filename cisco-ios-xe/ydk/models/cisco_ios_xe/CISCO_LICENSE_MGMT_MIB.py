@@ -260,6 +260,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class ClmgmtLicenseActionFailCause(Enum):
     """
     ClmgmtLicenseActionFailCause (Enum Class)
@@ -707,6 +708,7 @@ class CISCOLICENSEMGMTMIB(Entity):
         self.clmgmtdevcredexportactiontable.parent = self
         self._children_name_map["clmgmtdevcredexportactiontable"] = "clmgmtDevCredExportActionTable"
         self._segment_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOLICENSEMGMTMIB, [], name, value)
@@ -740,11 +742,12 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('clmgmtnextfreelicenseactionindex', YLeaf(YType.uint32, 'clmgmtNextFreeLicenseActionIndex')),
+                ('clmgmtnextfreelicenseactionindex', (YLeaf(YType.uint32, 'clmgmtNextFreeLicenseActionIndex'), ['int'])),
             ])
             self.clmgmtnextfreelicenseactionindex = None
             self._segment_path = lambda: "clmgmtLicenseConfiguration"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseConfiguration, ['clmgmtnextfreelicenseactionindex'], name, value)
@@ -778,11 +781,12 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('clmgmtnextfreedevcredexportactionindex', YLeaf(YType.uint32, 'clmgmtNextFreeDevCredExportActionIndex')),
+                ('clmgmtnextfreedevcredexportactionindex', (YLeaf(YType.uint32, 'clmgmtNextFreeDevCredExportActionIndex'), ['int'])),
             ])
             self.clmgmtnextfreedevcredexportactionindex = None
             self._segment_path = lambda: "clmgmtLicenseDeviceInformation"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInformation, ['clmgmtnextfreedevcredexportactionindex'], name, value)
@@ -824,15 +828,16 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('clmgmtlicenseusagenotifenable', YLeaf(YType.boolean, 'clmgmtLicenseUsageNotifEnable')),
-                ('clmgmtlicensedeploymentnotifenable', YLeaf(YType.boolean, 'clmgmtLicenseDeploymentNotifEnable')),
-                ('clmgmtlicenseerrornotifenable', YLeaf(YType.enumeration, 'clmgmtLicenseErrorNotifEnable')),
+                ('clmgmtlicenseusagenotifenable', (YLeaf(YType.boolean, 'clmgmtLicenseUsageNotifEnable'), ['bool'])),
+                ('clmgmtlicensedeploymentnotifenable', (YLeaf(YType.boolean, 'clmgmtLicenseDeploymentNotifEnable'), ['bool'])),
+                ('clmgmtlicenseerrornotifenable', (YLeaf(YType.enumeration, 'clmgmtLicenseErrorNotifEnable'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtLicenseNotifObjects.ClmgmtLicenseErrorNotifEnable')])),
             ])
             self.clmgmtlicenseusagenotifenable = None
             self.clmgmtlicensedeploymentnotifenable = None
             self.clmgmtlicenseerrornotifenable = None
             self._segment_path = lambda: "clmgmtLicenseNotifObjects"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseNotifObjects, ['clmgmtlicenseusagenotifenable', 'clmgmtlicensedeploymentnotifenable', 'clmgmtlicenseerrornotifenable'], name, value)
@@ -914,6 +919,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicenseactionentry = YList(self)
             self._segment_path = lambda: "clmgmtLicenseActionTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable, [], name, value)
@@ -1217,28 +1223,28 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['clmgmtlicenseactionindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clmgmtlicenseactionindex', YLeaf(YType.uint32, 'clmgmtLicenseActionIndex')),
-                    ('clmgmtlicenseactionentphysicalindex', YLeaf(YType.int32, 'clmgmtLicenseActionEntPhysicalIndex')),
-                    ('clmgmtlicenseactiontransferprotocol', YLeaf(YType.enumeration, 'clmgmtLicenseActionTransferProtocol')),
-                    ('clmgmtlicenseserveraddresstype', YLeaf(YType.enumeration, 'clmgmtLicenseServerAddressType')),
-                    ('clmgmtlicenseserveraddress', YLeaf(YType.str, 'clmgmtLicenseServerAddress')),
-                    ('clmgmtlicenseserverusername', YLeaf(YType.str, 'clmgmtLicenseServerUsername')),
-                    ('clmgmtlicenseserverpassword', YLeaf(YType.str, 'clmgmtLicenseServerPassword')),
-                    ('clmgmtlicensefile', YLeaf(YType.str, 'clmgmtLicenseFile')),
-                    ('clmgmtlicensestore', YLeaf(YType.uint32, 'clmgmtLicenseStore')),
-                    ('clmgmtlicenseactionlicenseindex', YLeaf(YType.uint32, 'clmgmtLicenseActionLicenseIndex')),
-                    ('clmgmtlicensepermissionticketfile', YLeaf(YType.str, 'clmgmtLicensePermissionTicketFile')),
-                    ('clmgmtlicenserehostticketfile', YLeaf(YType.str, 'clmgmtLicenseRehostTicketFile')),
-                    ('clmgmtlicensebackupfile', YLeaf(YType.str, 'clmgmtLicenseBackupFile')),
-                    ('clmgmtlicensestoponfailure', YLeaf(YType.boolean, 'clmgmtLicenseStopOnFailure')),
-                    ('clmgmtlicenseaction', YLeaf(YType.enumeration, 'clmgmtLicenseAction')),
-                    ('clmgmtlicenseactionstate', YLeaf(YType.enumeration, 'clmgmtLicenseActionState')),
-                    ('clmgmtlicensejobqposition', YLeaf(YType.uint32, 'clmgmtLicenseJobQPosition')),
-                    ('clmgmtlicenseactionfailcause', YLeaf(YType.enumeration, 'clmgmtLicenseActionFailCause')),
-                    ('clmgmtlicenseactionstoragetype', YLeaf(YType.enumeration, 'clmgmtLicenseActionStorageType')),
-                    ('clmgmtlicenseactionrowstatus', YLeaf(YType.enumeration, 'clmgmtLicenseActionRowStatus')),
-                    ('clmgmtlicenseaccepteula', YLeaf(YType.boolean, 'clmgmtLicenseAcceptEULA')),
-                    ('clmgmtlicenseeulafile', YLeaf(YType.str, 'clmgmtLicenseEULAFile')),
+                    ('clmgmtlicenseactionindex', (YLeaf(YType.uint32, 'clmgmtLicenseActionIndex'), ['int'])),
+                    ('clmgmtlicenseactionentphysicalindex', (YLeaf(YType.int32, 'clmgmtLicenseActionEntPhysicalIndex'), ['int'])),
+                    ('clmgmtlicenseactiontransferprotocol', (YLeaf(YType.enumeration, 'clmgmtLicenseActionTransferProtocol'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseTransferProtocol', '')])),
+                    ('clmgmtlicenseserveraddresstype', (YLeaf(YType.enumeration, 'clmgmtLicenseServerAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('clmgmtlicenseserveraddress', (YLeaf(YType.str, 'clmgmtLicenseServerAddress'), ['str'])),
+                    ('clmgmtlicenseserverusername', (YLeaf(YType.str, 'clmgmtLicenseServerUsername'), ['str'])),
+                    ('clmgmtlicenseserverpassword', (YLeaf(YType.str, 'clmgmtLicenseServerPassword'), ['str'])),
+                    ('clmgmtlicensefile', (YLeaf(YType.str, 'clmgmtLicenseFile'), ['str'])),
+                    ('clmgmtlicensestore', (YLeaf(YType.uint32, 'clmgmtLicenseStore'), ['int'])),
+                    ('clmgmtlicenseactionlicenseindex', (YLeaf(YType.uint32, 'clmgmtLicenseActionLicenseIndex'), ['int'])),
+                    ('clmgmtlicensepermissionticketfile', (YLeaf(YType.str, 'clmgmtLicensePermissionTicketFile'), ['str'])),
+                    ('clmgmtlicenserehostticketfile', (YLeaf(YType.str, 'clmgmtLicenseRehostTicketFile'), ['str'])),
+                    ('clmgmtlicensebackupfile', (YLeaf(YType.str, 'clmgmtLicenseBackupFile'), ['str'])),
+                    ('clmgmtlicensestoponfailure', (YLeaf(YType.boolean, 'clmgmtLicenseStopOnFailure'), ['bool'])),
+                    ('clmgmtlicenseaction', (YLeaf(YType.enumeration, 'clmgmtLicenseAction'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtLicenseActionTable.ClmgmtLicenseActionEntry.ClmgmtLicenseAction')])),
+                    ('clmgmtlicenseactionstate', (YLeaf(YType.enumeration, 'clmgmtLicenseActionState'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseActionState', '')])),
+                    ('clmgmtlicensejobqposition', (YLeaf(YType.uint32, 'clmgmtLicenseJobQPosition'), ['int'])),
+                    ('clmgmtlicenseactionfailcause', (YLeaf(YType.enumeration, 'clmgmtLicenseActionFailCause'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseActionFailCause', '')])),
+                    ('clmgmtlicenseactionstoragetype', (YLeaf(YType.enumeration, 'clmgmtLicenseActionStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('clmgmtlicenseactionrowstatus', (YLeaf(YType.enumeration, 'clmgmtLicenseActionRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('clmgmtlicenseaccepteula', (YLeaf(YType.boolean, 'clmgmtLicenseAcceptEULA'), ['bool'])),
+                    ('clmgmtlicenseeulafile', (YLeaf(YType.str, 'clmgmtLicenseEULAFile'), ['str'])),
                 ])
                 self.clmgmtlicenseactionindex = None
                 self.clmgmtlicenseactionentphysicalindex = None
@@ -1264,6 +1270,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtlicenseeulafile = None
                 self._segment_path = lambda: "clmgmtLicenseActionEntry" + "[clmgmtLicenseActionIndex='" + str(self.clmgmtlicenseactionindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseActionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseActionTable.ClmgmtLicenseActionEntry, ['clmgmtlicenseactionindex', 'clmgmtlicenseactionentphysicalindex', 'clmgmtlicenseactiontransferprotocol', 'clmgmtlicenseserveraddresstype', 'clmgmtlicenseserveraddress', 'clmgmtlicenseserverusername', 'clmgmtlicenseserverpassword', 'clmgmtlicensefile', 'clmgmtlicensestore', 'clmgmtlicenseactionlicenseindex', 'clmgmtlicensepermissionticketfile', 'clmgmtlicenserehostticketfile', 'clmgmtlicensebackupfile', 'clmgmtlicensestoponfailure', 'clmgmtlicenseaction', 'clmgmtlicenseactionstate', 'clmgmtlicensejobqposition', 'clmgmtlicenseactionfailcause', 'clmgmtlicenseactionstoragetype', 'clmgmtlicenseactionrowstatus', 'clmgmtlicenseaccepteula', 'clmgmtlicenseeulafile'], name, value)
@@ -1380,6 +1387,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicenseactionresultentry = YList(self)
             self._segment_path = lambda: "clmgmtLicenseActionResultTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable, [], name, value)
@@ -1438,10 +1446,10 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['clmgmtlicenseactionindex','clmgmtlicensenumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clmgmtlicenseactionindex', YLeaf(YType.str, 'clmgmtLicenseActionIndex')),
-                    ('clmgmtlicensenumber', YLeaf(YType.uint32, 'clmgmtLicenseNumber')),
-                    ('clmgmtlicenseindivactionstate', YLeaf(YType.enumeration, 'clmgmtLicenseIndivActionState')),
-                    ('clmgmtlicenseindivactionfailcause', YLeaf(YType.enumeration, 'clmgmtLicenseIndivActionFailCause')),
+                    ('clmgmtlicenseactionindex', (YLeaf(YType.str, 'clmgmtLicenseActionIndex'), ['int'])),
+                    ('clmgmtlicensenumber', (YLeaf(YType.uint32, 'clmgmtLicenseNumber'), ['int'])),
+                    ('clmgmtlicenseindivactionstate', (YLeaf(YType.enumeration, 'clmgmtLicenseIndivActionState'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseActionState', '')])),
+                    ('clmgmtlicenseindivactionfailcause', (YLeaf(YType.enumeration, 'clmgmtLicenseIndivActionFailCause'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseActionFailCause', '')])),
                 ])
                 self.clmgmtlicenseactionindex = None
                 self.clmgmtlicensenumber = None
@@ -1449,6 +1457,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtlicenseindivactionfailcause = None
                 self._segment_path = lambda: "clmgmtLicenseActionResultEntry" + "[clmgmtLicenseActionIndex='" + str(self.clmgmtlicenseactionindex) + "']" + "[clmgmtLicenseNumber='" + str(self.clmgmtlicensenumber) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseActionResultTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseActionResultTable.ClmgmtLicenseActionResultEntry, ['clmgmtlicenseactionindex', 'clmgmtlicensenumber', 'clmgmtlicenseindivactionstate', 'clmgmtlicenseindivactionfailcause'], name, value)
@@ -1485,6 +1494,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicensestoreinfoentry = YList(self)
             self._segment_path = lambda: "clmgmtLicenseStoreInfoTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable, [], name, value)
@@ -1554,11 +1564,11 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','clmgmtlicensestoreindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('clmgmtlicensestoreindex', YLeaf(YType.uint32, 'clmgmtLicenseStoreIndex')),
-                    ('clmgmtlicensestorename', YLeaf(YType.str, 'clmgmtLicenseStoreName')),
-                    ('clmgmtlicensestoretotalsize', YLeaf(YType.uint32, 'clmgmtLicenseStoreTotalSize')),
-                    ('clmgmtlicensestoresizeremaining', YLeaf(YType.uint32, 'clmgmtLicenseStoreSizeRemaining')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('clmgmtlicensestoreindex', (YLeaf(YType.uint32, 'clmgmtLicenseStoreIndex'), ['int'])),
+                    ('clmgmtlicensestorename', (YLeaf(YType.str, 'clmgmtLicenseStoreName'), ['str'])),
+                    ('clmgmtlicensestoretotalsize', (YLeaf(YType.uint32, 'clmgmtLicenseStoreTotalSize'), ['int'])),
+                    ('clmgmtlicensestoresizeremaining', (YLeaf(YType.uint32, 'clmgmtLicenseStoreSizeRemaining'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.clmgmtlicensestoreindex = None
@@ -1567,6 +1577,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtlicensestoresizeremaining = None
                 self._segment_path = lambda: "clmgmtLicenseStoreInfoEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[clmgmtLicenseStoreIndex='" + str(self.clmgmtlicensestoreindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseStoreInfoTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseStoreInfoTable.ClmgmtLicenseStoreInfoEntry, ['entphysicalindex', 'clmgmtlicensestoreindex', 'clmgmtlicensestorename', 'clmgmtlicensestoretotalsize', 'clmgmtlicensestoresizeremaining'], name, value)
@@ -1608,6 +1619,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicensedeviceinfoentry = YList(self)
             self._segment_path = lambda: "clmgmtLicenseDeviceInfoTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable, [], name, value)
@@ -1651,13 +1663,14 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('clmgmtdefaultlicensestore', YLeaf(YType.uint32, 'clmgmtDefaultLicenseStore')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('clmgmtdefaultlicensestore', (YLeaf(YType.uint32, 'clmgmtDefaultLicenseStore'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.clmgmtdefaultlicensestore = None
                 self._segment_path = lambda: "clmgmtLicenseDeviceInfoEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseDeviceInfoTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseDeviceInfoTable.ClmgmtLicenseDeviceInfoEntry, ['entphysicalindex', 'clmgmtdefaultlicensestore'], name, value)
@@ -1694,6 +1707,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicenseinfoentry = YList(self)
             self._segment_path = lambda: "clmgmtLicenseInfoTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable, [], name, value)
@@ -1851,24 +1865,24 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','clmgmtlicensestoreused','clmgmtlicenseindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('clmgmtlicensestoreused', YLeaf(YType.uint32, 'clmgmtLicenseStoreUsed')),
-                    ('clmgmtlicenseindex', YLeaf(YType.uint32, 'clmgmtLicenseIndex')),
-                    ('clmgmtlicensefeaturename', YLeaf(YType.str, 'clmgmtLicenseFeatureName')),
-                    ('clmgmtlicensefeatureversion', YLeaf(YType.str, 'clmgmtLicenseFeatureVersion')),
-                    ('clmgmtlicensetype', YLeaf(YType.enumeration, 'clmgmtLicenseType')),
-                    ('clmgmtlicensecounted', YLeaf(YType.boolean, 'clmgmtLicenseCounted')),
-                    ('clmgmtlicensevalidityperiod', YLeaf(YType.uint32, 'clmgmtLicenseValidityPeriod')),
-                    ('clmgmtlicensevalidityperiodremaining', YLeaf(YType.uint32, 'clmgmtLicenseValidityPeriodRemaining')),
-                    ('clmgmtlicenseexpiredperiod', YLeaf(YType.uint32, 'clmgmtLicenseExpiredPeriod')),
-                    ('clmgmtlicensemaxusagecount', YLeaf(YType.uint32, 'clmgmtLicenseMaxUsageCount')),
-                    ('clmgmtlicenseusagecountremaining', YLeaf(YType.uint32, 'clmgmtLicenseUsageCountRemaining')),
-                    ('clmgmtlicenseeulastatus', YLeaf(YType.boolean, 'clmgmtLicenseEULAStatus')),
-                    ('clmgmtlicensecomments', YLeaf(YType.str, 'clmgmtLicenseComments')),
-                    ('clmgmtlicensestatus', YLeaf(YType.enumeration, 'clmgmtLicenseStatus')),
-                    ('clmgmtlicensestartdate', YLeaf(YType.str, 'clmgmtLicenseStartDate')),
-                    ('clmgmtlicenseenddate', YLeaf(YType.str, 'clmgmtLicenseEndDate')),
-                    ('clmgmtlicenseperiodused', YLeaf(YType.uint32, 'clmgmtLicensePeriodUsed')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('clmgmtlicensestoreused', (YLeaf(YType.uint32, 'clmgmtLicenseStoreUsed'), ['int'])),
+                    ('clmgmtlicenseindex', (YLeaf(YType.uint32, 'clmgmtLicenseIndex'), ['int'])),
+                    ('clmgmtlicensefeaturename', (YLeaf(YType.str, 'clmgmtLicenseFeatureName'), ['str'])),
+                    ('clmgmtlicensefeatureversion', (YLeaf(YType.str, 'clmgmtLicenseFeatureVersion'), ['str'])),
+                    ('clmgmtlicensetype', (YLeaf(YType.enumeration, 'clmgmtLicenseType'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry.ClmgmtLicenseType')])),
+                    ('clmgmtlicensecounted', (YLeaf(YType.boolean, 'clmgmtLicenseCounted'), ['bool'])),
+                    ('clmgmtlicensevalidityperiod', (YLeaf(YType.uint32, 'clmgmtLicenseValidityPeriod'), ['int'])),
+                    ('clmgmtlicensevalidityperiodremaining', (YLeaf(YType.uint32, 'clmgmtLicenseValidityPeriodRemaining'), ['int'])),
+                    ('clmgmtlicenseexpiredperiod', (YLeaf(YType.uint32, 'clmgmtLicenseExpiredPeriod'), ['int'])),
+                    ('clmgmtlicensemaxusagecount', (YLeaf(YType.uint32, 'clmgmtLicenseMaxUsageCount'), ['int'])),
+                    ('clmgmtlicenseusagecountremaining', (YLeaf(YType.uint32, 'clmgmtLicenseUsageCountRemaining'), ['int'])),
+                    ('clmgmtlicenseeulastatus', (YLeaf(YType.boolean, 'clmgmtLicenseEULAStatus'), ['bool'])),
+                    ('clmgmtlicensecomments', (YLeaf(YType.str, 'clmgmtLicenseComments'), ['str'])),
+                    ('clmgmtlicensestatus', (YLeaf(YType.enumeration, 'clmgmtLicenseStatus'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry.ClmgmtLicenseStatus')])),
+                    ('clmgmtlicensestartdate', (YLeaf(YType.str, 'clmgmtLicenseStartDate'), ['str'])),
+                    ('clmgmtlicenseenddate', (YLeaf(YType.str, 'clmgmtLicenseEndDate'), ['str'])),
+                    ('clmgmtlicenseperiodused', (YLeaf(YType.uint32, 'clmgmtLicensePeriodUsed'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.clmgmtlicensestoreused = None
@@ -1890,6 +1904,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtlicenseperiodused = None
                 self._segment_path = lambda: "clmgmtLicenseInfoEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[clmgmtLicenseStoreUsed='" + str(self.clmgmtlicensestoreused) + "']" + "[clmgmtLicenseIndex='" + str(self.clmgmtlicenseindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicenseInfoTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicenseInfoTable.ClmgmtLicenseInfoEntry, ['entphysicalindex', 'clmgmtlicensestoreused', 'clmgmtlicenseindex', 'clmgmtlicensefeaturename', 'clmgmtlicensefeatureversion', 'clmgmtlicensetype', 'clmgmtlicensecounted', 'clmgmtlicensevalidityperiod', 'clmgmtlicensevalidityperiodremaining', 'clmgmtlicenseexpiredperiod', 'clmgmtlicensemaxusagecount', 'clmgmtlicenseusagecountremaining', 'clmgmtlicenseeulastatus', 'clmgmtlicensecomments', 'clmgmtlicensestatus', 'clmgmtlicensestartdate', 'clmgmtlicenseenddate', 'clmgmtlicenseperiodused'], name, value)
@@ -2112,6 +2127,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtlicensablefeatureentry = YList(self)
             self._segment_path = lambda: "clmgmtLicensableFeatureTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable, [], name, value)
@@ -2204,15 +2220,15 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','clmgmtfeatureindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('clmgmtfeatureindex', YLeaf(YType.uint32, 'clmgmtFeatureIndex')),
-                    ('clmgmtfeaturename', YLeaf(YType.str, 'clmgmtFeatureName')),
-                    ('clmgmtfeatureversion', YLeaf(YType.str, 'clmgmtFeatureVersion')),
-                    ('clmgmtfeaturevalidityperiodremaining', YLeaf(YType.uint32, 'clmgmtFeatureValidityPeriodRemaining')),
-                    ('clmgmtfeaturewhatiscounted', YLeaf(YType.str, 'clmgmtFeatureWhatIsCounted')),
-                    ('clmgmtfeaturestartdate', YLeaf(YType.str, 'clmgmtFeatureStartDate')),
-                    ('clmgmtfeatureenddate', YLeaf(YType.str, 'clmgmtFeatureEndDate')),
-                    ('clmgmtfeatureperiodused', YLeaf(YType.uint32, 'clmgmtFeaturePeriodUsed')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('clmgmtfeatureindex', (YLeaf(YType.uint32, 'clmgmtFeatureIndex'), ['int'])),
+                    ('clmgmtfeaturename', (YLeaf(YType.str, 'clmgmtFeatureName'), ['str'])),
+                    ('clmgmtfeatureversion', (YLeaf(YType.str, 'clmgmtFeatureVersion'), ['str'])),
+                    ('clmgmtfeaturevalidityperiodremaining', (YLeaf(YType.uint32, 'clmgmtFeatureValidityPeriodRemaining'), ['int'])),
+                    ('clmgmtfeaturewhatiscounted', (YLeaf(YType.str, 'clmgmtFeatureWhatIsCounted'), ['str'])),
+                    ('clmgmtfeaturestartdate', (YLeaf(YType.str, 'clmgmtFeatureStartDate'), ['str'])),
+                    ('clmgmtfeatureenddate', (YLeaf(YType.str, 'clmgmtFeatureEndDate'), ['str'])),
+                    ('clmgmtfeatureperiodused', (YLeaf(YType.uint32, 'clmgmtFeaturePeriodUsed'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.clmgmtfeatureindex = None
@@ -2225,6 +2241,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtfeatureperiodused = None
                 self._segment_path = lambda: "clmgmtLicensableFeatureEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[clmgmtFeatureIndex='" + str(self.clmgmtfeatureindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtLicensableFeatureTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtLicensableFeatureTable.ClmgmtLicensableFeatureEntry, ['entphysicalindex', 'clmgmtfeatureindex', 'clmgmtfeaturename', 'clmgmtfeatureversion', 'clmgmtfeaturevalidityperiodremaining', 'clmgmtfeaturewhatiscounted', 'clmgmtfeaturestartdate', 'clmgmtfeatureenddate', 'clmgmtfeatureperiodused'], name, value)
@@ -2268,6 +2285,7 @@ class CISCOLICENSEMGMTMIB(Entity):
             self.clmgmtdevcredexportactionentry = YList(self)
             self._segment_path = lambda: "clmgmtDevCredExportActionTable"
             self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable, [], name, value)
@@ -2407,19 +2425,19 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.ylist_key_names = ['clmgmtdevcredexportactionindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clmgmtdevcredexportactionindex', YLeaf(YType.uint32, 'clmgmtDevCredExportActionIndex')),
-                    ('clmgmtdevcredentphysicalindex', YLeaf(YType.int32, 'clmgmtDevCredEntPhysicalIndex')),
-                    ('clmgmtdevcredtransferprotocol', YLeaf(YType.enumeration, 'clmgmtDevCredTransferProtocol')),
-                    ('clmgmtdevcredserveraddresstype', YLeaf(YType.enumeration, 'clmgmtDevCredServerAddressType')),
-                    ('clmgmtdevcredserveraddress', YLeaf(YType.str, 'clmgmtDevCredServerAddress')),
-                    ('clmgmtdevcredserverusername', YLeaf(YType.str, 'clmgmtDevCredServerUsername')),
-                    ('clmgmtdevcredserverpassword', YLeaf(YType.str, 'clmgmtDevCredServerPassword')),
-                    ('clmgmtdevcredexportfile', YLeaf(YType.str, 'clmgmtDevCredExportFile')),
-                    ('clmgmtdevcredcommand', YLeaf(YType.enumeration, 'clmgmtDevCredCommand')),
-                    ('clmgmtdevcredcommandstate', YLeaf(YType.enumeration, 'clmgmtDevCredCommandState')),
-                    ('clmgmtdevcredcommandfailcause', YLeaf(YType.enumeration, 'clmgmtDevCredCommandFailCause')),
-                    ('clmgmtdevcredstoragetype', YLeaf(YType.enumeration, 'clmgmtDevCredStorageType')),
-                    ('clmgmtdevcredrowstatus', YLeaf(YType.enumeration, 'clmgmtDevCredRowStatus')),
+                    ('clmgmtdevcredexportactionindex', (YLeaf(YType.uint32, 'clmgmtDevCredExportActionIndex'), ['int'])),
+                    ('clmgmtdevcredentphysicalindex', (YLeaf(YType.int32, 'clmgmtDevCredEntPhysicalIndex'), ['int'])),
+                    ('clmgmtdevcredtransferprotocol', (YLeaf(YType.enumeration, 'clmgmtDevCredTransferProtocol'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseTransferProtocol', '')])),
+                    ('clmgmtdevcredserveraddresstype', (YLeaf(YType.enumeration, 'clmgmtDevCredServerAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('clmgmtdevcredserveraddress', (YLeaf(YType.str, 'clmgmtDevCredServerAddress'), ['str'])),
+                    ('clmgmtdevcredserverusername', (YLeaf(YType.str, 'clmgmtDevCredServerUsername'), ['str'])),
+                    ('clmgmtdevcredserverpassword', (YLeaf(YType.str, 'clmgmtDevCredServerPassword'), ['str'])),
+                    ('clmgmtdevcredexportfile', (YLeaf(YType.str, 'clmgmtDevCredExportFile'), ['str'])),
+                    ('clmgmtdevcredcommand', (YLeaf(YType.enumeration, 'clmgmtDevCredCommand'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry.ClmgmtDevCredCommand')])),
+                    ('clmgmtdevcredcommandstate', (YLeaf(YType.enumeration, 'clmgmtDevCredCommandState'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'ClmgmtLicenseActionState', '')])),
+                    ('clmgmtdevcredcommandfailcause', (YLeaf(YType.enumeration, 'clmgmtDevCredCommandFailCause'), [('ydk.models.cisco_ios_xe.CISCO_LICENSE_MGMT_MIB', 'CISCOLICENSEMGMTMIB', 'ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry.ClmgmtDevCredCommandFailCause')])),
+                    ('clmgmtdevcredstoragetype', (YLeaf(YType.enumeration, 'clmgmtDevCredStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('clmgmtdevcredrowstatus', (YLeaf(YType.enumeration, 'clmgmtDevCredRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.clmgmtdevcredexportactionindex = None
                 self.clmgmtdevcredentphysicalindex = None
@@ -2436,6 +2454,7 @@ class CISCOLICENSEMGMTMIB(Entity):
                 self.clmgmtdevcredrowstatus = None
                 self._segment_path = lambda: "clmgmtDevCredExportActionEntry" + "[clmgmtDevCredExportActionIndex='" + str(self.clmgmtdevcredexportactionindex) + "']"
                 self._absolute_path = lambda: "CISCO-LICENSE-MGMT-MIB:CISCO-LICENSE-MGMT-MIB/clmgmtDevCredExportActionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOLICENSEMGMTMIB.ClmgmtDevCredExportActionTable.ClmgmtDevCredExportActionEntry, ['clmgmtdevcredexportactionindex', 'clmgmtdevcredentphysicalindex', 'clmgmtdevcredtransferprotocol', 'clmgmtdevcredserveraddresstype', 'clmgmtdevcredserveraddress', 'clmgmtdevcredserverusername', 'clmgmtdevcredserverpassword', 'clmgmtdevcredexportfile', 'clmgmtdevcredcommand', 'clmgmtdevcredcommandstate', 'clmgmtdevcredcommandfailcause', 'clmgmtdevcredstoragetype', 'clmgmtdevcredrowstatus'], name, value)

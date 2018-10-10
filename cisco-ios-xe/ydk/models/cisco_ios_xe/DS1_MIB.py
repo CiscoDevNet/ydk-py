@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class DS1MIB(Entity):
     """
     
@@ -119,6 +120,7 @@ class DS1MIB(Entity):
         self.dsx1chanmappingtable.parent = self
         self._children_name_map["dsx1chanmappingtable"] = "dsx1ChanMappingTable"
         self._segment_path = lambda: "DS1-MIB:DS1-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DS1MIB, [], name, value)
@@ -154,6 +156,7 @@ class DS1MIB(Entity):
             self.dsx1configentry = YList(self)
             self._segment_path = lambda: "dsx1ConfigTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1ConfigTable, [], name, value)
@@ -308,26 +311,26 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1lineindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1lineindex', YLeaf(YType.int32, 'dsx1LineIndex')),
-                    ('dsx1ifindex', YLeaf(YType.int32, 'dsx1IfIndex')),
-                    ('dsx1timeelapsed', YLeaf(YType.int32, 'dsx1TimeElapsed')),
-                    ('dsx1validintervals', YLeaf(YType.int32, 'dsx1ValidIntervals')),
-                    ('dsx1linetype', YLeaf(YType.enumeration, 'dsx1LineType')),
-                    ('dsx1linecoding', YLeaf(YType.enumeration, 'dsx1LineCoding')),
-                    ('dsx1sendcode', YLeaf(YType.enumeration, 'dsx1SendCode')),
-                    ('dsx1circuitidentifier', YLeaf(YType.str, 'dsx1CircuitIdentifier')),
-                    ('dsx1loopbackconfig', YLeaf(YType.enumeration, 'dsx1LoopbackConfig')),
-                    ('dsx1linestatus', YLeaf(YType.int32, 'dsx1LineStatus')),
-                    ('dsx1signalmode', YLeaf(YType.enumeration, 'dsx1SignalMode')),
-                    ('dsx1transmitclocksource', YLeaf(YType.enumeration, 'dsx1TransmitClockSource')),
-                    ('dsx1fdl', YLeaf(YType.int32, 'dsx1Fdl')),
-                    ('dsx1invalidintervals', YLeaf(YType.int32, 'dsx1InvalidIntervals')),
-                    ('dsx1linelength', YLeaf(YType.int32, 'dsx1LineLength')),
-                    ('dsx1linestatuslastchange', YLeaf(YType.uint32, 'dsx1LineStatusLastChange')),
-                    ('dsx1linestatuschangetrapenable', YLeaf(YType.enumeration, 'dsx1LineStatusChangeTrapEnable')),
-                    ('dsx1loopbackstatus', YLeaf(YType.int32, 'dsx1LoopbackStatus')),
-                    ('dsx1ds1channelnumber', YLeaf(YType.int32, 'dsx1Ds1ChannelNumber')),
-                    ('dsx1channelization', YLeaf(YType.enumeration, 'dsx1Channelization')),
+                    ('dsx1lineindex', (YLeaf(YType.int32, 'dsx1LineIndex'), ['int'])),
+                    ('dsx1ifindex', (YLeaf(YType.int32, 'dsx1IfIndex'), ['int'])),
+                    ('dsx1timeelapsed', (YLeaf(YType.int32, 'dsx1TimeElapsed'), ['int'])),
+                    ('dsx1validintervals', (YLeaf(YType.int32, 'dsx1ValidIntervals'), ['int'])),
+                    ('dsx1linetype', (YLeaf(YType.enumeration, 'dsx1LineType'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineType')])),
+                    ('dsx1linecoding', (YLeaf(YType.enumeration, 'dsx1LineCoding'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineCoding')])),
+                    ('dsx1sendcode', (YLeaf(YType.enumeration, 'dsx1SendCode'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1SendCode')])),
+                    ('dsx1circuitidentifier', (YLeaf(YType.str, 'dsx1CircuitIdentifier'), ['str'])),
+                    ('dsx1loopbackconfig', (YLeaf(YType.enumeration, 'dsx1LoopbackConfig'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LoopbackConfig')])),
+                    ('dsx1linestatus', (YLeaf(YType.int32, 'dsx1LineStatus'), ['int'])),
+                    ('dsx1signalmode', (YLeaf(YType.enumeration, 'dsx1SignalMode'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1SignalMode')])),
+                    ('dsx1transmitclocksource', (YLeaf(YType.enumeration, 'dsx1TransmitClockSource'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1TransmitClockSource')])),
+                    ('dsx1fdl', (YLeaf(YType.int32, 'dsx1Fdl'), ['int'])),
+                    ('dsx1invalidintervals', (YLeaf(YType.int32, 'dsx1InvalidIntervals'), ['int'])),
+                    ('dsx1linelength', (YLeaf(YType.int32, 'dsx1LineLength'), ['int'])),
+                    ('dsx1linestatuslastchange', (YLeaf(YType.uint32, 'dsx1LineStatusLastChange'), ['int'])),
+                    ('dsx1linestatuschangetrapenable', (YLeaf(YType.enumeration, 'dsx1LineStatusChangeTrapEnable'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1LineStatusChangeTrapEnable')])),
+                    ('dsx1loopbackstatus', (YLeaf(YType.int32, 'dsx1LoopbackStatus'), ['int'])),
+                    ('dsx1ds1channelnumber', (YLeaf(YType.int32, 'dsx1Ds1ChannelNumber'), ['int'])),
+                    ('dsx1channelization', (YLeaf(YType.enumeration, 'dsx1Channelization'), [('ydk.models.cisco_ios_xe.DS1_MIB', 'DS1MIB', 'Dsx1ConfigTable.Dsx1ConfigEntry.Dsx1Channelization')])),
                 ])
                 self.dsx1lineindex = None
                 self.dsx1ifindex = None
@@ -351,6 +354,7 @@ class DS1MIB(Entity):
                 self.dsx1channelization = None
                 self._segment_path = lambda: "dsx1ConfigEntry" + "[dsx1LineIndex='" + str(self.dsx1lineindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1ConfigTable.Dsx1ConfigEntry, ['dsx1lineindex', 'dsx1ifindex', 'dsx1timeelapsed', 'dsx1validintervals', 'dsx1linetype', 'dsx1linecoding', 'dsx1sendcode', 'dsx1circuitidentifier', 'dsx1loopbackconfig', 'dsx1linestatus', 'dsx1signalmode', 'dsx1transmitclocksource', 'dsx1fdl', 'dsx1invalidintervals', 'dsx1linelength', 'dsx1linestatuslastchange', 'dsx1linestatuschangetrapenable', 'dsx1loopbackstatus', 'dsx1ds1channelnumber', 'dsx1channelization'], name, value)
@@ -892,6 +896,7 @@ class DS1MIB(Entity):
             self.dsx1currententry = YList(self)
             self._segment_path = lambda: "dsx1CurrentTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1CurrentTable, [], name, value)
@@ -995,17 +1000,17 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1currentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1currentindex', YLeaf(YType.int32, 'dsx1CurrentIndex')),
-                    ('dsx1currentess', YLeaf(YType.uint32, 'dsx1CurrentESs')),
-                    ('dsx1currentsess', YLeaf(YType.uint32, 'dsx1CurrentSESs')),
-                    ('dsx1currentsefss', YLeaf(YType.uint32, 'dsx1CurrentSEFSs')),
-                    ('dsx1currentuass', YLeaf(YType.uint32, 'dsx1CurrentUASs')),
-                    ('dsx1currentcsss', YLeaf(YType.uint32, 'dsx1CurrentCSSs')),
-                    ('dsx1currentpcvs', YLeaf(YType.uint32, 'dsx1CurrentPCVs')),
-                    ('dsx1currentless', YLeaf(YType.uint32, 'dsx1CurrentLESs')),
-                    ('dsx1currentbess', YLeaf(YType.uint32, 'dsx1CurrentBESs')),
-                    ('dsx1currentdms', YLeaf(YType.uint32, 'dsx1CurrentDMs')),
-                    ('dsx1currentlcvs', YLeaf(YType.uint32, 'dsx1CurrentLCVs')),
+                    ('dsx1currentindex', (YLeaf(YType.int32, 'dsx1CurrentIndex'), ['int'])),
+                    ('dsx1currentess', (YLeaf(YType.uint32, 'dsx1CurrentESs'), ['int'])),
+                    ('dsx1currentsess', (YLeaf(YType.uint32, 'dsx1CurrentSESs'), ['int'])),
+                    ('dsx1currentsefss', (YLeaf(YType.uint32, 'dsx1CurrentSEFSs'), ['int'])),
+                    ('dsx1currentuass', (YLeaf(YType.uint32, 'dsx1CurrentUASs'), ['int'])),
+                    ('dsx1currentcsss', (YLeaf(YType.uint32, 'dsx1CurrentCSSs'), ['int'])),
+                    ('dsx1currentpcvs', (YLeaf(YType.uint32, 'dsx1CurrentPCVs'), ['int'])),
+                    ('dsx1currentless', (YLeaf(YType.uint32, 'dsx1CurrentLESs'), ['int'])),
+                    ('dsx1currentbess', (YLeaf(YType.uint32, 'dsx1CurrentBESs'), ['int'])),
+                    ('dsx1currentdms', (YLeaf(YType.uint32, 'dsx1CurrentDMs'), ['int'])),
+                    ('dsx1currentlcvs', (YLeaf(YType.uint32, 'dsx1CurrentLCVs'), ['int'])),
                 ])
                 self.dsx1currentindex = None
                 self.dsx1currentess = None
@@ -1020,6 +1025,7 @@ class DS1MIB(Entity):
                 self.dsx1currentlcvs = None
                 self._segment_path = lambda: "dsx1CurrentEntry" + "[dsx1CurrentIndex='" + str(self.dsx1currentindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1CurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1CurrentTable.Dsx1CurrentEntry, ['dsx1currentindex', 'dsx1currentess', 'dsx1currentsess', 'dsx1currentsefss', 'dsx1currentuass', 'dsx1currentcsss', 'dsx1currentpcvs', 'dsx1currentless', 'dsx1currentbess', 'dsx1currentdms', 'dsx1currentlcvs'], name, value)
@@ -1062,6 +1068,7 @@ class DS1MIB(Entity):
             self.dsx1intervalentry = YList(self)
             self._segment_path = lambda: "dsx1IntervalTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1IntervalTable, [], name, value)
@@ -1177,19 +1184,19 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1intervalindex','dsx1intervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1intervalindex', YLeaf(YType.int32, 'dsx1IntervalIndex')),
-                    ('dsx1intervalnumber', YLeaf(YType.int32, 'dsx1IntervalNumber')),
-                    ('dsx1intervaless', YLeaf(YType.uint32, 'dsx1IntervalESs')),
-                    ('dsx1intervalsess', YLeaf(YType.uint32, 'dsx1IntervalSESs')),
-                    ('dsx1intervalsefss', YLeaf(YType.uint32, 'dsx1IntervalSEFSs')),
-                    ('dsx1intervaluass', YLeaf(YType.uint32, 'dsx1IntervalUASs')),
-                    ('dsx1intervalcsss', YLeaf(YType.uint32, 'dsx1IntervalCSSs')),
-                    ('dsx1intervalpcvs', YLeaf(YType.uint32, 'dsx1IntervalPCVs')),
-                    ('dsx1intervalless', YLeaf(YType.uint32, 'dsx1IntervalLESs')),
-                    ('dsx1intervalbess', YLeaf(YType.uint32, 'dsx1IntervalBESs')),
-                    ('dsx1intervaldms', YLeaf(YType.uint32, 'dsx1IntervalDMs')),
-                    ('dsx1intervallcvs', YLeaf(YType.uint32, 'dsx1IntervalLCVs')),
-                    ('dsx1intervalvaliddata', YLeaf(YType.boolean, 'dsx1IntervalValidData')),
+                    ('dsx1intervalindex', (YLeaf(YType.int32, 'dsx1IntervalIndex'), ['int'])),
+                    ('dsx1intervalnumber', (YLeaf(YType.int32, 'dsx1IntervalNumber'), ['int'])),
+                    ('dsx1intervaless', (YLeaf(YType.uint32, 'dsx1IntervalESs'), ['int'])),
+                    ('dsx1intervalsess', (YLeaf(YType.uint32, 'dsx1IntervalSESs'), ['int'])),
+                    ('dsx1intervalsefss', (YLeaf(YType.uint32, 'dsx1IntervalSEFSs'), ['int'])),
+                    ('dsx1intervaluass', (YLeaf(YType.uint32, 'dsx1IntervalUASs'), ['int'])),
+                    ('dsx1intervalcsss', (YLeaf(YType.uint32, 'dsx1IntervalCSSs'), ['int'])),
+                    ('dsx1intervalpcvs', (YLeaf(YType.uint32, 'dsx1IntervalPCVs'), ['int'])),
+                    ('dsx1intervalless', (YLeaf(YType.uint32, 'dsx1IntervalLESs'), ['int'])),
+                    ('dsx1intervalbess', (YLeaf(YType.uint32, 'dsx1IntervalBESs'), ['int'])),
+                    ('dsx1intervaldms', (YLeaf(YType.uint32, 'dsx1IntervalDMs'), ['int'])),
+                    ('dsx1intervallcvs', (YLeaf(YType.uint32, 'dsx1IntervalLCVs'), ['int'])),
+                    ('dsx1intervalvaliddata', (YLeaf(YType.boolean, 'dsx1IntervalValidData'), ['bool'])),
                 ])
                 self.dsx1intervalindex = None
                 self.dsx1intervalnumber = None
@@ -1206,6 +1213,7 @@ class DS1MIB(Entity):
                 self.dsx1intervalvaliddata = None
                 self._segment_path = lambda: "dsx1IntervalEntry" + "[dsx1IntervalIndex='" + str(self.dsx1intervalindex) + "']" + "[dsx1IntervalNumber='" + str(self.dsx1intervalnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1IntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1IntervalTable.Dsx1IntervalEntry, ['dsx1intervalindex', 'dsx1intervalnumber', 'dsx1intervaless', 'dsx1intervalsess', 'dsx1intervalsefss', 'dsx1intervaluass', 'dsx1intervalcsss', 'dsx1intervalpcvs', 'dsx1intervalless', 'dsx1intervalbess', 'dsx1intervaldms', 'dsx1intervallcvs', 'dsx1intervalvaliddata'], name, value)
@@ -1243,6 +1251,7 @@ class DS1MIB(Entity):
             self.dsx1totalentry = YList(self)
             self._segment_path = lambda: "dsx1TotalTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1TotalTable, [], name, value)
@@ -1346,17 +1355,17 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1totalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1totalindex', YLeaf(YType.int32, 'dsx1TotalIndex')),
-                    ('dsx1totaless', YLeaf(YType.uint32, 'dsx1TotalESs')),
-                    ('dsx1totalsess', YLeaf(YType.uint32, 'dsx1TotalSESs')),
-                    ('dsx1totalsefss', YLeaf(YType.uint32, 'dsx1TotalSEFSs')),
-                    ('dsx1totaluass', YLeaf(YType.uint32, 'dsx1TotalUASs')),
-                    ('dsx1totalcsss', YLeaf(YType.uint32, 'dsx1TotalCSSs')),
-                    ('dsx1totalpcvs', YLeaf(YType.uint32, 'dsx1TotalPCVs')),
-                    ('dsx1totalless', YLeaf(YType.uint32, 'dsx1TotalLESs')),
-                    ('dsx1totalbess', YLeaf(YType.uint32, 'dsx1TotalBESs')),
-                    ('dsx1totaldms', YLeaf(YType.uint32, 'dsx1TotalDMs')),
-                    ('dsx1totallcvs', YLeaf(YType.uint32, 'dsx1TotalLCVs')),
+                    ('dsx1totalindex', (YLeaf(YType.int32, 'dsx1TotalIndex'), ['int'])),
+                    ('dsx1totaless', (YLeaf(YType.uint32, 'dsx1TotalESs'), ['int'])),
+                    ('dsx1totalsess', (YLeaf(YType.uint32, 'dsx1TotalSESs'), ['int'])),
+                    ('dsx1totalsefss', (YLeaf(YType.uint32, 'dsx1TotalSEFSs'), ['int'])),
+                    ('dsx1totaluass', (YLeaf(YType.uint32, 'dsx1TotalUASs'), ['int'])),
+                    ('dsx1totalcsss', (YLeaf(YType.uint32, 'dsx1TotalCSSs'), ['int'])),
+                    ('dsx1totalpcvs', (YLeaf(YType.uint32, 'dsx1TotalPCVs'), ['int'])),
+                    ('dsx1totalless', (YLeaf(YType.uint32, 'dsx1TotalLESs'), ['int'])),
+                    ('dsx1totalbess', (YLeaf(YType.uint32, 'dsx1TotalBESs'), ['int'])),
+                    ('dsx1totaldms', (YLeaf(YType.uint32, 'dsx1TotalDMs'), ['int'])),
+                    ('dsx1totallcvs', (YLeaf(YType.uint32, 'dsx1TotalLCVs'), ['int'])),
                 ])
                 self.dsx1totalindex = None
                 self.dsx1totaless = None
@@ -1371,6 +1380,7 @@ class DS1MIB(Entity):
                 self.dsx1totallcvs = None
                 self._segment_path = lambda: "dsx1TotalEntry" + "[dsx1TotalIndex='" + str(self.dsx1totalindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1TotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1TotalTable.Dsx1TotalEntry, ['dsx1totalindex', 'dsx1totaless', 'dsx1totalsess', 'dsx1totalsefss', 'dsx1totaluass', 'dsx1totalcsss', 'dsx1totalpcvs', 'dsx1totalless', 'dsx1totalbess', 'dsx1totaldms', 'dsx1totallcvs'], name, value)
@@ -1411,6 +1421,7 @@ class DS1MIB(Entity):
             self.dsx1farendcurrententry = YList(self)
             self._segment_path = lambda: "dsx1FarEndCurrentTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1FarEndCurrentTable, [], name, value)
@@ -1528,19 +1539,19 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1farendcurrentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1farendcurrentindex', YLeaf(YType.int32, 'dsx1FarEndCurrentIndex')),
-                    ('dsx1farendtimeelapsed', YLeaf(YType.int32, 'dsx1FarEndTimeElapsed')),
-                    ('dsx1farendvalidintervals', YLeaf(YType.int32, 'dsx1FarEndValidIntervals')),
-                    ('dsx1farendcurrentess', YLeaf(YType.uint32, 'dsx1FarEndCurrentESs')),
-                    ('dsx1farendcurrentsess', YLeaf(YType.uint32, 'dsx1FarEndCurrentSESs')),
-                    ('dsx1farendcurrentsefss', YLeaf(YType.uint32, 'dsx1FarEndCurrentSEFSs')),
-                    ('dsx1farendcurrentuass', YLeaf(YType.uint32, 'dsx1FarEndCurrentUASs')),
-                    ('dsx1farendcurrentcsss', YLeaf(YType.uint32, 'dsx1FarEndCurrentCSSs')),
-                    ('dsx1farendcurrentless', YLeaf(YType.uint32, 'dsx1FarEndCurrentLESs')),
-                    ('dsx1farendcurrentpcvs', YLeaf(YType.uint32, 'dsx1FarEndCurrentPCVs')),
-                    ('dsx1farendcurrentbess', YLeaf(YType.uint32, 'dsx1FarEndCurrentBESs')),
-                    ('dsx1farendcurrentdms', YLeaf(YType.uint32, 'dsx1FarEndCurrentDMs')),
-                    ('dsx1farendinvalidintervals', YLeaf(YType.int32, 'dsx1FarEndInvalidIntervals')),
+                    ('dsx1farendcurrentindex', (YLeaf(YType.int32, 'dsx1FarEndCurrentIndex'), ['int'])),
+                    ('dsx1farendtimeelapsed', (YLeaf(YType.int32, 'dsx1FarEndTimeElapsed'), ['int'])),
+                    ('dsx1farendvalidintervals', (YLeaf(YType.int32, 'dsx1FarEndValidIntervals'), ['int'])),
+                    ('dsx1farendcurrentess', (YLeaf(YType.uint32, 'dsx1FarEndCurrentESs'), ['int'])),
+                    ('dsx1farendcurrentsess', (YLeaf(YType.uint32, 'dsx1FarEndCurrentSESs'), ['int'])),
+                    ('dsx1farendcurrentsefss', (YLeaf(YType.uint32, 'dsx1FarEndCurrentSEFSs'), ['int'])),
+                    ('dsx1farendcurrentuass', (YLeaf(YType.uint32, 'dsx1FarEndCurrentUASs'), ['int'])),
+                    ('dsx1farendcurrentcsss', (YLeaf(YType.uint32, 'dsx1FarEndCurrentCSSs'), ['int'])),
+                    ('dsx1farendcurrentless', (YLeaf(YType.uint32, 'dsx1FarEndCurrentLESs'), ['int'])),
+                    ('dsx1farendcurrentpcvs', (YLeaf(YType.uint32, 'dsx1FarEndCurrentPCVs'), ['int'])),
+                    ('dsx1farendcurrentbess', (YLeaf(YType.uint32, 'dsx1FarEndCurrentBESs'), ['int'])),
+                    ('dsx1farendcurrentdms', (YLeaf(YType.uint32, 'dsx1FarEndCurrentDMs'), ['int'])),
+                    ('dsx1farendinvalidintervals', (YLeaf(YType.int32, 'dsx1FarEndInvalidIntervals'), ['int'])),
                 ])
                 self.dsx1farendcurrentindex = None
                 self.dsx1farendtimeelapsed = None
@@ -1557,6 +1568,7 @@ class DS1MIB(Entity):
                 self.dsx1farendinvalidintervals = None
                 self._segment_path = lambda: "dsx1FarEndCurrentEntry" + "[dsx1FarEndCurrentIndex='" + str(self.dsx1farendcurrentindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1FarEndCurrentTable.Dsx1FarEndCurrentEntry, ['dsx1farendcurrentindex', 'dsx1farendtimeelapsed', 'dsx1farendvalidintervals', 'dsx1farendcurrentess', 'dsx1farendcurrentsess', 'dsx1farendcurrentsefss', 'dsx1farendcurrentuass', 'dsx1farendcurrentcsss', 'dsx1farendcurrentless', 'dsx1farendcurrentpcvs', 'dsx1farendcurrentbess', 'dsx1farendcurrentdms', 'dsx1farendinvalidintervals'], name, value)
@@ -1599,6 +1611,7 @@ class DS1MIB(Entity):
             self.dsx1farendintervalentry = YList(self)
             self._segment_path = lambda: "dsx1FarEndIntervalTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1FarEndIntervalTable, [], name, value)
@@ -1707,18 +1720,18 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1farendintervalindex','dsx1farendintervalnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1farendintervalindex', YLeaf(YType.int32, 'dsx1FarEndIntervalIndex')),
-                    ('dsx1farendintervalnumber', YLeaf(YType.int32, 'dsx1FarEndIntervalNumber')),
-                    ('dsx1farendintervaless', YLeaf(YType.uint32, 'dsx1FarEndIntervalESs')),
-                    ('dsx1farendintervalsess', YLeaf(YType.uint32, 'dsx1FarEndIntervalSESs')),
-                    ('dsx1farendintervalsefss', YLeaf(YType.uint32, 'dsx1FarEndIntervalSEFSs')),
-                    ('dsx1farendintervaluass', YLeaf(YType.uint32, 'dsx1FarEndIntervalUASs')),
-                    ('dsx1farendintervalcsss', YLeaf(YType.uint32, 'dsx1FarEndIntervalCSSs')),
-                    ('dsx1farendintervalless', YLeaf(YType.uint32, 'dsx1FarEndIntervalLESs')),
-                    ('dsx1farendintervalpcvs', YLeaf(YType.uint32, 'dsx1FarEndIntervalPCVs')),
-                    ('dsx1farendintervalbess', YLeaf(YType.uint32, 'dsx1FarEndIntervalBESs')),
-                    ('dsx1farendintervaldms', YLeaf(YType.uint32, 'dsx1FarEndIntervalDMs')),
-                    ('dsx1farendintervalvaliddata', YLeaf(YType.boolean, 'dsx1FarEndIntervalValidData')),
+                    ('dsx1farendintervalindex', (YLeaf(YType.int32, 'dsx1FarEndIntervalIndex'), ['int'])),
+                    ('dsx1farendintervalnumber', (YLeaf(YType.int32, 'dsx1FarEndIntervalNumber'), ['int'])),
+                    ('dsx1farendintervaless', (YLeaf(YType.uint32, 'dsx1FarEndIntervalESs'), ['int'])),
+                    ('dsx1farendintervalsess', (YLeaf(YType.uint32, 'dsx1FarEndIntervalSESs'), ['int'])),
+                    ('dsx1farendintervalsefss', (YLeaf(YType.uint32, 'dsx1FarEndIntervalSEFSs'), ['int'])),
+                    ('dsx1farendintervaluass', (YLeaf(YType.uint32, 'dsx1FarEndIntervalUASs'), ['int'])),
+                    ('dsx1farendintervalcsss', (YLeaf(YType.uint32, 'dsx1FarEndIntervalCSSs'), ['int'])),
+                    ('dsx1farendintervalless', (YLeaf(YType.uint32, 'dsx1FarEndIntervalLESs'), ['int'])),
+                    ('dsx1farendintervalpcvs', (YLeaf(YType.uint32, 'dsx1FarEndIntervalPCVs'), ['int'])),
+                    ('dsx1farendintervalbess', (YLeaf(YType.uint32, 'dsx1FarEndIntervalBESs'), ['int'])),
+                    ('dsx1farendintervaldms', (YLeaf(YType.uint32, 'dsx1FarEndIntervalDMs'), ['int'])),
+                    ('dsx1farendintervalvaliddata', (YLeaf(YType.boolean, 'dsx1FarEndIntervalValidData'), ['bool'])),
                 ])
                 self.dsx1farendintervalindex = None
                 self.dsx1farendintervalnumber = None
@@ -1734,6 +1747,7 @@ class DS1MIB(Entity):
                 self.dsx1farendintervalvaliddata = None
                 self._segment_path = lambda: "dsx1FarEndIntervalEntry" + "[dsx1FarEndIntervalIndex='" + str(self.dsx1farendintervalindex) + "']" + "[dsx1FarEndIntervalNumber='" + str(self.dsx1farendintervalnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndIntervalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1FarEndIntervalTable.Dsx1FarEndIntervalEntry, ['dsx1farendintervalindex', 'dsx1farendintervalnumber', 'dsx1farendintervaless', 'dsx1farendintervalsess', 'dsx1farendintervalsefss', 'dsx1farendintervaluass', 'dsx1farendintervalcsss', 'dsx1farendintervalless', 'dsx1farendintervalpcvs', 'dsx1farendintervalbess', 'dsx1farendintervaldms', 'dsx1farendintervalvaliddata'], name, value)
@@ -1771,6 +1785,7 @@ class DS1MIB(Entity):
             self.dsx1farendtotalentry = YList(self)
             self._segment_path = lambda: "dsx1FarEndTotalTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1FarEndTotalTable, [], name, value)
@@ -1867,16 +1882,16 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1farendtotalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1farendtotalindex', YLeaf(YType.int32, 'dsx1FarEndTotalIndex')),
-                    ('dsx1farendtotaless', YLeaf(YType.uint32, 'dsx1FarEndTotalESs')),
-                    ('dsx1farendtotalsess', YLeaf(YType.uint32, 'dsx1FarEndTotalSESs')),
-                    ('dsx1farendtotalsefss', YLeaf(YType.uint32, 'dsx1FarEndTotalSEFSs')),
-                    ('dsx1farendtotaluass', YLeaf(YType.uint32, 'dsx1FarEndTotalUASs')),
-                    ('dsx1farendtotalcsss', YLeaf(YType.uint32, 'dsx1FarEndTotalCSSs')),
-                    ('dsx1farendtotalless', YLeaf(YType.uint32, 'dsx1FarEndTotalLESs')),
-                    ('dsx1farendtotalpcvs', YLeaf(YType.uint32, 'dsx1FarEndTotalPCVs')),
-                    ('dsx1farendtotalbess', YLeaf(YType.uint32, 'dsx1FarEndTotalBESs')),
-                    ('dsx1farendtotaldms', YLeaf(YType.uint32, 'dsx1FarEndTotalDMs')),
+                    ('dsx1farendtotalindex', (YLeaf(YType.int32, 'dsx1FarEndTotalIndex'), ['int'])),
+                    ('dsx1farendtotaless', (YLeaf(YType.uint32, 'dsx1FarEndTotalESs'), ['int'])),
+                    ('dsx1farendtotalsess', (YLeaf(YType.uint32, 'dsx1FarEndTotalSESs'), ['int'])),
+                    ('dsx1farendtotalsefss', (YLeaf(YType.uint32, 'dsx1FarEndTotalSEFSs'), ['int'])),
+                    ('dsx1farendtotaluass', (YLeaf(YType.uint32, 'dsx1FarEndTotalUASs'), ['int'])),
+                    ('dsx1farendtotalcsss', (YLeaf(YType.uint32, 'dsx1FarEndTotalCSSs'), ['int'])),
+                    ('dsx1farendtotalless', (YLeaf(YType.uint32, 'dsx1FarEndTotalLESs'), ['int'])),
+                    ('dsx1farendtotalpcvs', (YLeaf(YType.uint32, 'dsx1FarEndTotalPCVs'), ['int'])),
+                    ('dsx1farendtotalbess', (YLeaf(YType.uint32, 'dsx1FarEndTotalBESs'), ['int'])),
+                    ('dsx1farendtotaldms', (YLeaf(YType.uint32, 'dsx1FarEndTotalDMs'), ['int'])),
                 ])
                 self.dsx1farendtotalindex = None
                 self.dsx1farendtotaless = None
@@ -1890,6 +1905,7 @@ class DS1MIB(Entity):
                 self.dsx1farendtotaldms = None
                 self._segment_path = lambda: "dsx1FarEndTotalEntry" + "[dsx1FarEndTotalIndex='" + str(self.dsx1farendtotalindex) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FarEndTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1FarEndTotalTable.Dsx1FarEndTotalEntry, ['dsx1farendtotalindex', 'dsx1farendtotaless', 'dsx1farendtotalsess', 'dsx1farendtotalsefss', 'dsx1farendtotaluass', 'dsx1farendtotalcsss', 'dsx1farendtotalless', 'dsx1farendtotalpcvs', 'dsx1farendtotalbess', 'dsx1farendtotaldms'], name, value)
@@ -1981,6 +1997,7 @@ class DS1MIB(Entity):
             self.dsx1fracentry = YList(self)
             self._segment_path = lambda: "dsx1FracTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1FracTable, [], name, value)
@@ -2034,15 +2051,16 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['dsx1fracindex','dsx1fracnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dsx1fracindex', YLeaf(YType.int32, 'dsx1FracIndex')),
-                    ('dsx1fracnumber', YLeaf(YType.int32, 'dsx1FracNumber')),
-                    ('dsx1fracifindex', YLeaf(YType.int32, 'dsx1FracIfIndex')),
+                    ('dsx1fracindex', (YLeaf(YType.int32, 'dsx1FracIndex'), ['int'])),
+                    ('dsx1fracnumber', (YLeaf(YType.int32, 'dsx1FracNumber'), ['int'])),
+                    ('dsx1fracifindex', (YLeaf(YType.int32, 'dsx1FracIfIndex'), ['int'])),
                 ])
                 self.dsx1fracindex = None
                 self.dsx1fracnumber = None
                 self.dsx1fracifindex = None
                 self._segment_path = lambda: "dsx1FracEntry" + "[dsx1FracIndex='" + str(self.dsx1fracindex) + "']" + "[dsx1FracNumber='" + str(self.dsx1fracnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1FracTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1FracTable.Dsx1FracEntry, ['dsx1fracindex', 'dsx1fracnumber', 'dsx1fracifindex'], name, value)
@@ -2083,6 +2101,7 @@ class DS1MIB(Entity):
             self.dsx1chanmappingentry = YList(self)
             self._segment_path = lambda: "dsx1ChanMappingTable"
             self._absolute_path = lambda: "DS1-MIB:DS1-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DS1MIB.Dsx1ChanMappingTable, [], name, value)
@@ -2151,15 +2170,16 @@ class DS1MIB(Entity):
                 self.ylist_key_names = ['ifindex','dsx1ds1channelnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('dsx1ds1channelnumber', YLeaf(YType.str, 'dsx1Ds1ChannelNumber')),
-                    ('dsx1chanmappedifindex', YLeaf(YType.int32, 'dsx1ChanMappedIfIndex')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('dsx1ds1channelnumber', (YLeaf(YType.str, 'dsx1Ds1ChannelNumber'), ['int'])),
+                    ('dsx1chanmappedifindex', (YLeaf(YType.int32, 'dsx1ChanMappedIfIndex'), ['int'])),
                 ])
                 self.ifindex = None
                 self.dsx1ds1channelnumber = None
                 self.dsx1chanmappedifindex = None
                 self._segment_path = lambda: "dsx1ChanMappingEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[dsx1Ds1ChannelNumber='" + str(self.dsx1ds1channelnumber) + "']"
                 self._absolute_path = lambda: "DS1-MIB:DS1-MIB/dsx1ChanMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DS1MIB.Dsx1ChanMappingTable.Dsx1ChanMappingEntry, ['ifindex', 'dsx1ds1channelnumber', 'dsx1chanmappedifindex'], name, value)

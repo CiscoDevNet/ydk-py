@@ -14,7 +14,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,6 +24,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -68,6 +69,7 @@ class SubscriberManager(Entity):
         self.srg.parent = self
         self._children_name_map["srg"] = "srg"
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberManager, [], name, value)
@@ -114,6 +116,7 @@ class SubscriberManager(Entity):
             self._children_name_map["interim"] = "interim"
             self._segment_path = lambda: "accounting"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberManager.Accounting, [], name, value)
@@ -151,6 +154,7 @@ class SubscriberManager(Entity):
                 self._children_name_map["setup_failure"] = "setup-failure"
                 self._segment_path = lambda: "send-stop"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberManager.Accounting.SendStop, [], name, value)
@@ -182,11 +186,12 @@ class SubscriberManager(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('method_list_name', YLeaf(YType.str, 'method-list-name')),
+                        ('method_list_name', (YLeaf(YType.str, 'method-list-name'), ['str'])),
                     ])
                     self.method_list_name = None
                     self._segment_path = lambda: "setup-failure"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/send-stop/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberManager.Accounting.SendStop.SetupFailure, ['method_list_name'], name, value)
@@ -224,6 +229,7 @@ class SubscriberManager(Entity):
                 self._children_name_map["variation"] = "variation"
                 self._segment_path = lambda: "interim"
                 self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberManager.Accounting.Interim, [], name, value)
@@ -260,11 +266,12 @@ class SubscriberManager(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('maximum_percentage_variation', YLeaf(YType.uint32, 'maximum-percentage-variation')),
+                        ('maximum_percentage_variation', (YLeaf(YType.uint32, 'maximum-percentage-variation'), ['int'])),
                     ])
                     self.maximum_percentage_variation = None
                     self._segment_path = lambda: "variation"
                     self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/accounting/interim/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberManager.Accounting.Interim.Variation, ['maximum_percentage_variation'], name, value)
@@ -296,11 +303,12 @@ class SubscriberManager(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sync_account_session_id', YLeaf(YType.empty, 'sync-account-session-id')),
+                ('sync_account_session_id', (YLeaf(YType.empty, 'sync-account-session-id'), ['Empty'])),
             ])
             self.sync_account_session_id = None
             self._segment_path = lambda: "srg"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberManager.Srg, ['sync_account_session_id'], name, value)
@@ -339,6 +347,7 @@ class SubscriberFeaturette(Entity):
 
         self.featurette_name = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberFeaturette, [], name, value)
@@ -379,13 +388,14 @@ class SubscriberFeaturette(Entity):
             self.ylist_key_names = ['featurette']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('featurette', YLeaf(YType.str, 'featurette')),
-                ('enable', YLeaf(YType.uint32, 'enable')),
+                ('featurette', (YLeaf(YType.str, 'featurette'), ['str'])),
+                ('enable', (YLeaf(YType.uint32, 'enable'), ['int'])),
             ])
             self.featurette = None
             self.enable = None
             self._segment_path = lambda: "featurette-name" + "[featurette='" + str(self.featurette) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:subscriber-featurette/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberFeaturette.FeaturetteName, ['featurette', 'enable'], name, value)
@@ -423,10 +433,11 @@ class IedgeLicenseManager(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('session_limit', YLeaf(YType.uint32, 'session-limit')),
+            ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
         ])
         self.session_limit = None
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:iedge-license-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IedgeLicenseManager, ['session_limit'], name, value)
@@ -465,6 +476,7 @@ class SubManager(Entity):
 
         self.location = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:sub-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubManager, [], name, value)
@@ -508,8 +520,8 @@ class SubManager(Entity):
             self.ylist_key_names = ['location1']
             self._child_classes = OrderedDict([("trace", ("trace", SubManager.Location.Trace))])
             self._leafs = OrderedDict([
-                ('location1', YLeaf(YType.str, 'location1')),
-                ('history', YLeaf(YType.empty, 'history')),
+                ('location1', (YLeaf(YType.str, 'location1'), ['str'])),
+                ('history', (YLeaf(YType.empty, 'history'), ['Empty'])),
             ])
             self.location1 = None
             self.history = None
@@ -519,6 +531,7 @@ class SubManager(Entity):
             self._children_name_map["trace"] = "trace"
             self._segment_path = lambda: "location" + "[location1='" + str(self.location1) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-iedge4710-cfg:sub-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubManager.Location, ['location1', 'history'], name, value)
@@ -552,10 +565,11 @@ class SubManager(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('trace_level', YLeaf(YType.uint32, 'trace-level')),
+                    ('trace_level', (YLeaf(YType.uint32, 'trace-level'), ['int'])),
                 ])
                 self.trace_level = None
                 self._segment_path = lambda: "trace"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubManager.Location.Trace, ['trace_level'], name, value)

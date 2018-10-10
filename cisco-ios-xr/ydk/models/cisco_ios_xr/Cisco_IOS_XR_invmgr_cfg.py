@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   inventory\-configurations\: Configuration for inventory entities
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +51,7 @@ class InventoryConfigurations(Entity):
 
         self.entity_ = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-invmgr-cfg:inventory-configurations"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(InventoryConfigurations, [], name, value)
@@ -88,13 +90,14 @@ class InventoryConfigurations(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('name_xr', YLeaf(YType.str, 'name-xr')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('name_xr', (YLeaf(YType.str, 'name-xr'), ['str'])),
             ])
             self.name = None
             self.name_xr = None
             self._segment_path = lambda: "entity" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-invmgr-cfg:inventory-configurations/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InventoryConfigurations.Entity, ['name', 'name_xr'], name, value)

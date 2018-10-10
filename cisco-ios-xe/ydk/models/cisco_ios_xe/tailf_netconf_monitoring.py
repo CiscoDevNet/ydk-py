@@ -11,9 +11,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_netconf_monitoring import Transport
 
 
-class RestHttps(Identity):
+
+class RestHttps(Transport):
     """
     REST over HTTPS.
     
@@ -24,11 +26,11 @@ class RestHttps(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(RestHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-https")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-https"):
+        super(RestHttps, self).__init__(ns, pref, tag)
 
 
-class CliSsh(Identity):
+class CliSsh(Transport):
     """
     CLI over SSH.
     
@@ -39,11 +41,11 @@ class CliSsh(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(CliSsh, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-ssh")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-ssh"):
+        super(CliSsh, self).__init__(ns, pref, tag)
 
 
-class CliConsole(Identity):
+class CliConsole(Transport):
     """
     CLI on the console.
     
@@ -54,11 +56,11 @@ class CliConsole(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(CliConsole, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-console")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-console"):
+        super(CliConsole, self).__init__(ns, pref, tag)
 
 
-class WebuiHttps(Identity):
+class WebuiHttps(Transport):
     """
     WebUI over HTTPS.
     
@@ -69,11 +71,11 @@ class WebuiHttps(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(WebuiHttps, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-https")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-https"):
+        super(WebuiHttps, self).__init__(ns, pref, tag)
 
 
-class SnmpUdp(Identity):
+class SnmpUdp(Transport):
     """
     SNMP over UDP.
     
@@ -84,11 +86,11 @@ class SnmpUdp(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(SnmpUdp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:snmp-udp")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:snmp-udp"):
+        super(SnmpUdp, self).__init__(ns, pref, tag)
 
 
-class WebuiHttp(Identity):
+class WebuiHttp(Transport):
     """
     WebUI over HTTP.
     
@@ -99,11 +101,11 @@ class WebuiHttp(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(WebuiHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:webui-http")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:webui-http"):
+        super(WebuiHttp, self).__init__(ns, pref, tag)
 
 
-class RestHttp(Identity):
+class RestHttp(Transport):
     """
     REST over HTTP.
     
@@ -114,11 +116,11 @@ class RestHttp(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(RestHttp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:rest-http")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:rest-http"):
+        super(RestHttp, self).__init__(ns, pref, tag)
 
 
-class NetconfTcp(Identity):
+class NetconfTcp(Transport):
     """
     NETCONF over TCP.
     
@@ -129,11 +131,11 @@ class NetconfTcp(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(NetconfTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:netconf-tcp")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:netconf-tcp"):
+        super(NetconfTcp, self).__init__(ns, pref, tag)
 
 
-class CliTcp(Identity):
+class CliTcp(Transport):
     """
     CLI over TCP.
     
@@ -144,7 +146,7 @@ class CliTcp(Identity):
     _prefix = 'tncm'
     _revision = '2016-11-24'
 
-    def __init__(self):
-        super(CliTcp, self).__init__("http://tail-f.com/yang/netconf-monitoring", "tailf-netconf-monitoring", "tailf-netconf-monitoring:cli-tcp")
+    def __init__(self, ns="http://tail-f.com/yang/netconf-monitoring", pref="tailf-netconf-monitoring", tag="tailf-netconf-monitoring:cli-tcp"):
+        super(CliTcp, self).__init__(ns, pref, tag)
 
 

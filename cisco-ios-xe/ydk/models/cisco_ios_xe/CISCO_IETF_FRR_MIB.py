@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFFRRMIB(Entity):
     """
     
@@ -75,6 +76,7 @@ class CISCOIETFFRRMIB(Entity):
         self.cmplsfrrfacroutedbtable.parent = self
         self._children_name_map["cmplsfrrfacroutedbtable"] = "cmplsFrrFacRouteDBTable"
         self._segment_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFFRRMIB, [], name, value)
@@ -195,20 +197,20 @@ class CISCOIETFFRRMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cmplsfrrdetourincoming', YLeaf(YType.uint32, 'cmplsFrrDetourIncoming')),
-                ('cmplsfrrdetouroutgoing', YLeaf(YType.uint32, 'cmplsFrrDetourOutgoing')),
-                ('cmplsfrrdetouroriginating', YLeaf(YType.uint32, 'cmplsFrrDetourOriginating')),
-                ('cmplsfrrswitchover', YLeaf(YType.uint32, 'cmplsFrrSwitchover')),
-                ('cmplsfrrnumofconfifs', YLeaf(YType.uint32, 'cmplsFrrNumOfConfIfs')),
-                ('cmplsfrractprotectedifs', YLeaf(YType.uint32, 'cmplsFrrActProtectedIfs')),
-                ('cmplsfrrconfprotectingtuns', YLeaf(YType.uint32, 'cmplsFrrConfProtectingTuns')),
-                ('cmplsfrractprotectedtuns', YLeaf(YType.uint32, 'cmplsFrrActProtectedTuns')),
-                ('cmplsfrractprotectedlsps', YLeaf(YType.uint32, 'cmplsFrrActProtectedLSPs')),
-                ('cmplsfrrconstprotectionmethod', YLeaf(YType.enumeration, 'cmplsFrrConstProtectionMethod')),
-                ('cmplsfrrnotifsenabled', YLeaf(YType.boolean, 'cmplsFrrNotifsEnabled')),
-                ('cmplsfrrlogtablemaxentries', YLeaf(YType.uint32, 'cmplsFrrLogTableMaxEntries')),
-                ('cmplsfrrlogtablecurrentries', YLeaf(YType.uint32, 'cmplsFrrLogTableCurrEntries')),
-                ('cmplsfrrnotifmaxrate', YLeaf(YType.uint32, 'cmplsFrrNotifMaxRate')),
+                ('cmplsfrrdetourincoming', (YLeaf(YType.uint32, 'cmplsFrrDetourIncoming'), ['int'])),
+                ('cmplsfrrdetouroutgoing', (YLeaf(YType.uint32, 'cmplsFrrDetourOutgoing'), ['int'])),
+                ('cmplsfrrdetouroriginating', (YLeaf(YType.uint32, 'cmplsFrrDetourOriginating'), ['int'])),
+                ('cmplsfrrswitchover', (YLeaf(YType.uint32, 'cmplsFrrSwitchover'), ['int'])),
+                ('cmplsfrrnumofconfifs', (YLeaf(YType.uint32, 'cmplsFrrNumOfConfIfs'), ['int'])),
+                ('cmplsfrractprotectedifs', (YLeaf(YType.uint32, 'cmplsFrrActProtectedIfs'), ['int'])),
+                ('cmplsfrrconfprotectingtuns', (YLeaf(YType.uint32, 'cmplsFrrConfProtectingTuns'), ['int'])),
+                ('cmplsfrractprotectedtuns', (YLeaf(YType.uint32, 'cmplsFrrActProtectedTuns'), ['int'])),
+                ('cmplsfrractprotectedlsps', (YLeaf(YType.uint32, 'cmplsFrrActProtectedLSPs'), ['int'])),
+                ('cmplsfrrconstprotectionmethod', (YLeaf(YType.enumeration, 'cmplsFrrConstProtectionMethod'), [('ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB', 'CISCOIETFFRRMIB', 'CmplsFrrScalars.CmplsFrrConstProtectionMethod')])),
+                ('cmplsfrrnotifsenabled', (YLeaf(YType.boolean, 'cmplsFrrNotifsEnabled'), ['bool'])),
+                ('cmplsfrrlogtablemaxentries', (YLeaf(YType.uint32, 'cmplsFrrLogTableMaxEntries'), ['int'])),
+                ('cmplsfrrlogtablecurrentries', (YLeaf(YType.uint32, 'cmplsFrrLogTableCurrEntries'), ['int'])),
+                ('cmplsfrrnotifmaxrate', (YLeaf(YType.uint32, 'cmplsFrrNotifMaxRate'), ['int'])),
             ])
             self.cmplsfrrdetourincoming = None
             self.cmplsfrrdetouroutgoing = None
@@ -226,6 +228,7 @@ class CISCOIETFFRRMIB(Entity):
             self.cmplsfrrnotifmaxrate = None
             self._segment_path = lambda: "cmplsFrrScalars"
             self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrScalars, ['cmplsfrrdetourincoming', 'cmplsfrrdetouroutgoing', 'cmplsfrrdetouroriginating', 'cmplsfrrswitchover', 'cmplsfrrnumofconfifs', 'cmplsfrractprotectedifs', 'cmplsfrrconfprotectingtuns', 'cmplsfrractprotectedtuns', 'cmplsfrractprotectedlsps', 'cmplsfrrconstprotectionmethod', 'cmplsfrrnotifsenabled', 'cmplsfrrlogtablemaxentries', 'cmplsfrrlogtablecurrentries', 'cmplsfrrnotifmaxrate'], name, value)
@@ -290,6 +293,7 @@ class CISCOIETFFRRMIB(Entity):
             self.cmplsfrrconstentry = YList(self)
             self._segment_path = lambda: "cmplsFrrConstTable"
             self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrConstTable, [], name, value)
@@ -411,19 +415,19 @@ class CISCOIETFFRRMIB(Entity):
                 self.ylist_key_names = ['cmplsfrrconstifindex','cmplsfrrconsttunnelindex','cmplsfrrconsttunnelinstance']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cmplsfrrconstifindex', YLeaf(YType.int32, 'cmplsFrrConstIfIndex')),
-                    ('cmplsfrrconsttunnelindex', YLeaf(YType.uint32, 'cmplsFrrConstTunnelIndex')),
-                    ('cmplsfrrconsttunnelinstance', YLeaf(YType.uint32, 'cmplsFrrConstTunnelInstance')),
-                    ('cmplsfrrconstsetupprio', YLeaf(YType.uint32, 'cmplsFrrConstSetupPrio')),
-                    ('cmplsfrrconstholdingprio', YLeaf(YType.uint32, 'cmplsFrrConstHoldingPrio')),
-                    ('cmplsfrrconstinclanyaffinity', YLeaf(YType.uint32, 'cmplsFrrConstInclAnyAffinity')),
-                    ('cmplsfrrconstinclallaffinity', YLeaf(YType.uint32, 'cmplsFrrConstInclAllAffinity')),
-                    ('cmplsfrrconstexclallaffinity', YLeaf(YType.uint32, 'cmplsFrrConstExclAllAffinity')),
-                    ('cmplsfrrconsthoplimit', YLeaf(YType.uint32, 'cmplsFrrConstHopLimit')),
-                    ('cmplsfrrconstbandwidth', YLeaf(YType.uint32, 'cmplsFrrConstBandwidth')),
-                    ('cmplsfrrconstrowstatus', YLeaf(YType.enumeration, 'cmplsFrrConstRowStatus')),
-                    ('cmplsfrrconstnumprotectingtunonif', YLeaf(YType.uint32, 'cmplsFrrConstNumProtectingTunOnIf')),
-                    ('cmplsfrrconstnumprotectedtunonif', YLeaf(YType.uint32, 'cmplsFrrConstNumProtectedTunOnIf')),
+                    ('cmplsfrrconstifindex', (YLeaf(YType.int32, 'cmplsFrrConstIfIndex'), ['int'])),
+                    ('cmplsfrrconsttunnelindex', (YLeaf(YType.uint32, 'cmplsFrrConstTunnelIndex'), ['int'])),
+                    ('cmplsfrrconsttunnelinstance', (YLeaf(YType.uint32, 'cmplsFrrConstTunnelInstance'), ['int'])),
+                    ('cmplsfrrconstsetupprio', (YLeaf(YType.uint32, 'cmplsFrrConstSetupPrio'), ['int'])),
+                    ('cmplsfrrconstholdingprio', (YLeaf(YType.uint32, 'cmplsFrrConstHoldingPrio'), ['int'])),
+                    ('cmplsfrrconstinclanyaffinity', (YLeaf(YType.uint32, 'cmplsFrrConstInclAnyAffinity'), ['int'])),
+                    ('cmplsfrrconstinclallaffinity', (YLeaf(YType.uint32, 'cmplsFrrConstInclAllAffinity'), ['int'])),
+                    ('cmplsfrrconstexclallaffinity', (YLeaf(YType.uint32, 'cmplsFrrConstExclAllAffinity'), ['int'])),
+                    ('cmplsfrrconsthoplimit', (YLeaf(YType.uint32, 'cmplsFrrConstHopLimit'), ['int'])),
+                    ('cmplsfrrconstbandwidth', (YLeaf(YType.uint32, 'cmplsFrrConstBandwidth'), ['int'])),
+                    ('cmplsfrrconstrowstatus', (YLeaf(YType.enumeration, 'cmplsFrrConstRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cmplsfrrconstnumprotectingtunonif', (YLeaf(YType.uint32, 'cmplsFrrConstNumProtectingTunOnIf'), ['int'])),
+                    ('cmplsfrrconstnumprotectedtunonif', (YLeaf(YType.uint32, 'cmplsFrrConstNumProtectedTunOnIf'), ['int'])),
                 ])
                 self.cmplsfrrconstifindex = None
                 self.cmplsfrrconsttunnelindex = None
@@ -440,6 +444,7 @@ class CISCOIETFFRRMIB(Entity):
                 self.cmplsfrrconstnumprotectedtunonif = None
                 self._segment_path = lambda: "cmplsFrrConstEntry" + "[cmplsFrrConstIfIndex='" + str(self.cmplsfrrconstifindex) + "']" + "[cmplsFrrConstTunnelIndex='" + str(self.cmplsfrrconsttunnelindex) + "']" + "[cmplsFrrConstTunnelInstance='" + str(self.cmplsfrrconsttunnelinstance) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrConstTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrConstTable.CmplsFrrConstEntry, ['cmplsfrrconstifindex', 'cmplsfrrconsttunnelindex', 'cmplsfrrconsttunnelinstance', 'cmplsfrrconstsetupprio', 'cmplsfrrconstholdingprio', 'cmplsfrrconstinclanyaffinity', 'cmplsfrrconstinclallaffinity', 'cmplsfrrconstexclallaffinity', 'cmplsfrrconsthoplimit', 'cmplsfrrconstbandwidth', 'cmplsfrrconstrowstatus', 'cmplsfrrconstnumprotectingtunonif', 'cmplsfrrconstnumprotectedtunonif'], name, value)
@@ -477,6 +482,7 @@ class CISCOIETFFRRMIB(Entity):
             self.cmplsfrrlogentry = YList(self)
             self._segment_path = lambda: "cmplsFrrLogTable"
             self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrLogTable, [], name, value)
@@ -546,12 +552,12 @@ class CISCOIETFFRRMIB(Entity):
                 self.ylist_key_names = ['cmplsfrrlogindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cmplsfrrlogindex', YLeaf(YType.uint32, 'cmplsFrrLogIndex')),
-                    ('cmplsfrrlogeventtime', YLeaf(YType.uint32, 'cmplsFrrLogEventTime')),
-                    ('cmplsfrrloginterface', YLeaf(YType.int32, 'cmplsFrrLogInterface')),
-                    ('cmplsfrrlogeventtype', YLeaf(YType.enumeration, 'cmplsFrrLogEventType')),
-                    ('cmplsfrrlogeventduration', YLeaf(YType.uint32, 'cmplsFrrLogEventDuration')),
-                    ('cmplsfrrlogeventreasonstring', YLeaf(YType.str, 'cmplsFrrLogEventReasonString')),
+                    ('cmplsfrrlogindex', (YLeaf(YType.uint32, 'cmplsFrrLogIndex'), ['int'])),
+                    ('cmplsfrrlogeventtime', (YLeaf(YType.uint32, 'cmplsFrrLogEventTime'), ['int'])),
+                    ('cmplsfrrloginterface', (YLeaf(YType.int32, 'cmplsFrrLogInterface'), ['int'])),
+                    ('cmplsfrrlogeventtype', (YLeaf(YType.enumeration, 'cmplsFrrLogEventType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB', 'CISCOIETFFRRMIB', 'CmplsFrrLogTable.CmplsFrrLogEntry.CmplsFrrLogEventType')])),
+                    ('cmplsfrrlogeventduration', (YLeaf(YType.uint32, 'cmplsFrrLogEventDuration'), ['int'])),
+                    ('cmplsfrrlogeventreasonstring', (YLeaf(YType.str, 'cmplsFrrLogEventReasonString'), ['str'])),
                 ])
                 self.cmplsfrrlogindex = None
                 self.cmplsfrrlogeventtime = None
@@ -561,6 +567,7 @@ class CISCOIETFFRRMIB(Entity):
                 self.cmplsfrrlogeventreasonstring = None
                 self._segment_path = lambda: "cmplsFrrLogEntry" + "[cmplsFrrLogIndex='" + str(self.cmplsfrrlogindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrLogTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrLogTable.CmplsFrrLogEntry, ['cmplsfrrlogindex', 'cmplsfrrlogeventtime', 'cmplsfrrloginterface', 'cmplsfrrlogeventtype', 'cmplsfrrlogeventduration', 'cmplsfrrlogeventreasonstring'], name, value)
@@ -631,6 +638,7 @@ class CISCOIETFFRRMIB(Entity):
             self.cmplsfrrfacroutedbentry = YList(self)
             self._segment_path = lambda: "cmplsFrrFacRouteDBTable"
             self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable, [], name, value)
@@ -722,15 +730,15 @@ class CISCOIETFFRRMIB(Entity):
                 self.ylist_key_names = ['cmplsfrrfacrouteprotectedifindex','cmplsfrrfacrouteprotectingtunindex','cmplsfrrfacrouteprotectedtunindex','cmplsfrrfacrouteprotectedtuninstance','cmplsfrrfacrouteprotectedtuningresslsrid','cmplsfrrfacrouteprotectedtunegresslsrid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cmplsfrrfacrouteprotectedifindex', YLeaf(YType.int32, 'cmplsFrrFacRouteProtectedIfIndex')),
-                    ('cmplsfrrfacrouteprotectingtunindex', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunIndex')),
-                    ('cmplsfrrfacrouteprotectedtunindex', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunIndex')),
-                    ('cmplsfrrfacrouteprotectedtuninstance', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunInstance')),
-                    ('cmplsfrrfacrouteprotectedtuningresslsrid', YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunIngressLSRId')),
-                    ('cmplsfrrfacrouteprotectedtunegresslsrid', YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunEgressLSRId')),
-                    ('cmplsfrrfacrouteprotectedtunstatus', YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectedTunStatus')),
-                    ('cmplsfrrfacrouteprotectingtunresvbw', YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunResvBw')),
-                    ('cmplsfrrfacrouteprotectingtunprotectiontype', YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectingTunProtectionType')),
+                    ('cmplsfrrfacrouteprotectedifindex', (YLeaf(YType.int32, 'cmplsFrrFacRouteProtectedIfIndex'), ['int'])),
+                    ('cmplsfrrfacrouteprotectingtunindex', (YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunIndex'), ['int'])),
+                    ('cmplsfrrfacrouteprotectedtunindex', (YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunIndex'), ['int'])),
+                    ('cmplsfrrfacrouteprotectedtuninstance', (YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectedTunInstance'), ['int'])),
+                    ('cmplsfrrfacrouteprotectedtuningresslsrid', (YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunIngressLSRId'), ['str'])),
+                    ('cmplsfrrfacrouteprotectedtunegresslsrid', (YLeaf(YType.str, 'cmplsFrrFacRouteProtectedTunEgressLSRId'), ['str'])),
+                    ('cmplsfrrfacrouteprotectedtunstatus', (YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectedTunStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB', 'CISCOIETFFRRMIB', 'CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectedTunStatus')])),
+                    ('cmplsfrrfacrouteprotectingtunresvbw', (YLeaf(YType.uint32, 'cmplsFrrFacRouteProtectingTunResvBw'), ['int'])),
+                    ('cmplsfrrfacrouteprotectingtunprotectiontype', (YLeaf(YType.enumeration, 'cmplsFrrFacRouteProtectingTunProtectionType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_FRR_MIB', 'CISCOIETFFRRMIB', 'CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry.CmplsFrrFacRouteProtectingTunProtectionType')])),
                 ])
                 self.cmplsfrrfacrouteprotectedifindex = None
                 self.cmplsfrrfacrouteprotectingtunindex = None
@@ -743,6 +751,7 @@ class CISCOIETFFRRMIB(Entity):
                 self.cmplsfrrfacrouteprotectingtunprotectiontype = None
                 self._segment_path = lambda: "cmplsFrrFacRouteDBEntry" + "[cmplsFrrFacRouteProtectedIfIndex='" + str(self.cmplsfrrfacrouteprotectedifindex) + "']" + "[cmplsFrrFacRouteProtectingTunIndex='" + str(self.cmplsfrrfacrouteprotectingtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunIndex='" + str(self.cmplsfrrfacrouteprotectedtunindex) + "']" + "[cmplsFrrFacRouteProtectedTunInstance='" + str(self.cmplsfrrfacrouteprotectedtuninstance) + "']" + "[cmplsFrrFacRouteProtectedTunIngressLSRId='" + str(self.cmplsfrrfacrouteprotectedtuningresslsrid) + "']" + "[cmplsFrrFacRouteProtectedTunEgressLSRId='" + str(self.cmplsfrrfacrouteprotectedtunegresslsrid) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-FRR-MIB:CISCO-IETF-FRR-MIB/cmplsFrrFacRouteDBTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFFRRMIB.CmplsFrrFacRouteDBTable.CmplsFrrFacRouteDBEntry, ['cmplsfrrfacrouteprotectedifindex', 'cmplsfrrfacrouteprotectingtunindex', 'cmplsfrrfacrouteprotectedtunindex', 'cmplsfrrfacrouteprotectedtuninstance', 'cmplsfrrfacrouteprotectedtuningresslsrid', 'cmplsfrrfacrouteprotectedtunegresslsrid', 'cmplsfrrfacrouteprotectedtunstatus', 'cmplsfrrfacrouteprotectingtunresvbw', 'cmplsfrrfacrouteprotectingtunprotectiontype'], name, value)

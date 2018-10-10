@@ -152,6 +152,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOCEFMIB(Entity):
     """
     
@@ -355,6 +356,7 @@ class CISCOCEFMIB(Entity):
         self.cefswitchingstatstable.parent = self
         self._children_name_map["cefswitchingstatstable"] = "cefSwitchingStatsTable"
         self._segment_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOCEFMIB, [], name, value)
@@ -388,11 +390,12 @@ class CISCOCEFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ceflmprefixspinlock', YLeaf(YType.int32, 'cefLMPrefixSpinLock')),
+                ('ceflmprefixspinlock', (YLeaf(YType.int32, 'cefLMPrefixSpinLock'), ['int'])),
             ])
             self.ceflmprefixspinlock = None
             self._segment_path = lambda: "cefFIB"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefFIB, ['ceflmprefixspinlock'], name, value)
@@ -436,15 +439,16 @@ class CISCOCEFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('entlastinconsistencydetecttime', YLeaf(YType.uint32, 'entLastInconsistencyDetectTime')),
-                ('cefinconsistencyreset', YLeaf(YType.enumeration, 'cefInconsistencyReset')),
-                ('cefinconsistencyresetstatus', YLeaf(YType.enumeration, 'cefInconsistencyResetStatus')),
+                ('entlastinconsistencydetecttime', (YLeaf(YType.uint32, 'entLastInconsistencyDetectTime'), ['int'])),
+                ('cefinconsistencyreset', (YLeaf(YType.enumeration, 'cefInconsistencyReset'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCAction', '')])),
+                ('cefinconsistencyresetstatus', (YLeaf(YType.enumeration, 'cefInconsistencyResetStatus'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCStatus', '')])),
             ])
             self.entlastinconsistencydetecttime = None
             self.cefinconsistencyreset = None
             self.cefinconsistencyresetstatus = None
             self._segment_path = lambda: "cefCC"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefCC, ['entlastinconsistencydetecttime', 'cefinconsistencyreset', 'cefinconsistencyresetstatus'], name, value)
@@ -500,11 +504,11 @@ class CISCOCEFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cefresourcefailurenotifenable', YLeaf(YType.boolean, 'cefResourceFailureNotifEnable')),
-                ('cefpeerstatechangenotifenable', YLeaf(YType.boolean, 'cefPeerStateChangeNotifEnable')),
-                ('cefpeerfibstatechangenotifenable', YLeaf(YType.boolean, 'cefPeerFIBStateChangeNotifEnable')),
-                ('cefnotifthrottlinginterval', YLeaf(YType.int32, 'cefNotifThrottlingInterval')),
-                ('cefinconsistencynotifenable', YLeaf(YType.boolean, 'cefInconsistencyNotifEnable')),
+                ('cefresourcefailurenotifenable', (YLeaf(YType.boolean, 'cefResourceFailureNotifEnable'), ['bool'])),
+                ('cefpeerstatechangenotifenable', (YLeaf(YType.boolean, 'cefPeerStateChangeNotifEnable'), ['bool'])),
+                ('cefpeerfibstatechangenotifenable', (YLeaf(YType.boolean, 'cefPeerFIBStateChangeNotifEnable'), ['bool'])),
+                ('cefnotifthrottlinginterval', (YLeaf(YType.int32, 'cefNotifThrottlingInterval'), ['int'])),
+                ('cefinconsistencynotifenable', (YLeaf(YType.boolean, 'cefInconsistencyNotifEnable'), ['bool'])),
             ])
             self.cefresourcefailurenotifenable = None
             self.cefpeerstatechangenotifenable = None
@@ -513,6 +517,7 @@ class CISCOCEFMIB(Entity):
             self.cefinconsistencynotifenable = None
             self._segment_path = lambda: "cefNotifCntl"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefNotifCntl, ['cefresourcefailurenotifenable', 'cefpeerstatechangenotifenable', 'cefpeerfibstatechangenotifenable', 'cefnotifthrottlinginterval', 'cefinconsistencynotifenable'], name, value)
@@ -549,6 +554,7 @@ class CISCOCEFMIB(Entity):
             self.ceffibsummaryentry = YList(self)
             self._segment_path = lambda: "cefFIBSummaryTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefFIBSummaryTable, [], name, value)
@@ -607,15 +613,16 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('ceffibsummaryfwdprefixes', YLeaf(YType.uint32, 'cefFIBSummaryFwdPrefixes')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('ceffibsummaryfwdprefixes', (YLeaf(YType.uint32, 'cefFIBSummaryFwdPrefixes'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceffibipversion = None
                 self.ceffibsummaryfwdprefixes = None
                 self._segment_path = lambda: "cefFIBSummaryEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFIBSummaryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefFIBSummaryTable.CefFIBSummaryEntry, ['entphysicalindex', 'ceffibipversion', 'ceffibsummaryfwdprefixes'], name, value)
@@ -651,6 +658,7 @@ class CISCOCEFMIB(Entity):
             self.cefprefixentry = YList(self)
             self._segment_path = lambda: "cefPrefixTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefPrefixTable, [], name, value)
@@ -830,23 +838,23 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
-                    ('cefprefixaddr', YLeaf(YType.str, 'cefPrefixAddr')),
-                    ('cefprefixlen', YLeaf(YType.uint32, 'cefPrefixLen')),
-                    ('cefprefixforwardinginfo', YLeaf(YType.str, 'cefPrefixForwardingInfo')),
-                    ('cefprefixpkts', YLeaf(YType.uint32, 'cefPrefixPkts')),
-                    ('cefprefixhcpkts', YLeaf(YType.uint64, 'cefPrefixHCPkts')),
-                    ('cefprefixbytes', YLeaf(YType.uint32, 'cefPrefixBytes')),
-                    ('cefprefixhcbytes', YLeaf(YType.uint64, 'cefPrefixHCBytes')),
-                    ('cefprefixinternalnrpkts', YLeaf(YType.uint32, 'cefPrefixInternalNRPkts')),
-                    ('cefprefixinternalnrhcpkts', YLeaf(YType.uint64, 'cefPrefixInternalNRHCPkts')),
-                    ('cefprefixinternalnrbytes', YLeaf(YType.uint32, 'cefPrefixInternalNRBytes')),
-                    ('cefprefixinternalnrhcbytes', YLeaf(YType.uint64, 'cefPrefixInternalNRHCBytes')),
-                    ('cefprefixexternalnrpkts', YLeaf(YType.uint32, 'cefPrefixExternalNRPkts')),
-                    ('cefprefixexternalnrhcpkts', YLeaf(YType.uint64, 'cefPrefixExternalNRHCPkts')),
-                    ('cefprefixexternalnrbytes', YLeaf(YType.uint32, 'cefPrefixExternalNRBytes')),
-                    ('cefprefixexternalnrhcbytes', YLeaf(YType.uint64, 'cefPrefixExternalNRHCBytes')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefprefixtype', (YLeaf(YType.enumeration, 'cefPrefixType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cefprefixaddr', (YLeaf(YType.str, 'cefPrefixAddr'), ['str'])),
+                    ('cefprefixlen', (YLeaf(YType.uint32, 'cefPrefixLen'), ['int'])),
+                    ('cefprefixforwardinginfo', (YLeaf(YType.str, 'cefPrefixForwardingInfo'), ['str'])),
+                    ('cefprefixpkts', (YLeaf(YType.uint32, 'cefPrefixPkts'), ['int'])),
+                    ('cefprefixhcpkts', (YLeaf(YType.uint64, 'cefPrefixHCPkts'), ['int'])),
+                    ('cefprefixbytes', (YLeaf(YType.uint32, 'cefPrefixBytes'), ['int'])),
+                    ('cefprefixhcbytes', (YLeaf(YType.uint64, 'cefPrefixHCBytes'), ['int'])),
+                    ('cefprefixinternalnrpkts', (YLeaf(YType.uint32, 'cefPrefixInternalNRPkts'), ['int'])),
+                    ('cefprefixinternalnrhcpkts', (YLeaf(YType.uint64, 'cefPrefixInternalNRHCPkts'), ['int'])),
+                    ('cefprefixinternalnrbytes', (YLeaf(YType.uint32, 'cefPrefixInternalNRBytes'), ['int'])),
+                    ('cefprefixinternalnrhcbytes', (YLeaf(YType.uint64, 'cefPrefixInternalNRHCBytes'), ['int'])),
+                    ('cefprefixexternalnrpkts', (YLeaf(YType.uint32, 'cefPrefixExternalNRPkts'), ['int'])),
+                    ('cefprefixexternalnrhcpkts', (YLeaf(YType.uint64, 'cefPrefixExternalNRHCPkts'), ['int'])),
+                    ('cefprefixexternalnrbytes', (YLeaf(YType.uint32, 'cefPrefixExternalNRBytes'), ['int'])),
+                    ('cefprefixexternalnrhcbytes', (YLeaf(YType.uint64, 'cefPrefixExternalNRHCBytes'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefprefixtype = None
@@ -867,6 +875,7 @@ class CISCOCEFMIB(Entity):
                 self.cefprefixexternalnrhcbytes = None
                 self._segment_path = lambda: "cefPrefixEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefPrefixType='" + str(self.cefprefixtype) + "']" + "[cefPrefixAddr='" + str(self.cefprefixaddr) + "']" + "[cefPrefixLen='" + str(self.cefprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefPrefixTable.CefPrefixEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefprefixforwardinginfo', 'cefprefixpkts', 'cefprefixhcpkts', 'cefprefixbytes', 'cefprefixhcbytes', 'cefprefixinternalnrpkts', 'cefprefixinternalnrhcpkts', 'cefprefixinternalnrbytes', 'cefprefixinternalnrhcbytes', 'cefprefixexternalnrpkts', 'cefprefixexternalnrhcpkts', 'cefprefixexternalnrbytes', 'cefprefixexternalnrhcbytes'], name, value)
@@ -906,6 +915,7 @@ class CISCOCEFMIB(Entity):
             self.ceflmprefixentry = YList(self)
             self._segment_path = lambda: "cefLMPrefixTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefLMPrefixTable, [], name, value)
@@ -1011,13 +1021,13 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceflmprefixdestaddrtype','ceflmprefixdestaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceflmprefixdestaddrtype', YLeaf(YType.enumeration, 'cefLMPrefixDestAddrType')),
-                    ('ceflmprefixdestaddr', YLeaf(YType.str, 'cefLMPrefixDestAddr')),
-                    ('ceflmprefixstate', YLeaf(YType.enumeration, 'cefLMPrefixState')),
-                    ('ceflmprefixaddr', YLeaf(YType.str, 'cefLMPrefixAddr')),
-                    ('ceflmprefixlen', YLeaf(YType.uint32, 'cefLMPrefixLen')),
-                    ('ceflmprefixrowstatus', YLeaf(YType.enumeration, 'cefLMPrefixRowStatus')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceflmprefixdestaddrtype', (YLeaf(YType.enumeration, 'cefLMPrefixDestAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ceflmprefixdestaddr', (YLeaf(YType.str, 'cefLMPrefixDestAddr'), ['str'])),
+                    ('ceflmprefixstate', (YLeaf(YType.enumeration, 'cefLMPrefixState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefPrefixSearchState', '')])),
+                    ('ceflmprefixaddr', (YLeaf(YType.str, 'cefLMPrefixAddr'), ['str'])),
+                    ('ceflmprefixlen', (YLeaf(YType.uint32, 'cefLMPrefixLen'), ['int'])),
+                    ('ceflmprefixrowstatus', (YLeaf(YType.enumeration, 'cefLMPrefixRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.entphysicalindex = None
                 self.ceflmprefixdestaddrtype = None
@@ -1028,6 +1038,7 @@ class CISCOCEFMIB(Entity):
                 self.ceflmprefixrowstatus = None
                 self._segment_path = lambda: "cefLMPrefixEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefLMPrefixDestAddrType='" + str(self.ceflmprefixdestaddrtype) + "']" + "[cefLMPrefixDestAddr='" + str(self.ceflmprefixdestaddr) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefLMPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefLMPrefixTable.CefLMPrefixEntry, ['entphysicalindex', 'ceflmprefixdestaddrtype', 'ceflmprefixdestaddr', 'ceflmprefixstate', 'ceflmprefixaddr', 'ceflmprefixlen', 'ceflmprefixrowstatus'], name, value)
@@ -1066,6 +1077,7 @@ class CISCOCEFMIB(Entity):
             self.cefpathentry = YList(self)
             self._segment_path = lambda: "cefPathTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefPathTable, [], name, value)
@@ -1163,15 +1175,15 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefprefixtype','cefprefixaddr','cefprefixlen','cefpathid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefprefixtype', YLeaf(YType.enumeration, 'cefPrefixType')),
-                    ('cefprefixaddr', YLeaf(YType.str, 'cefPrefixAddr')),
-                    ('cefprefixlen', YLeaf(YType.str, 'cefPrefixLen')),
-                    ('cefpathid', YLeaf(YType.int32, 'cefPathId')),
-                    ('cefpathtype', YLeaf(YType.enumeration, 'cefPathType')),
-                    ('cefpathinterface', YLeaf(YType.int32, 'cefPathInterface')),
-                    ('cefpathnexthopaddr', YLeaf(YType.str, 'cefPathNextHopAddr')),
-                    ('cefpathrecursevrfname', YLeaf(YType.str, 'cefPathRecurseVrfName')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefprefixtype', (YLeaf(YType.enumeration, 'cefPrefixType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cefprefixaddr', (YLeaf(YType.str, 'cefPrefixAddr'), ['str'])),
+                    ('cefprefixlen', (YLeaf(YType.str, 'cefPrefixLen'), ['int'])),
+                    ('cefpathid', (YLeaf(YType.int32, 'cefPathId'), ['int'])),
+                    ('cefpathtype', (YLeaf(YType.enumeration, 'cefPathType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefPathType', '')])),
+                    ('cefpathinterface', (YLeaf(YType.int32, 'cefPathInterface'), ['int'])),
+                    ('cefpathnexthopaddr', (YLeaf(YType.str, 'cefPathNextHopAddr'), ['str'])),
+                    ('cefpathrecursevrfname', (YLeaf(YType.str, 'cefPathRecurseVrfName'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.cefprefixtype = None
@@ -1184,6 +1196,7 @@ class CISCOCEFMIB(Entity):
                 self.cefpathrecursevrfname = None
                 self._segment_path = lambda: "cefPathEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefPrefixType='" + str(self.cefprefixtype) + "']" + "[cefPrefixAddr='" + str(self.cefprefixaddr) + "']" + "[cefPrefixLen='" + str(self.cefprefixlen) + "']" + "[cefPathId='" + str(self.cefpathid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPathTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefPathTable.CefPathEntry, ['entphysicalindex', 'cefprefixtype', 'cefprefixaddr', 'cefprefixlen', 'cefpathid', 'cefpathtype', 'cefpathinterface', 'cefpathnexthopaddr', 'cefpathrecursevrfname'], name, value)
@@ -1220,6 +1233,7 @@ class CISCOCEFMIB(Entity):
             self.cefadjsummaryentry = YList(self)
             self._segment_path = lambda: "cefAdjSummaryTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefAdjSummaryTable, [], name, value)
@@ -1297,12 +1311,12 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','cefadjsummarylinktype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefadjsummarylinktype', YLeaf(YType.enumeration, 'cefAdjSummaryLinkType')),
-                    ('cefadjsummarycomplete', YLeaf(YType.uint32, 'cefAdjSummaryComplete')),
-                    ('cefadjsummaryincomplete', YLeaf(YType.uint32, 'cefAdjSummaryIncomplete')),
-                    ('cefadjsummaryfixup', YLeaf(YType.uint32, 'cefAdjSummaryFixup')),
-                    ('cefadjsummaryredirect', YLeaf(YType.uint32, 'cefAdjSummaryRedirect')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefadjsummarylinktype', (YLeaf(YType.enumeration, 'cefAdjSummaryLinkType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefAdjLinkType', '')])),
+                    ('cefadjsummarycomplete', (YLeaf(YType.uint32, 'cefAdjSummaryComplete'), ['int'])),
+                    ('cefadjsummaryincomplete', (YLeaf(YType.uint32, 'cefAdjSummaryIncomplete'), ['int'])),
+                    ('cefadjsummaryfixup', (YLeaf(YType.uint32, 'cefAdjSummaryFixup'), ['int'])),
+                    ('cefadjsummaryredirect', (YLeaf(YType.uint32, 'cefAdjSummaryRedirect'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.cefadjsummarylinktype = None
@@ -1312,6 +1326,7 @@ class CISCOCEFMIB(Entity):
                 self.cefadjsummaryredirect = None
                 self._segment_path = lambda: "cefAdjSummaryEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefAdjSummaryLinkType='" + str(self.cefadjsummarylinktype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjSummaryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefAdjSummaryTable.CefAdjSummaryEntry, ['entphysicalindex', 'cefadjsummarylinktype', 'cefadjsummarycomplete', 'cefadjsummaryincomplete', 'cefadjsummaryfixup', 'cefadjsummaryredirect'], name, value)
@@ -1347,6 +1362,7 @@ class CISCOCEFMIB(Entity):
             self.cefadjentry = YList(self)
             self._segment_path = lambda: "cefAdjTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefAdjTable, [], name, value)
@@ -1494,21 +1510,21 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ifindex','cefadjnexthopaddrtype','cefadjnexthopaddr','cefadjconnid','cefadjsummarylinktype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cefadjnexthopaddrtype', YLeaf(YType.enumeration, 'cefAdjNextHopAddrType')),
-                    ('cefadjnexthopaddr', YLeaf(YType.str, 'cefAdjNextHopAddr')),
-                    ('cefadjconnid', YLeaf(YType.uint32, 'cefAdjConnId')),
-                    ('cefadjsummarylinktype', YLeaf(YType.enumeration, 'cefAdjSummaryLinkType')),
-                    ('cefadjsource', YLeaf(YType.bits, 'cefAdjSource')),
-                    ('cefadjencap', YLeaf(YType.str, 'cefAdjEncap')),
-                    ('cefadjfixup', YLeaf(YType.str, 'cefAdjFixup')),
-                    ('cefadjmtu', YLeaf(YType.uint32, 'cefAdjMTU')),
-                    ('cefadjforwardinginfo', YLeaf(YType.str, 'cefAdjForwardingInfo')),
-                    ('cefadjpkts', YLeaf(YType.uint32, 'cefAdjPkts')),
-                    ('cefadjhcpkts', YLeaf(YType.uint64, 'cefAdjHCPkts')),
-                    ('cefadjbytes', YLeaf(YType.uint32, 'cefAdjBytes')),
-                    ('cefadjhcbytes', YLeaf(YType.uint64, 'cefAdjHCBytes')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cefadjnexthopaddrtype', (YLeaf(YType.enumeration, 'cefAdjNextHopAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cefadjnexthopaddr', (YLeaf(YType.str, 'cefAdjNextHopAddr'), ['str'])),
+                    ('cefadjconnid', (YLeaf(YType.uint32, 'cefAdjConnId'), ['int'])),
+                    ('cefadjsummarylinktype', (YLeaf(YType.enumeration, 'cefAdjSummaryLinkType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefAdjLinkType', '')])),
+                    ('cefadjsource', (YLeaf(YType.bits, 'cefAdjSource'), ['Bits'])),
+                    ('cefadjencap', (YLeaf(YType.str, 'cefAdjEncap'), ['str'])),
+                    ('cefadjfixup', (YLeaf(YType.str, 'cefAdjFixup'), ['str'])),
+                    ('cefadjmtu', (YLeaf(YType.uint32, 'cefAdjMTU'), ['int'])),
+                    ('cefadjforwardinginfo', (YLeaf(YType.str, 'cefAdjForwardingInfo'), ['str'])),
+                    ('cefadjpkts', (YLeaf(YType.uint32, 'cefAdjPkts'), ['int'])),
+                    ('cefadjhcpkts', (YLeaf(YType.uint64, 'cefAdjHCPkts'), ['int'])),
+                    ('cefadjbytes', (YLeaf(YType.uint32, 'cefAdjBytes'), ['int'])),
+                    ('cefadjhcbytes', (YLeaf(YType.uint64, 'cefAdjHCBytes'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ifindex = None
@@ -1527,6 +1543,7 @@ class CISCOCEFMIB(Entity):
                 self.cefadjhcbytes = None
                 self._segment_path = lambda: "cefAdjEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[cefAdjNextHopAddrType='" + str(self.cefadjnexthopaddrtype) + "']" + "[cefAdjNextHopAddr='" + str(self.cefadjnexthopaddr) + "']" + "[cefAdjConnId='" + str(self.cefadjconnid) + "']" + "[cefAdjSummaryLinkType='" + str(self.cefadjsummarylinktype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefAdjTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefAdjTable.CefAdjEntry, ['entphysicalindex', 'ifindex', 'cefadjnexthopaddrtype', 'cefadjnexthopaddr', 'cefadjconnid', 'cefadjsummarylinktype', 'cefadjsource', 'cefadjencap', 'cefadjfixup', 'cefadjmtu', 'cefadjforwardinginfo', 'cefadjpkts', 'cefadjhcpkts', 'cefadjbytes', 'cefadjhcbytes'], name, value)
@@ -1562,6 +1579,7 @@ class CISCOCEFMIB(Entity):
             self.ceffeselectionentry = YList(self)
             self._segment_path = lambda: "cefFESelectionTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefFESelectionTable, [], name, value)
@@ -1675,18 +1693,18 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffeselectionname','ceffeselectionid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffeselectionname', YLeaf(YType.str, 'cefFESelectionName')),
-                    ('ceffeselectionid', YLeaf(YType.int32, 'cefFESelectionId')),
-                    ('ceffeselectionspecial', YLeaf(YType.enumeration, 'cefFESelectionSpecial')),
-                    ('ceffeselectionlabels', YLeaf(YType.str, 'cefFESelectionLabels')),
-                    ('ceffeselectionadjlinktype', YLeaf(YType.enumeration, 'cefFESelectionAdjLinkType')),
-                    ('ceffeselectionadjinterface', YLeaf(YType.int32, 'cefFESelectionAdjInterface')),
-                    ('ceffeselectionadjnexthopaddrtype', YLeaf(YType.enumeration, 'cefFESelectionAdjNextHopAddrType')),
-                    ('ceffeselectionadjnexthopaddr', YLeaf(YType.str, 'cefFESelectionAdjNextHopAddr')),
-                    ('ceffeselectionadjconnid', YLeaf(YType.uint32, 'cefFESelectionAdjConnId')),
-                    ('ceffeselectionvrfname', YLeaf(YType.str, 'cefFESelectionVrfName')),
-                    ('ceffeselectionweight', YLeaf(YType.uint32, 'cefFESelectionWeight')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffeselectionname', (YLeaf(YType.str, 'cefFESelectionName'), ['str'])),
+                    ('ceffeselectionid', (YLeaf(YType.int32, 'cefFESelectionId'), ['int'])),
+                    ('ceffeselectionspecial', (YLeaf(YType.enumeration, 'cefFESelectionSpecial'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefForwardingElementSpecialType', '')])),
+                    ('ceffeselectionlabels', (YLeaf(YType.str, 'cefFESelectionLabels'), ['str'])),
+                    ('ceffeselectionadjlinktype', (YLeaf(YType.enumeration, 'cefFESelectionAdjLinkType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefAdjLinkType', '')])),
+                    ('ceffeselectionadjinterface', (YLeaf(YType.int32, 'cefFESelectionAdjInterface'), ['int'])),
+                    ('ceffeselectionadjnexthopaddrtype', (YLeaf(YType.enumeration, 'cefFESelectionAdjNextHopAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ceffeselectionadjnexthopaddr', (YLeaf(YType.str, 'cefFESelectionAdjNextHopAddr'), ['str'])),
+                    ('ceffeselectionadjconnid', (YLeaf(YType.uint32, 'cefFESelectionAdjConnId'), ['int'])),
+                    ('ceffeselectionvrfname', (YLeaf(YType.str, 'cefFESelectionVrfName'), ['str'])),
+                    ('ceffeselectionweight', (YLeaf(YType.uint32, 'cefFESelectionWeight'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceffeselectionname = None
@@ -1702,6 +1720,7 @@ class CISCOCEFMIB(Entity):
                 self.ceffeselectionweight = None
                 self._segment_path = lambda: "cefFESelectionEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFESelectionName='" + str(self.ceffeselectionname) + "']" + "[cefFESelectionId='" + str(self.ceffeselectionid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefFESelectionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefFESelectionTable.CefFESelectionEntry, ['entphysicalindex', 'ceffeselectionname', 'ceffeselectionid', 'ceffeselectionspecial', 'ceffeselectionlabels', 'ceffeselectionadjlinktype', 'ceffeselectionadjinterface', 'ceffeselectionadjnexthopaddrtype', 'ceffeselectionadjnexthopaddr', 'ceffeselectionadjconnid', 'ceffeselectionvrfname', 'ceffeselectionweight'], name, value)
@@ -1738,6 +1757,7 @@ class CISCOCEFMIB(Entity):
             self.cefcfgentry = YList(self)
             self._segment_path = lambda: "cefCfgTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefCfgTable, [], name, value)
@@ -1843,17 +1863,17 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefcfgadminstate', YLeaf(YType.enumeration, 'cefCfgAdminState')),
-                    ('cefcfgoperstate', YLeaf(YType.enumeration, 'cefCfgOperState')),
-                    ('cefcfgdistributionadminstate', YLeaf(YType.enumeration, 'cefCfgDistributionAdminState')),
-                    ('cefcfgdistributionoperstate', YLeaf(YType.enumeration, 'cefCfgDistributionOperState')),
-                    ('cefcfgaccountingmap', YLeaf(YType.bits, 'cefCfgAccountingMap')),
-                    ('cefcfgloadsharingalgorithm', YLeaf(YType.enumeration, 'cefCfgLoadSharingAlgorithm')),
-                    ('cefcfgloadsharingid', YLeaf(YType.uint32, 'cefCfgLoadSharingID')),
-                    ('cefcfgtrafficstatsloadinterval', YLeaf(YType.uint32, 'cefCfgTrafficStatsLoadInterval')),
-                    ('cefcfgtrafficstatsupdaterate', YLeaf(YType.uint32, 'cefCfgTrafficStatsUpdateRate')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefcfgadminstate', (YLeaf(YType.enumeration, 'cefCfgAdminState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefAdminStatus', '')])),
+                    ('cefcfgoperstate', (YLeaf(YType.enumeration, 'cefCfgOperState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefOperStatus', '')])),
+                    ('cefcfgdistributionadminstate', (YLeaf(YType.enumeration, 'cefCfgDistributionAdminState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefAdminStatus', '')])),
+                    ('cefcfgdistributionoperstate', (YLeaf(YType.enumeration, 'cefCfgDistributionOperState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefOperStatus', '')])),
+                    ('cefcfgaccountingmap', (YLeaf(YType.bits, 'cefCfgAccountingMap'), ['Bits'])),
+                    ('cefcfgloadsharingalgorithm', (YLeaf(YType.enumeration, 'cefCfgLoadSharingAlgorithm'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefCfgTable.CefCfgEntry.CefCfgLoadSharingAlgorithm')])),
+                    ('cefcfgloadsharingid', (YLeaf(YType.uint32, 'cefCfgLoadSharingID'), ['int'])),
+                    ('cefcfgtrafficstatsloadinterval', (YLeaf(YType.uint32, 'cefCfgTrafficStatsLoadInterval'), ['int'])),
+                    ('cefcfgtrafficstatsupdaterate', (YLeaf(YType.uint32, 'cefCfgTrafficStatsUpdateRate'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceffibipversion = None
@@ -1868,6 +1888,7 @@ class CISCOCEFMIB(Entity):
                 self.cefcfgtrafficstatsupdaterate = None
                 self._segment_path = lambda: "cefCfgEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCfgTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefCfgTable.CefCfgEntry, ['entphysicalindex', 'ceffibipversion', 'cefcfgadminstate', 'cefcfgoperstate', 'cefcfgdistributionadminstate', 'cefcfgdistributionoperstate', 'cefcfgaccountingmap', 'cefcfgloadsharingalgorithm', 'cefcfgloadsharingid', 'cefcfgtrafficstatsloadinterval', 'cefcfgtrafficstatsupdaterate'], name, value)
@@ -1961,6 +1982,7 @@ class CISCOCEFMIB(Entity):
             self.cefresourceentry = YList(self)
             self._segment_path = lambda: "cefResourceTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefResourceTable, [], name, value)
@@ -2017,15 +2039,16 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cefresourcememoryused', YLeaf(YType.uint32, 'cefResourceMemoryUsed')),
-                    ('cefresourcefailurereason', YLeaf(YType.enumeration, 'cefResourceFailureReason')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cefresourcememoryused', (YLeaf(YType.uint32, 'cefResourceMemoryUsed'), ['int'])),
+                    ('cefresourcefailurereason', (YLeaf(YType.enumeration, 'cefResourceFailureReason'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefFailureReason', '')])),
                 ])
                 self.entphysicalindex = None
                 self.cefresourcememoryused = None
                 self.cefresourcefailurereason = None
                 self._segment_path = lambda: "cefResourceEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefResourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefResourceTable.CefResourceEntry, ['entphysicalindex', 'cefresourcememoryused', 'cefresourcefailurereason'], name, value)
@@ -2063,6 +2086,7 @@ class CISCOCEFMIB(Entity):
             self.cefintentry = YList(self)
             self._segment_path = lambda: "cefIntTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefIntTable, [], name, value)
@@ -2143,12 +2167,12 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cefintswitchingstate', YLeaf(YType.enumeration, 'cefIntSwitchingState')),
-                    ('cefintloadsharing', YLeaf(YType.enumeration, 'cefIntLoadSharing')),
-                    ('cefintnonrecursiveaccouting', YLeaf(YType.enumeration, 'cefIntNonrecursiveAccouting')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cefintswitchingstate', (YLeaf(YType.enumeration, 'cefIntSwitchingState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefIntTable.CefIntEntry.CefIntSwitchingState')])),
+                    ('cefintloadsharing', (YLeaf(YType.enumeration, 'cefIntLoadSharing'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefIntTable.CefIntEntry.CefIntLoadSharing')])),
+                    ('cefintnonrecursiveaccouting', (YLeaf(YType.enumeration, 'cefIntNonrecursiveAccouting'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefIntTable.CefIntEntry.CefIntNonrecursiveAccouting')])),
                 ])
                 self.entphysicalindex = None
                 self.ceffibipversion = None
@@ -2158,6 +2182,7 @@ class CISCOCEFMIB(Entity):
                 self.cefintnonrecursiveaccouting = None
                 self._segment_path = lambda: "cefIntEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefIntTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefIntTable.CefIntEntry, ['entphysicalindex', 'ceffibipversion', 'ifindex', 'cefintswitchingstate', 'cefintloadsharing', 'cefintnonrecursiveaccouting'], name, value)
@@ -2306,6 +2331,7 @@ class CISCOCEFMIB(Entity):
             self.cefpeerentry = YList(self)
             self._segment_path = lambda: "cefPeerTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefPeerTable, [], name, value)
@@ -2367,10 +2393,10 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entpeerphysicalindex', YLeaf(YType.int32, 'entPeerPhysicalIndex')),
-                    ('cefpeeroperstate', YLeaf(YType.enumeration, 'cefPeerOperState')),
-                    ('cefpeernumberofresets', YLeaf(YType.uint32, 'cefPeerNumberOfResets')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entpeerphysicalindex', (YLeaf(YType.int32, 'entPeerPhysicalIndex'), ['int'])),
+                    ('cefpeeroperstate', (YLeaf(YType.enumeration, 'cefPeerOperState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefPeerTable.CefPeerEntry.CefPeerOperState')])),
+                    ('cefpeernumberofresets', (YLeaf(YType.uint32, 'cefPeerNumberOfResets'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.entpeerphysicalindex = None
@@ -2378,6 +2404,7 @@ class CISCOCEFMIB(Entity):
                 self.cefpeernumberofresets = None
                 self._segment_path = lambda: "cefPeerEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entPeerPhysicalIndex='" + str(self.entpeerphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefPeerTable.CefPeerEntry, ['entphysicalindex', 'entpeerphysicalindex', 'cefpeeroperstate', 'cefpeernumberofresets'], name, value)
@@ -2462,6 +2489,7 @@ class CISCOCEFMIB(Entity):
             self.cefpeerfibentry = YList(self)
             self._segment_path = lambda: "cefPeerFIBTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefPeerFIBTable, [], name, value)
@@ -2523,10 +2551,10 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','entpeerphysicalindex','ceffibipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entpeerphysicalindex', YLeaf(YType.str, 'entPeerPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefpeerfiboperstate', YLeaf(YType.enumeration, 'cefPeerFIBOperState')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entpeerphysicalindex', (YLeaf(YType.str, 'entPeerPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefpeerfiboperstate', (YLeaf(YType.enumeration, 'cefPeerFIBOperState'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefPeerFIBTable.CefPeerFIBEntry.CefPeerFIBOperState')])),
                 ])
                 self.entphysicalindex = None
                 self.entpeerphysicalindex = None
@@ -2534,6 +2562,7 @@ class CISCOCEFMIB(Entity):
                 self.cefpeerfiboperstate = None
                 self._segment_path = lambda: "cefPeerFIBEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entPeerPhysicalIndex='" + str(self.entpeerphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefPeerFIBTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefPeerFIBTable.CefPeerFIBEntry, ['entphysicalindex', 'entpeerphysicalindex', 'ceffibipversion', 'cefpeerfiboperstate'], name, value)
@@ -2601,6 +2630,7 @@ class CISCOCEFMIB(Entity):
             self.cefccglobalentry = YList(self)
             self._segment_path = lambda: "cefCCGlobalTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefCCGlobalTable, [], name, value)
@@ -2675,13 +2705,13 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['ceffibipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefccglobalautorepairenabled', YLeaf(YType.boolean, 'cefCCGlobalAutoRepairEnabled')),
-                    ('cefccglobalautorepairdelay', YLeaf(YType.uint32, 'cefCCGlobalAutoRepairDelay')),
-                    ('cefccglobalautorepairholddown', YLeaf(YType.uint32, 'cefCCGlobalAutoRepairHoldDown')),
-                    ('cefccglobalerrormsgenabled', YLeaf(YType.boolean, 'cefCCGlobalErrorMsgEnabled')),
-                    ('cefccglobalfullscanaction', YLeaf(YType.enumeration, 'cefCCGlobalFullScanAction')),
-                    ('cefccglobalfullscanstatus', YLeaf(YType.enumeration, 'cefCCGlobalFullScanStatus')),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefccglobalautorepairenabled', (YLeaf(YType.boolean, 'cefCCGlobalAutoRepairEnabled'), ['bool'])),
+                    ('cefccglobalautorepairdelay', (YLeaf(YType.uint32, 'cefCCGlobalAutoRepairDelay'), ['int'])),
+                    ('cefccglobalautorepairholddown', (YLeaf(YType.uint32, 'cefCCGlobalAutoRepairHoldDown'), ['int'])),
+                    ('cefccglobalerrormsgenabled', (YLeaf(YType.boolean, 'cefCCGlobalErrorMsgEnabled'), ['bool'])),
+                    ('cefccglobalfullscanaction', (YLeaf(YType.enumeration, 'cefCCGlobalFullScanAction'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCAction', '')])),
+                    ('cefccglobalfullscanstatus', (YLeaf(YType.enumeration, 'cefCCGlobalFullScanStatus'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCStatus', '')])),
                 ])
                 self.ceffibipversion = None
                 self.cefccglobalautorepairenabled = None
@@ -2692,6 +2722,7 @@ class CISCOCEFMIB(Entity):
                 self.cefccglobalfullscanstatus = None
                 self._segment_path = lambda: "cefCCGlobalEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCGlobalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefCCGlobalTable.CefCCGlobalEntry, ['ceffibipversion', 'cefccglobalautorepairenabled', 'cefccglobalautorepairdelay', 'cefccglobalautorepairholddown', 'cefccglobalerrormsgenabled', 'cefccglobalfullscanaction', 'cefccglobalfullscanstatus'], name, value)
@@ -2732,6 +2763,7 @@ class CISCOCEFMIB(Entity):
             self.cefcctypeentry = YList(self)
             self._segment_path = lambda: "cefCCTypeTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefCCTypeTable, [], name, value)
@@ -2823,15 +2855,15 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['ceffibipversion','cefcctype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefcctype', YLeaf(YType.enumeration, 'cefCCType')),
-                    ('cefccenabled', YLeaf(YType.boolean, 'cefCCEnabled')),
-                    ('cefcccount', YLeaf(YType.uint32, 'cefCCCount')),
-                    ('cefccperiod', YLeaf(YType.uint32, 'cefCCPeriod')),
-                    ('cefccqueriessent', YLeaf(YType.uint32, 'cefCCQueriesSent')),
-                    ('cefccqueriesignored', YLeaf(YType.uint32, 'cefCCQueriesIgnored')),
-                    ('cefccquerieschecked', YLeaf(YType.uint32, 'cefCCQueriesChecked')),
-                    ('cefccqueriesiterated', YLeaf(YType.uint32, 'cefCCQueriesIterated')),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefcctype', (YLeaf(YType.enumeration, 'cefCCType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCType', '')])),
+                    ('cefccenabled', (YLeaf(YType.boolean, 'cefCCEnabled'), ['bool'])),
+                    ('cefcccount', (YLeaf(YType.uint32, 'cefCCCount'), ['int'])),
+                    ('cefccperiod', (YLeaf(YType.uint32, 'cefCCPeriod'), ['int'])),
+                    ('cefccqueriessent', (YLeaf(YType.uint32, 'cefCCQueriesSent'), ['int'])),
+                    ('cefccqueriesignored', (YLeaf(YType.uint32, 'cefCCQueriesIgnored'), ['int'])),
+                    ('cefccquerieschecked', (YLeaf(YType.uint32, 'cefCCQueriesChecked'), ['int'])),
+                    ('cefccqueriesiterated', (YLeaf(YType.uint32, 'cefCCQueriesIterated'), ['int'])),
                 ])
                 self.ceffibipversion = None
                 self.cefcctype = None
@@ -2844,6 +2876,7 @@ class CISCOCEFMIB(Entity):
                 self.cefccqueriesiterated = None
                 self._segment_path = lambda: "cefCCTypeEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefCCType='" + str(self.cefcctype) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefCCTypeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefCCTypeTable.CefCCTypeEntry, ['ceffibipversion', 'cefcctype', 'cefccenabled', 'cefcccount', 'cefccperiod', 'cefccqueriessent', 'cefccqueriesignored', 'cefccquerieschecked', 'cefccqueriesiterated'], name, value)
@@ -2880,6 +2913,7 @@ class CISCOCEFMIB(Entity):
             self.cefinconsistencyrecordentry = YList(self)
             self._segment_path = lambda: "cefInconsistencyRecordTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefInconsistencyRecordTable, [], name, value)
@@ -2963,15 +2997,15 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['ceffibipversion','cefinconsistencyrecid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefinconsistencyrecid', YLeaf(YType.int32, 'cefInconsistencyRecId')),
-                    ('cefinconsistencyprefixtype', YLeaf(YType.enumeration, 'cefInconsistencyPrefixType')),
-                    ('cefinconsistencyprefixaddr', YLeaf(YType.str, 'cefInconsistencyPrefixAddr')),
-                    ('cefinconsistencyprefixlen', YLeaf(YType.uint32, 'cefInconsistencyPrefixLen')),
-                    ('cefinconsistencyvrfname', YLeaf(YType.str, 'cefInconsistencyVrfName')),
-                    ('cefinconsistencycctype', YLeaf(YType.enumeration, 'cefInconsistencyCCType')),
-                    ('cefinconsistencyentity', YLeaf(YType.int32, 'cefInconsistencyEntity')),
-                    ('cefinconsistencyreason', YLeaf(YType.enumeration, 'cefInconsistencyReason')),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefinconsistencyrecid', (YLeaf(YType.int32, 'cefInconsistencyRecId'), ['int'])),
+                    ('cefinconsistencyprefixtype', (YLeaf(YType.enumeration, 'cefInconsistencyPrefixType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cefinconsistencyprefixaddr', (YLeaf(YType.str, 'cefInconsistencyPrefixAddr'), ['str'])),
+                    ('cefinconsistencyprefixlen', (YLeaf(YType.uint32, 'cefInconsistencyPrefixLen'), ['int'])),
+                    ('cefinconsistencyvrfname', (YLeaf(YType.str, 'cefInconsistencyVrfName'), ['str'])),
+                    ('cefinconsistencycctype', (YLeaf(YType.enumeration, 'cefInconsistencyCCType'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefCCType', '')])),
+                    ('cefinconsistencyentity', (YLeaf(YType.int32, 'cefInconsistencyEntity'), ['int'])),
+                    ('cefinconsistencyreason', (YLeaf(YType.enumeration, 'cefInconsistencyReason'), [('ydk.models.cisco_ios_xe.CISCO_CEF_MIB', 'CISCOCEFMIB', 'CefInconsistencyRecordTable.CefInconsistencyRecordEntry.CefInconsistencyReason')])),
                 ])
                 self.ceffibipversion = None
                 self.cefinconsistencyrecid = None
@@ -2984,6 +3018,7 @@ class CISCOCEFMIB(Entity):
                 self.cefinconsistencyreason = None
                 self._segment_path = lambda: "cefInconsistencyRecordEntry" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefInconsistencyRecId='" + str(self.cefinconsistencyrecid) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefInconsistencyRecordTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefInconsistencyRecordTable.CefInconsistencyRecordEntry, ['ceffibipversion', 'cefinconsistencyrecid', 'cefinconsistencyprefixtype', 'cefinconsistencyprefixaddr', 'cefinconsistencyprefixlen', 'cefinconsistencyvrfname', 'cefinconsistencycctype', 'cefinconsistencyentity', 'cefinconsistencyreason'], name, value)
@@ -3047,6 +3082,7 @@ class CISCOCEFMIB(Entity):
             self.cefstatsprefixlenentry = YList(self)
             self._segment_path = lambda: "cefStatsPrefixLenTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefStatsPrefixLenTable, [], name, value)
@@ -3164,17 +3200,17 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefstatsprefixlen']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefstatsprefixlen', YLeaf(YType.uint32, 'cefStatsPrefixLen')),
-                    ('cefstatsprefixqueries', YLeaf(YType.uint32, 'cefStatsPrefixQueries')),
-                    ('cefstatsprefixhcqueries', YLeaf(YType.uint64, 'cefStatsPrefixHCQueries')),
-                    ('cefstatsprefixinserts', YLeaf(YType.uint32, 'cefStatsPrefixInserts')),
-                    ('cefstatsprefixhcinserts', YLeaf(YType.uint64, 'cefStatsPrefixHCInserts')),
-                    ('cefstatsprefixdeletes', YLeaf(YType.uint32, 'cefStatsPrefixDeletes')),
-                    ('cefstatsprefixhcdeletes', YLeaf(YType.uint64, 'cefStatsPrefixHCDeletes')),
-                    ('cefstatsprefixelements', YLeaf(YType.uint32, 'cefStatsPrefixElements')),
-                    ('cefstatsprefixhcelements', YLeaf(YType.uint64, 'cefStatsPrefixHCElements')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefstatsprefixlen', (YLeaf(YType.uint32, 'cefStatsPrefixLen'), ['int'])),
+                    ('cefstatsprefixqueries', (YLeaf(YType.uint32, 'cefStatsPrefixQueries'), ['int'])),
+                    ('cefstatsprefixhcqueries', (YLeaf(YType.uint64, 'cefStatsPrefixHCQueries'), ['int'])),
+                    ('cefstatsprefixinserts', (YLeaf(YType.uint32, 'cefStatsPrefixInserts'), ['int'])),
+                    ('cefstatsprefixhcinserts', (YLeaf(YType.uint64, 'cefStatsPrefixHCInserts'), ['int'])),
+                    ('cefstatsprefixdeletes', (YLeaf(YType.uint32, 'cefStatsPrefixDeletes'), ['int'])),
+                    ('cefstatsprefixhcdeletes', (YLeaf(YType.uint64, 'cefStatsPrefixHCDeletes'), ['int'])),
+                    ('cefstatsprefixelements', (YLeaf(YType.uint32, 'cefStatsPrefixElements'), ['int'])),
+                    ('cefstatsprefixhcelements', (YLeaf(YType.uint64, 'cefStatsPrefixHCElements'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceffibipversion = None
@@ -3189,6 +3225,7 @@ class CISCOCEFMIB(Entity):
                 self.cefstatsprefixhcelements = None
                 self._segment_path = lambda: "cefStatsPrefixLenEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefStatsPrefixLen='" + str(self.cefstatsprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefStatsPrefixLenTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefStatsPrefixLenTable.CefStatsPrefixLenEntry, ['entphysicalindex', 'ceffibipversion', 'cefstatsprefixlen', 'cefstatsprefixqueries', 'cefstatsprefixhcqueries', 'cefstatsprefixinserts', 'cefstatsprefixhcinserts', 'cefstatsprefixdeletes', 'cefstatsprefixhcdeletes', 'cefstatsprefixelements', 'cefstatsprefixhcelements'], name, value)
@@ -3224,6 +3261,7 @@ class CISCOCEFMIB(Entity):
             self.cefswitchingstatsentry = YList(self)
             self._segment_path = lambda: "cefSwitchingStatsTable"
             self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCEFMIB.CefSwitchingStatsTable, [], name, value)
@@ -3341,16 +3379,16 @@ class CISCOCEFMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceffibipversion','cefswitchingindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceffibipversion', YLeaf(YType.enumeration, 'cefFIBIpVersion')),
-                    ('cefswitchingindex', YLeaf(YType.int32, 'cefSwitchingIndex')),
-                    ('cefswitchingpath', YLeaf(YType.str, 'cefSwitchingPath')),
-                    ('cefswitchingdrop', YLeaf(YType.uint32, 'cefSwitchingDrop')),
-                    ('cefswitchinghcdrop', YLeaf(YType.uint64, 'cefSwitchingHCDrop')),
-                    ('cefswitchingpunt', YLeaf(YType.uint32, 'cefSwitchingPunt')),
-                    ('cefswitchinghcpunt', YLeaf(YType.uint64, 'cefSwitchingHCPunt')),
-                    ('cefswitchingpunt2host', YLeaf(YType.uint32, 'cefSwitchingPunt2Host')),
-                    ('cefswitchinghcpunt2host', YLeaf(YType.uint64, 'cefSwitchingHCPunt2Host')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceffibipversion', (YLeaf(YType.enumeration, 'cefFIBIpVersion'), [('ydk.models.cisco_ios_xe.CISCO_CEF_TC', 'CefIpVersion', '')])),
+                    ('cefswitchingindex', (YLeaf(YType.int32, 'cefSwitchingIndex'), ['int'])),
+                    ('cefswitchingpath', (YLeaf(YType.str, 'cefSwitchingPath'), ['str'])),
+                    ('cefswitchingdrop', (YLeaf(YType.uint32, 'cefSwitchingDrop'), ['int'])),
+                    ('cefswitchinghcdrop', (YLeaf(YType.uint64, 'cefSwitchingHCDrop'), ['int'])),
+                    ('cefswitchingpunt', (YLeaf(YType.uint32, 'cefSwitchingPunt'), ['int'])),
+                    ('cefswitchinghcpunt', (YLeaf(YType.uint64, 'cefSwitchingHCPunt'), ['int'])),
+                    ('cefswitchingpunt2host', (YLeaf(YType.uint32, 'cefSwitchingPunt2Host'), ['int'])),
+                    ('cefswitchinghcpunt2host', (YLeaf(YType.uint64, 'cefSwitchingHCPunt2Host'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceffibipversion = None
@@ -3364,6 +3402,7 @@ class CISCOCEFMIB(Entity):
                 self.cefswitchinghcpunt2host = None
                 self._segment_path = lambda: "cefSwitchingStatsEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[cefFIBIpVersion='" + str(self.ceffibipversion) + "']" + "[cefSwitchingIndex='" + str(self.cefswitchingindex) + "']"
                 self._absolute_path = lambda: "CISCO-CEF-MIB:CISCO-CEF-MIB/cefSwitchingStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCEFMIB.CefSwitchingStatsTable.CefSwitchingStatsEntry, ['entphysicalindex', 'ceffibipversion', 'cefswitchingindex', 'cefswitchingpath', 'cefswitchingdrop', 'cefswitchinghcdrop', 'cefswitchingpunt', 'cefswitchinghcpunt', 'cefswitchingpunt2host', 'cefswitchinghcpunt2host'], name, value)

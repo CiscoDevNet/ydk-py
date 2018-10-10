@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   controllers\: Controller operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ImStateEnum(Enum):
@@ -175,6 +176,7 @@ class Controllers(Entity):
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
         self._segment_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Controllers, [], name, value)
@@ -210,6 +212,7 @@ class Controllers(Entity):
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Controllers.Controllers_, [], name, value)
@@ -224,14 +227,14 @@ class Controllers(Entity):
             	The name of the controller
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: controller
             
             	Controller
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: state
             
@@ -260,10 +263,10 @@ class Controllers(Entity):
                 self.ylist_key_names = ['interafce_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interafce_name', YLeaf(YType.str, 'interafce-name')),
-                    ('controller', YLeaf(YType.str, 'controller')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('description', YLeaf(YType.str, 'description')),
+                    ('interafce_name', (YLeaf(YType.str, 'interafce-name'), ['str'])),
+                    ('controller', (YLeaf(YType.str, 'controller'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper', 'ImStateEnum', '')])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
                 ])
                 self.interafce_name = None
                 self.controller = None
@@ -271,9 +274,10 @@ class Controllers(Entity):
                 self.description = None
                 self._segment_path = lambda: "controller" + "[interafce-name='" + str(self.interafce_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-ctrlr-oper:controllers/controllers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', 'controller', 'state', 'description'], name, value)
+                self._perform_setattr(Controllers.Controllers_.Controller, ['interafce_name', u'controller', u'state', u'description'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Controllers()

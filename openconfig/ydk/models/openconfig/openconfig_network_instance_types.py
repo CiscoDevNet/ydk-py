@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class SIGNALLINGPROTOCOL(Identity):
     """
     The signalling protocol that should be used to diseminate
@@ -24,8 +25,8 @@ class SIGNALLINGPROTOCOL(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(SIGNALLINGPROTOCOL, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:SIGNALLING_PROTOCOL")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:SIGNALLING_PROTOCOL"):
+        super(SIGNALLINGPROTOCOL, self).__init__(ns, pref, tag)
 
 
 class LABELALLOCATIONMODE(Identity):
@@ -40,8 +41,8 @@ class LABELALLOCATIONMODE(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(LABELALLOCATIONMODE, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:LABEL_ALLOCATION_MODE")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LABEL_ALLOCATION_MODE"):
+        super(LABELALLOCATIONMODE, self).__init__(ns, pref, tag)
 
 
 class ENDPOINTTYPE(Identity):
@@ -56,8 +57,8 @@ class ENDPOINTTYPE(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(ENDPOINTTYPE, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:ENDPOINT_TYPE")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:ENDPOINT_TYPE"):
+        super(ENDPOINTTYPE, self).__init__(ns, pref, tag)
 
 
 class ENCAPSULATION(Identity):
@@ -72,8 +73,8 @@ class ENCAPSULATION(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(ENCAPSULATION, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:ENCAPSULATION")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:ENCAPSULATION"):
+        super(ENCAPSULATION, self).__init__(ns, pref, tag)
 
 
 class NETWORKINSTANCETYPE(Identity):
@@ -88,11 +89,11 @@ class NETWORKINSTANCETYPE(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(NETWORKINSTANCETYPE, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:NETWORK_INSTANCE_TYPE")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:NETWORK_INSTANCE_TYPE"):
+        super(NETWORKINSTANCETYPE, self).__init__(ns, pref, tag)
 
 
-class INSTANCELABEL(Identity):
+class INSTANCELABEL(LABELALLOCATIONMODE):
     """
     A single label is to be used for the instance
     
@@ -103,11 +104,11 @@ class INSTANCELABEL(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(INSTANCELABEL, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:INSTANCE_LABEL")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:INSTANCE_LABEL"):
+        super(INSTANCELABEL, self).__init__(ns, pref, tag)
 
 
-class L2VSI(Identity):
+class L2VSI(NETWORKINSTANCETYPE):
     """
     A private Layer 2 only switch instance which is formed of
     one or more L2 forwarding tables
@@ -119,11 +120,11 @@ class L2VSI(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(L2VSI, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:L2VSI")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2VSI"):
+        super(L2VSI, self).__init__(ns, pref, tag)
 
 
-class L3VRF(Identity):
+class L3VRF(NETWORKINSTANCETYPE):
     """
     A private Layer 3 only routing instance which is formed of
     one or more RIBs
@@ -135,11 +136,11 @@ class L3VRF(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(L3VRF, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:L3VRF")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L3VRF"):
+        super(L3VRF, self).__init__(ns, pref, tag)
 
 
-class REMOTE(Identity):
+class REMOTE(ENDPOINTTYPE):
     """
     A remote interface which is being associated with the
     endpoint
@@ -151,11 +152,11 @@ class REMOTE(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(REMOTE, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:REMOTE")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:REMOTE"):
+        super(REMOTE, self).__init__(ns, pref, tag)
 
 
-class LDP(Identity):
+class LDP(SIGNALLINGPROTOCOL):
     """
     Use LDP\-based setup for signalling. Where the instance is
     a point\-to\-point service this refers to RFC4447 ('Martini')
@@ -169,11 +170,11 @@ class LDP(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(LDP, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:LDP")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LDP"):
+        super(LDP, self).__init__(ns, pref, tag)
 
 
-class PERPREFIX(Identity):
+class PERPREFIX(LABELALLOCATIONMODE):
     """
     A label is to be allocated per prefix entry in the RIB for the
     network instance
@@ -185,11 +186,11 @@ class PERPREFIX(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(PERPREFIX, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:PER_PREFIX")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:PER_PREFIX"):
+        super(PERPREFIX, self).__init__(ns, pref, tag)
 
 
-class MPLS(Identity):
+class MPLS(ENCAPSULATION):
     """
     Use MPLS labels to distinguish network instances on the wire
     
@@ -200,11 +201,11 @@ class MPLS(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(MPLS, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:MPLS")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:MPLS"):
+        super(MPLS, self).__init__(ns, pref, tag)
 
 
-class BGPVPLS(Identity):
+class BGPVPLS(SIGNALLINGPROTOCOL):
     """
     Use BGP\-based signalling and autodiscovery for VPLS instances
     as per RFC4761
@@ -216,11 +217,11 @@ class BGPVPLS(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(BGPVPLS, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:BGP_VPLS")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:BGP_VPLS"):
+        super(BGPVPLS, self).__init__(ns, pref, tag)
 
 
-class BGPEVPN(Identity):
+class BGPEVPN(SIGNALLINGPROTOCOL):
     """
     Use BGP\-based Ethernet VPN (RFC7432) based signalling for
     the network instance
@@ -232,11 +233,11 @@ class BGPEVPN(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(BGPEVPN, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:BGP_EVPN")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:BGP_EVPN"):
+        super(BGPEVPN, self).__init__(ns, pref, tag)
 
 
-class L2P2P(Identity):
+class L2P2P(NETWORKINSTANCETYPE):
     """
     A private Layer 2 only forwarding instance which acts as
     a point to point connection between two endpoints
@@ -248,11 +249,11 @@ class L2P2P(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(L2P2P, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:L2P2P")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2P2P"):
+        super(L2P2P, self).__init__(ns, pref, tag)
 
 
-class DEFAULTINSTANCE(Identity):
+class DEFAULTINSTANCE(NETWORKINSTANCETYPE):
     """
     A special routing instance which acts as the 'default' or
     'global' routing instance for a network device.
@@ -264,11 +265,11 @@ class DEFAULTINSTANCE(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(DEFAULTINSTANCE, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:DEFAULT_INSTANCE")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:DEFAULT_INSTANCE"):
+        super(DEFAULTINSTANCE, self).__init__(ns, pref, tag)
 
 
-class LOCAL(Identity):
+class LOCAL(ENDPOINTTYPE):
     """
     A local interface which is being associated with the endpoint
     
@@ -279,11 +280,11 @@ class LOCAL(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(LOCAL, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:LOCAL")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:LOCAL"):
+        super(LOCAL, self).__init__(ns, pref, tag)
 
 
-class L2L3(Identity):
+class L2L3(NETWORKINSTANCETYPE):
     """
     A private Layer 2 and Layer 2 forwarding instance
     
@@ -294,11 +295,11 @@ class L2L3(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(L2L3, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:L2L3")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:L2L3"):
+        super(L2L3, self).__init__(ns, pref, tag)
 
 
-class VXLAN(Identity):
+class VXLAN(ENCAPSULATION):
     """
     Use VXLAN (RFC7348) VNIs to distinguish network instances on
     the wire
@@ -310,11 +311,11 @@ class VXLAN(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(VXLAN, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:VXLAN")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:VXLAN"):
+        super(VXLAN, self).__init__(ns, pref, tag)
 
 
-class PERNEXTHOP(Identity):
+class PERNEXTHOP(LABELALLOCATIONMODE):
     """
     A label is to be allocated per nexthop entry in the RIB for
     the network instance
@@ -326,7 +327,7 @@ class PERNEXTHOP(Identity):
     _prefix = 'oc-ni-types'
     _revision = '2016-12-15'
 
-    def __init__(self):
-        super(PERNEXTHOP, self).__init__("http://openconfig.net/yang/network-instance-types", "openconfig-network-instance-types", "openconfig-network-instance-types:PER_NEXTHOP")
+    def __init__(self, ns="http://openconfig.net/yang/network-instance-types", pref="openconfig-network-instance-types", tag="openconfig-network-instance-types:PER_NEXTHOP"):
+        super(PERNEXTHOP, self).__init__(ns, pref, tag)
 
 

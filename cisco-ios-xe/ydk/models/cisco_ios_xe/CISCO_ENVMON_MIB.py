@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoEnvMonState(Enum):
     """
     CiscoEnvMonState (Enum Class)
@@ -157,6 +158,7 @@ class CISCOENVMONMIB(Entity):
         self.ciscoenvmonsupplystatustable.parent = self
         self._children_name_map["ciscoenvmonsupplystatustable"] = "ciscoEnvMonSupplyStatusTable"
         self._segment_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENVMONMIB, [], name, value)
@@ -193,13 +195,14 @@ class CISCOENVMONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciscoenvmonpresent', YLeaf(YType.enumeration, 'ciscoEnvMonPresent')),
-                ('ciscoenvmonalarmcontacts', YLeaf(YType.bits, 'ciscoEnvMonAlarmContacts')),
+                ('ciscoenvmonpresent', (YLeaf(YType.enumeration, 'ciscoEnvMonPresent'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CISCOENVMONMIB', 'CiscoEnvMonObjects.CiscoEnvMonPresent')])),
+                ('ciscoenvmonalarmcontacts', (YLeaf(YType.bits, 'ciscoEnvMonAlarmContacts'), ['Bits'])),
             ])
             self.ciscoenvmonpresent = None
             self.ciscoenvmonalarmcontacts = Bits()
             self._segment_path = lambda: "ciscoEnvMonObjects"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonObjects, ['ciscoenvmonpresent', 'ciscoenvmonalarmcontacts'], name, value)
@@ -337,12 +340,12 @@ class CISCOENVMONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciscoenvmonenableshutdownnotification', YLeaf(YType.boolean, 'ciscoEnvMonEnableShutdownNotification')),
-                ('ciscoenvmonenablevoltagenotification', YLeaf(YType.boolean, 'ciscoEnvMonEnableVoltageNotification')),
-                ('ciscoenvmonenabletemperaturenotification', YLeaf(YType.boolean, 'ciscoEnvMonEnableTemperatureNotification')),
-                ('ciscoenvmonenablefannotification', YLeaf(YType.boolean, 'ciscoEnvMonEnableFanNotification')),
-                ('ciscoenvmonenableredundantsupplynotification', YLeaf(YType.boolean, 'ciscoEnvMonEnableRedundantSupplyNotification')),
-                ('ciscoenvmonenablestatchangenotif', YLeaf(YType.boolean, 'ciscoEnvMonEnableStatChangeNotif')),
+                ('ciscoenvmonenableshutdownnotification', (YLeaf(YType.boolean, 'ciscoEnvMonEnableShutdownNotification'), ['bool'])),
+                ('ciscoenvmonenablevoltagenotification', (YLeaf(YType.boolean, 'ciscoEnvMonEnableVoltageNotification'), ['bool'])),
+                ('ciscoenvmonenabletemperaturenotification', (YLeaf(YType.boolean, 'ciscoEnvMonEnableTemperatureNotification'), ['bool'])),
+                ('ciscoenvmonenablefannotification', (YLeaf(YType.boolean, 'ciscoEnvMonEnableFanNotification'), ['bool'])),
+                ('ciscoenvmonenableredundantsupplynotification', (YLeaf(YType.boolean, 'ciscoEnvMonEnableRedundantSupplyNotification'), ['bool'])),
+                ('ciscoenvmonenablestatchangenotif', (YLeaf(YType.boolean, 'ciscoEnvMonEnableStatChangeNotif'), ['bool'])),
             ])
             self.ciscoenvmonenableshutdownnotification = None
             self.ciscoenvmonenablevoltagenotification = None
@@ -352,6 +355,7 @@ class CISCOENVMONMIB(Entity):
             self.ciscoenvmonenablestatchangenotif = None
             self._segment_path = lambda: "ciscoEnvMonMIBNotificationEnables"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonMIBNotificationEnables, ['ciscoenvmonenableshutdownnotification', 'ciscoenvmonenablevoltagenotification', 'ciscoenvmonenabletemperaturenotification', 'ciscoenvmonenablefannotification', 'ciscoenvmonenableredundantsupplynotification', 'ciscoenvmonenablestatchangenotif'], name, value)
@@ -388,6 +392,7 @@ class CISCOENVMONMIB(Entity):
             self.ciscoenvmonvoltagestatusentry = YList(self)
             self._segment_path = lambda: "ciscoEnvMonVoltageStatusTable"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonVoltageStatusTable, [], name, value)
@@ -471,13 +476,13 @@ class CISCOENVMONMIB(Entity):
                 self.ylist_key_names = ['ciscoenvmonvoltagestatusindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoenvmonvoltagestatusindex', YLeaf(YType.int32, 'ciscoEnvMonVoltageStatusIndex')),
-                    ('ciscoenvmonvoltagestatusdescr', YLeaf(YType.str, 'ciscoEnvMonVoltageStatusDescr')),
-                    ('ciscoenvmonvoltagestatusvalue', YLeaf(YType.int32, 'ciscoEnvMonVoltageStatusValue')),
-                    ('ciscoenvmonvoltagethresholdlow', YLeaf(YType.int32, 'ciscoEnvMonVoltageThresholdLow')),
-                    ('ciscoenvmonvoltagethresholdhigh', YLeaf(YType.int32, 'ciscoEnvMonVoltageThresholdHigh')),
-                    ('ciscoenvmonvoltagelastshutdown', YLeaf(YType.int32, 'ciscoEnvMonVoltageLastShutdown')),
-                    ('ciscoenvmonvoltagestate', YLeaf(YType.enumeration, 'ciscoEnvMonVoltageState')),
+                    ('ciscoenvmonvoltagestatusindex', (YLeaf(YType.int32, 'ciscoEnvMonVoltageStatusIndex'), ['int'])),
+                    ('ciscoenvmonvoltagestatusdescr', (YLeaf(YType.str, 'ciscoEnvMonVoltageStatusDescr'), ['str'])),
+                    ('ciscoenvmonvoltagestatusvalue', (YLeaf(YType.int32, 'ciscoEnvMonVoltageStatusValue'), ['int'])),
+                    ('ciscoenvmonvoltagethresholdlow', (YLeaf(YType.int32, 'ciscoEnvMonVoltageThresholdLow'), ['int'])),
+                    ('ciscoenvmonvoltagethresholdhigh', (YLeaf(YType.int32, 'ciscoEnvMonVoltageThresholdHigh'), ['int'])),
+                    ('ciscoenvmonvoltagelastshutdown', (YLeaf(YType.int32, 'ciscoEnvMonVoltageLastShutdown'), ['int'])),
+                    ('ciscoenvmonvoltagestate', (YLeaf(YType.enumeration, 'ciscoEnvMonVoltageState'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CiscoEnvMonState', '')])),
                 ])
                 self.ciscoenvmonvoltagestatusindex = None
                 self.ciscoenvmonvoltagestatusdescr = None
@@ -488,6 +493,7 @@ class CISCOENVMONMIB(Entity):
                 self.ciscoenvmonvoltagestate = None
                 self._segment_path = lambda: "ciscoEnvMonVoltageStatusEntry" + "[ciscoEnvMonVoltageStatusIndex='" + str(self.ciscoenvmonvoltagestatusindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonVoltageStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonVoltageStatusTable.CiscoEnvMonVoltageStatusEntry, ['ciscoenvmonvoltagestatusindex', 'ciscoenvmonvoltagestatusdescr', 'ciscoenvmonvoltagestatusvalue', 'ciscoenvmonvoltagethresholdlow', 'ciscoenvmonvoltagethresholdhigh', 'ciscoenvmonvoltagelastshutdown', 'ciscoenvmonvoltagestate'], name, value)
@@ -524,6 +530,7 @@ class CISCOENVMONMIB(Entity):
             self.ciscoenvmontemperaturestatusentry = YList(self)
             self._segment_path = lambda: "ciscoEnvMonTemperatureStatusTable"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonTemperatureStatusTable, [], name, value)
@@ -598,12 +605,12 @@ class CISCOENVMONMIB(Entity):
                 self.ylist_key_names = ['ciscoenvmontemperaturestatusindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoenvmontemperaturestatusindex', YLeaf(YType.int32, 'ciscoEnvMonTemperatureStatusIndex')),
-                    ('ciscoenvmontemperaturestatusdescr', YLeaf(YType.str, 'ciscoEnvMonTemperatureStatusDescr')),
-                    ('ciscoenvmontemperaturestatusvalue', YLeaf(YType.uint32, 'ciscoEnvMonTemperatureStatusValue')),
-                    ('ciscoenvmontemperaturethreshold', YLeaf(YType.int32, 'ciscoEnvMonTemperatureThreshold')),
-                    ('ciscoenvmontemperaturelastshutdown', YLeaf(YType.int32, 'ciscoEnvMonTemperatureLastShutdown')),
-                    ('ciscoenvmontemperaturestate', YLeaf(YType.enumeration, 'ciscoEnvMonTemperatureState')),
+                    ('ciscoenvmontemperaturestatusindex', (YLeaf(YType.int32, 'ciscoEnvMonTemperatureStatusIndex'), ['int'])),
+                    ('ciscoenvmontemperaturestatusdescr', (YLeaf(YType.str, 'ciscoEnvMonTemperatureStatusDescr'), ['str'])),
+                    ('ciscoenvmontemperaturestatusvalue', (YLeaf(YType.uint32, 'ciscoEnvMonTemperatureStatusValue'), ['int'])),
+                    ('ciscoenvmontemperaturethreshold', (YLeaf(YType.int32, 'ciscoEnvMonTemperatureThreshold'), ['int'])),
+                    ('ciscoenvmontemperaturelastshutdown', (YLeaf(YType.int32, 'ciscoEnvMonTemperatureLastShutdown'), ['int'])),
+                    ('ciscoenvmontemperaturestate', (YLeaf(YType.enumeration, 'ciscoEnvMonTemperatureState'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CiscoEnvMonState', '')])),
                 ])
                 self.ciscoenvmontemperaturestatusindex = None
                 self.ciscoenvmontemperaturestatusdescr = None
@@ -613,6 +620,7 @@ class CISCOENVMONMIB(Entity):
                 self.ciscoenvmontemperaturestate = None
                 self._segment_path = lambda: "ciscoEnvMonTemperatureStatusEntry" + "[ciscoEnvMonTemperatureStatusIndex='" + str(self.ciscoenvmontemperaturestatusindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonTemperatureStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonTemperatureStatusTable.CiscoEnvMonTemperatureStatusEntry, ['ciscoenvmontemperaturestatusindex', 'ciscoenvmontemperaturestatusdescr', 'ciscoenvmontemperaturestatusvalue', 'ciscoenvmontemperaturethreshold', 'ciscoenvmontemperaturelastshutdown', 'ciscoenvmontemperaturestate'], name, value)
@@ -649,6 +657,7 @@ class CISCOENVMONMIB(Entity):
             self.ciscoenvmonfanstatusentry = YList(self)
             self._segment_path = lambda: "ciscoEnvMonFanStatusTable"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonFanStatusTable, [], name, value)
@@ -695,15 +704,16 @@ class CISCOENVMONMIB(Entity):
                 self.ylist_key_names = ['ciscoenvmonfanstatusindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoenvmonfanstatusindex', YLeaf(YType.int32, 'ciscoEnvMonFanStatusIndex')),
-                    ('ciscoenvmonfanstatusdescr', YLeaf(YType.str, 'ciscoEnvMonFanStatusDescr')),
-                    ('ciscoenvmonfanstate', YLeaf(YType.enumeration, 'ciscoEnvMonFanState')),
+                    ('ciscoenvmonfanstatusindex', (YLeaf(YType.int32, 'ciscoEnvMonFanStatusIndex'), ['int'])),
+                    ('ciscoenvmonfanstatusdescr', (YLeaf(YType.str, 'ciscoEnvMonFanStatusDescr'), ['str'])),
+                    ('ciscoenvmonfanstate', (YLeaf(YType.enumeration, 'ciscoEnvMonFanState'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CiscoEnvMonState', '')])),
                 ])
                 self.ciscoenvmonfanstatusindex = None
                 self.ciscoenvmonfanstatusdescr = None
                 self.ciscoenvmonfanstate = None
                 self._segment_path = lambda: "ciscoEnvMonFanStatusEntry" + "[ciscoEnvMonFanStatusIndex='" + str(self.ciscoenvmonfanstatusindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonFanStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonFanStatusTable.CiscoEnvMonFanStatusEntry, ['ciscoenvmonfanstatusindex', 'ciscoenvmonfanstatusdescr', 'ciscoenvmonfanstate'], name, value)
@@ -740,6 +750,7 @@ class CISCOENVMONMIB(Entity):
             self.ciscoenvmonsupplystatusentry = YList(self)
             self._segment_path = lambda: "ciscoEnvMonSupplyStatusTable"
             self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonSupplyStatusTable, [], name, value)
@@ -792,10 +803,10 @@ class CISCOENVMONMIB(Entity):
                 self.ylist_key_names = ['ciscoenvmonsupplystatusindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscoenvmonsupplystatusindex', YLeaf(YType.int32, 'ciscoEnvMonSupplyStatusIndex')),
-                    ('ciscoenvmonsupplystatusdescr', YLeaf(YType.str, 'ciscoEnvMonSupplyStatusDescr')),
-                    ('ciscoenvmonsupplystate', YLeaf(YType.enumeration, 'ciscoEnvMonSupplyState')),
-                    ('ciscoenvmonsupplysource', YLeaf(YType.enumeration, 'ciscoEnvMonSupplySource')),
+                    ('ciscoenvmonsupplystatusindex', (YLeaf(YType.int32, 'ciscoEnvMonSupplyStatusIndex'), ['int'])),
+                    ('ciscoenvmonsupplystatusdescr', (YLeaf(YType.str, 'ciscoEnvMonSupplyStatusDescr'), ['str'])),
+                    ('ciscoenvmonsupplystate', (YLeaf(YType.enumeration, 'ciscoEnvMonSupplyState'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CiscoEnvMonState', '')])),
+                    ('ciscoenvmonsupplysource', (YLeaf(YType.enumeration, 'ciscoEnvMonSupplySource'), [('ydk.models.cisco_ios_xe.CISCO_ENVMON_MIB', 'CISCOENVMONMIB', 'CiscoEnvMonSupplyStatusTable.CiscoEnvMonSupplyStatusEntry.CiscoEnvMonSupplySource')])),
                 ])
                 self.ciscoenvmonsupplystatusindex = None
                 self.ciscoenvmonsupplystatusdescr = None
@@ -803,6 +814,7 @@ class CISCOENVMONMIB(Entity):
                 self.ciscoenvmonsupplysource = None
                 self._segment_path = lambda: "ciscoEnvMonSupplyStatusEntry" + "[ciscoEnvMonSupplyStatusIndex='" + str(self.ciscoenvmonsupplystatusindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENVMON-MIB:CISCO-ENVMON-MIB/ciscoEnvMonSupplyStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENVMONMIB.CiscoEnvMonSupplyStatusTable.CiscoEnvMonSupplyStatusEntry, ['ciscoenvmonsupplystatusindex', 'ciscoenvmonsupplystatusdescr', 'ciscoenvmonsupplystate', 'ciscoenvmonsupplysource'], name, value)

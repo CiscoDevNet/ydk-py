@@ -30,9 +30,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
 
 
-class CiscoSipUaMIBNotificationPrefix(Identity):
+
+class CiscoSipUaMIBNotificationPrefix(ObjectIdentity):
     """
     Old style notification prefixing.  Being replaced by
     ciscoSipUaMIBNotifs.
@@ -44,11 +46,11 @@ class CiscoSipUaMIBNotificationPrefix(Identity):
     _prefix = 'CISCO-SIP-UA-MIB'
     _revision = '2004-02-19'
 
-    def __init__(self):
-        super(CiscoSipUaMIBNotificationPrefix, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotificationPrefix")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", pref="CISCO-SIP-UA-MIB", tag="CISCO-SIP-UA-MIB:ciscoSipUaMIBNotificationPrefix"):
+        super(CiscoSipUaMIBNotificationPrefix, self).__init__(ns, pref, tag)
 
 
-class CiscoSipUaMIBNotifications(Identity):
+class CiscoSipUaMIBNotifications(ObjectIdentity):
     """
     Old style notification prefixing.  Being replaced by
     ciscoSipUaMIBNotifs.
@@ -60,8 +62,8 @@ class CiscoSipUaMIBNotifications(Identity):
     _prefix = 'CISCO-SIP-UA-MIB'
     _revision = '2004-02-19'
 
-    def __init__(self):
-        super(CiscoSipUaMIBNotifications, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB", "CISCO-SIP-UA-MIB:ciscoSipUaMIBNotifications")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:CISCO-SIP-UA-MIB", pref="CISCO-SIP-UA-MIB", tag="CISCO-SIP-UA-MIB:ciscoSipUaMIBNotifications"):
+        super(CiscoSipUaMIBNotifications, self).__init__(ns, pref, tag)
 
 
 class CISCOSIPUAMIB(Entity):
@@ -285,6 +287,7 @@ class CISCOSIPUAMIB(Entity):
         self.csipstatssuccessoktable.parent = self
         self._children_name_map["csipstatssuccessoktable"] = "cSipStatsSuccessOkTable"
         self._segment_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOSIPUAMIB, [], name, value)
@@ -393,20 +396,20 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgversion', YLeaf(YType.str, 'cSipCfgVersion')),
-                ('csipcfgtransport', YLeaf(YType.enumeration, 'cSipCfgTransport')),
-                ('csipcfguserlocationserveraddr', YLeaf(YType.str, 'cSipCfgUserLocationServerAddr')),
-                ('csipcfgmaxforwards', YLeaf(YType.int32, 'cSipCfgMaxForwards')),
-                ('csipcfgbindsrcaddrinterface', YLeaf(YType.int32, 'cSipCfgBindSrcAddrInterface')),
-                ('csipcfgbindsrcaddrscope', YLeaf(YType.enumeration, 'cSipCfgBindSrcAddrScope')),
-                ('csipcfgdnssrvquerystringformat', YLeaf(YType.enumeration, 'cSipCfgDnsSrvQueryStringFormat')),
-                ('csipcfgredirectiondisabled', YLeaf(YType.boolean, 'cSipCfgRedirectionDisabled')),
-                ('csipcfgsymnatenabled', YLeaf(YType.boolean, 'cSipCfgSymNatEnabled')),
-                ('csipcfgsymnatdirectionrole', YLeaf(YType.enumeration, 'cSipCfgSymNatDirectionRole')),
-                ('csipcfgsuspendresumeenabled', YLeaf(YType.boolean, 'cSipCfgSuspendResumeEnabled')),
-                ('csipcfgoffercallhold', YLeaf(YType.enumeration, 'cSipCfgOfferCallHold')),
-                ('csipcfgreasonheaderoveride', YLeaf(YType.boolean, 'cSipCfgReasonHeaderOveride')),
-                ('csipcfgmaximumforwards', YLeaf(YType.int32, 'cSipCfgMaximumForwards')),
+                ('csipcfgversion', (YLeaf(YType.str, 'cSipCfgVersion'), ['str'])),
+                ('csipcfgtransport', (YLeaf(YType.enumeration, 'cSipCfgTransport'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBase.CSipCfgTransport')])),
+                ('csipcfguserlocationserveraddr', (YLeaf(YType.str, 'cSipCfgUserLocationServerAddr'), ['str'])),
+                ('csipcfgmaxforwards', (YLeaf(YType.int32, 'cSipCfgMaxForwards'), ['int'])),
+                ('csipcfgbindsrcaddrinterface', (YLeaf(YType.int32, 'cSipCfgBindSrcAddrInterface'), ['int'])),
+                ('csipcfgbindsrcaddrscope', (YLeaf(YType.enumeration, 'cSipCfgBindSrcAddrScope'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBase.CSipCfgBindSrcAddrScope')])),
+                ('csipcfgdnssrvquerystringformat', (YLeaf(YType.enumeration, 'cSipCfgDnsSrvQueryStringFormat'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBase.CSipCfgDnsSrvQueryStringFormat')])),
+                ('csipcfgredirectiondisabled', (YLeaf(YType.boolean, 'cSipCfgRedirectionDisabled'), ['bool'])),
+                ('csipcfgsymnatenabled', (YLeaf(YType.boolean, 'cSipCfgSymNatEnabled'), ['bool'])),
+                ('csipcfgsymnatdirectionrole', (YLeaf(YType.enumeration, 'cSipCfgSymNatDirectionRole'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBase.CSipCfgSymNatDirectionRole')])),
+                ('csipcfgsuspendresumeenabled', (YLeaf(YType.boolean, 'cSipCfgSuspendResumeEnabled'), ['bool'])),
+                ('csipcfgoffercallhold', (YLeaf(YType.enumeration, 'cSipCfgOfferCallHold'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBase.CSipCfgOfferCallHold')])),
+                ('csipcfgreasonheaderoveride', (YLeaf(YType.boolean, 'cSipCfgReasonHeaderOveride'), ['bool'])),
+                ('csipcfgmaximumforwards', (YLeaf(YType.int32, 'cSipCfgMaximumForwards'), ['int'])),
             ])
             self.csipcfgversion = None
             self.csipcfgtransport = None
@@ -424,6 +427,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgmaximumforwards = None
             self._segment_path = lambda: "cSipCfgBase"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgBase, ['csipcfgversion', 'csipcfgtransport', 'csipcfguserlocationserveraddr', 'csipcfgmaxforwards', 'csipcfgbindsrcaddrinterface', 'csipcfgbindsrcaddrscope', 'csipcfgdnssrvquerystringformat', 'csipcfgredirectiondisabled', 'csipcfgsymnatenabled', 'csipcfgsymnatdirectionrole', 'csipcfgsuspendresumeenabled', 'csipcfgoffercallhold', 'csipcfgreasonheaderoveride', 'csipcfgmaximumforwards'], name, value)
@@ -743,20 +747,20 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgtimertrying', YLeaf(YType.int32, 'cSipCfgTimerTrying')),
-                ('csipcfgtimerexpires', YLeaf(YType.int32, 'cSipCfgTimerExpires')),
-                ('csipcfgtimerconnect', YLeaf(YType.int32, 'cSipCfgTimerConnect')),
-                ('csipcfgtimerdisconnect', YLeaf(YType.int32, 'cSipCfgTimerDisconnect')),
-                ('csipcfgtimerprack', YLeaf(YType.int32, 'cSipCfgTimerPrack')),
-                ('csipcfgtimercomet', YLeaf(YType.int32, 'cSipCfgTimerComet')),
-                ('csipcfgtimerreliablersp', YLeaf(YType.int32, 'cSipCfgTimerReliableRsp')),
-                ('csipcfgtimernotify', YLeaf(YType.int32, 'cSipCfgTimerNotify')),
-                ('csipcfgtimerrefer', YLeaf(YType.int32, 'cSipCfgTimerRefer')),
-                ('csipcfgtimersessiontimer', YLeaf(YType.int32, 'cSipCfgTimerSessionTimer')),
-                ('csipcfgtimerhold', YLeaf(YType.int32, 'cSipCfgTimerHold')),
-                ('csipcfgtimerinfo', YLeaf(YType.int32, 'cSipCfgTimerInfo')),
-                ('csipcfgtimerconnectionaging', YLeaf(YType.int32, 'cSipCfgTimerConnectionAging')),
-                ('csipcfgtimerbufferinvite', YLeaf(YType.int32, 'cSipCfgTimerBufferInvite')),
+                ('csipcfgtimertrying', (YLeaf(YType.int32, 'cSipCfgTimerTrying'), ['int'])),
+                ('csipcfgtimerexpires', (YLeaf(YType.int32, 'cSipCfgTimerExpires'), ['int'])),
+                ('csipcfgtimerconnect', (YLeaf(YType.int32, 'cSipCfgTimerConnect'), ['int'])),
+                ('csipcfgtimerdisconnect', (YLeaf(YType.int32, 'cSipCfgTimerDisconnect'), ['int'])),
+                ('csipcfgtimerprack', (YLeaf(YType.int32, 'cSipCfgTimerPrack'), ['int'])),
+                ('csipcfgtimercomet', (YLeaf(YType.int32, 'cSipCfgTimerComet'), ['int'])),
+                ('csipcfgtimerreliablersp', (YLeaf(YType.int32, 'cSipCfgTimerReliableRsp'), ['int'])),
+                ('csipcfgtimernotify', (YLeaf(YType.int32, 'cSipCfgTimerNotify'), ['int'])),
+                ('csipcfgtimerrefer', (YLeaf(YType.int32, 'cSipCfgTimerRefer'), ['int'])),
+                ('csipcfgtimersessiontimer', (YLeaf(YType.int32, 'cSipCfgTimerSessionTimer'), ['int'])),
+                ('csipcfgtimerhold', (YLeaf(YType.int32, 'cSipCfgTimerHold'), ['int'])),
+                ('csipcfgtimerinfo', (YLeaf(YType.int32, 'cSipCfgTimerInfo'), ['int'])),
+                ('csipcfgtimerconnectionaging', (YLeaf(YType.int32, 'cSipCfgTimerConnectionAging'), ['int'])),
+                ('csipcfgtimerbufferinvite', (YLeaf(YType.int32, 'cSipCfgTimerBufferInvite'), ['int'])),
             ])
             self.csipcfgtimertrying = None
             self.csipcfgtimerexpires = None
@@ -774,6 +778,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgtimerbufferinvite = None
             self._segment_path = lambda: "cSipCfgTimer"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgTimer, ['csipcfgtimertrying', 'csipcfgtimerexpires', 'csipcfgtimerconnect', 'csipcfgtimerdisconnect', 'csipcfgtimerprack', 'csipcfgtimercomet', 'csipcfgtimerreliablersp', 'csipcfgtimernotify', 'csipcfgtimerrefer', 'csipcfgtimersessiontimer', 'csipcfgtimerhold', 'csipcfgtimerinfo', 'csipcfgtimerconnectionaging', 'csipcfgtimerbufferinvite'], name, value)
@@ -884,18 +889,18 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgretryinvite', YLeaf(YType.int32, 'cSipCfgRetryInvite')),
-                ('csipcfgretrybye', YLeaf(YType.int32, 'cSipCfgRetryBye')),
-                ('csipcfgretrycancel', YLeaf(YType.int32, 'cSipCfgRetryCancel')),
-                ('csipcfgretryregister', YLeaf(YType.int32, 'cSipCfgRetryRegister')),
-                ('csipcfgretryresponse', YLeaf(YType.int32, 'cSipCfgRetryResponse')),
-                ('csipcfgretryprack', YLeaf(YType.int32, 'cSipCfgRetryPrack')),
-                ('csipcfgretrycomet', YLeaf(YType.int32, 'cSipCfgRetryComet')),
-                ('csipcfgretryreliablersp', YLeaf(YType.int32, 'cSipCfgRetryReliableRsp')),
-                ('csipcfgretrynotify', YLeaf(YType.int32, 'cSipCfgRetryNotify')),
-                ('csipcfgretryrefer', YLeaf(YType.int32, 'cSipCfgRetryRefer')),
-                ('csipcfgretryinfo', YLeaf(YType.int32, 'cSipCfgRetryInfo')),
-                ('csipcfgretrysubscribe', YLeaf(YType.int32, 'cSipCfgRetrySubscribe')),
+                ('csipcfgretryinvite', (YLeaf(YType.int32, 'cSipCfgRetryInvite'), ['int'])),
+                ('csipcfgretrybye', (YLeaf(YType.int32, 'cSipCfgRetryBye'), ['int'])),
+                ('csipcfgretrycancel', (YLeaf(YType.int32, 'cSipCfgRetryCancel'), ['int'])),
+                ('csipcfgretryregister', (YLeaf(YType.int32, 'cSipCfgRetryRegister'), ['int'])),
+                ('csipcfgretryresponse', (YLeaf(YType.int32, 'cSipCfgRetryResponse'), ['int'])),
+                ('csipcfgretryprack', (YLeaf(YType.int32, 'cSipCfgRetryPrack'), ['int'])),
+                ('csipcfgretrycomet', (YLeaf(YType.int32, 'cSipCfgRetryComet'), ['int'])),
+                ('csipcfgretryreliablersp', (YLeaf(YType.int32, 'cSipCfgRetryReliableRsp'), ['int'])),
+                ('csipcfgretrynotify', (YLeaf(YType.int32, 'cSipCfgRetryNotify'), ['int'])),
+                ('csipcfgretryrefer', (YLeaf(YType.int32, 'cSipCfgRetryRefer'), ['int'])),
+                ('csipcfgretryinfo', (YLeaf(YType.int32, 'cSipCfgRetryInfo'), ['int'])),
+                ('csipcfgretrysubscribe', (YLeaf(YType.int32, 'cSipCfgRetrySubscribe'), ['int'])),
             ])
             self.csipcfgretryinvite = None
             self.csipcfgretrybye = None
@@ -911,6 +916,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgretrysubscribe = None
             self._segment_path = lambda: "cSipCfgRetry"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgRetry, ['csipcfgretryinvite', 'csipcfgretrybye', 'csipcfgretrycancel', 'csipcfgretryregister', 'csipcfgretryresponse', 'csipcfgretryprack', 'csipcfgretrycomet', 'csipcfgretryreliablersp', 'csipcfgretrynotify', 'csipcfgretryrefer', 'csipcfgretryinfo', 'csipcfgretrysubscribe'], name, value)
@@ -957,10 +963,10 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgoutsessiontransport', YLeaf(YType.enumeration, 'cSipCfgOutSessionTransport')),
-                ('csipcfgreliable1xxrspstr', YLeaf(YType.str, 'cSipCfgReliable1xxRspStr')),
-                ('csipcfgreliable1xxrsphdr', YLeaf(YType.enumeration, 'cSipCfgReliable1xxRspHdr')),
-                ('csipcfgurltype', YLeaf(YType.enumeration, 'cSipCfgUrlType')),
+                ('csipcfgoutsessiontransport', (YLeaf(YType.enumeration, 'cSipCfgOutSessionTransport'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeer.CSipCfgOutSessionTransport')])),
+                ('csipcfgreliable1xxrspstr', (YLeaf(YType.str, 'cSipCfgReliable1xxRspStr'), ['str'])),
+                ('csipcfgreliable1xxrsphdr', (YLeaf(YType.enumeration, 'cSipCfgReliable1xxRspHdr'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeer.CSipCfgReliable1xxRspHdr')])),
+                ('csipcfgurltype', (YLeaf(YType.enumeration, 'cSipCfgUrlType'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeer.CSipCfgUrlType')])),
             ])
             self.csipcfgoutsessiontransport = None
             self.csipcfgreliable1xxrspstr = None
@@ -968,6 +974,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgurltype = None
             self._segment_path = lambda: "cSipCfgPeer"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeer, ['csipcfgoutsessiontransport', 'csipcfgreliable1xxrspstr', 'csipcfgreliable1xxrsphdr', 'csipcfgurltype'], name, value)
@@ -1096,11 +1103,12 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgaaausername', YLeaf(YType.enumeration, 'cSipCfgAaaUsername')),
+                ('csipcfgaaausername', (YLeaf(YType.enumeration, 'cSipCfgAaaUsername'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgAaa.CSipCfgAaaUsername')])),
             ])
             self.csipcfgaaausername = None
             self._segment_path = lambda: "cSipCfgAaa"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgAaa, ['csipcfgaaausername'], name, value)
@@ -1170,10 +1178,10 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipcfgheaderpassingenabled', YLeaf(YType.boolean, 'cSipCfgHeaderPassingEnabled')),
-                ('csipcfgmaxsubscriptionaccept', YLeaf(YType.uint32, 'cSipCfgMaxSubscriptionAccept')),
-                ('csipcfgmaxsubscriptionoriginate', YLeaf(YType.uint32, 'cSipCfgMaxSubscriptionOriginate')),
-                ('csipcfgswitchtransportenabled', YLeaf(YType.boolean, 'cSipCfgSwitchTransportEnabled')),
+                ('csipcfgheaderpassingenabled', (YLeaf(YType.boolean, 'cSipCfgHeaderPassingEnabled'), ['bool'])),
+                ('csipcfgmaxsubscriptionaccept', (YLeaf(YType.uint32, 'cSipCfgMaxSubscriptionAccept'), ['int'])),
+                ('csipcfgmaxsubscriptionoriginate', (YLeaf(YType.uint32, 'cSipCfgMaxSubscriptionOriginate'), ['int'])),
+                ('csipcfgswitchtransportenabled', (YLeaf(YType.boolean, 'cSipCfgSwitchTransportEnabled'), ['bool'])),
             ])
             self.csipcfgheaderpassingenabled = None
             self.csipcfgmaxsubscriptionaccept = None
@@ -1181,6 +1189,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgswitchtransportenabled = None
             self._segment_path = lambda: "cSipCfgVoiceServiceVoip"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgVoiceServiceVoip, ['csipcfgheaderpassingenabled', 'csipcfgmaxsubscriptionaccept', 'csipcfgmaxsubscriptionoriginate', 'csipcfgswitchtransportenabled'], name, value)
@@ -1277,16 +1286,16 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsinfotryingins', YLeaf(YType.uint32, 'cSipStatsInfoTryingIns')),
-                ('csipstatsinfotryingouts', YLeaf(YType.uint32, 'cSipStatsInfoTryingOuts')),
-                ('csipstatsinforingingins', YLeaf(YType.uint32, 'cSipStatsInfoRingingIns')),
-                ('csipstatsinforingingouts', YLeaf(YType.uint32, 'cSipStatsInfoRingingOuts')),
-                ('csipstatsinfoforwardedins', YLeaf(YType.uint32, 'cSipStatsInfoForwardedIns')),
-                ('csipstatsinfoforwardedouts', YLeaf(YType.uint32, 'cSipStatsInfoForwardedOuts')),
-                ('csipstatsinfoqueuedins', YLeaf(YType.uint32, 'cSipStatsInfoQueuedIns')),
-                ('csipstatsinfoqueuedouts', YLeaf(YType.uint32, 'cSipStatsInfoQueuedOuts')),
-                ('csipstatsinfosessionprogins', YLeaf(YType.uint32, 'cSipStatsInfoSessionProgIns')),
-                ('csipstatsinfosessionprogouts', YLeaf(YType.uint32, 'cSipStatsInfoSessionProgOuts')),
+                ('csipstatsinfotryingins', (YLeaf(YType.uint32, 'cSipStatsInfoTryingIns'), ['int'])),
+                ('csipstatsinfotryingouts', (YLeaf(YType.uint32, 'cSipStatsInfoTryingOuts'), ['int'])),
+                ('csipstatsinforingingins', (YLeaf(YType.uint32, 'cSipStatsInfoRingingIns'), ['int'])),
+                ('csipstatsinforingingouts', (YLeaf(YType.uint32, 'cSipStatsInfoRingingOuts'), ['int'])),
+                ('csipstatsinfoforwardedins', (YLeaf(YType.uint32, 'cSipStatsInfoForwardedIns'), ['int'])),
+                ('csipstatsinfoforwardedouts', (YLeaf(YType.uint32, 'cSipStatsInfoForwardedOuts'), ['int'])),
+                ('csipstatsinfoqueuedins', (YLeaf(YType.uint32, 'cSipStatsInfoQueuedIns'), ['int'])),
+                ('csipstatsinfoqueuedouts', (YLeaf(YType.uint32, 'cSipStatsInfoQueuedOuts'), ['int'])),
+                ('csipstatsinfosessionprogins', (YLeaf(YType.uint32, 'cSipStatsInfoSessionProgIns'), ['int'])),
+                ('csipstatsinfosessionprogouts', (YLeaf(YType.uint32, 'cSipStatsInfoSessionProgOuts'), ['int'])),
             ])
             self.csipstatsinfotryingins = None
             self.csipstatsinfotryingouts = None
@@ -1300,6 +1309,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsinfosessionprogouts = None
             self._segment_path = lambda: "cSipStatsInfo"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsInfo, ['csipstatsinfotryingins', 'csipstatsinfotryingouts', 'csipstatsinforingingins', 'csipstatsinforingingouts', 'csipstatsinfoforwardedins', 'csipstatsinfoforwardedouts', 'csipstatsinfoqueuedins', 'csipstatsinfoqueuedouts', 'csipstatsinfosessionprogins', 'csipstatsinfosessionprogouts'], name, value)
@@ -1358,10 +1368,10 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatssuccessokins', YLeaf(YType.uint32, 'cSipStatsSuccessOkIns')),
-                ('csipstatssuccessokouts', YLeaf(YType.uint32, 'cSipStatsSuccessOkOuts')),
-                ('csipstatssuccessacceptedins', YLeaf(YType.uint32, 'cSipStatsSuccessAcceptedIns')),
-                ('csipstatssuccessacceptedouts', YLeaf(YType.uint32, 'cSipStatsSuccessAcceptedOuts')),
+                ('csipstatssuccessokins', (YLeaf(YType.uint32, 'cSipStatsSuccessOkIns'), ['int'])),
+                ('csipstatssuccessokouts', (YLeaf(YType.uint32, 'cSipStatsSuccessOkOuts'), ['int'])),
+                ('csipstatssuccessacceptedins', (YLeaf(YType.uint32, 'cSipStatsSuccessAcceptedIns'), ['int'])),
+                ('csipstatssuccessacceptedouts', (YLeaf(YType.uint32, 'cSipStatsSuccessAcceptedOuts'), ['int'])),
             ])
             self.csipstatssuccessokins = None
             self.csipstatssuccessokouts = None
@@ -1369,6 +1379,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatssuccessacceptedouts = None
             self._segment_path = lambda: "cSipStatsSuccess"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccess, ['csipstatssuccessokins', 'csipstatssuccessokouts', 'csipstatssuccessacceptedins', 'csipstatssuccessacceptedouts'], name, value)
@@ -1455,14 +1466,14 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsredirmultiplechoices', YLeaf(YType.uint32, 'cSipStatsRedirMultipleChoices')),
-                ('csipstatsredirmovedperms', YLeaf(YType.uint32, 'cSipStatsRedirMovedPerms')),
-                ('csipstatsredirmovedtemps', YLeaf(YType.uint32, 'cSipStatsRedirMovedTemps')),
-                ('csipstatsredirseeothers', YLeaf(YType.uint32, 'cSipStatsRedirSeeOthers')),
-                ('csipstatsrediruseproxys', YLeaf(YType.uint32, 'cSipStatsRedirUseProxys')),
-                ('csipstatsrediraltservices', YLeaf(YType.uint32, 'cSipStatsRedirAltServices')),
-                ('csipstatsredirmovedtempsins', YLeaf(YType.uint32, 'cSipStatsRedirMovedTempsIns')),
-                ('csipstatsredirmovedtempsouts', YLeaf(YType.uint32, 'cSipStatsRedirMovedTempsOuts')),
+                ('csipstatsredirmultiplechoices', (YLeaf(YType.uint32, 'cSipStatsRedirMultipleChoices'), ['int'])),
+                ('csipstatsredirmovedperms', (YLeaf(YType.uint32, 'cSipStatsRedirMovedPerms'), ['int'])),
+                ('csipstatsredirmovedtemps', (YLeaf(YType.uint32, 'cSipStatsRedirMovedTemps'), ['int'])),
+                ('csipstatsredirseeothers', (YLeaf(YType.uint32, 'cSipStatsRedirSeeOthers'), ['int'])),
+                ('csipstatsrediruseproxys', (YLeaf(YType.uint32, 'cSipStatsRedirUseProxys'), ['int'])),
+                ('csipstatsrediraltservices', (YLeaf(YType.uint32, 'cSipStatsRedirAltServices'), ['int'])),
+                ('csipstatsredirmovedtempsins', (YLeaf(YType.uint32, 'cSipStatsRedirMovedTempsIns'), ['int'])),
+                ('csipstatsredirmovedtempsouts', (YLeaf(YType.uint32, 'cSipStatsRedirMovedTempsOuts'), ['int'])),
             ])
             self.csipstatsredirmultiplechoices = None
             self.csipstatsredirmovedperms = None
@@ -1474,6 +1485,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsredirmovedtempsouts = None
             self._segment_path = lambda: "cSipStatsRedirect"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsRedirect, ['csipstatsredirmultiplechoices', 'csipstatsredirmovedperms', 'csipstatsredirmovedtemps', 'csipstatsredirseeothers', 'csipstatsrediruseproxys', 'csipstatsrediraltservices', 'csipstatsredirmovedtempsins', 'csipstatsredirmovedtempsouts'], name, value)
@@ -1896,62 +1908,62 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsclientbadrequestins', YLeaf(YType.uint32, 'cSipStatsClientBadRequestIns')),
-                ('csipstatsclientbadrequestouts', YLeaf(YType.uint32, 'cSipStatsClientBadRequestOuts')),
-                ('csipstatsclientunauthorizedins', YLeaf(YType.uint32, 'cSipStatsClientUnauthorizedIns')),
-                ('csipstatsclientunauthorizedouts', YLeaf(YType.uint32, 'cSipStatsClientUnauthorizedOuts')),
-                ('csipstatsclientpaymentreqdins', YLeaf(YType.uint32, 'cSipStatsClientPaymentReqdIns')),
-                ('csipstatsclientpaymentreqdouts', YLeaf(YType.uint32, 'cSipStatsClientPaymentReqdOuts')),
-                ('csipstatsclientforbiddenins', YLeaf(YType.uint32, 'cSipStatsClientForbiddenIns')),
-                ('csipstatsclientforbiddenouts', YLeaf(YType.uint32, 'cSipStatsClientForbiddenOuts')),
-                ('csipstatsclientnotfoundins', YLeaf(YType.uint32, 'cSipStatsClientNotFoundIns')),
-                ('csipstatsclientnotfoundouts', YLeaf(YType.uint32, 'cSipStatsClientNotFoundOuts')),
-                ('csipstatsclientmethnotallowedins', YLeaf(YType.uint32, 'cSipStatsClientMethNotAllowedIns')),
-                ('csipstatsclientmethnotallowedouts', YLeaf(YType.uint32, 'cSipStatsClientMethNotAllowedOuts')),
-                ('csipstatsclientnotacceptableins', YLeaf(YType.uint32, 'cSipStatsClientNotAcceptableIns')),
-                ('csipstatsclientnotacceptableouts', YLeaf(YType.uint32, 'cSipStatsClientNotAcceptableOuts')),
-                ('csipstatsclientproxyauthreqdins', YLeaf(YType.uint32, 'cSipStatsClientProxyAuthReqdIns')),
-                ('csipstatsclientproxyauthreqdouts', YLeaf(YType.uint32, 'cSipStatsClientProxyAuthReqdOuts')),
-                ('csipstatsclientreqtimeoutins', YLeaf(YType.uint32, 'cSipStatsClientReqTimeoutIns')),
-                ('csipstatsclientreqtimeoutouts', YLeaf(YType.uint32, 'cSipStatsClientReqTimeoutOuts')),
-                ('csipstatsclientconflictins', YLeaf(YType.uint32, 'cSipStatsClientConflictIns')),
-                ('csipstatsclientconflictouts', YLeaf(YType.uint32, 'cSipStatsClientConflictOuts')),
-                ('csipstatsclientgoneins', YLeaf(YType.uint32, 'cSipStatsClientGoneIns')),
-                ('csipstatsclientgoneouts', YLeaf(YType.uint32, 'cSipStatsClientGoneOuts')),
-                ('csipstatsclientlengthrequiredins', YLeaf(YType.uint32, 'cSipStatsClientLengthRequiredIns')),
-                ('csipstatsclientlengthrequiredouts', YLeaf(YType.uint32, 'cSipStatsClientLengthRequiredOuts')),
-                ('csipstatsclientreqenttoolargeins', YLeaf(YType.uint32, 'cSipStatsClientReqEntTooLargeIns')),
-                ('csipstatsclientreqenttoolargeouts', YLeaf(YType.uint32, 'cSipStatsClientReqEntTooLargeOuts')),
-                ('csipstatsclientrequritoolargeins', YLeaf(YType.uint32, 'cSipStatsClientReqURITooLargeIns')),
-                ('csipstatsclientrequritoolargeouts', YLeaf(YType.uint32, 'cSipStatsClientReqURITooLargeOuts')),
-                ('csipstatsclientnosupmediatypeins', YLeaf(YType.uint32, 'cSipStatsClientNoSupMediaTypeIns')),
-                ('csipstatsclientnosupmediatypeouts', YLeaf(YType.uint32, 'cSipStatsClientNoSupMediaTypeOuts')),
-                ('csipstatsclientbadextensionins', YLeaf(YType.uint32, 'cSipStatsClientBadExtensionIns')),
-                ('csipstatsclientbadextensionouts', YLeaf(YType.uint32, 'cSipStatsClientBadExtensionOuts')),
-                ('csipstatsclienttempnotavailins', YLeaf(YType.uint32, 'cSipStatsClientTempNotAvailIns')),
-                ('csipstatsclienttempnotavailouts', YLeaf(YType.uint32, 'cSipStatsClientTempNotAvailOuts')),
-                ('csipstatsclientcalllegnoexistins', YLeaf(YType.uint32, 'cSipStatsClientCallLegNoExistIns')),
-                ('csipstatsclientcalllegnoexistouts', YLeaf(YType.uint32, 'cSipStatsClientCallLegNoExistOuts')),
-                ('csipstatsclientloopdetectedins', YLeaf(YType.uint32, 'cSipStatsClientLoopDetectedIns')),
-                ('csipstatsclientloopdetectedouts', YLeaf(YType.uint32, 'cSipStatsClientLoopDetectedOuts')),
-                ('csipstatsclienttoomanyhopsins', YLeaf(YType.uint32, 'cSipStatsClientTooManyHopsIns')),
-                ('csipstatsclienttoomanyhopsouts', YLeaf(YType.uint32, 'cSipStatsClientTooManyHopsOuts')),
-                ('csipstatsclientaddrincompleteins', YLeaf(YType.uint32, 'cSipStatsClientAddrIncompleteIns')),
-                ('csipstatsclientaddrincompleteouts', YLeaf(YType.uint32, 'cSipStatsClientAddrIncompleteOuts')),
-                ('csipstatsclientambiguousins', YLeaf(YType.uint32, 'cSipStatsClientAmbiguousIns')),
-                ('csipstatsclientambiguousouts', YLeaf(YType.uint32, 'cSipStatsClientAmbiguousOuts')),
-                ('csipstatsclientbusyhereins', YLeaf(YType.uint32, 'cSipStatsClientBusyHereIns')),
-                ('csipstatsclientbusyhereouts', YLeaf(YType.uint32, 'cSipStatsClientBusyHereOuts')),
-                ('csipstatsclientreqtermins', YLeaf(YType.uint32, 'cSipStatsClientReqTermIns')),
-                ('csipstatsclientreqtermouts', YLeaf(YType.uint32, 'cSipStatsClientReqTermOuts')),
-                ('csipstatsclientnoaccepthereins', YLeaf(YType.uint32, 'cSipStatsClientNoAcceptHereIns')),
-                ('csipstatsclientnoaccepthereouts', YLeaf(YType.uint32, 'cSipStatsClientNoAcceptHereOuts')),
-                ('csipstatsclientbadeventins', YLeaf(YType.uint32, 'cSipStatsClientBadEventIns')),
-                ('csipstatsclientbadeventouts', YLeaf(YType.uint32, 'cSipStatsClientBadEventOuts')),
-                ('csipstatsclientsttoosmallins', YLeaf(YType.uint32, 'cSipStatsClientSTTooSmallIns')),
-                ('csipstatsclientsttoosmallouts', YLeaf(YType.uint32, 'cSipStatsClientSTTooSmallOuts')),
-                ('csipstatsclientreqpendingins', YLeaf(YType.uint32, 'cSipStatsClientReqPendingIns')),
-                ('csipstatsclientreqpendingouts', YLeaf(YType.uint32, 'cSipStatsClientReqPendingOuts')),
+                ('csipstatsclientbadrequestins', (YLeaf(YType.uint32, 'cSipStatsClientBadRequestIns'), ['int'])),
+                ('csipstatsclientbadrequestouts', (YLeaf(YType.uint32, 'cSipStatsClientBadRequestOuts'), ['int'])),
+                ('csipstatsclientunauthorizedins', (YLeaf(YType.uint32, 'cSipStatsClientUnauthorizedIns'), ['int'])),
+                ('csipstatsclientunauthorizedouts', (YLeaf(YType.uint32, 'cSipStatsClientUnauthorizedOuts'), ['int'])),
+                ('csipstatsclientpaymentreqdins', (YLeaf(YType.uint32, 'cSipStatsClientPaymentReqdIns'), ['int'])),
+                ('csipstatsclientpaymentreqdouts', (YLeaf(YType.uint32, 'cSipStatsClientPaymentReqdOuts'), ['int'])),
+                ('csipstatsclientforbiddenins', (YLeaf(YType.uint32, 'cSipStatsClientForbiddenIns'), ['int'])),
+                ('csipstatsclientforbiddenouts', (YLeaf(YType.uint32, 'cSipStatsClientForbiddenOuts'), ['int'])),
+                ('csipstatsclientnotfoundins', (YLeaf(YType.uint32, 'cSipStatsClientNotFoundIns'), ['int'])),
+                ('csipstatsclientnotfoundouts', (YLeaf(YType.uint32, 'cSipStatsClientNotFoundOuts'), ['int'])),
+                ('csipstatsclientmethnotallowedins', (YLeaf(YType.uint32, 'cSipStatsClientMethNotAllowedIns'), ['int'])),
+                ('csipstatsclientmethnotallowedouts', (YLeaf(YType.uint32, 'cSipStatsClientMethNotAllowedOuts'), ['int'])),
+                ('csipstatsclientnotacceptableins', (YLeaf(YType.uint32, 'cSipStatsClientNotAcceptableIns'), ['int'])),
+                ('csipstatsclientnotacceptableouts', (YLeaf(YType.uint32, 'cSipStatsClientNotAcceptableOuts'), ['int'])),
+                ('csipstatsclientproxyauthreqdins', (YLeaf(YType.uint32, 'cSipStatsClientProxyAuthReqdIns'), ['int'])),
+                ('csipstatsclientproxyauthreqdouts', (YLeaf(YType.uint32, 'cSipStatsClientProxyAuthReqdOuts'), ['int'])),
+                ('csipstatsclientreqtimeoutins', (YLeaf(YType.uint32, 'cSipStatsClientReqTimeoutIns'), ['int'])),
+                ('csipstatsclientreqtimeoutouts', (YLeaf(YType.uint32, 'cSipStatsClientReqTimeoutOuts'), ['int'])),
+                ('csipstatsclientconflictins', (YLeaf(YType.uint32, 'cSipStatsClientConflictIns'), ['int'])),
+                ('csipstatsclientconflictouts', (YLeaf(YType.uint32, 'cSipStatsClientConflictOuts'), ['int'])),
+                ('csipstatsclientgoneins', (YLeaf(YType.uint32, 'cSipStatsClientGoneIns'), ['int'])),
+                ('csipstatsclientgoneouts', (YLeaf(YType.uint32, 'cSipStatsClientGoneOuts'), ['int'])),
+                ('csipstatsclientlengthrequiredins', (YLeaf(YType.uint32, 'cSipStatsClientLengthRequiredIns'), ['int'])),
+                ('csipstatsclientlengthrequiredouts', (YLeaf(YType.uint32, 'cSipStatsClientLengthRequiredOuts'), ['int'])),
+                ('csipstatsclientreqenttoolargeins', (YLeaf(YType.uint32, 'cSipStatsClientReqEntTooLargeIns'), ['int'])),
+                ('csipstatsclientreqenttoolargeouts', (YLeaf(YType.uint32, 'cSipStatsClientReqEntTooLargeOuts'), ['int'])),
+                ('csipstatsclientrequritoolargeins', (YLeaf(YType.uint32, 'cSipStatsClientReqURITooLargeIns'), ['int'])),
+                ('csipstatsclientrequritoolargeouts', (YLeaf(YType.uint32, 'cSipStatsClientReqURITooLargeOuts'), ['int'])),
+                ('csipstatsclientnosupmediatypeins', (YLeaf(YType.uint32, 'cSipStatsClientNoSupMediaTypeIns'), ['int'])),
+                ('csipstatsclientnosupmediatypeouts', (YLeaf(YType.uint32, 'cSipStatsClientNoSupMediaTypeOuts'), ['int'])),
+                ('csipstatsclientbadextensionins', (YLeaf(YType.uint32, 'cSipStatsClientBadExtensionIns'), ['int'])),
+                ('csipstatsclientbadextensionouts', (YLeaf(YType.uint32, 'cSipStatsClientBadExtensionOuts'), ['int'])),
+                ('csipstatsclienttempnotavailins', (YLeaf(YType.uint32, 'cSipStatsClientTempNotAvailIns'), ['int'])),
+                ('csipstatsclienttempnotavailouts', (YLeaf(YType.uint32, 'cSipStatsClientTempNotAvailOuts'), ['int'])),
+                ('csipstatsclientcalllegnoexistins', (YLeaf(YType.uint32, 'cSipStatsClientCallLegNoExistIns'), ['int'])),
+                ('csipstatsclientcalllegnoexistouts', (YLeaf(YType.uint32, 'cSipStatsClientCallLegNoExistOuts'), ['int'])),
+                ('csipstatsclientloopdetectedins', (YLeaf(YType.uint32, 'cSipStatsClientLoopDetectedIns'), ['int'])),
+                ('csipstatsclientloopdetectedouts', (YLeaf(YType.uint32, 'cSipStatsClientLoopDetectedOuts'), ['int'])),
+                ('csipstatsclienttoomanyhopsins', (YLeaf(YType.uint32, 'cSipStatsClientTooManyHopsIns'), ['int'])),
+                ('csipstatsclienttoomanyhopsouts', (YLeaf(YType.uint32, 'cSipStatsClientTooManyHopsOuts'), ['int'])),
+                ('csipstatsclientaddrincompleteins', (YLeaf(YType.uint32, 'cSipStatsClientAddrIncompleteIns'), ['int'])),
+                ('csipstatsclientaddrincompleteouts', (YLeaf(YType.uint32, 'cSipStatsClientAddrIncompleteOuts'), ['int'])),
+                ('csipstatsclientambiguousins', (YLeaf(YType.uint32, 'cSipStatsClientAmbiguousIns'), ['int'])),
+                ('csipstatsclientambiguousouts', (YLeaf(YType.uint32, 'cSipStatsClientAmbiguousOuts'), ['int'])),
+                ('csipstatsclientbusyhereins', (YLeaf(YType.uint32, 'cSipStatsClientBusyHereIns'), ['int'])),
+                ('csipstatsclientbusyhereouts', (YLeaf(YType.uint32, 'cSipStatsClientBusyHereOuts'), ['int'])),
+                ('csipstatsclientreqtermins', (YLeaf(YType.uint32, 'cSipStatsClientReqTermIns'), ['int'])),
+                ('csipstatsclientreqtermouts', (YLeaf(YType.uint32, 'cSipStatsClientReqTermOuts'), ['int'])),
+                ('csipstatsclientnoaccepthereins', (YLeaf(YType.uint32, 'cSipStatsClientNoAcceptHereIns'), ['int'])),
+                ('csipstatsclientnoaccepthereouts', (YLeaf(YType.uint32, 'cSipStatsClientNoAcceptHereOuts'), ['int'])),
+                ('csipstatsclientbadeventins', (YLeaf(YType.uint32, 'cSipStatsClientBadEventIns'), ['int'])),
+                ('csipstatsclientbadeventouts', (YLeaf(YType.uint32, 'cSipStatsClientBadEventOuts'), ['int'])),
+                ('csipstatsclientsttoosmallins', (YLeaf(YType.uint32, 'cSipStatsClientSTTooSmallIns'), ['int'])),
+                ('csipstatsclientsttoosmallouts', (YLeaf(YType.uint32, 'cSipStatsClientSTTooSmallOuts'), ['int'])),
+                ('csipstatsclientreqpendingins', (YLeaf(YType.uint32, 'cSipStatsClientReqPendingIns'), ['int'])),
+                ('csipstatsclientreqpendingouts', (YLeaf(YType.uint32, 'cSipStatsClientReqPendingOuts'), ['int'])),
             ])
             self.csipstatsclientbadrequestins = None
             self.csipstatsclientbadrequestouts = None
@@ -2011,6 +2023,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsclientreqpendingouts = None
             self._segment_path = lambda: "cSipStatsErrClient"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrClient, ['csipstatsclientbadrequestins', 'csipstatsclientbadrequestouts', 'csipstatsclientunauthorizedins', 'csipstatsclientunauthorizedouts', 'csipstatsclientpaymentreqdins', 'csipstatsclientpaymentreqdouts', 'csipstatsclientforbiddenins', 'csipstatsclientforbiddenouts', 'csipstatsclientnotfoundins', 'csipstatsclientnotfoundouts', 'csipstatsclientmethnotallowedins', 'csipstatsclientmethnotallowedouts', 'csipstatsclientnotacceptableins', 'csipstatsclientnotacceptableouts', 'csipstatsclientproxyauthreqdins', 'csipstatsclientproxyauthreqdouts', 'csipstatsclientreqtimeoutins', 'csipstatsclientreqtimeoutouts', 'csipstatsclientconflictins', 'csipstatsclientconflictouts', 'csipstatsclientgoneins', 'csipstatsclientgoneouts', 'csipstatsclientlengthrequiredins', 'csipstatsclientlengthrequiredouts', 'csipstatsclientreqenttoolargeins', 'csipstatsclientreqenttoolargeouts', 'csipstatsclientrequritoolargeins', 'csipstatsclientrequritoolargeouts', 'csipstatsclientnosupmediatypeins', 'csipstatsclientnosupmediatypeouts', 'csipstatsclientbadextensionins', 'csipstatsclientbadextensionouts', 'csipstatsclienttempnotavailins', 'csipstatsclienttempnotavailouts', 'csipstatsclientcalllegnoexistins', 'csipstatsclientcalllegnoexistouts', 'csipstatsclientloopdetectedins', 'csipstatsclientloopdetectedouts', 'csipstatsclienttoomanyhopsins', 'csipstatsclienttoomanyhopsouts', 'csipstatsclientaddrincompleteins', 'csipstatsclientaddrincompleteouts', 'csipstatsclientambiguousins', 'csipstatsclientambiguousouts', 'csipstatsclientbusyhereins', 'csipstatsclientbusyhereouts', 'csipstatsclientreqtermins', 'csipstatsclientreqtermouts', 'csipstatsclientnoaccepthereins', 'csipstatsclientnoaccepthereouts', 'csipstatsclientbadeventins', 'csipstatsclientbadeventouts', 'csipstatsclientsttoosmallins', 'csipstatsclientsttoosmallouts', 'csipstatsclientreqpendingins', 'csipstatsclientreqpendingouts'], name, value)
@@ -2135,20 +2148,20 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsserverinterrorins', YLeaf(YType.uint32, 'cSipStatsServerIntErrorIns')),
-                ('csipstatsserverinterrorouts', YLeaf(YType.uint32, 'cSipStatsServerIntErrorOuts')),
-                ('csipstatsservernotimplementedins', YLeaf(YType.uint32, 'cSipStatsServerNotImplementedIns')),
-                ('csipstatsservernotimplementedouts', YLeaf(YType.uint32, 'cSipStatsServerNotImplementedOuts')),
-                ('csipstatsserverbadgatewayins', YLeaf(YType.uint32, 'cSipStatsServerBadGatewayIns')),
-                ('csipstatsserverbadgatewayouts', YLeaf(YType.uint32, 'cSipStatsServerBadGatewayOuts')),
-                ('csipstatsserverserviceunavailins', YLeaf(YType.uint32, 'cSipStatsServerServiceUnavailIns')),
-                ('csipstatsserverserviceunavailouts', YLeaf(YType.uint32, 'cSipStatsServerServiceUnavailOuts')),
-                ('csipstatsservergatewaytimeoutins', YLeaf(YType.uint32, 'cSipStatsServerGatewayTimeoutIns')),
-                ('csipstatsservergatewaytimeoutouts', YLeaf(YType.uint32, 'cSipStatsServerGatewayTimeoutOuts')),
-                ('csipstatsserverbadsipversionins', YLeaf(YType.uint32, 'cSipStatsServerBadSipVersionIns')),
-                ('csipstatsserverbadsipversionouts', YLeaf(YType.uint32, 'cSipStatsServerBadSipVersionOuts')),
-                ('csipstatsserverprecondfailureins', YLeaf(YType.uint32, 'cSipStatsServerPrecondFailureIns')),
-                ('csipstatsserverprecondfailureouts', YLeaf(YType.uint32, 'cSipStatsServerPrecondFailureOuts')),
+                ('csipstatsserverinterrorins', (YLeaf(YType.uint32, 'cSipStatsServerIntErrorIns'), ['int'])),
+                ('csipstatsserverinterrorouts', (YLeaf(YType.uint32, 'cSipStatsServerIntErrorOuts'), ['int'])),
+                ('csipstatsservernotimplementedins', (YLeaf(YType.uint32, 'cSipStatsServerNotImplementedIns'), ['int'])),
+                ('csipstatsservernotimplementedouts', (YLeaf(YType.uint32, 'cSipStatsServerNotImplementedOuts'), ['int'])),
+                ('csipstatsserverbadgatewayins', (YLeaf(YType.uint32, 'cSipStatsServerBadGatewayIns'), ['int'])),
+                ('csipstatsserverbadgatewayouts', (YLeaf(YType.uint32, 'cSipStatsServerBadGatewayOuts'), ['int'])),
+                ('csipstatsserverserviceunavailins', (YLeaf(YType.uint32, 'cSipStatsServerServiceUnavailIns'), ['int'])),
+                ('csipstatsserverserviceunavailouts', (YLeaf(YType.uint32, 'cSipStatsServerServiceUnavailOuts'), ['int'])),
+                ('csipstatsservergatewaytimeoutins', (YLeaf(YType.uint32, 'cSipStatsServerGatewayTimeoutIns'), ['int'])),
+                ('csipstatsservergatewaytimeoutouts', (YLeaf(YType.uint32, 'cSipStatsServerGatewayTimeoutOuts'), ['int'])),
+                ('csipstatsserverbadsipversionins', (YLeaf(YType.uint32, 'cSipStatsServerBadSipVersionIns'), ['int'])),
+                ('csipstatsserverbadsipversionouts', (YLeaf(YType.uint32, 'cSipStatsServerBadSipVersionOuts'), ['int'])),
+                ('csipstatsserverprecondfailureins', (YLeaf(YType.uint32, 'cSipStatsServerPrecondFailureIns'), ['int'])),
+                ('csipstatsserverprecondfailureouts', (YLeaf(YType.uint32, 'cSipStatsServerPrecondFailureOuts'), ['int'])),
             ])
             self.csipstatsserverinterrorins = None
             self.csipstatsserverinterrorouts = None
@@ -2166,6 +2179,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsserverprecondfailureouts = None
             self._segment_path = lambda: "cSipStatsErrServer"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsErrServer, ['csipstatsserverinterrorins', 'csipstatsserverinterrorouts', 'csipstatsservernotimplementedins', 'csipstatsservernotimplementedouts', 'csipstatsserverbadgatewayins', 'csipstatsserverbadgatewayouts', 'csipstatsserverserviceunavailins', 'csipstatsserverserviceunavailouts', 'csipstatsservergatewaytimeoutins', 'csipstatsservergatewaytimeoutouts', 'csipstatsserverbadsipversionins', 'csipstatsserverbadsipversionouts', 'csipstatsserverprecondfailureins', 'csipstatsserverprecondfailureouts'], name, value)
@@ -2248,14 +2262,14 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsglobalbusyeverywhereins', YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereIns')),
-                ('csipstatsglobalbusyeverywhereouts', YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereOuts')),
-                ('csipstatsglobaldeclineins', YLeaf(YType.uint32, 'cSipStatsGlobalDeclineIns')),
-                ('csipstatsglobaldeclineouts', YLeaf(YType.uint32, 'cSipStatsGlobalDeclineOuts')),
-                ('csipstatsglobalnotanywhereins', YLeaf(YType.uint32, 'cSipStatsGlobalNotAnywhereIns')),
-                ('csipstatsglobalnotanywhereouts', YLeaf(YType.uint32, 'cSipStatsGlobalNotAnywhereOuts')),
-                ('csipstatsglobalnotacceptableins', YLeaf(YType.uint32, 'cSipStatsGlobalNotAcceptableIns')),
-                ('csipstatsglobalnotacceptableouts', YLeaf(YType.uint32, 'cSipStatsGlobalNotAcceptableOuts')),
+                ('csipstatsglobalbusyeverywhereins', (YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereIns'), ['int'])),
+                ('csipstatsglobalbusyeverywhereouts', (YLeaf(YType.uint32, 'cSipStatsGlobalBusyEverywhereOuts'), ['int'])),
+                ('csipstatsglobaldeclineins', (YLeaf(YType.uint32, 'cSipStatsGlobalDeclineIns'), ['int'])),
+                ('csipstatsglobaldeclineouts', (YLeaf(YType.uint32, 'cSipStatsGlobalDeclineOuts'), ['int'])),
+                ('csipstatsglobalnotanywhereins', (YLeaf(YType.uint32, 'cSipStatsGlobalNotAnywhereIns'), ['int'])),
+                ('csipstatsglobalnotanywhereouts', (YLeaf(YType.uint32, 'cSipStatsGlobalNotAnywhereOuts'), ['int'])),
+                ('csipstatsglobalnotacceptableins', (YLeaf(YType.uint32, 'cSipStatsGlobalNotAcceptableIns'), ['int'])),
+                ('csipstatsglobalnotacceptableouts', (YLeaf(YType.uint32, 'cSipStatsGlobalNotAcceptableOuts'), ['int'])),
             ])
             self.csipstatsglobalbusyeverywhereins = None
             self.csipstatsglobalbusyeverywhereouts = None
@@ -2267,6 +2281,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsglobalnotacceptableouts = None
             self._segment_path = lambda: "cSipStatsGlobalFail"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsGlobalFail, ['csipstatsglobalbusyeverywhereins', 'csipstatsglobalbusyeverywhereouts', 'csipstatsglobaldeclineins', 'csipstatsglobaldeclineouts', 'csipstatsglobalnotanywhereins', 'csipstatsglobalnotanywhereouts', 'csipstatsglobalnotacceptableins', 'csipstatsglobalnotacceptableouts'], name, value)
@@ -2475,32 +2490,32 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatstrafficinviteins', YLeaf(YType.uint32, 'cSipStatsTrafficInviteIns')),
-                ('csipstatstrafficinviteouts', YLeaf(YType.uint32, 'cSipStatsTrafficInviteOuts')),
-                ('csipstatstrafficackins', YLeaf(YType.uint32, 'cSipStatsTrafficAckIns')),
-                ('csipstatstrafficackouts', YLeaf(YType.uint32, 'cSipStatsTrafficAckOuts')),
-                ('csipstatstrafficbyeins', YLeaf(YType.uint32, 'cSipStatsTrafficByeIns')),
-                ('csipstatstrafficbyeouts', YLeaf(YType.uint32, 'cSipStatsTrafficByeOuts')),
-                ('csipstatstrafficcancelins', YLeaf(YType.uint32, 'cSipStatsTrafficCancelIns')),
-                ('csipstatstrafficcancelouts', YLeaf(YType.uint32, 'cSipStatsTrafficCancelOuts')),
-                ('csipstatstrafficoptionsins', YLeaf(YType.uint32, 'cSipStatsTrafficOptionsIns')),
-                ('csipstatstrafficoptionsouts', YLeaf(YType.uint32, 'cSipStatsTrafficOptionsOuts')),
-                ('csipstatstrafficregisterins', YLeaf(YType.uint32, 'cSipStatsTrafficRegisterIns')),
-                ('csipstatstrafficregisterouts', YLeaf(YType.uint32, 'cSipStatsTrafficRegisterOuts')),
-                ('csipstatstrafficcometins', YLeaf(YType.uint32, 'cSipStatsTrafficCometIns')),
-                ('csipstatstrafficcometouts', YLeaf(YType.uint32, 'cSipStatsTrafficCometOuts')),
-                ('csipstatstrafficprackins', YLeaf(YType.uint32, 'cSipStatsTrafficPrackIns')),
-                ('csipstatstrafficprackouts', YLeaf(YType.uint32, 'cSipStatsTrafficPrackOuts')),
-                ('csipstatstrafficreferins', YLeaf(YType.uint32, 'cSipStatsTrafficReferIns')),
-                ('csipstatstrafficreferouts', YLeaf(YType.uint32, 'cSipStatsTrafficReferOuts')),
-                ('csipstatstrafficnotifyins', YLeaf(YType.uint32, 'cSipStatsTrafficNotifyIns')),
-                ('csipstatstrafficnotifyouts', YLeaf(YType.uint32, 'cSipStatsTrafficNotifyOuts')),
-                ('csipstatstrafficinfoins', YLeaf(YType.uint32, 'cSipStatsTrafficInfoIns')),
-                ('csipstatstrafficinfoouts', YLeaf(YType.uint32, 'cSipStatsTrafficInfoOuts')),
-                ('csipstatstrafficsubscribeins', YLeaf(YType.uint32, 'cSipStatsTrafficSubscribeIns')),
-                ('csipstatstrafficsubscribeouts', YLeaf(YType.uint32, 'cSipStatsTrafficSubscribeOuts')),
-                ('csipstatstrafficupdateins', YLeaf(YType.uint32, 'cSipStatsTrafficUpdateIns')),
-                ('csipstatstrafficupdateouts', YLeaf(YType.uint32, 'cSipStatsTrafficUpdateOuts')),
+                ('csipstatstrafficinviteins', (YLeaf(YType.uint32, 'cSipStatsTrafficInviteIns'), ['int'])),
+                ('csipstatstrafficinviteouts', (YLeaf(YType.uint32, 'cSipStatsTrafficInviteOuts'), ['int'])),
+                ('csipstatstrafficackins', (YLeaf(YType.uint32, 'cSipStatsTrafficAckIns'), ['int'])),
+                ('csipstatstrafficackouts', (YLeaf(YType.uint32, 'cSipStatsTrafficAckOuts'), ['int'])),
+                ('csipstatstrafficbyeins', (YLeaf(YType.uint32, 'cSipStatsTrafficByeIns'), ['int'])),
+                ('csipstatstrafficbyeouts', (YLeaf(YType.uint32, 'cSipStatsTrafficByeOuts'), ['int'])),
+                ('csipstatstrafficcancelins', (YLeaf(YType.uint32, 'cSipStatsTrafficCancelIns'), ['int'])),
+                ('csipstatstrafficcancelouts', (YLeaf(YType.uint32, 'cSipStatsTrafficCancelOuts'), ['int'])),
+                ('csipstatstrafficoptionsins', (YLeaf(YType.uint32, 'cSipStatsTrafficOptionsIns'), ['int'])),
+                ('csipstatstrafficoptionsouts', (YLeaf(YType.uint32, 'cSipStatsTrafficOptionsOuts'), ['int'])),
+                ('csipstatstrafficregisterins', (YLeaf(YType.uint32, 'cSipStatsTrafficRegisterIns'), ['int'])),
+                ('csipstatstrafficregisterouts', (YLeaf(YType.uint32, 'cSipStatsTrafficRegisterOuts'), ['int'])),
+                ('csipstatstrafficcometins', (YLeaf(YType.uint32, 'cSipStatsTrafficCometIns'), ['int'])),
+                ('csipstatstrafficcometouts', (YLeaf(YType.uint32, 'cSipStatsTrafficCometOuts'), ['int'])),
+                ('csipstatstrafficprackins', (YLeaf(YType.uint32, 'cSipStatsTrafficPrackIns'), ['int'])),
+                ('csipstatstrafficprackouts', (YLeaf(YType.uint32, 'cSipStatsTrafficPrackOuts'), ['int'])),
+                ('csipstatstrafficreferins', (YLeaf(YType.uint32, 'cSipStatsTrafficReferIns'), ['int'])),
+                ('csipstatstrafficreferouts', (YLeaf(YType.uint32, 'cSipStatsTrafficReferOuts'), ['int'])),
+                ('csipstatstrafficnotifyins', (YLeaf(YType.uint32, 'cSipStatsTrafficNotifyIns'), ['int'])),
+                ('csipstatstrafficnotifyouts', (YLeaf(YType.uint32, 'cSipStatsTrafficNotifyOuts'), ['int'])),
+                ('csipstatstrafficinfoins', (YLeaf(YType.uint32, 'cSipStatsTrafficInfoIns'), ['int'])),
+                ('csipstatstrafficinfoouts', (YLeaf(YType.uint32, 'cSipStatsTrafficInfoOuts'), ['int'])),
+                ('csipstatstrafficsubscribeins', (YLeaf(YType.uint32, 'cSipStatsTrafficSubscribeIns'), ['int'])),
+                ('csipstatstrafficsubscribeouts', (YLeaf(YType.uint32, 'cSipStatsTrafficSubscribeOuts'), ['int'])),
+                ('csipstatstrafficupdateins', (YLeaf(YType.uint32, 'cSipStatsTrafficUpdateIns'), ['int'])),
+                ('csipstatstrafficupdateouts', (YLeaf(YType.uint32, 'cSipStatsTrafficUpdateOuts'), ['int'])),
             ])
             self.csipstatstrafficinviteins = None
             self.csipstatstrafficinviteouts = None
@@ -2530,6 +2545,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatstrafficupdateouts = None
             self._segment_path = lambda: "cSipStatsTraffic"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsTraffic, ['csipstatstrafficinviteins', 'csipstatstrafficinviteouts', 'csipstatstrafficackins', 'csipstatstrafficackouts', 'csipstatstrafficbyeins', 'csipstatstrafficbyeouts', 'csipstatstrafficcancelins', 'csipstatstrafficcancelouts', 'csipstatstrafficoptionsins', 'csipstatstrafficoptionsouts', 'csipstatstrafficregisterins', 'csipstatstrafficregisterouts', 'csipstatstrafficcometins', 'csipstatstrafficcometouts', 'csipstatstrafficprackins', 'csipstatstrafficprackouts', 'csipstatstrafficreferins', 'csipstatstrafficreferouts', 'csipstatstrafficnotifyins', 'csipstatstrafficnotifyouts', 'csipstatstrafficinfoins', 'csipstatstrafficinfoouts', 'csipstatstrafficsubscribeins', 'csipstatstrafficsubscribeouts', 'csipstatstrafficupdateins', 'csipstatstrafficupdateouts'], name, value)
@@ -2640,18 +2656,18 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsretryinvites', YLeaf(YType.uint32, 'cSipStatsRetryInvites')),
-                ('csipstatsretrybyes', YLeaf(YType.uint32, 'cSipStatsRetryByes')),
-                ('csipstatsretrycancels', YLeaf(YType.uint32, 'cSipStatsRetryCancels')),
-                ('csipstatsretryregisters', YLeaf(YType.uint32, 'cSipStatsRetryRegisters')),
-                ('csipstatsretryresponses', YLeaf(YType.uint32, 'cSipStatsRetryResponses')),
-                ('csipstatsretrypracks', YLeaf(YType.uint32, 'cSipStatsRetryPracks')),
-                ('csipstatsretrycomets', YLeaf(YType.uint32, 'cSipStatsRetryComets')),
-                ('csipstatsretryreliable1xxrsps', YLeaf(YType.uint32, 'cSipStatsRetryReliable1xxRsps')),
-                ('csipstatsretrynotifys', YLeaf(YType.uint32, 'cSipStatsRetryNotifys')),
-                ('csipstatsretryrefers', YLeaf(YType.uint32, 'cSipStatsRetryRefers')),
-                ('csipstatsretryinfo', YLeaf(YType.uint32, 'cSipStatsRetryInfo')),
-                ('csipstatsretrysubscribe', YLeaf(YType.uint32, 'cSipStatsRetrySubscribe')),
+                ('csipstatsretryinvites', (YLeaf(YType.uint32, 'cSipStatsRetryInvites'), ['int'])),
+                ('csipstatsretrybyes', (YLeaf(YType.uint32, 'cSipStatsRetryByes'), ['int'])),
+                ('csipstatsretrycancels', (YLeaf(YType.uint32, 'cSipStatsRetryCancels'), ['int'])),
+                ('csipstatsretryregisters', (YLeaf(YType.uint32, 'cSipStatsRetryRegisters'), ['int'])),
+                ('csipstatsretryresponses', (YLeaf(YType.uint32, 'cSipStatsRetryResponses'), ['int'])),
+                ('csipstatsretrypracks', (YLeaf(YType.uint32, 'cSipStatsRetryPracks'), ['int'])),
+                ('csipstatsretrycomets', (YLeaf(YType.uint32, 'cSipStatsRetryComets'), ['int'])),
+                ('csipstatsretryreliable1xxrsps', (YLeaf(YType.uint32, 'cSipStatsRetryReliable1xxRsps'), ['int'])),
+                ('csipstatsretrynotifys', (YLeaf(YType.uint32, 'cSipStatsRetryNotifys'), ['int'])),
+                ('csipstatsretryrefers', (YLeaf(YType.uint32, 'cSipStatsRetryRefers'), ['int'])),
+                ('csipstatsretryinfo', (YLeaf(YType.uint32, 'cSipStatsRetryInfo'), ['int'])),
+                ('csipstatsretrysubscribe', (YLeaf(YType.uint32, 'cSipStatsRetrySubscribe'), ['int'])),
             ])
             self.csipstatsretryinvites = None
             self.csipstatsretrybyes = None
@@ -2667,6 +2683,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsretrysubscribe = None
             self._segment_path = lambda: "cSipStatsRetry"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsRetry, ['csipstatsretryinvites', 'csipstatsretrybyes', 'csipstatsretrycancels', 'csipstatsretryregisters', 'csipstatsretryresponses', 'csipstatsretrypracks', 'csipstatsretrycomets', 'csipstatsretryreliable1xxrsps', 'csipstatsretrynotifys', 'csipstatsretryrefers', 'csipstatsretryinfo', 'csipstatsretrysubscribe'], name, value)
@@ -2700,11 +2717,12 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsmisc3xxmappedto4xxrsps', YLeaf(YType.uint32, 'cSipStatsMisc3xxMappedTo4xxRsps')),
+                ('csipstatsmisc3xxmappedto4xxrsps', (YLeaf(YType.uint32, 'cSipStatsMisc3xxMappedTo4xxRsps'), ['int'])),
             ])
             self.csipstatsmisc3xxmappedto4xxrsps = None
             self._segment_path = lambda: "cSipStatsMisc"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsMisc, ['csipstatsmisc3xxmappedto4xxrsps'], name, value)
@@ -2794,15 +2812,15 @@ class CISCOSIPUAMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csipstatsconntcpsendfailures', YLeaf(YType.uint32, 'cSipStatsConnTCPSendFailures')),
-                ('csipstatsconnudpsendfailures', YLeaf(YType.uint32, 'cSipStatsConnUDPSendFailures')),
-                ('csipstatsconntcpremoteclosures', YLeaf(YType.uint32, 'cSipStatsConnTCPRemoteClosures')),
-                ('csipstatsconnudpcreatefailures', YLeaf(YType.uint32, 'cSipStatsConnUDPCreateFailures')),
-                ('csipstatsconntcpcreatefailures', YLeaf(YType.uint32, 'cSipStatsConnTCPCreateFailures')),
-                ('csipstatsconnudpinactivetimeouts', YLeaf(YType.uint32, 'cSipStatsConnUDPInactiveTimeouts')),
-                ('csipstatsconntcpinactivetimeouts', YLeaf(YType.uint32, 'cSipStatsConnTCPInactiveTimeouts')),
-                ('csipstatsactiveudpconnections', YLeaf(YType.uint32, 'cSipStatsActiveUDPConnections')),
-                ('csipstatsactivetcpconnections', YLeaf(YType.uint32, 'cSipStatsActiveTCPConnections')),
+                ('csipstatsconntcpsendfailures', (YLeaf(YType.uint32, 'cSipStatsConnTCPSendFailures'), ['int'])),
+                ('csipstatsconnudpsendfailures', (YLeaf(YType.uint32, 'cSipStatsConnUDPSendFailures'), ['int'])),
+                ('csipstatsconntcpremoteclosures', (YLeaf(YType.uint32, 'cSipStatsConnTCPRemoteClosures'), ['int'])),
+                ('csipstatsconnudpcreatefailures', (YLeaf(YType.uint32, 'cSipStatsConnUDPCreateFailures'), ['int'])),
+                ('csipstatsconntcpcreatefailures', (YLeaf(YType.uint32, 'cSipStatsConnTCPCreateFailures'), ['int'])),
+                ('csipstatsconnudpinactivetimeouts', (YLeaf(YType.uint32, 'cSipStatsConnUDPInactiveTimeouts'), ['int'])),
+                ('csipstatsconntcpinactivetimeouts', (YLeaf(YType.uint32, 'cSipStatsConnTCPInactiveTimeouts'), ['int'])),
+                ('csipstatsactiveudpconnections', (YLeaf(YType.uint32, 'cSipStatsActiveUDPConnections'), ['int'])),
+                ('csipstatsactivetcpconnections', (YLeaf(YType.uint32, 'cSipStatsActiveTCPConnections'), ['int'])),
             ])
             self.csipstatsconntcpsendfailures = None
             self.csipstatsconnudpsendfailures = None
@@ -2815,6 +2833,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatsactivetcpconnections = None
             self._segment_path = lambda: "cSipStatsConnection"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsConnection, ['csipstatsconntcpsendfailures', 'csipstatsconnudpsendfailures', 'csipstatsconntcpremoteclosures', 'csipstatsconnudpcreatefailures', 'csipstatsconntcpcreatefailures', 'csipstatsconnudpinactivetimeouts', 'csipstatsconntcpinactivetimeouts', 'csipstatsactiveudpconnections', 'csipstatsactivetcpconnections'], name, value)
@@ -2854,6 +2873,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgearlymediaentry = YList(self)
             self._segment_path = lambda: "cSipCfgEarlyMediaTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgEarlyMediaTable, [], name, value)
@@ -2896,13 +2916,14 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipcfgearlymediastatuscodeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipcfgearlymediastatuscodeindex', YLeaf(YType.int32, 'cSipCfgEarlyMediaStatusCodeIndex')),
-                    ('csipcfgearlymediacutthrudisabled', YLeaf(YType.boolean, 'cSipCfgEarlyMediaCutThruDisabled')),
+                    ('csipcfgearlymediastatuscodeindex', (YLeaf(YType.int32, 'cSipCfgEarlyMediaStatusCodeIndex'), ['int'])),
+                    ('csipcfgearlymediacutthrudisabled', (YLeaf(YType.boolean, 'cSipCfgEarlyMediaCutThruDisabled'), ['bool'])),
                 ])
                 self.csipcfgearlymediastatuscodeindex = None
                 self.csipcfgearlymediacutthrudisabled = None
                 self._segment_path = lambda: "cSipCfgEarlyMediaEntry" + "[cSipCfgEarlyMediaStatusCodeIndex='" + str(self.csipcfgearlymediastatuscodeindex) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgEarlyMediaTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgEarlyMediaTable.CSipCfgEarlyMediaEntry, ['csipcfgearlymediastatuscodeindex', 'csipcfgearlymediacutthrudisabled'], name, value)
@@ -2944,6 +2965,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgbindsourceaddrentry = YList(self)
             self._segment_path = lambda: "cSipCfgBindSourceAddrTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable, [], name, value)
@@ -2986,13 +3008,14 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipcfgbindsourceaddrscope']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipcfgbindsourceaddrscope', YLeaf(YType.enumeration, 'cSipCfgBindSourceAddrScope')),
-                    ('csipcfgbindsourceaddrinterface', YLeaf(YType.int32, 'cSipCfgBindSourceAddrInterface')),
+                    ('csipcfgbindsourceaddrscope', (YLeaf(YType.enumeration, 'cSipCfgBindSourceAddrScope'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry.CSipCfgBindSourceAddrScope')])),
+                    ('csipcfgbindsourceaddrinterface', (YLeaf(YType.int32, 'cSipCfgBindSourceAddrInterface'), ['int'])),
                 ])
                 self.csipcfgbindsourceaddrscope = None
                 self.csipcfgbindsourceaddrinterface = None
                 self._segment_path = lambda: "cSipCfgBindSourceAddrEntry" + "[cSipCfgBindSourceAddrScope='" + str(self.csipcfgbindsourceaddrscope) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgBindSourceAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgBindSourceAddrTable.CSipCfgBindSourceAddrEntry, ['csipcfgbindsourceaddrscope', 'csipcfgbindsourceaddrinterface'], name, value)
@@ -3065,6 +3088,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgpeerentry = YList(self)
             self._segment_path = lambda: "cSipCfgPeerTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeerTable, [], name, value)
@@ -3123,12 +3147,12 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipcfgpeerindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipcfgpeerindex', YLeaf(YType.int32, 'cSipCfgPeerIndex')),
-                    ('csipcfgpeeroutsessiontransport', YLeaf(YType.enumeration, 'cSipCfgPeerOutSessionTransport')),
-                    ('csipcfgpeerreliable1xxrspstr', YLeaf(YType.str, 'cSipCfgPeerReliable1xxRspStr')),
-                    ('csipcfgpeerreliable1xxrsphdr', YLeaf(YType.enumeration, 'cSipCfgPeerReliable1xxRspHdr')),
-                    ('csipcfgpeerurltype', YLeaf(YType.enumeration, 'cSipCfgPeerUrlType')),
-                    ('csipcfgpeerswitchtransenabled', YLeaf(YType.boolean, 'cSipCfgPeerSwitchTransEnabled')),
+                    ('csipcfgpeerindex', (YLeaf(YType.int32, 'cSipCfgPeerIndex'), ['int'])),
+                    ('csipcfgpeeroutsessiontransport', (YLeaf(YType.enumeration, 'cSipCfgPeerOutSessionTransport'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerOutSessionTransport')])),
+                    ('csipcfgpeerreliable1xxrspstr', (YLeaf(YType.str, 'cSipCfgPeerReliable1xxRspStr'), ['str'])),
+                    ('csipcfgpeerreliable1xxrsphdr', (YLeaf(YType.enumeration, 'cSipCfgPeerReliable1xxRspHdr'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerReliable1xxRspHdr')])),
+                    ('csipcfgpeerurltype', (YLeaf(YType.enumeration, 'cSipCfgPeerUrlType'), [('ydk.models.cisco_ios_xe.CISCO_SIP_UA_MIB', 'CISCOSIPUAMIB', 'CSipCfgPeerTable.CSipCfgPeerEntry.CSipCfgPeerUrlType')])),
+                    ('csipcfgpeerswitchtransenabled', (YLeaf(YType.boolean, 'cSipCfgPeerSwitchTransEnabled'), ['bool'])),
                 ])
                 self.csipcfgpeerindex = None
                 self.csipcfgpeeroutsessiontransport = None
@@ -3138,6 +3162,7 @@ class CISCOSIPUAMIB(Entity):
                 self.csipcfgpeerswitchtransenabled = None
                 self._segment_path = lambda: "cSipCfgPeerEntry" + "[cSipCfgPeerIndex='" + str(self.csipcfgpeerindex) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgPeerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgPeerTable.CSipCfgPeerEntry, ['csipcfgpeerindex', 'csipcfgpeeroutsessiontransport', 'csipcfgpeerreliable1xxrspstr', 'csipcfgpeerreliable1xxrsphdr', 'csipcfgpeerurltype', 'csipcfgpeerswitchtransenabled'], name, value)
@@ -3299,6 +3324,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgstatuscauseentry = YList(self)
             self._segment_path = lambda: "cSipCfgStatusCauseTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgStatusCauseTable, [], name, value)
@@ -3345,15 +3371,16 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipcfgstatuscodeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipcfgstatuscodeindex', YLeaf(YType.int32, 'cSipCfgStatusCodeIndex')),
-                    ('csipcfgpstncause', YLeaf(YType.int32, 'cSipCfgPstnCause')),
-                    ('csipcfgstatuscausestorestatus', YLeaf(YType.enumeration, 'cSipCfgStatusCauseStoreStatus')),
+                    ('csipcfgstatuscodeindex', (YLeaf(YType.int32, 'cSipCfgStatusCodeIndex'), ['int'])),
+                    ('csipcfgpstncause', (YLeaf(YType.int32, 'cSipCfgPstnCause'), ['int'])),
+                    ('csipcfgstatuscausestorestatus', (YLeaf(YType.enumeration, 'cSipCfgStatusCauseStoreStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.csipcfgstatuscodeindex = None
                 self.csipcfgpstncause = None
                 self.csipcfgstatuscausestorestatus = None
                 self._segment_path = lambda: "cSipCfgStatusCauseEntry" + "[cSipCfgStatusCodeIndex='" + str(self.csipcfgstatuscodeindex) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgStatusCauseTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgStatusCauseTable.CSipCfgStatusCauseEntry, ['csipcfgstatuscodeindex', 'csipcfgpstncause', 'csipcfgstatuscausestorestatus'], name, value)
@@ -3394,6 +3421,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipcfgcausestatusentry = YList(self)
             self._segment_path = lambda: "cSipCfgCauseStatusTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipCfgCauseStatusTable, [], name, value)
@@ -3440,15 +3468,16 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipcfgpstncauseindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipcfgpstncauseindex', YLeaf(YType.int32, 'cSipCfgPstnCauseIndex')),
-                    ('csipcfgstatuscode', YLeaf(YType.int32, 'cSipCfgStatusCode')),
-                    ('csipcfgcausestatusstorestatus', YLeaf(YType.enumeration, 'cSipCfgCauseStatusStoreStatus')),
+                    ('csipcfgpstncauseindex', (YLeaf(YType.int32, 'cSipCfgPstnCauseIndex'), ['int'])),
+                    ('csipcfgstatuscode', (YLeaf(YType.int32, 'cSipCfgStatusCode'), ['int'])),
+                    ('csipcfgcausestatusstorestatus', (YLeaf(YType.enumeration, 'cSipCfgCauseStatusStoreStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.csipcfgpstncauseindex = None
                 self.csipcfgstatuscode = None
                 self.csipcfgcausestatusstorestatus = None
                 self._segment_path = lambda: "cSipCfgCauseStatusEntry" + "[cSipCfgPstnCauseIndex='" + str(self.csipcfgpstncauseindex) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipCfgCauseStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipCfgCauseStatusTable.CSipCfgCauseStatusEntry, ['csipcfgpstncauseindex', 'csipcfgstatuscode', 'csipcfgcausestatusstorestatus'], name, value)
@@ -3486,6 +3515,7 @@ class CISCOSIPUAMIB(Entity):
             self.csipstatssuccessokentry = YList(self)
             self._segment_path = lambda: "cSipStatsSuccessOkTable"
             self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccessOkTable, [], name, value)
@@ -3535,15 +3565,16 @@ class CISCOSIPUAMIB(Entity):
                 self.ylist_key_names = ['csipstatssuccessokmethod']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csipstatssuccessokmethod', YLeaf(YType.str, 'cSipStatsSuccessOkMethod')),
-                    ('csipstatssuccessokinbounds', YLeaf(YType.uint32, 'cSipStatsSuccessOkInbounds')),
-                    ('csipstatssuccessokoutbounds', YLeaf(YType.uint32, 'cSipStatsSuccessOkOutbounds')),
+                    ('csipstatssuccessokmethod', (YLeaf(YType.str, 'cSipStatsSuccessOkMethod'), ['str'])),
+                    ('csipstatssuccessokinbounds', (YLeaf(YType.uint32, 'cSipStatsSuccessOkInbounds'), ['int'])),
+                    ('csipstatssuccessokoutbounds', (YLeaf(YType.uint32, 'cSipStatsSuccessOkOutbounds'), ['int'])),
                 ])
                 self.csipstatssuccessokmethod = None
                 self.csipstatssuccessokinbounds = None
                 self.csipstatssuccessokoutbounds = None
                 self._segment_path = lambda: "cSipStatsSuccessOkEntry" + "[cSipStatsSuccessOkMethod='" + str(self.csipstatssuccessokmethod) + "']"
                 self._absolute_path = lambda: "CISCO-SIP-UA-MIB:CISCO-SIP-UA-MIB/cSipStatsSuccessOkTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSIPUAMIB.CSipStatsSuccessOkTable.CSipStatsSuccessOkEntry, ['csipstatssuccessokmethod', 'csipstatssuccessokinbounds', 'csipstatssuccessokoutbounds'], name, value)

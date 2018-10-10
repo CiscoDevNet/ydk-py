@@ -35,6 +35,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class VcParamConfigLocation(Enum):
     """
     VcParamConfigLocation (Enum Class)
@@ -155,6 +156,7 @@ class CISCOATMQOSMIB(Entity):
         self.caqqueuingparamsclasstable.parent = self
         self._children_name_map["caqqueuingparamsclasstable"] = "caqQueuingParamsClassTable"
         self._segment_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOATMQOSMIB, [], name, value)
@@ -191,6 +193,7 @@ class CISCOATMQOSMIB(Entity):
             self.caqvccparamsentry = YList(self)
             self._segment_path = lambda: "caqVccParamsTable"
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMQOSMIB.CaqVccParamsTable, [], name, value)
@@ -435,37 +438,37 @@ class CISCOATMQOSMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('caqvccparamstype', YLeaf(YType.enumeration, 'caqVccParamsType')),
-                    ('caqvccparamspcrin0', YLeaf(YType.uint32, 'caqVccParamsPcrIn0')),
-                    ('caqvccparamspcrin01', YLeaf(YType.uint32, 'caqVccParamsPcrIn01')),
-                    ('caqvccparamspcrout0', YLeaf(YType.uint32, 'caqVccParamsPcrOut0')),
-                    ('caqvccparamspcrout01', YLeaf(YType.uint32, 'caqVccParamsPcrOut01')),
-                    ('caqvccparamsscrin0', YLeaf(YType.uint32, 'caqVccParamsScrIn0')),
-                    ('caqvccparamsscrin01', YLeaf(YType.uint32, 'caqVccParamsScrIn01')),
-                    ('caqvccparamsscrout0', YLeaf(YType.uint32, 'caqVccParamsScrOut0')),
-                    ('caqvccparamsscrout01', YLeaf(YType.uint32, 'caqVccParamsScrOut01')),
-                    ('caqvccparamsbcsin0', YLeaf(YType.uint32, 'caqVccParamsBcsIn0')),
-                    ('caqvccparamsbcsin01', YLeaf(YType.uint32, 'caqVccParamsBcsIn01')),
-                    ('caqvccparamsbcsout0', YLeaf(YType.uint32, 'caqVccParamsBcsOut0')),
-                    ('caqvccparamsbcsout01', YLeaf(YType.uint32, 'caqVccParamsBcsOut01')),
-                    ('caqvccparamsinheritlevel', YLeaf(YType.enumeration, 'caqVccParamsInheritLevel')),
-                    ('caqvccparamsmcrin', YLeaf(YType.uint32, 'caqVccParamsMcrIn')),
-                    ('caqvccparamsmcrout', YLeaf(YType.uint32, 'caqVccParamsMcrOut')),
-                    ('caqvccparamsinvrdf', YLeaf(YType.uint32, 'caqVccParamsInvRdf')),
-                    ('caqvccparamsinvrif', YLeaf(YType.uint32, 'caqVccParamsInvRif')),
-                    ('caqvccparamsrfl', YLeaf(YType.enumeration, 'caqVccParamsRfl')),
-                    ('caqvccparamscdv', YLeaf(YType.uint32, 'caqVccParamsCdv')),
-                    ('caqvccparamscdvt', YLeaf(YType.uint32, 'caqVccParamsCdvt')),
-                    ('caqvccparamsicr', YLeaf(YType.uint32, 'caqVccParamsIcr')),
-                    ('caqvccparamstbe', YLeaf(YType.uint32, 'caqVccParamsTbe')),
-                    ('caqvccparamsfrtt', YLeaf(YType.uint32, 'caqVccParamsFrtt')),
-                    ('caqvccparamsnrm', YLeaf(YType.uint32, 'caqVccParamsNrm')),
-                    ('caqvccparamsinvtrm', YLeaf(YType.uint32, 'caqVccParamsInvTrm')),
-                    ('caqvccparamsinvcdf', YLeaf(YType.uint32, 'caqVccParamsInvCdf')),
-                    ('caqvccparamsadtf', YLeaf(YType.uint32, 'caqVccParamsAdtf')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('caqvccparamstype', (YLeaf(YType.enumeration, 'caqVccParamsType'), [('ydk.models.cisco_ios_xe.ATM_FORUM_TC_MIB', 'AtmServiceCategory', '')])),
+                    ('caqvccparamspcrin0', (YLeaf(YType.uint32, 'caqVccParamsPcrIn0'), ['int'])),
+                    ('caqvccparamspcrin01', (YLeaf(YType.uint32, 'caqVccParamsPcrIn01'), ['int'])),
+                    ('caqvccparamspcrout0', (YLeaf(YType.uint32, 'caqVccParamsPcrOut0'), ['int'])),
+                    ('caqvccparamspcrout01', (YLeaf(YType.uint32, 'caqVccParamsPcrOut01'), ['int'])),
+                    ('caqvccparamsscrin0', (YLeaf(YType.uint32, 'caqVccParamsScrIn0'), ['int'])),
+                    ('caqvccparamsscrin01', (YLeaf(YType.uint32, 'caqVccParamsScrIn01'), ['int'])),
+                    ('caqvccparamsscrout0', (YLeaf(YType.uint32, 'caqVccParamsScrOut0'), ['int'])),
+                    ('caqvccparamsscrout01', (YLeaf(YType.uint32, 'caqVccParamsScrOut01'), ['int'])),
+                    ('caqvccparamsbcsin0', (YLeaf(YType.uint32, 'caqVccParamsBcsIn0'), ['int'])),
+                    ('caqvccparamsbcsin01', (YLeaf(YType.uint32, 'caqVccParamsBcsIn01'), ['int'])),
+                    ('caqvccparamsbcsout0', (YLeaf(YType.uint32, 'caqVccParamsBcsOut0'), ['int'])),
+                    ('caqvccparamsbcsout01', (YLeaf(YType.uint32, 'caqVccParamsBcsOut01'), ['int'])),
+                    ('caqvccparamsinheritlevel', (YLeaf(YType.enumeration, 'caqVccParamsInheritLevel'), [('ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB', 'VcParamConfigLocation', '')])),
+                    ('caqvccparamsmcrin', (YLeaf(YType.uint32, 'caqVccParamsMcrIn'), ['int'])),
+                    ('caqvccparamsmcrout', (YLeaf(YType.uint32, 'caqVccParamsMcrOut'), ['int'])),
+                    ('caqvccparamsinvrdf', (YLeaf(YType.uint32, 'caqVccParamsInvRdf'), ['int'])),
+                    ('caqvccparamsinvrif', (YLeaf(YType.uint32, 'caqVccParamsInvRif'), ['int'])),
+                    ('caqvccparamsrfl', (YLeaf(YType.enumeration, 'caqVccParamsRfl'), [('ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB', 'VcParamConfigLocation', '')])),
+                    ('caqvccparamscdv', (YLeaf(YType.uint32, 'caqVccParamsCdv'), ['int'])),
+                    ('caqvccparamscdvt', (YLeaf(YType.uint32, 'caqVccParamsCdvt'), ['int'])),
+                    ('caqvccparamsicr', (YLeaf(YType.uint32, 'caqVccParamsIcr'), ['int'])),
+                    ('caqvccparamstbe', (YLeaf(YType.uint32, 'caqVccParamsTbe'), ['int'])),
+                    ('caqvccparamsfrtt', (YLeaf(YType.uint32, 'caqVccParamsFrtt'), ['int'])),
+                    ('caqvccparamsnrm', (YLeaf(YType.uint32, 'caqVccParamsNrm'), ['int'])),
+                    ('caqvccparamsinvtrm', (YLeaf(YType.uint32, 'caqVccParamsInvTrm'), ['int'])),
+                    ('caqvccparamsinvcdf', (YLeaf(YType.uint32, 'caqVccParamsInvCdf'), ['int'])),
+                    ('caqvccparamsadtf', (YLeaf(YType.uint32, 'caqVccParamsAdtf'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -500,6 +503,7 @@ class CISCOATMQOSMIB(Entity):
                 self.caqvccparamsadtf = None
                 self._segment_path = lambda: "caqVccParamsEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVccParamsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMQOSMIB.CaqVccParamsTable.CaqVccParamsEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqvccparamstype', 'caqvccparamspcrin0', 'caqvccparamspcrin01', 'caqvccparamspcrout0', 'caqvccparamspcrout01', 'caqvccparamsscrin0', 'caqvccparamsscrin01', 'caqvccparamsscrout0', 'caqvccparamsscrout01', 'caqvccparamsbcsin0', 'caqvccparamsbcsin01', 'caqvccparamsbcsout0', 'caqvccparamsbcsout01', 'caqvccparamsinheritlevel', 'caqvccparamsmcrin', 'caqvccparamsmcrout', 'caqvccparamsinvrdf', 'caqvccparamsinvrif', 'caqvccparamsrfl', 'caqvccparamscdv', 'caqvccparamscdvt', 'caqvccparamsicr', 'caqvccparamstbe', 'caqvccparamsfrtt', 'caqvccparamsnrm', 'caqvccparamsinvtrm', 'caqvccparamsinvcdf', 'caqvccparamsadtf'], name, value)
@@ -536,6 +540,7 @@ class CISCOATMQOSMIB(Entity):
             self.caqvpcparamsentry = YList(self)
             self._segment_path = lambda: "caqVpcParamsTable"
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMQOSMIB.CaqVpcParamsTable, [], name, value)
@@ -649,18 +654,18 @@ class CISCOATMQOSMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvplvpi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvplvpi', YLeaf(YType.str, 'atmVplVpi')),
-                    ('caqvpcparamsvpstate', YLeaf(YType.enumeration, 'caqVpcParamsVpState')),
-                    ('caqvpcparamspeakrate', YLeaf(YType.uint32, 'caqVpcParamsPeakRate')),
-                    ('caqvpcparamscesrate', YLeaf(YType.uint32, 'caqVpcParamsCesRate')),
-                    ('caqvpcparamsdatavccount', YLeaf(YType.int32, 'caqVpcParamsDataVcCount')),
-                    ('caqvpcparamscesvccount', YLeaf(YType.int32, 'caqVpcParamsCesVcCount')),
-                    ('caqvpcparamsvcdf4seg', YLeaf(YType.int32, 'caqVpcParamsVcdF4Seg')),
-                    ('caqvpcparamsvcdf4ete', YLeaf(YType.int32, 'caqVpcParamsVcdF4Ete')),
-                    ('caqvpcparamsscr', YLeaf(YType.uint32, 'caqVpcParamsScr')),
-                    ('caqvpcparamsmbs', YLeaf(YType.uint32, 'caqVpcParamsMbs')),
-                    ('caqvpcparamsavailbw', YLeaf(YType.uint32, 'caqVpcParamsAvailBw')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvplvpi', (YLeaf(YType.str, 'atmVplVpi'), ['int'])),
+                    ('caqvpcparamsvpstate', (YLeaf(YType.enumeration, 'caqVpcParamsVpState'), [('ydk.models.cisco_ios_xe.CISCO_ATM_QOS_MIB', 'VpState', '')])),
+                    ('caqvpcparamspeakrate', (YLeaf(YType.uint32, 'caqVpcParamsPeakRate'), ['int'])),
+                    ('caqvpcparamscesrate', (YLeaf(YType.uint32, 'caqVpcParamsCesRate'), ['int'])),
+                    ('caqvpcparamsdatavccount', (YLeaf(YType.int32, 'caqVpcParamsDataVcCount'), ['int'])),
+                    ('caqvpcparamscesvccount', (YLeaf(YType.int32, 'caqVpcParamsCesVcCount'), ['int'])),
+                    ('caqvpcparamsvcdf4seg', (YLeaf(YType.int32, 'caqVpcParamsVcdF4Seg'), ['int'])),
+                    ('caqvpcparamsvcdf4ete', (YLeaf(YType.int32, 'caqVpcParamsVcdF4Ete'), ['int'])),
+                    ('caqvpcparamsscr', (YLeaf(YType.uint32, 'caqVpcParamsScr'), ['int'])),
+                    ('caqvpcparamsmbs', (YLeaf(YType.uint32, 'caqVpcParamsMbs'), ['int'])),
+                    ('caqvpcparamsavailbw', (YLeaf(YType.uint32, 'caqVpcParamsAvailBw'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvplvpi = None
@@ -676,6 +681,7 @@ class CISCOATMQOSMIB(Entity):
                 self.caqvpcparamsavailbw = None
                 self._segment_path = lambda: "caqVpcParamsEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVplVpi='" + str(self.atmvplvpi) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqVpcParamsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMQOSMIB.CaqVpcParamsTable.CaqVpcParamsEntry, ['ifindex', 'atmvplvpi', 'caqvpcparamsvpstate', 'caqvpcparamspeakrate', 'caqvpcparamscesrate', 'caqvpcparamsdatavccount', 'caqvpcparamscesvccount', 'caqvpcparamsvcdf4seg', 'caqvpcparamsvcdf4ete', 'caqvpcparamsscr', 'caqvpcparamsmbs', 'caqvpcparamsavailbw'], name, value)
@@ -712,6 +718,7 @@ class CISCOATMQOSMIB(Entity):
             self.caqqueuingparamsentry = YList(self)
             self._segment_path = lambda: "caqQueuingParamsTable"
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsTable, [], name, value)
@@ -772,10 +779,10 @@ class CISCOATMQOSMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('caqqueuingparamsmeanqdepth', YLeaf(YType.uint32, 'caqQueuingParamsMeanQDepth')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('caqqueuingparamsmeanqdepth', (YLeaf(YType.uint32, 'caqQueuingParamsMeanQDepth'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -783,6 +790,7 @@ class CISCOATMQOSMIB(Entity):
                 self.caqqueuingparamsmeanqdepth = None
                 self._segment_path = lambda: "caqQueuingParamsEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsTable.CaqQueuingParamsEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsmeanqdepth'], name, value)
@@ -819,6 +827,7 @@ class CISCOATMQOSMIB(Entity):
             self.caqqueuingparamsclassentry = YList(self)
             self._segment_path = lambda: "caqQueuingParamsClassTable"
             self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsClassTable, [], name, value)
@@ -915,15 +924,15 @@ class CISCOATMQOSMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci','caqqueuingparamsclassindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('caqqueuingparamsclassindex', YLeaf(YType.int32, 'caqQueuingParamsClassIndex')),
-                    ('caqqueuingparamsclassranddrp', YLeaf(YType.uint32, 'caqQueuingParamsClassRandDrp')),
-                    ('caqqueuingparamsclasstaildrp', YLeaf(YType.uint32, 'caqQueuingParamsClassTailDrp')),
-                    ('caqqueuingparamsclassminthre', YLeaf(YType.uint32, 'caqQueuingParamsClassMinThre')),
-                    ('caqqueuingparamsclassmaxthre', YLeaf(YType.uint32, 'caqQueuingParamsClassMaxThre')),
-                    ('caqqueuingparamsclassmrkprob', YLeaf(YType.uint32, 'caqQueuingParamsClassMrkProb')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('caqqueuingparamsclassindex', (YLeaf(YType.int32, 'caqQueuingParamsClassIndex'), ['int'])),
+                    ('caqqueuingparamsclassranddrp', (YLeaf(YType.uint32, 'caqQueuingParamsClassRandDrp'), ['int'])),
+                    ('caqqueuingparamsclasstaildrp', (YLeaf(YType.uint32, 'caqQueuingParamsClassTailDrp'), ['int'])),
+                    ('caqqueuingparamsclassminthre', (YLeaf(YType.uint32, 'caqQueuingParamsClassMinThre'), ['int'])),
+                    ('caqqueuingparamsclassmaxthre', (YLeaf(YType.uint32, 'caqQueuingParamsClassMaxThre'), ['int'])),
+                    ('caqqueuingparamsclassmrkprob', (YLeaf(YType.uint32, 'caqQueuingParamsClassMrkProb'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -936,6 +945,7 @@ class CISCOATMQOSMIB(Entity):
                 self.caqqueuingparamsclassmrkprob = None
                 self._segment_path = lambda: "caqQueuingParamsClassEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']" + "[caqQueuingParamsClassIndex='" + str(self.caqqueuingparamsclassindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-QOS-MIB:CISCO-ATM-QOS-MIB/caqQueuingParamsClassTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMQOSMIB.CaqQueuingParamsClassTable.CaqQueuingParamsClassEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'caqqueuingparamsclassindex', 'caqqueuingparamsclassranddrp', 'caqqueuingparamsclasstaildrp', 'caqqueuingparamsclassminthre', 'caqqueuingparamsclassmaxthre', 'caqqueuingparamsclassmrkprob'], name, value)

@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class HsrpLinklocal(Enum):
@@ -94,6 +95,7 @@ class Hsrp(Entity):
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Hsrp, [], name, value)
@@ -129,6 +131,7 @@ class Hsrp(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Hsrp.Interfaces, [], name, value)
@@ -143,7 +146,7 @@ class Hsrp(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: ipv6
             
@@ -203,10 +206,10 @@ class Hsrp(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("ipv6", ("ipv6", Hsrp.Interfaces.Interface.Ipv6)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Bfd)), ("delay", ("delay", Hsrp.Interfaces.Interface.Delay)), ("ipv4", ("ipv4", Hsrp.Interfaces.Interface.Ipv4))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('mac_refresh', YLeaf(YType.uint32, 'mac-refresh')),
-                    ('use_bia', YLeaf(YType.empty, 'use-bia')),
-                    ('redirects_disable', YLeaf(YType.empty, 'redirects-disable')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('mac_refresh', (YLeaf(YType.uint32, 'mac-refresh'), ['int'])),
+                    ('use_bia', (YLeaf(YType.empty, 'use-bia'), ['Empty'])),
+                    ('redirects_disable', (YLeaf(YType.empty, 'redirects-disable'), ['Empty'])),
                 ])
                 self.interface_name = None
                 self.mac_refresh = None
@@ -229,6 +232,7 @@ class Hsrp(Entity):
                 self._children_name_map["ipv4"] = "ipv4"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Hsrp.Interfaces.Interface, ['interface_name', 'mac_refresh', 'use_bia', 'redirects_disable'], name, value)
@@ -274,6 +278,7 @@ class Hsrp(Entity):
                     self.slave_groups.parent = self
                     self._children_name_map["slave_groups"] = "slave-groups"
                     self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6, [], name, value)
@@ -310,6 +315,7 @@ class Hsrp(Entity):
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
                         self._segment_path = lambda: "version2"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2, [], name, value)
@@ -344,6 +350,7 @@ class Hsrp(Entity):
 
                             self.group = YList(self)
                             self._segment_path = lambda: "groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups, [], name, value)
@@ -439,11 +446,11 @@ class Hsrp(Entity):
                                 self.ylist_key_names = ['group_number']
                                 self._child_classes = OrderedDict([("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers)), ("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses))])
                                 self._leafs = OrderedDict([
-                                    ('group_number', YLeaf(YType.uint32, 'group-number')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
-                                    ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
+                                    ('group_number', (YLeaf(YType.uint32, 'group-number'), ['int'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                    ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
                                 ])
                                 self.group_number = None
                                 self.priority = None
@@ -475,6 +482,7 @@ class Hsrp(Entity):
                                 self.global_ipv6_addresses.parent = self
                                 self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group, ['group_number', 'priority', 'preempt', 'session_name', 'virtual_mac_address'], name, value)
@@ -497,7 +505,7 @@ class Hsrp(Entity):
                                 	Interface name to run BFD
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 
 
@@ -516,12 +524,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                     ])
                                     self.address = None
                                     self.interface_name = None
                                     self._segment_path = lambda: "bfd"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
@@ -557,6 +566,7 @@ class Hsrp(Entity):
 
                                     self.tracked_interface = YList(self)
                                     self._segment_path = lambda: "tracked-interfaces"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces, [], name, value)
@@ -571,7 +581,7 @@ class Hsrp(Entity):
                                     	Interface being tracked
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
@@ -599,12 +609,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
@@ -640,6 +651,7 @@ class Hsrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects, [], name, value)
@@ -682,12 +694,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -768,12 +781,12 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
-                                        ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
-                                        ('hello_sec', YLeaf(YType.uint32, 'hello-sec')),
-                                        ('hold_msec_flag', YLeaf(YType.boolean, 'hold-msec-flag')),
-                                        ('hold_msec', YLeaf(YType.uint32, 'hold-msec')),
-                                        ('hold_sec', YLeaf(YType.uint32, 'hold-sec')),
+                                        ('hello_msec_flag', (YLeaf(YType.boolean, 'hello-msec-flag'), ['bool'])),
+                                        ('hello_msec', (YLeaf(YType.uint32, 'hello-msec'), ['int'])),
+                                        ('hello_sec', (YLeaf(YType.uint32, 'hello-sec'), ['int'])),
+                                        ('hold_msec_flag', (YLeaf(YType.boolean, 'hold-msec-flag'), ['bool'])),
+                                        ('hold_msec', (YLeaf(YType.uint32, 'hold-msec'), ['int'])),
+                                        ('hold_sec', (YLeaf(YType.uint32, 'hold-sec'), ['int'])),
                                     ])
                                     self.hello_msec_flag = None
                                     self.hello_msec = None
@@ -782,6 +795,7 @@ class Hsrp(Entity):
                                     self.hold_msec = None
                                     self.hold_sec = None
                                     self._segment_path = lambda: "timers"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
@@ -822,12 +836,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('auto_configure', YLeaf(YType.enumeration, 'auto-configure')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('auto_configure', (YLeaf(YType.enumeration, 'auto-configure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg', 'HsrpLinklocal', '')])),
                                     ])
                                     self.address = None
                                     self.auto_configure = None
                                     self._segment_path = lambda: "link-local-ipv6-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.LinkLocalIpv6Address, ['address', 'auto_configure'], name, value)
@@ -863,6 +878,7 @@ class Hsrp(Entity):
 
                                     self.global_ipv6_address = YList(self)
                                     self._segment_path = lambda: "global-ipv6-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses, [], name, value)
@@ -896,10 +912,11 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "global-ipv6-address" + "[address='" + str(self.address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.Version2.Groups.Group.GlobalIpv6Addresses.GlobalIpv6Address, ['address'], name, value)
@@ -934,6 +951,7 @@ class Hsrp(Entity):
 
                         self.slave_group = YList(self)
                         self._segment_path = lambda: "slave-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups, [], name, value)
@@ -989,9 +1007,9 @@ class Hsrp(Entity):
                             self.ylist_key_names = ['slave_group_number']
                             self._child_classes = OrderedDict([("link-local-ipv6-address", ("link_local_ipv6_address", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address)), ("global-ipv6-addresses", ("global_ipv6_addresses", Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
-                                ('follow', YLeaf(YType.str, 'follow')),
-                                ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
+                                ('slave_group_number', (YLeaf(YType.uint32, 'slave-group-number'), ['int'])),
+                                ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
+                                ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
                             ])
                             self.slave_group_number = None
                             self.follow = None
@@ -1005,6 +1023,7 @@ class Hsrp(Entity):
                             self.global_ipv6_addresses.parent = self
                             self._children_name_map["global_ipv6_addresses"] = "global-ipv6-addresses"
                             self._segment_path = lambda: "slave-group" + "[slave-group-number='" + str(self.slave_group_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup, ['slave_group_number', 'follow', 'virtual_mac_address'], name, value)
@@ -1045,12 +1064,13 @@ class Hsrp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('auto_configure', YLeaf(YType.enumeration, 'auto-configure')),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('auto_configure', (YLeaf(YType.enumeration, 'auto-configure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_hsrp_cfg', 'HsrpLinklocal', '')])),
                                 ])
                                 self.address = None
                                 self.auto_configure = None
                                 self._segment_path = lambda: "link-local-ipv6-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.LinkLocalIpv6Address, ['address', 'auto_configure'], name, value)
@@ -1086,6 +1106,7 @@ class Hsrp(Entity):
 
                                 self.global_ipv6_address = YList(self)
                                 self._segment_path = lambda: "global-ipv6-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses, [], name, value)
@@ -1119,10 +1140,11 @@ class Hsrp(Entity):
                                     self.ylist_key_names = ['address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                     ])
                                     self.address = None
                                     self._segment_path = lambda: "global-ipv6-address" + "[address='" + str(self.address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv6.SlaveGroups.SlaveGroup.GlobalIpv6Addresses.GlobalIpv6Address, ['address'], name, value)
@@ -1165,12 +1187,13 @@ class Hsrp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('interval', YLeaf(YType.uint32, 'interval')),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                     ])
                     self.detection_multiplier = None
                     self.interval = None
                     self._segment_path = lambda: "bfd"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval'], name, value)
@@ -1222,12 +1245,13 @@ class Hsrp(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('minimum_delay', YLeaf(YType.uint32, 'minimum-delay')),
-                        ('reload_delay', YLeaf(YType.uint32, 'reload-delay')),
+                        ('minimum_delay', (YLeaf(YType.uint32, 'minimum-delay'), ['int'])),
+                        ('reload_delay', (YLeaf(YType.uint32, 'reload-delay'), ['int'])),
                     ])
                     self.minimum_delay = None
                     self.reload_delay = None
                     self._segment_path = lambda: "delay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Delay, ['minimum_delay', 'reload_delay'], name, value)
@@ -1282,6 +1306,7 @@ class Hsrp(Entity):
                     self.version2.parent = self
                     self._children_name_map["version2"] = "version2"
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4, [], name, value)
@@ -1316,6 +1341,7 @@ class Hsrp(Entity):
 
                         self.slave_group = YList(self)
                         self._segment_path = lambda: "slave-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups, [], name, value)
@@ -1373,10 +1399,10 @@ class Hsrp(Entity):
                             self.ylist_key_names = ['slave_group_number']
                             self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses))])
                             self._leafs = OrderedDict([
-                                ('slave_group_number', YLeaf(YType.uint32, 'slave-group-number')),
-                                ('follow', YLeaf(YType.str, 'follow')),
-                                ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                                ('primary_ipv4_address', YLeaf(YType.str, 'primary-ipv4-address')),
+                                ('slave_group_number', (YLeaf(YType.uint32, 'slave-group-number'), ['int'])),
+                                ('follow', (YLeaf(YType.str, 'follow'), ['str'])),
+                                ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                                ('primary_ipv4_address', (YLeaf(YType.str, 'primary-ipv4-address'), ['str'])),
                             ])
                             self.slave_group_number = None
                             self.follow = None
@@ -1387,6 +1413,7 @@ class Hsrp(Entity):
                             self.secondary_ipv4_addresses.parent = self
                             self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
                             self._segment_path = lambda: "slave-group" + "[slave-group-number='" + str(self.slave_group_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup, ['slave_group_number', 'follow', 'virtual_mac_address', 'primary_ipv4_address'], name, value)
@@ -1421,6 +1448,7 @@ class Hsrp(Entity):
 
                                 self.secondary_ipv4_address = YList(self)
                                 self._segment_path = lambda: "secondary-ipv4-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses, [], name, value)
@@ -1454,10 +1482,11 @@ class Hsrp(Entity):
                                     self.ylist_key_names = ['address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                     ])
                                     self.address = None
                                     self._segment_path = lambda: "secondary-ipv4-address" + "[address='" + str(self.address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.SlaveGroups.SlaveGroup.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
@@ -1494,6 +1523,7 @@ class Hsrp(Entity):
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
                         self._segment_path = lambda: "version1"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1, [], name, value)
@@ -1528,6 +1558,7 @@ class Hsrp(Entity):
 
                             self.group = YList(self)
                             self._segment_path = lambda: "groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups, [], name, value)
@@ -1632,12 +1663,12 @@ class Hsrp(Entity):
                                 self.ylist_key_names = ['group_number']
                                 self._child_classes = OrderedDict([("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address)), ("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses))])
                                 self._leafs = OrderedDict([
-                                    ('group_number', YLeaf(YType.uint32, 'group-number')),
-                                    ('authentication', YLeaf(YType.str, 'authentication')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
+                                    ('group_number', (YLeaf(YType.uint32, 'group-number'), ['int'])),
+                                    ('authentication', (YLeaf(YType.str, 'authentication'), ['str'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
                                 ])
                                 self.group_number = None
                                 self.authentication = None
@@ -1670,6 +1701,7 @@ class Hsrp(Entity):
                                 self.secondary_ipv4_addresses.parent = self
                                 self._children_name_map["secondary_ipv4_addresses"] = "secondary-ipv4-addresses"
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group, ['group_number', 'authentication', 'session_name', 'priority', 'preempt', 'virtual_mac_address'], name, value)
@@ -1705,6 +1737,7 @@ class Hsrp(Entity):
 
                                     self.tracked_interface = YList(self)
                                     self._segment_path = lambda: "tracked-interfaces"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces, [], name, value)
@@ -1719,7 +1752,7 @@ class Hsrp(Entity):
                                     	Interface being tracked
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
@@ -1747,12 +1780,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
@@ -1775,7 +1809,7 @@ class Hsrp(Entity):
                                 	Interface name to run BFD
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 
 
@@ -1794,12 +1828,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                     ])
                                     self.address = None
                                     self.interface_name = None
                                     self._segment_path = lambda: "bfd"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
@@ -1835,6 +1870,7 @@ class Hsrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects, [], name, value)
@@ -1877,12 +1913,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -1963,12 +2000,12 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
-                                        ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
-                                        ('hello_sec', YLeaf(YType.uint32, 'hello-sec')),
-                                        ('hold_msec_flag', YLeaf(YType.boolean, 'hold-msec-flag')),
-                                        ('hold_msec', YLeaf(YType.uint32, 'hold-msec')),
-                                        ('hold_sec', YLeaf(YType.uint32, 'hold-sec')),
+                                        ('hello_msec_flag', (YLeaf(YType.boolean, 'hello-msec-flag'), ['bool'])),
+                                        ('hello_msec', (YLeaf(YType.uint32, 'hello-msec'), ['int'])),
+                                        ('hello_sec', (YLeaf(YType.uint32, 'hello-sec'), ['int'])),
+                                        ('hold_msec_flag', (YLeaf(YType.boolean, 'hold-msec-flag'), ['bool'])),
+                                        ('hold_msec', (YLeaf(YType.uint32, 'hold-msec'), ['int'])),
+                                        ('hold_sec', (YLeaf(YType.uint32, 'hold-sec'), ['int'])),
                                     ])
                                     self.hello_msec_flag = None
                                     self.hello_msec = None
@@ -1977,6 +2014,7 @@ class Hsrp(Entity):
                                     self.hold_msec = None
                                     self.hold_sec = None
                                     self._segment_path = lambda: "timers"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
@@ -2015,12 +2053,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('virtual_ip_learn', YLeaf(YType.boolean, 'virtual-ip-learn')),
-                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('virtual_ip_learn', (YLeaf(YType.boolean, 'virtual-ip-learn'), ['bool'])),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                     ])
                                     self.virtual_ip_learn = None
                                     self.address = None
                                     self._segment_path = lambda: "primary-ipv4-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.PrimaryIpv4Address, ['virtual_ip_learn', 'address'], name, value)
@@ -2055,6 +2094,7 @@ class Hsrp(Entity):
 
                                     self.secondary_ipv4_address = YList(self)
                                     self._segment_path = lambda: "secondary-ipv4-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses, [], name, value)
@@ -2088,10 +2128,11 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "secondary-ipv4-address" + "[address='" + str(self.address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version1.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
@@ -2128,6 +2169,7 @@ class Hsrp(Entity):
                         self.groups.parent = self
                         self._children_name_map["groups"] = "groups"
                         self._segment_path = lambda: "version2"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2, [], name, value)
@@ -2162,6 +2204,7 @@ class Hsrp(Entity):
 
                             self.group = YList(self)
                             self._segment_path = lambda: "groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups, [], name, value)
@@ -2257,11 +2300,11 @@ class Hsrp(Entity):
                                 self.ylist_key_names = ['group_number']
                                 self._child_classes = OrderedDict([("secondary-ipv4-addresses", ("secondary_ipv4_addresses", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses)), ("bfd", ("bfd", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd)), ("primary-ipv4-address", ("primary_ipv4_address", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address)), ("tracked-objects", ("tracked_objects", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects)), ("tracked-interfaces", ("tracked_interfaces", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces)), ("timers", ("timers", Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers))])
                                 self._leafs = OrderedDict([
-                                    ('group_number', YLeaf(YType.uint32, 'group-number')),
-                                    ('preempt', YLeaf(YType.uint32, 'preempt')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                                    ('session_name', YLeaf(YType.str, 'session-name')),
+                                    ('group_number', (YLeaf(YType.uint32, 'group-number'), ['int'])),
+                                    ('preempt', (YLeaf(YType.uint32, 'preempt'), ['int'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                                    ('session_name', (YLeaf(YType.str, 'session-name'), ['str'])),
                                 ])
                                 self.group_number = None
                                 self.preempt = None
@@ -2293,6 +2336,7 @@ class Hsrp(Entity):
                                 self.timers.parent = self
                                 self._children_name_map["timers"] = "timers"
                                 self._segment_path = lambda: "group" + "[group-number='" + str(self.group_number) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group, ['group_number', 'preempt', 'priority', 'virtual_mac_address', 'session_name'], name, value)
@@ -2327,6 +2371,7 @@ class Hsrp(Entity):
 
                                     self.secondary_ipv4_address = YList(self)
                                     self._segment_path = lambda: "secondary-ipv4-addresses"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses, [], name, value)
@@ -2360,10 +2405,11 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "secondary-ipv4-address" + "[address='" + str(self.address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.SecondaryIpv4Addresses.SecondaryIpv4Address, ['address'], name, value)
@@ -2386,7 +2432,7 @@ class Hsrp(Entity):
                                 	Interface name to run BFD
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 
 
@@ -2405,12 +2451,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                     ])
                                     self.address = None
                                     self.interface_name = None
                                     self._segment_path = lambda: "bfd"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Bfd, ['address', 'interface_name'], name, value)
@@ -2449,12 +2496,13 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('virtual_ip_learn', YLeaf(YType.boolean, 'virtual-ip-learn')),
-                                        ('address', YLeaf(YType.str, 'address')),
+                                        ('virtual_ip_learn', (YLeaf(YType.boolean, 'virtual-ip-learn'), ['bool'])),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                     ])
                                     self.virtual_ip_learn = None
                                     self.address = None
                                     self._segment_path = lambda: "primary-ipv4-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.PrimaryIpv4Address, ['virtual_ip_learn', 'address'], name, value)
@@ -2490,6 +2538,7 @@ class Hsrp(Entity):
 
                                     self.tracked_object = YList(self)
                                     self._segment_path = lambda: "tracked-objects"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects, [], name, value)
@@ -2532,12 +2581,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['object_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('object_name', YLeaf(YType.str, 'object-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.object_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-object" + "[object-name='" + str(self.object_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedObjects.TrackedObject, ['object_name', 'priority_decrement'], name, value)
@@ -2573,6 +2623,7 @@ class Hsrp(Entity):
 
                                     self.tracked_interface = YList(self)
                                     self._segment_path = lambda: "tracked-interfaces"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces, [], name, value)
@@ -2587,7 +2638,7 @@ class Hsrp(Entity):
                                     	Interface being tracked
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: priority_decrement
                                     
@@ -2615,12 +2666,13 @@ class Hsrp(Entity):
                                         self.ylist_key_names = ['interface_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('priority_decrement', YLeaf(YType.uint32, 'priority-decrement')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('priority_decrement', (YLeaf(YType.uint32, 'priority-decrement'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.priority_decrement = None
                                         self._segment_path = lambda: "tracked-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.TrackedInterfaces.TrackedInterface, ['interface_name', 'priority_decrement'], name, value)
@@ -2701,12 +2753,12 @@ class Hsrp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('hello_msec_flag', YLeaf(YType.boolean, 'hello-msec-flag')),
-                                        ('hello_msec', YLeaf(YType.uint32, 'hello-msec')),
-                                        ('hello_sec', YLeaf(YType.uint32, 'hello-sec')),
-                                        ('hold_msec_flag', YLeaf(YType.boolean, 'hold-msec-flag')),
-                                        ('hold_msec', YLeaf(YType.uint32, 'hold-msec')),
-                                        ('hold_sec', YLeaf(YType.uint32, 'hold-sec')),
+                                        ('hello_msec_flag', (YLeaf(YType.boolean, 'hello-msec-flag'), ['bool'])),
+                                        ('hello_msec', (YLeaf(YType.uint32, 'hello-msec'), ['int'])),
+                                        ('hello_sec', (YLeaf(YType.uint32, 'hello-sec'), ['int'])),
+                                        ('hold_msec_flag', (YLeaf(YType.boolean, 'hold-msec-flag'), ['bool'])),
+                                        ('hold_msec', (YLeaf(YType.uint32, 'hold-msec'), ['int'])),
+                                        ('hold_sec', (YLeaf(YType.uint32, 'hold-sec'), ['int'])),
                                     ])
                                     self.hello_msec_flag = None
                                     self.hello_msec = None
@@ -2715,6 +2767,7 @@ class Hsrp(Entity):
                                     self.hold_msec = None
                                     self.hold_sec = None
                                     self._segment_path = lambda: "timers"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Hsrp.Interfaces.Interface.Ipv4.Version2.Groups.Group.Timers, ['hello_msec_flag', 'hello_msec', 'hello_sec', 'hold_msec_flag', 'hold_msec', 'hold_sec'], name, value)
@@ -2746,11 +2799,12 @@ class Hsrp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('state_change_disable', YLeaf(YType.empty, 'state-change-disable')),
+                ('state_change_disable', (YLeaf(YType.empty, 'state-change-disable'), ['Empty'])),
             ])
             self.state_change_disable = None
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-hsrp-cfg:hsrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Hsrp.Logging, ['state_change_disable'], name, value)

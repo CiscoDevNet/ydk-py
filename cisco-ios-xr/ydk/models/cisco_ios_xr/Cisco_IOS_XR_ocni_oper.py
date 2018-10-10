@@ -12,7 +12,7 @@ for the following management objects\:
     Layer 3 instances are also supaported. Copyright (c) 2017 by
     Cisco Systems, Inc.  All rights reserved.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -63,6 +64,7 @@ class OcniNiBase(Entity):
         self.network_instances.parent = self
         self._children_name_map["network_instances"] = "network-instances"
         self._segment_path = lambda: "Cisco-IOS-XR-ocni-oper:ocni-ni-base"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OcniNiBase, [], name, value)
@@ -98,6 +100,7 @@ class OcniNiBase(Entity):
             self.network_instance = YList(self)
             self._segment_path = lambda: "network-instances"
             self._absolute_path = lambda: "Cisco-IOS-XR-ocni-oper:ocni-ni-base/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OcniNiBase.NetworkInstances, [], name, value)
@@ -135,7 +138,7 @@ class OcniNiBase(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("state", ("state", OcniNiBase.NetworkInstances.NetworkInstance.State))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -144,6 +147,7 @@ class OcniNiBase(Entity):
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "network-instance" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ocni-oper:ocni-ni-base/network-instances/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance, ['name'], name, value)
@@ -196,11 +200,11 @@ class OcniNiBase(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('enabled_address_family', YLeafList(YType.str, 'enabled-address-family')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('enabled_address_family', (YLeafList(YType.str, 'enabled-address-family'), ['str'])),
                     ])
                     self.name = None
                     self.type = None
@@ -208,9 +212,10 @@ class OcniNiBase(Entity):
                     self.description = None
                     self.enabled_address_family = []
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, ['name', 'type', 'enabled', 'description', 'enabled_address_family'], name, value)
+                    self._perform_setattr(OcniNiBase.NetworkInstances.NetworkInstance.State, [u'name', u'type', u'enabled', u'description', u'enabled_address_family'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OcniNiBase()

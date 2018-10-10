@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MemoryUsageProcesses(Entity):
     """
     Data nodes for System wide Process Memory Statistics.
@@ -45,6 +46,7 @@ class MemoryUsageProcesses(Entity):
 
         self.memory_usage_process = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-process-memory-oper:memory-usage-processes"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MemoryUsageProcesses, [], name, value)
@@ -131,14 +133,14 @@ class MemoryUsageProcesses(Entity):
             self.ylist_key_names = ['pid','name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('pid', YLeaf(YType.uint32, 'pid')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('tty', YLeaf(YType.uint16, 'tty')),
-                ('allocated_memory', YLeaf(YType.uint64, 'allocated-memory')),
-                ('freed_memory', YLeaf(YType.uint64, 'freed-memory')),
-                ('holding_memory', YLeaf(YType.uint64, 'holding-memory')),
-                ('get_buffers', YLeaf(YType.uint32, 'get-buffers')),
-                ('ret_buffers', YLeaf(YType.uint32, 'ret-buffers')),
+                ('pid', (YLeaf(YType.uint32, 'pid'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('tty', (YLeaf(YType.uint16, 'tty'), ['int'])),
+                ('allocated_memory', (YLeaf(YType.uint64, 'allocated-memory'), ['int'])),
+                ('freed_memory', (YLeaf(YType.uint64, 'freed-memory'), ['int'])),
+                ('holding_memory', (YLeaf(YType.uint64, 'holding-memory'), ['int'])),
+                ('get_buffers', (YLeaf(YType.uint32, 'get-buffers'), ['int'])),
+                ('ret_buffers', (YLeaf(YType.uint32, 'ret-buffers'), ['int'])),
             ])
             self.pid = None
             self.name = None
@@ -150,6 +152,7 @@ class MemoryUsageProcesses(Entity):
             self.ret_buffers = None
             self._segment_path = lambda: "memory-usage-process" + "[pid='" + str(self.pid) + "']" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-process-memory-oper:memory-usage-processes/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MemoryUsageProcesses.MemoryUsageProcess, ['pid', 'name', 'tty', 'allocated_memory', 'freed_memory', 'holding_memory', 'get_buffers', 'ret_buffers'], name, value)

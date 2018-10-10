@@ -41,6 +41,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoNetsyncClockMode(Enum):
     """
     CiscoNetsyncClockMode (Enum Class)
@@ -729,6 +730,7 @@ class CISCONETSYNCMIB(Entity):
         self.cnst4clocksourcetable.parent = self
         self._children_name_map["cnst4clocksourcetable"] = "cnsT4ClockSourceTable"
         self._segment_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCONETSYNCMIB, [], name, value)
@@ -760,11 +762,12 @@ class CISCONETSYNCMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cnsmibenablestatusnotification', YLeaf(YType.boolean, 'cnsMIBEnableStatusNotification')),
+                ('cnsmibenablestatusnotification', (YLeaf(YType.boolean, 'cnsMIBEnableStatusNotification'), ['bool'])),
             ])
             self.cnsmibenablestatusnotification = None
             self._segment_path = lambda: "ciscoNetsyncMIBNotifControl"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CiscoNetsyncMIBNotifControl, ['cnsmibenablestatusnotification'], name, value)
@@ -802,6 +805,7 @@ class CISCONETSYNCMIB(Entity):
             self.cnsclkselglobalentry = YList(self)
             self._segment_path = lambda: "cnsClkSelGlobalTable"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CnsClkSelGlobalTable, [], name, value)
@@ -918,19 +922,19 @@ class CISCONETSYNCMIB(Entity):
                 self.ylist_key_names = ['cnsclkselgloprocindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnsclkselgloprocindex', YLeaf(YType.uint32, 'cnsClkSelGloProcIndex')),
-                    ('cnsclkselglobprocessmode', YLeaf(YType.enumeration, 'cnsClkSelGlobProcessMode')),
-                    ('cnsclkselglobclockmode', YLeaf(YType.enumeration, 'cnsClkSelGlobClockMode')),
-                    ('cnsclkselglobnetsyncenable', YLeaf(YType.boolean, 'cnsClkSelGlobNetsyncEnable')),
-                    ('cnsclkselglobrevertivemode', YLeaf(YType.boolean, 'cnsClkSelGlobRevertiveMode')),
-                    ('cnsclkselglobesmcmode', YLeaf(YType.boolean, 'cnsClkSelGlobESMCMode')),
-                    ('cnsclkselglobeecoption', YLeaf(YType.enumeration, 'cnsClkSelGlobEECOption')),
-                    ('cnsclkselglobnetworkoption', YLeaf(YType.enumeration, 'cnsClkSelGlobNetworkOption')),
-                    ('cnsclkselglobholdofftime', YLeaf(YType.uint32, 'cnsClkSelGlobHoldoffTime')),
-                    ('cnsclkselglobwtrtime', YLeaf(YType.uint32, 'cnsClkSelGlobWtrTime')),
-                    ('cnsclkselglobnofsources', YLeaf(YType.uint32, 'cnsClkSelGlobNofSources')),
-                    ('cnsclkselgloblastholdoverseconds', YLeaf(YType.uint32, 'cnsClkSelGlobLastHoldoverSeconds')),
-                    ('cnsclkselglobcurrholdoverseconds', YLeaf(YType.uint32, 'cnsClkSelGlobCurrHoldoverSeconds')),
+                    ('cnsclkselgloprocindex', (YLeaf(YType.uint32, 'cnsClkSelGloProcIndex'), ['int'])),
+                    ('cnsclkselglobprocessmode', (YLeaf(YType.enumeration, 'cnsClkSelGlobProcessMode'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQLMode', '')])),
+                    ('cnsclkselglobclockmode', (YLeaf(YType.enumeration, 'cnsClkSelGlobClockMode'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncClockMode', '')])),
+                    ('cnsclkselglobnetsyncenable', (YLeaf(YType.boolean, 'cnsClkSelGlobNetsyncEnable'), ['bool'])),
+                    ('cnsclkselglobrevertivemode', (YLeaf(YType.boolean, 'cnsClkSelGlobRevertiveMode'), ['bool'])),
+                    ('cnsclkselglobesmcmode', (YLeaf(YType.boolean, 'cnsClkSelGlobESMCMode'), ['bool'])),
+                    ('cnsclkselglobeecoption', (YLeaf(YType.enumeration, 'cnsClkSelGlobEECOption'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncEECOption', '')])),
+                    ('cnsclkselglobnetworkoption', (YLeaf(YType.enumeration, 'cnsClkSelGlobNetworkOption'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncNetworkOption', '')])),
+                    ('cnsclkselglobholdofftime', (YLeaf(YType.uint32, 'cnsClkSelGlobHoldoffTime'), ['int'])),
+                    ('cnsclkselglobwtrtime', (YLeaf(YType.uint32, 'cnsClkSelGlobWtrTime'), ['int'])),
+                    ('cnsclkselglobnofsources', (YLeaf(YType.uint32, 'cnsClkSelGlobNofSources'), ['int'])),
+                    ('cnsclkselgloblastholdoverseconds', (YLeaf(YType.uint32, 'cnsClkSelGlobLastHoldoverSeconds'), ['int'])),
+                    ('cnsclkselglobcurrholdoverseconds', (YLeaf(YType.uint32, 'cnsClkSelGlobCurrHoldoverSeconds'), ['int'])),
                 ])
                 self.cnsclkselgloprocindex = None
                 self.cnsclkselglobprocessmode = None
@@ -947,6 +951,7 @@ class CISCONETSYNCMIB(Entity):
                 self.cnsclkselglobcurrholdoverseconds = None
                 self._segment_path = lambda: "cnsClkSelGlobalEntry" + "[cnsClkSelGloProcIndex='" + str(self.cnsclkselgloprocindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsClkSelGlobalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsClkSelGlobalTable.CnsClkSelGlobalEntry, ['cnsclkselgloprocindex', 'cnsclkselglobprocessmode', 'cnsclkselglobclockmode', 'cnsclkselglobnetsyncenable', 'cnsclkselglobrevertivemode', 'cnsclkselglobesmcmode', 'cnsclkselglobeecoption', 'cnsclkselglobnetworkoption', 'cnsclkselglobholdofftime', 'cnsclkselglobwtrtime', 'cnsclkselglobnofsources', 'cnsclkselgloblastholdoverseconds', 'cnsclkselglobcurrholdoverseconds'], name, value)
@@ -984,6 +989,7 @@ class CISCONETSYNCMIB(Entity):
             self.cnsselectedinputsourceentry = YList(self)
             self._segment_path = lambda: "cnsSelectedInputSourceTable"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CnsSelectedInputSourceTable, [], name, value)
@@ -1061,14 +1067,14 @@ class CISCONETSYNCMIB(Entity):
                 self.ylist_key_names = ['cnsselinpsrcnetsyncindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnsselinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsSelInpSrcNetsyncIndex')),
-                    ('cnsselinpsrcname', YLeaf(YType.str, 'cnsSelInpSrcName')),
-                    ('cnsselinpsrcintftype', YLeaf(YType.enumeration, 'cnsSelInpSrcIntfType')),
-                    ('cnsselinpsrcqualitylevel', YLeaf(YType.enumeration, 'cnsSelInpSrcQualityLevel')),
-                    ('cnsselinpsrcpriority', YLeaf(YType.uint32, 'cnsSelInpSrcPriority')),
-                    ('cnsselinpsrctimestamp', YLeaf(YType.uint32, 'cnsSelInpSrcTimestamp')),
-                    ('cnsselinpsrcfsw', YLeaf(YType.boolean, 'cnsSelInpSrcFSW')),
-                    ('cnsselinpsrcmsw', YLeaf(YType.boolean, 'cnsSelInpSrcMSW')),
+                    ('cnsselinpsrcnetsyncindex', (YLeaf(YType.uint32, 'cnsSelInpSrcNetsyncIndex'), ['int'])),
+                    ('cnsselinpsrcname', (YLeaf(YType.str, 'cnsSelInpSrcName'), ['str'])),
+                    ('cnsselinpsrcintftype', (YLeaf(YType.enumeration, 'cnsSelInpSrcIntfType'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncIfType', '')])),
+                    ('cnsselinpsrcqualitylevel', (YLeaf(YType.enumeration, 'cnsSelInpSrcQualityLevel'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsselinpsrcpriority', (YLeaf(YType.uint32, 'cnsSelInpSrcPriority'), ['int'])),
+                    ('cnsselinpsrctimestamp', (YLeaf(YType.uint32, 'cnsSelInpSrcTimestamp'), ['int'])),
+                    ('cnsselinpsrcfsw', (YLeaf(YType.boolean, 'cnsSelInpSrcFSW'), ['bool'])),
+                    ('cnsselinpsrcmsw', (YLeaf(YType.boolean, 'cnsSelInpSrcMSW'), ['bool'])),
                 ])
                 self.cnsselinpsrcnetsyncindex = None
                 self.cnsselinpsrcname = None
@@ -1080,6 +1086,7 @@ class CISCONETSYNCMIB(Entity):
                 self.cnsselinpsrcmsw = None
                 self._segment_path = lambda: "cnsSelectedInputSourceEntry" + "[cnsSelInpSrcNetsyncIndex='" + str(self.cnsselinpsrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsSelectedInputSourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsSelectedInputSourceTable.CnsSelectedInputSourceEntry, ['cnsselinpsrcnetsyncindex', 'cnsselinpsrcname', 'cnsselinpsrcintftype', 'cnsselinpsrcqualitylevel', 'cnsselinpsrcpriority', 'cnsselinpsrctimestamp', 'cnsselinpsrcfsw', 'cnsselinpsrcmsw'], name, value)
@@ -1117,6 +1124,7 @@ class CISCONETSYNCMIB(Entity):
             self.cnsinputsourceentry = YList(self)
             self._segment_path = lambda: "cnsInputSourceTable"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CnsInputSourceTable, [], name, value)
@@ -1255,25 +1263,25 @@ class CISCONETSYNCMIB(Entity):
                 self.ylist_key_names = ['cnsinpsrcnetsyncindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnsinpsrcnetsyncindex', YLeaf(YType.uint32, 'cnsInpSrcNetsyncIndex')),
-                    ('cnsinpsrcname', YLeaf(YType.str, 'cnsInpSrcName')),
-                    ('cnsinpsrcintftype', YLeaf(YType.enumeration, 'cnsInpSrcIntfType')),
-                    ('cnsinpsrcpriority', YLeaf(YType.uint32, 'cnsInpSrcPriority')),
-                    ('cnsinpsrcesmccap', YLeaf(YType.enumeration, 'cnsInpSrcESMCCap')),
-                    ('cnsinpsrcssmcap', YLeaf(YType.enumeration, 'cnsInpSrcSSMCap')),
-                    ('cnsinpsrcqualityleveltxcfg', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTxCfg')),
-                    ('cnsinpsrcqualitylevelrxcfg', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRxCfg')),
-                    ('cnsinpsrcqualityleveltx', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTx')),
-                    ('cnsinpsrcqualitylevelrx', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRx')),
-                    ('cnsinpsrcqualitylevel', YLeaf(YType.enumeration, 'cnsInpSrcQualityLevel')),
-                    ('cnsinpsrcholdofftime', YLeaf(YType.uint32, 'cnsInpSrcHoldoffTime')),
-                    ('cnsinpsrcwtrtime', YLeaf(YType.uint32, 'cnsInpSrcWtrTime')),
-                    ('cnsinpsrclockout', YLeaf(YType.boolean, 'cnsInpSrcLockout')),
-                    ('cnsinpsrcsignalfailure', YLeaf(YType.boolean, 'cnsInpSrcSignalFailure')),
-                    ('cnsinpsrcalarm', YLeaf(YType.boolean, 'cnsInpSrcAlarm')),
-                    ('cnsinpsrcalarminfo', YLeaf(YType.bits, 'cnsInpSrcAlarmInfo')),
-                    ('cnsinpsrcfsw', YLeaf(YType.boolean, 'cnsInpSrcFSW')),
-                    ('cnsinpsrcmsw', YLeaf(YType.boolean, 'cnsInpSrcMSW')),
+                    ('cnsinpsrcnetsyncindex', (YLeaf(YType.uint32, 'cnsInpSrcNetsyncIndex'), ['int'])),
+                    ('cnsinpsrcname', (YLeaf(YType.str, 'cnsInpSrcName'), ['str'])),
+                    ('cnsinpsrcintftype', (YLeaf(YType.enumeration, 'cnsInpSrcIntfType'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncIfType', '')])),
+                    ('cnsinpsrcpriority', (YLeaf(YType.uint32, 'cnsInpSrcPriority'), ['int'])),
+                    ('cnsinpsrcesmccap', (YLeaf(YType.enumeration, 'cnsInpSrcESMCCap'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncESMCCap', '')])),
+                    ('cnsinpsrcssmcap', (YLeaf(YType.enumeration, 'cnsInpSrcSSMCap'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncSSMCap', '')])),
+                    ('cnsinpsrcqualityleveltxcfg', (YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTxCfg'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsinpsrcqualitylevelrxcfg', (YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRxCfg'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsinpsrcqualityleveltx', (YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelTx'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsinpsrcqualitylevelrx', (YLeaf(YType.enumeration, 'cnsInpSrcQualityLevelRx'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsinpsrcqualitylevel', (YLeaf(YType.enumeration, 'cnsInpSrcQualityLevel'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsinpsrcholdofftime', (YLeaf(YType.uint32, 'cnsInpSrcHoldoffTime'), ['int'])),
+                    ('cnsinpsrcwtrtime', (YLeaf(YType.uint32, 'cnsInpSrcWtrTime'), ['int'])),
+                    ('cnsinpsrclockout', (YLeaf(YType.boolean, 'cnsInpSrcLockout'), ['bool'])),
+                    ('cnsinpsrcsignalfailure', (YLeaf(YType.boolean, 'cnsInpSrcSignalFailure'), ['bool'])),
+                    ('cnsinpsrcalarm', (YLeaf(YType.boolean, 'cnsInpSrcAlarm'), ['bool'])),
+                    ('cnsinpsrcalarminfo', (YLeaf(YType.bits, 'cnsInpSrcAlarmInfo'), ['Bits'])),
+                    ('cnsinpsrcfsw', (YLeaf(YType.boolean, 'cnsInpSrcFSW'), ['bool'])),
+                    ('cnsinpsrcmsw', (YLeaf(YType.boolean, 'cnsInpSrcMSW'), ['bool'])),
                 ])
                 self.cnsinpsrcnetsyncindex = None
                 self.cnsinpsrcname = None
@@ -1296,6 +1304,7 @@ class CISCONETSYNCMIB(Entity):
                 self.cnsinpsrcmsw = None
                 self._segment_path = lambda: "cnsInputSourceEntry" + "[cnsInpSrcNetsyncIndex='" + str(self.cnsinpsrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsInputSourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsInputSourceTable.CnsInputSourceEntry, ['cnsinpsrcnetsyncindex', 'cnsinpsrcname', 'cnsinpsrcintftype', 'cnsinpsrcpriority', 'cnsinpsrcesmccap', 'cnsinpsrcssmcap', 'cnsinpsrcqualityleveltxcfg', 'cnsinpsrcqualitylevelrxcfg', 'cnsinpsrcqualityleveltx', 'cnsinpsrcqualitylevelrx', 'cnsinpsrcqualitylevel', 'cnsinpsrcholdofftime', 'cnsinpsrcwtrtime', 'cnsinpsrclockout', 'cnsinpsrcsignalfailure', 'cnsinpsrcalarm', 'cnsinpsrcalarminfo', 'cnsinpsrcfsw', 'cnsinpsrcmsw'], name, value)
@@ -1338,6 +1347,7 @@ class CISCONETSYNCMIB(Entity):
             self.cnsextoutputentry = YList(self)
             self._segment_path = lambda: "cnsExtOutputTable"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CnsExtOutputTable, [], name, value)
@@ -1423,15 +1433,15 @@ class CISCONETSYNCMIB(Entity):
                 self.ylist_key_names = ['cnsextoutlistindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnsextoutlistindex', YLeaf(YType.uint32, 'cnsExtOutListIndex')),
-                    ('cnsextoutselnetsyncindex', YLeaf(YType.uint32, 'cnsExtOutSelNetsyncIndex')),
-                    ('cnsextoutname', YLeaf(YType.str, 'cnsExtOutName')),
-                    ('cnsextoutintftype', YLeaf(YType.enumeration, 'cnsExtOutIntfType')),
-                    ('cnsextoutqualitylevel', YLeaf(YType.enumeration, 'cnsExtOutQualityLevel')),
-                    ('cnsextoutpriority', YLeaf(YType.uint32, 'cnsExtOutPriority')),
-                    ('cnsextoutfsw', YLeaf(YType.boolean, 'cnsExtOutFSW')),
-                    ('cnsextoutmsw', YLeaf(YType.boolean, 'cnsExtOutMSW')),
-                    ('cnsextoutsquelch', YLeaf(YType.boolean, 'cnsExtOutSquelch')),
+                    ('cnsextoutlistindex', (YLeaf(YType.uint32, 'cnsExtOutListIndex'), ['int'])),
+                    ('cnsextoutselnetsyncindex', (YLeaf(YType.uint32, 'cnsExtOutSelNetsyncIndex'), ['int'])),
+                    ('cnsextoutname', (YLeaf(YType.str, 'cnsExtOutName'), ['str'])),
+                    ('cnsextoutintftype', (YLeaf(YType.enumeration, 'cnsExtOutIntfType'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncIfType', '')])),
+                    ('cnsextoutqualitylevel', (YLeaf(YType.enumeration, 'cnsExtOutQualityLevel'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnsextoutpriority', (YLeaf(YType.uint32, 'cnsExtOutPriority'), ['int'])),
+                    ('cnsextoutfsw', (YLeaf(YType.boolean, 'cnsExtOutFSW'), ['bool'])),
+                    ('cnsextoutmsw', (YLeaf(YType.boolean, 'cnsExtOutMSW'), ['bool'])),
+                    ('cnsextoutsquelch', (YLeaf(YType.boolean, 'cnsExtOutSquelch'), ['bool'])),
                 ])
                 self.cnsextoutlistindex = None
                 self.cnsextoutselnetsyncindex = None
@@ -1444,6 +1454,7 @@ class CISCONETSYNCMIB(Entity):
                 self.cnsextoutsquelch = None
                 self._segment_path = lambda: "cnsExtOutputEntry" + "[cnsExtOutListIndex='" + str(self.cnsextoutlistindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsExtOutputTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsExtOutputTable.CnsExtOutputEntry, ['cnsextoutlistindex', 'cnsextoutselnetsyncindex', 'cnsextoutname', 'cnsextoutintftype', 'cnsextoutqualitylevel', 'cnsextoutpriority', 'cnsextoutfsw', 'cnsextoutmsw', 'cnsextoutsquelch'], name, value)
@@ -1484,6 +1495,7 @@ class CISCONETSYNCMIB(Entity):
             self.cnst4clocksourceentry = YList(self)
             self._segment_path = lambda: "cnsT4ClockSourceTable"
             self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONETSYNCMIB.CnsT4ClockSourceTable, [], name, value)
@@ -1632,26 +1644,26 @@ class CISCONETSYNCMIB(Entity):
                 self.ylist_key_names = ['cnsextoutlistindex','cnst4clksrcnetsyncindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnsextoutlistindex', YLeaf(YType.str, 'cnsExtOutListIndex')),
-                    ('cnst4clksrcnetsyncindex', YLeaf(YType.uint32, 'cnsT4ClkSrcNetsyncIndex')),
-                    ('cnst4clksrcname', YLeaf(YType.str, 'cnsT4ClkSrcName')),
-                    ('cnst4clksrcintftype', YLeaf(YType.enumeration, 'cnsT4ClkSrcIntfType')),
-                    ('cnst4clksrcpriority', YLeaf(YType.uint32, 'cnsT4ClkSrcPriority')),
-                    ('cnst4clksrcesmccap', YLeaf(YType.enumeration, 'cnsT4ClkSrcESMCCap')),
-                    ('cnst4clksrcssmcap', YLeaf(YType.enumeration, 'cnsT4ClkSrcSSMCap')),
-                    ('cnst4clksrcqualityleveltxcfg', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTxCfg')),
-                    ('cnst4clksrcqualitylevelrxcfg', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRxCfg')),
-                    ('cnst4clksrcqualityleveltx', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTx')),
-                    ('cnst4clksrcqualitylevelrx', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRx')),
-                    ('cnst4clksrcqualitylevel', YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevel')),
-                    ('cnst4clksrcholdofftime', YLeaf(YType.uint32, 'cnsT4ClkSrcHoldoffTime')),
-                    ('cnst4clksrcwtrtime', YLeaf(YType.uint32, 'cnsT4ClkSrcWtrTime')),
-                    ('cnst4clksrclockout', YLeaf(YType.boolean, 'cnsT4ClkSrcLockout')),
-                    ('cnst4clksrcsignalfailure', YLeaf(YType.boolean, 'cnsT4ClkSrcSignalFailure')),
-                    ('cnst4clksrcalarm', YLeaf(YType.boolean, 'cnsT4ClkSrcAlarm')),
-                    ('cnst4clksrcalarminfo', YLeaf(YType.bits, 'cnsT4ClkSrcAlarmInfo')),
-                    ('cnst4clksrcfsw', YLeaf(YType.boolean, 'cnsT4ClkSrcFSW')),
-                    ('cnst4clksrcmsw', YLeaf(YType.boolean, 'cnsT4ClkSrcMSW')),
+                    ('cnsextoutlistindex', (YLeaf(YType.str, 'cnsExtOutListIndex'), ['int'])),
+                    ('cnst4clksrcnetsyncindex', (YLeaf(YType.uint32, 'cnsT4ClkSrcNetsyncIndex'), ['int'])),
+                    ('cnst4clksrcname', (YLeaf(YType.str, 'cnsT4ClkSrcName'), ['str'])),
+                    ('cnst4clksrcintftype', (YLeaf(YType.enumeration, 'cnsT4ClkSrcIntfType'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncIfType', '')])),
+                    ('cnst4clksrcpriority', (YLeaf(YType.uint32, 'cnsT4ClkSrcPriority'), ['int'])),
+                    ('cnst4clksrcesmccap', (YLeaf(YType.enumeration, 'cnsT4ClkSrcESMCCap'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncESMCCap', '')])),
+                    ('cnst4clksrcssmcap', (YLeaf(YType.enumeration, 'cnsT4ClkSrcSSMCap'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncSSMCap', '')])),
+                    ('cnst4clksrcqualityleveltxcfg', (YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTxCfg'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnst4clksrcqualitylevelrxcfg', (YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRxCfg'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnst4clksrcqualityleveltx', (YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelTx'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnst4clksrcqualitylevelrx', (YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevelRx'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnst4clksrcqualitylevel', (YLeaf(YType.enumeration, 'cnsT4ClkSrcQualityLevel'), [('ydk.models.cisco_ios_xe.CISCO_NETSYNC_MIB', 'CiscoNetsyncQualityLevel', '')])),
+                    ('cnst4clksrcholdofftime', (YLeaf(YType.uint32, 'cnsT4ClkSrcHoldoffTime'), ['int'])),
+                    ('cnst4clksrcwtrtime', (YLeaf(YType.uint32, 'cnsT4ClkSrcWtrTime'), ['int'])),
+                    ('cnst4clksrclockout', (YLeaf(YType.boolean, 'cnsT4ClkSrcLockout'), ['bool'])),
+                    ('cnst4clksrcsignalfailure', (YLeaf(YType.boolean, 'cnsT4ClkSrcSignalFailure'), ['bool'])),
+                    ('cnst4clksrcalarm', (YLeaf(YType.boolean, 'cnsT4ClkSrcAlarm'), ['bool'])),
+                    ('cnst4clksrcalarminfo', (YLeaf(YType.bits, 'cnsT4ClkSrcAlarmInfo'), ['Bits'])),
+                    ('cnst4clksrcfsw', (YLeaf(YType.boolean, 'cnsT4ClkSrcFSW'), ['bool'])),
+                    ('cnst4clksrcmsw', (YLeaf(YType.boolean, 'cnsT4ClkSrcMSW'), ['bool'])),
                 ])
                 self.cnsextoutlistindex = None
                 self.cnst4clksrcnetsyncindex = None
@@ -1675,6 +1687,7 @@ class CISCONETSYNCMIB(Entity):
                 self.cnst4clksrcmsw = None
                 self._segment_path = lambda: "cnsT4ClockSourceEntry" + "[cnsExtOutListIndex='" + str(self.cnsextoutlistindex) + "']" + "[cnsT4ClkSrcNetsyncIndex='" + str(self.cnst4clksrcnetsyncindex) + "']"
                 self._absolute_path = lambda: "CISCO-NETSYNC-MIB:CISCO-NETSYNC-MIB/cnsT4ClockSourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONETSYNCMIB.CnsT4ClockSourceTable.CnsT4ClockSourceEntry, ['cnsextoutlistindex', 'cnst4clksrcnetsyncindex', 'cnst4clksrcname', 'cnst4clksrcintftype', 'cnst4clksrcpriority', 'cnst4clksrcesmccap', 'cnst4clksrcssmcap', 'cnst4clksrcqualityleveltxcfg', 'cnst4clksrcqualitylevelrxcfg', 'cnst4clksrcqualityleveltx', 'cnst4clksrcqualitylevelrx', 'cnst4clksrcqualitylevel', 'cnst4clksrcholdofftime', 'cnst4clksrcwtrtime', 'cnst4clksrclockout', 'cnst4clksrcsignalfailure', 'cnst4clksrcalarm', 'cnst4clksrcalarminfo', 'cnst4clksrcfsw', 'cnst4clksrcmsw'], name, value)

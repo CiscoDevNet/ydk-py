@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ssh\: Secure Shell configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -39,7 +40,7 @@ class Ssh(Entity):
     """
 
     _prefix = 'crypto-ssh-cfg'
-    _revision = '2017-11-21'
+    _revision = '2018-05-24'
 
     def __init__(self):
         super(Ssh, self).__init__()
@@ -61,6 +62,7 @@ class Ssh(Entity):
         self.server.parent = self
         self._children_name_map["server"] = "server"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ssh, [], name, value)
@@ -117,7 +119,7 @@ class Ssh(Entity):
         	Source interface for ssh client sessions
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         .. attribute:: dscp
         
@@ -131,7 +133,7 @@ class Ssh(Entity):
         """
 
         _prefix = 'crypto-ssh-cfg'
-        _revision = '2017-11-21'
+        _revision = '2018-05-24'
 
         def __init__(self):
             super(Ssh.Client, self).__init__()
@@ -143,12 +145,12 @@ class Ssh(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("client-algo", ("client_algo", Ssh.Client.ClientAlgo)), ("client-enable", ("client_enable", Ssh.Client.ClientEnable))])
             self._leafs = OrderedDict([
-                ('rekey_volume', YLeaf(YType.uint32, 'rekey-volume')),
-                ('host_public_key', YLeaf(YType.str, 'host-public-key')),
-                ('client_vrf', YLeaf(YType.str, 'client-vrf')),
-                ('rekey_time', YLeaf(YType.uint32, 'rekey-time')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
-                ('dscp', YLeaf(YType.uint32, 'dscp')),
+                ('rekey_volume', (YLeaf(YType.uint32, 'rekey-volume'), ['int'])),
+                ('host_public_key', (YLeaf(YType.str, 'host-public-key'), ['str'])),
+                ('client_vrf', (YLeaf(YType.str, 'client-vrf'), ['str'])),
+                ('rekey_time', (YLeaf(YType.uint32, 'rekey-time'), ['int'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
             ])
             self.rekey_volume = None
             self.host_public_key = None
@@ -166,6 +168,7 @@ class Ssh(Entity):
             self._children_name_map["client_enable"] = "client-enable"
             self._segment_path = lambda: "client"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ssh.Client, ['rekey_volume', 'host_public_key', 'client_vrf', 'rekey_time', 'source_interface', 'dscp'], name, value)
@@ -185,7 +188,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Client.ClientAlgo, self).__init__()
@@ -203,6 +206,7 @@ class Ssh(Entity):
                 self._children_name_map["key_exchanges"] = "key-exchanges"
                 self._segment_path = lambda: "client-algo"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Client.ClientAlgo, [], name, value)
@@ -224,7 +228,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Client.ClientAlgo.KeyExchanges, self).__init__()
@@ -236,11 +240,12 @@ class Ssh(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('key_exchange', YLeafList(YType.str, 'key-exchange')),
+                        ('key_exchange', (YLeafList(YType.str, 'key-exchange'), ['str'])),
                     ])
                     self.key_exchange = []
                     self._segment_path = lambda: "key-exchanges"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-algo/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Client.ClientAlgo.KeyExchanges, ['key_exchange'], name, value)
@@ -252,7 +257,7 @@ class Ssh(Entity):
             
             .. attribute:: client_cipher
             
-            	clientcipher
+            	Enable AES\-CBC and 3DES\_CBC for ssh client
             	**type**\:  :py:class:`ClientCipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Client.ClientEnable.ClientCipher>`
             
             
@@ -260,7 +265,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Client.ClientEnable, self).__init__()
@@ -278,6 +283,7 @@ class Ssh(Entity):
                 self._children_name_map["client_cipher"] = "client-cipher"
                 self._segment_path = lambda: "client-enable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Client.ClientEnable, [], name, value)
@@ -285,11 +291,18 @@ class Ssh(Entity):
 
             class ClientCipher(Entity):
                 """
-                clientcipher
+                Enable AES\-CBC and 3DES\_CBC for ssh client
                 
-                .. attribute:: aescbc
+                .. attribute:: aes_cbc
                 
-                	Enable AES\-CBC ciphers for client
+                	Enable AES\-CBC ciphers
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: tripledes_cbc
+                
+                	Enable 3DES\-CBC cipher
                 	**type**\: bool
                 
                 	**default value**\: false
@@ -299,7 +312,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Client.ClientEnable.ClientCipher, self).__init__()
@@ -311,14 +324,17 @@ class Ssh(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aescbc', YLeaf(YType.boolean, 'aescbc')),
+                        ('aes_cbc', (YLeaf(YType.boolean, 'aes-cbc'), ['bool'])),
+                        ('tripledes_cbc', (YLeaf(YType.boolean, 'tripledes-cbc'), ['bool'])),
                     ])
-                    self.aescbc = None
+                    self.aes_cbc = None
+                    self.tripledes_cbc = None
                     self._segment_path = lambda: "client-cipher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/client/client-enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Client.ClientEnable.ClientCipher, ['aescbc'], name, value)
+                    self._perform_setattr(Ssh.Client.ClientEnable.ClientCipher, ['aes_cbc', 'tripledes_cbc'], name, value)
 
 
     class Server(Entity):
@@ -433,7 +449,7 @@ class Ssh(Entity):
         """
 
         _prefix = 'crypto-ssh-cfg'
-        _revision = '2017-11-21'
+        _revision = '2018-05-24'
 
         def __init__(self):
             super(Ssh.Server, self).__init__()
@@ -445,15 +461,15 @@ class Ssh(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("disable", ("disable", Ssh.Server.Disable)), ("enable", ("enable", Ssh.Server.Enable)), ("vrf-table", ("vrf_table", Ssh.Server.VrfTable)), ("server-algo", ("server_algo", Ssh.Server.ServerAlgo)), ("capability", ("capability", Ssh.Server.Capability)), ("netconf-vrf-table", ("netconf_vrf_table", Ssh.Server.NetconfVrfTable))])
             self._leafs = OrderedDict([
-                ('rekey_volume', YLeaf(YType.uint32, 'rekey-volume')),
-                ('session_limit', YLeaf(YType.uint32, 'session-limit')),
-                ('netconf', YLeaf(YType.uint32, 'netconf')),
-                ('v2', YLeaf(YType.empty, 'v2')),
-                ('rekey_time', YLeaf(YType.uint32, 'rekey-time')),
-                ('logging', YLeaf(YType.empty, 'logging')),
-                ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
-                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                ('dscp', YLeaf(YType.uint32, 'dscp')),
+                ('rekey_volume', (YLeaf(YType.uint32, 'rekey-volume'), ['int'])),
+                ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
+                ('netconf', (YLeaf(YType.uint32, 'netconf'), ['int'])),
+                ('v2', (YLeaf(YType.empty, 'v2'), ['Empty'])),
+                ('rekey_time', (YLeaf(YType.uint32, 'rekey-time'), ['int'])),
+                ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                ('rate_limit', (YLeaf(YType.uint32, 'rate-limit'), ['int'])),
+                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
             ])
             self.rekey_volume = None
             self.session_limit = None
@@ -490,6 +506,7 @@ class Ssh(Entity):
             self._children_name_map["netconf_vrf_table"] = "netconf-vrf-table"
             self._segment_path = lambda: "server"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ssh.Server, ['rekey_volume', 'session_limit', 'netconf', 'v2', 'rekey_time', 'logging', 'rate_limit', 'timeout', 'dscp'], name, value)
@@ -509,7 +526,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.Disable, self).__init__()
@@ -527,6 +544,7 @@ class Ssh(Entity):
                 self._children_name_map["hmac"] = "hmac"
                 self._segment_path = lambda: "disable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.Disable, [], name, value)
@@ -548,7 +566,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Server.Disable.Hmac, self).__init__()
@@ -560,11 +578,12 @@ class Ssh(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('hmac_sha512', YLeaf(YType.boolean, 'hmac-sha512')),
+                        ('hmac_sha512', (YLeaf(YType.boolean, 'hmac-sha512'), ['bool'])),
                     ])
                     self.hmac_sha512 = None
                     self._segment_path = lambda: "hmac"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/disable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.Disable.Hmac, ['hmac_sha512'], name, value)
@@ -576,7 +595,7 @@ class Ssh(Entity):
             
             .. attribute:: cipher
             
-            	cipher
+            	Enable AES\-CBC and 3DES\-CBC ciphers
             	**type**\:  :py:class:`Cipher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_cfg.Ssh.Server.Enable.Cipher>`
             
             
@@ -584,7 +603,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.Enable, self).__init__()
@@ -602,6 +621,7 @@ class Ssh(Entity):
                 self._children_name_map["cipher"] = "cipher"
                 self._segment_path = lambda: "enable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.Enable, [], name, value)
@@ -609,11 +629,18 @@ class Ssh(Entity):
 
             class Cipher(Entity):
                 """
-                cipher
+                Enable AES\-CBC and 3DES\-CBC ciphers
                 
-                .. attribute:: aescbc
+                .. attribute:: aes_cbc
                 
-                	Enable AES\-CBC ciphers
+                	Enable aes\-cbc ciphers
+                	**type**\: bool
+                
+                	**default value**\: false
+                
+                .. attribute:: tripledes_cbc
+                
+                	Enable 3des\-cbc cipher
                 	**type**\: bool
                 
                 	**default value**\: false
@@ -623,7 +650,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Server.Enable.Cipher, self).__init__()
@@ -635,14 +662,17 @@ class Ssh(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aescbc', YLeaf(YType.boolean, 'aescbc')),
+                        ('aes_cbc', (YLeaf(YType.boolean, 'aes-cbc'), ['bool'])),
+                        ('tripledes_cbc', (YLeaf(YType.boolean, 'tripledes-cbc'), ['bool'])),
                     ])
-                    self.aescbc = None
+                    self.aes_cbc = None
+                    self.tripledes_cbc = None
                     self._segment_path = lambda: "cipher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/enable/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ssh.Server.Enable.Cipher, ['aescbc'], name, value)
+                    self._perform_setattr(Ssh.Server.Enable.Cipher, ['aes_cbc', 'tripledes_cbc'], name, value)
 
 
         class VrfTable(Entity):
@@ -659,7 +689,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.VrfTable, self).__init__()
@@ -675,6 +705,7 @@ class Ssh(Entity):
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrf-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.VrfTable, [], name, value)
@@ -717,7 +748,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Server.VrfTable.Vrf, self).__init__()
@@ -729,10 +760,10 @@ class Ssh(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('ipv4_access_list', YLeaf(YType.str, 'ipv4-access-list')),
-                        ('ipv6_access_list', YLeaf(YType.str, 'ipv6-access-list')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('ipv4_access_list', (YLeaf(YType.str, 'ipv4-access-list'), ['str'])),
+                        ('ipv6_access_list', (YLeaf(YType.str, 'ipv6-access-list'), ['str'])),
                     ])
                     self.vrf_name = None
                     self.enable = None
@@ -740,6 +771,7 @@ class Ssh(Entity):
                     self.ipv6_access_list = None
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/vrf-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.VrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)
@@ -759,7 +791,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.ServerAlgo, self).__init__()
@@ -777,6 +809,7 @@ class Ssh(Entity):
                 self._children_name_map["key_exchanges"] = "key-exchanges"
                 self._segment_path = lambda: "server-algo"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.ServerAlgo, [], name, value)
@@ -798,7 +831,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Server.ServerAlgo.KeyExchanges, self).__init__()
@@ -810,11 +843,12 @@ class Ssh(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('key_exchange', YLeafList(YType.str, 'key-exchange')),
+                        ('key_exchange', (YLeafList(YType.str, 'key-exchange'), ['str'])),
                     ])
                     self.key_exchange = []
                     self._segment_path = lambda: "key-exchanges"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/server-algo/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.ServerAlgo.KeyExchanges, ['key_exchange'], name, value)
@@ -836,7 +870,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.Capability, self).__init__()
@@ -848,11 +882,12 @@ class Ssh(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('netconf_xml', YLeaf(YType.boolean, 'netconf-xml')),
+                    ('netconf_xml', (YLeaf(YType.boolean, 'netconf-xml'), ['bool'])),
                 ])
                 self.netconf_xml = None
                 self._segment_path = lambda: "capability"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.Capability, ['netconf_xml'], name, value)
@@ -872,7 +907,7 @@ class Ssh(Entity):
             """
 
             _prefix = 'crypto-ssh-cfg'
-            _revision = '2017-11-21'
+            _revision = '2018-05-24'
 
             def __init__(self):
                 super(Ssh.Server.NetconfVrfTable, self).__init__()
@@ -888,6 +923,7 @@ class Ssh(Entity):
                 self.vrf = YList(self)
                 self._segment_path = lambda: "netconf-vrf-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Server.NetconfVrfTable, [], name, value)
@@ -930,7 +966,7 @@ class Ssh(Entity):
                 """
 
                 _prefix = 'crypto-ssh-cfg'
-                _revision = '2017-11-21'
+                _revision = '2018-05-24'
 
                 def __init__(self):
                     super(Ssh.Server.NetconfVrfTable.Vrf, self).__init__()
@@ -942,10 +978,10 @@ class Ssh(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('ipv4_access_list', YLeaf(YType.str, 'ipv4-access-list')),
-                        ('ipv6_access_list', YLeaf(YType.str, 'ipv6-access-list')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('ipv4_access_list', (YLeaf(YType.str, 'ipv4-access-list'), ['str'])),
+                        ('ipv6_access_list', (YLeaf(YType.str, 'ipv6-access-list'), ['str'])),
                     ])
                     self.vrf_name = None
                     self.enable = None
@@ -953,6 +989,7 @@ class Ssh(Entity):
                     self.ipv6_access_list = None
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-cfg:ssh/server/netconf-vrf-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Server.NetconfVrfTable.Vrf, ['vrf_name', 'enable', 'ipv4_access_list', 'ipv6_access_list'], name, value)

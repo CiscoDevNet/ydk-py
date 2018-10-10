@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sam\: Software Authentication Manager (SAM) Config
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CryptoSamAction(Enum):
@@ -74,6 +75,7 @@ class Sam(Entity):
         self.prompt_interval = None
         self._children_name_map["prompt_interval"] = "prompt-interval"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:sam"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Sam, [], name, value)
@@ -121,13 +123,14 @@ class Sam(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('action', YLeaf(YType.enumeration, 'action')),
-                ('prompt_time', YLeaf(YType.uint32, 'prompt-time')),
+                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_cfg', 'CryptoSamAction', '')])),
+                ('prompt_time', (YLeaf(YType.uint32, 'prompt-time'), ['int'])),
             ])
             self.action = None
             self.prompt_time = None
             self._segment_path = lambda: "prompt-interval"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-cfg:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.PromptInterval, ['action', 'prompt_time'], name, value)

@@ -1,12 +1,6 @@
 """ Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpd 
 
-This module contains definitions
-for the Calvados model objects.
-
 FPD CLI support for both oper and config
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
-All rights reserved.
 
 """
 from collections import OrderedDict
@@ -15,6 +9,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +45,7 @@ class Fpd(Entity):
         self.config.parent = self
         self._children_name_map["config"] = "config"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd:fpd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Fpd, [], name, value)
@@ -83,11 +79,12 @@ class Fpd(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('auto_upgrade', YLeaf(YType.enumeration, 'auto-upgrade')),
+                ('auto_upgrade', (YLeaf(YType.enumeration, 'auto-upgrade'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fpd_infra_cli_fpd', 'Fpd', 'Config.AutoUpgrade')])),
             ])
             self.auto_upgrade = None
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd:fpd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fpd.Config, ['auto_upgrade'], name, value)

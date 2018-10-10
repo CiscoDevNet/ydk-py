@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class IGMPSTDMIB(Entity):
     """
     
@@ -53,6 +54,7 @@ class IGMPSTDMIB(Entity):
         self.igmpcachetable.parent = self
         self._children_name_map["igmpcachetable"] = "igmpCacheTable"
         self._segment_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IGMPSTDMIB, [], name, value)
@@ -89,6 +91,7 @@ class IGMPSTDMIB(Entity):
             self.igmpinterfaceentry = YList(self)
             self._segment_path = lambda: "igmpInterfaceTable"
             self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IGMPSTDMIB.IgmpInterfaceTable, [], name, value)
@@ -225,21 +228,21 @@ class IGMPSTDMIB(Entity):
                 self.ylist_key_names = ['igmpinterfaceifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('igmpinterfaceifindex', YLeaf(YType.int32, 'igmpInterfaceIfIndex')),
-                    ('igmpinterfacequeryinterval', YLeaf(YType.uint32, 'igmpInterfaceQueryInterval')),
-                    ('igmpinterfacestatus', YLeaf(YType.enumeration, 'igmpInterfaceStatus')),
-                    ('igmpinterfaceversion', YLeaf(YType.uint32, 'igmpInterfaceVersion')),
-                    ('igmpinterfacequerier', YLeaf(YType.str, 'igmpInterfaceQuerier')),
-                    ('igmpinterfacequerymaxresponsetime', YLeaf(YType.uint32, 'igmpInterfaceQueryMaxResponseTime')),
-                    ('igmpinterfacequerieruptime', YLeaf(YType.uint32, 'igmpInterfaceQuerierUpTime')),
-                    ('igmpinterfacequerierexpirytime', YLeaf(YType.uint32, 'igmpInterfaceQuerierExpiryTime')),
-                    ('igmpinterfaceversion1queriertimer', YLeaf(YType.uint32, 'igmpInterfaceVersion1QuerierTimer')),
-                    ('igmpinterfacewrongversionqueries', YLeaf(YType.uint32, 'igmpInterfaceWrongVersionQueries')),
-                    ('igmpinterfacejoins', YLeaf(YType.uint32, 'igmpInterfaceJoins')),
-                    ('igmpinterfaceproxyifindex', YLeaf(YType.int32, 'igmpInterfaceProxyIfIndex')),
-                    ('igmpinterfacegroups', YLeaf(YType.uint32, 'igmpInterfaceGroups')),
-                    ('igmpinterfacerobustness', YLeaf(YType.uint32, 'igmpInterfaceRobustness')),
-                    ('igmpinterfacelastmembqueryintvl', YLeaf(YType.uint32, 'igmpInterfaceLastMembQueryIntvl')),
+                    ('igmpinterfaceifindex', (YLeaf(YType.int32, 'igmpInterfaceIfIndex'), ['int'])),
+                    ('igmpinterfacequeryinterval', (YLeaf(YType.uint32, 'igmpInterfaceQueryInterval'), ['int'])),
+                    ('igmpinterfacestatus', (YLeaf(YType.enumeration, 'igmpInterfaceStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('igmpinterfaceversion', (YLeaf(YType.uint32, 'igmpInterfaceVersion'), ['int'])),
+                    ('igmpinterfacequerier', (YLeaf(YType.str, 'igmpInterfaceQuerier'), ['str'])),
+                    ('igmpinterfacequerymaxresponsetime', (YLeaf(YType.uint32, 'igmpInterfaceQueryMaxResponseTime'), ['int'])),
+                    ('igmpinterfacequerieruptime', (YLeaf(YType.uint32, 'igmpInterfaceQuerierUpTime'), ['int'])),
+                    ('igmpinterfacequerierexpirytime', (YLeaf(YType.uint32, 'igmpInterfaceQuerierExpiryTime'), ['int'])),
+                    ('igmpinterfaceversion1queriertimer', (YLeaf(YType.uint32, 'igmpInterfaceVersion1QuerierTimer'), ['int'])),
+                    ('igmpinterfacewrongversionqueries', (YLeaf(YType.uint32, 'igmpInterfaceWrongVersionQueries'), ['int'])),
+                    ('igmpinterfacejoins', (YLeaf(YType.uint32, 'igmpInterfaceJoins'), ['int'])),
+                    ('igmpinterfaceproxyifindex', (YLeaf(YType.int32, 'igmpInterfaceProxyIfIndex'), ['int'])),
+                    ('igmpinterfacegroups', (YLeaf(YType.uint32, 'igmpInterfaceGroups'), ['int'])),
+                    ('igmpinterfacerobustness', (YLeaf(YType.uint32, 'igmpInterfaceRobustness'), ['int'])),
+                    ('igmpinterfacelastmembqueryintvl', (YLeaf(YType.uint32, 'igmpInterfaceLastMembQueryIntvl'), ['int'])),
                 ])
                 self.igmpinterfaceifindex = None
                 self.igmpinterfacequeryinterval = None
@@ -258,6 +261,7 @@ class IGMPSTDMIB(Entity):
                 self.igmpinterfacelastmembqueryintvl = None
                 self._segment_path = lambda: "igmpInterfaceEntry" + "[igmpInterfaceIfIndex='" + str(self.igmpinterfaceifindex) + "']"
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IGMPSTDMIB.IgmpInterfaceTable.IgmpInterfaceEntry, ['igmpinterfaceifindex', 'igmpinterfacequeryinterval', 'igmpinterfacestatus', 'igmpinterfaceversion', 'igmpinterfacequerier', 'igmpinterfacequerymaxresponsetime', 'igmpinterfacequerieruptime', 'igmpinterfacequerierexpirytime', 'igmpinterfaceversion1queriertimer', 'igmpinterfacewrongversionqueries', 'igmpinterfacejoins', 'igmpinterfaceproxyifindex', 'igmpinterfacegroups', 'igmpinterfacerobustness', 'igmpinterfacelastmembqueryintvl'], name, value)
@@ -294,6 +298,7 @@ class IGMPSTDMIB(Entity):
             self.igmpcacheentry = YList(self)
             self._segment_path = lambda: "igmpCacheTable"
             self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IGMPSTDMIB.IgmpCacheTable, [], name, value)
@@ -372,14 +377,14 @@ class IGMPSTDMIB(Entity):
                 self.ylist_key_names = ['igmpcacheaddress','igmpcacheifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('igmpcacheaddress', YLeaf(YType.str, 'igmpCacheAddress')),
-                    ('igmpcacheifindex', YLeaf(YType.int32, 'igmpCacheIfIndex')),
-                    ('igmpcacheself', YLeaf(YType.boolean, 'igmpCacheSelf')),
-                    ('igmpcachelastreporter', YLeaf(YType.str, 'igmpCacheLastReporter')),
-                    ('igmpcacheuptime', YLeaf(YType.uint32, 'igmpCacheUpTime')),
-                    ('igmpcacheexpirytime', YLeaf(YType.uint32, 'igmpCacheExpiryTime')),
-                    ('igmpcachestatus', YLeaf(YType.enumeration, 'igmpCacheStatus')),
-                    ('igmpcacheversion1hosttimer', YLeaf(YType.uint32, 'igmpCacheVersion1HostTimer')),
+                    ('igmpcacheaddress', (YLeaf(YType.str, 'igmpCacheAddress'), ['str'])),
+                    ('igmpcacheifindex', (YLeaf(YType.int32, 'igmpCacheIfIndex'), ['int'])),
+                    ('igmpcacheself', (YLeaf(YType.boolean, 'igmpCacheSelf'), ['bool'])),
+                    ('igmpcachelastreporter', (YLeaf(YType.str, 'igmpCacheLastReporter'), ['str'])),
+                    ('igmpcacheuptime', (YLeaf(YType.uint32, 'igmpCacheUpTime'), ['int'])),
+                    ('igmpcacheexpirytime', (YLeaf(YType.uint32, 'igmpCacheExpiryTime'), ['int'])),
+                    ('igmpcachestatus', (YLeaf(YType.enumeration, 'igmpCacheStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('igmpcacheversion1hosttimer', (YLeaf(YType.uint32, 'igmpCacheVersion1HostTimer'), ['int'])),
                 ])
                 self.igmpcacheaddress = None
                 self.igmpcacheifindex = None
@@ -391,6 +396,7 @@ class IGMPSTDMIB(Entity):
                 self.igmpcacheversion1hosttimer = None
                 self._segment_path = lambda: "igmpCacheEntry" + "[igmpCacheAddress='" + str(self.igmpcacheaddress) + "']" + "[igmpCacheIfIndex='" + str(self.igmpcacheifindex) + "']"
                 self._absolute_path = lambda: "IGMP-STD-MIB:IGMP-STD-MIB/igmpCacheTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IGMPSTDMIB.IgmpCacheTable.IgmpCacheEntry, ['igmpcacheaddress', 'igmpcacheifindex', 'igmpcacheself', 'igmpcachelastreporter', 'igmpcacheuptime', 'igmpcacheexpirytime', 'igmpcachestatus', 'igmpcacheversion1hosttimer'], name, value)

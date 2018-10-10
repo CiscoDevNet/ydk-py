@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class Ipv6NdTdlState(Enum):
     """
     Ipv6NdTdlState (Enum Class)
@@ -122,6 +123,7 @@ class Ipv6Data(Entity):
 
         self.nd6_info = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-ipv6-oper:ipv6-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Data, [], name, value)
@@ -197,13 +199,13 @@ class Ipv6Data(Entity):
             self.ylist_key_names = ['vrf_name','if_name','ip']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('if_name', YLeaf(YType.str, 'if-name')),
-                ('ip', YLeaf(YType.str, 'ip')),
-                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                ('state', YLeaf(YType.enumeration, 'state')),
-                ('idle_timer', YLeaf(YType.uint32, 'idle-timer')),
-                ('uptime', YLeaf(YType.uint32, 'uptime')),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('if_name', (YLeaf(YType.str, 'if-name'), ['str'])),
+                ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_ipv6_oper', 'Ipv6NdTdlState', '')])),
+                ('idle_timer', (YLeaf(YType.uint32, 'idle-timer'), ['int'])),
+                ('uptime', (YLeaf(YType.uint32, 'uptime'), ['int'])),
             ])
             self.vrf_name = None
             self.if_name = None
@@ -214,6 +216,7 @@ class Ipv6Data(Entity):
             self.uptime = None
             self._segment_path = lambda: "nd6-info" + "[vrf-name='" + str(self.vrf_name) + "']" + "[if-name='" + str(self.if_name) + "']" + "[ip='" + str(self.ip) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-ipv6-oper:ipv6-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Data.Nd6Info, ['vrf_name', 'if_name', 'ip', 'mac_address', 'state', 'idle_timer', 'uptime'], name, value)

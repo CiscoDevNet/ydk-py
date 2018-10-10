@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   event\-manager\: Event manager configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EventManagerChecksum(Enum):
@@ -167,10 +168,10 @@ class EventManager(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("policies", ("policies", EventManager.Policies)), ("scheduler-script", ("scheduler_script", EventManager.SchedulerScript)), ("environments", ("environments", EventManager.Environments))])
         self._leafs = OrderedDict([
-            ('refresh_time', YLeaf(YType.uint32, 'refresh-time')),
-            ('schedule_suspend', YLeaf(YType.boolean, 'schedule-suspend')),
-            ('directory_user_policy', YLeaf(YType.str, 'directory-user-policy')),
-            ('directory_user_library', YLeaf(YType.str, 'directory-user-library')),
+            ('refresh_time', (YLeaf(YType.uint32, 'refresh-time'), ['int'])),
+            ('schedule_suspend', (YLeaf(YType.boolean, 'schedule-suspend'), ['bool'])),
+            ('directory_user_policy', (YLeaf(YType.str, 'directory-user-policy'), ['str'])),
+            ('directory_user_library', (YLeaf(YType.str, 'directory-user-library'), ['str'])),
         ])
         self.refresh_time = None
         self.schedule_suspend = None
@@ -189,6 +190,7 @@ class EventManager(Entity):
         self.environments.parent = self
         self._children_name_map["environments"] = "environments"
         self._segment_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EventManager, ['refresh_time', 'schedule_suspend', 'directory_user_policy', 'directory_user_library'], name, value)
@@ -224,6 +226,7 @@ class EventManager(Entity):
             self.policy = YList(self)
             self._segment_path = lambda: "policies"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EventManager.Policies, [], name, value)
@@ -300,14 +303,14 @@ class EventManager(Entity):
                 self.ylist_key_names = ['policy_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                    ('username', YLeaf(YType.str, 'username')),
-                    ('persist_time', YLeaf(YType.uint32, 'persist-time')),
-                    ('policy_type', YLeaf(YType.enumeration, 'policy-type')),
-                    ('checksum_type', YLeaf(YType.enumeration, 'checksum-type')),
-                    ('check_sum_value', YLeaf(YType.str, 'check-sum-value')),
-                    ('policy_security_mode', YLeaf(YType.enumeration, 'policy-security-mode')),
-                    ('policy_security_level', YLeaf(YType.enumeration, 'policy-security-level')),
+                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                    ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                    ('persist_time', (YLeaf(YType.uint32, 'persist-time'), ['int'])),
+                    ('policy_type', (YLeaf(YType.enumeration, 'policy-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicy', '')])),
+                    ('checksum_type', (YLeaf(YType.enumeration, 'checksum-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerChecksum', '')])),
+                    ('check_sum_value', (YLeaf(YType.str, 'check-sum-value'), ['str'])),
+                    ('policy_security_mode', (YLeaf(YType.enumeration, 'policy-security-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicyMode', '')])),
+                    ('policy_security_level', (YLeaf(YType.enumeration, 'policy-security-level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg', 'EventManagerPolicySec', '')])),
                 ])
                 self.policy_name = None
                 self.username = None
@@ -319,6 +322,7 @@ class EventManager(Entity):
                 self.policy_security_level = None
                 self._segment_path = lambda: "policy" + "[policy-name='" + str(self.policy_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/policies/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.Policies.Policy, ['policy_name', 'username', 'persist_time', 'policy_type', 'checksum_type', 'check_sum_value', 'policy_security_mode', 'policy_security_level'], name, value)
@@ -356,6 +360,7 @@ class EventManager(Entity):
             self._children_name_map["thread_classes"] = "thread-classes"
             self._segment_path = lambda: "scheduler-script"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EventManager.SchedulerScript, [], name, value)
@@ -391,6 +396,7 @@ class EventManager(Entity):
                 self.thread_class = YList(self)
                 self._segment_path = lambda: "thread-classes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/scheduler-script/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.SchedulerScript.ThreadClasses, [], name, value)
@@ -433,13 +439,14 @@ class EventManager(Entity):
                     self.ylist_key_names = ['thread_class_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('thread_class_name', YLeaf(YType.str, 'thread-class-name')),
-                        ('num_threads', YLeaf(YType.uint32, 'num-threads')),
+                        ('thread_class_name', (YLeaf(YType.str, 'thread-class-name'), ['str'])),
+                        ('num_threads', (YLeaf(YType.uint32, 'num-threads'), ['int'])),
                     ])
                     self.thread_class_name = None
                     self.num_threads = None
                     self._segment_path = lambda: "thread-class" + "[thread-class-name='" + str(self.thread_class_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/scheduler-script/thread-classes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EventManager.SchedulerScript.ThreadClasses.ThreadClass, ['thread_class_name', 'num_threads'], name, value)
@@ -476,6 +483,7 @@ class EventManager(Entity):
             self.environment = YList(self)
             self._segment_path = lambda: "environments"
             self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EventManager.Environments, [], name, value)
@@ -516,13 +524,14 @@ class EventManager(Entity):
                 self.ylist_key_names = ['environment_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('environment_name', YLeaf(YType.str, 'environment-name')),
-                    ('environment_value', YLeaf(YType.str, 'environment-value')),
+                    ('environment_name', (YLeaf(YType.str, 'environment-name'), ['str'])),
+                    ('environment_value', (YLeaf(YType.str, 'environment-value'), ['str'])),
                 ])
                 self.environment_name = None
                 self.environment_value = None
                 self._segment_path = lambda: "environment" + "[environment-name='" + str(self.environment_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ha-eem-cfg:event-manager/environments/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EventManager.Environments.Environment, ['environment_name', 'environment_value'], name, value)

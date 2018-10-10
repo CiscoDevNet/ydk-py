@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   memory\-summary\: Memory summary information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class MemorySummary(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-nto-misc-oper:memory-summary"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MemorySummary, [], name, value)
@@ -87,6 +89,7 @@ class MemorySummary(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-oper:memory-summary/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MemorySummary.Nodes, [], name, value)
@@ -130,7 +133,7 @@ class MemorySummary(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("summary", ("summary", MemorySummary.Nodes.Node.Summary)), ("detail", ("detail", MemorySummary.Nodes.Node.Detail))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -143,6 +146,7 @@ class MemorySummary(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-nto-misc-oper:memory-summary/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MemorySummary.Nodes.Node, ['node_name'], name, value)
@@ -259,16 +263,16 @@ class MemorySummary(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('page_size', YLeaf(YType.uint32, 'page-size')),
-                        ('ram_memory', YLeaf(YType.uint64, 'ram-memory')),
-                        ('free_physical_memory', YLeaf(YType.uint64, 'free-physical-memory')),
-                        ('system_ram_memory', YLeaf(YType.uint64, 'system-ram-memory')),
-                        ('free_application_memory', YLeaf(YType.uint64, 'free-application-memory')),
-                        ('image_memory', YLeaf(YType.uint64, 'image-memory')),
-                        ('boot_ram_size', YLeaf(YType.uint64, 'boot-ram-size')),
-                        ('reserved_memory', YLeaf(YType.uint64, 'reserved-memory')),
-                        ('io_memory', YLeaf(YType.uint64, 'io-memory')),
-                        ('flash_system', YLeaf(YType.uint64, 'flash-system')),
+                        ('page_size', (YLeaf(YType.uint32, 'page-size'), ['int'])),
+                        ('ram_memory', (YLeaf(YType.uint64, 'ram-memory'), ['int'])),
+                        ('free_physical_memory', (YLeaf(YType.uint64, 'free-physical-memory'), ['int'])),
+                        ('system_ram_memory', (YLeaf(YType.uint64, 'system-ram-memory'), ['int'])),
+                        ('free_application_memory', (YLeaf(YType.uint64, 'free-application-memory'), ['int'])),
+                        ('image_memory', (YLeaf(YType.uint64, 'image-memory'), ['int'])),
+                        ('boot_ram_size', (YLeaf(YType.uint64, 'boot-ram-size'), ['int'])),
+                        ('reserved_memory', (YLeaf(YType.uint64, 'reserved-memory'), ['int'])),
+                        ('io_memory', (YLeaf(YType.uint64, 'io-memory'), ['int'])),
+                        ('flash_system', (YLeaf(YType.uint64, 'flash-system'), ['int'])),
                     ])
                     self.page_size = None
                     self.ram_memory = None
@@ -281,9 +285,10 @@ class MemorySummary(Entity):
                     self.io_memory = None
                     self.flash_system = None
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MemorySummary.Nodes.Node.Summary, ['page_size', 'ram_memory', 'free_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system'], name, value)
+                    self._perform_setattr(MemorySummary.Nodes.Node.Summary, [u'page_size', u'ram_memory', u'free_physical_memory', u'system_ram_memory', u'free_application_memory', u'image_memory', u'boot_ram_size', u'reserved_memory', u'io_memory', u'flash_system'], name, value)
 
 
             class Detail(Entity):
@@ -425,6 +430,13 @@ class MemorySummary(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                .. attribute:: total_used
+                
+                	Total Used
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
                 .. attribute:: shared_window
                 
                 	Available Shared windows
@@ -447,22 +459,23 @@ class MemorySummary(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("shared-window", ("shared_window", MemorySummary.Nodes.Node.Detail.SharedWindow))])
                     self._leafs = OrderedDict([
-                        ('page_size', YLeaf(YType.uint32, 'page-size')),
-                        ('ram_memory', YLeaf(YType.uint64, 'ram-memory')),
-                        ('free_physical_memory', YLeaf(YType.uint64, 'free-physical-memory')),
-                        ('private_physical_memory', YLeaf(YType.uint64, 'private-physical-memory')),
-                        ('system_ram_memory', YLeaf(YType.uint64, 'system-ram-memory')),
-                        ('free_application_memory', YLeaf(YType.uint64, 'free-application-memory')),
-                        ('image_memory', YLeaf(YType.uint64, 'image-memory')),
-                        ('boot_ram_size', YLeaf(YType.uint64, 'boot-ram-size')),
-                        ('reserved_memory', YLeaf(YType.uint64, 'reserved-memory')),
-                        ('io_memory', YLeaf(YType.uint64, 'io-memory')),
-                        ('flash_system', YLeaf(YType.uint64, 'flash-system')),
-                        ('total_shared_window', YLeaf(YType.uint64, 'total-shared-window')),
-                        ('allocated_memory', YLeaf(YType.uint64, 'allocated-memory')),
-                        ('program_text', YLeaf(YType.uint64, 'program-text')),
-                        ('program_data', YLeaf(YType.uint64, 'program-data')),
-                        ('program_stack', YLeaf(YType.uint64, 'program-stack')),
+                        ('page_size', (YLeaf(YType.uint32, 'page-size'), ['int'])),
+                        ('ram_memory', (YLeaf(YType.uint64, 'ram-memory'), ['int'])),
+                        ('free_physical_memory', (YLeaf(YType.uint64, 'free-physical-memory'), ['int'])),
+                        ('private_physical_memory', (YLeaf(YType.uint64, 'private-physical-memory'), ['int'])),
+                        ('system_ram_memory', (YLeaf(YType.uint64, 'system-ram-memory'), ['int'])),
+                        ('free_application_memory', (YLeaf(YType.uint64, 'free-application-memory'), ['int'])),
+                        ('image_memory', (YLeaf(YType.uint64, 'image-memory'), ['int'])),
+                        ('boot_ram_size', (YLeaf(YType.uint64, 'boot-ram-size'), ['int'])),
+                        ('reserved_memory', (YLeaf(YType.uint64, 'reserved-memory'), ['int'])),
+                        ('io_memory', (YLeaf(YType.uint64, 'io-memory'), ['int'])),
+                        ('flash_system', (YLeaf(YType.uint64, 'flash-system'), ['int'])),
+                        ('total_shared_window', (YLeaf(YType.uint64, 'total-shared-window'), ['int'])),
+                        ('allocated_memory', (YLeaf(YType.uint64, 'allocated-memory'), ['int'])),
+                        ('program_text', (YLeaf(YType.uint64, 'program-text'), ['int'])),
+                        ('program_data', (YLeaf(YType.uint64, 'program-data'), ['int'])),
+                        ('program_stack', (YLeaf(YType.uint64, 'program-stack'), ['int'])),
+                        ('total_used', (YLeaf(YType.uint64, 'total-used'), ['int'])),
                     ])
                     self.page_size = None
                     self.ram_memory = None
@@ -480,12 +493,14 @@ class MemorySummary(Entity):
                     self.program_text = None
                     self.program_data = None
                     self.program_stack = None
+                    self.total_used = None
 
                     self.shared_window = YList(self)
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, ['page_size', 'ram_memory', 'free_physical_memory', 'private_physical_memory', 'system_ram_memory', 'free_application_memory', 'image_memory', 'boot_ram_size', 'reserved_memory', 'io_memory', 'flash_system', 'total_shared_window', 'allocated_memory', 'program_text', 'program_data', 'program_stack'], name, value)
+                    self._perform_setattr(MemorySummary.Nodes.Node.Detail, [u'page_size', u'ram_memory', u'free_physical_memory', u'private_physical_memory', u'system_ram_memory', u'free_application_memory', u'image_memory', u'boot_ram_size', u'reserved_memory', u'io_memory', u'flash_system', u'total_shared_window', u'allocated_memory', u'program_text', u'program_data', u'program_stack', u'total_used'], name, value)
 
 
                 class SharedWindow(Entity):
@@ -521,15 +536,16 @@ class MemorySummary(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('shared_window', YLeaf(YType.str, 'shared-window')),
-                            ('window_size', YLeaf(YType.uint64, 'window-size')),
+                            ('shared_window', (YLeaf(YType.str, 'shared-window'), ['str'])),
+                            ('window_size', (YLeaf(YType.uint64, 'window-size'), ['int'])),
                         ])
                         self.shared_window = None
                         self.window_size = None
                         self._segment_path = lambda: "shared-window"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, ['shared_window', 'window_size'], name, value)
+                        self._perform_setattr(MemorySummary.Nodes.Node.Detail.SharedWindow, [u'shared_window', u'window_size'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MemorySummary()

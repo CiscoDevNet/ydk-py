@@ -45,6 +45,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoQfpMemoryResource(Enum):
     """
     CiscoQfpMemoryResource (Enum Class)
@@ -183,6 +184,7 @@ class CISCOENTITYQFPMIB(Entity):
         self.ceqfpthroughputtable.parent = self
         self._children_name_map["ceqfpthroughputtable"] = "ceqfpThroughputTable"
         self._segment_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENTITYQFPMIB, [], name, value)
@@ -229,10 +231,10 @@ class CISCOENTITYQFPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ceqfpfivesecondutilalgo', YLeaf(YType.enumeration, 'ceqfpFiveSecondUtilAlgo')),
-                ('ceqfponeminuteutilalgo', YLeaf(YType.enumeration, 'ceqfpOneMinuteUtilAlgo')),
-                ('ceqfpfiveminutesutilalgo', YLeaf(YType.enumeration, 'ceqfpFiveMinutesUtilAlgo')),
-                ('ceqfpsixtyminutesutilalgo', YLeaf(YType.enumeration, 'ceqfpSixtyMinutesUtilAlgo')),
+                ('ceqfpfivesecondutilalgo', (YLeaf(YType.enumeration, 'ceqfpFiveSecondUtilAlgo'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CiscoEntityQfp.CeqfpFiveSecondUtilAlgo')])),
+                ('ceqfponeminuteutilalgo', (YLeaf(YType.enumeration, 'ceqfpOneMinuteUtilAlgo'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CiscoEntityQfp.CeqfpOneMinuteUtilAlgo')])),
+                ('ceqfpfiveminutesutilalgo', (YLeaf(YType.enumeration, 'ceqfpFiveMinutesUtilAlgo'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CiscoEntityQfp.CeqfpFiveMinutesUtilAlgo')])),
+                ('ceqfpsixtyminutesutilalgo', (YLeaf(YType.enumeration, 'ceqfpSixtyMinutesUtilAlgo'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CiscoEntityQfp.CeqfpSixtyMinutesUtilAlgo')])),
             ])
             self.ceqfpfivesecondutilalgo = None
             self.ceqfponeminuteutilalgo = None
@@ -240,6 +242,7 @@ class CISCOENTITYQFPMIB(Entity):
             self.ceqfpsixtyminutesutilalgo = None
             self._segment_path = lambda: "ciscoEntityQfp"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CiscoEntityQfp, ['ceqfpfivesecondutilalgo', 'ceqfponeminuteutilalgo', 'ceqfpfiveminutesutilalgo', 'ceqfpsixtyminutesutilalgo'], name, value)
@@ -394,13 +397,14 @@ class CISCOENTITYQFPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ceqfpmemoryresthreshnotifenabled', YLeaf(YType.boolean, 'ceqfpMemoryResThreshNotifEnabled')),
-                ('ceqfpthroughputnotifenabled', YLeaf(YType.uint32, 'ceqfpThroughputNotifEnabled')),
+                ('ceqfpmemoryresthreshnotifenabled', (YLeaf(YType.boolean, 'ceqfpMemoryResThreshNotifEnabled'), ['bool'])),
+                ('ceqfpthroughputnotifenabled', (YLeaf(YType.uint32, 'ceqfpThroughputNotifEnabled'), ['int'])),
             ])
             self.ceqfpmemoryresthreshnotifenabled = None
             self.ceqfpthroughputnotifenabled = None
             self._segment_path = lambda: "ciscoEntityQfpNotif"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CiscoEntityQfpNotif, ['ceqfpmemoryresthreshnotifenabled', 'ceqfpthroughputnotifenabled'], name, value)
@@ -445,6 +449,7 @@ class CISCOENTITYQFPMIB(Entity):
             self.ceqfpsystementry = YList(self)
             self._segment_path = lambda: "ceqfpSystemTable"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CeqfpSystemTable, [], name, value)
@@ -504,11 +509,11 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceqfpsystemtrafficdirection', YLeaf(YType.enumeration, 'ceqfpSystemTrafficDirection')),
-                    ('ceqfpsystemstate', YLeaf(YType.enumeration, 'ceqfpSystemState')),
-                    ('ceqfpnumbersystemloads', YLeaf(YType.uint32, 'ceqfpNumberSystemLoads')),
-                    ('ceqfpsystemlastloadtime', YLeaf(YType.str, 'ceqfpSystemLastLoadTime')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceqfpsystemtrafficdirection', (YLeaf(YType.enumeration, 'ceqfpSystemTrafficDirection'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CeqfpSystemTable.CeqfpSystemEntry.CeqfpSystemTrafficDirection')])),
+                    ('ceqfpsystemstate', (YLeaf(YType.enumeration, 'ceqfpSystemState'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CeqfpSystemTable.CeqfpSystemEntry.CeqfpSystemState')])),
+                    ('ceqfpnumbersystemloads', (YLeaf(YType.uint32, 'ceqfpNumberSystemLoads'), ['int'])),
+                    ('ceqfpsystemlastloadtime', (YLeaf(YType.str, 'ceqfpSystemLastLoadTime'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.ceqfpsystemtrafficdirection = None
@@ -517,6 +522,7 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ceqfpsystemlastloadtime = None
                 self._segment_path = lambda: "ceqfpSystemEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpSystemTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYQFPMIB.CeqfpSystemTable.CeqfpSystemEntry, ['entphysicalindex', 'ceqfpsystemtrafficdirection', 'ceqfpsystemstate', 'ceqfpnumbersystemloads', 'ceqfpsystemlastloadtime'], name, value)
@@ -670,6 +676,7 @@ class CISCOENTITYQFPMIB(Entity):
             self.ceqfputilizationentry = YList(self)
             self._segment_path = lambda: "ceqfpUtilizationTable"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CeqfpUtilizationTable, [], name, value)
@@ -836,21 +843,21 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceqfputiltimeinterval']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceqfputiltimeinterval', YLeaf(YType.enumeration, 'ceqfpUtilTimeInterval')),
-                    ('ceqfputilinputprioritypktrate', YLeaf(YType.uint64, 'ceqfpUtilInputPriorityPktRate')),
-                    ('ceqfputilinputprioritybitrate', YLeaf(YType.uint64, 'ceqfpUtilInputPriorityBitRate')),
-                    ('ceqfputilinputnonprioritypktrate', YLeaf(YType.uint64, 'ceqfpUtilInputNonPriorityPktRate')),
-                    ('ceqfputilinputnonprioritybitrate', YLeaf(YType.uint64, 'ceqfpUtilInputNonPriorityBitRate')),
-                    ('ceqfputilinputtotalpktrate', YLeaf(YType.uint64, 'ceqfpUtilInputTotalPktRate')),
-                    ('ceqfputilinputtotalbitrate', YLeaf(YType.uint64, 'ceqfpUtilInputTotalBitRate')),
-                    ('ceqfputiloutputprioritypktrate', YLeaf(YType.uint64, 'ceqfpUtilOutputPriorityPktRate')),
-                    ('ceqfputiloutputprioritybitrate', YLeaf(YType.uint64, 'ceqfpUtilOutputPriorityBitRate')),
-                    ('ceqfputiloutputnonprioritypktrate', YLeaf(YType.uint64, 'ceqfpUtilOutputNonPriorityPktRate')),
-                    ('ceqfputiloutputnonprioritybitrate', YLeaf(YType.uint64, 'ceqfpUtilOutputNonPriorityBitRate')),
-                    ('ceqfputiloutputtotalpktrate', YLeaf(YType.uint64, 'ceqfpUtilOutputTotalPktRate')),
-                    ('ceqfputiloutputtotalbitrate', YLeaf(YType.uint64, 'ceqfpUtilOutputTotalBitRate')),
-                    ('ceqfputilprocessingload', YLeaf(YType.uint32, 'ceqfpUtilProcessingLoad')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceqfputiltimeinterval', (YLeaf(YType.enumeration, 'ceqfpUtilTimeInterval'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CiscoQfpTimeInterval', '')])),
+                    ('ceqfputilinputprioritypktrate', (YLeaf(YType.uint64, 'ceqfpUtilInputPriorityPktRate'), ['int'])),
+                    ('ceqfputilinputprioritybitrate', (YLeaf(YType.uint64, 'ceqfpUtilInputPriorityBitRate'), ['int'])),
+                    ('ceqfputilinputnonprioritypktrate', (YLeaf(YType.uint64, 'ceqfpUtilInputNonPriorityPktRate'), ['int'])),
+                    ('ceqfputilinputnonprioritybitrate', (YLeaf(YType.uint64, 'ceqfpUtilInputNonPriorityBitRate'), ['int'])),
+                    ('ceqfputilinputtotalpktrate', (YLeaf(YType.uint64, 'ceqfpUtilInputTotalPktRate'), ['int'])),
+                    ('ceqfputilinputtotalbitrate', (YLeaf(YType.uint64, 'ceqfpUtilInputTotalBitRate'), ['int'])),
+                    ('ceqfputiloutputprioritypktrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputPriorityPktRate'), ['int'])),
+                    ('ceqfputiloutputprioritybitrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputPriorityBitRate'), ['int'])),
+                    ('ceqfputiloutputnonprioritypktrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputNonPriorityPktRate'), ['int'])),
+                    ('ceqfputiloutputnonprioritybitrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputNonPriorityBitRate'), ['int'])),
+                    ('ceqfputiloutputtotalpktrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputTotalPktRate'), ['int'])),
+                    ('ceqfputiloutputtotalbitrate', (YLeaf(YType.uint64, 'ceqfpUtilOutputTotalBitRate'), ['int'])),
+                    ('ceqfputilprocessingload', (YLeaf(YType.uint32, 'ceqfpUtilProcessingLoad'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceqfputiltimeinterval = None
@@ -869,6 +876,7 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ceqfputilprocessingload = None
                 self._segment_path = lambda: "ceqfpUtilizationEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[ceqfpUtilTimeInterval='" + str(self.ceqfputiltimeinterval) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpUtilizationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYQFPMIB.CeqfpUtilizationTable.CeqfpUtilizationEntry, ['entphysicalindex', 'ceqfputiltimeinterval', 'ceqfputilinputprioritypktrate', 'ceqfputilinputprioritybitrate', 'ceqfputilinputnonprioritypktrate', 'ceqfputilinputnonprioritybitrate', 'ceqfputilinputtotalpktrate', 'ceqfputilinputtotalbitrate', 'ceqfputiloutputprioritypktrate', 'ceqfputiloutputprioritybitrate', 'ceqfputiloutputnonprioritypktrate', 'ceqfputiloutputnonprioritybitrate', 'ceqfputiloutputtotalpktrate', 'ceqfputiloutputtotalbitrate', 'ceqfputilprocessingload'], name, value)
@@ -918,6 +926,7 @@ class CISCOENTITYQFPMIB(Entity):
             self.ceqfpmemoryresourceentry = YList(self)
             self._segment_path = lambda: "ceqfpMemoryResourceTable"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable, [], name, value)
@@ -1087,22 +1096,22 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceqfpmemoryrestype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceqfpmemoryrestype', YLeaf(YType.enumeration, 'ceqfpMemoryResType')),
-                    ('ceqfpmemoryrestotal', YLeaf(YType.uint32, 'ceqfpMemoryResTotal')),
-                    ('ceqfpmemoryresinuse', YLeaf(YType.uint32, 'ceqfpMemoryResInUse')),
-                    ('ceqfpmemoryresfree', YLeaf(YType.uint32, 'ceqfpMemoryResFree')),
-                    ('ceqfpmemoryreslowfreewatermark', YLeaf(YType.uint32, 'ceqfpMemoryResLowFreeWatermark')),
-                    ('ceqfpmemoryresrisingthreshold', YLeaf(YType.uint32, 'ceqfpMemoryResRisingThreshold')),
-                    ('ceqfpmemoryresfallingthreshold', YLeaf(YType.uint32, 'ceqfpMemoryResFallingThreshold')),
-                    ('ceqfpmemoryrestotalovrflw', YLeaf(YType.uint32, 'ceqfpMemoryResTotalOvrflw')),
-                    ('ceqfpmemoryhcrestotal', YLeaf(YType.uint64, 'ceqfpMemoryHCResTotal')),
-                    ('ceqfpmemoryresinuseovrflw', YLeaf(YType.uint32, 'ceqfpMemoryResInUseOvrflw')),
-                    ('ceqfpmemoryhcresinuse', YLeaf(YType.uint64, 'ceqfpMemoryHCResInUse')),
-                    ('ceqfpmemoryresfreeovrflw', YLeaf(YType.uint32, 'ceqfpMemoryResFreeOvrflw')),
-                    ('ceqfpmemoryhcresfree', YLeaf(YType.uint64, 'ceqfpMemoryHCResFree')),
-                    ('ceqfpmemoryreslowfreewatermarkovrflw', YLeaf(YType.uint32, 'ceqfpMemoryResLowFreeWatermarkOvrflw')),
-                    ('ceqfpmemoryhcreslowfreewatermark', YLeaf(YType.uint64, 'ceqfpMemoryHCResLowFreeWatermark')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceqfpmemoryrestype', (YLeaf(YType.enumeration, 'ceqfpMemoryResType'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CiscoQfpMemoryResource', '')])),
+                    ('ceqfpmemoryrestotal', (YLeaf(YType.uint32, 'ceqfpMemoryResTotal'), ['int'])),
+                    ('ceqfpmemoryresinuse', (YLeaf(YType.uint32, 'ceqfpMemoryResInUse'), ['int'])),
+                    ('ceqfpmemoryresfree', (YLeaf(YType.uint32, 'ceqfpMemoryResFree'), ['int'])),
+                    ('ceqfpmemoryreslowfreewatermark', (YLeaf(YType.uint32, 'ceqfpMemoryResLowFreeWatermark'), ['int'])),
+                    ('ceqfpmemoryresrisingthreshold', (YLeaf(YType.uint32, 'ceqfpMemoryResRisingThreshold'), ['int'])),
+                    ('ceqfpmemoryresfallingthreshold', (YLeaf(YType.uint32, 'ceqfpMemoryResFallingThreshold'), ['int'])),
+                    ('ceqfpmemoryrestotalovrflw', (YLeaf(YType.uint32, 'ceqfpMemoryResTotalOvrflw'), ['int'])),
+                    ('ceqfpmemoryhcrestotal', (YLeaf(YType.uint64, 'ceqfpMemoryHCResTotal'), ['int'])),
+                    ('ceqfpmemoryresinuseovrflw', (YLeaf(YType.uint32, 'ceqfpMemoryResInUseOvrflw'), ['int'])),
+                    ('ceqfpmemoryhcresinuse', (YLeaf(YType.uint64, 'ceqfpMemoryHCResInUse'), ['int'])),
+                    ('ceqfpmemoryresfreeovrflw', (YLeaf(YType.uint32, 'ceqfpMemoryResFreeOvrflw'), ['int'])),
+                    ('ceqfpmemoryhcresfree', (YLeaf(YType.uint64, 'ceqfpMemoryHCResFree'), ['int'])),
+                    ('ceqfpmemoryreslowfreewatermarkovrflw', (YLeaf(YType.uint32, 'ceqfpMemoryResLowFreeWatermarkOvrflw'), ['int'])),
+                    ('ceqfpmemoryhcreslowfreewatermark', (YLeaf(YType.uint64, 'ceqfpMemoryHCResLowFreeWatermark'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceqfpmemoryrestype = None
@@ -1122,6 +1131,7 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ceqfpmemoryhcreslowfreewatermark = None
                 self._segment_path = lambda: "ceqfpMemoryResourceEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[ceqfpMemoryResType='" + str(self.ceqfpmemoryrestype) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpMemoryResourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYQFPMIB.CeqfpMemoryResourceTable.CeqfpMemoryResourceEntry, ['entphysicalindex', 'ceqfpmemoryrestype', 'ceqfpmemoryrestotal', 'ceqfpmemoryresinuse', 'ceqfpmemoryresfree', 'ceqfpmemoryreslowfreewatermark', 'ceqfpmemoryresrisingthreshold', 'ceqfpmemoryresfallingthreshold', 'ceqfpmemoryrestotalovrflw', 'ceqfpmemoryhcrestotal', 'ceqfpmemoryresinuseovrflw', 'ceqfpmemoryhcresinuse', 'ceqfpmemoryresfreeovrflw', 'ceqfpmemoryhcresfree', 'ceqfpmemoryreslowfreewatermarkovrflw', 'ceqfpmemoryhcreslowfreewatermark'], name, value)
@@ -1167,6 +1177,7 @@ class CISCOENTITYQFPMIB(Entity):
             self.ceqfpthroughputentry = YList(self)
             self._segment_path = lambda: "ceqfpThroughputTable"
             self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYQFPMIB.CeqfpThroughputTable, [], name, value)
@@ -1245,12 +1256,12 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceqfpthroughputlicensedbw', YLeaf(YType.uint64, 'ceqfpThroughputLicensedBW')),
-                    ('ceqfpthroughputlevel', YLeaf(YType.enumeration, 'ceqfpThroughputLevel')),
-                    ('ceqfpthroughputinterval', YLeaf(YType.int32, 'ceqfpThroughputInterval')),
-                    ('ceqfpthroughputthreshold', YLeaf(YType.int32, 'ceqfpThroughputThreshold')),
-                    ('ceqfpthroughputavgrate', YLeaf(YType.uint64, 'ceqfpThroughputAvgRate')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceqfpthroughputlicensedbw', (YLeaf(YType.uint64, 'ceqfpThroughputLicensedBW'), ['int'])),
+                    ('ceqfpthroughputlevel', (YLeaf(YType.enumeration, 'ceqfpThroughputLevel'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_QFP_MIB', 'CISCOENTITYQFPMIB', 'CeqfpThroughputTable.CeqfpThroughputEntry.CeqfpThroughputLevel')])),
+                    ('ceqfpthroughputinterval', (YLeaf(YType.int32, 'ceqfpThroughputInterval'), ['int'])),
+                    ('ceqfpthroughputthreshold', (YLeaf(YType.int32, 'ceqfpThroughputThreshold'), ['int'])),
+                    ('ceqfpthroughputavgrate', (YLeaf(YType.uint64, 'ceqfpThroughputAvgRate'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceqfpthroughputlicensedbw = None
@@ -1260,6 +1271,7 @@ class CISCOENTITYQFPMIB(Entity):
                 self.ceqfpthroughputavgrate = None
                 self._segment_path = lambda: "ceqfpThroughputEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-QFP-MIB:CISCO-ENTITY-QFP-MIB/ceqfpThroughputTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYQFPMIB.CeqfpThroughputTable.CeqfpThroughputEntry, ['entphysicalindex', 'ceqfpthroughputlicensedbw', 'ceqfpthroughputlevel', 'ceqfpthroughputinterval', 'ceqfpthroughputthreshold', 'ceqfpthroughputavgrate'], name, value)

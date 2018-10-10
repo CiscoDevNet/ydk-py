@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CfmLastClearedType(Enum):
     """
     CfmLastClearedType (Enum Class)
@@ -68,6 +69,7 @@ class CfmStatistics(Entity):
         self.cfm_meps.parent = self
         self._children_name_map["cfm_meps"] = "cfm-meps"
         self._segment_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CfmStatistics, [], name, value)
@@ -103,6 +105,7 @@ class CfmStatistics(Entity):
             self.cfm_mep = YList(self)
             self._segment_path = lambda: "cfm-meps"
             self._absolute_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CfmStatistics.CfmMeps, [], name, value)
@@ -200,16 +203,16 @@ class CfmStatistics(Entity):
                 self.ylist_key_names = ['domain_name','ma_name','mpid']
                 self._child_classes = OrderedDict([("last-cleared", ("last_cleared", CfmStatistics.CfmMeps.CfmMep.LastCleared))])
                 self._leafs = OrderedDict([
-                    ('domain_name', YLeaf(YType.str, 'domain-name')),
-                    ('ma_name', YLeaf(YType.str, 'ma-name')),
-                    ('mpid', YLeaf(YType.uint32, 'mpid')),
-                    ('ccm_transmitted', YLeaf(YType.uint64, 'ccm-transmitted')),
-                    ('ccm_seq_errors', YLeaf(YType.uint64, 'ccm-seq-errors')),
-                    ('ltr_unexpected', YLeaf(YType.uint64, 'ltr-unexpected')),
-                    ('lbr_transmitted', YLeaf(YType.uint64, 'lbr-transmitted')),
-                    ('lbr_seq_errors', YLeaf(YType.uint64, 'lbr-seq-errors')),
-                    ('lbr_received_ok', YLeaf(YType.uint64, 'lbr-received-ok')),
-                    ('lbr_received_bad', YLeaf(YType.uint64, 'lbr-received-bad')),
+                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                    ('ma_name', (YLeaf(YType.str, 'ma-name'), ['str'])),
+                    ('mpid', (YLeaf(YType.uint32, 'mpid'), ['int'])),
+                    ('ccm_transmitted', (YLeaf(YType.uint64, 'ccm-transmitted'), ['int'])),
+                    ('ccm_seq_errors', (YLeaf(YType.uint64, 'ccm-seq-errors'), ['int'])),
+                    ('ltr_unexpected', (YLeaf(YType.uint64, 'ltr-unexpected'), ['int'])),
+                    ('lbr_transmitted', (YLeaf(YType.uint64, 'lbr-transmitted'), ['int'])),
+                    ('lbr_seq_errors', (YLeaf(YType.uint64, 'lbr-seq-errors'), ['int'])),
+                    ('lbr_received_ok', (YLeaf(YType.uint64, 'lbr-received-ok'), ['int'])),
+                    ('lbr_received_bad', (YLeaf(YType.uint64, 'lbr-received-bad'), ['int'])),
                 ])
                 self.domain_name = None
                 self.ma_name = None
@@ -227,6 +230,7 @@ class CfmStatistics(Entity):
                 self._children_name_map["last_cleared"] = "last-cleared"
                 self._segment_path = lambda: "cfm-mep" + "[domain-name='" + str(self.domain_name) + "']" + "[ma-name='" + str(self.ma_name) + "']" + "[mpid='" + str(self.mpid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-cfm-oper:cfm-statistics/cfm-meps/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CfmStatistics.CfmMeps.CfmMep, ['domain_name', 'ma_name', 'mpid', 'ccm_transmitted', 'ccm_seq_errors', 'ltr_unexpected', 'lbr_transmitted', 'lbr_seq_errors', 'lbr_received_ok', 'lbr_received_bad'], name, value)
@@ -265,12 +269,13 @@ class CfmStatistics(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('never', YLeaf(YType.empty, 'never')),
-                        ('time', YLeaf(YType.str, 'time')),
+                        ('never', (YLeaf(YType.empty, 'never'), ['Empty'])),
+                        ('time', (YLeaf(YType.str, 'time'), ['str'])),
                     ])
                     self.never = None
                     self.time = None
                     self._segment_path = lambda: "last-cleared"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CfmStatistics.CfmMeps.CfmMep.LastCleared, ['never', 'time'], name, value)

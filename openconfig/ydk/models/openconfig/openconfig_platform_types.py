@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class OPENCONFIGHARDWARECOMPONENT(Identity):
     """
     Base identity for hardware related components in a managed
@@ -26,8 +27,8 @@ class OPENCONFIGHARDWARECOMPONENT(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(OPENCONFIGHARDWARECOMPONENT, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:OPENCONFIG_HARDWARE_COMPONENT")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPENCONFIG_HARDWARE_COMPONENT"):
+        super(OPENCONFIGHARDWARECOMPONENT, self).__init__(ns, pref, tag)
 
 
 class OPENCONFIGSOFTWARECOMPONENT(Identity):
@@ -42,11 +43,11 @@ class OPENCONFIGSOFTWARECOMPONENT(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(OPENCONFIGSOFTWARECOMPONENT, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:OPENCONFIG_SOFTWARE_COMPONENT")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPENCONFIG_SOFTWARE_COMPONENT"):
+        super(OPENCONFIGSOFTWARECOMPONENT, self).__init__(ns, pref, tag)
 
 
-class OPERATINGSYSTEM(Identity):
+class OPERATINGSYSTEM(OPENCONFIGSOFTWARECOMPONENT):
     """
     Operating system running on a component
     
@@ -57,11 +58,11 @@ class OPERATINGSYSTEM(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(OPERATINGSYSTEM, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:OPERATING_SYSTEM")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:OPERATING_SYSTEM"):
+        super(OPERATINGSYSTEM, self).__init__(ns, pref, tag)
 
 
-class LINECARD(Identity):
+class LINECARD(OPENCONFIGHARDWARECOMPONENT):
     """
     Linecard component, typically inserted into a chassis slot
     
@@ -72,11 +73,11 @@ class LINECARD(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(LINECARD, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:LINECARD")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:LINECARD"):
+        super(LINECARD, self).__init__(ns, pref, tag)
 
 
-class MODULE(Identity):
+class MODULE(OPENCONFIGHARDWARECOMPONENT):
     """
     Replaceable hardware module, e.g., a daughtercard
     
@@ -87,11 +88,11 @@ class MODULE(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(MODULE, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:MODULE")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:MODULE"):
+        super(MODULE, self).__init__(ns, pref, tag)
 
 
-class CPU(Identity):
+class CPU(OPENCONFIGHARDWARECOMPONENT):
     """
     Processing unit, e.g., a management processor
     
@@ -102,11 +103,11 @@ class CPU(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(CPU, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:CPU")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:CPU"):
+        super(CPU, self).__init__(ns, pref, tag)
 
 
-class TRANSCEIVER(Identity):
+class TRANSCEIVER(OPENCONFIGHARDWARECOMPONENT):
     """
     Pluggable module present in a port
     
@@ -117,11 +118,11 @@ class TRANSCEIVER(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(TRANSCEIVER, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:TRANSCEIVER")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:TRANSCEIVER"):
+        super(TRANSCEIVER, self).__init__(ns, pref, tag)
 
 
-class CHASSIS(Identity):
+class CHASSIS(OPENCONFIGHARDWARECOMPONENT):
     """
     Chassis component, typically with multiple slots / shelves
     
@@ -132,11 +133,11 @@ class CHASSIS(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(CHASSIS, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:CHASSIS")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:CHASSIS"):
+        super(CHASSIS, self).__init__(ns, pref, tag)
 
 
-class FAN(Identity):
+class FAN(OPENCONFIGHARDWARECOMPONENT):
     """
     Cooling fan, or could be some other heat\-reduction component
     
@@ -147,11 +148,11 @@ class FAN(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(FAN, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:FAN")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:FAN"):
+        super(FAN, self).__init__(ns, pref, tag)
 
 
-class BACKPLANE(Identity):
+class BACKPLANE(OPENCONFIGHARDWARECOMPONENT):
     """
     Backplane component for aggregating traffic, typically
     contained in a chassis component
@@ -163,11 +164,11 @@ class BACKPLANE(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(BACKPLANE, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:BACKPLANE")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:BACKPLANE"):
+        super(BACKPLANE, self).__init__(ns, pref, tag)
 
 
-class SENSOR(Identity):
+class SENSOR(OPENCONFIGHARDWARECOMPONENT):
     """
     Physical sensor, e.g., a temperature sensor in a chassis
     
@@ -178,11 +179,11 @@ class SENSOR(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(SENSOR, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:SENSOR")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:SENSOR"):
+        super(SENSOR, self).__init__(ns, pref, tag)
 
 
-class PORT(Identity):
+class PORT(OPENCONFIGHARDWARECOMPONENT):
     """
     Physical port, e.g., for attaching pluggables and networking
     cables
@@ -194,11 +195,11 @@ class PORT(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(PORT, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:PORT")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:PORT"):
+        super(PORT, self).__init__(ns, pref, tag)
 
 
-class POWERSUPPLY(Identity):
+class POWERSUPPLY(OPENCONFIGHARDWARECOMPONENT):
     """
     Component that is supplying power to the device
     
@@ -209,7 +210,7 @@ class POWERSUPPLY(Identity):
     _prefix = 'oc-platform-types'
     _revision = '2016-06-06'
 
-    def __init__(self):
-        super(POWERSUPPLY, self).__init__("http://openconfig.net/yang/platform-types", "openconfig-platform-types", "openconfig-platform-types:POWER_SUPPLY")
+    def __init__(self, ns="http://openconfig.net/yang/platform-types", pref="openconfig-platform-types", tag="openconfig-platform-types:POWER_SUPPLY"):
+        super(POWERSUPPLY, self).__init__(ns, pref, tag)
 
 

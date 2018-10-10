@@ -28,6 +28,30 @@ module Cisco-IOS-XE-aaa-oper {
      Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-16 {
+    description
+      "Introduced group name as one of the server key information for both
+       RADIUS and TACACS. For TACACS added port information also as one of
+       the server key info.";
+    reference "1.4.0";
+  }
+  revision 2018-03-27 {
+    description
+      "Introduced additional counters for RADIUS server.
+       The additional counters are Messages-sent, Messages-received and
+       Errors-received.";
+    reference "1.3.0";
+  }
+  revision 2018-03-05 {
+    description
+      "Added support for AAA LDAP counters native model";
+    reference "1.2.0";
+  }
+  revision 2018-02-23 {
+    description
+      "Added support for AAA RADIUS and TACACS statistics native model";
+    reference "1.1.0";
+  }
   revision 2017-11-01 {
     description
       "Initial revision";
@@ -469,10 +493,323 @@ module Cisco-IOS-XE-aaa-oper {
     }
   }
 
+  grouping aaa-radius-stats-key {
+    description
+      "Radius server statistics unique key";
+    leaf group-name {
+      type string;
+      description
+        "AAA group name in which the server is defined. 
+         For public servers the group name is \"PUBLIC GROUP\" by default.";
+    }
+    leaf radius-server-ip {
+      type inet:ip-address;
+      description
+        "Radius server IP address";
+    }
+    leaf auth-port {
+      type uint16;
+      description
+        "Radius server auth-port";
+    }
+    leaf acct-port {
+      type uint16;
+      description
+        "Radius server acct-port";
+    }
+  }
+
+  grouping aaa-radius-stats {
+    description
+      "Radius server statistics";
+    leaf authen-retried-access-requests {
+      type uint32;
+      description
+        "Authentication retried access requests";
+    }
+    leaf authen-access-accepts {
+      type uint32;
+      description
+        "Authentication access accepts";
+    }
+    leaf authen-access-rejects {
+      type uint32;
+      description
+        "Authentication access rejects";
+    }
+    leaf authen-timeout-access-requests {
+      type uint32;
+      description
+        "Authentication Timeout access requests";
+    }
+    leaf author-retried-access-requests {
+      type uint32;
+      description
+        "Authorization retried access requests";
+    }
+    leaf author-access-accepts {
+      type uint32;
+      description
+        "Authorization access accepts";
+    }
+    leaf author-access-rejects {
+      type uint32;
+      description
+        "Authorization access rejects";
+    }
+    leaf author-timeout-access-requests {
+      type uint32;
+      description
+        "Authorization Timeout access requests";
+    }
+    leaf connection-opens {
+      type uint32;
+      description
+        "Number of new connection requests sent to the RADIUS server.";
+    }
+    leaf connection-closes {
+      type uint32;
+      description
+        "Number of connection close requests sent to the server.";
+    }
+    leaf connection-aborts {
+      type uint32;
+      description
+        "Number of connections aborted.
+         These do not include connections that are closed gracefully.";
+    }
+    leaf connection-failures {
+      type uint32;
+      description
+        "Number of connection failures to the RADIUS server.";
+    }
+    leaf connection-timeouts {
+      type uint32;
+      description
+        "Number of connection timeouts to the RADIUS server.";
+    }
+    leaf authen-messages-sent {
+      type uint32;
+      description
+        "Number of authentication messages sent to the RADIUS server.";
+    }
+    leaf author-messages-sent {
+      type uint32;
+      description
+        "Number of authorization messages sent to the RADIUS server.";
+    }
+    leaf acct-messages-sent {
+      type uint32;
+      description
+        "Number of accounting messages sent to the RADIUS server.";
+    }
+    leaf authen-messages-received {
+      type uint32;
+      description
+        "Number of authentication messages received by the RADIUS server.";
+    }
+    leaf author-messages-received {
+      type uint32;
+      description
+        "Number of authorization messages received by the RADIUS server.";
+    }
+    leaf authen-errors-received {
+      type uint32;
+      description
+        "Number of authentication error messages received 
+         from the RADIUS server.";
+    }
+    leaf author-errors-received {
+      type uint32;
+      description
+        "Number of authorization error messages received 
+         from the RADIUS server.";
+    }
+    leaf acct-errors-received {
+      type uint32;
+      description
+        "Number of accounting error messages received 
+         from the RADIUS server.";
+    }
+    leaf stats-time {
+      type yang:date-and-time;
+      description
+        "Time from which the statistics are valid.
+         This field will be updated when a RADIUS server is
+         configured and also when the RADIUS server statistics
+         are cleared.";
+    }
+  }
+
+  grouping aaa-tacacs-stats-key {
+    description
+      "TACACS server statistics unique key";
+    leaf group-name {
+      type string;
+      description
+        "AAA group name in which the server
+         is defined. For public servers the
+         group name is \"PUBLIC GROUP\" by
+         default.";
+    }
+    leaf tacacs-server-address {
+      type inet:ip-address;
+      description
+        "TACACS server IP address";
+    }
+    leaf port {
+      type uint16;
+      description
+        "TACACS server port";
+    }
+  }
+
+  grouping aaa-tacacs-stats {
+    description
+      "AAA session information associated with the TACACS Server";
+    leaf connection-opens {
+      type uint32;
+      description
+        "Number of new connection requests sent to the server";
+    }
+    leaf connection-closes {
+      type uint32;
+      description
+        "Number of connection close requests sent to the server";
+    }
+    leaf connection-aborts {
+      type uint32;
+      description
+        "Number of aborted connections to the server.
+         These do not include connections that are close gracefully";
+    }
+    leaf connection-failures {
+      type uint32;
+      description
+        "Number of connection failures to the server";
+    }
+    leaf connection-timeouts {
+      type uint32;
+      description
+        "Number of connection timeouts to the server";
+    }
+    leaf messages-sent {
+      type uint32;
+      description
+        "Number of messages sent to the server";
+    }
+    leaf messages-received {
+      type uint32;
+      description
+        "Number of messages received by the server";
+    }
+    leaf errors-received {
+      type uint32;
+      description
+        "Number of error messages received from the server";
+    }
+    leaf stats-start-time {
+      type yang:date-and-time;
+      description
+        "This attribute contains stats collection start time.
+         Stats collection starts when the TACACS server is configured";
+    }
+  }
+
+  grouping aaa-ldap-counters-key {
+    description
+      "LDAP server counters unique key";
+    leaf ldap-server-address {
+      type inet:ip-address;
+      description
+        "LDAP server IP address";
+    }
+    leaf ldap-server-port {
+      type uint16;
+      description
+        "LDAP server listening port - TCP";
+    }
+  }
+
+  grouping aaa-ldap-counters {
+    description
+      "LDAP server counters";
+    leaf connection-opens {
+      type uint32;
+      description
+        "Number of new connection requests sent to the LDAP server.";
+    }
+    leaf messages-sent {
+      type uint32;
+      description
+        "Number of messages sent to the LDAP server.";
+    }
+    leaf messages-received {
+      type uint32;
+      description
+        "Number of messages received by the LDAP server.";
+    }
+    leaf errors-received {
+      type uint32;
+      description
+        "Number of error messages received from the LDAP server.";
+    }
+    leaf connection-closes {
+      type uint32;
+      description
+        "Number of connection close requests sent to the server.";
+    }
+    leaf connection-aborts {
+      type uint32;
+      description
+        "Number of connections aborted.
+         These do not include connections that are close gracefully.";
+    }
+    leaf connection-failures {
+      type uint32;
+      description
+        "Number of connection failures to the LDAP server.";
+    }
+    leaf connection-timeouts {
+      type uint32;
+      description
+        "Number of connection timeouts to the LDAP server.";
+    }
+    leaf counters-start-time {
+      type yang:date-and-time;
+      description
+        "This attribute contains LDAP counters collection start time.
+         Counters collection starts when a LDAP server is configured.
+         Counters collection will be reset when the LDAP server counters
+         are cleared.";
+    }
+  }
+
   container aaa-data {
     config false;
     description
       "Operational state of AAA";
+    list aaa-radius-stats {
+      key "group-name radius-server-ip auth-port acct-port";
+      description
+        "Radius server statistics";
+      uses aaa-ios-xe-oper:aaa-radius-stats-key;
+      uses aaa-ios-xe-oper:aaa-radius-stats;
+    }
+    list aaa-tacacs-stats {
+      key "group-name tacacs-server-address port";
+      description
+        "AAA TACACS server statistics";
+      uses aaa-ios-xe-oper:aaa-tacacs-stats-key;
+      uses aaa-ios-xe-oper:aaa-tacacs-stats;
+    }
+    list aaa-ldap-counters {
+      key "ldap-server-address ldap-server-port";
+      description
+        "LDAP server counters";
+      uses aaa-ios-xe-oper:aaa-ldap-counters-key;
+      uses aaa-ios-xe-oper:aaa-ldap-counters;
+    }
     list aaa-users {
       key "username";
       description

@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class LispAddressFamilyType(Enum):
     """
     LispAddressFamilyType (Enum Class)
@@ -194,7 +195,7 @@ class LispState(Entity):
     """
 
     _prefix = 'lisp-ios-xe-oper'
-    _revision = '2017-10-25'
+    _revision = '2018-02-20'
 
     def __init__(self):
         super(LispState, self).__init__()
@@ -210,6 +211,7 @@ class LispState(Entity):
 
         self.lisp_routers = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-lisp-oper:lisp-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LispState, [], name, value)
@@ -255,12 +257,17 @@ class LispState(Entity):
         	This list represents the set of routing locators configured on this device
         	**type**\: list of  		 :py:class:`LocalRlocs <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.LocalRlocs>`
         
+        .. attribute:: prefix_lists
+        
+        	This list represents list of prefix\-lists configured on this device
+        	**type**\: list of  		 :py:class:`PrefixLists <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.PrefixLists>`
+        
         
 
         """
 
         _prefix = 'lisp-ios-xe-oper'
-        _revision = '2017-10-25'
+        _revision = '2018-02-20'
 
         def __init__(self):
             super(LispState.LispRouters, self).__init__()
@@ -270,11 +277,11 @@ class LispState(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['top_id']
-            self._child_classes = OrderedDict([("instances", ("instances", LispState.LispRouters.Instances)), ("sessions", ("sessions", LispState.LispRouters.Sessions)), ("local-rlocs", ("local_rlocs", LispState.LispRouters.LocalRlocs))])
+            self._child_classes = OrderedDict([("instances", ("instances", LispState.LispRouters.Instances)), ("sessions", ("sessions", LispState.LispRouters.Sessions)), ("local-rlocs", ("local_rlocs", LispState.LispRouters.LocalRlocs)), ("prefix-lists", ("prefix_lists", LispState.LispRouters.PrefixLists))])
             self._leafs = OrderedDict([
-                ('top_id', YLeaf(YType.uint32, 'top-id')),
-                ('site_id', YLeaf(YType.uint64, 'site-id')),
-                ('xtr_id', YLeafList(YType.uint8, 'xtr-id')),
+                ('top_id', (YLeaf(YType.uint32, 'top-id'), ['int'])),
+                ('site_id', (YLeaf(YType.uint64, 'site-id'), ['int'])),
+                ('xtr_id', (YLeafList(YType.uint8, 'xtr-id'), ['int'])),
             ])
             self.top_id = None
             self.site_id = None
@@ -283,8 +290,10 @@ class LispState(Entity):
             self.instances = YList(self)
             self.sessions = YList(self)
             self.local_rlocs = YList(self)
+            self.prefix_lists = YList(self)
             self._segment_path = lambda: "lisp-routers" + "[top-id='" + str(self.top_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-lisp-oper:lisp-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LispState.LispRouters, ['top_id', 'site_id', 'xtr_id'], name, value)
@@ -331,7 +340,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2017-10-25'
+            _revision = '2018-02-20'
 
             def __init__(self):
                 super(LispState.LispRouters.Instances, self).__init__()
@@ -343,9 +352,9 @@ class LispState(Entity):
                 self.ylist_key_names = ['iid']
                 self._child_classes = OrderedDict([("af", ("af", LispState.LispRouters.Instances.Af)), ("ms-eid-membership", ("ms_eid_membership", LispState.LispRouters.Instances.MsEidMembership)), ("etr-eid-membership", ("etr_eid_membership", LispState.LispRouters.Instances.EtrEidMembership))])
                 self._leafs = OrderedDict([
-                    ('iid', YLeaf(YType.uint32, 'iid')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('is_rloc_probing', YLeaf(YType.boolean, 'is-rloc-probing')),
+                    ('iid', (YLeaf(YType.uint32, 'iid'), ['int'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('is_rloc_probing', (YLeaf(YType.boolean, 'is-rloc-probing'), ['bool'])),
                 ])
                 self.iid = None
                 self.vrf_name = None
@@ -355,6 +364,7 @@ class LispState(Entity):
                 self.ms_eid_membership = YList(self)
                 self.etr_eid_membership = YList(self)
                 self._segment_path = lambda: "instances" + "[iid='" + str(self.iid) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LispState.LispRouters.Instances, ['iid', 'vrf_name', 'is_rloc_probing'], name, value)
@@ -953,7 +963,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2017-10-25'
+                _revision = '2018-02-20'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.Af, self).__init__()
@@ -965,85 +975,85 @@ class LispState(Entity):
                     self.ylist_key_names = ['iaftype']
                     self._child_classes = OrderedDict([("role", ("role", LispState.LispRouters.Instances.Af.Role)), ("map-cache", ("map_cache", LispState.LispRouters.Instances.Af.MapCache)), ("local-dbase", ("local_dbase", LispState.LispRouters.Instances.Af.LocalDbase)), ("ms-registrations", ("ms_registrations", LispState.LispRouters.Instances.Af.MsRegistrations)), ("map-servers", ("map_servers", LispState.LispRouters.Instances.Af.MapServers)), ("map-resolvers", ("map_resolvers", LispState.LispRouters.Instances.Af.MapResolvers)), ("proxy-etrs", ("proxy_etrs", LispState.LispRouters.Instances.Af.ProxyEtrs))])
                     self._leafs = OrderedDict([
-                        ('iaftype', YLeaf(YType.enumeration, 'iaftype')),
-                        ('l2_domain_id', YLeaf(YType.uint32, 'l2-domain-id')),
-                        ('map_cache_size', YLeaf(YType.uint32, 'map-cache-size')),
-                        ('map_cache_limit', YLeaf(YType.uint32, 'map-cache-limit')),
-                        ('etr_map_cache_ttl', YLeaf(YType.uint32, 'etr-map-cache-ttl')),
-                        ('registration_more_specific', YLeaf(YType.uint32, 'registration-more-specific')),
-                        ('registration_more_specific_warning_threshold', YLeaf(YType.uint32, 'registration-more-specific-warning-threshold')),
-                        ('registration_more_specific_limit', YLeaf(YType.uint32, 'registration-more-specific-limit')),
-                        ('map_cache_threshold', YLeaf(YType.uint32, 'map-cache-threshold')),
-                        ('map_requests_in', YLeaf(YType.uint64, 'map-requests-in')),
-                        ('map_requests_out', YLeaf(YType.uint64, 'map-requests-out')),
-                        ('encapsulated_map_requests_in', YLeaf(YType.uint64, 'encapsulated-map-requests-in')),
-                        ('encapsulated_map_requests_out', YLeaf(YType.uint64, 'encapsulated-map-requests-out')),
-                        ('rloc_probe_map_requests_in', YLeaf(YType.uint64, 'rloc-probe-map-requests-in')),
-                        ('rloc_probe_map_requests_out', YLeaf(YType.uint64, 'rloc-probe-map-requests-out')),
-                        ('map_requests_expired_on_queue', YLeaf(YType.uint64, 'map-requests-expired-on-queue')),
-                        ('map_requests_no_reply', YLeaf(YType.uint64, 'map-requests-no-reply')),
-                        ('map_requests_from_disallowed_locators', YLeaf(YType.uint64, 'map-requests-from-disallowed-locators')),
-                        ('smr_map_requests_in', YLeaf(YType.uint64, 'smr-map-requests-in')),
-                        ('smr_map_requests_out', YLeaf(YType.uint64, 'smr-map-requests-out')),
-                        ('ddt_itr_map_requests_dropped', YLeaf(YType.uint64, 'ddt-itr-map-requests-dropped')),
-                        ('ddt_itr_map_requests_nonce_collision', YLeaf(YType.uint64, 'ddt-itr-map-requests-nonce-collision')),
-                        ('ddt_itr_map_requests_bad_xtr_nonce', YLeaf(YType.uint64, 'ddt-itr-map-requests-bad-xtr-nonce')),
-                        ('mr_map_requests_forwarded', YLeaf(YType.uint64, 'mr-map-requests-forwarded')),
-                        ('ms_map_requests_forwarded', YLeaf(YType.uint64, 'ms-map-requests-forwarded')),
-                        ('to_alt_map_requests_out', YLeaf(YType.uint64, 'to-alt-map-requests-out')),
-                        ('map_reply_records_in', YLeaf(YType.uint64, 'map-reply-records-in')),
-                        ('map_reply_records_out', YLeaf(YType.uint64, 'map-reply-records-out')),
-                        ('authoritative_records_in', YLeaf(YType.uint64, 'authoritative-records-in')),
-                        ('authoritative_records_out', YLeaf(YType.uint64, 'authoritative-records-out')),
-                        ('non_authoritative_records_in', YLeaf(YType.uint64, 'non-authoritative-records-in')),
-                        ('non_authoritative_records_out', YLeaf(YType.uint64, 'non-authoritative-records-out')),
-                        ('negative_records_in', YLeaf(YType.uint64, 'negative-records-in')),
-                        ('negative_records_out', YLeaf(YType.uint64, 'negative-records-out')),
-                        ('rloc_probe_records_in', YLeaf(YType.uint64, 'rloc-probe-records-in')),
-                        ('rloc_probe_records_out', YLeaf(YType.uint64, 'rloc-probe-records-out')),
-                        ('ms_proxy_reply_records_out', YLeaf(YType.uint64, 'ms-proxy-reply-records-out')),
-                        ('wlc_subscribe_in', YLeaf(YType.uint64, 'wlc-subscribe-in')),
-                        ('wlc_subscribe_out', YLeaf(YType.uint64, 'wlc-subscribe-out')),
-                        ('wlc_subscribe_in_failure', YLeaf(YType.uint64, 'wlc-subscribe-in-failure')),
-                        ('wlc_subscribe_out_failure', YLeaf(YType.uint64, 'wlc-subscribe-out-failure')),
-                        ('wlc_unsubscribe_in', YLeaf(YType.uint64, 'wlc-unsubscribe-in')),
-                        ('wlc_unsubscribe_out', YLeaf(YType.uint64, 'wlc-unsubscribe-out')),
-                        ('wlc_unsubscribe_in_failure', YLeaf(YType.uint64, 'wlc-unsubscribe-in-failure')),
-                        ('wlc_unsubscribe_out_failure', YLeaf(YType.uint64, 'wlc-unsubscribe-out-failure')),
-                        ('map_register_records_in', YLeaf(YType.uint64, 'map-register-records-in')),
-                        ('map_register_records_out', YLeaf(YType.uint64, 'map-register-records-out')),
-                        ('map_registers_ms_disabled', YLeaf(YType.uint64, 'map-registers-ms-disabled')),
-                        ('map_registers_auth_failed', YLeaf(YType.uint64, 'map-registers-auth-failed')),
-                        ('map_registers_from_disallowed_locators', YLeaf(YType.uint64, 'map-registers-from-disallowed-locators')),
-                        ('wlc_map_register_records_in', YLeaf(YType.uint64, 'wlc-map-register-records-in')),
-                        ('wlc_map_register_records_out', YLeaf(YType.uint64, 'wlc-map-register-records-out')),
-                        ('wlc_map_register_records_in_ap', YLeaf(YType.uint64, 'wlc-map-register-records-in-ap')),
-                        ('wlc_map_register_records_out_ap', YLeaf(YType.uint64, 'wlc-map-register-records-out-ap')),
-                        ('wlc_map_register_records_in_client', YLeaf(YType.uint64, 'wlc-map-register-records-in-client')),
-                        ('wlc_map_register_records_out_client', YLeaf(YType.uint64, 'wlc-map-register-records-out-client')),
-                        ('wlc_map_register_records_in_failure', YLeaf(YType.uint64, 'wlc-map-register-records-in-failure')),
-                        ('wlc_map_register_records_out_failure', YLeaf(YType.uint64, 'wlc-map-register-records-out-failure')),
-                        ('map_notify_records_in', YLeaf(YType.uint64, 'map-notify-records-in')),
-                        ('map_notify_records_out', YLeaf(YType.uint64, 'map-notify-records-out')),
-                        ('map_notify_auth_failed', YLeaf(YType.uint64, 'map-notify-auth-failed')),
-                        ('wlc_map_notify_records_in', YLeaf(YType.uint64, 'wlc-map-notify-records-in')),
-                        ('wlc_map_notify_records_out', YLeaf(YType.uint64, 'wlc-map-notify-records-out')),
-                        ('wlc_map_notify_records_in_ap', YLeaf(YType.uint64, 'wlc-map-notify-records-in-ap')),
-                        ('wlc_map_notify_records_out_ap', YLeaf(YType.uint64, 'wlc-map-notify-records-out-ap')),
-                        ('wlc_map_notify_records_in_client', YLeaf(YType.uint64, 'wlc-map-notify-records-in-client')),
-                        ('wlc_map_notify_records_out_client', YLeaf(YType.uint64, 'wlc-map-notify-records-out-client')),
-                        ('wlc_map_notify_records_in_failure', YLeaf(YType.uint64, 'wlc-map-notify-records-in-failure')),
-                        ('wlc_map_notify_records_out_failure', YLeaf(YType.uint64, 'wlc-map-notify-records-out-failure')),
-                        ('mapping_record_ttl_alerts', YLeaf(YType.uint64, 'mapping-record-ttl-alerts')),
-                        ('remote_eid_entries_created', YLeaf(YType.uint64, 'remote-eid-entries-created')),
-                        ('remote_eid_entries_deleted', YLeaf(YType.uint64, 'remote-eid-entries-deleted')),
-                        ('remote_eid_nsf_replay_entries_created', YLeaf(YType.uint64, 'remote-eid-nsf-replay-entries-created')),
-                        ('forwarding_data_signals_processed', YLeaf(YType.uint64, 'forwarding-data-signals-processed')),
-                        ('forwarding_data_signals_dropped', YLeaf(YType.uint64, 'forwarding-data-signals-dropped')),
-                        ('forwarding_reachability_reports_processed', YLeaf(YType.uint64, 'forwarding-reachability-reports-processed')),
-                        ('forwarding_reachability_reports_dropped', YLeaf(YType.uint64, 'forwarding-reachability-reports-dropped')),
-                        ('is_etr_accept_mapping', YLeaf(YType.boolean, 'is-etr-accept-mapping')),
-                        ('is_etr_accept_mapping_verify', YLeaf(YType.boolean, 'is-etr-accept-mapping-verify')),
+                        ('iaftype', (YLeaf(YType.enumeration, 'iaftype'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispIaftypeType', '')])),
+                        ('l2_domain_id', (YLeaf(YType.uint32, 'l2-domain-id'), ['int'])),
+                        ('map_cache_size', (YLeaf(YType.uint32, 'map-cache-size'), ['int'])),
+                        ('map_cache_limit', (YLeaf(YType.uint32, 'map-cache-limit'), ['int'])),
+                        ('etr_map_cache_ttl', (YLeaf(YType.uint32, 'etr-map-cache-ttl'), ['int'])),
+                        ('registration_more_specific', (YLeaf(YType.uint32, 'registration-more-specific'), ['int'])),
+                        ('registration_more_specific_warning_threshold', (YLeaf(YType.uint32, 'registration-more-specific-warning-threshold'), ['int'])),
+                        ('registration_more_specific_limit', (YLeaf(YType.uint32, 'registration-more-specific-limit'), ['int'])),
+                        ('map_cache_threshold', (YLeaf(YType.uint32, 'map-cache-threshold'), ['int'])),
+                        ('map_requests_in', (YLeaf(YType.uint64, 'map-requests-in'), ['int'])),
+                        ('map_requests_out', (YLeaf(YType.uint64, 'map-requests-out'), ['int'])),
+                        ('encapsulated_map_requests_in', (YLeaf(YType.uint64, 'encapsulated-map-requests-in'), ['int'])),
+                        ('encapsulated_map_requests_out', (YLeaf(YType.uint64, 'encapsulated-map-requests-out'), ['int'])),
+                        ('rloc_probe_map_requests_in', (YLeaf(YType.uint64, 'rloc-probe-map-requests-in'), ['int'])),
+                        ('rloc_probe_map_requests_out', (YLeaf(YType.uint64, 'rloc-probe-map-requests-out'), ['int'])),
+                        ('map_requests_expired_on_queue', (YLeaf(YType.uint64, 'map-requests-expired-on-queue'), ['int'])),
+                        ('map_requests_no_reply', (YLeaf(YType.uint64, 'map-requests-no-reply'), ['int'])),
+                        ('map_requests_from_disallowed_locators', (YLeaf(YType.uint64, 'map-requests-from-disallowed-locators'), ['int'])),
+                        ('smr_map_requests_in', (YLeaf(YType.uint64, 'smr-map-requests-in'), ['int'])),
+                        ('smr_map_requests_out', (YLeaf(YType.uint64, 'smr-map-requests-out'), ['int'])),
+                        ('ddt_itr_map_requests_dropped', (YLeaf(YType.uint64, 'ddt-itr-map-requests-dropped'), ['int'])),
+                        ('ddt_itr_map_requests_nonce_collision', (YLeaf(YType.uint64, 'ddt-itr-map-requests-nonce-collision'), ['int'])),
+                        ('ddt_itr_map_requests_bad_xtr_nonce', (YLeaf(YType.uint64, 'ddt-itr-map-requests-bad-xtr-nonce'), ['int'])),
+                        ('mr_map_requests_forwarded', (YLeaf(YType.uint64, 'mr-map-requests-forwarded'), ['int'])),
+                        ('ms_map_requests_forwarded', (YLeaf(YType.uint64, 'ms-map-requests-forwarded'), ['int'])),
+                        ('to_alt_map_requests_out', (YLeaf(YType.uint64, 'to-alt-map-requests-out'), ['int'])),
+                        ('map_reply_records_in', (YLeaf(YType.uint64, 'map-reply-records-in'), ['int'])),
+                        ('map_reply_records_out', (YLeaf(YType.uint64, 'map-reply-records-out'), ['int'])),
+                        ('authoritative_records_in', (YLeaf(YType.uint64, 'authoritative-records-in'), ['int'])),
+                        ('authoritative_records_out', (YLeaf(YType.uint64, 'authoritative-records-out'), ['int'])),
+                        ('non_authoritative_records_in', (YLeaf(YType.uint64, 'non-authoritative-records-in'), ['int'])),
+                        ('non_authoritative_records_out', (YLeaf(YType.uint64, 'non-authoritative-records-out'), ['int'])),
+                        ('negative_records_in', (YLeaf(YType.uint64, 'negative-records-in'), ['int'])),
+                        ('negative_records_out', (YLeaf(YType.uint64, 'negative-records-out'), ['int'])),
+                        ('rloc_probe_records_in', (YLeaf(YType.uint64, 'rloc-probe-records-in'), ['int'])),
+                        ('rloc_probe_records_out', (YLeaf(YType.uint64, 'rloc-probe-records-out'), ['int'])),
+                        ('ms_proxy_reply_records_out', (YLeaf(YType.uint64, 'ms-proxy-reply-records-out'), ['int'])),
+                        ('wlc_subscribe_in', (YLeaf(YType.uint64, 'wlc-subscribe-in'), ['int'])),
+                        ('wlc_subscribe_out', (YLeaf(YType.uint64, 'wlc-subscribe-out'), ['int'])),
+                        ('wlc_subscribe_in_failure', (YLeaf(YType.uint64, 'wlc-subscribe-in-failure'), ['int'])),
+                        ('wlc_subscribe_out_failure', (YLeaf(YType.uint64, 'wlc-subscribe-out-failure'), ['int'])),
+                        ('wlc_unsubscribe_in', (YLeaf(YType.uint64, 'wlc-unsubscribe-in'), ['int'])),
+                        ('wlc_unsubscribe_out', (YLeaf(YType.uint64, 'wlc-unsubscribe-out'), ['int'])),
+                        ('wlc_unsubscribe_in_failure', (YLeaf(YType.uint64, 'wlc-unsubscribe-in-failure'), ['int'])),
+                        ('wlc_unsubscribe_out_failure', (YLeaf(YType.uint64, 'wlc-unsubscribe-out-failure'), ['int'])),
+                        ('map_register_records_in', (YLeaf(YType.uint64, 'map-register-records-in'), ['int'])),
+                        ('map_register_records_out', (YLeaf(YType.uint64, 'map-register-records-out'), ['int'])),
+                        ('map_registers_ms_disabled', (YLeaf(YType.uint64, 'map-registers-ms-disabled'), ['int'])),
+                        ('map_registers_auth_failed', (YLeaf(YType.uint64, 'map-registers-auth-failed'), ['int'])),
+                        ('map_registers_from_disallowed_locators', (YLeaf(YType.uint64, 'map-registers-from-disallowed-locators'), ['int'])),
+                        ('wlc_map_register_records_in', (YLeaf(YType.uint64, 'wlc-map-register-records-in'), ['int'])),
+                        ('wlc_map_register_records_out', (YLeaf(YType.uint64, 'wlc-map-register-records-out'), ['int'])),
+                        ('wlc_map_register_records_in_ap', (YLeaf(YType.uint64, 'wlc-map-register-records-in-ap'), ['int'])),
+                        ('wlc_map_register_records_out_ap', (YLeaf(YType.uint64, 'wlc-map-register-records-out-ap'), ['int'])),
+                        ('wlc_map_register_records_in_client', (YLeaf(YType.uint64, 'wlc-map-register-records-in-client'), ['int'])),
+                        ('wlc_map_register_records_out_client', (YLeaf(YType.uint64, 'wlc-map-register-records-out-client'), ['int'])),
+                        ('wlc_map_register_records_in_failure', (YLeaf(YType.uint64, 'wlc-map-register-records-in-failure'), ['int'])),
+                        ('wlc_map_register_records_out_failure', (YLeaf(YType.uint64, 'wlc-map-register-records-out-failure'), ['int'])),
+                        ('map_notify_records_in', (YLeaf(YType.uint64, 'map-notify-records-in'), ['int'])),
+                        ('map_notify_records_out', (YLeaf(YType.uint64, 'map-notify-records-out'), ['int'])),
+                        ('map_notify_auth_failed', (YLeaf(YType.uint64, 'map-notify-auth-failed'), ['int'])),
+                        ('wlc_map_notify_records_in', (YLeaf(YType.uint64, 'wlc-map-notify-records-in'), ['int'])),
+                        ('wlc_map_notify_records_out', (YLeaf(YType.uint64, 'wlc-map-notify-records-out'), ['int'])),
+                        ('wlc_map_notify_records_in_ap', (YLeaf(YType.uint64, 'wlc-map-notify-records-in-ap'), ['int'])),
+                        ('wlc_map_notify_records_out_ap', (YLeaf(YType.uint64, 'wlc-map-notify-records-out-ap'), ['int'])),
+                        ('wlc_map_notify_records_in_client', (YLeaf(YType.uint64, 'wlc-map-notify-records-in-client'), ['int'])),
+                        ('wlc_map_notify_records_out_client', (YLeaf(YType.uint64, 'wlc-map-notify-records-out-client'), ['int'])),
+                        ('wlc_map_notify_records_in_failure', (YLeaf(YType.uint64, 'wlc-map-notify-records-in-failure'), ['int'])),
+                        ('wlc_map_notify_records_out_failure', (YLeaf(YType.uint64, 'wlc-map-notify-records-out-failure'), ['int'])),
+                        ('mapping_record_ttl_alerts', (YLeaf(YType.uint64, 'mapping-record-ttl-alerts'), ['int'])),
+                        ('remote_eid_entries_created', (YLeaf(YType.uint64, 'remote-eid-entries-created'), ['int'])),
+                        ('remote_eid_entries_deleted', (YLeaf(YType.uint64, 'remote-eid-entries-deleted'), ['int'])),
+                        ('remote_eid_nsf_replay_entries_created', (YLeaf(YType.uint64, 'remote-eid-nsf-replay-entries-created'), ['int'])),
+                        ('forwarding_data_signals_processed', (YLeaf(YType.uint64, 'forwarding-data-signals-processed'), ['int'])),
+                        ('forwarding_data_signals_dropped', (YLeaf(YType.uint64, 'forwarding-data-signals-dropped'), ['int'])),
+                        ('forwarding_reachability_reports_processed', (YLeaf(YType.uint64, 'forwarding-reachability-reports-processed'), ['int'])),
+                        ('forwarding_reachability_reports_dropped', (YLeaf(YType.uint64, 'forwarding-reachability-reports-dropped'), ['int'])),
+                        ('is_etr_accept_mapping', (YLeaf(YType.boolean, 'is-etr-accept-mapping'), ['bool'])),
+                        ('is_etr_accept_mapping_verify', (YLeaf(YType.boolean, 'is-etr-accept-mapping-verify'), ['bool'])),
                     ])
                     self.iaftype = None
                     self.l2_domain_id = None
@@ -1136,6 +1146,7 @@ class LispState(Entity):
                     self.map_resolvers = YList(self)
                     self.proxy_etrs = YList(self)
                     self._segment_path = lambda: "af" + "[iaftype='" + str(self.iaftype) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LispState.LispRouters.Instances.Af, ['iaftype', 'l2_domain_id', 'map_cache_size', 'map_cache_limit', 'etr_map_cache_ttl', 'registration_more_specific', 'registration_more_specific_warning_threshold', 'registration_more_specific_limit', 'map_cache_threshold', 'map_requests_in', 'map_requests_out', 'encapsulated_map_requests_in', 'encapsulated_map_requests_out', 'rloc_probe_map_requests_in', 'rloc_probe_map_requests_out', 'map_requests_expired_on_queue', 'map_requests_no_reply', 'map_requests_from_disallowed_locators', 'smr_map_requests_in', 'smr_map_requests_out', 'ddt_itr_map_requests_dropped', 'ddt_itr_map_requests_nonce_collision', 'ddt_itr_map_requests_bad_xtr_nonce', 'mr_map_requests_forwarded', 'ms_map_requests_forwarded', 'to_alt_map_requests_out', 'map_reply_records_in', 'map_reply_records_out', 'authoritative_records_in', 'authoritative_records_out', 'non_authoritative_records_in', 'non_authoritative_records_out', 'negative_records_in', 'negative_records_out', 'rloc_probe_records_in', 'rloc_probe_records_out', 'ms_proxy_reply_records_out', 'wlc_subscribe_in', 'wlc_subscribe_out', 'wlc_subscribe_in_failure', 'wlc_subscribe_out_failure', 'wlc_unsubscribe_in', 'wlc_unsubscribe_out', 'wlc_unsubscribe_in_failure', 'wlc_unsubscribe_out_failure', 'map_register_records_in', 'map_register_records_out', 'map_registers_ms_disabled', 'map_registers_auth_failed', 'map_registers_from_disallowed_locators', 'wlc_map_register_records_in', 'wlc_map_register_records_out', 'wlc_map_register_records_in_ap', 'wlc_map_register_records_out_ap', 'wlc_map_register_records_in_client', 'wlc_map_register_records_out_client', 'wlc_map_register_records_in_failure', 'wlc_map_register_records_out_failure', 'map_notify_records_in', 'map_notify_records_out', 'map_notify_auth_failed', 'wlc_map_notify_records_in', 'wlc_map_notify_records_out', 'wlc_map_notify_records_in_ap', 'wlc_map_notify_records_out_ap', 'wlc_map_notify_records_in_client', 'wlc_map_notify_records_out_client', 'wlc_map_notify_records_in_failure', 'wlc_map_notify_records_out_failure', 'mapping_record_ttl_alerts', 'remote_eid_entries_created', 'remote_eid_entries_deleted', 'remote_eid_nsf_replay_entries_created', 'forwarding_data_signals_processed', 'forwarding_data_signals_dropped', 'forwarding_reachability_reports_processed', 'forwarding_reachability_reports_dropped', 'is_etr_accept_mapping', 'is_etr_accept_mapping_verify'], name, value)
@@ -1180,7 +1191,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.Role, self).__init__()
@@ -1192,12 +1203,12 @@ class LispState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('is_ms', YLeaf(YType.boolean, 'is-ms')),
-                            ('is_mr', YLeaf(YType.boolean, 'is-mr')),
-                            ('is_itr', YLeaf(YType.boolean, 'is-itr')),
-                            ('is_etr', YLeaf(YType.boolean, 'is-etr')),
-                            ('is_pitr', YLeaf(YType.boolean, 'is-pitr')),
-                            ('is_petr', YLeaf(YType.boolean, 'is-petr')),
+                            ('is_ms', (YLeaf(YType.boolean, 'is-ms'), ['bool'])),
+                            ('is_mr', (YLeaf(YType.boolean, 'is-mr'), ['bool'])),
+                            ('is_itr', (YLeaf(YType.boolean, 'is-itr'), ['bool'])),
+                            ('is_etr', (YLeaf(YType.boolean, 'is-etr'), ['bool'])),
+                            ('is_pitr', (YLeaf(YType.boolean, 'is-pitr'), ['bool'])),
+                            ('is_petr', (YLeaf(YType.boolean, 'is-petr'), ['bool'])),
                         ])
                         self.is_ms = None
                         self.is_mr = None
@@ -1206,6 +1217,7 @@ class LispState(Entity):
                         self.is_pitr = None
                         self.is_petr = None
                         self._segment_path = lambda: "role"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.Role, ['is_ms', 'is_mr', 'is_itr', 'is_etr', 'is_pitr', 'is_petr'], name, value)
@@ -1311,7 +1323,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapCache, self).__init__()
@@ -1323,20 +1335,20 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','prefix']
                         self._child_classes = OrderedDict([("map-cache-rloc", ("map_cache_rloc", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc))])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('prefix', YLeaf(YType.str, 'prefix')),
-                            ('up_time', YLeaf(YType.str, 'up-time')),
-                            ('last_modified_time', YLeaf(YType.str, 'last-modified-time')),
-                            ('last_update_time', YLeaf(YType.str, 'last-update-time')),
-                            ('ttl', YLeaf(YType.uint32, 'ttl')),
-                            ('is_authoritative', YLeaf(YType.boolean, 'is-authoritative')),
-                            ('is_static', YLeaf(YType.boolean, 'is-static')),
-                            ('is_negative', YLeaf(YType.boolean, 'is-negative')),
-                            ('nmr_action', YLeaf(YType.enumeration, 'nmr-action')),
-                            ('expiry_time', YLeaf(YType.str, 'expiry-time')),
-                            ('encapsulated_packets', YLeaf(YType.uint64, 'encapsulated-packets')),
-                            ('encapsulated_octets', YLeaf(YType.uint64, 'encapsulated-octets')),
-                            ('is_active', YLeaf(YType.boolean, 'is-active')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                            ('up_time', (YLeaf(YType.str, 'up-time'), ['str'])),
+                            ('last_modified_time', (YLeaf(YType.str, 'last-modified-time'), ['str'])),
+                            ('last_update_time', (YLeaf(YType.str, 'last-update-time'), ['str'])),
+                            ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                            ('is_authoritative', (YLeaf(YType.boolean, 'is-authoritative'), ['bool'])),
+                            ('is_static', (YLeaf(YType.boolean, 'is-static'), ['bool'])),
+                            ('is_negative', (YLeaf(YType.boolean, 'is-negative'), ['bool'])),
+                            ('nmr_action', (YLeaf(YType.enumeration, 'nmr-action'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispMapReplyActionType', '')])),
+                            ('expiry_time', (YLeaf(YType.str, 'expiry-time'), ['str'])),
+                            ('encapsulated_packets', (YLeaf(YType.uint64, 'encapsulated-packets'), ['int'])),
+                            ('encapsulated_octets', (YLeaf(YType.uint64, 'encapsulated-octets'), ['int'])),
+                            ('is_active', (YLeaf(YType.boolean, 'is-active'), ['bool'])),
                         ])
                         self.afi = None
                         self.prefix = None
@@ -1355,6 +1367,7 @@ class LispState(Entity):
 
                         self.map_cache_rloc = YList(self)
                         self._segment_path = lambda: "map-cache" + "[afi='" + str(self.afi) + "']" + "[prefix='" + str(self.prefix) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MapCache, ['afi', 'prefix', 'up_time', 'last_modified_time', 'last_update_time', 'ttl', 'is_authoritative', 'is_static', 'is_negative', 'nmr_action', 'expiry_time', 'encapsulated_packets', 'encapsulated_octets', 'is_active'], name, value)
@@ -1412,7 +1425,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2017-10-25'
+                        _revision = '2018-02-20'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc, self).__init__()
@@ -1424,12 +1437,12 @@ class LispState(Entity):
                             self.ylist_key_names = ['afi','address']
                             self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params))])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
-                                ('creation_time', YLeaf(YType.str, 'creation-time')),
-                                ('last_state_change_time', YLeaf(YType.str, 'last-state-change-time')),
-                                ('rloc_probe_rtt', YLeaf(YType.uint32, 'rloc-probe-rtt')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
+                                ('creation_time', (YLeaf(YType.str, 'creation-time'), ['str'])),
+                                ('last_state_change_time', (YLeaf(YType.str, 'last-state-change-time'), ['str'])),
+                                ('rloc_probe_rtt', (YLeaf(YType.uint32, 'rloc-probe-rtt'), ['int'])),
                             ])
                             self.afi = None
                             self.address = None
@@ -1442,6 +1455,7 @@ class LispState(Entity):
                             self.params.parent = self
                             self._children_name_map["params"] = "params"
                             self._segment_path = lambda: "map-cache-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc, ['afi', 'address', 'state', 'creation_time', 'last_state_change_time', 'rloc_probe_rtt'], name, value)
@@ -1484,7 +1498,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2017-10-25'
+                            _revision = '2018-02-20'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params, self).__init__()
@@ -1496,16 +1510,17 @@ class LispState(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('priority', YLeaf(YType.uint8, 'priority')),
-                                    ('weight', YLeaf(YType.uint8, 'weight')),
-                                    ('mcast_priority', YLeaf(YType.uint8, 'mcast-priority')),
-                                    ('mcast_weight', YLeaf(YType.uint8, 'mcast-weight')),
+                                    ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                                    ('weight', (YLeaf(YType.uint8, 'weight'), ['int'])),
+                                    ('mcast_priority', (YLeaf(YType.uint8, 'mcast-priority'), ['int'])),
+                                    ('mcast_weight', (YLeaf(YType.uint8, 'mcast-weight'), ['int'])),
                                 ])
                                 self.priority = None
                                 self.weight = None
                                 self.mcast_priority = None
                                 self.mcast_weight = None
                                 self._segment_path = lambda: "params"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LispState.LispRouters.Instances.Af.MapCache.MapCacheRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
@@ -1542,12 +1557,17 @@ class LispState(Entity):
                     	List of locators
                     	**type**\: list of  		 :py:class:`LocalDbaseRloc <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc>`
                     
+                    .. attribute:: is_proxy
+                    
+                    	If local database mapping is proxy
+                    	**type**\: bool
+                    
                     
 
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.LocalDbase, self).__init__()
@@ -1559,21 +1579,24 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','prefix']
                         self._child_classes = OrderedDict([("local-dbase-rloc", ("local_dbase_rloc", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc))])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('prefix', YLeaf(YType.str, 'prefix')),
-                            ('lsb', YLeaf(YType.uint32, 'lsb')),
-                            ('is_reachable', YLeaf(YType.boolean, 'is-reachable')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                            ('lsb', (YLeaf(YType.uint32, 'lsb'), ['int'])),
+                            ('is_reachable', (YLeaf(YType.boolean, 'is-reachable'), ['bool'])),
+                            ('is_proxy', (YLeaf(YType.boolean, 'is-proxy'), ['bool'])),
                         ])
                         self.afi = None
                         self.prefix = None
                         self.lsb = None
                         self.is_reachable = None
+                        self.is_proxy = None
 
                         self.local_dbase_rloc = YList(self)
                         self._segment_path = lambda: "local-dbase" + "[afi='" + str(self.afi) + "']" + "[prefix='" + str(self.prefix) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(LispState.LispRouters.Instances.Af.LocalDbase, ['afi', 'prefix', 'lsb', 'is_reachable'], name, value)
+                        self._perform_setattr(LispState.LispRouters.Instances.Af.LocalDbase, ['afi', 'prefix', 'lsb', 'is_reachable', 'is_proxy'], name, value)
 
 
                     class LocalDbaseRloc(Entity):
@@ -1610,7 +1633,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2017-10-25'
+                        _revision = '2018-02-20'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc, self).__init__()
@@ -1622,10 +1645,10 @@ class LispState(Entity):
                             self.ylist_key_names = ['afi','address']
                             self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params))])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
-                                ('is_local', YLeaf(YType.boolean, 'is-local')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
+                                ('is_local', (YLeaf(YType.boolean, 'is-local'), ['bool'])),
                             ])
                             self.afi = None
                             self.address = None
@@ -1636,6 +1659,7 @@ class LispState(Entity):
                             self.params.parent = self
                             self._children_name_map["params"] = "params"
                             self._segment_path = lambda: "local-dbase-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc, ['afi', 'address', 'state', 'is_local'], name, value)
@@ -1678,7 +1702,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2017-10-25'
+                            _revision = '2018-02-20'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params, self).__init__()
@@ -1690,16 +1714,17 @@ class LispState(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('priority', YLeaf(YType.uint8, 'priority')),
-                                    ('weight', YLeaf(YType.uint8, 'weight')),
-                                    ('mcast_priority', YLeaf(YType.uint8, 'mcast-priority')),
-                                    ('mcast_weight', YLeaf(YType.uint8, 'mcast-weight')),
+                                    ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                                    ('weight', (YLeaf(YType.uint8, 'weight'), ['int'])),
+                                    ('mcast_priority', (YLeaf(YType.uint8, 'mcast-priority'), ['int'])),
+                                    ('mcast_weight', (YLeaf(YType.uint8, 'mcast-weight'), ['int'])),
                                 ])
                                 self.priority = None
                                 self.weight = None
                                 self.mcast_priority = None
                                 self.mcast_weight = None
                                 self._segment_path = lambda: "params"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LispState.LispRouters.Instances.Af.LocalDbase.LocalDbaseRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
@@ -1784,7 +1809,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MsRegistrations, self).__init__()
@@ -1796,16 +1821,16 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','prefix']
                         self._child_classes = OrderedDict([("last-registration-source", ("last_registration_source", LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource)), ("etr-registrations", ("etr_registrations", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations))])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('prefix', YLeaf(YType.str, 'prefix')),
-                            ('last_registration_source_port', YLeaf(YType.uint16, 'last-registration-source-port')),
-                            ('creation_time', YLeaf(YType.str, 'creation-time')),
-                            ('last_registration_time', YLeaf(YType.str, 'last-registration-time')),
-                            ('site_name', YLeaf(YType.str, 'site-name')),
-                            ('site_description', YLeaf(YType.str, 'site-description')),
-                            ('is_registered', YLeaf(YType.boolean, 'is-registered')),
-                            ('authentication_error', YLeaf(YType.uint64, 'authentication-error')),
-                            ('rloc_mismatch_error', YLeaf(YType.uint64, 'rloc-mismatch-error')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                            ('last_registration_source_port', (YLeaf(YType.uint16, 'last-registration-source-port'), ['int'])),
+                            ('creation_time', (YLeaf(YType.str, 'creation-time'), ['str'])),
+                            ('last_registration_time', (YLeaf(YType.str, 'last-registration-time'), ['str'])),
+                            ('site_name', (YLeaf(YType.str, 'site-name'), ['str'])),
+                            ('site_description', (YLeaf(YType.str, 'site-description'), ['str'])),
+                            ('is_registered', (YLeaf(YType.boolean, 'is-registered'), ['bool'])),
+                            ('authentication_error', (YLeaf(YType.uint64, 'authentication-error'), ['int'])),
+                            ('rloc_mismatch_error', (YLeaf(YType.uint64, 'rloc-mismatch-error'), ['int'])),
                         ])
                         self.afi = None
                         self.prefix = None
@@ -1824,6 +1849,7 @@ class LispState(Entity):
 
                         self.etr_registrations = YList(self)
                         self._segment_path = lambda: "ms-registrations" + "[afi='" + str(self.afi) + "']" + "[prefix='" + str(self.prefix) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations, ['afi', 'prefix', 'last_registration_source_port', 'creation_time', 'last_registration_time', 'site_name', 'site_description', 'is_registered', 'authentication_error', 'rloc_mismatch_error'], name, value)
@@ -1849,7 +1875,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2017-10-25'
+                        _revision = '2018-02-20'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource, self).__init__()
@@ -1861,12 +1887,13 @@ class LispState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('address', YLeaf(YType.str, 'address')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                             ])
                             self.afi = None
                             self.address = None
                             self._segment_path = lambda: "last-registration-source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.LastRegistrationSource, ['afi', 'address'], name, value)
@@ -1933,7 +1960,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2017-10-25'
+                        _revision = '2018-02-20'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations, self).__init__()
@@ -1945,12 +1972,12 @@ class LispState(Entity):
                             self.ylist_key_names = ['source_address','source_port']
                             self._child_classes = OrderedDict([("ms-registration-rloc", ("ms_registration_rloc", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc))])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_port', YLeaf(YType.uint16, 'source-port')),
-                                ('last_registration_time', YLeaf(YType.str, 'last-registration-time')),
-                                ('ttl', YLeaf(YType.uint32, 'ttl')),
-                                ('proxy_reply', YLeaf(YType.boolean, 'proxy-reply')),
-                                ('wants_map_notify', YLeaf(YType.boolean, 'wants-map-notify')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                ('source_port', (YLeaf(YType.uint16, 'source-port'), ['int'])),
+                                ('last_registration_time', (YLeaf(YType.str, 'last-registration-time'), ['str'])),
+                                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                                ('proxy_reply', (YLeaf(YType.boolean, 'proxy-reply'), ['bool'])),
+                                ('wants_map_notify', (YLeaf(YType.boolean, 'wants-map-notify'), ['bool'])),
                             ])
                             self.source_address = None
                             self.source_port = None
@@ -1961,6 +1988,7 @@ class LispState(Entity):
 
                             self.ms_registration_rloc = YList(self)
                             self._segment_path = lambda: "etr-registrations" + "[source-address='" + str(self.source_address) + "']" + "[source-port='" + str(self.source_port) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations, ['source_address', 'source_port', 'last_registration_time', 'ttl', 'proxy_reply', 'wants_map_notify'], name, value)
@@ -2000,7 +2028,7 @@ class LispState(Entity):
                             """
 
                             _prefix = 'lisp-ios-xe-oper'
-                            _revision = '2017-10-25'
+                            _revision = '2018-02-20'
 
                             def __init__(self):
                                 super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc, self).__init__()
@@ -2012,10 +2040,10 @@ class LispState(Entity):
                                 self.ylist_key_names = ['afi','address']
                                 self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params))])
                                 self._leafs = OrderedDict([
-                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('is_local', YLeaf(YType.boolean, 'is-local')),
+                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
+                                    ('is_local', (YLeaf(YType.boolean, 'is-local'), ['bool'])),
                                 ])
                                 self.afi = None
                                 self.address = None
@@ -2026,6 +2054,7 @@ class LispState(Entity):
                                 self.params.parent = self
                                 self._children_name_map["params"] = "params"
                                 self._segment_path = lambda: "ms-registration-rloc" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc, ['afi', 'address', 'state', 'is_local'], name, value)
@@ -2068,7 +2097,7 @@ class LispState(Entity):
                                 """
 
                                 _prefix = 'lisp-ios-xe-oper'
-                                _revision = '2017-10-25'
+                                _revision = '2018-02-20'
 
                                 def __init__(self):
                                     super(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params, self).__init__()
@@ -2080,16 +2109,17 @@ class LispState(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('priority', YLeaf(YType.uint8, 'priority')),
-                                        ('weight', YLeaf(YType.uint8, 'weight')),
-                                        ('mcast_priority', YLeaf(YType.uint8, 'mcast-priority')),
-                                        ('mcast_weight', YLeaf(YType.uint8, 'mcast-weight')),
+                                        ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                                        ('weight', (YLeaf(YType.uint8, 'weight'), ['int'])),
+                                        ('mcast_priority', (YLeaf(YType.uint8, 'mcast-priority'), ['int'])),
+                                        ('mcast_weight', (YLeaf(YType.uint8, 'mcast-weight'), ['int'])),
                                     ])
                                     self.priority = None
                                     self.weight = None
                                     self.mcast_priority = None
                                     self.mcast_weight = None
                                     self._segment_path = lambda: "params"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(LispState.LispRouters.Instances.Af.MsRegistrations.EtrRegistrations.MsRegistrationRloc.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
@@ -2119,7 +2149,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapServers, self).__init__()
@@ -2131,14 +2161,15 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
                         ])
                         self.afi = None
                         self.address = None
                         self.state = None
                         self._segment_path = lambda: "map-servers" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MapServers, ['afi', 'address', 'state'], name, value)
@@ -2169,7 +2200,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.MapResolvers, self).__init__()
@@ -2181,14 +2212,15 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
                         ])
                         self.afi = None
                         self.address = None
                         self.state = None
                         self._segment_path = lambda: "map-resolvers" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.MapResolvers, ['afi', 'address', 'state'], name, value)
@@ -2224,7 +2256,7 @@ class LispState(Entity):
                     """
 
                     _prefix = 'lisp-ios-xe-oper'
-                    _revision = '2017-10-25'
+                    _revision = '2018-02-20'
 
                     def __init__(self):
                         super(LispState.LispRouters.Instances.Af.ProxyEtrs, self).__init__()
@@ -2236,9 +2268,9 @@ class LispState(Entity):
                         self.ylist_key_names = ['afi','address']
                         self._child_classes = OrderedDict([("params", ("params", LispState.LispRouters.Instances.Af.ProxyEtrs.Params))])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
                         ])
                         self.afi = None
                         self.address = None
@@ -2248,6 +2280,7 @@ class LispState(Entity):
                         self.params.parent = self
                         self._children_name_map["params"] = "params"
                         self._segment_path = lambda: "proxy-etrs" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LispState.LispRouters.Instances.Af.ProxyEtrs, ['afi', 'address', 'state'], name, value)
@@ -2290,7 +2323,7 @@ class LispState(Entity):
                         """
 
                         _prefix = 'lisp-ios-xe-oper'
-                        _revision = '2017-10-25'
+                        _revision = '2018-02-20'
 
                         def __init__(self):
                             super(LispState.LispRouters.Instances.Af.ProxyEtrs.Params, self).__init__()
@@ -2302,16 +2335,17 @@ class LispState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('priority', YLeaf(YType.uint8, 'priority')),
-                                ('weight', YLeaf(YType.uint8, 'weight')),
-                                ('mcast_priority', YLeaf(YType.uint8, 'mcast-priority')),
-                                ('mcast_weight', YLeaf(YType.uint8, 'mcast-weight')),
+                                ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                                ('weight', (YLeaf(YType.uint8, 'weight'), ['int'])),
+                                ('mcast_priority', (YLeaf(YType.uint8, 'mcast-priority'), ['int'])),
+                                ('mcast_weight', (YLeaf(YType.uint8, 'mcast-weight'), ['int'])),
                             ])
                             self.priority = None
                             self.weight = None
                             self.mcast_priority = None
                             self.mcast_weight = None
                             self._segment_path = lambda: "params"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LispState.LispRouters.Instances.Af.ProxyEtrs.Params, ['priority', 'weight', 'mcast_priority', 'mcast_weight'], name, value)
@@ -2358,7 +2392,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2017-10-25'
+                _revision = '2018-02-20'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.MsEidMembership, self).__init__()
@@ -2370,16 +2404,17 @@ class LispState(Entity):
                     self.ylist_key_names = ['rloc']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rloc', YLeaf(YType.str, 'rloc')),
-                        ('member_since', YLeaf(YType.str, 'member-since')),
-                        ('is_gleaned', YLeaf(YType.boolean, 'is-gleaned')),
-                        ('is_configured', YLeaf(YType.boolean, 'is-configured')),
+                        ('rloc', (YLeaf(YType.str, 'rloc'), ['str','str'])),
+                        ('member_since', (YLeaf(YType.str, 'member-since'), ['str'])),
+                        ('is_gleaned', (YLeaf(YType.boolean, 'is-gleaned'), ['bool'])),
+                        ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
                     ])
                     self.rloc = None
                     self.member_since = None
                     self.is_gleaned = None
                     self.is_configured = None
                     self._segment_path = lambda: "ms-eid-membership" + "[rloc='" + str(self.rloc) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LispState.LispRouters.Instances.MsEidMembership, ['rloc', 'member_since', 'is_gleaned', 'is_configured'], name, value)
@@ -2425,7 +2460,7 @@ class LispState(Entity):
                 """
 
                 _prefix = 'lisp-ios-xe-oper'
-                _revision = '2017-10-25'
+                _revision = '2018-02-20'
 
                 def __init__(self):
                     super(LispState.LispRouters.Instances.EtrEidMembership, self).__init__()
@@ -2437,16 +2472,17 @@ class LispState(Entity):
                     self.ylist_key_names = ['rloc']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rloc', YLeaf(YType.str, 'rloc')),
-                        ('member_since', YLeaf(YType.str, 'member-since')),
-                        ('is_learned_from_ms', YLeaf(YType.boolean, 'is-learned-from-ms')),
-                        ('is_configured', YLeaf(YType.boolean, 'is-configured')),
+                        ('rloc', (YLeaf(YType.str, 'rloc'), ['str','str'])),
+                        ('member_since', (YLeaf(YType.str, 'member-since'), ['str'])),
+                        ('is_learned_from_ms', (YLeaf(YType.boolean, 'is-learned-from-ms'), ['bool'])),
+                        ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
                     ])
                     self.rloc = None
                     self.member_since = None
                     self.is_learned_from_ms = None
                     self.is_configured = None
                     self._segment_path = lambda: "etr-eid-membership" + "[rloc='" + str(self.rloc) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LispState.LispRouters.Instances.EtrEidMembership, ['rloc', 'member_since', 'is_learned_from_ms', 'is_configured'], name, value)
@@ -2551,7 +2587,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2017-10-25'
+            _revision = '2018-02-20'
 
             def __init__(self):
                 super(LispState.LispRouters.Sessions, self).__init__()
@@ -2563,18 +2599,18 @@ class LispState(Entity):
                 self.ylist_key_names = ['local_address','peer_address','local_port','peer_port']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('local_address', YLeaf(YType.str, 'local-address')),
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('local_port', YLeaf(YType.uint16, 'local-port')),
-                    ('peer_port', YLeaf(YType.uint16, 'peer-port')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('last_state_change_time', YLeaf(YType.str, 'last-state-change-time')),
-                    ('is_role_active', YLeaf(YType.boolean, 'is-role-active')),
-                    ('is_routable', YLeaf(YType.boolean, 'is-routable')),
-                    ('messages_in', YLeaf(YType.uint64, 'messages-in')),
-                    ('messages_out', YLeaf(YType.uint64, 'messages-out')),
-                    ('bytes_in', YLeaf(YType.uint64, 'bytes-in')),
-                    ('bytes_out', YLeaf(YType.uint64, 'bytes-out')),
+                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str','str'])),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                    ('peer_port', (YLeaf(YType.uint16, 'peer-port'), ['int'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispSessionStateType', '')])),
+                    ('last_state_change_time', (YLeaf(YType.str, 'last-state-change-time'), ['str'])),
+                    ('is_role_active', (YLeaf(YType.boolean, 'is-role-active'), ['bool'])),
+                    ('is_routable', (YLeaf(YType.boolean, 'is-routable'), ['bool'])),
+                    ('messages_in', (YLeaf(YType.uint64, 'messages-in'), ['int'])),
+                    ('messages_out', (YLeaf(YType.uint64, 'messages-out'), ['int'])),
+                    ('bytes_in', (YLeaf(YType.uint64, 'bytes-in'), ['int'])),
+                    ('bytes_out', (YLeaf(YType.uint64, 'bytes-out'), ['int'])),
                 ])
                 self.local_address = None
                 self.peer_address = None
@@ -2589,6 +2625,7 @@ class LispState(Entity):
                 self.bytes_in = None
                 self.bytes_out = None
                 self._segment_path = lambda: "sessions" + "[local-address='" + str(self.local_address) + "']" + "[peer-address='" + str(self.peer_address) + "']" + "[local-port='" + str(self.local_port) + "']" + "[peer-port='" + str(self.peer_port) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LispState.LispRouters.Sessions, ['local_address', 'peer_address', 'local_port', 'peer_port', 'state', 'last_state_change_time', 'is_role_active', 'is_routable', 'messages_in', 'messages_out', 'bytes_in', 'bytes_out'], name, value)
@@ -2624,7 +2661,7 @@ class LispState(Entity):
             """
 
             _prefix = 'lisp-ios-xe-oper'
-            _revision = '2017-10-25'
+            _revision = '2018-02-20'
 
             def __init__(self):
                 super(LispState.LispRouters.LocalRlocs, self).__init__()
@@ -2636,19 +2673,136 @@ class LispState(Entity):
                 self.ylist_key_names = ['afi','address']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                    ('address', YLeaf(YType.str, 'address')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('is_local', YLeaf(YType.boolean, 'is-local')),
+                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispRlocStateType', '')])),
+                    ('is_local', (YLeaf(YType.boolean, 'is-local'), ['bool'])),
                 ])
                 self.afi = None
                 self.address = None
                 self.state = None
                 self.is_local = None
                 self._segment_path = lambda: "local-rlocs" + "[afi='" + str(self.afi) + "']" + "[address='" + str(self.address) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LispState.LispRouters.LocalRlocs, ['afi', 'address', 'state', 'is_local'], name, value)
+
+
+        class PrefixLists(Entity):
+            """
+            This list represents list of prefix\-lists configured on this device
+            
+            .. attribute:: name  (key)
+            
+            	Name of the prefix\-list
+            	**type**\: str
+            
+            .. attribute:: count
+            
+            	Number of entries in the list
+            	**type**\: int
+            
+            	**range:** 0..18446744073709551615
+            
+            .. attribute:: prefix_list_entry
+            
+            	List of prefix list entries
+            	**type**\: list of  		 :py:class:`PrefixListEntry <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispState.LispRouters.PrefixLists.PrefixListEntry>`
+            
+            
+
+            """
+
+            _prefix = 'lisp-ios-xe-oper'
+            _revision = '2018-02-20'
+
+            def __init__(self):
+                super(LispState.LispRouters.PrefixLists, self).__init__()
+
+                self.yang_name = "prefix-lists"
+                self.yang_parent_name = "lisp-routers"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = ['name']
+                self._child_classes = OrderedDict([("prefix-list-entry", ("prefix_list_entry", LispState.LispRouters.PrefixLists.PrefixListEntry))])
+                self._leafs = OrderedDict([
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('count', (YLeaf(YType.uint64, 'count'), ['int'])),
+                ])
+                self.name = None
+                self.count = None
+
+                self.prefix_list_entry = YList(self)
+                self._segment_path = lambda: "prefix-lists" + "[name='" + str(self.name) + "']"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(LispState.LispRouters.PrefixLists, ['name', 'count'], name, value)
+
+
+            class PrefixListEntry(Entity):
+                """
+                List of prefix list entries
+                
+                .. attribute:: afi  (key)
+                
+                	LISP Address\-Family of the prefix
+                	**type**\:  :py:class:`LispAddressFamilyType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper.LispAddressFamilyType>`
+                
+                .. attribute:: prefix  (key)
+                
+                	LISP prefix. Format is defined by the AF
+                	**type**\: str
+                
+                .. attribute:: source_has_static
+                
+                	Is the entry sourced statically
+                	**type**\: bool
+                
+                .. attribute:: source_has_rib
+                
+                	Is the entry sourced from RIB
+                	**type**\: bool
+                
+                .. attribute:: source_has_site_reg
+                
+                	Is the entry sourced from site registration
+                	**type**\: bool
+                
+                
+
+                """
+
+                _prefix = 'lisp-ios-xe-oper'
+                _revision = '2018-02-20'
+
+                def __init__(self):
+                    super(LispState.LispRouters.PrefixLists.PrefixListEntry, self).__init__()
+
+                    self.yang_name = "prefix-list-entry"
+                    self.yang_parent_name = "prefix-lists"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = ['afi','prefix']
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_lisp_oper', 'LispAddressFamilyType', '')])),
+                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                        ('source_has_static', (YLeaf(YType.boolean, 'source-has-static'), ['bool'])),
+                        ('source_has_rib', (YLeaf(YType.boolean, 'source-has-rib'), ['bool'])),
+                        ('source_has_site_reg', (YLeaf(YType.boolean, 'source-has-site-reg'), ['bool'])),
+                    ])
+                    self.afi = None
+                    self.prefix = None
+                    self.source_has_static = None
+                    self.source_has_rib = None
+                    self.source_has_site_reg = None
+                    self._segment_path = lambda: "prefix-list-entry" + "[afi='" + str(self.afi) + "']" + "[prefix='" + str(self.prefix) + "']"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(LispState.LispRouters.PrefixLists.PrefixListEntry, ['afi', 'prefix', 'source_has_static', 'source_has_rib', 'source_has_site_reg'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LispState()

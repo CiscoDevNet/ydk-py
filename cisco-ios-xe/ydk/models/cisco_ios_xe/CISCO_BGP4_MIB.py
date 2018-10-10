@@ -63,6 +63,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CbgpSafi(Enum):
     """
     CbgpSafi (Enum Class)
@@ -213,6 +214,7 @@ class CISCOBGP4MIB(Entity):
         self.cbgppeer2addrfamilyprefixtable.parent = self
         self._children_name_map["cbgppeer2addrfamilyprefixtable"] = "cbgpPeer2AddrFamilyPrefixTable"
         self._segment_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOBGP4MIB, [], name, value)
@@ -251,13 +253,14 @@ class CISCOBGP4MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cbgpnotifsenable', YLeaf(YType.bits, 'cbgpNotifsEnable')),
-                ('cbgplocalas', YLeaf(YType.uint32, 'cbgpLocalAs')),
+                ('cbgpnotifsenable', (YLeaf(YType.bits, 'cbgpNotifsEnable'), ['Bits'])),
+                ('cbgplocalas', (YLeaf(YType.uint32, 'cbgpLocalAs'), ['int'])),
             ])
             self.cbgpnotifsenable = Bits()
             self.cbgplocalas = None
             self._segment_path = lambda: "cbgpGlobal"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpGlobal, ['cbgpnotifsenable', 'cbgplocalas'], name, value)
@@ -303,6 +306,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgprouteentry = YList(self)
             self._segment_path = lambda: "cbgpRouteTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpRouteTable, [], name, value)
@@ -445,25 +449,25 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['cbgprouteafi','cbgproutesafi','cbgproutepeertype','cbgproutepeer','cbgprouteaddrprefix','cbgprouteaddrprefixlen']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbgprouteafi', YLeaf(YType.enumeration, 'cbgpRouteAfi')),
-                    ('cbgproutesafi', YLeaf(YType.enumeration, 'cbgpRouteSafi')),
-                    ('cbgproutepeertype', YLeaf(YType.enumeration, 'cbgpRoutePeerType')),
-                    ('cbgproutepeer', YLeaf(YType.str, 'cbgpRoutePeer')),
-                    ('cbgprouteaddrprefix', YLeaf(YType.str, 'cbgpRouteAddrPrefix')),
-                    ('cbgprouteaddrprefixlen', YLeaf(YType.uint32, 'cbgpRouteAddrPrefixLen')),
-                    ('cbgprouteorigin', YLeaf(YType.enumeration, 'cbgpRouteOrigin')),
-                    ('cbgprouteaspathsegment', YLeaf(YType.str, 'cbgpRouteASPathSegment')),
-                    ('cbgproutenexthop', YLeaf(YType.str, 'cbgpRouteNextHop')),
-                    ('cbgproutemedpresent', YLeaf(YType.boolean, 'cbgpRouteMedPresent')),
-                    ('cbgproutemultiexitdisc', YLeaf(YType.uint32, 'cbgpRouteMultiExitDisc')),
-                    ('cbgproutelocalprefpresent', YLeaf(YType.boolean, 'cbgpRouteLocalPrefPresent')),
-                    ('cbgproutelocalpref', YLeaf(YType.uint32, 'cbgpRouteLocalPref')),
-                    ('cbgprouteatomicaggregate', YLeaf(YType.enumeration, 'cbgpRouteAtomicAggregate')),
-                    ('cbgprouteaggregatoras', YLeaf(YType.uint32, 'cbgpRouteAggregatorAS')),
-                    ('cbgprouteaggregatoraddrtype', YLeaf(YType.enumeration, 'cbgpRouteAggregatorAddrType')),
-                    ('cbgprouteaggregatoraddr', YLeaf(YType.str, 'cbgpRouteAggregatorAddr')),
-                    ('cbgproutebest', YLeaf(YType.boolean, 'cbgpRouteBest')),
-                    ('cbgprouteunknownattr', YLeaf(YType.str, 'cbgpRouteUnknownAttr')),
+                    ('cbgprouteafi', (YLeaf(YType.enumeration, 'cbgpRouteAfi'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgproutesafi', (YLeaf(YType.enumeration, 'cbgpRouteSafi'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CbgpSafi', '')])),
+                    ('cbgproutepeertype', (YLeaf(YType.enumeration, 'cbgpRoutePeerType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgproutepeer', (YLeaf(YType.str, 'cbgpRoutePeer'), ['str'])),
+                    ('cbgprouteaddrprefix', (YLeaf(YType.str, 'cbgpRouteAddrPrefix'), ['str'])),
+                    ('cbgprouteaddrprefixlen', (YLeaf(YType.uint32, 'cbgpRouteAddrPrefixLen'), ['int'])),
+                    ('cbgprouteorigin', (YLeaf(YType.enumeration, 'cbgpRouteOrigin'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpRouteTable.CbgpRouteEntry.CbgpRouteOrigin')])),
+                    ('cbgprouteaspathsegment', (YLeaf(YType.str, 'cbgpRouteASPathSegment'), ['str'])),
+                    ('cbgproutenexthop', (YLeaf(YType.str, 'cbgpRouteNextHop'), ['str'])),
+                    ('cbgproutemedpresent', (YLeaf(YType.boolean, 'cbgpRouteMedPresent'), ['bool'])),
+                    ('cbgproutemultiexitdisc', (YLeaf(YType.uint32, 'cbgpRouteMultiExitDisc'), ['int'])),
+                    ('cbgproutelocalprefpresent', (YLeaf(YType.boolean, 'cbgpRouteLocalPrefPresent'), ['bool'])),
+                    ('cbgproutelocalpref', (YLeaf(YType.uint32, 'cbgpRouteLocalPref'), ['int'])),
+                    ('cbgprouteatomicaggregate', (YLeaf(YType.enumeration, 'cbgpRouteAtomicAggregate'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpRouteTable.CbgpRouteEntry.CbgpRouteAtomicAggregate')])),
+                    ('cbgprouteaggregatoras', (YLeaf(YType.uint32, 'cbgpRouteAggregatorAS'), ['int'])),
+                    ('cbgprouteaggregatoraddrtype', (YLeaf(YType.enumeration, 'cbgpRouteAggregatorAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgprouteaggregatoraddr', (YLeaf(YType.str, 'cbgpRouteAggregatorAddr'), ['str'])),
+                    ('cbgproutebest', (YLeaf(YType.boolean, 'cbgpRouteBest'), ['bool'])),
+                    ('cbgprouteunknownattr', (YLeaf(YType.str, 'cbgpRouteUnknownAttr'), ['str'])),
                 ])
                 self.cbgprouteafi = None
                 self.cbgproutesafi = None
@@ -486,6 +490,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgprouteunknownattr = None
                 self._segment_path = lambda: "cbgpRouteEntry" + "[cbgpRouteAfi='" + str(self.cbgprouteafi) + "']" + "[cbgpRouteSafi='" + str(self.cbgproutesafi) + "']" + "[cbgpRoutePeerType='" + str(self.cbgproutepeertype) + "']" + "[cbgpRoutePeer='" + str(self.cbgproutepeer) + "']" + "[cbgpRouteAddrPrefix='" + str(self.cbgprouteaddrprefix) + "']" + "[cbgpRouteAddrPrefixLen='" + str(self.cbgprouteaddrprefixlen) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpRouteTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpRouteTable.CbgpRouteEntry, ['cbgprouteafi', 'cbgproutesafi', 'cbgproutepeertype', 'cbgproutepeer', 'cbgprouteaddrprefix', 'cbgprouteaddrprefixlen', 'cbgprouteorigin', 'cbgprouteaspathsegment', 'cbgproutenexthop', 'cbgproutemedpresent', 'cbgproutemultiexitdisc', 'cbgproutelocalprefpresent', 'cbgproutelocalpref', 'cbgprouteatomicaggregate', 'cbgprouteaggregatoras', 'cbgprouteaggregatoraddrtype', 'cbgprouteaggregatoraddr', 'cbgproutebest', 'cbgprouteunknownattr'], name, value)
@@ -571,6 +576,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeercapsentry = YList(self)
             self._segment_path = lambda: "cbgpPeerCapsTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeerCapsTable, [], name, value)
@@ -629,10 +635,10 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['bgppeerremoteaddr','cbgppeercapcode','cbgppeercapindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgppeerremoteaddr', YLeaf(YType.str, 'bgpPeerRemoteAddr')),
-                    ('cbgppeercapcode', YLeaf(YType.enumeration, 'cbgpPeerCapCode')),
-                    ('cbgppeercapindex', YLeaf(YType.uint32, 'cbgpPeerCapIndex')),
-                    ('cbgppeercapvalue', YLeaf(YType.str, 'cbgpPeerCapValue')),
+                    ('bgppeerremoteaddr', (YLeaf(YType.str, 'bgpPeerRemoteAddr'), ['str'])),
+                    ('cbgppeercapcode', (YLeaf(YType.enumeration, 'cbgpPeerCapCode'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpPeerCapsTable.CbgpPeerCapsEntry.CbgpPeerCapCode')])),
+                    ('cbgppeercapindex', (YLeaf(YType.uint32, 'cbgpPeerCapIndex'), ['int'])),
+                    ('cbgppeercapvalue', (YLeaf(YType.str, 'cbgpPeerCapValue'), ['str'])),
                 ])
                 self.bgppeerremoteaddr = None
                 self.cbgppeercapcode = None
@@ -640,6 +646,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeercapvalue = None
                 self._segment_path = lambda: "cbgpPeerCapsEntry" + "[bgpPeerRemoteAddr='" + str(self.bgppeerremoteaddr) + "']" + "[cbgpPeerCapCode='" + str(self.cbgppeercapcode) + "']" + "[cbgpPeerCapIndex='" + str(self.cbgppeercapindex) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerCapsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeerCapsTable.CbgpPeerCapsEntry, ['bgppeerremoteaddr', 'cbgppeercapcode', 'cbgppeercapindex', 'cbgppeercapvalue'], name, value)
@@ -707,6 +714,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeeraddrfamilyentry = YList(self)
             self._segment_path = lambda: "cbgpPeerAddrFamilyTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeerAddrFamilyTable, [], name, value)
@@ -759,10 +767,10 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['bgppeerremoteaddr','cbgppeeraddrfamilyafi','cbgppeeraddrfamilysafi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgppeerremoteaddr', YLeaf(YType.str, 'bgpPeerRemoteAddr')),
-                    ('cbgppeeraddrfamilyafi', YLeaf(YType.enumeration, 'cbgpPeerAddrFamilyAfi')),
-                    ('cbgppeeraddrfamilysafi', YLeaf(YType.enumeration, 'cbgpPeerAddrFamilySafi')),
-                    ('cbgppeeraddrfamilyname', YLeaf(YType.str, 'cbgpPeerAddrFamilyName')),
+                    ('bgppeerremoteaddr', (YLeaf(YType.str, 'bgpPeerRemoteAddr'), ['str'])),
+                    ('cbgppeeraddrfamilyafi', (YLeaf(YType.enumeration, 'cbgpPeerAddrFamilyAfi'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeeraddrfamilysafi', (YLeaf(YType.enumeration, 'cbgpPeerAddrFamilySafi'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CbgpSafi', '')])),
+                    ('cbgppeeraddrfamilyname', (YLeaf(YType.str, 'cbgpPeerAddrFamilyName'), ['str'])),
                 ])
                 self.bgppeerremoteaddr = None
                 self.cbgppeeraddrfamilyafi = None
@@ -770,6 +778,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeeraddrfamilyname = None
                 self._segment_path = lambda: "cbgpPeerAddrFamilyEntry" + "[bgpPeerRemoteAddr='" + str(self.bgppeerremoteaddr) + "']" + "[cbgpPeerAddrFamilyAfi='" + str(self.cbgppeeraddrfamilyafi) + "']" + "[cbgpPeerAddrFamilySafi='" + str(self.cbgppeeraddrfamilysafi) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeerAddrFamilyTable.CbgpPeerAddrFamilyEntry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeraddrfamilyname'], name, value)
@@ -812,6 +821,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeeraddrfamilyprefixentry = YList(self)
             self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeerAddrFamilyPrefixTable, [], name, value)
@@ -915,17 +925,17 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['bgppeerremoteaddr','cbgppeeraddrfamilyafi','cbgppeeraddrfamilysafi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bgppeerremoteaddr', YLeaf(YType.str, 'bgpPeerRemoteAddr')),
-                    ('cbgppeeraddrfamilyafi', YLeaf(YType.enumeration, 'cbgpPeerAddrFamilyAfi')),
-                    ('cbgppeeraddrfamilysafi', YLeaf(YType.enumeration, 'cbgpPeerAddrFamilySafi')),
-                    ('cbgppeeracceptedprefixes', YLeaf(YType.uint32, 'cbgpPeerAcceptedPrefixes')),
-                    ('cbgppeerdeniedprefixes', YLeaf(YType.uint32, 'cbgpPeerDeniedPrefixes')),
-                    ('cbgppeerprefixadminlimit', YLeaf(YType.uint32, 'cbgpPeerPrefixAdminLimit')),
-                    ('cbgppeerprefixthreshold', YLeaf(YType.uint32, 'cbgpPeerPrefixThreshold')),
-                    ('cbgppeerprefixclearthreshold', YLeaf(YType.uint32, 'cbgpPeerPrefixClearThreshold')),
-                    ('cbgppeeradvertisedprefixes', YLeaf(YType.uint32, 'cbgpPeerAdvertisedPrefixes')),
-                    ('cbgppeersuppressedprefixes', YLeaf(YType.uint32, 'cbgpPeerSuppressedPrefixes')),
-                    ('cbgppeerwithdrawnprefixes', YLeaf(YType.uint32, 'cbgpPeerWithdrawnPrefixes')),
+                    ('bgppeerremoteaddr', (YLeaf(YType.str, 'bgpPeerRemoteAddr'), ['str'])),
+                    ('cbgppeeraddrfamilyafi', (YLeaf(YType.enumeration, 'cbgpPeerAddrFamilyAfi'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeeraddrfamilysafi', (YLeaf(YType.enumeration, 'cbgpPeerAddrFamilySafi'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CbgpSafi', '')])),
+                    ('cbgppeeracceptedprefixes', (YLeaf(YType.uint32, 'cbgpPeerAcceptedPrefixes'), ['int'])),
+                    ('cbgppeerdeniedprefixes', (YLeaf(YType.uint32, 'cbgpPeerDeniedPrefixes'), ['int'])),
+                    ('cbgppeerprefixadminlimit', (YLeaf(YType.uint32, 'cbgpPeerPrefixAdminLimit'), ['int'])),
+                    ('cbgppeerprefixthreshold', (YLeaf(YType.uint32, 'cbgpPeerPrefixThreshold'), ['int'])),
+                    ('cbgppeerprefixclearthreshold', (YLeaf(YType.uint32, 'cbgpPeerPrefixClearThreshold'), ['int'])),
+                    ('cbgppeeradvertisedprefixes', (YLeaf(YType.uint32, 'cbgpPeerAdvertisedPrefixes'), ['int'])),
+                    ('cbgppeersuppressedprefixes', (YLeaf(YType.uint32, 'cbgpPeerSuppressedPrefixes'), ['int'])),
+                    ('cbgppeerwithdrawnprefixes', (YLeaf(YType.uint32, 'cbgpPeerWithdrawnPrefixes'), ['int'])),
                 ])
                 self.bgppeerremoteaddr = None
                 self.cbgppeeraddrfamilyafi = None
@@ -940,6 +950,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeerwithdrawnprefixes = None
                 self._segment_path = lambda: "cbgpPeerAddrFamilyPrefixEntry" + "[bgpPeerRemoteAddr='" + str(self.bgppeerremoteaddr) + "']" + "[cbgpPeerAddrFamilyAfi='" + str(self.cbgppeeraddrfamilyafi) + "']" + "[cbgpPeerAddrFamilySafi='" + str(self.cbgppeeraddrfamilysafi) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeerAddrFamilyPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeerAddrFamilyPrefixTable.CbgpPeerAddrFamilyPrefixEntry, ['bgppeerremoteaddr', 'cbgppeeraddrfamilyafi', 'cbgppeeraddrfamilysafi', 'cbgppeeracceptedprefixes', 'cbgppeerdeniedprefixes', 'cbgppeerprefixadminlimit', 'cbgppeerprefixthreshold', 'cbgppeerprefixclearthreshold', 'cbgppeeradvertisedprefixes', 'cbgppeersuppressedprefixes', 'cbgppeerwithdrawnprefixes'], name, value)
@@ -977,6 +988,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeer2entry = YList(self)
             self._segment_path = lambda: "cbgpPeer2Table"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeer2Table, [], name, value)
@@ -1215,35 +1227,35 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['cbgppeer2type','cbgppeer2remoteaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbgppeer2type', YLeaf(YType.enumeration, 'cbgpPeer2Type')),
-                    ('cbgppeer2remoteaddr', YLeaf(YType.str, 'cbgpPeer2RemoteAddr')),
-                    ('cbgppeer2state', YLeaf(YType.enumeration, 'cbgpPeer2State')),
-                    ('cbgppeer2adminstatus', YLeaf(YType.enumeration, 'cbgpPeer2AdminStatus')),
-                    ('cbgppeer2negotiatedversion', YLeaf(YType.int32, 'cbgpPeer2NegotiatedVersion')),
-                    ('cbgppeer2localaddr', YLeaf(YType.str, 'cbgpPeer2LocalAddr')),
-                    ('cbgppeer2localport', YLeaf(YType.uint16, 'cbgpPeer2LocalPort')),
-                    ('cbgppeer2localas', YLeaf(YType.uint32, 'cbgpPeer2LocalAs')),
-                    ('cbgppeer2localidentifier', YLeaf(YType.str, 'cbgpPeer2LocalIdentifier')),
-                    ('cbgppeer2remoteport', YLeaf(YType.uint16, 'cbgpPeer2RemotePort')),
-                    ('cbgppeer2remoteas', YLeaf(YType.uint32, 'cbgpPeer2RemoteAs')),
-                    ('cbgppeer2remoteidentifier', YLeaf(YType.str, 'cbgpPeer2RemoteIdentifier')),
-                    ('cbgppeer2inupdates', YLeaf(YType.uint32, 'cbgpPeer2InUpdates')),
-                    ('cbgppeer2outupdates', YLeaf(YType.uint32, 'cbgpPeer2OutUpdates')),
-                    ('cbgppeer2intotalmessages', YLeaf(YType.uint32, 'cbgpPeer2InTotalMessages')),
-                    ('cbgppeer2outtotalmessages', YLeaf(YType.uint32, 'cbgpPeer2OutTotalMessages')),
-                    ('cbgppeer2lasterror', YLeaf(YType.str, 'cbgpPeer2LastError')),
-                    ('cbgppeer2fsmestablishedtransitions', YLeaf(YType.uint32, 'cbgpPeer2FsmEstablishedTransitions')),
-                    ('cbgppeer2fsmestablishedtime', YLeaf(YType.uint32, 'cbgpPeer2FsmEstablishedTime')),
-                    ('cbgppeer2connectretryinterval', YLeaf(YType.int32, 'cbgpPeer2ConnectRetryInterval')),
-                    ('cbgppeer2holdtime', YLeaf(YType.int32, 'cbgpPeer2HoldTime')),
-                    ('cbgppeer2keepalive', YLeaf(YType.int32, 'cbgpPeer2KeepAlive')),
-                    ('cbgppeer2holdtimeconfigured', YLeaf(YType.int32, 'cbgpPeer2HoldTimeConfigured')),
-                    ('cbgppeer2keepaliveconfigured', YLeaf(YType.int32, 'cbgpPeer2KeepAliveConfigured')),
-                    ('cbgppeer2minasoriginationinterval', YLeaf(YType.int32, 'cbgpPeer2MinASOriginationInterval')),
-                    ('cbgppeer2minrouteadvertisementinterval', YLeaf(YType.int32, 'cbgpPeer2MinRouteAdvertisementInterval')),
-                    ('cbgppeer2inupdateelapsedtime', YLeaf(YType.uint32, 'cbgpPeer2InUpdateElapsedTime')),
-                    ('cbgppeer2lasterrortxt', YLeaf(YType.str, 'cbgpPeer2LastErrorTxt')),
-                    ('cbgppeer2prevstate', YLeaf(YType.enumeration, 'cbgpPeer2PrevState')),
+                    ('cbgppeer2type', (YLeaf(YType.enumeration, 'cbgpPeer2Type'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2remoteaddr', (YLeaf(YType.str, 'cbgpPeer2RemoteAddr'), ['str'])),
+                    ('cbgppeer2state', (YLeaf(YType.enumeration, 'cbgpPeer2State'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpPeer2Table.CbgpPeer2Entry.CbgpPeer2State')])),
+                    ('cbgppeer2adminstatus', (YLeaf(YType.enumeration, 'cbgpPeer2AdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpPeer2Table.CbgpPeer2Entry.CbgpPeer2AdminStatus')])),
+                    ('cbgppeer2negotiatedversion', (YLeaf(YType.int32, 'cbgpPeer2NegotiatedVersion'), ['int'])),
+                    ('cbgppeer2localaddr', (YLeaf(YType.str, 'cbgpPeer2LocalAddr'), ['str'])),
+                    ('cbgppeer2localport', (YLeaf(YType.uint16, 'cbgpPeer2LocalPort'), ['int'])),
+                    ('cbgppeer2localas', (YLeaf(YType.uint32, 'cbgpPeer2LocalAs'), ['int'])),
+                    ('cbgppeer2localidentifier', (YLeaf(YType.str, 'cbgpPeer2LocalIdentifier'), ['str'])),
+                    ('cbgppeer2remoteport', (YLeaf(YType.uint16, 'cbgpPeer2RemotePort'), ['int'])),
+                    ('cbgppeer2remoteas', (YLeaf(YType.uint32, 'cbgpPeer2RemoteAs'), ['int'])),
+                    ('cbgppeer2remoteidentifier', (YLeaf(YType.str, 'cbgpPeer2RemoteIdentifier'), ['str'])),
+                    ('cbgppeer2inupdates', (YLeaf(YType.uint32, 'cbgpPeer2InUpdates'), ['int'])),
+                    ('cbgppeer2outupdates', (YLeaf(YType.uint32, 'cbgpPeer2OutUpdates'), ['int'])),
+                    ('cbgppeer2intotalmessages', (YLeaf(YType.uint32, 'cbgpPeer2InTotalMessages'), ['int'])),
+                    ('cbgppeer2outtotalmessages', (YLeaf(YType.uint32, 'cbgpPeer2OutTotalMessages'), ['int'])),
+                    ('cbgppeer2lasterror', (YLeaf(YType.str, 'cbgpPeer2LastError'), ['str'])),
+                    ('cbgppeer2fsmestablishedtransitions', (YLeaf(YType.uint32, 'cbgpPeer2FsmEstablishedTransitions'), ['int'])),
+                    ('cbgppeer2fsmestablishedtime', (YLeaf(YType.uint32, 'cbgpPeer2FsmEstablishedTime'), ['int'])),
+                    ('cbgppeer2connectretryinterval', (YLeaf(YType.int32, 'cbgpPeer2ConnectRetryInterval'), ['int'])),
+                    ('cbgppeer2holdtime', (YLeaf(YType.int32, 'cbgpPeer2HoldTime'), ['int'])),
+                    ('cbgppeer2keepalive', (YLeaf(YType.int32, 'cbgpPeer2KeepAlive'), ['int'])),
+                    ('cbgppeer2holdtimeconfigured', (YLeaf(YType.int32, 'cbgpPeer2HoldTimeConfigured'), ['int'])),
+                    ('cbgppeer2keepaliveconfigured', (YLeaf(YType.int32, 'cbgpPeer2KeepAliveConfigured'), ['int'])),
+                    ('cbgppeer2minasoriginationinterval', (YLeaf(YType.int32, 'cbgpPeer2MinASOriginationInterval'), ['int'])),
+                    ('cbgppeer2minrouteadvertisementinterval', (YLeaf(YType.int32, 'cbgpPeer2MinRouteAdvertisementInterval'), ['int'])),
+                    ('cbgppeer2inupdateelapsedtime', (YLeaf(YType.uint32, 'cbgpPeer2InUpdateElapsedTime'), ['int'])),
+                    ('cbgppeer2lasterrortxt', (YLeaf(YType.str, 'cbgpPeer2LastErrorTxt'), ['str'])),
+                    ('cbgppeer2prevstate', (YLeaf(YType.enumeration, 'cbgpPeer2PrevState'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpPeer2Table.CbgpPeer2Entry.CbgpPeer2PrevState')])),
                 ])
                 self.cbgppeer2type = None
                 self.cbgppeer2remoteaddr = None
@@ -1276,6 +1288,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeer2prevstate = None
                 self._segment_path = lambda: "cbgpPeer2Entry" + "[cbgpPeer2Type='" + str(self.cbgppeer2type) + "']" + "[cbgpPeer2RemoteAddr='" + str(self.cbgppeer2remoteaddr) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2Table/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeer2Table.CbgpPeer2Entry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2state', 'cbgppeer2adminstatus', 'cbgppeer2negotiatedversion', 'cbgppeer2localaddr', 'cbgppeer2localport', 'cbgppeer2localas', 'cbgppeer2localidentifier', 'cbgppeer2remoteport', 'cbgppeer2remoteas', 'cbgppeer2remoteidentifier', 'cbgppeer2inupdates', 'cbgppeer2outupdates', 'cbgppeer2intotalmessages', 'cbgppeer2outtotalmessages', 'cbgppeer2lasterror', 'cbgppeer2fsmestablishedtransitions', 'cbgppeer2fsmestablishedtime', 'cbgppeer2connectretryinterval', 'cbgppeer2holdtime', 'cbgppeer2keepalive', 'cbgppeer2holdtimeconfigured', 'cbgppeer2keepaliveconfigured', 'cbgppeer2minasoriginationinterval', 'cbgppeer2minrouteadvertisementinterval', 'cbgppeer2inupdateelapsedtime', 'cbgppeer2lasterrortxt', 'cbgppeer2prevstate'], name, value)
@@ -1422,6 +1435,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeer2capsentry = YList(self)
             self._segment_path = lambda: "cbgpPeer2CapsTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeer2CapsTable, [], name, value)
@@ -1485,11 +1499,11 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['cbgppeer2type','cbgppeer2remoteaddr','cbgppeer2capcode','cbgppeer2capindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbgppeer2type', YLeaf(YType.enumeration, 'cbgpPeer2Type')),
-                    ('cbgppeer2remoteaddr', YLeaf(YType.str, 'cbgpPeer2RemoteAddr')),
-                    ('cbgppeer2capcode', YLeaf(YType.enumeration, 'cbgpPeer2CapCode')),
-                    ('cbgppeer2capindex', YLeaf(YType.uint32, 'cbgpPeer2CapIndex')),
-                    ('cbgppeer2capvalue', YLeaf(YType.str, 'cbgpPeer2CapValue')),
+                    ('cbgppeer2type', (YLeaf(YType.enumeration, 'cbgpPeer2Type'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2remoteaddr', (YLeaf(YType.str, 'cbgpPeer2RemoteAddr'), ['str'])),
+                    ('cbgppeer2capcode', (YLeaf(YType.enumeration, 'cbgpPeer2CapCode'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CISCOBGP4MIB', 'CbgpPeer2CapsTable.CbgpPeer2CapsEntry.CbgpPeer2CapCode')])),
+                    ('cbgppeer2capindex', (YLeaf(YType.uint32, 'cbgpPeer2CapIndex'), ['int'])),
+                    ('cbgppeer2capvalue', (YLeaf(YType.str, 'cbgpPeer2CapValue'), ['str'])),
                 ])
                 self.cbgppeer2type = None
                 self.cbgppeer2remoteaddr = None
@@ -1498,6 +1512,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeer2capvalue = None
                 self._segment_path = lambda: "cbgpPeer2CapsEntry" + "[cbgpPeer2Type='" + str(self.cbgppeer2type) + "']" + "[cbgpPeer2RemoteAddr='" + str(self.cbgppeer2remoteaddr) + "']" + "[cbgpPeer2CapCode='" + str(self.cbgppeer2capcode) + "']" + "[cbgpPeer2CapIndex='" + str(self.cbgppeer2capindex) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2CapsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeer2CapsTable.CbgpPeer2CapsEntry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2capcode', 'cbgppeer2capindex', 'cbgppeer2capvalue'], name, value)
@@ -1573,6 +1588,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeer2addrfamilyentry = YList(self)
             self._segment_path = lambda: "cbgpPeer2AddrFamilyTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeer2AddrFamilyTable, [], name, value)
@@ -1630,11 +1646,11 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['cbgppeer2type','cbgppeer2remoteaddr','cbgppeer2addrfamilyafi','cbgppeer2addrfamilysafi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbgppeer2type', YLeaf(YType.enumeration, 'cbgpPeer2Type')),
-                    ('cbgppeer2remoteaddr', YLeaf(YType.str, 'cbgpPeer2RemoteAddr')),
-                    ('cbgppeer2addrfamilyafi', YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilyAfi')),
-                    ('cbgppeer2addrfamilysafi', YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilySafi')),
-                    ('cbgppeer2addrfamilyname', YLeaf(YType.str, 'cbgpPeer2AddrFamilyName')),
+                    ('cbgppeer2type', (YLeaf(YType.enumeration, 'cbgpPeer2Type'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2remoteaddr', (YLeaf(YType.str, 'cbgpPeer2RemoteAddr'), ['str'])),
+                    ('cbgppeer2addrfamilyafi', (YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilyAfi'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2addrfamilysafi', (YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilySafi'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CbgpSafi', '')])),
+                    ('cbgppeer2addrfamilyname', (YLeaf(YType.str, 'cbgpPeer2AddrFamilyName'), ['str'])),
                 ])
                 self.cbgppeer2type = None
                 self.cbgppeer2remoteaddr = None
@@ -1643,6 +1659,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeer2addrfamilyname = None
                 self._segment_path = lambda: "cbgpPeer2AddrFamilyEntry" + "[cbgpPeer2Type='" + str(self.cbgppeer2type) + "']" + "[cbgpPeer2RemoteAddr='" + str(self.cbgppeer2remoteaddr) + "']" + "[cbgpPeer2AddrFamilyAfi='" + str(self.cbgppeer2addrfamilyafi) + "']" + "[cbgpPeer2AddrFamilySafi='" + str(self.cbgppeer2addrfamilysafi) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeer2AddrFamilyTable.CbgpPeer2AddrFamilyEntry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2addrfamilyname'], name, value)
@@ -1685,6 +1702,7 @@ class CISCOBGP4MIB(Entity):
             self.cbgppeer2addrfamilyprefixentry = YList(self)
             self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixTable"
             self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGP4MIB.CbgpPeer2AddrFamilyPrefixTable, [], name, value)
@@ -1797,18 +1815,18 @@ class CISCOBGP4MIB(Entity):
                 self.ylist_key_names = ['cbgppeer2type','cbgppeer2remoteaddr','cbgppeer2addrfamilyafi','cbgppeer2addrfamilysafi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cbgppeer2type', YLeaf(YType.enumeration, 'cbgpPeer2Type')),
-                    ('cbgppeer2remoteaddr', YLeaf(YType.str, 'cbgpPeer2RemoteAddr')),
-                    ('cbgppeer2addrfamilyafi', YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilyAfi')),
-                    ('cbgppeer2addrfamilysafi', YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilySafi')),
-                    ('cbgppeer2acceptedprefixes', YLeaf(YType.uint32, 'cbgpPeer2AcceptedPrefixes')),
-                    ('cbgppeer2deniedprefixes', YLeaf(YType.uint32, 'cbgpPeer2DeniedPrefixes')),
-                    ('cbgppeer2prefixadminlimit', YLeaf(YType.uint32, 'cbgpPeer2PrefixAdminLimit')),
-                    ('cbgppeer2prefixthreshold', YLeaf(YType.uint32, 'cbgpPeer2PrefixThreshold')),
-                    ('cbgppeer2prefixclearthreshold', YLeaf(YType.uint32, 'cbgpPeer2PrefixClearThreshold')),
-                    ('cbgppeer2advertisedprefixes', YLeaf(YType.uint32, 'cbgpPeer2AdvertisedPrefixes')),
-                    ('cbgppeer2suppressedprefixes', YLeaf(YType.uint32, 'cbgpPeer2SuppressedPrefixes')),
-                    ('cbgppeer2withdrawnprefixes', YLeaf(YType.uint32, 'cbgpPeer2WithdrawnPrefixes')),
+                    ('cbgppeer2type', (YLeaf(YType.enumeration, 'cbgpPeer2Type'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2remoteaddr', (YLeaf(YType.str, 'cbgpPeer2RemoteAddr'), ['str'])),
+                    ('cbgppeer2addrfamilyafi', (YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilyAfi'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cbgppeer2addrfamilysafi', (YLeaf(YType.enumeration, 'cbgpPeer2AddrFamilySafi'), [('ydk.models.cisco_ios_xe.CISCO_BGP4_MIB', 'CbgpSafi', '')])),
+                    ('cbgppeer2acceptedprefixes', (YLeaf(YType.uint32, 'cbgpPeer2AcceptedPrefixes'), ['int'])),
+                    ('cbgppeer2deniedprefixes', (YLeaf(YType.uint32, 'cbgpPeer2DeniedPrefixes'), ['int'])),
+                    ('cbgppeer2prefixadminlimit', (YLeaf(YType.uint32, 'cbgpPeer2PrefixAdminLimit'), ['int'])),
+                    ('cbgppeer2prefixthreshold', (YLeaf(YType.uint32, 'cbgpPeer2PrefixThreshold'), ['int'])),
+                    ('cbgppeer2prefixclearthreshold', (YLeaf(YType.uint32, 'cbgpPeer2PrefixClearThreshold'), ['int'])),
+                    ('cbgppeer2advertisedprefixes', (YLeaf(YType.uint32, 'cbgpPeer2AdvertisedPrefixes'), ['int'])),
+                    ('cbgppeer2suppressedprefixes', (YLeaf(YType.uint32, 'cbgpPeer2SuppressedPrefixes'), ['int'])),
+                    ('cbgppeer2withdrawnprefixes', (YLeaf(YType.uint32, 'cbgpPeer2WithdrawnPrefixes'), ['int'])),
                 ])
                 self.cbgppeer2type = None
                 self.cbgppeer2remoteaddr = None
@@ -1824,6 +1842,7 @@ class CISCOBGP4MIB(Entity):
                 self.cbgppeer2withdrawnprefixes = None
                 self._segment_path = lambda: "cbgpPeer2AddrFamilyPrefixEntry" + "[cbgpPeer2Type='" + str(self.cbgppeer2type) + "']" + "[cbgpPeer2RemoteAddr='" + str(self.cbgppeer2remoteaddr) + "']" + "[cbgpPeer2AddrFamilyAfi='" + str(self.cbgppeer2addrfamilyafi) + "']" + "[cbgpPeer2AddrFamilySafi='" + str(self.cbgppeer2addrfamilysafi) + "']"
                 self._absolute_path = lambda: "CISCO-BGP4-MIB:CISCO-BGP4-MIB/cbgpPeer2AddrFamilyPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGP4MIB.CbgpPeer2AddrFamilyPrefixTable.CbgpPeer2AddrFamilyPrefixEntry, ['cbgppeer2type', 'cbgppeer2remoteaddr', 'cbgppeer2addrfamilyafi', 'cbgppeer2addrfamilysafi', 'cbgppeer2acceptedprefixes', 'cbgppeer2deniedprefixes', 'cbgppeer2prefixadminlimit', 'cbgppeer2prefixthreshold', 'cbgppeer2prefixclearthreshold', 'cbgppeer2advertisedprefixes', 'cbgppeer2suppressedprefixes', 'cbgppeer2withdrawnprefixes'], name, value)

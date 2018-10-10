@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pppoe\-ea\: PPPoE Ea data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class PppoeEa(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PppoeEa, [], name, value)
@@ -87,6 +89,7 @@ class PppoeEa(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PppoeEa.Nodes, [], name, value)
@@ -130,7 +133,7 @@ class PppoeEa(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("parent-interface-ids", ("parent_interface_ids", PppoeEa.Nodes.Node.ParentInterfaceIds)), ("interface-ids", ("interface_ids", PppoeEa.Nodes.Node.InterfaceIds))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -143,6 +146,7 @@ class PppoeEa(Entity):
                 self._children_name_map["interface_ids"] = "interface-ids"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pppoe-ea-oper:pppoe-ea/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PppoeEa.Nodes.Node, ['node_name'], name, value)
@@ -177,6 +181,7 @@ class PppoeEa(Entity):
 
                     self.parent_interface_id = YList(self)
                     self._segment_path = lambda: "parent-interface-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds, [], name, value)
@@ -191,7 +196,7 @@ class PppoeEa(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: srgv_mac
                     
@@ -203,7 +208,7 @@ class PppoeEa(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: is_in_sync
                     
@@ -227,9 +232,9 @@ class PppoeEa(Entity):
                         self.ylist_key_names = ['parent_interface_name']
                         self._child_classes = OrderedDict([("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac))])
                         self._leafs = OrderedDict([
-                            ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('is_in_sync', YLeaf(YType.boolean, 'is-in-sync')),
+                            ('parent_interface_name', (YLeaf(YType.str, 'parent-interface-name'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('is_in_sync', (YLeaf(YType.boolean, 'is-in-sync'), ['bool'])),
                         ])
                         self.parent_interface_name = None
                         self.interface = None
@@ -239,9 +244,10 @@ class PppoeEa(Entity):
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
                         self._segment_path = lambda: "parent-interface-id" + "[parent-interface-name='" + str(self.parent_interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', 'interface', 'is_in_sync'], name, value)
+                        self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId, ['parent_interface_name', u'interface', u'is_in_sync'], name, value)
 
 
                     class SrgvMac(Entity):
@@ -272,13 +278,14 @@ class PppoeEa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                                ('macaddr', (YLeaf(YType.str, 'macaddr'), ['str'])),
                             ])
                             self.macaddr = None
                             self._segment_path = lambda: "srgv-mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, ['macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.ParentInterfaceIds.ParentInterfaceId.SrgvMac, [u'macaddr'], name, value)
 
 
             class InterfaceIds(Entity):
@@ -310,6 +317,7 @@ class PppoeEa(Entity):
 
                     self.interface_id = YList(self)
                     self._segment_path = lambda: "interface-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds, [], name, value)
@@ -324,7 +332,7 @@ class PppoeEa(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: peer_mac
                     
@@ -346,7 +354,7 @@ class PppoeEa(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: session_id
                     
@@ -360,7 +368,7 @@ class PppoeEa(Entity):
                     	Parent Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: is_priority_set
                     
@@ -408,15 +416,15 @@ class PppoeEa(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("peer-mac", ("peer_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac)), ("local-mac", ("local_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac)), ("srgv-mac", ("srgv_mac", PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('session_id', YLeaf(YType.uint16, 'session-id')),
-                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                            ('is_priority_set', YLeaf(YType.boolean, 'is-priority-set')),
-                            ('priority', YLeaf(YType.uint8, 'priority')),
-                            ('is_in_sync', YLeaf(YType.boolean, 'is-in-sync')),
-                            ('is_platform_created', YLeaf(YType.boolean, 'is-platform-created')),
-                            ('vlanid', YLeafList(YType.uint16, 'vlanid')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('session_id', (YLeaf(YType.uint16, 'session-id'), ['int'])),
+                            ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                            ('is_priority_set', (YLeaf(YType.boolean, 'is-priority-set'), ['bool'])),
+                            ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                            ('is_in_sync', (YLeaf(YType.boolean, 'is-in-sync'), ['bool'])),
+                            ('is_platform_created', (YLeaf(YType.boolean, 'is-platform-created'), ['bool'])),
+                            ('vlanid', (YLeafList(YType.uint16, 'vlanid'), ['int'])),
                         ])
                         self.interface_name = None
                         self.interface = None
@@ -440,9 +448,10 @@ class PppoeEa(Entity):
                         self.srgv_mac.parent = self
                         self._children_name_map["srgv_mac"] = "srgv-mac"
                         self._segment_path = lambda: "interface-id" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', 'interface', 'session_id', 'parent_interface', 'is_priority_set', 'priority', 'is_in_sync', 'is_platform_created', 'vlanid'], name, value)
+                        self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId, ['interface_name', u'interface', u'session_id', u'parent_interface', u'is_priority_set', u'priority', u'is_in_sync', u'is_platform_created', u'vlanid'], name, value)
 
 
                     class PeerMac(Entity):
@@ -473,13 +482,14 @@ class PppoeEa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                                ('macaddr', (YLeaf(YType.str, 'macaddr'), ['str'])),
                             ])
                             self.macaddr = None
                             self._segment_path = lambda: "peer-mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, ['macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.PeerMac, [u'macaddr'], name, value)
 
 
                     class LocalMac(Entity):
@@ -510,13 +520,14 @@ class PppoeEa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                                ('macaddr', (YLeaf(YType.str, 'macaddr'), ['str'])),
                             ])
                             self.macaddr = None
                             self._segment_path = lambda: "local-mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, ['macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.LocalMac, [u'macaddr'], name, value)
 
 
                     class SrgvMac(Entity):
@@ -547,13 +558,14 @@ class PppoeEa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('macaddr', YLeaf(YType.str, 'macaddr')),
+                                ('macaddr', (YLeaf(YType.str, 'macaddr'), ['str'])),
                             ])
                             self.macaddr = None
                             self._segment_path = lambda: "srgv-mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, ['macaddr'], name, value)
+                            self._perform_setattr(PppoeEa.Nodes.Node.InterfaceIds.InterfaceId.SrgvMac, [u'macaddr'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PppoeEa()

@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOOSPFTRAPMIB(Entity):
     """
     
@@ -48,6 +49,7 @@ class CISCOOSPFTRAPMIB(Entity):
         self.cospftrapcontrol.parent = self
         self._children_name_map["cospftrapcontrol"] = "cospfTrapControl"
         self._segment_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOOSPFTRAPMIB, [], name, value)
@@ -96,10 +98,10 @@ class CISCOOSPFTRAPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cospfsettrap', YLeaf(YType.bits, 'cospfSetTrap')),
-                ('cospfconfigerrortype', YLeaf(YType.enumeration, 'cospfConfigErrorType')),
-                ('cospfpackettype', YLeaf(YType.enumeration, 'cospfPacketType')),
-                ('cospfpacketsrc', YLeaf(YType.str, 'cospfPacketSrc')),
+                ('cospfsettrap', (YLeaf(YType.bits, 'cospfSetTrap'), ['Bits'])),
+                ('cospfconfigerrortype', (YLeaf(YType.enumeration, 'cospfConfigErrorType'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB', 'CISCOOSPFTRAPMIB', 'CospfTrapControl.CospfConfigErrorType')])),
+                ('cospfpackettype', (YLeaf(YType.enumeration, 'cospfPacketType'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_TRAP_MIB', 'CISCOOSPFTRAPMIB', 'CospfTrapControl.CospfPacketType')])),
+                ('cospfpacketsrc', (YLeaf(YType.str, 'cospfPacketSrc'), ['str'])),
             ])
             self.cospfsettrap = Bits()
             self.cospfconfigerrortype = None
@@ -107,6 +109,7 @@ class CISCOOSPFTRAPMIB(Entity):
             self.cospfpacketsrc = None
             self._segment_path = lambda: "cospfTrapControl"
             self._absolute_path = lambda: "CISCO-OSPF-TRAP-MIB:CISCO-OSPF-TRAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFTRAPMIB.CospfTrapControl, ['cospfsettrap', 'cospfconfigerrortype', 'cospfpackettype', 'cospfpacketsrc'], name, value)

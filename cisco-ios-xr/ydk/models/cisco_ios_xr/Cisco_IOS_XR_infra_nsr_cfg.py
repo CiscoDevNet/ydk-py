@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   nsr\: NSR global configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Nsr(Entity):
         self.process_failure.parent = self
         self._children_name_map["process_failure"] = "process-failure"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Nsr, [], name, value)
@@ -84,11 +86,12 @@ class Nsr(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('switchover', YLeaf(YType.empty, 'switchover')),
+                ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
             ])
             self.switchover = None
             self._segment_path = lambda: "process-failure"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-nsr-cfg:nsr/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Nsr.ProcessFailure, ['switchover'], name, value)

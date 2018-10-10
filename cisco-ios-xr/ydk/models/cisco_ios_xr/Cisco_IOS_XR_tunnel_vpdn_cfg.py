@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   vpdn\: VPDN configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DfBit(Enum):
@@ -159,9 +160,9 @@ class Vpdn(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("history", ("history", Vpdn.History)), ("redundancy", ("redundancy", Vpdn.Redundancy)), ("local", ("local", Vpdn.Local)), ("templates", ("templates", Vpdn.Templates)), ("caller-id", ("caller_id", Vpdn.CallerId)), ("vpd-ngroups", ("vpd_ngroups", Vpdn.VpdNgroups)), ("loggings", ("loggings", Vpdn.Loggings)), ("l2tp", ("l2tp", Vpdn.L2tp))])
         self._leafs = OrderedDict([
-            ('session_limit', YLeaf(YType.uint32, 'session-limit')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('soft_shut', YLeaf(YType.empty, 'soft-shut')),
+            ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('soft_shut', (YLeaf(YType.empty, 'soft-shut'), ['Empty'])),
         ])
         self.session_limit = None
         self.enable = None
@@ -199,6 +200,7 @@ class Vpdn(Entity):
         self.l2tp.parent = self
         self._children_name_map["l2tp"] = "l2tp"
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vpdn, ['session_limit', 'enable', 'soft_shut'], name, value)
@@ -230,11 +232,12 @@ class Vpdn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('failure', YLeaf(YType.empty, 'failure')),
+                ('failure', (YLeaf(YType.empty, 'failure'), ['Empty'])),
             ])
             self.failure = None
             self._segment_path = lambda: "history"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.History, ['failure'], name, value)
@@ -271,7 +274,7 @@ class Vpdn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("process-failures", ("process_failures", Vpdn.Redundancy.ProcessFailures))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
@@ -280,6 +283,7 @@ class Vpdn(Entity):
             self._children_name_map["process_failures"] = "process-failures"
             self._segment_path = lambda: "redundancy"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Redundancy, ['enable'], name, value)
@@ -311,11 +315,12 @@ class Vpdn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('switchover', YLeaf(YType.empty, 'switchover')),
+                    ('switchover', (YLeaf(YType.empty, 'switchover'), ['Empty'])),
                 ])
                 self.switchover = None
                 self._segment_path = lambda: "process-failures"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/redundancy/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Redundancy.ProcessFailures, ['switchover'], name, value)
@@ -368,10 +373,10 @@ class Vpdn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('secret_text', YLeaf(YType.str, 'secret-text')),
-                ('path', YLeaf(YType.str, 'path')),
-                ('cache_disabled', YLeaf(YType.empty, 'cache-disabled')),
-                ('port', YLeaf(YType.uint16, 'port')),
+                ('secret_text', (YLeaf(YType.str, 'secret-text'), ['str'])),
+                ('path', (YLeaf(YType.str, 'path'), ['str'])),
+                ('cache_disabled', (YLeaf(YType.empty, 'cache-disabled'), ['Empty'])),
+                ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
             ])
             self.secret_text = None
             self.path = None
@@ -379,6 +384,7 @@ class Vpdn(Entity):
             self.port = None
             self._segment_path = lambda: "local"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Local, ['secret_text', 'path', 'cache_disabled', 'port'], name, value)
@@ -414,6 +420,7 @@ class Vpdn(Entity):
             self.template = YList(self)
             self._segment_path = lambda: "templates"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Templates, [], name, value)
@@ -496,11 +503,11 @@ class Vpdn(Entity):
                 self.ylist_key_names = ['template_name']
                 self._child_classes = OrderedDict([("caller-id", ("caller_id", Vpdn.Templates.Template.CallerId)), ("vpn", ("vpn", Vpdn.Templates.Template.Vpn)), ("tunnel", ("tunnel", Vpdn.Templates.Template.Tunnel)), ("ip", ("ip", Vpdn.Templates.Template.Ip)), ("ipv4", ("ipv4", Vpdn.Templates.Template.Ipv4))])
                 self._leafs = OrderedDict([
-                    ('template_name', YLeaf(YType.str, 'template-name')),
-                    ('cisco_avp100_format_e_enable', YLeaf(YType.empty, 'cisco-avp100-format-e-enable')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('l2tp_class', YLeaf(YType.str, 'l2tp-class')),
-                    ('dsl_line_forwarding', YLeaf(YType.empty, 'dsl-line-forwarding')),
+                    ('template_name', (YLeaf(YType.str, 'template-name'), ['str'])),
+                    ('cisco_avp100_format_e_enable', (YLeaf(YType.empty, 'cisco-avp100-format-e-enable'), ['Empty'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('l2tp_class', (YLeaf(YType.str, 'l2tp-class'), ['str'])),
+                    ('dsl_line_forwarding', (YLeaf(YType.empty, 'dsl-line-forwarding'), ['Empty'])),
                 ])
                 self.template_name = None
                 self.cisco_avp100_format_e_enable = None
@@ -529,6 +536,7 @@ class Vpdn(Entity):
                 self._children_name_map["ipv4"] = "ipv4"
                 self._segment_path = lambda: "template" + "[template-name='" + str(self.template_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/templates/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Templates.Template, ['template_name', 'cisco_avp100_format_e_enable', 'description', 'l2tp_class', 'dsl_line_forwarding'], name, value)
@@ -562,10 +570,11 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mask', YLeaf(YType.str, 'mask')),
+                        ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                     ])
                     self.mask = None
                     self._segment_path = lambda: "caller-id"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.CallerId, ['mask'], name, value)
@@ -604,7 +613,7 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("id", ("id", Vpdn.Templates.Template.Vpn.Id))])
                     self._leafs = OrderedDict([
-                        ('vrf', YLeaf(YType.str, 'vrf')),
+                        ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                     ])
                     self.vrf = None
 
@@ -612,6 +621,7 @@ class Vpdn(Entity):
                     self.id.parent = self
                     self._children_name_map["id"] = "id"
                     self._segment_path = lambda: "vpn"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Vpn, ['vrf'], name, value)
@@ -652,12 +662,13 @@ class Vpdn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('oui', YLeaf(YType.str, 'oui')),
-                            ('index', YLeaf(YType.str, 'index')),
+                            ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                            ('index', (YLeaf(YType.str, 'index'), ['str'])),
                         ])
                         self.oui = None
                         self.index = None
                         self._segment_path = lambda: "id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vpdn.Templates.Template.Vpn.Id, ['oui', 'index'], name, value)
@@ -693,10 +704,11 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('busy_timeout', YLeaf(YType.uint32, 'busy-timeout')),
+                        ('busy_timeout', (YLeaf(YType.uint32, 'busy-timeout'), ['int'])),
                     ])
                     self.busy_timeout = None
                     self._segment_path = lambda: "tunnel"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Tunnel, ['busy_timeout'], name, value)
@@ -730,10 +742,11 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tos', YLeaf(YType.uint32, 'tos')),
+                        ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
                     ])
                     self.tos = None
                     self._segment_path = lambda: "ip"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Ip, ['tos'], name, value)
@@ -772,12 +785,13 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('df_bit', YLeaf(YType.enumeration, 'df-bit')),
-                        ('source', YLeaf(YType.str, 'source')),
+                        ('df_bit', (YLeaf(YType.enumeration, 'df-bit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg', 'DfBit', '')])),
+                        ('source', (YLeaf(YType.str, 'source'), ['str'])),
                     ])
                     self.df_bit = None
                     self.source = None
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.Templates.Template.Ipv4, ['df_bit', 'source'], name, value)
@@ -811,11 +825,12 @@ class Vpdn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mask', YLeaf(YType.str, 'mask')),
+                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
             ])
             self.mask = None
             self._segment_path = lambda: "caller-id"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.CallerId, ['mask'], name, value)
@@ -851,6 +866,7 @@ class Vpdn(Entity):
             self.vpd_ngroup = YList(self)
             self._segment_path = lambda: "vpd-ngroups"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.VpdNgroups, [], name, value)
@@ -946,15 +962,15 @@ class Vpdn(Entity):
                 self.ylist_key_names = ['vpd_ngroupname']
                 self._child_classes = OrderedDict([("vpn-id", ("vpn_id", Vpdn.VpdNgroups.VpdNgroup.VpnId)), ("ip", ("ip", Vpdn.VpdNgroups.VpdNgroup.Ip))])
                 self._leafs = OrderedDict([
-                    ('vpd_ngroupname', YLeaf(YType.str, 'vpd-ngroupname')),
-                    ('dsl_line_forwarding', YLeaf(YType.empty, 'dsl-line-forwarding')),
-                    ('cisco_avp100_format_e_enable', YLeaf(YType.empty, 'cisco-avp100-format-e-enable')),
-                    ('desc', YLeaf(YType.str, 'desc')),
-                    ('attribute', YLeaf(YType.str, 'attribute')),
-                    ('l2tp_class', YLeaf(YType.str, 'l2tp-class')),
-                    ('tunnel_busy_timeout', YLeaf(YType.uint32, 'tunnel-busy-timeout')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('sr_ctemplate', YLeaf(YType.str, 'sr-ctemplate')),
+                    ('vpd_ngroupname', (YLeaf(YType.str, 'vpd-ngroupname'), ['str'])),
+                    ('dsl_line_forwarding', (YLeaf(YType.empty, 'dsl-line-forwarding'), ['Empty'])),
+                    ('cisco_avp100_format_e_enable', (YLeaf(YType.empty, 'cisco-avp100-format-e-enable'), ['Empty'])),
+                    ('desc', (YLeaf(YType.str, 'desc'), ['str'])),
+                    ('attribute', (YLeaf(YType.str, 'attribute'), ['str'])),
+                    ('l2tp_class', (YLeaf(YType.str, 'l2tp-class'), ['str'])),
+                    ('tunnel_busy_timeout', (YLeaf(YType.uint32, 'tunnel-busy-timeout'), ['int'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('sr_ctemplate', (YLeaf(YType.str, 'sr-ctemplate'), ['str'])),
                 ])
                 self.vpd_ngroupname = None
                 self.dsl_line_forwarding = None
@@ -975,6 +991,7 @@ class Vpdn(Entity):
                 self._children_name_map["ip"] = "ip"
                 self._segment_path = lambda: "vpd-ngroup" + "[vpd-ngroupname='" + str(self.vpd_ngroupname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/vpd-ngroups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup, ['vpd_ngroupname', 'dsl_line_forwarding', 'cisco_avp100_format_e_enable', 'desc', 'attribute', 'l2tp_class', 'tunnel_busy_timeout', 'vrf_name', 'sr_ctemplate'], name, value)
@@ -1015,12 +1032,13 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vpn_id_oui', YLeaf(YType.str, 'vpn-id-oui')),
-                        ('vpn_id_index', YLeaf(YType.str, 'vpn-id-index')),
+                        ('vpn_id_oui', (YLeaf(YType.str, 'vpn-id-oui'), ['str'])),
+                        ('vpn_id_index', (YLeaf(YType.str, 'vpn-id-index'), ['str'])),
                     ])
                     self.vpn_id_oui = None
                     self.vpn_id_index = None
                     self._segment_path = lambda: "vpn-id"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.VpnId, ['vpn_id_oui', 'vpn_id_index'], name, value)
@@ -1054,10 +1072,11 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tos', YLeaf(YType.uint32, 'tos')),
+                        ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
                     ])
                     self.tos = None
                     self._segment_path = lambda: "ip"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.VpdNgroups.VpdNgroup.Ip, ['tos'], name, value)
@@ -1093,6 +1112,7 @@ class Vpdn(Entity):
             self.logging = YList(self)
             self._segment_path = lambda: "loggings"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.Loggings, [], name, value)
@@ -1124,11 +1144,12 @@ class Vpdn(Entity):
                 self.ylist_key_names = ['option']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('option', YLeaf(YType.enumeration, 'option')),
+                    ('option', (YLeaf(YType.enumeration, 'option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_vpdn_cfg', 'Option', '')])),
                 ])
                 self.option = None
                 self._segment_path = lambda: "logging" + "[option='" + str(self.option) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/loggings/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.Loggings.Logging, ['option'], name, value)
@@ -1172,8 +1193,8 @@ class Vpdn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("session-id", ("session_id", Vpdn.L2tp.SessionId))])
             self._leafs = OrderedDict([
-                ('tcp_mss_adjust', YLeaf(YType.uint32, 'tcp-mss-adjust')),
-                ('reassembly', YLeaf(YType.empty, 'reassembly')),
+                ('tcp_mss_adjust', (YLeaf(YType.uint32, 'tcp-mss-adjust'), ['int'])),
+                ('reassembly', (YLeaf(YType.empty, 'reassembly'), ['Empty'])),
             ])
             self.tcp_mss_adjust = None
             self.reassembly = None
@@ -1183,6 +1204,7 @@ class Vpdn(Entity):
             self._children_name_map["session_id"] = "session-id"
             self._segment_path = lambda: "l2tp"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vpdn.L2tp, ['tcp_mss_adjust', 'reassembly'], name, value)
@@ -1220,6 +1242,7 @@ class Vpdn(Entity):
                 self._children_name_map["space"] = "space"
                 self._segment_path = lambda: "session-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vpdn.L2tp.SessionId, [], name, value)
@@ -1251,11 +1274,12 @@ class Vpdn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('hierarchy', YLeaf(YType.empty, 'hierarchy')),
+                        ('hierarchy', (YLeaf(YType.empty, 'hierarchy'), ['Empty'])),
                     ])
                     self.hierarchy = None
                     self._segment_path = lambda: "space"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-vpdn-cfg:vpdn/l2tp/session-id/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vpdn.L2tp.SessionId.Space, ['hierarchy'], name, value)

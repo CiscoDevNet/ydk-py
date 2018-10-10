@@ -13,6 +13,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CsApsLineFailureCode(Enum):
     """
     CsApsLineFailureCode (Enum Class)
@@ -294,6 +295,7 @@ class CISCOSONETMIB(Entity):
         self.csau4tug3configtable.parent = self
         self._children_name_map["csau4tug3configtable"] = "csAu4Tug3ConfigTable"
         self._segment_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOSONETMIB, [], name, value)
@@ -330,13 +332,14 @@ class CISCOSONETMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csapslinefailurecode', YLeaf(YType.enumeration, 'csApsLineFailureCode')),
-                ('csapslineswitchreason', YLeaf(YType.enumeration, 'csApsLineSwitchReason')),
+                ('csapslinefailurecode', (YLeaf(YType.enumeration, 'csApsLineFailureCode'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CsApsLineFailureCode', '')])),
+                ('csapslineswitchreason', (YLeaf(YType.enumeration, 'csApsLineSwitchReason'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CsApsLineSwitchReason', '')])),
             ])
             self.csapslinefailurecode = None
             self.csapslineswitchreason = None
             self._segment_path = lambda: "csApsConfig"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsApsConfig, ['csapslinefailurecode', 'csapslineswitchreason'], name, value)
@@ -368,11 +371,12 @@ class CISCOSONETMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('csnotificationsenabled', YLeaf(YType.boolean, 'csNotificationsEnabled')),
+                ('csnotificationsenabled', (YLeaf(YType.boolean, 'csNotificationsEnabled'), ['bool'])),
             ])
             self.csnotificationsenabled = None
             self._segment_path = lambda: "csNotifications"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsNotifications, ['csnotificationsenabled'], name, value)
@@ -409,6 +413,7 @@ class CISCOSONETMIB(Entity):
             self.csconfigentry = YList(self)
             self._segment_path = lambda: "csConfigTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsConfigTable, [], name, value)
@@ -504,18 +509,18 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csconfigloopbacktype', YLeaf(YType.enumeration, 'csConfigLoopbackType')),
-                    ('csconfigxmtclocksource', YLeaf(YType.enumeration, 'csConfigXmtClockSource')),
-                    ('csconfigframescramble', YLeaf(YType.enumeration, 'csConfigFrameScramble')),
-                    ('csconfigtype', YLeaf(YType.enumeration, 'csConfigType')),
-                    ('csconfigrdivtype', YLeaf(YType.enumeration, 'csConfigRDIVType')),
-                    ('csconfigrdiptype', YLeaf(YType.enumeration, 'csConfigRDIPType')),
-                    ('cstributarytype', YLeaf(YType.enumeration, 'csTributaryType')),
-                    ('cstributarymappingtype', YLeaf(YType.enumeration, 'csTributaryMappingType')),
-                    ('cstributaryframingtype', YLeaf(YType.enumeration, 'csTributaryFramingType')),
-                    ('cssignallingtransportmode', YLeaf(YType.enumeration, 'csSignallingTransportMode')),
-                    ('cstributarygroupingtype', YLeaf(YType.enumeration, 'csTributaryGroupingType')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csconfigloopbacktype', (YLeaf(YType.enumeration, 'csConfigLoopbackType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigLoopbackType')])),
+                    ('csconfigxmtclocksource', (YLeaf(YType.enumeration, 'csConfigXmtClockSource'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigXmtClockSource')])),
+                    ('csconfigframescramble', (YLeaf(YType.enumeration, 'csConfigFrameScramble'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigFrameScramble')])),
+                    ('csconfigtype', (YLeaf(YType.enumeration, 'csConfigType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigType')])),
+                    ('csconfigrdivtype', (YLeaf(YType.enumeration, 'csConfigRDIVType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigRDIVType')])),
+                    ('csconfigrdiptype', (YLeaf(YType.enumeration, 'csConfigRDIPType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsConfigRDIPType')])),
+                    ('cstributarytype', (YLeaf(YType.enumeration, 'csTributaryType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsTributaryType')])),
+                    ('cstributarymappingtype', (YLeaf(YType.enumeration, 'csTributaryMappingType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsTributaryMappingType')])),
+                    ('cstributaryframingtype', (YLeaf(YType.enumeration, 'csTributaryFramingType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsTributaryFramingType')])),
+                    ('cssignallingtransportmode', (YLeaf(YType.enumeration, 'csSignallingTransportMode'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsSignallingTransportMode')])),
+                    ('cstributarygroupingtype', (YLeaf(YType.enumeration, 'csTributaryGroupingType'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsConfigTable.CsConfigEntry.CsTributaryGroupingType')])),
                 ])
                 self.ifindex = None
                 self.csconfigloopbacktype = None
@@ -531,6 +536,7 @@ class CISCOSONETMIB(Entity):
                 self.cstributarygroupingtype = None
                 self._segment_path = lambda: "csConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CsConfigTable.CsConfigEntry, ['ifindex', 'csconfigloopbacktype', 'csconfigxmtclocksource', 'csconfigframescramble', 'csconfigtype', 'csconfigrdivtype', 'csconfigrdiptype', 'cstributarytype', 'cstributarymappingtype', 'cstributaryframingtype', 'cssignallingtransportmode', 'cstributarygroupingtype'], name, value)
@@ -953,6 +959,7 @@ class CISCOSONETMIB(Entity):
             self.csapsconfigentry = YList(self)
             self._segment_path = lambda: "csApsConfigTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsApsConfigTable, [], name, value)
@@ -1083,22 +1090,22 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['csapsworkingindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csapsworkingindex', YLeaf(YType.int32, 'csApsWorkingIndex')),
-                    ('csapsprotectionindex', YLeaf(YType.int32, 'csApsProtectionIndex')),
-                    ('csapsenable', YLeaf(YType.enumeration, 'csApsEnable')),
-                    ('csapsarchmode', YLeaf(YType.enumeration, 'csApsArchMode')),
-                    ('csapsactiveline', YLeaf(YType.enumeration, 'csApsActiveLine')),
-                    ('csapssigfaultber', YLeaf(YType.uint32, 'csApsSigFaultBER')),
-                    ('csapssigdegradeber', YLeaf(YType.uint32, 'csApsSigDegradeBER')),
-                    ('csapswaittorestore', YLeaf(YType.uint32, 'csApsWaitToRestore')),
-                    ('csapsdirection', YLeaf(YType.enumeration, 'csApsDirection')),
-                    ('csapsrevertive', YLeaf(YType.enumeration, 'csApsRevertive')),
-                    ('csapsdirectionoperational', YLeaf(YType.enumeration, 'csApsDirectionOperational')),
-                    ('csapsarchmodeoperational', YLeaf(YType.enumeration, 'csApsArchModeOperational')),
-                    ('csapschannelprotocol', YLeaf(YType.enumeration, 'csApsChannelProtocol')),
-                    ('csapsfailurestatus', YLeaf(YType.bits, 'csApsFailureStatus')),
-                    ('csapsswitchreason', YLeaf(YType.enumeration, 'csApsSwitchReason')),
-                    ('csapsprimarysection', YLeaf(YType.enumeration, 'csApsPrimarySection')),
+                    ('csapsworkingindex', (YLeaf(YType.int32, 'csApsWorkingIndex'), ['int'])),
+                    ('csapsprotectionindex', (YLeaf(YType.int32, 'csApsProtectionIndex'), ['int'])),
+                    ('csapsenable', (YLeaf(YType.enumeration, 'csApsEnable'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsEnable')])),
+                    ('csapsarchmode', (YLeaf(YType.enumeration, 'csApsArchMode'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsArchMode')])),
+                    ('csapsactiveline', (YLeaf(YType.enumeration, 'csApsActiveLine'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsActiveLine')])),
+                    ('csapssigfaultber', (YLeaf(YType.uint32, 'csApsSigFaultBER'), ['int'])),
+                    ('csapssigdegradeber', (YLeaf(YType.uint32, 'csApsSigDegradeBER'), ['int'])),
+                    ('csapswaittorestore', (YLeaf(YType.uint32, 'csApsWaitToRestore'), ['int'])),
+                    ('csapsdirection', (YLeaf(YType.enumeration, 'csApsDirection'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsDirection')])),
+                    ('csapsrevertive', (YLeaf(YType.enumeration, 'csApsRevertive'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsRevertive')])),
+                    ('csapsdirectionoperational', (YLeaf(YType.enumeration, 'csApsDirectionOperational'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsDirectionOperational')])),
+                    ('csapsarchmodeoperational', (YLeaf(YType.enumeration, 'csApsArchModeOperational'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsArchModeOperational')])),
+                    ('csapschannelprotocol', (YLeaf(YType.enumeration, 'csApsChannelProtocol'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsChannelProtocol')])),
+                    ('csapsfailurestatus', (YLeaf(YType.bits, 'csApsFailureStatus'), ['Bits'])),
+                    ('csapsswitchreason', (YLeaf(YType.enumeration, 'csApsSwitchReason'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CsApsLineSwitchReason', '')])),
+                    ('csapsprimarysection', (YLeaf(YType.enumeration, 'csApsPrimarySection'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsApsConfigTable.CsApsConfigEntry.CsApsPrimarySection')])),
                 ])
                 self.csapsworkingindex = None
                 self.csapsprotectionindex = None
@@ -1118,6 +1125,7 @@ class CISCOSONETMIB(Entity):
                 self.csapsprimarysection = None
                 self._segment_path = lambda: "csApsConfigEntry" + "[csApsWorkingIndex='" + str(self.csapsworkingindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csApsConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CsApsConfigTable.CsApsConfigEntry, ['csapsworkingindex', 'csapsprotectionindex', 'csapsenable', 'csapsarchmode', 'csapsactiveline', 'csapssigfaultber', 'csapssigdegradeber', 'csapswaittorestore', 'csapsdirection', 'csapsrevertive', 'csapsdirectionoperational', 'csapsarchmodeoperational', 'csapschannelprotocol', 'csapsfailurestatus', 'csapsswitchreason', 'csapsprimarysection'], name, value)
@@ -1499,6 +1507,7 @@ class CISCOSONETMIB(Entity):
             self.csstotalentry = YList(self)
             self._segment_path = lambda: "cssTotalTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CssTotalTable, [], name, value)
@@ -1571,11 +1580,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csstotaless', YLeaf(YType.uint32, 'cssTotalESs')),
-                    ('csstotalsess', YLeaf(YType.uint32, 'cssTotalSESs')),
-                    ('csstotalsefss', YLeaf(YType.uint32, 'cssTotalSEFSs')),
-                    ('csstotalcvs', YLeaf(YType.uint32, 'cssTotalCVs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csstotaless', (YLeaf(YType.uint32, 'cssTotalESs'), ['int'])),
+                    ('csstotalsess', (YLeaf(YType.uint32, 'cssTotalSESs'), ['int'])),
+                    ('csstotalsefss', (YLeaf(YType.uint32, 'cssTotalSEFSs'), ['int'])),
+                    ('csstotalcvs', (YLeaf(YType.uint32, 'cssTotalCVs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.csstotaless = None
@@ -1584,6 +1593,7 @@ class CISCOSONETMIB(Entity):
                 self.csstotalcvs = None
                 self._segment_path = lambda: "cssTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CssTotalTable.CssTotalEntry, ['ifindex', 'csstotaless', 'csstotalsess', 'csstotalsefss', 'csstotalcvs'], name, value)
@@ -1620,6 +1630,7 @@ class CISCOSONETMIB(Entity):
             self.csstraceentry = YList(self)
             self._segment_path = lambda: "cssTraceTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CssTraceTable, [], name, value)
@@ -1683,11 +1694,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csstracetotransmit', YLeaf(YType.str, 'cssTraceToTransmit')),
-                    ('csstracetoexpect', YLeaf(YType.str, 'cssTraceToExpect')),
-                    ('csstracefailure', YLeaf(YType.boolean, 'cssTraceFailure')),
-                    ('csstracereceived', YLeaf(YType.str, 'cssTraceReceived')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csstracetotransmit', (YLeaf(YType.str, 'cssTraceToTransmit'), ['str'])),
+                    ('csstracetoexpect', (YLeaf(YType.str, 'cssTraceToExpect'), ['str'])),
+                    ('csstracefailure', (YLeaf(YType.boolean, 'cssTraceFailure'), ['bool'])),
+                    ('csstracereceived', (YLeaf(YType.str, 'cssTraceReceived'), ['str'])),
                 ])
                 self.ifindex = None
                 self.csstracetotransmit = None
@@ -1696,6 +1707,7 @@ class CISCOSONETMIB(Entity):
                 self.csstracereceived = None
                 self._segment_path = lambda: "cssTraceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cssTraceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CssTraceTable.CssTraceEntry, ['ifindex', 'csstracetotransmit', 'csstracetoexpect', 'csstracefailure', 'csstracereceived'], name, value)
@@ -1736,6 +1748,7 @@ class CISCOSONETMIB(Entity):
             self.csltotalentry = YList(self)
             self._segment_path = lambda: "cslTotalTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CslTotalTable, [], name, value)
@@ -1808,11 +1821,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csltotaless', YLeaf(YType.uint32, 'cslTotalESs')),
-                    ('csltotalsess', YLeaf(YType.uint32, 'cslTotalSESs')),
-                    ('csltotalcvs', YLeaf(YType.uint32, 'cslTotalCVs')),
-                    ('csltotaluass', YLeaf(YType.uint32, 'cslTotalUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csltotaless', (YLeaf(YType.uint32, 'cslTotalESs'), ['int'])),
+                    ('csltotalsess', (YLeaf(YType.uint32, 'cslTotalSESs'), ['int'])),
+                    ('csltotalcvs', (YLeaf(YType.uint32, 'cslTotalCVs'), ['int'])),
+                    ('csltotaluass', (YLeaf(YType.uint32, 'cslTotalUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.csltotaless = None
@@ -1821,6 +1834,7 @@ class CISCOSONETMIB(Entity):
                 self.csltotaluass = None
                 self._segment_path = lambda: "cslTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cslTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CslTotalTable.CslTotalEntry, ['ifindex', 'csltotaless', 'csltotalsess', 'csltotalcvs', 'csltotaluass'], name, value)
@@ -1861,6 +1875,7 @@ class CISCOSONETMIB(Entity):
             self.cslfarendtotalentry = YList(self)
             self._segment_path = lambda: "cslFarEndTotalTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CslFarEndTotalTable, [], name, value)
@@ -1933,11 +1948,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cslfarendtotaless', YLeaf(YType.uint32, 'cslFarEndTotalESs')),
-                    ('cslfarendtotalsess', YLeaf(YType.uint32, 'cslFarEndTotalSESs')),
-                    ('cslfarendtotalcvs', YLeaf(YType.uint32, 'cslFarEndTotalCVs')),
-                    ('cslfarendtotaluass', YLeaf(YType.uint32, 'cslFarEndTotalUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cslfarendtotaless', (YLeaf(YType.uint32, 'cslFarEndTotalESs'), ['int'])),
+                    ('cslfarendtotalsess', (YLeaf(YType.uint32, 'cslFarEndTotalSESs'), ['int'])),
+                    ('cslfarendtotalcvs', (YLeaf(YType.uint32, 'cslFarEndTotalCVs'), ['int'])),
+                    ('cslfarendtotaluass', (YLeaf(YType.uint32, 'cslFarEndTotalUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cslfarendtotaless = None
@@ -1946,6 +1961,7 @@ class CISCOSONETMIB(Entity):
                 self.cslfarendtotaluass = None
                 self._segment_path = lambda: "cslFarEndTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cslFarEndTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CslFarEndTotalTable.CslFarEndTotalEntry, ['ifindex', 'cslfarendtotaless', 'cslfarendtotalsess', 'cslfarendtotalcvs', 'cslfarendtotaluass'], name, value)
@@ -1986,6 +2002,7 @@ class CISCOSONETMIB(Entity):
             self.csptotalentry = YList(self)
             self._segment_path = lambda: "cspTotalTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CspTotalTable, [], name, value)
@@ -2058,11 +2075,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csptotaless', YLeaf(YType.uint32, 'cspTotalESs')),
-                    ('csptotalsess', YLeaf(YType.uint32, 'cspTotalSESs')),
-                    ('csptotalcvs', YLeaf(YType.uint32, 'cspTotalCVs')),
-                    ('csptotaluass', YLeaf(YType.uint32, 'cspTotalUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csptotaless', (YLeaf(YType.uint32, 'cspTotalESs'), ['int'])),
+                    ('csptotalsess', (YLeaf(YType.uint32, 'cspTotalSESs'), ['int'])),
+                    ('csptotalcvs', (YLeaf(YType.uint32, 'cspTotalCVs'), ['int'])),
+                    ('csptotaluass', (YLeaf(YType.uint32, 'cspTotalUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.csptotaless = None
@@ -2071,6 +2088,7 @@ class CISCOSONETMIB(Entity):
                 self.csptotaluass = None
                 self._segment_path = lambda: "cspTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CspTotalTable.CspTotalEntry, ['ifindex', 'csptotaless', 'csptotalsess', 'csptotalcvs', 'csptotaluass'], name, value)
@@ -2112,6 +2130,7 @@ class CISCOSONETMIB(Entity):
             self.cspfarendtotalentry = YList(self)
             self._segment_path = lambda: "cspFarEndTotalTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CspFarEndTotalTable, [], name, value)
@@ -2184,11 +2203,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cspfarendtotaless', YLeaf(YType.uint32, 'cspFarEndTotalESs')),
-                    ('cspfarendtotalsess', YLeaf(YType.uint32, 'cspFarEndTotalSESs')),
-                    ('cspfarendtotalcvs', YLeaf(YType.uint32, 'cspFarEndTotalCVs')),
-                    ('cspfarendtotaluass', YLeaf(YType.uint32, 'cspFarEndTotalUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cspfarendtotaless', (YLeaf(YType.uint32, 'cspFarEndTotalESs'), ['int'])),
+                    ('cspfarendtotalsess', (YLeaf(YType.uint32, 'cspFarEndTotalSESs'), ['int'])),
+                    ('cspfarendtotalcvs', (YLeaf(YType.uint32, 'cspFarEndTotalCVs'), ['int'])),
+                    ('cspfarendtotaluass', (YLeaf(YType.uint32, 'cspFarEndTotalUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cspfarendtotaless = None
@@ -2197,6 +2216,7 @@ class CISCOSONETMIB(Entity):
                 self.cspfarendtotaluass = None
                 self._segment_path = lambda: "cspFarEndTotalEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspFarEndTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CspFarEndTotalTable.CspFarEndTotalEntry, ['ifindex', 'cspfarendtotaless', 'cspfarendtotalsess', 'cspfarendtotalcvs', 'cspfarendtotaluass'], name, value)
@@ -2233,6 +2253,7 @@ class CISCOSONETMIB(Entity):
             self.csptraceentry = YList(self)
             self._segment_path = lambda: "cspTraceTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CspTraceTable, [], name, value)
@@ -2297,11 +2318,11 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csptracetotransmit', YLeaf(YType.str, 'cspTraceToTransmit')),
-                    ('csptracetoexpect', YLeaf(YType.str, 'cspTraceToExpect')),
-                    ('csptracefailure', YLeaf(YType.boolean, 'cspTraceFailure')),
-                    ('csptracereceived', YLeaf(YType.str, 'cspTraceReceived')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csptracetotransmit', (YLeaf(YType.str, 'cspTraceToTransmit'), ['str'])),
+                    ('csptracetoexpect', (YLeaf(YType.str, 'cspTraceToExpect'), ['str'])),
+                    ('csptracefailure', (YLeaf(YType.boolean, 'cspTraceFailure'), ['bool'])),
+                    ('csptracereceived', (YLeaf(YType.str, 'cspTraceReceived'), ['str'])),
                 ])
                 self.ifindex = None
                 self.csptracetotransmit = None
@@ -2310,6 +2331,7 @@ class CISCOSONETMIB(Entity):
                 self.csptracereceived = None
                 self._segment_path = lambda: "cspTraceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/cspTraceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CspTraceTable.CspTraceEntry, ['ifindex', 'csptracetotransmit', 'csptracetoexpect', 'csptracefailure', 'csptracereceived'], name, value)
@@ -2348,6 +2370,7 @@ class CISCOSONETMIB(Entity):
             self.csstatsentry = YList(self)
             self._segment_path = lambda: "csStatsTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsStatsTable, [], name, value)
@@ -2441,13 +2464,13 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cssloss', YLeaf(YType.uint32, 'cssLOSs')),
-                    ('csslofs', YLeaf(YType.uint32, 'cssLOFs')),
-                    ('cslaiss', YLeaf(YType.uint32, 'cslAISs')),
-                    ('cslrfis', YLeaf(YType.uint32, 'cslRFIs')),
-                    ('cspaiss', YLeaf(YType.uint32, 'cspAISs')),
-                    ('csprfis', YLeaf(YType.uint32, 'cspRFIs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cssloss', (YLeaf(YType.uint32, 'cssLOSs'), ['int'])),
+                    ('csslofs', (YLeaf(YType.uint32, 'cssLOFs'), ['int'])),
+                    ('cslaiss', (YLeaf(YType.uint32, 'cslAISs'), ['int'])),
+                    ('cslrfis', (YLeaf(YType.uint32, 'cslRFIs'), ['int'])),
+                    ('cspaiss', (YLeaf(YType.uint32, 'cspAISs'), ['int'])),
+                    ('csprfis', (YLeaf(YType.uint32, 'cspRFIs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cssloss = None
@@ -2458,6 +2481,7 @@ class CISCOSONETMIB(Entity):
                 self.csprfis = None
                 self._segment_path = lambda: "csStatsEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CsStatsTable.CsStatsEntry, ['ifindex', 'cssloss', 'csslofs', 'cslaiss', 'cslrfis', 'cspaiss', 'csprfis'], name, value)
@@ -2511,6 +2535,7 @@ class CISCOSONETMIB(Entity):
             self.csau4tug3configentry = YList(self)
             self._segment_path = lambda: "csAu4Tug3ConfigTable"
             self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSONETMIB.CsAu4Tug3ConfigTable, [], name, value)
@@ -2562,15 +2587,16 @@ class CISCOSONETMIB(Entity):
                 self.ylist_key_names = ['ifindex','csau4tug3']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('csau4tug3', YLeaf(YType.int32, 'csAu4Tug3')),
-                    ('csau4tug3payload', YLeaf(YType.enumeration, 'csAu4Tug3Payload')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('csau4tug3', (YLeaf(YType.int32, 'csAu4Tug3'), ['int'])),
+                    ('csau4tug3payload', (YLeaf(YType.enumeration, 'csAu4Tug3Payload'), [('ydk.models.cisco_ios_xe.CISCO_SONET_MIB', 'CISCOSONETMIB', 'CsAu4Tug3ConfigTable.CsAu4Tug3ConfigEntry.CsAu4Tug3Payload')])),
                 ])
                 self.ifindex = None
                 self.csau4tug3 = None
                 self.csau4tug3payload = None
                 self._segment_path = lambda: "csAu4Tug3ConfigEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[csAu4Tug3='" + str(self.csau4tug3) + "']"
                 self._absolute_path = lambda: "CISCO-SONET-MIB:CISCO-SONET-MIB/csAu4Tug3ConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSONETMIB.CsAu4Tug3ConfigTable.CsAu4Tug3ConfigEntry, ['ifindex', 'csau4tug3', 'csau4tug3payload'], name, value)

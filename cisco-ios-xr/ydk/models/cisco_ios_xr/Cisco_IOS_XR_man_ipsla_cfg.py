@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IpslaHistoryFilter(Enum):
@@ -502,6 +503,11 @@ class Ipsla(Entity):
     	Provider Edge(PE) discovery configuration
     	**type**\:  :py:class:`MplsDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.MplsDiscovery>`
     
+    .. attribute:: server_twamp
+    
+    	IPPM Server configuration
+    	**type**\:  :py:class:`ServerTwamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.ServerTwamp>`
+    
     
 
     """
@@ -518,7 +524,7 @@ class Ipsla(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("common", ("common", Ipsla.Common)), ("mpls-lsp-monitor", ("mpls_lsp_monitor", Ipsla.MplsLspMonitor)), ("operation", ("operation_", Ipsla.Operation)), ("responder", ("responder", Ipsla.Responder)), ("mpls-discovery", ("mpls_discovery", Ipsla.MplsDiscovery))])
+        self._child_classes = OrderedDict([("common", ("common", Ipsla.Common)), ("mpls-lsp-monitor", ("mpls_lsp_monitor", Ipsla.MplsLspMonitor)), ("operation", ("operation_", Ipsla.Operation)), ("responder", ("responder", Ipsla.Responder)), ("mpls-discovery", ("mpls_discovery", Ipsla.MplsDiscovery)), ("server-twamp", ("server_twamp", Ipsla.ServerTwamp))])
         self._leafs = OrderedDict()
 
         self.common = Ipsla.Common()
@@ -540,7 +546,12 @@ class Ipsla(Entity):
         self.mpls_discovery = Ipsla.MplsDiscovery()
         self.mpls_discovery.parent = self
         self._children_name_map["mpls_discovery"] = "mpls-discovery"
+
+        self.server_twamp = Ipsla.ServerTwamp()
+        self.server_twamp.parent = self
+        self._children_name_map["server_twamp"] = "server-twamp"
         self._segment_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipsla, [], name, value)
@@ -549,6 +560,11 @@ class Ipsla(Entity):
     class Common(Entity):
         """
         IPSLA application common configuration
+        
+        .. attribute:: hardware_timestamp
+        
+        	Hardware Timestamp configuration
+        	**type**\:  :py:class:`HardwareTimestamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Common.HardwareTimestamp>`
         
         .. attribute:: authentication
         
@@ -579,20 +595,62 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("authentication", ("authentication", Ipsla.Common.Authentication))])
+            self._child_classes = OrderedDict([("hardware-timestamp", ("hardware_timestamp", Ipsla.Common.HardwareTimestamp)), ("authentication", ("authentication", Ipsla.Common.Authentication))])
             self._leafs = OrderedDict([
-                ('low_memory', YLeaf(YType.uint32, 'low-memory')),
+                ('low_memory', (YLeaf(YType.uint32, 'low-memory'), ['int'])),
             ])
             self.low_memory = None
+
+            self.hardware_timestamp = Ipsla.Common.HardwareTimestamp()
+            self.hardware_timestamp.parent = self
+            self._children_name_map["hardware_timestamp"] = "hardware-timestamp"
 
             self.authentication = Ipsla.Common.Authentication()
             self.authentication.parent = self
             self._children_name_map["authentication"] = "authentication"
             self._segment_path = lambda: "common"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.Common, ['low_memory'], name, value)
+
+
+        class HardwareTimestamp(Entity):
+            """
+            Hardware Timestamp configuration
+            
+            .. attribute:: disable
+            
+            	states true if hw\-timestamp is disabled
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'man-ipsla-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipsla.Common.HardwareTimestamp, self).__init__()
+
+                self.yang_name = "hardware-timestamp"
+                self.yang_parent_name = "common"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                ])
+                self.disable = None
+                self._segment_path = lambda: "hardware-timestamp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/common/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipsla.Common.HardwareTimestamp, ['disable'], name, value)
 
 
         class Authentication(Entity):
@@ -623,11 +681,12 @@ class Ipsla(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('key_chain', YLeaf(YType.str, 'key-chain')),
+                    ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
                 ])
                 self.key_chain = None
                 self._segment_path = lambda: "authentication"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/common/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Common.Authentication, ['key_chain'], name, value)
@@ -683,6 +742,7 @@ class Ipsla(Entity):
             self._children_name_map["definitions"] = "definitions"
             self._segment_path = lambda: "mpls-lsp-monitor"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.MplsLspMonitor, [], name, value)
@@ -718,6 +778,7 @@ class Ipsla(Entity):
                 self.reaction = YList(self)
                 self._segment_path = lambda: "reactions"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions, [], name, value)
@@ -756,7 +817,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['monitor_id']
                     self._child_classes = OrderedDict([("condition", ("condition", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition))])
                     self._leafs = OrderedDict([
-                        ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
+                        ('monitor_id', (YLeaf(YType.uint32, 'monitor-id'), ['int'])),
                     ])
                     self.monitor_id = None
 
@@ -765,6 +826,7 @@ class Ipsla(Entity):
                     self._children_name_map["condition"] = "condition"
                     self._segment_path = lambda: "reaction" + "[monitor-id='" + str(self.monitor_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/reactions/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction, ['monitor_id'], name, value)
@@ -828,6 +890,7 @@ class Ipsla(Entity):
                         self.connection_loss.parent = self
                         self._children_name_map["connection_loss"] = "connection-loss"
                         self._segment_path = lambda: "condition"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition, [], name, value)
@@ -865,7 +928,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -873,6 +936,7 @@ class Ipsla(Entity):
                             self.action_type.parent = self
                             self._children_name_map["action_type"] = "action-type"
                             self._segment_path = lambda: "lpd-tree-trace"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace, ['create'], name, value)
@@ -905,10 +969,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdTreeTrace.ActionType, ['logging'], name, value)
@@ -950,7 +1015,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType)), ("threshold-type", ("threshold_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -962,6 +1027,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "timeout"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout, ['create'], name, value)
@@ -994,10 +1060,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ActionType, ['logging'], name, value)
@@ -1044,14 +1111,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspMonitorThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -1089,7 +1157,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -1097,6 +1165,7 @@ class Ipsla(Entity):
                             self.action_type.parent = self
                             self._children_name_map["action_type"] = "action-type"
                             self._segment_path = lambda: "lpd-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup, ['create'], name, value)
@@ -1129,10 +1198,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.LpdGroup.ActionType, ['logging'], name, value)
@@ -1175,7 +1245,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType)), ("threshold-type", ("threshold_type", Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -1187,6 +1257,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "connection-loss"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss, ['create'], name, value)
@@ -1219,10 +1290,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging'], name, value)
@@ -1269,14 +1341,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspMonitorThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -1312,6 +1385,7 @@ class Ipsla(Entity):
                 self.schedule = YList(self)
                 self._segment_path = lambda: "schedules"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Schedules, [], name, value)
@@ -1368,9 +1442,9 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['monitor_id']
                     self._child_classes = OrderedDict([("start-time", ("start_time", Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime))])
                     self._leafs = OrderedDict([
-                        ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
-                        ('frequency', YLeaf(YType.uint32, 'frequency')),
-                        ('period', YLeaf(YType.uint32, 'period')),
+                        ('monitor_id', (YLeaf(YType.uint32, 'monitor-id'), ['int'])),
+                        ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                        ('period', (YLeaf(YType.uint32, 'period'), ['int'])),
                     ])
                     self.monitor_id = None
                     self.frequency = None
@@ -1381,6 +1455,7 @@ class Ipsla(Entity):
                     self._children_name_map["start_time"] = "start-time"
                     self._segment_path = lambda: "schedule" + "[monitor-id='" + str(self.monitor_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/schedules/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Schedules.Schedule, ['monitor_id', 'frequency', 'period'], name, value)
@@ -1452,13 +1527,13 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('schedule_type', YLeaf(YType.enumeration, 'schedule-type')),
-                            ('hour', YLeaf(YType.uint32, 'hour')),
-                            ('minute', YLeaf(YType.uint32, 'minute')),
-                            ('second', YLeaf(YType.uint32, 'second')),
-                            ('month', YLeaf(YType.enumeration, 'month')),
-                            ('day', YLeaf(YType.uint32, 'day')),
-                            ('year', YLeaf(YType.uint32, 'year')),
+                            ('schedule_type', (YLeaf(YType.enumeration, 'schedule-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaSched', '')])),
+                            ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                            ('minute', (YLeaf(YType.uint32, 'minute'), ['int'])),
+                            ('second', (YLeaf(YType.uint32, 'second'), ['int'])),
+                            ('month', (YLeaf(YType.enumeration, 'month'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaMonth', '')])),
+                            ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                            ('year', (YLeaf(YType.uint32, 'year'), ['int'])),
                         ])
                         self.schedule_type = None
                         self.hour = None
@@ -1468,6 +1543,7 @@ class Ipsla(Entity):
                         self.day = None
                         self.year = None
                         self._segment_path = lambda: "start-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
@@ -1503,6 +1579,7 @@ class Ipsla(Entity):
                 self.definition = YList(self)
                 self._segment_path = lambda: "definitions"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions, [], name, value)
@@ -1541,7 +1618,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['monitor_id']
                     self._child_classes = OrderedDict([("operation-type", ("operation_type", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType))])
                     self._leafs = OrderedDict([
-                        ('monitor_id', YLeaf(YType.uint32, 'monitor-id')),
+                        ('monitor_id', (YLeaf(YType.uint32, 'monitor-id'), ['int'])),
                     ])
                     self.monitor_id = None
 
@@ -1550,6 +1627,7 @@ class Ipsla(Entity):
                     self._children_name_map["operation_type"] = "operation-type"
                     self._segment_path = lambda: "definition" + "[monitor-id='" + str(self.monitor_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-lsp-monitor/definitions/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition, ['monitor_id'], name, value)
@@ -1595,6 +1673,7 @@ class Ipsla(Entity):
                         self.mpls_lsp_ping.parent = self
                         self._children_name_map["mpls_lsp_ping"] = "mpls-lsp-ping"
                         self._segment_path = lambda: "operation-type"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType, [], name, value)
@@ -1648,7 +1727,7 @@ class Ipsla(Entity):
                         	Echo request output interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: accesslist
                         
@@ -1719,17 +1798,17 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("reply", ("reply", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply)), ("statistics", ("statistics", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics)), ("scan", ("scan", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan))])
                             self._leafs = OrderedDict([
-                                ('ttl', YLeaf(YType.uint32, 'ttl')),
-                                ('exp_bits', YLeaf(YType.uint32, 'exp-bits')),
-                                ('tag', YLeaf(YType.str, 'tag')),
-                                ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                ('accesslist', YLeaf(YType.str, 'accesslist')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('output_nexthop', YLeaf(YType.str, 'output-nexthop')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('force_explicit_null', YLeaf(YType.empty, 'force-explicit-null')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
+                                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                                ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                                ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                ('accesslist', (YLeaf(YType.str, 'accesslist'), ['str'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                             ])
                             self.ttl = None
                             self.exp_bits = None
@@ -1755,6 +1834,7 @@ class Ipsla(Entity):
                             self.scan.parent = self
                             self._children_name_map["scan"] = "scan"
                             self._segment_path = lambda: "mpls-lsp-trace"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'create', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
@@ -1797,12 +1877,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('dscp_bits', YLeaf(YType.str, 'dscp-bits')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('dscp_bits', (YLeaf(YType.str, 'dscp-bits'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspReplyDscp', ''),'int'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspMonitorReplyMode', '')])),
                                 ])
                                 self.dscp_bits = None
                                 self.mode = None
                                 self._segment_path = lambda: "reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['dscp_bits', 'mode'], name, value)
@@ -1840,10 +1921,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
                                 ])
                                 self.hours = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours'], name, value)
@@ -1890,12 +1972,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
-                                    ('delete_factor', YLeaf(YType.uint32, 'delete-factor')),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('delete_factor', (YLeaf(YType.uint32, 'delete-factor'), ['int'])),
                                 ])
                                 self.interval = None
                                 self.delete_factor = None
                                 self._segment_path = lambda: "scan"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspTrace.Scan, ['interval', 'delete_factor'], name, value)
@@ -1959,7 +2042,7 @@ class Ipsla(Entity):
                         	Echo request output interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: accesslist
                         
@@ -2030,17 +2113,17 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize)), ("path-discover", ("path_discover", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover)), ("reply", ("reply", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply)), ("statistics", ("statistics", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics)), ("scan", ("scan", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan))])
                             self._leafs = OrderedDict([
-                                ('ttl', YLeaf(YType.uint32, 'ttl')),
-                                ('exp_bits', YLeaf(YType.uint32, 'exp-bits')),
-                                ('tag', YLeaf(YType.str, 'tag')),
-                                ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                ('accesslist', YLeaf(YType.str, 'accesslist')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('output_nexthop', YLeaf(YType.str, 'output-nexthop')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('force_explicit_null', YLeaf(YType.empty, 'force-explicit-null')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
+                                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                                ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                                ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                ('accesslist', (YLeaf(YType.str, 'accesslist'), ['str'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                             ])
                             self.ttl = None
                             self.exp_bits = None
@@ -2074,6 +2157,7 @@ class Ipsla(Entity):
                             self.scan.parent = self
                             self._children_name_map["scan"] = "scan"
                             self._segment_path = lambda: "mpls-lsp-ping"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'exp_bits', 'tag', 'lsp_selector', 'output_interface', 'accesslist', 'create', 'output_nexthop', 'timeout', 'force_explicit_null', 'vrf'], name, value)
@@ -2112,10 +2196,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
@@ -2173,8 +2258,8 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("session", ("session", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session)), ("path", ("path", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path)), ("echo", ("echo", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo))])
                                 self._leafs = OrderedDict([
-                                    ('scan_period', YLeaf(YType.uint32, 'scan-period')),
-                                    ('create', YLeaf(YType.empty, 'create')),
+                                    ('scan_period', (YLeaf(YType.uint32, 'scan-period'), ['int'])),
+                                    ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                                 ])
                                 self.scan_period = None
                                 self.create = None
@@ -2191,6 +2276,7 @@ class Ipsla(Entity):
                                 self.echo.parent = self
                                 self._children_name_map["echo"] = "echo"
                                 self._segment_path = lambda: "path-discover"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover, ['scan_period', 'create'], name, value)
@@ -2237,12 +2323,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                        ('limit', YLeaf(YType.uint32, 'limit')),
+                                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                        ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
                                     ])
                                     self.timeout = None
                                     self.limit = None
                                     self._segment_path = lambda: "session"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Session, ['timeout', 'limit'], name, value)
@@ -2285,13 +2372,14 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("secondary-frequency", ("secondary_frequency", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency))])
                                     self._leafs = OrderedDict([
-                                        ('retry', YLeaf(YType.uint32, 'retry')),
+                                        ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
                                     ])
                                     self.retry = None
 
                                     self.secondary_frequency = None
                                     self._children_name_map["secondary_frequency"] = "secondary-frequency"
                                     self._segment_path = lambda: "path"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path, ['retry'], name, value)
@@ -2340,12 +2428,13 @@ class Ipsla(Entity):
                                         self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
-                                            ('type', YLeaf(YType.enumeration, 'type')),
-                                            ('frequency', YLeaf(YType.uint32, 'frequency')),
+                                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaSecondaryFrequency', '')])),
+                                            ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
                                         ])
                                         self.type = None
                                         self.frequency = None
                                         self._segment_path = lambda: "secondary-frequency"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Path.SecondaryFrequency, ['type', 'frequency'], name, value)
@@ -2417,10 +2506,10 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("multipath", ("multipath", Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath))])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                        ('retry', YLeaf(YType.uint32, 'retry')),
-                                        ('maximum_lsp_selector', YLeaf(YType.str, 'maximum-lsp-selector')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                        ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
+                                        ('maximum_lsp_selector', (YLeaf(YType.str, 'maximum-lsp-selector'), ['str'])),
                                     ])
                                     self.interval = None
                                     self.timeout = None
@@ -2431,6 +2520,7 @@ class Ipsla(Entity):
                                     self.multipath.parent = self
                                     self._children_name_map["multipath"] = "multipath"
                                     self._segment_path = lambda: "echo"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo, ['interval', 'timeout', 'retry', 'maximum_lsp_selector'], name, value)
@@ -2466,10 +2556,11 @@ class Ipsla(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('bitmap_size', YLeaf(YType.uint32, 'bitmap-size')),
+                                            ('bitmap_size', (YLeaf(YType.uint32, 'bitmap-size'), ['int'])),
                                         ])
                                         self.bitmap_size = None
                                         self._segment_path = lambda: "multipath"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.PathDiscover.Echo.Multipath, ['bitmap_size'], name, value)
@@ -2512,12 +2603,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('dscp_bits', YLeaf(YType.str, 'dscp-bits')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
+                                    ('dscp_bits', (YLeaf(YType.str, 'dscp-bits'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspReplyDscp', ''),'int'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspMonitorReplyMode', '')])),
                                 ])
                                 self.dscp_bits = None
                                 self.mode = None
                                 self._segment_path = lambda: "reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Reply, ['dscp_bits', 'mode'], name, value)
@@ -2555,10 +2647,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
                                 ])
                                 self.hours = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours'], name, value)
@@ -2605,12 +2698,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
-                                    ('delete_factor', YLeaf(YType.uint32, 'delete-factor')),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('delete_factor', (YLeaf(YType.uint32, 'delete-factor'), ['int'])),
                                 ])
                                 self.interval = None
                                 self.delete_factor = None
                                 self._segment_path = lambda: "scan"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.MplsLspMonitor.Definitions.Definition.OperationType.MplsLspPing.Scan, ['interval', 'delete_factor'], name, value)
@@ -2675,6 +2769,7 @@ class Ipsla(Entity):
             self._children_name_map["definitions"] = "definitions"
             self._segment_path = lambda: "operation"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.Operation, [], name, value)
@@ -2710,6 +2805,7 @@ class Ipsla(Entity):
                 self.schedule = YList(self)
                 self._segment_path = lambda: "schedules"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Operation.Schedules, [], name, value)
@@ -2775,10 +2871,10 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['operation_id']
                     self._child_classes = OrderedDict([("start-time", ("start_time", Ipsla.Operation.Schedules.Schedule.StartTime))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
-                        ('life', YLeaf(YType.str, 'life')),
-                        ('ageout', YLeaf(YType.uint32, 'ageout')),
-                        ('recurring', YLeaf(YType.empty, 'recurring')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
+                        ('life', (YLeaf(YType.str, 'life'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLife', ''),'int'])),
+                        ('ageout', (YLeaf(YType.uint32, 'ageout'), ['int'])),
+                        ('recurring', (YLeaf(YType.empty, 'recurring'), ['Empty'])),
                     ])
                     self.operation_id = None
                     self.life = None
@@ -2790,6 +2886,7 @@ class Ipsla(Entity):
                     self._children_name_map["start_time"] = "start-time"
                     self._segment_path = lambda: "schedule" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/schedules/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.Schedules.Schedule, ['operation_id', 'life', 'ageout', 'recurring'], name, value)
@@ -2861,13 +2958,13 @@ class Ipsla(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('schedule_type', YLeaf(YType.enumeration, 'schedule-type')),
-                            ('hour', YLeaf(YType.uint32, 'hour')),
-                            ('minute', YLeaf(YType.uint32, 'minute')),
-                            ('second', YLeaf(YType.uint32, 'second')),
-                            ('month', YLeaf(YType.enumeration, 'month')),
-                            ('day', YLeaf(YType.uint32, 'day')),
-                            ('year', YLeaf(YType.uint32, 'year')),
+                            ('schedule_type', (YLeaf(YType.enumeration, 'schedule-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaSched', '')])),
+                            ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                            ('minute', (YLeaf(YType.uint32, 'minute'), ['int'])),
+                            ('second', (YLeaf(YType.uint32, 'second'), ['int'])),
+                            ('month', (YLeaf(YType.enumeration, 'month'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaMonth', '')])),
+                            ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                            ('year', (YLeaf(YType.uint32, 'year'), ['int'])),
                         ])
                         self.schedule_type = None
                         self.hour = None
@@ -2877,6 +2974,7 @@ class Ipsla(Entity):
                         self.day = None
                         self.year = None
                         self._segment_path = lambda: "start-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Operation.Schedules.Schedule.StartTime, ['schedule_type', 'hour', 'minute', 'second', 'month', 'day', 'year'], name, value)
@@ -2912,6 +3010,7 @@ class Ipsla(Entity):
                 self.reaction = YList(self)
                 self._segment_path = lambda: "reactions"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Operation.Reactions, [], name, value)
@@ -2950,7 +3049,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['operation_id']
                     self._child_classes = OrderedDict([("condition", ("condition", Ipsla.Operation.Reactions.Reaction.Condition))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
                     ])
                     self.operation_id = None
 
@@ -2959,6 +3058,7 @@ class Ipsla(Entity):
                     self._children_name_map["condition"] = "condition"
                     self._segment_path = lambda: "reaction" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reactions/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.Reactions.Reaction, ['operation_id'], name, value)
@@ -3067,6 +3167,7 @@ class Ipsla(Entity):
                         self.packet_loss_ds.parent = self
                         self._children_name_map["packet_loss_ds"] = "packet-loss-ds"
                         self._segment_path = lambda: "condition"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition, [], name, value)
@@ -3116,7 +3217,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -3131,6 +3232,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "jitter-average-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs, ['create'], name, value)
@@ -3179,12 +3281,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -3222,12 +3325,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ActionType, ['logging', 'trigger'], name, value)
@@ -3274,14 +3378,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -3323,7 +3428,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -3335,6 +3440,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "timeout"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout, ['create'], name, value)
@@ -3372,12 +3478,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ActionType, ['logging', 'trigger'], name, value)
@@ -3424,14 +3531,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Timeout.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -3481,7 +3589,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -3496,6 +3604,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "jitter-average"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage, ['create'], name, value)
@@ -3544,12 +3653,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -3587,12 +3697,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ActionType, ['logging', 'trigger'], name, value)
@@ -3639,14 +3750,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverage.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -3688,7 +3800,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -3700,6 +3812,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "verify-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError, ['create'], name, value)
@@ -3737,12 +3850,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ActionType, ['logging', 'trigger'], name, value)
@@ -3789,14 +3903,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.VerifyError.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -3845,7 +3960,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -3860,6 +3975,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "rtt"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt, ['create'], name, value)
@@ -3908,12 +4024,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -3951,12 +4068,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ActionType, ['logging', 'trigger'], name, value)
@@ -4003,14 +4121,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.Rtt.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -4060,7 +4179,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -4075,6 +4194,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "packet-loss-sd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd, ['create'], name, value)
@@ -4123,12 +4243,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -4166,12 +4287,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ActionType, ['logging', 'trigger'], name, value)
@@ -4218,14 +4340,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -4275,7 +4398,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -4290,6 +4413,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "jitter-average-sd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd, ['create'], name, value)
@@ -4338,12 +4462,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -4381,12 +4506,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ActionType, ['logging', 'trigger'], name, value)
@@ -4433,14 +4559,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.JitterAverageSd.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -4483,7 +4610,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -4495,6 +4622,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "connection-loss"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss, ['create'], name, value)
@@ -4532,12 +4660,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ActionType, ['logging', 'trigger'], name, value)
@@ -4584,14 +4713,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.ConnectionLoss.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -4641,7 +4771,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("threshold-limits", ("threshold_limits", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits)), ("action-type", ("action_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType)), ("threshold-type", ("threshold_type", Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType))])
                             self._leafs = OrderedDict([
-                                ('create', YLeaf(YType.empty, 'create')),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
                             ])
                             self.create = None
 
@@ -4656,6 +4786,7 @@ class Ipsla(Entity):
                             self.threshold_type.parent = self
                             self._children_name_map["threshold_type"] = "threshold-type"
                             self._segment_path = lambda: "packet-loss-ds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs, ['create'], name, value)
@@ -4704,12 +4835,13 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('lower_limit', YLeaf(YType.uint32, 'lower-limit')),
-                                    ('upper_limit', YLeaf(YType.uint32, 'upper-limit')),
+                                    ('lower_limit', (YLeaf(YType.uint32, 'lower-limit'), ['int'])),
+                                    ('upper_limit', (YLeaf(YType.uint32, 'upper-limit'), ['int'])),
                                 ])
                                 self.lower_limit = None
                                 self.upper_limit = None
                                 self._segment_path = lambda: "threshold-limits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdLimits, ['lower_limit', 'upper_limit'], name, value)
@@ -4747,12 +4879,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('trigger', YLeaf(YType.empty, 'trigger')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('trigger', (YLeaf(YType.empty, 'trigger'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.trigger = None
                                 self._segment_path = lambda: "action-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ActionType, ['logging', 'trigger'], name, value)
@@ -4799,14 +4932,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('thresh_type', YLeaf(YType.enumeration, 'thresh-type')),
-                                    ('count1', YLeaf(YType.uint32, 'count1')),
-                                    ('count2', YLeaf(YType.uint32, 'count2')),
+                                    ('thresh_type', (YLeaf(YType.enumeration, 'thresh-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaThresholdTypes', '')])),
+                                    ('count1', (YLeaf(YType.uint32, 'count1'), ['int'])),
+                                    ('count2', (YLeaf(YType.uint32, 'count2'), ['int'])),
                                 ])
                                 self.thresh_type = None
                                 self.count1 = None
                                 self.count2 = None
                                 self._segment_path = lambda: "threshold-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Reactions.Reaction.Condition.PacketLossDs.ThresholdType, ['thresh_type', 'count1', 'count2'], name, value)
@@ -4842,6 +4976,7 @@ class Ipsla(Entity):
                 self.reaction_trigger = YList(self)
                 self._segment_path = lambda: "reaction-triggers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Operation.ReactionTriggers, [], name, value)
@@ -4882,13 +5017,14 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['operation_id']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
-                        ('triggered_op_id', YLeaf(YType.uint32, 'triggered-op-id')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
+                        ('triggered_op_id', (YLeaf(YType.uint32, 'triggered-op-id'), ['int'])),
                     ])
                     self.operation_id = None
                     self.triggered_op_id = None
                     self._segment_path = lambda: "reaction-trigger" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/reaction-triggers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.ReactionTriggers.ReactionTrigger, ['operation_id', 'triggered_op_id'], name, value)
@@ -4924,6 +5060,7 @@ class Ipsla(Entity):
                 self.definition = YList(self)
                 self._segment_path = lambda: "definitions"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Operation.Definitions, [], name, value)
@@ -4962,7 +5099,7 @@ class Ipsla(Entity):
                     self.ylist_key_names = ['operation_id']
                     self._child_classes = OrderedDict([("operation-type", ("operation_type", Ipsla.Operation.Definitions.Definition.OperationType))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
                     ])
                     self.operation_id = None
 
@@ -4971,6 +5108,7 @@ class Ipsla(Entity):
                     self._children_name_map["operation_type"] = "operation-type"
                     self._segment_path = lambda: "definition" + "[operation-id='" + str(self.operation_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/operation/definitions/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Operation.Definitions.Definition, ['operation_id'], name, value)
@@ -5061,6 +5199,7 @@ class Ipsla(Entity):
                         self.icmp_path_jitter.parent = self
                         self._children_name_map["icmp_path_jitter"] = "icmp-path-jitter"
                         self._segment_path = lambda: "operation-type"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType, [], name, value)
@@ -5177,16 +5316,16 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats))])
                             self._leafs = OrderedDict([
-                                ('source_address_v6', YLeaf(YType.str, 'source-address-v6')),
-                                ('dest_address_v6', YLeaf(YType.str, 'dest-address-v6')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('tos', YLeaf(YType.uint32, 'tos')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('source_address_v6', (YLeaf(YType.str, 'source-address-v6'), ['str'])),
+                                ('dest_address_v6', (YLeaf(YType.str, 'dest-address-v6'), ['str'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.source_address_v6 = None
                             self.dest_address_v6 = None
@@ -5215,6 +5354,7 @@ class Ipsla(Entity):
                             self.enhanced_stats.parent = self
                             self._children_name_map["enhanced_stats"] = "enhanced-stats"
                             self._segment_path = lambda: "icmp-echo"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho, ['source_address_v6', 'dest_address_v6', 'source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
@@ -5253,10 +5393,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.DataSize, ['request'], name, value)
@@ -5314,14 +5455,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
                                 ])
                                 self.hours = None
                                 self.dist_interval = None
                                 self.dist_count = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
@@ -5372,14 +5514,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('lives', YLeaf(YType.uint32, 'lives')),
-                                    ('history_filter', YLeaf(YType.enumeration, 'history-filter')),
-                                    ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                    ('lives', (YLeaf(YType.uint32, 'lives'), ['int'])),
+                                    ('history_filter', (YLeaf(YType.enumeration, 'history-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaHistoryFilter', '')])),
+                                    ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                 ])
                                 self.lives = None
                                 self.history_filter = None
                                 self.buckets = None
                                 self._segment_path = lambda: "history"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
@@ -5414,6 +5557,7 @@ class Ipsla(Entity):
 
                                 self.enhanced_stat = YList(self)
                                 self._segment_path = lambda: "enhanced-stats"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats, [], name, value)
@@ -5458,12 +5602,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['interval']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                     ])
                                     self.interval = None
                                     self.buckets = None
                                     self._segment_path = lambda: "enhanced-stat" + "[interval='" + str(self.interval) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
@@ -5563,7 +5708,7 @@ class Ipsla(Entity):
                         	Echo request output interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: frequency
                         
@@ -5605,17 +5750,17 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize)), ("reply", ("reply", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply)), ("target", ("target", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats))])
                             self._leafs = OrderedDict([
-                                ('ttl', YLeaf(YType.uint32, 'ttl')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('output_nexthop', YLeaf(YType.str, 'output-nexthop')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                ('exp_bits', YLeaf(YType.uint32, 'exp-bits')),
-                                ('force_explicit_null', YLeaf(YType.empty, 'force-explicit-null')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
+                                ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.ttl = None
                             self.source_address = None
@@ -5653,6 +5798,7 @@ class Ipsla(Entity):
                             self.enhanced_stats.parent = self
                             self._children_name_map["enhanced_stats"] = "enhanced-stats"
                             self._segment_path = lambda: "mpls-lsp-ping"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing, ['ttl', 'source_address', 'output_nexthop', 'create', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
@@ -5689,10 +5835,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.DataSize, ['request'], name, value)
@@ -5736,12 +5883,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
-                                    ('dscp_bits', YLeaf(YType.str, 'dscp-bits')),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspPingReplyMode', '')])),
+                                    ('dscp_bits', (YLeaf(YType.str, 'dscp-bits'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspReplyDscp', ''),'int'])),
                                 ])
                                 self.mode = None
                                 self.dscp_bits = None
                                 self._segment_path = lambda: "reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Reply, ['mode', 'dscp_bits'], name, value)
@@ -5796,6 +5944,7 @@ class Ipsla(Entity):
                                 self.pseudowire.parent = self
                                 self._children_name_map["pseudowire"] = "pseudowire"
                                 self._segment_path = lambda: "target"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target, [], name, value)
@@ -5829,10 +5978,11 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('tunnel', YLeaf(YType.uint32, 'tunnel')),
+                                        ('tunnel', (YLeaf(YType.uint32, 'tunnel'), ['int'])),
                                     ])
                                     self.tunnel = None
                                     self._segment_path = lambda: "traffic-engineering"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.TrafficEngineering, ['tunnel'], name, value)
@@ -5870,6 +6020,7 @@ class Ipsla(Entity):
                                     self.fec_address = None
                                     self._children_name_map["fec_address"] = "fec-address"
                                     self._segment_path = lambda: "ipv4"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4, [], name, value)
@@ -5917,12 +6068,13 @@ class Ipsla(Entity):
                                         self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('mask', YLeaf(YType.str, 'mask')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                                         ])
                                         self.address = None
                                         self.mask = None
                                         self._segment_path = lambda: "fec-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
@@ -5960,6 +6112,7 @@ class Ipsla(Entity):
                                     self.target_address = None
                                     self._children_name_map["target_address"] = "target-address"
                                     self._segment_path = lambda: "pseudowire"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire, [], name, value)
@@ -6007,12 +6160,13 @@ class Ipsla(Entity):
                                         self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('vc_id', YLeaf(YType.uint32, 'vc-id')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('vc_id', (YLeaf(YType.uint32, 'vc-id'), ['int'])),
                                         ])
                                         self.address = None
                                         self.vc_id = None
                                         self._segment_path = lambda: "target-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Target.Pseudowire.TargetAddress, ['address', 'vc_id'], name, value)
@@ -6070,14 +6224,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
                                 ])
                                 self.hours = None
                                 self.dist_interval = None
                                 self.dist_count = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
@@ -6128,14 +6283,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('lives', YLeaf(YType.uint32, 'lives')),
-                                    ('history_filter', YLeaf(YType.enumeration, 'history-filter')),
-                                    ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                    ('lives', (YLeaf(YType.uint32, 'lives'), ['int'])),
+                                    ('history_filter', (YLeaf(YType.enumeration, 'history-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaHistoryFilter', '')])),
+                                    ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                 ])
                                 self.lives = None
                                 self.history_filter = None
                                 self.buckets = None
                                 self._segment_path = lambda: "history"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.History, ['lives', 'history_filter', 'buckets'], name, value)
@@ -6170,6 +6326,7 @@ class Ipsla(Entity):
 
                                 self.enhanced_stat = YList(self)
                                 self._segment_path = lambda: "enhanced-stats"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats, [], name, value)
@@ -6214,12 +6371,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['interval']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                     ])
                                     self.interval = None
                                     self.buckets = None
                                     self._segment_path = lambda: "enhanced-stat" + "[interval='" + str(self.interval) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspPing.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
@@ -6350,18 +6508,18 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats))])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('tos', YLeaf(YType.uint32, 'tos')),
-                                ('control_disable', YLeaf(YType.empty, 'control-disable')),
-                                ('source_port', YLeaf(YType.uint16, 'source-port')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('dest_port', YLeaf(YType.uint16, 'dest-port')),
-                                ('verify_data', YLeaf(YType.empty, 'verify-data')),
-                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
+                                ('control_disable', (YLeaf(YType.empty, 'control-disable'), ['Empty'])),
+                                ('source_port', (YLeaf(YType.uint16, 'source-port'), ['int'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('dest_port', (YLeaf(YType.uint16, 'dest-port'), ['int'])),
+                                ('verify_data', (YLeaf(YType.empty, 'verify-data'), ['Empty'])),
+                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.source_address = None
                             self.tos = None
@@ -6392,6 +6550,7 @@ class Ipsla(Entity):
                             self.enhanced_stats.parent = self
                             self._children_name_map["enhanced_stats"] = "enhanced-stats"
                             self._segment_path = lambda: "udp-echo"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho, ['source_address', 'tos', 'control_disable', 'source_port', 'create', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
@@ -6430,10 +6589,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.DataSize, ['request'], name, value)
@@ -6491,14 +6651,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
                                 ])
                                 self.hours = None
                                 self.dist_interval = None
                                 self.dist_count = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
@@ -6549,14 +6710,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('lives', YLeaf(YType.uint32, 'lives')),
-                                    ('history_filter', YLeaf(YType.enumeration, 'history-filter')),
-                                    ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                    ('lives', (YLeaf(YType.uint32, 'lives'), ['int'])),
+                                    ('history_filter', (YLeaf(YType.enumeration, 'history-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaHistoryFilter', '')])),
+                                    ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                 ])
                                 self.lives = None
                                 self.history_filter = None
                                 self.buckets = None
                                 self._segment_path = lambda: "history"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.History, ['lives', 'history_filter', 'buckets'], name, value)
@@ -6591,6 +6753,7 @@ class Ipsla(Entity):
 
                                 self.enhanced_stat = YList(self)
                                 self._segment_path = lambda: "enhanced-stats"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats, [], name, value)
@@ -6635,12 +6798,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['interval']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                     ])
                                     self.interval = None
                                     self.buckets = None
                                     self._segment_path = lambda: "enhanced-stat" + "[interval='" + str(self.interval) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpEcho.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
@@ -6735,7 +6899,7 @@ class Ipsla(Entity):
                         	Echo request output interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: frequency
                         
@@ -6772,17 +6936,17 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("target", ("target", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target)), ("reply", ("reply", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics)), ("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History))])
                             self._leafs = OrderedDict([
-                                ('ttl', YLeaf(YType.uint32, 'ttl')),
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('output_nexthop', YLeaf(YType.str, 'output-nexthop')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('lsp_selector', YLeaf(YType.str, 'lsp-selector')),
-                                ('exp_bits', YLeaf(YType.uint32, 'exp-bits')),
-                                ('force_explicit_null', YLeaf(YType.empty, 'force-explicit-null')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('output_interface', YLeaf(YType.str, 'output-interface')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('output_nexthop', (YLeaf(YType.str, 'output-nexthop'), ['str'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('lsp_selector', (YLeaf(YType.str, 'lsp-selector'), ['str'])),
+                                ('exp_bits', (YLeaf(YType.uint32, 'exp-bits'), ['int'])),
+                                ('force_explicit_null', (YLeaf(YType.empty, 'force-explicit-null'), ['Empty'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('output_interface', (YLeaf(YType.str, 'output-interface'), ['str'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.ttl = None
                             self.source_address = None
@@ -6812,6 +6976,7 @@ class Ipsla(Entity):
                             self.history.parent = self
                             self._children_name_map["history"] = "history"
                             self._segment_path = lambda: "mpls-lsp-trace"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace, ['ttl', 'source_address', 'output_nexthop', 'create', 'lsp_selector', 'exp_bits', 'force_explicit_null', 'timeout', 'output_interface', 'frequency', 'tag'], name, value)
@@ -6857,6 +7022,7 @@ class Ipsla(Entity):
                                 self.ipv4.parent = self
                                 self._children_name_map["ipv4"] = "ipv4"
                                 self._segment_path = lambda: "target"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target, [], name, value)
@@ -6890,10 +7056,11 @@ class Ipsla(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('tunnel', YLeaf(YType.uint32, 'tunnel')),
+                                        ('tunnel', (YLeaf(YType.uint32, 'tunnel'), ['int'])),
                                     ])
                                     self.tunnel = None
                                     self._segment_path = lambda: "traffic-engineering"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.TrafficEngineering, ['tunnel'], name, value)
@@ -6931,6 +7098,7 @@ class Ipsla(Entity):
                                     self.fec_address = None
                                     self._children_name_map["fec_address"] = "fec-address"
                                     self._segment_path = lambda: "ipv4"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4, [], name, value)
@@ -6978,12 +7146,13 @@ class Ipsla(Entity):
                                         self._child_classes = OrderedDict([])
                                         self.is_presence_container = True
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('mask', YLeaf(YType.str, 'mask')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                                         ])
                                         self.address = None
                                         self.mask = None
                                         self._segment_path = lambda: "fec-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Target.Ipv4.FecAddress, ['address', 'mask'], name, value)
@@ -7027,12 +7196,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
-                                    ('dscp_bits', YLeaf(YType.str, 'dscp-bits')),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspTraceReplyMode', '')])),
+                                    ('dscp_bits', (YLeaf(YType.str, 'dscp-bits'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaLspReplyDscp', ''),'int'])),
                                 ])
                                 self.mode = None
                                 self.dscp_bits = None
                                 self._segment_path = lambda: "reply"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Reply, ['mode', 'dscp_bits'], name, value)
@@ -7090,14 +7260,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
                                 ])
                                 self.hours = None
                                 self.dist_interval = None
                                 self.dist_count = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
@@ -7148,14 +7319,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('lives', YLeaf(YType.uint32, 'lives')),
-                                    ('history_filter', YLeaf(YType.enumeration, 'history-filter')),
-                                    ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                    ('lives', (YLeaf(YType.uint32, 'lives'), ['int'])),
+                                    ('history_filter', (YLeaf(YType.enumeration, 'history-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaHistoryFilter', '')])),
+                                    ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                 ])
                                 self.lives = None
                                 self.history_filter = None
                                 self.buckets = None
                                 self._segment_path = lambda: "history"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.MplsLspTrace.History, ['lives', 'history_filter', 'buckets'], name, value)
@@ -7286,18 +7458,18 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize)), ("packet", ("packet", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics)), ("enhanced-stats", ("enhanced_stats", Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats))])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('tos', YLeaf(YType.uint32, 'tos')),
-                                ('control_disable', YLeaf(YType.empty, 'control-disable')),
-                                ('source_port', YLeaf(YType.uint16, 'source-port')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('dest_port', YLeaf(YType.uint16, 'dest-port')),
-                                ('verify_data', YLeaf(YType.empty, 'verify-data')),
-                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
+                                ('control_disable', (YLeaf(YType.empty, 'control-disable'), ['Empty'])),
+                                ('source_port', (YLeaf(YType.uint16, 'source-port'), ['int'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('dest_port', (YLeaf(YType.uint16, 'dest-port'), ['int'])),
+                                ('verify_data', (YLeaf(YType.empty, 'verify-data'), ['Empty'])),
+                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.source_address = None
                             self.tos = None
@@ -7328,6 +7500,7 @@ class Ipsla(Entity):
                             self.enhanced_stats.parent = self
                             self._children_name_map["enhanced_stats"] = "enhanced-stats"
                             self._segment_path = lambda: "udp-jitter"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter, ['source_address', 'tos', 'control_disable', 'source_port', 'create', 'vrf', 'timeout', 'frequency', 'dest_port', 'verify_data', 'dest_address', 'tag'], name, value)
@@ -7366,10 +7539,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.DataSize, ['request'], name, value)
@@ -7417,12 +7591,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('count', YLeaf(YType.uint32, 'count')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                                 ])
                                 self.count = None
                                 self.interval = None
                                 self._segment_path = lambda: "packet"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Packet, ['count', 'interval'], name, value)
@@ -7480,14 +7655,15 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
                                 ])
                                 self.hours = None
                                 self.dist_interval = None
                                 self.dist_count = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.Statistics, ['hours', 'dist_interval', 'dist_count'], name, value)
@@ -7522,6 +7698,7 @@ class Ipsla(Entity):
 
                                 self.enhanced_stat = YList(self)
                                 self._segment_path = lambda: "enhanced-stats"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats, [], name, value)
@@ -7566,12 +7743,13 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['interval']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('buckets', YLeaf(YType.uint32, 'buckets')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
                                     ])
                                     self.interval = None
                                     self.buckets = None
                                     self._segment_path = lambda: "enhanced-stat" + "[interval='" + str(self.interval) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.UdpJitter.EnhancedStats.EnhancedStat, ['interval', 'buckets'], name, value)
@@ -7680,14 +7858,14 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("history", ("history", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History)), ("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize)), ("statistics", ("statistics", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics)), ("lsr-path", ("lsr_path", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath))])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('tos', YLeaf(YType.uint32, 'tos')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.source_address = None
                             self.tos = None
@@ -7713,6 +7891,7 @@ class Ipsla(Entity):
                             self.lsr_path = None
                             self._children_name_map["lsr_path"] = "lsr-path"
                             self._segment_path = lambda: "icmp-path-echo"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho, ['source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
@@ -7772,16 +7951,17 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('samples', YLeaf(YType.uint32, 'samples')),
-                                    ('buckets', YLeaf(YType.uint32, 'buckets')),
-                                    ('history_filter', YLeaf(YType.enumeration, 'history-filter')),
-                                    ('lives', YLeaf(YType.uint32, 'lives')),
+                                    ('samples', (YLeaf(YType.uint32, 'samples'), ['int'])),
+                                    ('buckets', (YLeaf(YType.uint32, 'buckets'), ['int'])),
+                                    ('history_filter', (YLeaf(YType.enumeration, 'history-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg', 'IpslaHistoryFilter', '')])),
+                                    ('lives', (YLeaf(YType.uint32, 'lives'), ['int'])),
                                 ])
                                 self.samples = None
                                 self.buckets = None
                                 self.history_filter = None
                                 self.lives = None
                                 self._segment_path = lambda: "history"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.History, ['samples', 'buckets', 'history_filter', 'lives'], name, value)
@@ -7820,10 +8000,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.DataSize, ['request'], name, value)
@@ -7900,11 +8081,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('paths', YLeaf(YType.uint32, 'paths')),
-                                    ('dist_interval', YLeaf(YType.uint32, 'dist-interval')),
-                                    ('dist_count', YLeaf(YType.uint32, 'dist-count')),
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('hops', YLeaf(YType.uint32, 'hops')),
+                                    ('paths', (YLeaf(YType.uint32, 'paths'), ['int'])),
+                                    ('dist_interval', (YLeaf(YType.uint32, 'dist-interval'), ['int'])),
+                                    ('dist_count', (YLeaf(YType.uint32, 'dist-count'), ['int'])),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('hops', (YLeaf(YType.uint32, 'hops'), ['int'])),
                                 ])
                                 self.paths = None
                                 self.dist_interval = None
@@ -7912,6 +8093,7 @@ class Ipsla(Entity):
                                 self.hours = None
                                 self.hops = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.Statistics, ['paths', 'dist_interval', 'dist_count', 'hours', 'hops'], name, value)
@@ -8000,14 +8182,14 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('node1', YLeaf(YType.str, 'node1')),
-                                    ('node2', YLeaf(YType.str, 'node2')),
-                                    ('node3', YLeaf(YType.str, 'node3')),
-                                    ('node4', YLeaf(YType.str, 'node4')),
-                                    ('node5', YLeaf(YType.str, 'node5')),
-                                    ('node6', YLeaf(YType.str, 'node6')),
-                                    ('node7', YLeaf(YType.str, 'node7')),
-                                    ('node8', YLeaf(YType.str, 'node8')),
+                                    ('node1', (YLeaf(YType.str, 'node1'), ['str'])),
+                                    ('node2', (YLeaf(YType.str, 'node2'), ['str'])),
+                                    ('node3', (YLeaf(YType.str, 'node3'), ['str'])),
+                                    ('node4', (YLeaf(YType.str, 'node4'), ['str'])),
+                                    ('node5', (YLeaf(YType.str, 'node5'), ['str'])),
+                                    ('node6', (YLeaf(YType.str, 'node6'), ['str'])),
+                                    ('node7', (YLeaf(YType.str, 'node7'), ['str'])),
+                                    ('node8', (YLeaf(YType.str, 'node8'), ['str'])),
                                 ])
                                 self.node1 = None
                                 self.node2 = None
@@ -8018,6 +8200,7 @@ class Ipsla(Entity):
                                 self.node7 = None
                                 self.node8 = None
                                 self._segment_path = lambda: "lsr-path"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathEcho.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
@@ -8121,14 +8304,14 @@ class Ipsla(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("data-size", ("data_size", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize)), ("packet", ("packet", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet)), ("lsr-path", ("lsr_path", Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath))])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('tos', YLeaf(YType.uint32, 'tos')),
-                                ('create', YLeaf(YType.empty, 'create')),
-                                ('vrf', YLeaf(YType.str, 'vrf')),
-                                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                                ('frequency', YLeaf(YType.uint32, 'frequency')),
-                                ('dest_address', YLeaf(YType.str, 'dest-address')),
-                                ('tag', YLeaf(YType.str, 'tag')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
+                                ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                                ('frequency', (YLeaf(YType.uint32, 'frequency'), ['int'])),
+                                ('dest_address', (YLeaf(YType.str, 'dest-address'), ['str'])),
+                                ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
                             ])
                             self.source_address = None
                             self.tos = None
@@ -8150,6 +8333,7 @@ class Ipsla(Entity):
                             self.lsr_path = None
                             self._children_name_map["lsr_path"] = "lsr-path"
                             self._segment_path = lambda: "icmp-path-jitter"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter, ['source_address', 'tos', 'create', 'vrf', 'timeout', 'frequency', 'dest_address', 'tag'], name, value)
@@ -8188,10 +8372,11 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('request', YLeaf(YType.uint32, 'request')),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
                                 ])
                                 self.request = None
                                 self._segment_path = lambda: "data-size"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.DataSize, ['request'], name, value)
@@ -8239,12 +8424,13 @@ class Ipsla(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('count', YLeaf(YType.uint32, 'count')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                                 ])
                                 self.count = None
                                 self.interval = None
                                 self._segment_path = lambda: "packet"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.Packet, ['count', 'interval'], name, value)
@@ -8333,14 +8519,14 @@ class Ipsla(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('node1', YLeaf(YType.str, 'node1')),
-                                    ('node2', YLeaf(YType.str, 'node2')),
-                                    ('node3', YLeaf(YType.str, 'node3')),
-                                    ('node4', YLeaf(YType.str, 'node4')),
-                                    ('node5', YLeaf(YType.str, 'node5')),
-                                    ('node6', YLeaf(YType.str, 'node6')),
-                                    ('node7', YLeaf(YType.str, 'node7')),
-                                    ('node8', YLeaf(YType.str, 'node8')),
+                                    ('node1', (YLeaf(YType.str, 'node1'), ['str'])),
+                                    ('node2', (YLeaf(YType.str, 'node2'), ['str'])),
+                                    ('node3', (YLeaf(YType.str, 'node3'), ['str'])),
+                                    ('node4', (YLeaf(YType.str, 'node4'), ['str'])),
+                                    ('node5', (YLeaf(YType.str, 'node5'), ['str'])),
+                                    ('node6', (YLeaf(YType.str, 'node6'), ['str'])),
+                                    ('node7', (YLeaf(YType.str, 'node7'), ['str'])),
+                                    ('node8', (YLeaf(YType.str, 'node8'), ['str'])),
                                 ])
                                 self.node1 = None
                                 self.node2 = None
@@ -8351,6 +8537,7 @@ class Ipsla(Entity):
                                 self.node7 = None
                                 self.node8 = None
                                 self._segment_path = lambda: "lsr-path"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Operation.Definitions.Definition.OperationType.IcmpPathJitter.LsrPath, ['node1', 'node2', 'node3', 'node4', 'node5', 'node6', 'node7', 'node8'], name, value)
@@ -8360,15 +8547,15 @@ class Ipsla(Entity):
         """
         Responder configuration
         
+        .. attribute:: twamp
+        
+        	Responder TWAMP configuration
+        	**type**\:  :py:class:`Twamp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.Twamp>`
+        
         .. attribute:: type
         
         	Configure IPSLA Responder port type
         	**type**\:  :py:class:`Type <ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ipsla_cfg.Ipsla.Responder.Type>`
-        
-        .. attribute:: enable
-        
-        	Starts the responder process
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
         
         
 
@@ -8385,20 +8572,65 @@ class Ipsla(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("type", ("type", Ipsla.Responder.Type))])
-            self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
-            ])
-            self.enable = None
+            self._child_classes = OrderedDict([("twamp", ("twamp", Ipsla.Responder.Twamp)), ("type", ("type", Ipsla.Responder.Type))])
+            self._leafs = OrderedDict()
+
+            self.twamp = Ipsla.Responder.Twamp()
+            self.twamp.parent = self
+            self._children_name_map["twamp"] = "twamp"
 
             self.type = Ipsla.Responder.Type()
             self.type.parent = self
             self._children_name_map["type"] = "type"
             self._segment_path = lambda: "responder"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ipsla.Responder, ['enable'], name, value)
+            self._perform_setattr(Ipsla.Responder, [], name, value)
+
+
+        class Twamp(Entity):
+            """
+            Responder TWAMP configuration
+            
+            .. attribute:: timeout
+            
+            	Configure responder timeout value in seconds
+            	**type**\: int
+            
+            	**range:** 1..604800
+            
+            	**units**\: second
+            
+            	**default value**\: 900
+            
+            
+
+            """
+
+            _prefix = 'man-ipsla-cfg'
+            _revision = '2015-11-09'
+
+            def __init__(self):
+                super(Ipsla.Responder.Twamp, self).__init__()
+
+                self.yang_name = "twamp"
+                self.yang_parent_name = "responder"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                ])
+                self.timeout = None
+                self._segment_path = lambda: "twamp"
+                self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Ipsla.Responder.Twamp, ['timeout'], name, value)
 
 
         class Type(Entity):
@@ -8433,6 +8665,7 @@ class Ipsla(Entity):
                 self._children_name_map["udp"] = "udp"
                 self._segment_path = lambda: "type"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.Responder.Type, [], name, value)
@@ -8470,6 +8703,7 @@ class Ipsla(Entity):
                     self._children_name_map["addresses"] = "addresses"
                     self._segment_path = lambda: "udp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipsla.Responder.Type.Udp, [], name, value)
@@ -8505,6 +8739,7 @@ class Ipsla(Entity):
                         self.address = YList(self)
                         self._segment_path = lambda: "addresses"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses, [], name, value)
@@ -8543,7 +8778,7 @@ class Ipsla(Entity):
                             self.ylist_key_names = ['local_address']
                             self._child_classes = OrderedDict([("ports", ("ports", Ipsla.Responder.Type.Udp.Addresses.Address.Ports))])
                             self._leafs = OrderedDict([
-                                ('local_address', YLeaf(YType.str, 'local-address')),
+                                ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
                             ])
                             self.local_address = None
 
@@ -8552,6 +8787,7 @@ class Ipsla(Entity):
                             self._children_name_map["ports"] = "ports"
                             self._segment_path = lambda: "address" + "[local-address='" + str(self.local_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/responder/type/udp/addresses/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address, ['local_address'], name, value)
@@ -8586,6 +8822,7 @@ class Ipsla(Entity):
 
                                 self.port = YList(self)
                                 self._segment_path = lambda: "ports"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports, [], name, value)
@@ -8620,10 +8857,11 @@ class Ipsla(Entity):
                                     self.ylist_key_names = ['port']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('port', YLeaf(YType.uint16, 'port')),
+                                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                                     ])
                                     self.port = None
                                     self._segment_path = lambda: "port" + "[port='" + str(self.port) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Ipsla.Responder.Type.Udp.Addresses.Address.Ports.Port, ['port'], name, value)
@@ -8661,6 +8899,7 @@ class Ipsla(Entity):
             self._children_name_map["vpn"] = "vpn"
             self._segment_path = lambda: "mpls-discovery"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipsla.MplsDiscovery, [], name, value)
@@ -8698,14 +8937,69 @@ class Ipsla(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interval', YLeaf(YType.uint32, 'interval')),
+                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                 ])
                 self.interval = None
                 self._segment_path = lambda: "vpn"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/mpls-discovery/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipsla.MplsDiscovery.Vpn, ['interval'], name, value)
+
+
+    class ServerTwamp(Entity):
+        """
+        IPPM Server configuration
+        
+        .. attribute:: inactivity_timer
+        
+        	Configure ippmserver inactivity timer value in seconds
+        	**type**\: int
+        
+        	**range:** 1..6000
+        
+        	**units**\: second
+        
+        	**default value**\: 900
+        
+        .. attribute:: port
+        
+        	Configure port number for ippmserver listening port
+        	**type**\: int
+        
+        	**range:** 1..65535
+        
+        	**default value**\: 862
+        
+        
+
+        """
+
+        _prefix = 'man-ipsla-cfg'
+        _revision = '2015-11-09'
+
+        def __init__(self):
+            super(Ipsla.ServerTwamp, self).__init__()
+
+            self.yang_name = "server-twamp"
+            self.yang_parent_name = "ipsla"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('inactivity_timer', (YLeaf(YType.uint32, 'inactivity-timer'), ['int'])),
+                ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+            ])
+            self.inactivity_timer = None
+            self.port = None
+            self._segment_path = lambda: "server-twamp"
+            self._absolute_path = lambda: "Cisco-IOS-XR-man-ipsla-cfg:ipsla/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ipsla.ServerTwamp, ['inactivity_timer', 'port'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipsla()

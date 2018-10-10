@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class UDPMIB(Entity):
     """
     
@@ -67,6 +68,7 @@ class UDPMIB(Entity):
         self.udpendpointtable.parent = self
         self._children_name_map["udpendpointtable"] = "udpEndpointTable"
         self._segment_path = lambda: "UDP-MIB:UDP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(UDPMIB, [], name, value)
@@ -135,12 +137,12 @@ class UDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('udpindatagrams', YLeaf(YType.uint32, 'udpInDatagrams')),
-                ('udpnoports', YLeaf(YType.uint32, 'udpNoPorts')),
-                ('udpinerrors', YLeaf(YType.uint32, 'udpInErrors')),
-                ('udpoutdatagrams', YLeaf(YType.uint32, 'udpOutDatagrams')),
-                ('udphcindatagrams', YLeaf(YType.uint64, 'udpHCInDatagrams')),
-                ('udphcoutdatagrams', YLeaf(YType.uint64, 'udpHCOutDatagrams')),
+                ('udpindatagrams', (YLeaf(YType.uint32, 'udpInDatagrams'), ['int'])),
+                ('udpnoports', (YLeaf(YType.uint32, 'udpNoPorts'), ['int'])),
+                ('udpinerrors', (YLeaf(YType.uint32, 'udpInErrors'), ['int'])),
+                ('udpoutdatagrams', (YLeaf(YType.uint32, 'udpOutDatagrams'), ['int'])),
+                ('udphcindatagrams', (YLeaf(YType.uint64, 'udpHCInDatagrams'), ['int'])),
+                ('udphcoutdatagrams', (YLeaf(YType.uint64, 'udpHCOutDatagrams'), ['int'])),
             ])
             self.udpindatagrams = None
             self.udpnoports = None
@@ -150,6 +152,7 @@ class UDPMIB(Entity):
             self.udphcoutdatagrams = None
             self._segment_path = lambda: "udp"
             self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(UDPMIB.Udp, ['udpindatagrams', 'udpnoports', 'udpinerrors', 'udpoutdatagrams', 'udphcindatagrams', 'udphcoutdatagrams'], name, value)
@@ -192,6 +195,7 @@ class UDPMIB(Entity):
             self.udpentry = YList(self)
             self._segment_path = lambda: "udpTable"
             self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(UDPMIB.UdpTable, [], name, value)
@@ -236,13 +240,14 @@ class UDPMIB(Entity):
                 self.ylist_key_names = ['udplocaladdress','udplocalport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('udplocaladdress', YLeaf(YType.str, 'udpLocalAddress')),
-                    ('udplocalport', YLeaf(YType.int32, 'udpLocalPort')),
+                    ('udplocaladdress', (YLeaf(YType.str, 'udpLocalAddress'), ['str'])),
+                    ('udplocalport', (YLeaf(YType.int32, 'udpLocalPort'), ['int'])),
                 ])
                 self.udplocaladdress = None
                 self.udplocalport = None
                 self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + str(self.udplocaladdress) + "']" + "[udpLocalPort='" + str(self.udplocalport) + "']"
                 self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(UDPMIB.UdpTable.UdpEntry, ['udplocaladdress', 'udplocalport'], name, value)
@@ -323,6 +328,7 @@ class UDPMIB(Entity):
             self.udpendpointentry = YList(self)
             self._segment_path = lambda: "udpEndpointTable"
             self._absolute_path = lambda: "UDP-MIB:UDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(UDPMIB.UdpEndpointTable, [], name, value)
@@ -408,14 +414,14 @@ class UDPMIB(Entity):
                 self.ylist_key_names = ['udpendpointlocaladdresstype','udpendpointlocaladdress','udpendpointlocalport','udpendpointremoteaddresstype','udpendpointremoteaddress','udpendpointremoteport','udpendpointinstance']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('udpendpointlocaladdresstype', YLeaf(YType.enumeration, 'udpEndpointLocalAddressType')),
-                    ('udpendpointlocaladdress', YLeaf(YType.str, 'udpEndpointLocalAddress')),
-                    ('udpendpointlocalport', YLeaf(YType.uint16, 'udpEndpointLocalPort')),
-                    ('udpendpointremoteaddresstype', YLeaf(YType.enumeration, 'udpEndpointRemoteAddressType')),
-                    ('udpendpointremoteaddress', YLeaf(YType.str, 'udpEndpointRemoteAddress')),
-                    ('udpendpointremoteport', YLeaf(YType.uint16, 'udpEndpointRemotePort')),
-                    ('udpendpointinstance', YLeaf(YType.uint32, 'udpEndpointInstance')),
-                    ('udpendpointprocess', YLeaf(YType.uint32, 'udpEndpointProcess')),
+                    ('udpendpointlocaladdresstype', (YLeaf(YType.enumeration, 'udpEndpointLocalAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('udpendpointlocaladdress', (YLeaf(YType.str, 'udpEndpointLocalAddress'), ['str'])),
+                    ('udpendpointlocalport', (YLeaf(YType.uint16, 'udpEndpointLocalPort'), ['int'])),
+                    ('udpendpointremoteaddresstype', (YLeaf(YType.enumeration, 'udpEndpointRemoteAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('udpendpointremoteaddress', (YLeaf(YType.str, 'udpEndpointRemoteAddress'), ['str'])),
+                    ('udpendpointremoteport', (YLeaf(YType.uint16, 'udpEndpointRemotePort'), ['int'])),
+                    ('udpendpointinstance', (YLeaf(YType.uint32, 'udpEndpointInstance'), ['int'])),
+                    ('udpendpointprocess', (YLeaf(YType.uint32, 'udpEndpointProcess'), ['int'])),
                 ])
                 self.udpendpointlocaladdresstype = None
                 self.udpendpointlocaladdress = None
@@ -427,6 +433,7 @@ class UDPMIB(Entity):
                 self.udpendpointprocess = None
                 self._segment_path = lambda: "udpEndpointEntry" + "[udpEndpointLocalAddressType='" + str(self.udpendpointlocaladdresstype) + "']" + "[udpEndpointLocalAddress='" + str(self.udpendpointlocaladdress) + "']" + "[udpEndpointLocalPort='" + str(self.udpendpointlocalport) + "']" + "[udpEndpointRemoteAddressType='" + str(self.udpendpointremoteaddresstype) + "']" + "[udpEndpointRemoteAddress='" + str(self.udpendpointremoteaddress) + "']" + "[udpEndpointRemotePort='" + str(self.udpendpointremoteport) + "']" + "[udpEndpointInstance='" + str(self.udpendpointinstance) + "']"
                 self._absolute_path = lambda: "UDP-MIB:UDP-MIB/udpEndpointTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(UDPMIB.UdpEndpointTable.UdpEndpointEntry, ['udpendpointlocaladdresstype', 'udpendpointlocaladdress', 'udpendpointlocalport', 'udpendpointremoteaddresstype', 'udpendpointremoteaddress', 'udpendpointremoteport', 'udpendpointinstance', 'udpendpointprocess'], name, value)

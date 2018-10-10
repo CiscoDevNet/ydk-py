@@ -53,6 +53,11 @@ module Cisco-IOS-XE-vlan {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-13 {
+    description
+      "Add support for Evpn";
+  }
+  
   revision 2017-10-02 {
     description
       "Add support for 'ipv6 nd suppress' and 'vlan group *'";
@@ -86,27 +91,6 @@ module Cisco-IOS-XE-vlan {
         description
           "Set the private VLAN SVI interface mapping";
           type string;
-      }
-    }
-    list vrrp {
-      key "number";
-      leaf number {
-        type uint8;
-      }
-      list ip {
-        description
-          "Enable Virtual Router Redundancy Protocol (VRRP) for IP";
-        key "ipv4";
-        leaf ipv4 {
-          description
-            "VRRP group IP address";
-          type inet:ipv4-address;
-        }
-        leaf secondary {
-          description
-            "Make this IP address a secondary address";
-          type empty;
-        }
       }
     }
 
@@ -354,6 +338,29 @@ module Cisco-IOS-XE-vlan {
           }
         }
       }
+      container member {
+        container evpn-instance {
+          description
+            "Ethernet Virtual Private Network (EVPN)";      
+          leaf evpn-instance  {
+            type uint16 {
+              range "1..65535";
+            }
+          }
+          leaf vni {
+            description "VxLAN VNI value";
+            type uint32 {
+              range "4096..16777215";
+            }
+          }
+       }
+       leaf vni {
+         description "VxLAN VNI value";
+         type uint32 {
+           range "4096..16777215";
+         }
+       }
+     }
     }
     list filter {
       description "Apply a VLAN Map";

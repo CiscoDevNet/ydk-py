@@ -8,7 +8,7 @@ for the following management objects\:
   srms\: Segment Routing Mapping Server operational data
   srlb\: srlb
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SidTypeEnum(Enum):
@@ -194,6 +195,7 @@ class Srms(Entity):
         self.policy.parent = self
         self._children_name_map["policy"] = "policy"
         self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Srms, [], name, value)
@@ -240,6 +242,7 @@ class Srms(Entity):
             self._children_name_map["mapping_ipv6"] = "mapping-ipv6"
             self._segment_path = lambda: "mapping"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srms.Mapping, [], name, value)
@@ -275,6 +278,7 @@ class Srms(Entity):
                 self.mapping_mi = YList(self)
                 self._segment_path = lambda: "mapping-ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srms.Mapping.MappingIpv4, [], name, value)
@@ -383,17 +387,17 @@ class Srms(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv4.MappingMi.Addr))])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix', YLeaf(YType.uint32, 'prefix')),
-                        ('src', YLeaf(YType.enumeration, 'src')),
-                        ('router', YLeaf(YType.str, 'router')),
-                        ('area', YLeaf(YType.str, 'area')),
-                        ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                        ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                        ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                        ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                        ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                        ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                        ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                        ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                        ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                        ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                        ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                        ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                        ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                        ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                        ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                     ])
                     self.ip = None
                     self.prefix = None
@@ -412,9 +416,10 @@ class Srms(Entity):
                     self._children_name_map["addr"] = "addr"
                     self._segment_path = lambda: "mapping-mi"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi, ['ip', 'prefix', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                 class Addr(Entity):
@@ -457,18 +462,19 @@ class Srms(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af', YLeaf(YType.enumeration, 'af')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "addr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv4/mapping-mi/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                        self._perform_setattr(Srms.Mapping.MappingIpv4.MappingMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
         class MappingIpv6(Entity):
@@ -501,6 +507,7 @@ class Srms(Entity):
                 self.mapping_mi = YList(self)
                 self._segment_path = lambda: "mapping-ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srms.Mapping.MappingIpv6, [], name, value)
@@ -609,17 +616,17 @@ class Srms(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("addr", ("addr", Srms.Mapping.MappingIpv6.MappingMi.Addr))])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix', YLeaf(YType.uint32, 'prefix')),
-                        ('src', YLeaf(YType.enumeration, 'src')),
-                        ('router', YLeaf(YType.str, 'router')),
-                        ('area', YLeaf(YType.str, 'area')),
-                        ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                        ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                        ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                        ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                        ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                        ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix', (YLeaf(YType.uint32, 'prefix'), ['int'])),
+                        ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                        ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                        ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                        ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                        ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                        ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                        ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                        ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                        ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                     ])
                     self.ip = None
                     self.prefix = None
@@ -638,9 +645,10 @@ class Srms(Entity):
                     self._children_name_map["addr"] = "addr"
                     self._segment_path = lambda: "mapping-mi"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['ip', 'prefix', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                    self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi, ['ip', 'prefix', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                 class Addr(Entity):
@@ -683,18 +691,19 @@ class Srms(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af', YLeaf(YType.enumeration, 'af')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "addr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/mapping/mapping-ipv6/mapping-mi/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                        self._perform_setattr(Srms.Mapping.MappingIpv6.MappingMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
     class AdjacencySid(Entity):
@@ -729,6 +738,7 @@ class Srms(Entity):
             self._children_name_map["l2_adjacency"] = "l2-adjacency"
             self._segment_path = lambda: "adjacency-sid"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srms.AdjacencySid, [], name, value)
@@ -766,6 +776,7 @@ class Srms(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "l2-adjacency"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency, [], name, value)
@@ -801,6 +812,7 @@ class Srms(Entity):
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces, [], name, value)
@@ -815,7 +827,7 @@ class Srms(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: address_family
                     
@@ -839,7 +851,7 @@ class Srms(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("address-family", ("address_family", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -848,6 +860,7 @@ class Srms(Entity):
                         self._children_name_map["address_family"] = "address-family"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/adjacency-sid/l2-adjacency/interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface, ['interface_name'], name, value)
@@ -893,6 +906,7 @@ class Srms(Entity):
                             self.ipv6.parent = self
                             self._children_name_map["ipv6"] = "ipv6"
                             self._segment_path = lambda: "address-family"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily, [], name, value)
@@ -927,6 +941,7 @@ class Srms(Entity):
 
                                 self.sid_record = YList(self)
                                 self._segment_path = lambda: "ipv4"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4, [], name, value)
@@ -1017,15 +1032,15 @@ class Srms(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress))])
                                     self._leafs = OrderedDict([
-                                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                        ('sid_value', YLeaf(YType.uint32, 'sid-value')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('sid_value_xr', YLeaf(YType.uint32, 'sid-value-xr')),
-                                        ('sid_type_xr', YLeaf(YType.uint32, 'sid-type-xr')),
-                                        ('address_family', YLeaf(YType.uint32, 'address-family')),
-                                        ('has_nexthop', YLeaf(YType.boolean, 'has-nexthop')),
-                                        ('interface_count', YLeaf(YType.int32, 'interface-count')),
-                                        ('interface_delete_count', YLeaf(YType.int32, 'interface-delete-count')),
+                                        ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SidTypeEnum', '')])),
+                                        ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('sid_value_xr', (YLeaf(YType.uint32, 'sid-value-xr'), ['int'])),
+                                        ('sid_type_xr', (YLeaf(YType.uint32, 'sid-type-xr'), ['int'])),
+                                        ('address_family', (YLeaf(YType.uint32, 'address-family'), ['int'])),
+                                        ('has_nexthop', (YLeaf(YType.boolean, 'has-nexthop'), ['bool'])),
+                                        ('interface_count', (YLeaf(YType.int32, 'interface-count'), ['int'])),
+                                        ('interface_delete_count', (YLeaf(YType.int32, 'interface-delete-count'), ['int'])),
                                     ])
                                     self.sid_type = None
                                     self.sid_value = None
@@ -1041,9 +1056,10 @@ class Srms(Entity):
                                     self.nexthop_address.parent = self
                                     self._children_name_map["nexthop_address"] = "nexthop-address"
                                     self._segment_path = lambda: "sid-record"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1086,17 +1102,18 @@ class Srms(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('af', YLeaf(YType.enumeration, 'af')),
-                                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                            ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsAf', '')])),
+                                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                         ])
                                         self.af = None
                                         self.ipv4 = None
                                         self.ipv6 = None
                                         self._segment_path = lambda: "nexthop-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv4.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
                         class Ipv6(Entity):
@@ -1128,6 +1145,7 @@ class Srms(Entity):
 
                                 self.sid_record = YList(self)
                                 self._segment_path = lambda: "ipv6"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6, [], name, value)
@@ -1218,15 +1236,15 @@ class Srms(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("nexthop-address", ("nexthop_address", Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress))])
                                     self._leafs = OrderedDict([
-                                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                        ('sid_value', YLeaf(YType.uint32, 'sid-value')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('sid_value_xr', YLeaf(YType.uint32, 'sid-value-xr')),
-                                        ('sid_type_xr', YLeaf(YType.uint32, 'sid-type-xr')),
-                                        ('address_family', YLeaf(YType.uint32, 'address-family')),
-                                        ('has_nexthop', YLeaf(YType.boolean, 'has-nexthop')),
-                                        ('interface_count', YLeaf(YType.int32, 'interface-count')),
-                                        ('interface_delete_count', YLeaf(YType.int32, 'interface-delete-count')),
+                                        ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SidTypeEnum', '')])),
+                                        ('sid_value', (YLeaf(YType.uint32, 'sid-value'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('sid_value_xr', (YLeaf(YType.uint32, 'sid-value-xr'), ['int'])),
+                                        ('sid_type_xr', (YLeaf(YType.uint32, 'sid-type-xr'), ['int'])),
+                                        ('address_family', (YLeaf(YType.uint32, 'address-family'), ['int'])),
+                                        ('has_nexthop', (YLeaf(YType.boolean, 'has-nexthop'), ['bool'])),
+                                        ('interface_count', (YLeaf(YType.int32, 'interface-count'), ['int'])),
+                                        ('interface_delete_count', (YLeaf(YType.int32, 'interface-delete-count'), ['int'])),
                                     ])
                                     self.sid_type = None
                                     self.sid_value = None
@@ -1242,9 +1260,10 @@ class Srms(Entity):
                                     self.nexthop_address.parent = self
                                     self._children_name_map["nexthop_address"] = "nexthop-address"
                                     self._segment_path = lambda: "sid-record"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', 'interface_name', 'sid_value_xr', 'sid_type_xr', 'address_family', 'has_nexthop', 'interface_count', 'interface_delete_count'], name, value)
+                                    self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord, ['sid_type', 'sid_value', u'interface_name', u'sid_value_xr', u'sid_type_xr', u'address_family', u'has_nexthop', u'interface_count', u'interface_delete_count'], name, value)
 
 
                                 class NexthopAddress(Entity):
@@ -1287,17 +1306,18 @@ class Srms(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('af', YLeaf(YType.enumeration, 'af')),
-                                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                            ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsAf', '')])),
+                                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                         ])
                                         self.af = None
                                         self.ipv4 = None
                                         self.ipv6 = None
                                         self._segment_path = lambda: "nexthop-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, ['af', 'ipv4', 'ipv6'], name, value)
+                                        self._perform_setattr(Srms.AdjacencySid.L2Adjacency.Interfaces.Interface.AddressFamily.Ipv6.SidRecord.NexthopAddress, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
     class Policy(Entity):
@@ -1341,6 +1361,7 @@ class Srms(Entity):
             self._children_name_map["policy_ipv6"] = "policy-ipv6"
             self._segment_path = lambda: "policy"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Srms.Policy, [], name, value)
@@ -1387,6 +1408,7 @@ class Srms(Entity):
                 self._children_name_map["policy_ipv4_active"] = "policy-ipv4-active"
                 self._segment_path = lambda: "policy-ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srms.Policy.PolicyIpv4, [], name, value)
@@ -1422,6 +1444,7 @@ class Srms(Entity):
                     self.policy_mi = YList(self)
                     self._segment_path = lambda: "policy-ipv4-backup"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup, [], name, value)
@@ -1519,16 +1542,16 @@ class Srms(Entity):
                         self.ylist_key_names = ['mi_id']
                         self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
-                            ('mi_id', YLeaf(YType.str, 'mi-id')),
-                            ('src', YLeaf(YType.enumeration, 'src')),
-                            ('router', YLeaf(YType.str, 'router')),
-                            ('area', YLeaf(YType.str, 'area')),
-                            ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                            ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                            ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                            ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                            ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                            ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                            ('mi_id', (YLeaf(YType.str, 'mi-id'), ['str'])),
+                            ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                            ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                            ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                            ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                            ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                            ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                            ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                            ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                            ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                         ])
                         self.mi_id = None
                         self.src = None
@@ -1546,9 +1569,10 @@ class Srms(Entity):
                         self._children_name_map["addr"] = "addr"
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-backup/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi, ['mi_id', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -1591,17 +1615,18 @@ class Srms(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.enumeration, 'af')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "addr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Backup.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
             class PolicyIpv4Active(Entity):
@@ -1634,6 +1659,7 @@ class Srms(Entity):
                     self.policy_mi = YList(self)
                     self._segment_path = lambda: "policy-ipv4-active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active, [], name, value)
@@ -1731,16 +1757,16 @@ class Srms(Entity):
                         self.ylist_key_names = ['mi_id']
                         self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
-                            ('mi_id', YLeaf(YType.str, 'mi-id')),
-                            ('src', YLeaf(YType.enumeration, 'src')),
-                            ('router', YLeaf(YType.str, 'router')),
-                            ('area', YLeaf(YType.str, 'area')),
-                            ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                            ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                            ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                            ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                            ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                            ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                            ('mi_id', (YLeaf(YType.str, 'mi-id'), ['str'])),
+                            ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                            ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                            ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                            ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                            ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                            ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                            ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                            ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                            ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                         ])
                         self.mi_id = None
                         self.src = None
@@ -1758,9 +1784,10 @@ class Srms(Entity):
                         self._children_name_map["addr"] = "addr"
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv4/policy-ipv4-active/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi, ['mi_id', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -1803,17 +1830,18 @@ class Srms(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.enumeration, 'af')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "addr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv4.PolicyIpv4Active.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
         class PolicyIpv6(Entity):
@@ -1857,6 +1885,7 @@ class Srms(Entity):
                 self._children_name_map["policy_ipv6_active"] = "policy-ipv6-active"
                 self._segment_path = lambda: "policy-ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Srms.Policy.PolicyIpv6, [], name, value)
@@ -1892,6 +1921,7 @@ class Srms(Entity):
                     self.policy_mi = YList(self)
                     self._segment_path = lambda: "policy-ipv6-backup"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup, [], name, value)
@@ -1989,16 +2019,16 @@ class Srms(Entity):
                         self.ylist_key_names = ['mi_id']
                         self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
-                            ('mi_id', YLeaf(YType.str, 'mi-id')),
-                            ('src', YLeaf(YType.enumeration, 'src')),
-                            ('router', YLeaf(YType.str, 'router')),
-                            ('area', YLeaf(YType.str, 'area')),
-                            ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                            ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                            ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                            ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                            ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                            ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                            ('mi_id', (YLeaf(YType.str, 'mi-id'), ['str'])),
+                            ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                            ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                            ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                            ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                            ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                            ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                            ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                            ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                            ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                         ])
                         self.mi_id = None
                         self.src = None
@@ -2016,9 +2046,10 @@ class Srms(Entity):
                         self._children_name_map["addr"] = "addr"
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-backup/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi, ['mi_id', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -2061,17 +2092,18 @@ class Srms(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.enumeration, 'af')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "addr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Backup.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
 
             class PolicyIpv6Active(Entity):
@@ -2104,6 +2136,7 @@ class Srms(Entity):
                     self.policy_mi = YList(self)
                     self._segment_path = lambda: "policy-ipv6-active"
                     self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active, [], name, value)
@@ -2201,16 +2234,16 @@ class Srms(Entity):
                         self.ylist_key_names = ['mi_id']
                         self._child_classes = OrderedDict([("addr", ("addr", Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr))])
                         self._leafs = OrderedDict([
-                            ('mi_id', YLeaf(YType.str, 'mi-id')),
-                            ('src', YLeaf(YType.enumeration, 'src')),
-                            ('router', YLeaf(YType.str, 'router')),
-                            ('area', YLeaf(YType.str, 'area')),
-                            ('prefix_xr', YLeaf(YType.uint8, 'prefix-xr')),
-                            ('sid_start', YLeaf(YType.uint32, 'sid-start')),
-                            ('sid_count', YLeaf(YType.uint32, 'sid-count')),
-                            ('last_prefix', YLeaf(YType.str, 'last-prefix')),
-                            ('last_sid_index', YLeaf(YType.uint32, 'last-sid-index')),
-                            ('flag_attached', YLeaf(YType.enumeration, 'flag-attached')),
+                            ('mi_id', (YLeaf(YType.str, 'mi-id'), ['str'])),
+                            ('src', (YLeaf(YType.enumeration, 'src'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiSrcEB', '')])),
+                            ('router', (YLeaf(YType.str, 'router'), ['str'])),
+                            ('area', (YLeaf(YType.str, 'area'), ['str'])),
+                            ('prefix_xr', (YLeaf(YType.uint8, 'prefix-xr'), ['int'])),
+                            ('sid_start', (YLeaf(YType.uint32, 'sid-start'), ['int'])),
+                            ('sid_count', (YLeaf(YType.uint32, 'sid-count'), ['int'])),
+                            ('last_prefix', (YLeaf(YType.str, 'last-prefix'), ['str'])),
+                            ('last_sid_index', (YLeaf(YType.uint32, 'last-sid-index'), ['int'])),
+                            ('flag_attached', (YLeaf(YType.enumeration, 'flag-attached'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiFlagEB', '')])),
                         ])
                         self.mi_id = None
                         self.src = None
@@ -2228,9 +2261,10 @@ class Srms(Entity):
                         self._children_name_map["addr"] = "addr"
                         self._segment_path = lambda: "policy-mi" + "[mi-id='" + str(self.mi_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srms/policy/policy-ipv6/policy-ipv6-active/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', 'src', 'router', 'area', 'prefix_xr', 'sid_start', 'sid_count', 'last_prefix', 'last_sid_index', 'flag_attached'], name, value)
+                        self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi, ['mi_id', u'src', u'router', u'area', u'prefix_xr', u'sid_start', u'sid_count', u'last_prefix', u'last_sid_index', u'flag_attached'], name, value)
 
 
                     class Addr(Entity):
@@ -2273,17 +2307,18 @@ class Srms(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.enumeration, 'af')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_segment_routing_ms_oper', 'SrmsMiAfEB', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "addr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, ['af', 'ipv4', 'ipv6'], name, value)
+                            self._perform_setattr(Srms.Policy.PolicyIpv6.PolicyIpv6Active.PolicyMi.Addr, [u'af', u'ipv4', u'ipv6'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Srms()
@@ -2321,6 +2356,7 @@ class Srlb(Entity):
         self.srlb_inconsistency.parent = self
         self._children_name_map["srlb_inconsistency"] = "srlb-inconsistency"
         self._segment_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srlb"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Srlb, [], name, value)
@@ -2361,16 +2397,17 @@ class Srlb(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('start_srlb_range', YLeaf(YType.uint32, 'start-srlb-range')),
-                ('end_srlb_range', YLeaf(YType.uint32, 'end-srlb-range')),
+                ('start_srlb_range', (YLeaf(YType.uint32, 'start-srlb-range'), ['int'])),
+                ('end_srlb_range', (YLeaf(YType.uint32, 'end-srlb-range'), ['int'])),
             ])
             self.start_srlb_range = None
             self.end_srlb_range = None
             self._segment_path = lambda: "srlb-inconsistency"
             self._absolute_path = lambda: "Cisco-IOS-XR-segment-routing-ms-oper:srlb/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Srlb.SrlbInconsistency, ['start_srlb_range', 'end_srlb_range'], name, value)
+            self._perform_setattr(Srlb.SrlbInconsistency, [u'start_srlb_range', u'end_srlb_range'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Srlb()

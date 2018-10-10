@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   icmp\: IP ICMP configuration data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SourcePolicy(Enum):
@@ -82,6 +83,7 @@ class Icmp(Entity):
         self.ipv4.parent = self
         self._children_name_map["ipv4"] = "ipv4"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Icmp, [], name, value)
@@ -128,6 +130,7 @@ class Icmp(Entity):
             self._children_name_map["source"] = "source"
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Icmp.Ipv6, [], name, value)
@@ -165,6 +168,7 @@ class Icmp(Entity):
                 self._children_name_map["unreachable"] = "unreachable"
                 self._segment_path = lambda: "rate-limit"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv6.RateLimit, [], name, value)
@@ -205,13 +209,14 @@ class Icmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rate', YLeaf(YType.uint32, 'rate')),
-                        ('fragmentation', YLeaf(YType.uint32, 'fragmentation')),
+                        ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                        ('fragmentation', (YLeaf(YType.uint32, 'fragmentation'), ['int'])),
                     ])
                     self.rate = None
                     self.fragmentation = None
                     self._segment_path = lambda: "unreachable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/rate-limit/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Icmp.Ipv6.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
@@ -243,11 +248,12 @@ class Icmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('source_address_policy', YLeaf(YType.enumeration, 'source-address-policy')),
+                    ('source_address_policy', (YLeaf(YType.enumeration, 'source-address-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg', 'SourcePolicy', '')])),
                 ])
                 self.source_address_policy = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv6.Source, ['source_address_policy'], name, value)
@@ -294,6 +300,7 @@ class Icmp(Entity):
             self._children_name_map["source"] = "source"
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Icmp.Ipv4, [], name, value)
@@ -331,6 +338,7 @@ class Icmp(Entity):
                 self._children_name_map["unreachable"] = "unreachable"
                 self._segment_path = lambda: "rate-limit"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv4.RateLimit, [], name, value)
@@ -371,13 +379,14 @@ class Icmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rate', YLeaf(YType.uint32, 'rate')),
-                        ('fragmentation', YLeaf(YType.uint32, 'fragmentation')),
+                        ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
+                        ('fragmentation', (YLeaf(YType.uint32, 'fragmentation'), ['int'])),
                     ])
                     self.rate = None
                     self.fragmentation = None
                     self._segment_path = lambda: "unreachable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/rate-limit/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Icmp.Ipv4.RateLimit.Unreachable, ['rate', 'fragmentation'], name, value)
@@ -409,11 +418,12 @@ class Icmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('source_address_policy', YLeaf(YType.enumeration, 'source-address-policy')),
+                    ('source_address_policy', (YLeaf(YType.enumeration, 'source-address-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_icmp_cfg', 'SourcePolicy', '')])),
                 ])
                 self.source_address_policy = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-icmp-cfg:icmp/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Icmp.Ipv4.Source, ['source_address_policy'], name, value)

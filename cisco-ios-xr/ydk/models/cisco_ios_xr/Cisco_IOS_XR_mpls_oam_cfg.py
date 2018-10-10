@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-oam\: MPLS LSP verification configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -57,8 +58,8 @@ class MplsOam(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("reply-mode", ("reply_mode", MplsOam.ReplyMode))])
         self._leafs = OrderedDict([
-            ('enable_oam', YLeaf(YType.empty, 'enable-oam')),
-            ('disable_vendor_extension', YLeaf(YType.empty, 'disable-vendor-extension')),
+            ('enable_oam', (YLeaf(YType.empty, 'enable-oam'), ['Empty'])),
+            ('disable_vendor_extension', (YLeaf(YType.empty, 'disable-vendor-extension'), ['Empty'])),
         ])
         self.enable_oam = None
         self.disable_vendor_extension = None
@@ -67,6 +68,7 @@ class MplsOam(Entity):
         self.reply_mode.parent = self
         self._children_name_map["reply_mode"] = "reply-mode"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsOam, ['enable_oam', 'disable_vendor_extension'], name, value)
@@ -104,6 +106,7 @@ class MplsOam(Entity):
             self._children_name_map["control_channel"] = "control-channel"
             self._segment_path = lambda: "reply-mode"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsOam.ReplyMode, [], name, value)
@@ -135,11 +138,12 @@ class MplsOam(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('allow_reverse_lsp', YLeaf(YType.empty, 'allow-reverse-lsp')),
+                    ('allow_reverse_lsp', (YLeaf(YType.empty, 'allow-reverse-lsp'), ['Empty'])),
                 ])
                 self.allow_reverse_lsp = None
                 self._segment_path = lambda: "control-channel"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-oam-cfg:mpls-oam/reply-mode/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsOam.ReplyMode.ControlChannel, ['allow_reverse_lsp'], name, value)

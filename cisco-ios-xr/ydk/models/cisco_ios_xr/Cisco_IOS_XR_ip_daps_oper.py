@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   address\-pool\-service\: Pool operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DapsClient(Enum):
@@ -56,6 +57,33 @@ class DapsClient(Enum):
     dhcpv6 = Enum.YLeaf(4, "dhcpv6")
 
     ipv6nd = Enum.YLeaf(5, "ipv6nd")
+
+
+class DapsSergRole(Enum):
+    """
+    DapsSergRole (Enum Class)
+
+    DAPS SERG role
+
+    .. data:: none = 0
+
+    	Role None
+
+    .. data:: master = 1
+
+    	Role Master
+
+    .. data:: slave = 2
+
+    	Role Slave
+
+    """
+
+    none = Enum.YLeaf(0, "none")
+
+    master = Enum.YLeaf(1, "master")
+
+    slave = Enum.YLeaf(2, "slave")
 
 
 class IpAddr(Enum):
@@ -112,6 +140,7 @@ class AddressPoolService(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-daps-oper:address-pool-service"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AddressPoolService, [], name, value)
@@ -147,6 +176,7 @@ class AddressPoolService(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-daps-oper:address-pool-service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AddressPoolService.Nodes, [], name, value)
@@ -195,7 +225,7 @@ class AddressPoolService(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("pools", ("pools", AddressPoolService.Nodes.Node.Pools)), ("total-utilization", ("total_utilization", AddressPoolService.Nodes.Node.TotalUtilization)), ("vrfs", ("vrfs", AddressPoolService.Nodes.Node.Vrfs))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -212,6 +242,7 @@ class AddressPoolService(Entity):
                 self._children_name_map["vrfs"] = "vrfs"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-daps-oper:address-pool-service/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AddressPoolService.Nodes.Node, ['node_name'], name, value)
@@ -246,6 +277,7 @@ class AddressPoolService(Entity):
 
                     self.pool = YList(self)
                     self._segment_path = lambda: "pools"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools, [], name, value)
@@ -294,7 +326,7 @@ class AddressPoolService(Entity):
                         self.ylist_key_names = ['pool_name']
                         self._child_classes = OrderedDict([("address-ranges", ("address_ranges", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges)), ("allocated-addresses", ("allocated_addresses", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses)), ("configuration", ("configuration", AddressPoolService.Nodes.Node.Pools.Pool.Configuration))])
                         self._leafs = OrderedDict([
-                            ('pool_name', YLeaf(YType.str, 'pool-name')),
+                            ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
                         ])
                         self.pool_name = None
 
@@ -310,6 +342,7 @@ class AddressPoolService(Entity):
                         self.configuration.parent = self
                         self._children_name_map["configuration"] = "configuration"
                         self._segment_path = lambda: "pool" + "[pool-name='" + str(self.pool_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool, ['pool_name'], name, value)
@@ -344,6 +377,7 @@ class AddressPoolService(Entity):
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges, [], name, value)
@@ -454,15 +488,15 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = ['start_address']
                                 self._child_classes = OrderedDict([("start-address-xr", ("start_address_xr", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr)), ("end-address", ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress)), ("default-router", ("default_router", AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter))])
                                 self._leafs = OrderedDict([
-                                    ('start_address', YLeaf(YType.str, 'start-address')),
-                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('pool_scope', YLeaf(YType.str, 'pool-scope')),
-                                    ('allocated_addresses', YLeaf(YType.uint32, 'allocated-addresses')),
-                                    ('free_addresses', YLeaf(YType.uint32, 'free-addresses')),
-                                    ('excluded_addresses', YLeaf(YType.uint32, 'excluded-addresses')),
-                                    ('network_blocked_status', YLeaf(YType.uint32, 'network-blocked-status')),
-                                    ('network_blocked_status_trp', YLeaf(YType.uint32, 'network-blocked-status-trp')),
+                                    ('start_address', (YLeaf(YType.str, 'start-address'), ['str','str'])),
+                                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('pool_scope', (YLeaf(YType.str, 'pool-scope'), ['str'])),
+                                    ('allocated_addresses', (YLeaf(YType.uint32, 'allocated-addresses'), ['int'])),
+                                    ('free_addresses', (YLeaf(YType.uint32, 'free-addresses'), ['int'])),
+                                    ('excluded_addresses', (YLeaf(YType.uint32, 'excluded-addresses'), ['int'])),
+                                    ('network_blocked_status', (YLeaf(YType.uint32, 'network-blocked-status'), ['int'])),
+                                    ('network_blocked_status_trp', (YLeaf(YType.uint32, 'network-blocked-status-trp'), ['int'])),
                                 ])
                                 self.start_address = None
                                 self.pool_name = None
@@ -486,9 +520,10 @@ class AddressPoolService(Entity):
                                 self.default_router.parent = self
                                 self._children_name_map["default_router"] = "default-router"
                                 self._segment_path = lambda: "address-range" + "[start-address='" + str(self.start_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', u'pool_name', u'vrf_name', u'pool_scope', u'allocated_addresses', u'free_addresses', u'excluded_addresses', u'network_blocked_status', u'network_blocked_status_trp'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange, ['start_address', 'pool_name', 'vrf_name', 'pool_scope', 'allocated_addresses', 'free_addresses', 'excluded_addresses', 'network_blocked_status', 'network_blocked_status_trp'], name, value)
 
 
                             class StartAddressXr(Entity):
@@ -522,6 +557,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "start-address-xr"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr, [], name, value)
@@ -567,17 +603,18 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.StartAddressXr.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                             class EndAddress(Entity):
@@ -611,6 +648,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "end-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress, [], name, value)
@@ -656,17 +694,18 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                             class DefaultRouter(Entity):
@@ -700,6 +739,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "default-router"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter, [], name, value)
@@ -745,17 +785,18 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AddressRanges.AddressRange.DefaultRouter.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                     class AllocatedAddresses(Entity):
@@ -802,6 +843,7 @@ class AddressPoolService(Entity):
                             self.address_range = YList(self)
                             self.in_use_address = YList(self)
                             self._segment_path = lambda: "allocated-addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses, [], name, value)
@@ -882,12 +924,12 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("high-threshold", ("high_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold)), ("low-threshold", ("low_threshold", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold))])
                                 self._leafs = OrderedDict([
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
-                                    ('total', YLeaf(YType.uint32, 'total')),
-                                    ('utilization', YLeaf(YType.uint32, 'utilization')),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                    ('utilization', (YLeaf(YType.uint32, 'utilization'), ['int'])),
                                 ])
                                 self.vrf_name = None
                                 self.used = None
@@ -904,9 +946,10 @@ class AddressPoolService(Entity):
                                 self.low_threshold.parent = self
                                 self._children_name_map["low_threshold"] = "low-threshold"
                                 self._segment_path = lambda: "pool-allocations"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, [u'vrf_name', u'used', u'excluded', u'free', u'total', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations, ['vrf_name', 'used', 'excluded', 'free', 'total', 'utilization'], name, value)
 
 
                             class HighThreshold(Entity):
@@ -951,17 +994,18 @@ class AddressPoolService(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                        ('triggers', YLeaf(YType.uint32, 'triggers')),
-                                        ('time_last_crossed', YLeaf(YType.str, 'time-last-crossed')),
+                                        ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                        ('triggers', (YLeaf(YType.uint32, 'triggers'), ['int'])),
+                                        ('time_last_crossed', (YLeaf(YType.str, 'time-last-crossed'), ['str'])),
                                     ])
                                     self.threshold = None
                                     self.triggers = None
                                     self.time_last_crossed = None
                                     self._segment_path = lambda: "high-threshold"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.HighThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
 
                             class LowThreshold(Entity):
@@ -1006,17 +1050,18 @@ class AddressPoolService(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                        ('triggers', YLeaf(YType.uint32, 'triggers')),
-                                        ('time_last_crossed', YLeaf(YType.str, 'time-last-crossed')),
+                                        ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                        ('triggers', (YLeaf(YType.uint32, 'triggers'), ['int'])),
+                                        ('time_last_crossed', (YLeaf(YType.str, 'time-last-crossed'), ['str'])),
                                     ])
                                     self.threshold = None
                                     self.triggers = None
                                     self.time_last_crossed = None
                                     self._segment_path = lambda: "low-threshold"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, [u'threshold', u'triggers', u'time_last_crossed'], name, value)
+                                    self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.PoolAllocations.LowThreshold, ['threshold', 'triggers', 'time_last_crossed'], name, value)
 
 
                         class AddressRange(Entity):
@@ -1071,9 +1116,9 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("start-address", ("start_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress)), ("end-address", ("end_address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress))])
                                 self._leafs = OrderedDict([
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
                                 ])
                                 self.used = None
                                 self.excluded = None
@@ -1087,9 +1132,10 @@ class AddressPoolService(Entity):
                                 self.end_address.parent = self
                                 self._children_name_map["end_address"] = "end-address"
                                 self._segment_path = lambda: "address-range"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, [u'used', u'excluded', u'free'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange, ['used', 'excluded', 'free'], name, value)
 
 
                             class StartAddress(Entity):
@@ -1123,6 +1169,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "start-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress, [], name, value)
@@ -1168,17 +1215,18 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.StartAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                             class EndAddress(Entity):
@@ -1212,6 +1260,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "end-address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress, [], name, value)
@@ -1257,17 +1306,18 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.AddressRange.EndAddress.Address, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                         class InUseAddress(Entity):
@@ -1301,7 +1351,7 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address))])
                                 self._leafs = OrderedDict([
-                                    ('client_type', YLeaf(YType.enumeration, 'client-type')),
+                                    ('client_type', (YLeaf(YType.enumeration, 'client-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'DapsClient', '')])),
                                 ])
                                 self.client_type = None
 
@@ -1309,9 +1359,10 @@ class AddressPoolService(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "in-use-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, [u'client_type'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress, ['client_type'], name, value)
 
 
                             class Address(Entity):
@@ -1345,6 +1396,7 @@ class AddressPoolService(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address, [], name, value)
@@ -1390,22 +1442,28 @@ class AddressPoolService(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'IpAddr', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.address_family = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, [u'address_family', u'ipv4_address', u'ipv6_address'], name, value)
+                                        self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.AllocatedAddresses.InUseAddress.Address.Address_, ['address_family', 'ipv4_address', 'ipv6_address'], name, value)
 
 
                     class Configuration(Entity):
                         """
                         Configuration info for pool
+                        
+                        .. attribute:: serg_info
+                        
+                        	SERG Info
+                        	**type**\:  :py:class:`SergInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo>`
                         
                         .. attribute:: pool_name
                         
@@ -1492,18 +1550,18 @@ class AddressPoolService(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([])
+                            self._child_classes = OrderedDict([("serg-info", ("serg_info", AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo))])
                             self._leafs = OrderedDict([
-                                ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                ('pool_id', YLeaf(YType.uint32, 'pool-id')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('pool_scope', YLeaf(YType.str, 'pool-scope')),
-                                ('pool_prefix_length', YLeaf(YType.uint32, 'pool-prefix-length')),
-                                ('high_utilization_mark', YLeaf(YType.uint8, 'high-utilization-mark')),
-                                ('low_utilization_mark', YLeaf(YType.uint8, 'low-utilization-mark')),
-                                ('current_utilization', YLeaf(YType.uint8, 'current-utilization')),
-                                ('utilization_high_count', YLeaf(YType.uint32, 'utilization-high-count')),
-                                ('utilization_low_count', YLeaf(YType.uint32, 'utilization-low-count')),
+                                ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                ('pool_id', (YLeaf(YType.uint32, 'pool-id'), ['int'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('pool_scope', (YLeaf(YType.str, 'pool-scope'), ['str'])),
+                                ('pool_prefix_length', (YLeaf(YType.uint32, 'pool-prefix-length'), ['int'])),
+                                ('high_utilization_mark', (YLeaf(YType.uint8, 'high-utilization-mark'), ['int'])),
+                                ('low_utilization_mark', (YLeaf(YType.uint8, 'low-utilization-mark'), ['int'])),
+                                ('current_utilization', (YLeaf(YType.uint8, 'current-utilization'), ['int'])),
+                                ('utilization_high_count', (YLeaf(YType.uint32, 'utilization-high-count'), ['int'])),
+                                ('utilization_low_count', (YLeaf(YType.uint32, 'utilization-low-count'), ['int'])),
                             ])
                             self.pool_name = None
                             self.pool_id = None
@@ -1515,10 +1573,65 @@ class AddressPoolService(Entity):
                             self.current_utilization = None
                             self.utilization_high_count = None
                             self.utilization_low_count = None
+
+                            self.serg_info = AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo()
+                            self.serg_info.parent = self
+                            self._children_name_map["serg_info"] = "serg-info"
                             self._segment_path = lambda: "configuration"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, [u'pool_name', u'pool_id', u'vrf_name', u'pool_scope', u'pool_prefix_length', u'high_utilization_mark', u'low_utilization_mark', u'current_utilization', u'utilization_high_count', u'utilization_low_count'], name, value)
+                            self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration, ['pool_name', 'pool_id', 'vrf_name', 'pool_scope', 'pool_prefix_length', 'high_utilization_mark', 'low_utilization_mark', 'current_utilization', 'utilization_high_count', 'utilization_low_count'], name, value)
+
+
+                        class SergInfo(Entity):
+                            """
+                            SERG Info
+                            
+                            .. attribute:: preferred_role
+                            
+                            	SERG PreferredRole
+                            	**type**\:  :py:class:`DapsSergRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper.DapsSergRole>`
+                            
+                            .. attribute:: peer_down
+                            
+                            	Peer Down
+                            	**type**\: bool
+                            
+                            .. attribute:: verify_pend
+                            
+                            	Verify Pending
+                            	**type**\: bool
+                            
+                            
+
+                            """
+
+                            _prefix = 'ip-daps-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, self).__init__()
+
+                                self.yang_name = "serg-info"
+                                self.yang_parent_name = "configuration"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper', 'DapsSergRole', '')])),
+                                    ('peer_down', (YLeaf(YType.boolean, 'peer-down'), ['bool'])),
+                                    ('verify_pend', (YLeaf(YType.boolean, 'verify-pend'), ['bool'])),
+                                ])
+                                self.preferred_role = None
+                                self.peer_down = None
+                                self.verify_pend = None
+                                self._segment_path = lambda: "serg-info"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Pools.Pool.Configuration.SergInfo, ['preferred_role', 'peer_down', 'verify_pend'], name, value)
 
 
             class TotalUtilization(Entity):
@@ -1563,17 +1676,18 @@ class AddressPoolService(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_utilization_high_mark', YLeaf(YType.uint8, 'total-utilization-high-mark')),
-                        ('total_utilization_low_mark', YLeaf(YType.uint8, 'total-utilization-low-mark')),
-                        ('current_total_utilization', YLeaf(YType.uint8, 'current-total-utilization')),
+                        ('total_utilization_high_mark', (YLeaf(YType.uint8, 'total-utilization-high-mark'), ['int'])),
+                        ('total_utilization_low_mark', (YLeaf(YType.uint8, 'total-utilization-low-mark'), ['int'])),
+                        ('current_total_utilization', (YLeaf(YType.uint8, 'current-total-utilization'), ['int'])),
                     ])
                     self.total_utilization_high_mark = None
                     self.total_utilization_low_mark = None
                     self.current_total_utilization = None
                     self._segment_path = lambda: "total-utilization"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, [u'total_utilization_high_mark', u'total_utilization_low_mark', u'current_total_utilization'], name, value)
+                    self._perform_setattr(AddressPoolService.Nodes.Node.TotalUtilization, ['total_utilization_high_mark', 'total_utilization_low_mark', 'current_total_utilization'], name, value)
 
 
             class Vrfs(Entity):
@@ -1605,6 +1719,7 @@ class AddressPoolService(Entity):
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "vrfs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs, [], name, value)
@@ -1648,7 +1763,7 @@ class AddressPoolService(Entity):
                         self.ylist_key_names = ['vrf_name']
                         self._child_classes = OrderedDict([("ipv4", ("ipv4", AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4)), ("ipv6", ("ipv6", AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6))])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                         ])
                         self.vrf_name = None
 
@@ -1660,6 +1775,7 @@ class AddressPoolService(Entity):
                         self.ipv6.parent = self
                         self._children_name_map["ipv6"] = "ipv6"
                         self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -1703,6 +1819,7 @@ class AddressPoolService(Entity):
 
                             self.pools = YList(self)
                             self._segment_path = lambda: "ipv4"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4, [], name, value)
@@ -1784,13 +1901,13 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
-                                    ('total', YLeaf(YType.uint32, 'total')),
-                                    ('high_utilization_threshold', YLeaf(YType.uint8, 'high-utilization-threshold')),
-                                    ('low_utilization_threshold', YLeaf(YType.uint8, 'low-utilization-threshold')),
-                                    ('utilization', YLeaf(YType.uint8, 'utilization')),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                    ('high_utilization_threshold', (YLeaf(YType.uint8, 'high-utilization-threshold'), ['int'])),
+                                    ('low_utilization_threshold', (YLeaf(YType.uint8, 'low-utilization-threshold'), ['int'])),
+                                    ('utilization', (YLeaf(YType.uint8, 'utilization'), ['int'])),
                                 ])
                                 self.used = None
                                 self.excluded = None
@@ -1800,9 +1917,10 @@ class AddressPoolService(Entity):
                                 self.low_utilization_threshold = None
                                 self.utilization = None
                                 self._segment_path = lambda: "allocation-summary"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
                         class Pools(Entity):
@@ -1868,12 +1986,12 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
-                                    ('total', YLeaf(YType.uint32, 'total')),
+                                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
                                 ])
                                 self.pool_name = None
                                 self.vrf_name = None
@@ -1882,9 +2000,10 @@ class AddressPoolService(Entity):
                                 self.free = None
                                 self.total = None
                                 self._segment_path = lambda: "pools"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv4.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
 
                     class Ipv6(Entity):
@@ -1925,6 +2044,7 @@ class AddressPoolService(Entity):
 
                             self.pools = YList(self)
                             self._segment_path = lambda: "ipv6"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6, [], name, value)
@@ -2006,13 +2126,13 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
-                                    ('total', YLeaf(YType.uint32, 'total')),
-                                    ('high_utilization_threshold', YLeaf(YType.uint8, 'high-utilization-threshold')),
-                                    ('low_utilization_threshold', YLeaf(YType.uint8, 'low-utilization-threshold')),
-                                    ('utilization', YLeaf(YType.uint8, 'utilization')),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
+                                    ('high_utilization_threshold', (YLeaf(YType.uint8, 'high-utilization-threshold'), ['int'])),
+                                    ('low_utilization_threshold', (YLeaf(YType.uint8, 'low-utilization-threshold'), ['int'])),
+                                    ('utilization', (YLeaf(YType.uint8, 'utilization'), ['int'])),
                                 ])
                                 self.used = None
                                 self.excluded = None
@@ -2022,9 +2142,10 @@ class AddressPoolService(Entity):
                                 self.low_utilization_threshold = None
                                 self.utilization = None
                                 self._segment_path = lambda: "allocation-summary"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, [u'used', u'excluded', u'free', u'total', u'high_utilization_threshold', u'low_utilization_threshold', u'utilization'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.AllocationSummary, ['used', 'excluded', 'free', 'total', 'high_utilization_threshold', 'low_utilization_threshold', 'utilization'], name, value)
 
 
                         class Pools(Entity):
@@ -2090,12 +2211,12 @@ class AddressPoolService(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('used', YLeaf(YType.uint32, 'used')),
-                                    ('excluded', YLeaf(YType.uint32, 'excluded')),
-                                    ('free', YLeaf(YType.uint32, 'free')),
-                                    ('total', YLeaf(YType.uint32, 'total')),
+                                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
+                                    ('excluded', (YLeaf(YType.uint32, 'excluded'), ['int'])),
+                                    ('free', (YLeaf(YType.uint32, 'free'), ['int'])),
+                                    ('total', (YLeaf(YType.uint32, 'total'), ['int'])),
                                 ])
                                 self.pool_name = None
                                 self.vrf_name = None
@@ -2104,9 +2225,10 @@ class AddressPoolService(Entity):
                                 self.free = None
                                 self.total = None
                                 self._segment_path = lambda: "pools"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, [u'pool_name', u'vrf_name', u'used', u'excluded', u'free', u'total'], name, value)
+                                self._perform_setattr(AddressPoolService.Nodes.Node.Vrfs.Vrf.Ipv6.Pools, ['pool_name', 'vrf_name', 'used', 'excluded', 'free', 'total'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AddressPoolService()

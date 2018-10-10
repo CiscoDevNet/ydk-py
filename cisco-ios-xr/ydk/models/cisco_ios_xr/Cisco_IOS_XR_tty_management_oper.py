@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-tty\-server\-oper
 module with state data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class TransportService(Enum):
@@ -64,11 +65,11 @@ class HostAfIdBase(Identity):
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(HostAfIdBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:Host-af-id-base")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", pref="Cisco-IOS-XR-tty-management-oper", tag="Cisco-IOS-XR-tty-management-oper:Host-af-id-base"):
+        super(HostAfIdBase, self).__init__(ns, pref, tag)
 
 
-class Ipv4(Identity):
+class Ipv4(HostAfIdBase):
     """
     IPv4 family
     
@@ -79,11 +80,11 @@ class Ipv4(Identity):
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv4")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", pref="Cisco-IOS-XR-tty-management-oper", tag="Cisco-IOS-XR-tty-management-oper:ipv4"):
+        super(Ipv4, self).__init__(ns, pref, tag)
 
 
-class Ipv6(Identity):
+class Ipv6(HostAfIdBase):
     """
     IPv6 family
     
@@ -94,7 +95,7 @@ class Ipv6(Identity):
     _prefix = 'Cisco-IOS-XR-tty-management-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper", "Cisco-IOS-XR-tty-management-oper:ipv6")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-tty-management-oper", pref="Cisco-IOS-XR-tty-management-oper", tag="Cisco-IOS-XR-tty-management-oper:ipv6"):
+        super(Ipv6, self).__init__(ns, pref, tag)
 
 

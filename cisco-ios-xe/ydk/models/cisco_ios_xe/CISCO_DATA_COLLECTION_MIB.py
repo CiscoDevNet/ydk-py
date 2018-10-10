@@ -157,6 +157,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CdcFileFormat(Enum):
     """
     CdcFileFormat (Enum Class)
@@ -540,6 +541,7 @@ class CISCODATACOLLECTIONMIB(Entity):
         self.cdcfilexferconftable.parent = self
         self._children_name_map["cdcfilexferconftable"] = "cdcFileXferConfTable"
         self._segment_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCODATACOLLECTIONMIB, [], name, value)
@@ -578,13 +580,14 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cdcvfilepersistentstorage', YLeaf(YType.boolean, 'cdcVFilePersistentStorage')),
-                ('cdcvfilemaxsizehitslimit', YLeaf(YType.uint32, 'cdcVFileMaxSizeHitsLimit')),
+                ('cdcvfilepersistentstorage', (YLeaf(YType.boolean, 'cdcVFilePersistentStorage'), ['bool'])),
+                ('cdcvfilemaxsizehitslimit', (YLeaf(YType.uint32, 'cdcVFileMaxSizeHitsLimit'), ['int'])),
             ])
             self.cdcvfilepersistentstorage = None
             self.cdcvfilemaxsizehitslimit = None
             self._segment_path = lambda: "cdcVFile"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcVFile, ['cdcvfilepersistentstorage', 'cdcvfilemaxsizehitslimit'], name, value)
@@ -620,6 +623,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcvfileentry = YList(self)
             self._segment_path = lambda: "cdcVFileTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcVFileTable, [], name, value)
@@ -754,21 +758,21 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcvfileindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcvfileindex', YLeaf(YType.uint32, 'cdcVFileIndex')),
-                    ('cdcvfilename', YLeaf(YType.str, 'cdcVFileName')),
-                    ('cdcvfiledescription', YLeaf(YType.str, 'cdcVFileDescription')),
-                    ('cdcvfilecommand', YLeaf(YType.enumeration, 'cdcVFileCommand')),
-                    ('cdcvfilemaxsize', YLeaf(YType.uint32, 'cdcVFileMaxSize')),
-                    ('cdcvfilecurrentsize', YLeaf(YType.uint32, 'cdcVFileCurrentSize')),
-                    ('cdcvfileformat', YLeaf(YType.enumeration, 'cdcVFileFormat')),
-                    ('cdcvfilecollectmode', YLeaf(YType.enumeration, 'cdcVFileCollectMode')),
-                    ('cdcvfilecollectionperiod', YLeaf(YType.uint32, 'cdcVFileCollectionPeriod')),
-                    ('cdcvfileretentionperiod', YLeaf(YType.uint32, 'cdcVFileRetentionPeriod')),
-                    ('cdcvfileadminstatus', YLeaf(YType.enumeration, 'cdcVFileAdminStatus')),
-                    ('cdcvfileoperstatus', YLeaf(YType.enumeration, 'cdcVFileOperStatus')),
-                    ('cdcvfileerrorcode', YLeaf(YType.enumeration, 'cdcVFileErrorCode')),
-                    ('cdcvfilecollectionerrorenable', YLeaf(YType.boolean, 'cdcVFileCollectionErrorEnable')),
-                    ('cdcvfilerowstatus', YLeaf(YType.enumeration, 'cdcVFileRowStatus')),
+                    ('cdcvfileindex', (YLeaf(YType.uint32, 'cdcVFileIndex'), ['int'])),
+                    ('cdcvfilename', (YLeaf(YType.str, 'cdcVFileName'), ['str'])),
+                    ('cdcvfiledescription', (YLeaf(YType.str, 'cdcVFileDescription'), ['str'])),
+                    ('cdcvfilecommand', (YLeaf(YType.enumeration, 'cdcVFileCommand'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileTable.CdcVFileEntry.CdcVFileCommand')])),
+                    ('cdcvfilemaxsize', (YLeaf(YType.uint32, 'cdcVFileMaxSize'), ['int'])),
+                    ('cdcvfilecurrentsize', (YLeaf(YType.uint32, 'cdcVFileCurrentSize'), ['int'])),
+                    ('cdcvfileformat', (YLeaf(YType.enumeration, 'cdcVFileFormat'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CdcFileFormat', '')])),
+                    ('cdcvfilecollectmode', (YLeaf(YType.enumeration, 'cdcVFileCollectMode'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileTable.CdcVFileEntry.CdcVFileCollectMode')])),
+                    ('cdcvfilecollectionperiod', (YLeaf(YType.uint32, 'cdcVFileCollectionPeriod'), ['int'])),
+                    ('cdcvfileretentionperiod', (YLeaf(YType.uint32, 'cdcVFileRetentionPeriod'), ['int'])),
+                    ('cdcvfileadminstatus', (YLeaf(YType.enumeration, 'cdcVFileAdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileTable.CdcVFileEntry.CdcVFileAdminStatus')])),
+                    ('cdcvfileoperstatus', (YLeaf(YType.enumeration, 'cdcVFileOperStatus'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileTable.CdcVFileEntry.CdcVFileOperStatus')])),
+                    ('cdcvfileerrorcode', (YLeaf(YType.enumeration, 'cdcVFileErrorCode'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileTable.CdcVFileEntry.CdcVFileErrorCode')])),
+                    ('cdcvfilecollectionerrorenable', (YLeaf(YType.boolean, 'cdcVFileCollectionErrorEnable'), ['bool'])),
+                    ('cdcvfilerowstatus', (YLeaf(YType.enumeration, 'cdcVFileRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cdcvfileindex = None
                 self.cdcvfilename = None
@@ -787,6 +791,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcvfilerowstatus = None
                 self._segment_path = lambda: "cdcVFileEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcVFileTable.CdcVFileEntry, ['cdcvfileindex', 'cdcvfilename', 'cdcvfiledescription', 'cdcvfilecommand', 'cdcvfilemaxsize', 'cdcvfilecurrentsize', 'cdcvfileformat', 'cdcvfilecollectmode', 'cdcvfilecollectionperiod', 'cdcvfileretentionperiod', 'cdcvfileadminstatus', 'cdcvfileoperstatus', 'cdcvfileerrorcode', 'cdcvfilecollectionerrorenable', 'cdcvfilerowstatus'], name, value)
@@ -1085,6 +1090,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcvfilemgmtentry = YList(self)
             self._segment_path = lambda: "cdcVFileMgmtTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcVFileMgmtTable, [], name, value)
@@ -1182,15 +1188,15 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcvfileindex','cdcvfilemgmtindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcvfileindex', YLeaf(YType.str, 'cdcVFileIndex')),
-                    ('cdcvfilemgmtindex', YLeaf(YType.uint32, 'cdcVFileMgmtIndex')),
-                    ('cdcvfilemgmtname', YLeaf(YType.str, 'cdcVFileMgmtName')),
-                    ('cdcvfilemgmttimestamp', YLeaf(YType.str, 'cdcVFileMgmtTimestamp')),
-                    ('cdcvfilemgmttimetolive', YLeaf(YType.uint32, 'cdcVFileMgmtTimeToLive')),
-                    ('cdcvfilemgmtcommand', YLeaf(YType.enumeration, 'cdcVFileMgmtCommand')),
-                    ('cdcvfilemgmtxferurl', YLeaf(YType.str, 'cdcVFileMgmtXferURL')),
-                    ('cdcvfilemgmtlastxferstatus', YLeaf(YType.enumeration, 'cdcVFileMgmtLastXferStatus')),
-                    ('cdcvfilemgmtlastxferurl', YLeaf(YType.str, 'cdcVFileMgmtLastXferURL')),
+                    ('cdcvfileindex', (YLeaf(YType.str, 'cdcVFileIndex'), ['int'])),
+                    ('cdcvfilemgmtindex', (YLeaf(YType.uint32, 'cdcVFileMgmtIndex'), ['int'])),
+                    ('cdcvfilemgmtname', (YLeaf(YType.str, 'cdcVFileMgmtName'), ['str'])),
+                    ('cdcvfilemgmttimestamp', (YLeaf(YType.str, 'cdcVFileMgmtTimestamp'), ['str'])),
+                    ('cdcvfilemgmttimetolive', (YLeaf(YType.uint32, 'cdcVFileMgmtTimeToLive'), ['int'])),
+                    ('cdcvfilemgmtcommand', (YLeaf(YType.enumeration, 'cdcVFileMgmtCommand'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcVFileMgmtTable.CdcVFileMgmtEntry.CdcVFileMgmtCommand')])),
+                    ('cdcvfilemgmtxferurl', (YLeaf(YType.str, 'cdcVFileMgmtXferURL'), ['str'])),
+                    ('cdcvfilemgmtlastxferstatus', (YLeaf(YType.enumeration, 'cdcVFileMgmtLastXferStatus'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CdcFileXferStatus', '')])),
+                    ('cdcvfilemgmtlastxferurl', (YLeaf(YType.str, 'cdcVFileMgmtLastXferURL'), ['str'])),
                 ])
                 self.cdcvfileindex = None
                 self.cdcvfilemgmtindex = None
@@ -1203,6 +1209,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcvfilemgmtlastxferurl = None
                 self._segment_path = lambda: "cdcVFileMgmtEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']" + "[cdcVFileMgmtIndex='" + str(self.cdcvfilemgmtindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcVFileMgmtTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcVFileMgmtTable.CdcVFileMgmtEntry, ['cdcvfileindex', 'cdcvfilemgmtindex', 'cdcvfilemgmtname', 'cdcvfilemgmttimestamp', 'cdcvfilemgmttimetolive', 'cdcvfilemgmtcommand', 'cdcvfilemgmtxferurl', 'cdcvfilemgmtlastxferstatus', 'cdcvfilemgmtlastxferurl'], name, value)
@@ -1289,6 +1296,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcdgentry = YList(self)
             self._segment_path = lambda: "cdcDGTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGTable, [], name, value)
@@ -1399,17 +1407,17 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcdgindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcdgindex', YLeaf(YType.uint32, 'cdcDGIndex')),
-                    ('cdcdgcomment', YLeaf(YType.str, 'cdcDGComment')),
-                    ('cdcdgtype', YLeaf(YType.enumeration, 'cdcDGType')),
-                    ('cdcdgvfileindex', YLeaf(YType.uint32, 'cdcDGVFileIndex')),
-                    ('cdcdgtargettag', YLeaf(YType.str, 'cdcDGTargetTag')),
-                    ('cdcdgcontextname', YLeaf(YType.str, 'cdcDGContextName')),
-                    ('cdcdgobject', YLeaf(YType.str, 'cdcDGObject')),
-                    ('cdcdgobjectgrpindex', YLeaf(YType.uint32, 'cdcDGObjectGrpIndex')),
-                    ('cdcdginstgrpindex', YLeaf(YType.uint32, 'cdcDGInstGrpIndex')),
-                    ('cdcdgpollperiod', YLeaf(YType.uint32, 'cdcDGPollPeriod')),
-                    ('cdcdgrowstatus', YLeaf(YType.enumeration, 'cdcDGRowStatus')),
+                    ('cdcdgindex', (YLeaf(YType.uint32, 'cdcDGIndex'), ['int'])),
+                    ('cdcdgcomment', (YLeaf(YType.str, 'cdcDGComment'), ['str'])),
+                    ('cdcdgtype', (YLeaf(YType.enumeration, 'cdcDGType'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcDGTable.CdcDGEntry.CdcDGType')])),
+                    ('cdcdgvfileindex', (YLeaf(YType.uint32, 'cdcDGVFileIndex'), ['int'])),
+                    ('cdcdgtargettag', (YLeaf(YType.str, 'cdcDGTargetTag'), ['str'])),
+                    ('cdcdgcontextname', (YLeaf(YType.str, 'cdcDGContextName'), ['str'])),
+                    ('cdcdgobject', (YLeaf(YType.str, 'cdcDGObject'), ['str'])),
+                    ('cdcdgobjectgrpindex', (YLeaf(YType.uint32, 'cdcDGObjectGrpIndex'), ['int'])),
+                    ('cdcdginstgrpindex', (YLeaf(YType.uint32, 'cdcDGInstGrpIndex'), ['int'])),
+                    ('cdcdgpollperiod', (YLeaf(YType.uint32, 'cdcDGPollPeriod'), ['int'])),
+                    ('cdcdgrowstatus', (YLeaf(YType.enumeration, 'cdcDGRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cdcdgindex = None
                 self.cdcdgcomment = None
@@ -1424,6 +1432,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcdgrowstatus = None
                 self._segment_path = lambda: "cdcDGEntry" + "[cdcDGIndex='" + str(self.cdcdgindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGTable.CdcDGEntry, ['cdcdgindex', 'cdcdgcomment', 'cdcdgtype', 'cdcdgvfileindex', 'cdcdgtargettag', 'cdcdgcontextname', 'cdcdgobject', 'cdcdgobjectgrpindex', 'cdcdginstgrpindex', 'cdcdgpollperiod', 'cdcdgrowstatus'], name, value)
@@ -1497,6 +1506,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcdgbaseobjectentry = YList(self)
             self._segment_path = lambda: "cdcDGBaseObjectTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGBaseObjectTable, [], name, value)
@@ -1558,11 +1568,11 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcdgbaseobjectgrpindex','cdcdgbaseobjectindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcdgbaseobjectgrpindex', YLeaf(YType.uint32, 'cdcDGBaseObjectGrpIndex')),
-                    ('cdcdgbaseobjectindex', YLeaf(YType.uint32, 'cdcDGBaseObjectIndex')),
-                    ('cdcdgbaseobjectsubtree', YLeaf(YType.str, 'cdcDGBaseObjectSubtree')),
-                    ('cdcdgbaseobjectlist', YLeaf(YType.str, 'cdcDGBaseObjectList')),
-                    ('cdcdgbaseobjectrowstatus', YLeaf(YType.enumeration, 'cdcDGBaseObjectRowStatus')),
+                    ('cdcdgbaseobjectgrpindex', (YLeaf(YType.uint32, 'cdcDGBaseObjectGrpIndex'), ['int'])),
+                    ('cdcdgbaseobjectindex', (YLeaf(YType.uint32, 'cdcDGBaseObjectIndex'), ['int'])),
+                    ('cdcdgbaseobjectsubtree', (YLeaf(YType.str, 'cdcDGBaseObjectSubtree'), ['str'])),
+                    ('cdcdgbaseobjectlist', (YLeaf(YType.str, 'cdcDGBaseObjectList'), ['str'])),
+                    ('cdcdgbaseobjectrowstatus', (YLeaf(YType.enumeration, 'cdcDGBaseObjectRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cdcdgbaseobjectgrpindex = None
                 self.cdcdgbaseobjectindex = None
@@ -1571,6 +1581,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcdgbaseobjectrowstatus = None
                 self._segment_path = lambda: "cdcDGBaseObjectEntry" + "[cdcDGBaseObjectGrpIndex='" + str(self.cdcdgbaseobjectgrpindex) + "']" + "[cdcDGBaseObjectIndex='" + str(self.cdcdgbaseobjectindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGBaseObjectTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGBaseObjectTable.CdcDGBaseObjectEntry, ['cdcdgbaseobjectgrpindex', 'cdcdgbaseobjectindex', 'cdcdgbaseobjectsubtree', 'cdcdgbaseobjectlist', 'cdcdgbaseobjectrowstatus'], name, value)
@@ -1610,6 +1621,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcdginstanceentry = YList(self)
             self._segment_path = lambda: "cdcDGInstanceTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGInstanceTable, [], name, value)
@@ -1690,14 +1702,14 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcdginstancegrpindex','cdcdginstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcdginstancegrpindex', YLeaf(YType.uint32, 'cdcDGInstanceGrpIndex')),
-                    ('cdcdginstanceindex', YLeaf(YType.uint32, 'cdcDGInstanceIndex')),
-                    ('cdcdginstancetype', YLeaf(YType.enumeration, 'cdcDGInstanceType')),
-                    ('cdcdginstanceoid', YLeaf(YType.str, 'cdcDGInstanceOid')),
-                    ('cdcdginstanceoidend', YLeaf(YType.str, 'cdcDGInstanceOidEnd')),
-                    ('cdcdginstancenumrepititions', YLeaf(YType.uint32, 'cdcDGInstanceNumRepititions')),
-                    ('cdcdginstanceotherptr', YLeaf(YType.str, 'cdcDGInstanceOtherPtr')),
-                    ('cdcdginstancerowstatus', YLeaf(YType.enumeration, 'cdcDGInstanceRowStatus')),
+                    ('cdcdginstancegrpindex', (YLeaf(YType.uint32, 'cdcDGInstanceGrpIndex'), ['int'])),
+                    ('cdcdginstanceindex', (YLeaf(YType.uint32, 'cdcDGInstanceIndex'), ['int'])),
+                    ('cdcdginstancetype', (YLeaf(YType.enumeration, 'cdcDGInstanceType'), [('ydk.models.cisco_ios_xe.CISCO_DATA_COLLECTION_MIB', 'CISCODATACOLLECTIONMIB', 'CdcDGInstanceTable.CdcDGInstanceEntry.CdcDGInstanceType')])),
+                    ('cdcdginstanceoid', (YLeaf(YType.str, 'cdcDGInstanceOid'), ['str'])),
+                    ('cdcdginstanceoidend', (YLeaf(YType.str, 'cdcDGInstanceOidEnd'), ['str'])),
+                    ('cdcdginstancenumrepititions', (YLeaf(YType.uint32, 'cdcDGInstanceNumRepititions'), ['int'])),
+                    ('cdcdginstanceotherptr', (YLeaf(YType.str, 'cdcDGInstanceOtherPtr'), ['str'])),
+                    ('cdcdginstancerowstatus', (YLeaf(YType.enumeration, 'cdcDGInstanceRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cdcdginstancegrpindex = None
                 self.cdcdginstanceindex = None
@@ -1709,6 +1721,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcdginstancerowstatus = None
                 self._segment_path = lambda: "cdcDGInstanceEntry" + "[cdcDGInstanceGrpIndex='" + str(self.cdcdginstancegrpindex) + "']" + "[cdcDGInstanceIndex='" + str(self.cdcdginstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcDGInstanceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcDGInstanceTable.CdcDGInstanceEntry, ['cdcdginstancegrpindex', 'cdcdginstanceindex', 'cdcdginstancetype', 'cdcdginstanceoid', 'cdcdginstanceoidend', 'cdcdginstancenumrepititions', 'cdcdginstanceotherptr', 'cdcdginstancerowstatus'], name, value)
@@ -1837,6 +1850,7 @@ class CISCODATACOLLECTIONMIB(Entity):
             self.cdcfilexferconfentry = YList(self)
             self._segment_path = lambda: "cdcFileXferConfTable"
             self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCODATACOLLECTIONMIB.CdcFileXferConfTable, [], name, value)
@@ -1926,13 +1940,13 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.ylist_key_names = ['cdcvfileindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdcvfileindex', YLeaf(YType.str, 'cdcVFileIndex')),
-                    ('cdcfilexferconfpriurl', YLeaf(YType.str, 'cdcFileXferConfPriUrl')),
-                    ('cdcfilexferconfsecurl', YLeaf(YType.str, 'cdcFileXferConfSecUrl')),
-                    ('cdcfilexferconfretryperiod', YLeaf(YType.uint32, 'cdcFileXferConfRetryPeriod')),
-                    ('cdcfilexferconfretrycount', YLeaf(YType.uint32, 'cdcFileXferConfRetryCount')),
-                    ('cdcfilexferconfsuccessenable', YLeaf(YType.boolean, 'cdcFileXferConfSuccessEnable')),
-                    ('cdcfilexferconffailureenable', YLeaf(YType.boolean, 'cdcFileXferConfFailureEnable')),
+                    ('cdcvfileindex', (YLeaf(YType.str, 'cdcVFileIndex'), ['int'])),
+                    ('cdcfilexferconfpriurl', (YLeaf(YType.str, 'cdcFileXferConfPriUrl'), ['str'])),
+                    ('cdcfilexferconfsecurl', (YLeaf(YType.str, 'cdcFileXferConfSecUrl'), ['str'])),
+                    ('cdcfilexferconfretryperiod', (YLeaf(YType.uint32, 'cdcFileXferConfRetryPeriod'), ['int'])),
+                    ('cdcfilexferconfretrycount', (YLeaf(YType.uint32, 'cdcFileXferConfRetryCount'), ['int'])),
+                    ('cdcfilexferconfsuccessenable', (YLeaf(YType.boolean, 'cdcFileXferConfSuccessEnable'), ['bool'])),
+                    ('cdcfilexferconffailureenable', (YLeaf(YType.boolean, 'cdcFileXferConfFailureEnable'), ['bool'])),
                 ])
                 self.cdcvfileindex = None
                 self.cdcfilexferconfpriurl = None
@@ -1943,6 +1957,7 @@ class CISCODATACOLLECTIONMIB(Entity):
                 self.cdcfilexferconffailureenable = None
                 self._segment_path = lambda: "cdcFileXferConfEntry" + "[cdcVFileIndex='" + str(self.cdcvfileindex) + "']"
                 self._absolute_path = lambda: "CISCO-DATA-COLLECTION-MIB:CISCO-DATA-COLLECTION-MIB/cdcFileXferConfTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCODATACOLLECTIONMIB.CdcFileXferConfTable.CdcFileXferConfEntry, ['cdcvfileindex', 'cdcfilexferconfpriurl', 'cdcfilexferconfsecurl', 'cdcfilexferconfretryperiod', 'cdcfilexferconfretrycount', 'cdcfilexferconfsuccessenable', 'cdcfilexferconffailureenable'], name, value)

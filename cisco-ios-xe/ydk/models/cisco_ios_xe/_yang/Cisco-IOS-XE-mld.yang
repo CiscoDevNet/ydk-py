@@ -27,12 +27,16 @@ module Cisco-IOS-XE-mld {
 
   description
     "Cisco XE Native Multicast Listener Discovery (MLD) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-12 {
+    description
+      "Add mld snooping";
+  }
   revision 2017-02-07 {
     description
       "Initial revision";
@@ -44,6 +48,20 @@ module Cisco-IOS-XE-mld {
       description
         "Global mld commands";
 
+      container snooping-conf {
+        description
+          "Global MLD Snooping enable for Catalyst Vlans";
+        leaf snooping {
+          type empty;
+        }
+      }
+      // snooping
+        // last-listener-query-count     MLD Last Listener Query Count configuration
+        // last-listener-query-interval  MLD Last Listener Query Interval configuration
+        // listener-message-suppression  Listener Message Suppression
+        // robustness-variable           MLD Robustness Variable configuration
+        // tcn                           Topology change notification configuration
+        // vlan                          MLD Snooping enable for Catalyst VLAN
       container ssm-map {
         description
           "SSM mapping commands";

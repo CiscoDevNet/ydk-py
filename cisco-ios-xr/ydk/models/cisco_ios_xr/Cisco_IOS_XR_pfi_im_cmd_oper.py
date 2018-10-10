@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   interfaces\: Interface operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BmMbrStateReason(Enum):
@@ -2572,6 +2573,86 @@ class ImAttrMedia(Enum):
 
     	im attr media 10gbase acu10m
 
+    .. data:: im_attr_media_4x10g_base_lr = 362
+
+    	im attr media 4x10g base lr
+
+    .. data:: im_attr_media_10gbase_cu1_5m = 363
+
+    	im attr media 10gbase cu1 5m
+
+    .. data:: im_attr_media_10gbase_cu2m = 364
+
+    	im attr media 10gbase cu2m
+
+    .. data:: im_attr_media_10gbase_cu2_5m = 365
+
+    	im attr media 10gbase cu2 5m
+
+    .. data:: im_attr_media_10gbase_aoc1m = 366
+
+    	im attr media 10gbase aoc1m
+
+    .. data:: im_attr_media_10gbase_aoc2m = 367
+
+    	im attr media 10gbase aoc2m
+
+    .. data:: im_attr_media_10gbase_aoc3m = 368
+
+    	im attr media 10gbase aoc3m
+
+    .. data:: im_attr_media_10gbase_aoc5m = 369
+
+    	im attr media 10gbase aoc5m
+
+    .. data:: im_attr_media_10gbase_aoc7m = 370
+
+    	im attr media 10gbase aoc7m
+
+    .. data:: im_attr_media_10gbase_aoc10m = 371
+
+    	im attr media 10gbase aoc10m
+
+    .. data:: im_attr_media_40gbase_acu1m = 372
+
+    	im attr media 40gbase acu1m
+
+    .. data:: im_attr_media_40gbase_acu3m = 373
+
+    	im attr media 40gbase acu3m
+
+    .. data:: im_attr_media_40gbase_acu5m = 374
+
+    	im attr media 40gbase acu5m
+
+    .. data:: im_attr_media_40gbase_acu7m = 375
+
+    	im attr media 40gbase acu7m
+
+    .. data:: im_attr_media_40gbase_acu10m = 376
+
+    	im attr media 40gbase acu10m
+
+    .. data:: im_attr_media_25gbase_cu1m = 377
+
+    	im attr media 25gbase cu1m
+
+    .. data:: im_attr_media_25gbase_cu2m = 378
+
+    	im attr media 25gbase cu2m
+
+    .. data:: im_attr_media_25gbase_cu3m = 379
+
+    	im attr media 25gbase cu3m
+
+    .. data:: im_attr_media_25gbase_cu5m = 380
+
+    	im attr media 25gbase cu5m
+
+    .. data:: im_attr_media_100gbase_sm_sr = 381
+
+    	im attr media 100gbase sm sr
+
     """
 
     im_attr_media_other = Enum.YLeaf(0, "im-attr-media-other")
@@ -3297,6 +3378,46 @@ class ImAttrMedia(Enum):
     im_attr_media_10gbase_acu7m = Enum.YLeaf(360, "im-attr-media-10gbase-acu7m")
 
     im_attr_media_10gbase_acu10m = Enum.YLeaf(361, "im-attr-media-10gbase-acu10m")
+
+    im_attr_media_4x10g_base_lr = Enum.YLeaf(362, "im-attr-media-4x10g-base-lr")
+
+    im_attr_media_10gbase_cu1_5m = Enum.YLeaf(363, "im-attr-media-10gbase-cu1-5m")
+
+    im_attr_media_10gbase_cu2m = Enum.YLeaf(364, "im-attr-media-10gbase-cu2m")
+
+    im_attr_media_10gbase_cu2_5m = Enum.YLeaf(365, "im-attr-media-10gbase-cu2-5m")
+
+    im_attr_media_10gbase_aoc1m = Enum.YLeaf(366, "im-attr-media-10gbase-aoc1m")
+
+    im_attr_media_10gbase_aoc2m = Enum.YLeaf(367, "im-attr-media-10gbase-aoc2m")
+
+    im_attr_media_10gbase_aoc3m = Enum.YLeaf(368, "im-attr-media-10gbase-aoc3m")
+
+    im_attr_media_10gbase_aoc5m = Enum.YLeaf(369, "im-attr-media-10gbase-aoc5m")
+
+    im_attr_media_10gbase_aoc7m = Enum.YLeaf(370, "im-attr-media-10gbase-aoc7m")
+
+    im_attr_media_10gbase_aoc10m = Enum.YLeaf(371, "im-attr-media-10gbase-aoc10m")
+
+    im_attr_media_40gbase_acu1m = Enum.YLeaf(372, "im-attr-media-40gbase-acu1m")
+
+    im_attr_media_40gbase_acu3m = Enum.YLeaf(373, "im-attr-media-40gbase-acu3m")
+
+    im_attr_media_40gbase_acu5m = Enum.YLeaf(374, "im-attr-media-40gbase-acu5m")
+
+    im_attr_media_40gbase_acu7m = Enum.YLeaf(375, "im-attr-media-40gbase-acu7m")
+
+    im_attr_media_40gbase_acu10m = Enum.YLeaf(376, "im-attr-media-40gbase-acu10m")
+
+    im_attr_media_25gbase_cu1m = Enum.YLeaf(377, "im-attr-media-25gbase-cu1m")
+
+    im_attr_media_25gbase_cu2m = Enum.YLeaf(378, "im-attr-media-25gbase-cu2m")
+
+    im_attr_media_25gbase_cu3m = Enum.YLeaf(379, "im-attr-media-25gbase-cu3m")
+
+    im_attr_media_25gbase_cu5m = Enum.YLeaf(380, "im-attr-media-25gbase-cu5m")
+
+    im_attr_media_100gbase_sm_sr = Enum.YLeaf(381, "im-attr-media-100gbase-sm-sr")
 
 
 class ImAttrTransportMode(Enum):
@@ -4553,6 +4674,33 @@ class VlanEncaps(Enum):
     dot1ad_any = Enum.YLeaf(9, "dot1ad-any")
 
 
+class VlanSwitchedMode(Enum):
+    """
+    VlanSwitchedMode (Enum Class)
+
+    VLAN\-Switched mode
+
+    .. data:: none = 0
+
+    	Disabled
+
+    .. data:: trunk_port = 1
+
+    	Trunk port
+
+    .. data:: access_port = 2
+
+    	Access port
+
+    """
+
+    none = Enum.YLeaf(0, "none")
+
+    trunk_port = Enum.YLeaf(1, "trunk-port")
+
+    access_port = Enum.YLeaf(2, "access-port")
+
+
 
 class Interfaces(Entity):
     """
@@ -4631,6 +4779,7 @@ class Interfaces(Entity):
         self.interface_summary.parent = self
         self._children_name_map["interface_summary"] = "interface-summary"
         self._segment_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Interfaces, [], name, value)
@@ -4667,6 +4816,7 @@ class Interfaces(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interface-xr"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.InterfaceXr, [], name, value)
@@ -4682,7 +4832,7 @@ class Interfaces(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: dampening_information
             
@@ -4886,7 +5036,7 @@ class Interfaces(Entity):
             	Parent interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: loopback_configuration
             
@@ -4942,39 +5092,39 @@ class Interfaces(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("dampening-information", ("dampening_information", Interfaces.InterfaceXr.Interface.DampeningInformation)), ("mac-address", ("mac_address", Interfaces.InterfaceXr.Interface.MacAddress)), ("burned-in-address", ("burned_in_address", Interfaces.InterfaceXr.Interface.BurnedInAddress)), ("carrier-delay", ("carrier_delay", Interfaces.InterfaceXr.Interface.CarrierDelay)), ("arp-information", ("arp_information", Interfaces.InterfaceXr.Interface.ArpInformation)), ("ip-information", ("ip_information", Interfaces.InterfaceXr.Interface.IpInformation)), ("encapsulation-information", ("encapsulation_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation)), ("interface-type-information", ("interface_type_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation)), ("data-rates", ("data_rates", Interfaces.InterfaceXr.Interface.DataRates)), ("interface-statistics", ("interface_statistics", Interfaces.InterfaceXr.Interface.InterfaceStatistics)), ("l2-interface-statistics", ("l2_interface_statistics", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                    ('interface_type', YLeaf(YType.str, 'interface-type')),
-                    ('hardware_type_string', YLeaf(YType.str, 'hardware-type-string')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
-                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                    ('is_l2_transport_enabled', YLeaf(YType.boolean, 'is-l2-transport-enabled')),
-                    ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
-                    ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
-                    ('is_dampening_enabled', YLeaf(YType.boolean, 'is-dampening-enabled')),
-                    ('speed', YLeaf(YType.uint32, 'speed')),
-                    ('crc_length', YLeaf(YType.uint32, 'crc-length')),
-                    ('is_scramble_enabled', YLeaf(YType.boolean, 'is-scramble-enabled')),
-                    ('duplexity', YLeaf(YType.enumeration, 'duplexity')),
-                    ('media_type', YLeaf(YType.enumeration, 'media-type')),
-                    ('link_type', YLeaf(YType.enumeration, 'link-type')),
-                    ('in_flow_control', YLeaf(YType.enumeration, 'in-flow-control')),
-                    ('out_flow_control', YLeaf(YType.enumeration, 'out-flow-control')),
-                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                    ('max_bandwidth', YLeaf(YType.uint32, 'max-bandwidth')),
-                    ('keepalive', YLeaf(YType.uint32, 'keepalive')),
-                    ('is_l2_looped', YLeaf(YType.boolean, 'is-l2-looped')),
-                    ('parent_interface_name', YLeaf(YType.str, 'parent-interface-name')),
-                    ('loopback_configuration', YLeaf(YType.enumeration, 'loopback-configuration')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('is_maintenance_enabled', YLeaf(YType.boolean, 'is-maintenance-enabled')),
-                    ('is_data_inverted', YLeaf(YType.boolean, 'is-data-inverted')),
-                    ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
-                    ('fast_shutdown', YLeaf(YType.boolean, 'fast-shutdown')),
-                    ('if_index', YLeaf(YType.uint32, 'if-index')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                    ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                    ('hardware_type_string', (YLeaf(YType.str, 'hardware-type-string'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('encapsulation', (YLeaf(YType.str, 'encapsulation'), ['str'])),
+                    ('encapsulation_type_string', (YLeaf(YType.str, 'encapsulation-type-string'), ['str'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                    ('is_l2_transport_enabled', (YLeaf(YType.boolean, 'is-l2-transport-enabled'), ['bool'])),
+                    ('state_transition_count', (YLeaf(YType.uint32, 'state-transition-count'), ['int'])),
+                    ('last_state_transition_time', (YLeaf(YType.uint32, 'last-state-transition-time'), ['int'])),
+                    ('is_dampening_enabled', (YLeaf(YType.boolean, 'is-dampening-enabled'), ['bool'])),
+                    ('speed', (YLeaf(YType.uint32, 'speed'), ['int'])),
+                    ('crc_length', (YLeaf(YType.uint32, 'crc-length'), ['int'])),
+                    ('is_scramble_enabled', (YLeaf(YType.boolean, 'is-scramble-enabled'), ['bool'])),
+                    ('duplexity', (YLeaf(YType.enumeration, 'duplexity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrDuplex', '')])),
+                    ('media_type', (YLeaf(YType.enumeration, 'media-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrMedia', '')])),
+                    ('link_type', (YLeaf(YType.enumeration, 'link-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrLink', '')])),
+                    ('in_flow_control', (YLeaf(YType.enumeration, 'in-flow-control'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControl', '')])),
+                    ('out_flow_control', (YLeaf(YType.enumeration, 'out-flow-control'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrFlowControl', '')])),
+                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                    ('max_bandwidth', (YLeaf(YType.uint32, 'max-bandwidth'), ['int'])),
+                    ('keepalive', (YLeaf(YType.uint32, 'keepalive'), ['int'])),
+                    ('is_l2_looped', (YLeaf(YType.boolean, 'is-l2-looped'), ['bool'])),
+                    ('parent_interface_name', (YLeaf(YType.str, 'parent-interface-name'), ['str'])),
+                    ('loopback_configuration', (YLeaf(YType.enumeration, 'loopback-configuration'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLoopbackEnum', '')])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('is_maintenance_enabled', (YLeaf(YType.boolean, 'is-maintenance-enabled'), ['bool'])),
+                    ('is_data_inverted', (YLeaf(YType.boolean, 'is-data-inverted'), ['bool'])),
+                    ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImAttrTransportMode', '')])),
+                    ('fast_shutdown', (YLeaf(YType.boolean, 'fast-shutdown'), ['bool'])),
+                    ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
                 ])
                 self.interface_name = None
                 self.interface_handle = None
@@ -5055,9 +5205,10 @@ class Interfaces(Entity):
                 self._children_name_map["l2_interface_statistics"] = "l2-interface-statistics"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-xr/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', u'interface_handle', u'interface_type', u'hardware_type_string', u'state', u'line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'is_l2_transport_enabled', u'state_transition_count', u'last_state_transition_time', u'is_dampening_enabled', u'speed', u'crc_length', u'is_scramble_enabled', u'duplexity', u'media_type', u'link_type', u'in_flow_control', u'out_flow_control', u'bandwidth', u'max_bandwidth', u'keepalive', u'is_l2_looped', u'parent_interface_name', u'loopback_configuration', u'description', u'is_maintenance_enabled', u'is_data_inverted', u'transport_mode', u'fast_shutdown', u'if_index'], name, value)
+                self._perform_setattr(Interfaces.InterfaceXr.Interface, ['interface_name', 'interface_handle', 'interface_type', 'hardware_type_string', 'state', 'line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'is_l2_transport_enabled', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'speed', 'crc_length', 'is_scramble_enabled', 'duplexity', 'media_type', 'link_type', 'in_flow_control', 'out_flow_control', 'bandwidth', 'max_bandwidth', 'keepalive', 'is_l2_looped', 'parent_interface_name', 'loopback_configuration', 'description', 'is_maintenance_enabled', 'is_data_inverted', 'transport_mode', 'fast_shutdown', 'if_index'], name, value)
 
 
             class DampeningInformation(Entity):
@@ -5141,14 +5292,14 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('penalty', YLeaf(YType.uint32, 'penalty')),
-                        ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                        ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                        ('half_life', YLeaf(YType.uint32, 'half-life')),
-                        ('reuse_threshold', YLeaf(YType.uint32, 'reuse-threshold')),
-                        ('suppress_threshold', YLeaf(YType.uint32, 'suppress-threshold')),
-                        ('maximum_suppress_time', YLeaf(YType.uint32, 'maximum-suppress-time')),
-                        ('restart_penalty', YLeaf(YType.uint32, 'restart-penalty')),
+                        ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                        ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                        ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                        ('half_life', (YLeaf(YType.uint32, 'half-life'), ['int'])),
+                        ('reuse_threshold', (YLeaf(YType.uint32, 'reuse-threshold'), ['int'])),
+                        ('suppress_threshold', (YLeaf(YType.uint32, 'suppress-threshold'), ['int'])),
+                        ('maximum_suppress_time', (YLeaf(YType.uint32, 'maximum-suppress-time'), ['int'])),
+                        ('restart_penalty', (YLeaf(YType.uint32, 'restart-penalty'), ['int'])),
                     ])
                     self.penalty = None
                     self.is_suppressed_enabled = None
@@ -5159,9 +5310,10 @@ class Interfaces(Entity):
                     self.maximum_suppress_time = None
                     self.restart_penalty = None
                     self._segment_path = lambda: "dampening-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, [u'penalty', u'is_suppressed_enabled', u'seconds_remaining', u'half_life', u'reuse_threshold', u'suppress_threshold', u'maximum_suppress_time', u'restart_penalty'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DampeningInformation, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
 
 
             class MacAddress(Entity):
@@ -5192,13 +5344,14 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                     ])
                     self.address = None
                     self._segment_path = lambda: "mac-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, [u'address'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.MacAddress, ['address'], name, value)
 
 
             class BurnedInAddress(Entity):
@@ -5229,13 +5382,14 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                     ])
                     self.address = None
                     self._segment_path = lambda: "burned-in-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, [u'address'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.BurnedInAddress, ['address'], name, value)
 
 
             class CarrierDelay(Entity):
@@ -5273,15 +5427,16 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('carrier_delay_up', YLeaf(YType.uint32, 'carrier-delay-up')),
-                        ('carrier_delay_down', YLeaf(YType.uint32, 'carrier-delay-down')),
+                        ('carrier_delay_up', (YLeaf(YType.uint32, 'carrier-delay-up'), ['int'])),
+                        ('carrier_delay_down', (YLeaf(YType.uint32, 'carrier-delay-down'), ['int'])),
                     ])
                     self.carrier_delay_up = None
                     self.carrier_delay_down = None
                     self._segment_path = lambda: "carrier-delay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, [u'carrier_delay_up', u'carrier_delay_down'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.CarrierDelay, ['carrier_delay_up', 'carrier_delay_down'], name, value)
 
 
             class ArpInformation(Entity):
@@ -5324,17 +5479,18 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('arp_timeout', YLeaf(YType.uint32, 'arp-timeout')),
-                        ('arp_type_name', YLeaf(YType.str, 'arp-type-name')),
-                        ('arp_is_learning_disabled', YLeaf(YType.boolean, 'arp-is-learning-disabled')),
+                        ('arp_timeout', (YLeaf(YType.uint32, 'arp-timeout'), ['int'])),
+                        ('arp_type_name', (YLeaf(YType.str, 'arp-type-name'), ['str'])),
+                        ('arp_is_learning_disabled', (YLeaf(YType.boolean, 'arp-is-learning-disabled'), ['bool'])),
                     ])
                     self.arp_timeout = None
                     self.arp_type_name = None
                     self.arp_is_learning_disabled = None
                     self._segment_path = lambda: "arp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, [u'arp_timeout', u'arp_type_name', u'arp_is_learning_disabled'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.ArpInformation, ['arp_timeout', 'arp_type_name', 'arp_is_learning_disabled'], name, value)
 
 
             class IpInformation(Entity):
@@ -5372,15 +5528,16 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip_address', YLeaf(YType.str, 'ip-address')),
-                        ('subnet_mask_length', YLeaf(YType.uint32, 'subnet-mask-length')),
+                        ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                        ('subnet_mask_length', (YLeaf(YType.uint32, 'subnet-mask-length'), ['int'])),
                     ])
                     self.ip_address = None
                     self.subnet_mask_length = None
                     self._segment_path = lambda: "ip-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, [u'ip_address', u'subnet_mask_length'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.IpInformation, ['ip_address', 'subnet_mask_length'], name, value)
 
 
             class EncapsulationInformation(Entity):
@@ -5424,7 +5581,7 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("frame-relay-information", ("frame_relay_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation)), ("dot1q-information", ("dot1q_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation)), ("ppp-information", ("ppp_information", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation))])
                     self._leafs = OrderedDict([
-                        ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
+                        ('encapsulation_type', (YLeaf(YType.enumeration, 'encapsulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdEncapsEnum', '')])),
                     ])
                     self.encapsulation_type = None
 
@@ -5440,9 +5597,10 @@ class Interfaces(Entity):
                     self.ppp_information.parent = self
                     self._children_name_map["ppp_information"] = "ppp-information"
                     self._segment_path = lambda: "encapsulation-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, [u'encapsulation_type'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation, ['encapsulation_type'], name, value)
 
 
                 class FrameRelayInformation(Entity):
@@ -5550,20 +5708,20 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fr_encapsulation_type', YLeaf(YType.enumeration, 'fr-encapsulation-type')),
-                            ('lmi_type', YLeaf(YType.enumeration, 'lmi-type')),
-                            ('lmidlci', YLeaf(YType.uint32, 'lmidlci')),
-                            ('is_nni', YLeaf(YType.boolean, 'is-nni')),
-                            ('is_dte', YLeaf(YType.boolean, 'is-dte')),
-                            ('is_lmi_up', YLeaf(YType.boolean, 'is-lmi-up')),
-                            ('is_lmi_nni_dce_up', YLeaf(YType.boolean, 'is-lmi-nni-dce-up')),
-                            ('is_lmi_enabled', YLeaf(YType.boolean, 'is-lmi-enabled')),
-                            ('enquiries_received', YLeaf(YType.uint32, 'enquiries-received')),
-                            ('enquiries_sent', YLeaf(YType.uint32, 'enquiries-sent')),
-                            ('status_received', YLeaf(YType.uint32, 'status-received')),
-                            ('status_sent', YLeaf(YType.uint32, 'status-sent')),
-                            ('update_status_received', YLeaf(YType.uint32, 'update-status-received')),
-                            ('update_status_sent', YLeaf(YType.uint32, 'update-status-sent')),
+                            ('fr_encapsulation_type', (YLeaf(YType.enumeration, 'fr-encapsulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdFrTypeEnum', '')])),
+                            ('lmi_type', (YLeaf(YType.enumeration, 'lmi-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdLmiTypeEnum', '')])),
+                            ('lmidlci', (YLeaf(YType.uint32, 'lmidlci'), ['int'])),
+                            ('is_nni', (YLeaf(YType.boolean, 'is-nni'), ['bool'])),
+                            ('is_dte', (YLeaf(YType.boolean, 'is-dte'), ['bool'])),
+                            ('is_lmi_up', (YLeaf(YType.boolean, 'is-lmi-up'), ['bool'])),
+                            ('is_lmi_nni_dce_up', (YLeaf(YType.boolean, 'is-lmi-nni-dce-up'), ['bool'])),
+                            ('is_lmi_enabled', (YLeaf(YType.boolean, 'is-lmi-enabled'), ['bool'])),
+                            ('enquiries_received', (YLeaf(YType.uint32, 'enquiries-received'), ['int'])),
+                            ('enquiries_sent', (YLeaf(YType.uint32, 'enquiries-sent'), ['int'])),
+                            ('status_received', (YLeaf(YType.uint32, 'status-received'), ['int'])),
+                            ('status_sent', (YLeaf(YType.uint32, 'status-sent'), ['int'])),
+                            ('update_status_received', (YLeaf(YType.uint32, 'update-status-received'), ['int'])),
+                            ('update_status_sent', (YLeaf(YType.uint32, 'update-status-sent'), ['int'])),
                         ])
                         self.fr_encapsulation_type = None
                         self.lmi_type = None
@@ -5580,9 +5738,10 @@ class Interfaces(Entity):
                         self.update_status_received = None
                         self.update_status_sent = None
                         self._segment_path = lambda: "frame-relay-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, [u'fr_encapsulation_type', u'lmi_type', u'lmidlci', u'is_nni', u'is_dte', u'is_lmi_up', u'is_lmi_nni_dce_up', u'is_lmi_enabled', u'enquiries_received', u'enquiries_sent', u'status_received', u'status_sent', u'update_status_received', u'update_status_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.FrameRelayInformation, ['fr_encapsulation_type', 'lmi_type', 'lmidlci', 'is_nni', 'is_dte', 'is_lmi_up', 'is_lmi_nni_dce_up', 'is_lmi_enabled', 'enquiries_received', 'enquiries_sent', 'status_received', 'status_sent', 'update_status_received', 'update_status_sent'], name, value)
 
 
                 class Dot1qInformation(Entity):
@@ -5593,6 +5752,11 @@ class Interfaces(Entity):
                     
                     	Encapsulation type and tag stack
                     	**type**\:  :py:class:`EncapsulationDetails <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails>`
+                    
+                    .. attribute:: vlan_switched
+                    
+                    	VLAN\-Switched information
+                    	**type**\:  :py:class:`VlanSwitched <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched>`
                     
                     
 
@@ -5609,13 +5773,18 @@ class Interfaces(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails))])
+                        self._child_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails)), ("vlan-switched", ("vlan_switched", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched))])
                         self._leafs = OrderedDict()
 
                         self.encapsulation_details = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails()
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
+
+                        self.vlan_switched = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched()
+                        self.vlan_switched.parent = self
+                        self._children_name_map["vlan_switched"] = "vlan-switched"
                         self._segment_path = lambda: "dot1q-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation, [], name, value)
@@ -5704,13 +5873,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("stack", ("stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack))])
                             self._leafs = OrderedDict([
-                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
-                                ('tag', YLeaf(YType.uint16, 'tag')),
-                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
-                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
-                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
-                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                                ('vlan_encapsulation', (YLeaf(YType.enumeration, 'vlan-encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'VlanEncaps', '')])),
+                                ('tag', (YLeaf(YType.uint16, 'tag'), ['int'])),
+                                ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                ('native_tag', (YLeaf(YType.uint16, 'native-tag'), ['int'])),
+                                ('dot1ad_tag', (YLeaf(YType.uint16, 'dot1ad-tag'), ['int'])),
+                                ('dot1ad_native_tag', (YLeaf(YType.uint16, 'dot1ad-native-tag'), ['int'])),
+                                ('dot1ad_outer_tag', (YLeaf(YType.uint16, 'dot1ad-outer-tag'), ['int'])),
                             ])
                             self.vlan_encapsulation = None
                             self.tag = None
@@ -5732,9 +5901,10 @@ class Interfaces(Entity):
                             self.dot1ad_dot1q_stack.parent = self
                             self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
                             self._segment_path = lambda: "encapsulation-details"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -5772,15 +5942,16 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
@@ -5866,13 +6037,13 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)), ("tags-to-match", ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
                                 self._leafs = OrderedDict([
-                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
-                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
-                                    ('is_exact_match', YLeaf(YType.int32, 'is-exact-match')),
-                                    ('is_native_vlan', YLeaf(YType.int32, 'is-native-vlan')),
-                                    ('is_native_preserving', YLeaf(YType.int32, 'is-native-preserving')),
-                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
-                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                    ('payload_ethertype', (YLeaf(YType.enumeration, 'payload-ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpPayloadEtype', '')])),
+                                    ('tags_popped', (YLeaf(YType.uint16, 'tags-popped'), ['int'])),
+                                    ('is_exact_match', (YLeaf(YType.int32, 'is-exact-match'), ['int'])),
+                                    ('is_native_vlan', (YLeaf(YType.int32, 'is-native-vlan'), ['int'])),
+                                    ('is_native_preserving', (YLeaf(YType.int32, 'is-native-preserving'), ['int'])),
+                                    ('source_mac_match', (YLeaf(YType.str, 'source-mac-match'), ['str'])),
+                                    ('destination_mac_match', (YLeaf(YType.str, 'destination-mac-match'), ['str'])),
                                 ])
                                 self.payload_ethertype = None
                                 self.tags_popped = None
@@ -5889,9 +6060,10 @@ class Interfaces(Entity):
                                 self.tags_to_match = YList(self)
                                 self.pushe = YList(self)
                                 self._segment_path = lambda: "service-instance-details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -5923,6 +6095,7 @@ class Interfaces(Entity):
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
@@ -5961,15 +6134,16 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                            ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                            ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                         ])
                                         self.ethertype = None
                                         self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
                             class TagsToMatch(Entity):
@@ -6008,17 +6182,18 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("vlan-range", ("vlan_range", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagPriority', '')])),
                                     ])
                                     self.ethertype = None
                                     self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -6056,15 +6231,16 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
-                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                            ('vlan_id_low', (YLeaf(YType.uint16, 'vlan-id-low'), ['int'])),
+                                            ('vlan_id_high', (YLeaf(YType.uint16, 'vlan-id-high'), ['int'])),
                                         ])
                                         self.vlan_id_low = None
                                         self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
                             class Pushe(Entity):
@@ -6100,15 +6276,16 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                        ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                     ])
                                     self.ethertype = None
                                     self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                         class Dot1adDot1qStack(Entity):
@@ -6146,15 +6323,404 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
+
+
+                    class VlanSwitched(Entity):
+                        """
+                        VLAN\-Switched information
+                        
+                        .. attribute:: trunk_vlan_ranges
+                        
+                        	VLAN\-Switched Trunk VLAN ranges
+                        	**type**\:  :py:class:`TrunkVlanRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges>`
+                        
+                        .. attribute:: mode
+                        
+                        	VLAN\-Switched mode
+                        	**type**\:  :py:class:`VlanSwitchedMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.VlanSwitchedMode>`
+                        
+                        .. attribute:: access_vlan
+                        
+                        	VLAN\-Switched Access VLAN
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'pfi-im-cmd-oper'
+                        _revision = '2017-06-26'
+
+                        def __init__(self):
+                            super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, self).__init__()
+
+                            self.yang_name = "vlan-switched"
+                            self.yang_parent_name = "dot1q-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("trunk-vlan-ranges", ("trunk_vlan_ranges", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges))])
+                            self._leafs = OrderedDict([
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'VlanSwitchedMode', '')])),
+                                ('access_vlan', (YLeaf(YType.uint16, 'access-vlan'), ['int'])),
+                            ])
+                            self.mode = None
+                            self.access_vlan = None
+
+                            self.trunk_vlan_ranges = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges()
+                            self.trunk_vlan_ranges.parent = self
+                            self._children_name_map["trunk_vlan_ranges"] = "trunk-vlan-ranges"
+                            self._segment_path = lambda: "vlan-switched"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched, ['mode', 'access_vlan'], name, value)
+
+
+                        class TrunkVlanRanges(Entity):
+                            """
+                            VLAN\-Switched Trunk VLAN ranges
+                            
+                            .. attribute:: local_traffic_stack
+                            
+                            	VLAN tags for locally\-sourced traffic
+                            	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack>`
+                            
+                            .. attribute:: payload_ethertype
+                            
+                            	Payload Ethertype to match
+                            	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpPayloadEtype>`
+                            
+                            .. attribute:: tags_popped
+                            
+                            	Number of tags popped on ingress
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: source_mac_match
+                            
+                            	The source MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: destination_mac_match
+                            
+                            	The destination MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: tags_to_match
+                            
+                            	Tags to match on ingress packets
+                            	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch>`
+                            
+                            .. attribute:: pushe
+                            
+                            	VLAN tags pushed on egress
+                            	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'pfi-im-cmd-oper'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, self).__init__()
+
+                                self.yang_name = "trunk-vlan-ranges"
+                                self.yang_parent_name = "vlan-switched"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack)), ("tags-to-match", ("tags_to_match", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch)), ("pushe", ("pushe", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe))])
+                                self._leafs = OrderedDict([
+                                    ('payload_ethertype', (YLeaf(YType.enumeration, 'payload-ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpPayloadEtype', '')])),
+                                    ('tags_popped', (YLeaf(YType.uint16, 'tags-popped'), ['int'])),
+                                    ('is_exact_match', (YLeaf(YType.int32, 'is-exact-match'), ['int'])),
+                                    ('is_native_vlan', (YLeaf(YType.int32, 'is-native-vlan'), ['int'])),
+                                    ('is_native_preserving', (YLeaf(YType.int32, 'is-native-preserving'), ['int'])),
+                                    ('source_mac_match', (YLeaf(YType.str, 'source-mac-match'), ['str'])),
+                                    ('destination_mac_match', (YLeaf(YType.str, 'destination-mac-match'), ['str'])),
+                                ])
+                                self.payload_ethertype = None
+                                self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
+
+                                self.local_traffic_stack = Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack()
+                                self.local_traffic_stack.parent = self
+                                self._children_name_map["local_traffic_stack"] = "local-traffic-stack"
+
+                                self.tags_to_match = YList(self)
+                                self.pushe = YList(self)
+                                self._segment_path = lambda: "trunk-vlan-ranges"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+
+
+                            class LocalTrafficStack(Entity):
+                                """
+                                VLAN tags for locally\-sourced traffic
+                                
+                                .. attribute:: local_traffic_tag
+                                
+                                	VLAN tags for locally\-sourced traffic
+                                	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
+
+                                    self.yang_name = "local-traffic-stack"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("local-traffic-tag", ("local_traffic_tag", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag))])
+                                    self._leafs = OrderedDict()
+
+                                    self.local_traffic_tag = YList(self)
+                                    self._segment_path = lambda: "local-traffic-stack"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, [], name, value)
+
+
+                                class LocalTrafficTag(Entity):
+                                    """
+                                    VLAN tags for locally\-sourced traffic
+                                    
+                                    .. attribute:: ethertype
+                                    
+                                    	Ethertype of tag
+                                    	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
+                                    
+                                    .. attribute:: vlan_id
+                                    
+                                    	VLAN Id
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
+
+                                        self.yang_name = "local-traffic-tag"
+                                        self.yang_parent_name = "local-traffic-stack"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                            ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                        ])
+                                        self.ethertype = None
+                                        self.vlan_id = None
+                                        self._segment_path = lambda: "local-traffic-tag"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+
+
+                            class TagsToMatch(Entity):
+                                """
+                                Tags to match on ingress packets
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag to match
+                                	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
+                                
+                                .. attribute:: priority
+                                
+                                	Priority to match
+                                	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagPriority>`
+                                
+                                .. attribute:: vlan_range
+                                
+                                	VLAN Ids to match
+                                	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
+
+                                    self.yang_name = "tags-to-match"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("vlan-range", ("vlan_range", Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange))])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagPriority', '')])),
+                                    ])
+                                    self.ethertype = None
+                                    self.priority = None
+
+                                    self.vlan_range = YList(self)
+                                    self._segment_path = lambda: "tags-to-match"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
+
+
+                                class VlanRange(Entity):
+                                    """
+                                    VLAN Ids to match
+                                    
+                                    .. attribute:: vlan_id_low
+                                    
+                                    	VLAN ID Low
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: vlan_id_high
+                                    
+                                    	VLAN ID High
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'pfi-im-cmd-oper'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
+
+                                        self.yang_name = "vlan-range"
+                                        self.yang_parent_name = "tags-to-match"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vlan_id_low', (YLeaf(YType.uint16, 'vlan-id-low'), ['int'])),
+                                            ('vlan_id_high', (YLeaf(YType.uint16, 'vlan-id-high'), ['int'])),
+                                        ])
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
+                                        self._segment_path = lambda: "vlan-range"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+
+
+                            class Pushe(Entity):
+                                """
+                                VLAN tags pushed on egress
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag
+                                	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper.EfpTagEtype>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN Id
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'pfi-im-cmd-oper'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
+
+                                    self.yang_name = "pushe"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'EfpTagEtype', '')])),
+                                        ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                    ])
+                                    self.ethertype = None
+                                    self.vlan_id = None
+                                    self._segment_path = lambda: "pushe"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.Dot1qInformation.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                 class PppInformation(Entity):
@@ -6216,11 +6782,11 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("ncp-info-array", ("ncp_info_array", Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray))])
                         self._leafs = OrderedDict([
-                            ('lcp_state', YLeaf(YType.enumeration, 'lcp-state')),
-                            ('is_loopback_detected', YLeaf(YType.int32, 'is-loopback-detected')),
-                            ('keepalive_period', YLeaf(YType.uint32, 'keepalive-period')),
-                            ('is_mp_bundle_member', YLeaf(YType.int32, 'is-mp-bundle-member')),
-                            ('is_multilink_open', YLeaf(YType.int32, 'is-multilink-open')),
+                            ('lcp_state', (YLeaf(YType.enumeration, 'lcp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmState', '')])),
+                            ('is_loopback_detected', (YLeaf(YType.int32, 'is-loopback-detected'), ['int'])),
+                            ('keepalive_period', (YLeaf(YType.uint32, 'keepalive-period'), ['int'])),
+                            ('is_mp_bundle_member', (YLeaf(YType.int32, 'is-mp-bundle-member'), ['int'])),
+                            ('is_multilink_open', (YLeaf(YType.int32, 'is-multilink-open'), ['int'])),
                         ])
                         self.lcp_state = None
                         self.is_loopback_detected = None
@@ -6230,9 +6796,10 @@ class Interfaces(Entity):
 
                         self.ncp_info_array = YList(self)
                         self._segment_path = lambda: "ppp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, [u'lcp_state', u'is_loopback_detected', u'keepalive_period', u'is_mp_bundle_member', u'is_multilink_open'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation, ['lcp_state', 'is_loopback_detected', 'keepalive_period', 'is_mp_bundle_member', 'is_multilink_open'], name, value)
 
 
                     class NcpInfoArray(Entity):
@@ -6266,15 +6833,16 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ncp_state', YLeaf(YType.enumeration, 'ncp-state')),
-                                ('ncp_identifier', YLeaf(YType.enumeration, 'ncp-identifier')),
+                                ('ncp_state', (YLeaf(YType.enumeration, 'ncp-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'PppFsmState', '')])),
+                                ('ncp_identifier', (YLeaf(YType.enumeration, 'ncp-identifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'NcpIdent', '')])),
                             ])
                             self.ncp_state = None
                             self.ncp_identifier = None
                             self._segment_path = lambda: "ncp-info-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, [u'ncp_state', u'ncp_identifier'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.EncapsulationInformation.PppInformation.NcpInfoArray, ['ncp_state', 'ncp_identifier'], name, value)
 
 
             class InterfaceTypeInformation(Entity):
@@ -6348,7 +6916,7 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("srp-information", ("srp_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation)), ("tunnel-information", ("tunnel_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation)), ("bundle-information", ("bundle_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation)), ("serial-information", ("serial_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation)), ("sonet-pos-information", ("sonet_pos_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation)), ("tunnel-gre-information", ("tunnel_gre_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation)), ("pseudowire-head-end-information", ("pseudowire_head_end_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation)), ("cem-information", ("cem_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation)), ("gcc-information", ("gcc_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_type_info', YLeaf(YType.enumeration, 'interface-type-info')),
+                        ('interface_type_info', (YLeaf(YType.enumeration, 'interface-type-info'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdIntfTypeEnum', '')])),
                     ])
                     self.interface_type_info = None
 
@@ -6388,9 +6956,10 @@ class Interfaces(Entity):
                     self.gcc_information.parent = self
                     self._children_name_map["gcc_information"] = "gcc-information"
                     self._segment_path = lambda: "interface-type-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, [u'interface_type_info'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation, ['interface_type_info'], name, value)
 
 
                 class SrpInformation(Entity):
@@ -6433,6 +7002,7 @@ class Interfaces(Entity):
                         self.srp_statistics.parent = self
                         self._children_name_map["srp_statistics"] = "srp-statistics"
                         self._segment_path = lambda: "srp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation, [], name, value)
@@ -6496,6 +7066,7 @@ class Interfaces(Entity):
                             self.rate_limit_info.parent = self
                             self._children_name_map["rate_limit_info"] = "rate-limit-info"
                             self._segment_path = lambda: "srp-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_, [], name, value)
@@ -6534,15 +7105,16 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("local-information", ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation))])
                                 self._leafs = OrderedDict([
-                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                    ('is_admin_down', (YLeaf(YType.int32, 'is-admin-down'), ['int'])),
                                 ])
                                 self.is_admin_down = None
 
                                 self.local_information = YList(self)
                                 self._segment_path = lambda: "ips-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, [u'is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo, ['is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -6597,9 +7169,9 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("side-a", ("side_a", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA)), ("side-b", ("side_b", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB))])
                                     self._leafs = OrderedDict([
-                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                        ('is_inter_card_bus_enabled', YLeaf(YType.int32, 'is-inter-card-bus-enabled')),
-                                        ('wtr_timer_period', YLeaf(YType.uint32, 'wtr-timer-period')),
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                        ('is_inter_card_bus_enabled', (YLeaf(YType.int32, 'is-inter-card-bus-enabled'), ['int'])),
+                                        ('wtr_timer_period', (YLeaf(YType.uint32, 'wtr-timer-period'), ['int'])),
                                     ])
                                     self.mac_address = None
                                     self.is_inter_card_bus_enabled = None
@@ -6613,9 +7185,10 @@ class Interfaces(Entity):
                                     self.side_b.parent = self
                                     self._children_name_map["side_b"] = "side-b"
                                     self._segment_path = lambda: "local-information"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, [u'mac_address', u'is_inter_card_bus_enabled', u'wtr_timer_period'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation, ['mac_address', 'is_inter_card_bus_enabled', 'wtr_timer_period'], name, value)
 
 
                                 class SideA(Entity):
@@ -6758,24 +7331,24 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("asserted-failure", ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure))])
                                         self._leafs = OrderedDict([
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('wrap_state', YLeaf(YType.enumeration, 'wrap-state')),
-                                            ('packet_sent_timer', YLeaf(YType.uint32, 'packet-sent-timer')),
-                                            ('send_timer_time_remaining', YLeaf(YType.uint32, 'send-timer-time-remaining')),
-                                            ('wtr_timer_remaining', YLeaf(YType.uint32, 'wtr-timer-remaining')),
-                                            ('self_detected_request', YLeaf(YType.enumeration, 'self-detected-request')),
-                                            ('remote_request', YLeaf(YType.enumeration, 'remote-request')),
-                                            ('rx_neighbor_mac_address', YLeaf(YType.str, 'rx-neighbor-mac-address')),
-                                            ('rx_message_type', YLeaf(YType.enumeration, 'rx-message-type')),
-                                            ('rx_path_type', YLeaf(YType.enumeration, 'rx-path-type')),
-                                            ('rx_ttl', YLeaf(YType.uint32, 'rx-ttl')),
-                                            ('rx_packet_test', YLeaf(YType.int32, 'rx-packet-test')),
-                                            ('tx_neighbor_mac_address', YLeaf(YType.str, 'tx-neighbor-mac-address')),
-                                            ('tx_message_type', YLeaf(YType.enumeration, 'tx-message-type')),
-                                            ('tx_path_type', YLeaf(YType.enumeration, 'tx-path-type')),
-                                            ('tx_ttl', YLeaf(YType.uint32, 'tx-ttl')),
-                                            ('tx_packet_test', YLeaf(YType.int32, 'tx-packet-test')),
-                                            ('delay_keep_alive_trigger', YLeaf(YType.uint32, 'delay-keep-alive-trigger')),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('wrap_state', (YLeaf(YType.enumeration, 'wrap-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapState', '')])),
+                                            ('packet_sent_timer', (YLeaf(YType.uint32, 'packet-sent-timer'), ['int'])),
+                                            ('send_timer_time_remaining', (YLeaf(YType.uint32, 'send-timer-time-remaining'), ['int'])),
+                                            ('wtr_timer_remaining', (YLeaf(YType.uint32, 'wtr-timer-remaining'), ['int'])),
+                                            ('self_detected_request', (YLeaf(YType.enumeration, 'self-detected-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('remote_request', (YLeaf(YType.enumeration, 'remote-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('rx_neighbor_mac_address', (YLeaf(YType.str, 'rx-neighbor-mac-address'), ['str'])),
+                                            ('rx_message_type', (YLeaf(YType.enumeration, 'rx-message-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('rx_path_type', (YLeaf(YType.enumeration, 'rx-path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd', '')])),
+                                            ('rx_ttl', (YLeaf(YType.uint32, 'rx-ttl'), ['int'])),
+                                            ('rx_packet_test', (YLeaf(YType.int32, 'rx-packet-test'), ['int'])),
+                                            ('tx_neighbor_mac_address', (YLeaf(YType.str, 'tx-neighbor-mac-address'), ['str'])),
+                                            ('tx_message_type', (YLeaf(YType.enumeration, 'tx-message-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('tx_path_type', (YLeaf(YType.enumeration, 'tx-path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd', '')])),
+                                            ('tx_ttl', (YLeaf(YType.uint32, 'tx-ttl'), ['int'])),
+                                            ('tx_packet_test', (YLeaf(YType.int32, 'tx-packet-test'), ['int'])),
+                                            ('delay_keep_alive_trigger', (YLeaf(YType.uint32, 'delay-keep-alive-trigger'), ['int'])),
                                         ])
                                         self.mac_address = None
                                         self.wrap_state = None
@@ -6798,9 +7371,10 @@ class Interfaces(Entity):
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-a"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, [u'mac_address', u'wrap_state', u'packet_sent_timer', u'send_timer_time_remaining', u'wtr_timer_remaining', u'self_detected_request', u'remote_request', u'rx_neighbor_mac_address', u'rx_message_type', u'rx_path_type', u'rx_ttl', u'rx_packet_test', u'tx_neighbor_mac_address', u'tx_message_type', u'tx_path_type', u'tx_ttl', u'tx_packet_test', u'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -6858,12 +7432,12 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
-                                                ('reported_state', YLeaf(YType.enumeration, 'reported-state')),
-                                                ('debounced_state', YLeaf(YType.enumeration, 'debounced-state')),
-                                                ('current_state', YLeaf(YType.enumeration, 'current-state')),
-                                                ('stable_time', YLeaf(YType.uint64, 'stable-time')),
-                                                ('debounced_delay', YLeaf(YType.uint32, 'debounced-delay')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEt', '')])),
+                                                ('reported_state', (YLeaf(YType.enumeration, 'reported-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('debounced_state', (YLeaf(YType.enumeration, 'debounced-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('current_state', (YLeaf(YType.enumeration, 'current-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('stable_time', (YLeaf(YType.uint64, 'stable-time'), ['int'])),
+                                                ('debounced_delay', (YLeaf(YType.uint32, 'debounced-delay'), ['int'])),
                                             ])
                                             self.type = None
                                             self.reported_state = None
@@ -6872,9 +7446,10 @@ class Interfaces(Entity):
                                             self.stable_time = None
                                             self.debounced_delay = None
                                             self._segment_path = lambda: "asserted-failure"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, [u'type', u'reported_state', u'debounced_state', u'current_state', u'stable_time', u'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideA.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
                                 class SideB(Entity):
@@ -7017,24 +7592,24 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("asserted-failure", ("asserted_failure", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure))])
                                         self._leafs = OrderedDict([
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('wrap_state', YLeaf(YType.enumeration, 'wrap-state')),
-                                            ('packet_sent_timer', YLeaf(YType.uint32, 'packet-sent-timer')),
-                                            ('send_timer_time_remaining', YLeaf(YType.uint32, 'send-timer-time-remaining')),
-                                            ('wtr_timer_remaining', YLeaf(YType.uint32, 'wtr-timer-remaining')),
-                                            ('self_detected_request', YLeaf(YType.enumeration, 'self-detected-request')),
-                                            ('remote_request', YLeaf(YType.enumeration, 'remote-request')),
-                                            ('rx_neighbor_mac_address', YLeaf(YType.str, 'rx-neighbor-mac-address')),
-                                            ('rx_message_type', YLeaf(YType.enumeration, 'rx-message-type')),
-                                            ('rx_path_type', YLeaf(YType.enumeration, 'rx-path-type')),
-                                            ('rx_ttl', YLeaf(YType.uint32, 'rx-ttl')),
-                                            ('rx_packet_test', YLeaf(YType.int32, 'rx-packet-test')),
-                                            ('tx_neighbor_mac_address', YLeaf(YType.str, 'tx-neighbor-mac-address')),
-                                            ('tx_message_type', YLeaf(YType.enumeration, 'tx-message-type')),
-                                            ('tx_path_type', YLeaf(YType.enumeration, 'tx-path-type')),
-                                            ('tx_ttl', YLeaf(YType.uint32, 'tx-ttl')),
-                                            ('tx_packet_test', YLeaf(YType.int32, 'tx-packet-test')),
-                                            ('delay_keep_alive_trigger', YLeaf(YType.uint32, 'delay-keep-alive-trigger')),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('wrap_state', (YLeaf(YType.enumeration, 'wrap-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsWrapState', '')])),
+                                            ('packet_sent_timer', (YLeaf(YType.uint32, 'packet-sent-timer'), ['int'])),
+                                            ('send_timer_time_remaining', (YLeaf(YType.uint32, 'send-timer-time-remaining'), ['int'])),
+                                            ('wtr_timer_remaining', (YLeaf(YType.uint32, 'wtr-timer-remaining'), ['int'])),
+                                            ('self_detected_request', (YLeaf(YType.enumeration, 'self-detected-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('remote_request', (YLeaf(YType.enumeration, 'remote-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('rx_neighbor_mac_address', (YLeaf(YType.str, 'rx-neighbor-mac-address'), ['str'])),
+                                            ('rx_message_type', (YLeaf(YType.enumeration, 'rx-message-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('rx_path_type', (YLeaf(YType.enumeration, 'rx-path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd', '')])),
+                                            ('rx_ttl', (YLeaf(YType.uint32, 'rx-ttl'), ['int'])),
+                                            ('rx_packet_test', (YLeaf(YType.int32, 'rx-packet-test'), ['int'])),
+                                            ('tx_neighbor_mac_address', (YLeaf(YType.str, 'tx-neighbor-mac-address'), ['str'])),
+                                            ('tx_message_type', (YLeaf(YType.enumeration, 'tx-message-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsReq', '')])),
+                                            ('tx_path_type', (YLeaf(YType.enumeration, 'tx-path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtIpsPathInd', '')])),
+                                            ('tx_ttl', (YLeaf(YType.uint32, 'tx-ttl'), ['int'])),
+                                            ('tx_packet_test', (YLeaf(YType.int32, 'tx-packet-test'), ['int'])),
+                                            ('delay_keep_alive_trigger', (YLeaf(YType.uint32, 'delay-keep-alive-trigger'), ['int'])),
                                         ])
                                         self.mac_address = None
                                         self.wrap_state = None
@@ -7057,9 +7632,10 @@ class Interfaces(Entity):
 
                                         self.asserted_failure = YList(self)
                                         self._segment_path = lambda: "side-b"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, [u'mac_address', u'wrap_state', u'packet_sent_timer', u'send_timer_time_remaining', u'wtr_timer_remaining', u'self_detected_request', u'remote_request', u'rx_neighbor_mac_address', u'rx_message_type', u'rx_path_type', u'rx_ttl', u'rx_packet_test', u'tx_neighbor_mac_address', u'tx_message_type', u'tx_path_type', u'tx_ttl', u'tx_packet_test', u'delay_keep_alive_trigger'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB, ['mac_address', 'wrap_state', 'packet_sent_timer', 'send_timer_time_remaining', 'wtr_timer_remaining', 'self_detected_request', 'remote_request', 'rx_neighbor_mac_address', 'rx_message_type', 'rx_path_type', 'rx_ttl', 'rx_packet_test', 'tx_neighbor_mac_address', 'tx_message_type', 'tx_path_type', 'tx_ttl', 'tx_packet_test', 'delay_keep_alive_trigger'], name, value)
 
 
                                     class AssertedFailure(Entity):
@@ -7117,12 +7693,12 @@ class Interfaces(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
-                                                ('reported_state', YLeaf(YType.enumeration, 'reported-state')),
-                                                ('debounced_state', YLeaf(YType.enumeration, 'debounced-state')),
-                                                ('current_state', YLeaf(YType.enumeration, 'current-state')),
-                                                ('stable_time', YLeaf(YType.uint64, 'stable-time')),
-                                                ('debounced_delay', YLeaf(YType.uint32, 'debounced-delay')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureEt', '')])),
+                                                ('reported_state', (YLeaf(YType.enumeration, 'reported-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('debounced_state', (YLeaf(YType.enumeration, 'debounced-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('current_state', (YLeaf(YType.enumeration, 'current-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtFailureStateEt', '')])),
+                                                ('stable_time', (YLeaf(YType.uint64, 'stable-time'), ['int'])),
+                                                ('debounced_delay', (YLeaf(YType.uint32, 'debounced-delay'), ['int'])),
                                             ])
                                             self.type = None
                                             self.reported_state = None
@@ -7131,9 +7707,10 @@ class Interfaces(Entity):
                                             self.stable_time = None
                                             self.debounced_delay = None
                                             self._segment_path = lambda: "asserted-failure"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, [u'type', u'reported_state', u'debounced_state', u'current_state', u'stable_time', u'debounced_delay'], name, value)
+                                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.IpsInfo.LocalInformation.SideB.AssertedFailure, ['type', 'reported_state', 'debounced_state', 'current_state', 'stable_time', 'debounced_delay'], name, value)
 
 
                         class TopologyInfo(Entity):
@@ -7169,15 +7746,16 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("local-information", ("local_information", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation))])
                                 self._leafs = OrderedDict([
-                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                    ('is_admin_down', (YLeaf(YType.int32, 'is-admin-down'), ['int'])),
                                 ])
                                 self.is_admin_down = None
 
                                 self.local_information = YList(self)
                                 self._segment_path = lambda: "topology-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, [u'is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo, ['is_admin_down'], name, value)
 
 
                             class LocalInformation(Entity):
@@ -7241,11 +7819,11 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("ring-node", ("ring_node", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode))])
                                     self._leafs = OrderedDict([
-                                        ('topology_timer', YLeaf(YType.uint32, 'topology-timer')),
-                                        ('next_topology_packet_delay', YLeaf(YType.uint32, 'next-topology-packet-delay')),
-                                        ('time_since_last_topology_packet_received', YLeaf(YType.uint32, 'time-since-last-topology-packet-received')),
-                                        ('time_since_last_topology_change', YLeaf(YType.uint32, 'time-since-last-topology-change')),
-                                        ('number_of_nodes_on_ring', YLeaf(YType.uint16, 'number-of-nodes-on-ring')),
+                                        ('topology_timer', (YLeaf(YType.uint32, 'topology-timer'), ['int'])),
+                                        ('next_topology_packet_delay', (YLeaf(YType.uint32, 'next-topology-packet-delay'), ['int'])),
+                                        ('time_since_last_topology_packet_received', (YLeaf(YType.uint32, 'time-since-last-topology-packet-received'), ['int'])),
+                                        ('time_since_last_topology_change', (YLeaf(YType.uint32, 'time-since-last-topology-change'), ['int'])),
+                                        ('number_of_nodes_on_ring', (YLeaf(YType.uint16, 'number-of-nodes-on-ring'), ['int'])),
                                     ])
                                     self.topology_timer = None
                                     self.next_topology_packet_delay = None
@@ -7255,9 +7833,10 @@ class Interfaces(Entity):
 
                                     self.ring_node = YList(self)
                                     self._segment_path = lambda: "local-information"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, [u'topology_timer', u'next_topology_packet_delay', u'time_since_last_topology_packet_received', u'time_since_last_topology_change', u'number_of_nodes_on_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation, ['topology_timer', 'next_topology_packet_delay', 'time_since_last_topology_packet_received', 'time_since_last_topology_change', 'number_of_nodes_on_ring'], name, value)
 
 
                                 class RingNode(Entity):
@@ -7319,12 +7898,12 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('hop_count', YLeaf(YType.uint16, 'hop-count')),
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('is_wrapped', YLeaf(YType.int32, 'is-wrapped')),
-                                            ('is_srr_supported', YLeaf(YType.int32, 'is-srr-supported')),
-                                            ('node_name', YLeaf(YType.str, 'node-name')),
+                                            ('hop_count', (YLeaf(YType.uint16, 'hop-count'), ['int'])),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('is_wrapped', (YLeaf(YType.int32, 'is-wrapped'), ['int'])),
+                                            ('is_srr_supported', (YLeaf(YType.int32, 'is-srr-supported'), ['int'])),
+                                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                                         ])
                                         self.hop_count = None
                                         self.mac_address = None
@@ -7333,9 +7912,10 @@ class Interfaces(Entity):
                                         self.is_srr_supported = None
                                         self.node_name = None
                                         self._segment_path = lambda: "ring-node"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, [u'hop_count', u'mac_address', u'ipv4_address', u'is_wrapped', u'is_srr_supported', u'node_name'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.TopologyInfo.LocalInformation.RingNode, ['hop_count', 'mac_address', 'ipv4_address', 'is_wrapped', 'is_srr_supported', 'node_name'], name, value)
 
 
                         class SrrInfo(Entity):
@@ -7378,17 +7958,18 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("srr-detailed-info", ("srr_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo))])
                                 self._leafs = OrderedDict([
-                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
-                                    ('is_srr_enabled', YLeaf(YType.int32, 'is-srr-enabled')),
+                                    ('is_admin_down', (YLeaf(YType.int32, 'is-admin-down'), ['int'])),
+                                    ('is_srr_enabled', (YLeaf(YType.int32, 'is-srr-enabled'), ['int'])),
                                 ])
                                 self.is_admin_down = None
                                 self.is_srr_enabled = None
 
                                 self.srr_detailed_info = YList(self)
                                 self._segment_path = lambda: "srr-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, [u'is_admin_down', u'is_srr_enabled'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo, ['is_admin_down', 'is_srr_enabled'], name, value)
 
 
                             class SrrDetailedInfo(Entity):
@@ -7538,22 +8119,22 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("nodes-on-ring", ("nodes_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing)), ("nodes-not-on-ring", ("nodes_not_on_ring", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing))])
                                     self._leafs = OrderedDict([
-                                        ('version_number', YLeaf(YType.uint32, 'version-number')),
-                                        ('is_wrong_version_received', YLeaf(YType.int32, 'is-wrong-version-received')),
-                                        ('last_wrong_version_receive_time', YLeaf(YType.uint32, 'last-wrong-version-receive-time')),
-                                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                        ('node_state', YLeaf(YType.enumeration, 'node-state')),
-                                        ('is_outer_ring_in_use', YLeaf(YType.int32, 'is-outer-ring-in-use')),
-                                        ('is_inner_ring_in_use', YLeaf(YType.int32, 'is-inner-ring-in-use')),
-                                        ('is_announce', YLeaf(YType.int32, 'is-announce')),
-                                        ('outer_fail_type', YLeaf(YType.enumeration, 'outer-fail-type')),
-                                        ('inner_fail_type', YLeaf(YType.enumeration, 'inner-fail-type')),
-                                        ('packet_send_timer', YLeaf(YType.uint32, 'packet-send-timer')),
-                                        ('next_srr_packet_send_time', YLeaf(YType.uint32, 'next-srr-packet-send-time')),
-                                        ('single_ring_bw', YLeaf(YType.uint32, 'single-ring-bw')),
-                                        ('wtr_time', YLeaf(YType.uint32, 'wtr-time')),
-                                        ('wtr_timer_remaining_outer_ring', YLeaf(YType.uint32, 'wtr-timer-remaining-outer-ring')),
-                                        ('wtr_timer_remaining_inner_ring', YLeaf(YType.uint32, 'wtr-timer-remaining-inner-ring')),
+                                        ('version_number', (YLeaf(YType.uint32, 'version-number'), ['int'])),
+                                        ('is_wrong_version_received', (YLeaf(YType.int32, 'is-wrong-version-received'), ['int'])),
+                                        ('last_wrong_version_receive_time', (YLeaf(YType.uint32, 'last-wrong-version-receive-time'), ['int'])),
+                                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                        ('node_state', (YLeaf(YType.enumeration, 'node-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrNodeState', '')])),
+                                        ('is_outer_ring_in_use', (YLeaf(YType.int32, 'is-outer-ring-in-use'), ['int'])),
+                                        ('is_inner_ring_in_use', (YLeaf(YType.int32, 'is-inner-ring-in-use'), ['int'])),
+                                        ('is_announce', (YLeaf(YType.int32, 'is-announce'), ['int'])),
+                                        ('outer_fail_type', (YLeaf(YType.enumeration, 'outer-fail-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                        ('inner_fail_type', (YLeaf(YType.enumeration, 'inner-fail-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                        ('packet_send_timer', (YLeaf(YType.uint32, 'packet-send-timer'), ['int'])),
+                                        ('next_srr_packet_send_time', (YLeaf(YType.uint32, 'next-srr-packet-send-time'), ['int'])),
+                                        ('single_ring_bw', (YLeaf(YType.uint32, 'single-ring-bw'), ['int'])),
+                                        ('wtr_time', (YLeaf(YType.uint32, 'wtr-time'), ['int'])),
+                                        ('wtr_timer_remaining_outer_ring', (YLeaf(YType.uint32, 'wtr-timer-remaining-outer-ring'), ['int'])),
+                                        ('wtr_timer_remaining_inner_ring', (YLeaf(YType.uint32, 'wtr-timer-remaining-inner-ring'), ['int'])),
                                     ])
                                     self.version_number = None
                                     self.is_wrong_version_received = None
@@ -7575,9 +8156,10 @@ class Interfaces(Entity):
                                     self.nodes_on_ring = YList(self)
                                     self.nodes_not_on_ring = YList(self)
                                     self._segment_path = lambda: "srr-detailed-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, [u'version_number', u'is_wrong_version_received', u'last_wrong_version_receive_time', u'mac_address', u'node_state', u'is_outer_ring_in_use', u'is_inner_ring_in_use', u'is_announce', u'outer_fail_type', u'inner_fail_type', u'packet_send_timer', u'next_srr_packet_send_time', u'single_ring_bw', u'wtr_time', u'wtr_timer_remaining_outer_ring', u'wtr_timer_remaining_inner_ring'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo, ['version_number', 'is_wrong_version_received', 'last_wrong_version_receive_time', 'mac_address', 'node_state', 'is_outer_ring_in_use', 'is_inner_ring_in_use', 'is_announce', 'outer_fail_type', 'inner_fail_type', 'packet_send_timer', 'next_srr_packet_send_time', 'single_ring_bw', 'wtr_time', 'wtr_timer_remaining_outer_ring', 'wtr_timer_remaining_inner_ring'], name, value)
 
 
                                 class NodesOnRing(Entity):
@@ -7642,13 +8224,13 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('node_name', YLeaf(YType.str, 'node-name')),
-                                            ('srr_entry_exits', YLeaf(YType.int32, 'srr-entry-exits')),
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('outer_failure', YLeaf(YType.enumeration, 'outer-failure')),
-                                            ('inner_failure', YLeaf(YType.enumeration, 'inner-failure')),
-                                            ('is_last_announce_received', YLeaf(YType.int32, 'is-last-announce-received')),
-                                            ('last_announce_received_time', YLeaf(YType.uint32, 'last-announce-received-time')),
+                                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                                            ('srr_entry_exits', (YLeaf(YType.int32, 'srr-entry-exits'), ['int'])),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('outer_failure', (YLeaf(YType.enumeration, 'outer-failure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                            ('inner_failure', (YLeaf(YType.enumeration, 'inner-failure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                            ('is_last_announce_received', (YLeaf(YType.int32, 'is-last-announce-received'), ['int'])),
+                                            ('last_announce_received_time', (YLeaf(YType.uint32, 'last-announce-received-time'), ['int'])),
                                         ])
                                         self.node_name = None
                                         self.srr_entry_exits = None
@@ -7658,9 +8240,10 @@ class Interfaces(Entity):
                                         self.is_last_announce_received = None
                                         self.last_announce_received_time = None
                                         self._segment_path = lambda: "nodes-on-ring"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, [u'node_name', u'srr_entry_exits', u'mac_address', u'outer_failure', u'inner_failure', u'is_last_announce_received', u'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
                                 class NodesNotOnRing(Entity):
@@ -7725,13 +8308,13 @@ class Interfaces(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('node_name', YLeaf(YType.str, 'node-name')),
-                                            ('srr_entry_exits', YLeaf(YType.int32, 'srr-entry-exits')),
-                                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                            ('outer_failure', YLeaf(YType.enumeration, 'outer-failure')),
-                                            ('inner_failure', YLeaf(YType.enumeration, 'inner-failure')),
-                                            ('is_last_announce_received', YLeaf(YType.int32, 'is-last-announce-received')),
-                                            ('last_announce_received_time', YLeaf(YType.uint32, 'last-announce-received-time')),
+                                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                                            ('srr_entry_exits', (YLeaf(YType.int32, 'srr-entry-exits'), ['int'])),
+                                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                            ('outer_failure', (YLeaf(YType.enumeration, 'outer-failure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                            ('inner_failure', (YLeaf(YType.enumeration, 'inner-failure'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SrpMgmtSrrFailure', '')])),
+                                            ('is_last_announce_received', (YLeaf(YType.int32, 'is-last-announce-received'), ['int'])),
+                                            ('last_announce_received_time', (YLeaf(YType.uint32, 'last-announce-received-time'), ['int'])),
                                         ])
                                         self.node_name = None
                                         self.srr_entry_exits = None
@@ -7741,9 +8324,10 @@ class Interfaces(Entity):
                                         self.is_last_announce_received = None
                                         self.last_announce_received_time = None
                                         self._segment_path = lambda: "nodes-not-on-ring"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, [u'node_name', u'srr_entry_exits', u'mac_address', u'outer_failure', u'inner_failure', u'is_last_announce_received', u'last_announce_received_time'], name, value)
+                                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.SrrInfo.SrrDetailedInfo.NodesNotOnRing, ['node_name', 'srr_entry_exits', 'mac_address', 'outer_failure', 'inner_failure', 'is_last_announce_received', 'last_announce_received_time'], name, value)
 
 
                         class RateLimitInfo(Entity):
@@ -7779,15 +8363,16 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("rate-limit-detailed-info", ("rate_limit_detailed_info", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo))])
                                 self._leafs = OrderedDict([
-                                    ('is_admin_down', YLeaf(YType.int32, 'is-admin-down')),
+                                    ('is_admin_down', (YLeaf(YType.int32, 'is-admin-down'), ['int'])),
                                 ])
                                 self.is_admin_down = None
 
                                 self.rate_limit_detailed_info = YList(self)
                                 self._segment_path = lambda: "rate-limit-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, [u'is_admin_down'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo, ['is_admin_down'], name, value)
 
 
                             class RateLimitDetailedInfo(Entity):
@@ -7818,13 +8403,14 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('min_priority_value', YLeaf(YType.uint16, 'min-priority-value')),
+                                        ('min_priority_value', (YLeaf(YType.uint16, 'min-priority-value'), ['int'])),
                                     ])
                                     self.min_priority_value = None
                                     self._segment_path = lambda: "rate-limit-detailed-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, [u'min_priority_value'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpInformation_.RateLimitInfo.RateLimitDetailedInfo, ['min_priority_value'], name, value)
 
 
                     class SrpStatistics(Entity):
@@ -7877,7 +8463,7 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("side-a-data-rate", ("side_a_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate)), ("side-b-data-rate", ("side_b_data_rate", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate)), ("side-a-errors", ("side_a_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors)), ("side-b-errors", ("side_b_errors", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors))])
                             self._leafs = OrderedDict([
-                                ('data_rate_interval', YLeaf(YType.uint32, 'data-rate-interval')),
+                                ('data_rate_interval', (YLeaf(YType.uint32, 'data-rate-interval'), ['int'])),
                             ])
                             self.data_rate_interval = None
 
@@ -7897,9 +8483,10 @@ class Interfaces(Entity):
                             self.side_b_errors.parent = self
                             self._children_name_map["side_b_errors"] = "side-b-errors"
                             self._segment_path = lambda: "srp-statistics"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, [u'data_rate_interval'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics, ['data_rate_interval'], name, value)
 
 
                         class SideADataRate(Entity):
@@ -7951,19 +8538,20 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('bit_rate_sent', YLeaf(YType.uint32, 'bit-rate-sent')),
-                                    ('packet_rate_sent', YLeaf(YType.uint32, 'packet-rate-sent')),
-                                    ('bit_rate_received', YLeaf(YType.uint32, 'bit-rate-received')),
-                                    ('packet_rate_received', YLeaf(YType.uint32, 'packet-rate-received')),
+                                    ('bit_rate_sent', (YLeaf(YType.uint32, 'bit-rate-sent'), ['int'])),
+                                    ('packet_rate_sent', (YLeaf(YType.uint32, 'packet-rate-sent'), ['int'])),
+                                    ('bit_rate_received', (YLeaf(YType.uint32, 'bit-rate-received'), ['int'])),
+                                    ('packet_rate_received', (YLeaf(YType.uint32, 'packet-rate-received'), ['int'])),
                                 ])
                                 self.bit_rate_sent = None
                                 self.packet_rate_sent = None
                                 self.bit_rate_received = None
                                 self.packet_rate_received = None
                                 self._segment_path = lambda: "side-a-data-rate"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, [u'bit_rate_sent', u'packet_rate_sent', u'bit_rate_received', u'packet_rate_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideADataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
                         class SideBDataRate(Entity):
@@ -8015,19 +8603,20 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('bit_rate_sent', YLeaf(YType.uint32, 'bit-rate-sent')),
-                                    ('packet_rate_sent', YLeaf(YType.uint32, 'packet-rate-sent')),
-                                    ('bit_rate_received', YLeaf(YType.uint32, 'bit-rate-received')),
-                                    ('packet_rate_received', YLeaf(YType.uint32, 'packet-rate-received')),
+                                    ('bit_rate_sent', (YLeaf(YType.uint32, 'bit-rate-sent'), ['int'])),
+                                    ('packet_rate_sent', (YLeaf(YType.uint32, 'packet-rate-sent'), ['int'])),
+                                    ('bit_rate_received', (YLeaf(YType.uint32, 'bit-rate-received'), ['int'])),
+                                    ('packet_rate_received', (YLeaf(YType.uint32, 'packet-rate-received'), ['int'])),
                                 ])
                                 self.bit_rate_sent = None
                                 self.packet_rate_sent = None
                                 self.bit_rate_received = None
                                 self.packet_rate_received = None
                                 self._segment_path = lambda: "side-b-data-rate"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, [u'bit_rate_sent', u'packet_rate_sent', u'bit_rate_received', u'packet_rate_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBDataRate, ['bit_rate_sent', 'packet_rate_sent', 'bit_rate_received', 'packet_rate_received'], name, value)
 
 
                         class SideAErrors(Entity):
@@ -8114,15 +8703,15 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('error_packets_received', YLeaf(YType.uint32, 'error-packets-received')),
-                                    ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                                    ('input_insufficient_resource_events', YLeaf(YType.uint32, 'input-insufficient-resource-events')),
-                                    ('mac_aborts_received', YLeaf(YType.uint32, 'mac-aborts-received')),
-                                    ('mac_runt_packets_received', YLeaf(YType.uint32, 'mac-runt-packets-received')),
-                                    ('mac_giant_packets_received', YLeaf(YType.uint32, 'mac-giant-packets-received')),
-                                    ('framer_runt_packets_received', YLeaf(YType.uint32, 'framer-runt-packets-received')),
-                                    ('framer_giant_packets_received', YLeaf(YType.uint32, 'framer-giant-packets-received')),
-                                    ('framer_aborts_received', YLeaf(YType.uint32, 'framer-aborts-received')),
+                                    ('error_packets_received', (YLeaf(YType.uint32, 'error-packets-received'), ['int'])),
+                                    ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                                    ('input_insufficient_resource_events', (YLeaf(YType.uint32, 'input-insufficient-resource-events'), ['int'])),
+                                    ('mac_aborts_received', (YLeaf(YType.uint32, 'mac-aborts-received'), ['int'])),
+                                    ('mac_runt_packets_received', (YLeaf(YType.uint32, 'mac-runt-packets-received'), ['int'])),
+                                    ('mac_giant_packets_received', (YLeaf(YType.uint32, 'mac-giant-packets-received'), ['int'])),
+                                    ('framer_runt_packets_received', (YLeaf(YType.uint32, 'framer-runt-packets-received'), ['int'])),
+                                    ('framer_giant_packets_received', (YLeaf(YType.uint32, 'framer-giant-packets-received'), ['int'])),
+                                    ('framer_aborts_received', (YLeaf(YType.uint32, 'framer-aborts-received'), ['int'])),
                                 ])
                                 self.error_packets_received = None
                                 self.crc_errors = None
@@ -8134,9 +8723,10 @@ class Interfaces(Entity):
                                 self.framer_giant_packets_received = None
                                 self.framer_aborts_received = None
                                 self._segment_path = lambda: "side-a-errors"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, [u'error_packets_received', u'crc_errors', u'input_insufficient_resource_events', u'mac_aborts_received', u'mac_runt_packets_received', u'mac_giant_packets_received', u'framer_runt_packets_received', u'framer_giant_packets_received', u'framer_aborts_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideAErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
 
                         class SideBErrors(Entity):
@@ -8223,15 +8813,15 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('error_packets_received', YLeaf(YType.uint32, 'error-packets-received')),
-                                    ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                                    ('input_insufficient_resource_events', YLeaf(YType.uint32, 'input-insufficient-resource-events')),
-                                    ('mac_aborts_received', YLeaf(YType.uint32, 'mac-aborts-received')),
-                                    ('mac_runt_packets_received', YLeaf(YType.uint32, 'mac-runt-packets-received')),
-                                    ('mac_giant_packets_received', YLeaf(YType.uint32, 'mac-giant-packets-received')),
-                                    ('framer_runt_packets_received', YLeaf(YType.uint32, 'framer-runt-packets-received')),
-                                    ('framer_giant_packets_received', YLeaf(YType.uint32, 'framer-giant-packets-received')),
-                                    ('framer_aborts_received', YLeaf(YType.uint32, 'framer-aborts-received')),
+                                    ('error_packets_received', (YLeaf(YType.uint32, 'error-packets-received'), ['int'])),
+                                    ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                                    ('input_insufficient_resource_events', (YLeaf(YType.uint32, 'input-insufficient-resource-events'), ['int'])),
+                                    ('mac_aborts_received', (YLeaf(YType.uint32, 'mac-aborts-received'), ['int'])),
+                                    ('mac_runt_packets_received', (YLeaf(YType.uint32, 'mac-runt-packets-received'), ['int'])),
+                                    ('mac_giant_packets_received', (YLeaf(YType.uint32, 'mac-giant-packets-received'), ['int'])),
+                                    ('framer_runt_packets_received', (YLeaf(YType.uint32, 'framer-runt-packets-received'), ['int'])),
+                                    ('framer_giant_packets_received', (YLeaf(YType.uint32, 'framer-giant-packets-received'), ['int'])),
+                                    ('framer_aborts_received', (YLeaf(YType.uint32, 'framer-aborts-received'), ['int'])),
                                 ])
                                 self.error_packets_received = None
                                 self.crc_errors = None
@@ -8243,9 +8833,10 @@ class Interfaces(Entity):
                                 self.framer_giant_packets_received = None
                                 self.framer_aborts_received = None
                                 self._segment_path = lambda: "side-b-errors"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, [u'error_packets_received', u'crc_errors', u'input_insufficient_resource_events', u'mac_aborts_received', u'mac_runt_packets_received', u'mac_giant_packets_received', u'framer_runt_packets_received', u'framer_giant_packets_received', u'framer_aborts_received'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SrpInformation.SrpStatistics.SideBErrors, ['error_packets_received', 'crc_errors', 'input_insufficient_resource_events', 'mac_aborts_received', 'mac_runt_packets_received', 'mac_giant_packets_received', 'framer_runt_packets_received', 'framer_giant_packets_received', 'framer_aborts_received'], name, value)
 
 
                 class TunnelInformation(Entity):
@@ -8307,12 +8898,12 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_name', YLeaf(YType.str, 'source-name')),
-                            ('source_ipv4_address', YLeaf(YType.str, 'source-ipv4-address')),
-                            ('destination_ipv4_address', YLeaf(YType.str, 'destination-ipv4-address')),
-                            ('tunnel_type', YLeaf(YType.str, 'tunnel-type')),
-                            ('key', YLeaf(YType.uint32, 'key')),
-                            ('ttl', YLeaf(YType.uint32, 'ttl')),
+                            ('source_name', (YLeaf(YType.str, 'source-name'), ['str'])),
+                            ('source_ipv4_address', (YLeaf(YType.str, 'source-ipv4-address'), ['str'])),
+                            ('destination_ipv4_address', (YLeaf(YType.str, 'destination-ipv4-address'), ['str'])),
+                            ('tunnel_type', (YLeaf(YType.str, 'tunnel-type'), ['str'])),
+                            ('key', (YLeaf(YType.uint32, 'key'), ['int'])),
+                            ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                         ])
                         self.source_name = None
                         self.source_ipv4_address = None
@@ -8321,9 +8912,10 @@ class Interfaces(Entity):
                         self.key = None
                         self.ttl = None
                         self._segment_path = lambda: "tunnel-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, [u'source_name', u'source_ipv4_address', u'destination_ipv4_address', u'tunnel_type', u'key', u'ttl'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelInformation, ['source_name', 'source_ipv4_address', 'destination_ipv4_address', 'tunnel_type', 'key', 'ttl'], name, value)
 
 
                 class BundleInformation(Entity):
@@ -8355,6 +8947,7 @@ class Interfaces(Entity):
 
                         self.member = YList(self)
                         self._segment_path = lambda: "bundle-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation, [], name, value)
@@ -8389,7 +8982,7 @@ class Interfaces(Entity):
                         	Member's interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: port_priority
                         
@@ -8467,16 +9060,16 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("counters", ("counters", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters)), ("link-data", ("link_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData)), ("member-mux-data", ("member_mux_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData)), ("mac-address", ("mac_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('port_priority', YLeaf(YType.uint16, 'port-priority')),
-                                ('port_number', YLeaf(YType.uint16, 'port-number')),
-                                ('underlying_link_id', YLeaf(YType.uint16, 'underlying-link-id')),
-                                ('link_order_number', YLeaf(YType.uint16, 'link-order-number')),
-                                ('iccp_node', YLeaf(YType.uint32, 'iccp-node')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                                ('lacp_enabled', YLeaf(YType.str, 'lacp-enabled')),
-                                ('member_type', YLeaf(YType.enumeration, 'member-type')),
-                                ('member_name', YLeaf(YType.str, 'member-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('port_priority', (YLeaf(YType.uint16, 'port-priority'), ['int'])),
+                                ('port_number', (YLeaf(YType.uint16, 'port-number'), ['int'])),
+                                ('underlying_link_id', (YLeaf(YType.uint16, 'underlying-link-id'), ['int'])),
+                                ('link_order_number', (YLeaf(YType.uint16, 'link-order-number'), ['int'])),
+                                ('iccp_node', (YLeaf(YType.uint32, 'iccp-node'), ['int'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                                ('lacp_enabled', (YLeaf(YType.str, 'lacp-enabled'), ['str'])),
+                                ('member_type', (YLeaf(YType.enumeration, 'member-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberTypeEnum', '')])),
+                                ('member_name', (YLeaf(YType.str, 'member-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self.port_priority = None
@@ -8505,9 +9098,10 @@ class Interfaces(Entity):
                             self.mac_address.parent = self
                             self._children_name_map["mac_address"] = "mac-address"
                             self._segment_path = lambda: "member"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, [u'interface_name', u'port_priority', u'port_number', u'underlying_link_id', u'link_order_number', u'iccp_node', u'bandwidth', u'lacp_enabled', u'member_type', u'member_name'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member, ['interface_name', 'port_priority', 'port_number', 'underlying_link_id', 'link_order_number', 'iccp_node', 'bandwidth', 'lacp_enabled', 'member_type', 'member_name'], name, value)
 
 
                         class Counters(Entity):
@@ -8608,17 +9202,17 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('lacpd_us_received', YLeaf(YType.uint32, 'lacpd-us-received')),
-                                    ('lacpd_us_transmitted', YLeaf(YType.uint32, 'lacpd-us-transmitted')),
-                                    ('marker_packets_received', YLeaf(YType.uint32, 'marker-packets-received')),
-                                    ('marker_responses_transmitted', YLeaf(YType.uint32, 'marker-responses-transmitted')),
-                                    ('illegal_packets_received', YLeaf(YType.uint32, 'illegal-packets-received')),
-                                    ('excess_lacpd_us_received', YLeaf(YType.uint32, 'excess-lacpd-us-received')),
-                                    ('excess_marker_packets_received', YLeaf(YType.uint32, 'excess-marker-packets-received')),
-                                    ('defaulted', YLeaf(YType.uint32, 'defaulted')),
-                                    ('expired', YLeaf(YType.uint32, 'expired')),
-                                    ('last_cleared_sec', YLeaf(YType.uint32, 'last-cleared-sec')),
-                                    ('last_cleared_nsec', YLeaf(YType.uint32, 'last-cleared-nsec')),
+                                    ('lacpd_us_received', (YLeaf(YType.uint32, 'lacpd-us-received'), ['int'])),
+                                    ('lacpd_us_transmitted', (YLeaf(YType.uint32, 'lacpd-us-transmitted'), ['int'])),
+                                    ('marker_packets_received', (YLeaf(YType.uint32, 'marker-packets-received'), ['int'])),
+                                    ('marker_responses_transmitted', (YLeaf(YType.uint32, 'marker-responses-transmitted'), ['int'])),
+                                    ('illegal_packets_received', (YLeaf(YType.uint32, 'illegal-packets-received'), ['int'])),
+                                    ('excess_lacpd_us_received', (YLeaf(YType.uint32, 'excess-lacpd-us-received'), ['int'])),
+                                    ('excess_marker_packets_received', (YLeaf(YType.uint32, 'excess-marker-packets-received'), ['int'])),
+                                    ('defaulted', (YLeaf(YType.uint32, 'defaulted'), ['int'])),
+                                    ('expired', (YLeaf(YType.uint32, 'expired'), ['int'])),
+                                    ('last_cleared_sec', (YLeaf(YType.uint32, 'last-cleared-sec'), ['int'])),
+                                    ('last_cleared_nsec', (YLeaf(YType.uint32, 'last-cleared-nsec'), ['int'])),
                                 ])
                                 self.lacpd_us_received = None
                                 self.lacpd_us_transmitted = None
@@ -8632,9 +9226,10 @@ class Interfaces(Entity):
                                 self.last_cleared_sec = None
                                 self.last_cleared_nsec = None
                                 self._segment_path = lambda: "counters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, [u'lacpd_us_received', u'lacpd_us_transmitted', u'marker_packets_received', u'marker_responses_transmitted', u'illegal_packets_received', u'excess_lacpd_us_received', u'excess_marker_packets_received', u'defaulted', u'expired', u'last_cleared_sec', u'last_cleared_nsec'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.Counters, ['lacpd_us_received', 'lacpd_us_transmitted', 'marker_packets_received', 'marker_responses_transmitted', 'illegal_packets_received', 'excess_lacpd_us_received', 'excess_marker_packets_received', 'defaulted', 'expired', 'last_cleared_sec', 'last_cleared_nsec'], name, value)
 
 
                         class LinkData(Entity):
@@ -8646,7 +9241,7 @@ class Interfaces(Entity):
                             	Member's interface handle
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: actor_system_priority
                             
@@ -8763,21 +9358,21 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                                    ('actor_system_priority', YLeaf(YType.uint16, 'actor-system-priority')),
-                                    ('actor_system_mac_address', YLeaf(YType.str, 'actor-system-mac-address')),
-                                    ('actor_operational_key', YLeaf(YType.uint16, 'actor-operational-key')),
-                                    ('partner_system_priority', YLeaf(YType.uint16, 'partner-system-priority')),
-                                    ('partner_system_mac_address', YLeaf(YType.str, 'partner-system-mac-address')),
-                                    ('partner_operational_key', YLeaf(YType.uint16, 'partner-operational-key')),
-                                    ('selected_aggregator_id', YLeaf(YType.uint32, 'selected-aggregator-id')),
-                                    ('attached_aggregator_id', YLeaf(YType.uint32, 'attached-aggregator-id')),
-                                    ('actor_port_id', YLeaf(YType.uint16, 'actor-port-id')),
-                                    ('actor_port_priority', YLeaf(YType.uint16, 'actor-port-priority')),
-                                    ('partner_port_id', YLeaf(YType.uint16, 'partner-port-id')),
-                                    ('partner_port_priority', YLeaf(YType.uint16, 'partner-port-priority')),
-                                    ('actor_port_state', YLeaf(YType.uint8, 'actor-port-state')),
-                                    ('partner_port_state', YLeaf(YType.uint8, 'partner-port-state')),
+                                    ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                    ('actor_system_priority', (YLeaf(YType.uint16, 'actor-system-priority'), ['int'])),
+                                    ('actor_system_mac_address', (YLeaf(YType.str, 'actor-system-mac-address'), ['str'])),
+                                    ('actor_operational_key', (YLeaf(YType.uint16, 'actor-operational-key'), ['int'])),
+                                    ('partner_system_priority', (YLeaf(YType.uint16, 'partner-system-priority'), ['int'])),
+                                    ('partner_system_mac_address', (YLeaf(YType.str, 'partner-system-mac-address'), ['str'])),
+                                    ('partner_operational_key', (YLeaf(YType.uint16, 'partner-operational-key'), ['int'])),
+                                    ('selected_aggregator_id', (YLeaf(YType.uint32, 'selected-aggregator-id'), ['int'])),
+                                    ('attached_aggregator_id', (YLeaf(YType.uint32, 'attached-aggregator-id'), ['int'])),
+                                    ('actor_port_id', (YLeaf(YType.uint16, 'actor-port-id'), ['int'])),
+                                    ('actor_port_priority', (YLeaf(YType.uint16, 'actor-port-priority'), ['int'])),
+                                    ('partner_port_id', (YLeaf(YType.uint16, 'partner-port-id'), ['int'])),
+                                    ('partner_port_priority', (YLeaf(YType.uint16, 'partner-port-priority'), ['int'])),
+                                    ('actor_port_state', (YLeaf(YType.uint8, 'actor-port-state'), ['int'])),
+                                    ('partner_port_state', (YLeaf(YType.uint8, 'partner-port-state'), ['int'])),
                                 ])
                                 self.interface_handle = None
                                 self.actor_system_priority = None
@@ -8795,9 +9390,10 @@ class Interfaces(Entity):
                                 self.actor_port_state = None
                                 self.partner_port_state = None
                                 self._segment_path = lambda: "link-data"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, [u'interface_handle', u'actor_system_priority', u'actor_system_mac_address', u'actor_operational_key', u'partner_system_priority', u'partner_system_mac_address', u'partner_operational_key', u'selected_aggregator_id', u'attached_aggregator_id', u'actor_port_id', u'actor_port_priority', u'partner_port_id', u'partner_port_priority', u'actor_port_state', u'partner_port_state'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.LinkData, ['interface_handle', 'actor_system_priority', 'actor_system_mac_address', 'actor_operational_key', 'partner_system_priority', 'partner_system_mac_address', 'partner_operational_key', 'selected_aggregator_id', 'attached_aggregator_id', 'actor_port_id', 'actor_port_priority', 'partner_port_id', 'partner_port_priority', 'actor_port_state', 'partner_port_state'], name, value)
 
 
                         class MemberMuxData(Entity):
@@ -8853,11 +9449,11 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("member-mux-state-reason-data", ("member_mux_state_reason_data", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData))])
                                 self._leafs = OrderedDict([
-                                    ('mux_state', YLeaf(YType.enumeration, 'mux-state')),
-                                    ('error', YLeaf(YType.uint32, 'error')),
-                                    ('member_mux_state_reason', YLeaf(YType.enumeration, 'member-mux-state-reason')),
-                                    ('member_state', YLeaf(YType.enumeration, 'member-state')),
-                                    ('mux_state_reason', YLeaf(YType.enumeration, 'mux-state-reason')),
+                                    ('mux_state', (YLeaf(YType.enumeration, 'mux-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxstate', '')])),
+                                    ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                    ('member_mux_state_reason', (YLeaf(YType.enumeration, 'member-mux-state-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMbrStateReason', '')])),
+                                    ('member_state', (YLeaf(YType.enumeration, 'member-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmdMemberState', '')])),
+                                    ('mux_state_reason', (YLeaf(YType.enumeration, 'mux-state-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmMuxreason', '')])),
                                 ])
                                 self.mux_state = None
                                 self.error = None
@@ -8869,9 +9465,10 @@ class Interfaces(Entity):
                                 self.member_mux_state_reason_data.parent = self
                                 self._children_name_map["member_mux_state_reason_data"] = "member-mux-state-reason-data"
                                 self._segment_path = lambda: "member-mux-data"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, [u'mux_state', u'error', u'member_mux_state_reason', u'member_state', u'mux_state_reason'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData, ['mux_state', 'error', 'member_mux_state_reason', 'member_state', 'mux_state_reason'], name, value)
 
 
                             class MemberMuxStateReasonData(Entity):
@@ -8906,15 +9503,16 @@ class Interfaces(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('reason_type', YLeaf(YType.enumeration, 'reason-type')),
-                                        ('severity', YLeaf(YType.enumeration, 'severity')),
+                                        ('reason_type', (YLeaf(YType.enumeration, 'reason-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmStateReasonTarget', '')])),
+                                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'BmSeverity', '')])),
                                     ])
                                     self.reason_type = None
                                     self.severity = None
                                     self._segment_path = lambda: "member-mux-state-reason-data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, [u'reason_type', u'severity'], name, value)
+                                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MemberMuxData.MemberMuxStateReasonData, ['reason_type', 'severity'], name, value)
 
 
                         class MacAddress(Entity):
@@ -8945,13 +9543,14 @@ class Interfaces(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                 ])
                                 self.address = None
                                 self._segment_path = lambda: "mac-address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, [u'address'], name, value)
+                                self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.BundleInformation.Member.MacAddress, ['address'], name, value)
 
 
                 class SerialInformation(Entity):
@@ -8980,13 +9579,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('timeslots', YLeaf(YType.str, 'timeslots')),
+                            ('timeslots', (YLeaf(YType.str, 'timeslots'), ['str'])),
                         ])
                         self.timeslots = None
                         self._segment_path = lambda: "serial-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, [u'timeslots'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SerialInformation, ['timeslots'], name, value)
 
 
                 class SonetPosInformation(Entity):
@@ -9015,13 +9615,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aps_state', YLeaf(YType.enumeration, 'aps-state')),
+                            ('aps_state', (YLeaf(YType.enumeration, 'aps-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'SonetApsEt', '')])),
                         ])
                         self.aps_state = None
                         self._segment_path = lambda: "sonet-pos-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, [u'aps_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.SonetPosInformation, ['aps_state'], name, value)
 
 
                 class TunnelGreInformation(Entity):
@@ -9129,18 +9730,18 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("source-ip-address", ("source_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress)), ("destination-ip-address", ("destination_ip_address", Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress))])
                         self._leafs = OrderedDict([
-                            ('source_name', YLeaf(YType.str, 'source-name')),
-                            ('destination_ip_address_length', YLeaf(YType.uint8, 'destination-ip-address-length')),
-                            ('tunnel_tos', YLeaf(YType.uint32, 'tunnel-tos')),
-                            ('tunnel_ttl', YLeaf(YType.uint32, 'tunnel-ttl')),
-                            ('key', YLeaf(YType.uint32, 'key')),
-                            ('keepalive_period', YLeaf(YType.uint16, 'keepalive-period')),
-                            ('keepalive_maximum_retry', YLeaf(YType.uint8, 'keepalive-maximum-retry')),
-                            ('tunnel_mode', YLeaf(YType.enumeration, 'tunnel-mode')),
-                            ('tunnel_mode_direction', YLeaf(YType.enumeration, 'tunnel-mode-direction')),
-                            ('keepalive_state', YLeaf(YType.enumeration, 'keepalive-state')),
-                            ('df_bit_state', YLeaf(YType.enumeration, 'df-bit-state')),
-                            ('key_bit_state', YLeaf(YType.enumeration, 'key-bit-state')),
+                            ('source_name', (YLeaf(YType.str, 'source-name'), ['str'])),
+                            ('destination_ip_address_length', (YLeaf(YType.uint8, 'destination-ip-address-length'), ['int'])),
+                            ('tunnel_tos', (YLeaf(YType.uint32, 'tunnel-tos'), ['int'])),
+                            ('tunnel_ttl', (YLeaf(YType.uint32, 'tunnel-ttl'), ['int'])),
+                            ('key', (YLeaf(YType.uint32, 'key'), ['int'])),
+                            ('keepalive_period', (YLeaf(YType.uint16, 'keepalive-period'), ['int'])),
+                            ('keepalive_maximum_retry', (YLeaf(YType.uint8, 'keepalive-maximum-retry'), ['int'])),
+                            ('tunnel_mode', (YLeaf(YType.enumeration, 'tunnel-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelGreMode', '')])),
+                            ('tunnel_mode_direction', (YLeaf(YType.enumeration, 'tunnel-mode-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlIpModeDir', '')])),
+                            ('keepalive_state', (YLeaf(YType.enumeration, 'keepalive-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfState', '')])),
+                            ('df_bit_state', (YLeaf(YType.enumeration, 'df-bit-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKaDfState', '')])),
+                            ('key_bit_state', (YLeaf(YType.enumeration, 'key-bit-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunnelKeyState', '')])),
                         ])
                         self.source_name = None
                         self.destination_ip_address_length = None
@@ -9163,9 +9764,10 @@ class Interfaces(Entity):
                         self.destination_ip_address.parent = self
                         self._children_name_map["destination_ip_address"] = "destination-ip-address"
                         self._segment_path = lambda: "tunnel-gre-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, [u'source_name', u'destination_ip_address_length', u'tunnel_tos', u'tunnel_ttl', u'key', u'keepalive_period', u'keepalive_maximum_retry', u'tunnel_mode', u'tunnel_mode_direction', u'keepalive_state', u'df_bit_state', u'key_bit_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation, ['source_name', 'destination_ip_address_length', 'tunnel_tos', 'tunnel_ttl', 'key', 'keepalive_period', 'keepalive_maximum_retry', 'tunnel_mode', 'tunnel_mode_direction', 'keepalive_state', 'df_bit_state', 'key_bit_state'], name, value)
 
 
                     class SourceIpAddress(Entity):
@@ -9208,17 +9810,18 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.afi = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "source-ip-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, [u'afi', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.SourceIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
 
                     class DestinationIpAddress(Entity):
@@ -9261,17 +9864,18 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'TunlPfiAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.afi = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "destination-ip-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, [u'afi', u'ipv4', u'ipv6'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.TunnelGreInformation.DestinationIpAddress, ['afi', 'ipv4', 'ipv6'], name, value)
 
 
                 class PseudowireHeadEndInformation(Entity):
@@ -9314,17 +9918,18 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_list_name', YLeaf(YType.str, 'interface-list-name')),
-                            ('l2_overhead', YLeaf(YType.uint32, 'l2-overhead')),
-                            ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                            ('interface_list_name', (YLeaf(YType.str, 'interface-list-name'), ['str'])),
+                            ('l2_overhead', (YLeaf(YType.uint32, 'l2-overhead'), ['int'])),
+                            ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                         ])
                         self.interface_list_name = None
                         self.l2_overhead = None
                         self.internal_label = None
                         self._segment_path = lambda: "pseudowire-head-end-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, [u'interface_list_name', u'l2_overhead', u'internal_label'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.PseudowireHeadEndInformation, ['interface_list_name', 'l2_overhead', 'internal_label'], name, value)
 
 
                 class CemInformation(Entity):
@@ -9378,19 +9983,20 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('timeslots', YLeaf(YType.str, 'timeslots')),
-                            ('payload', YLeaf(YType.uint16, 'payload')),
-                            ('dejitter_buffer', YLeaf(YType.uint16, 'dejitter-buffer')),
-                            ('framing', YLeaf(YType.int32, 'framing')),
+                            ('timeslots', (YLeaf(YType.str, 'timeslots'), ['str'])),
+                            ('payload', (YLeaf(YType.uint16, 'payload'), ['int'])),
+                            ('dejitter_buffer', (YLeaf(YType.uint16, 'dejitter-buffer'), ['int'])),
+                            ('framing', (YLeaf(YType.int32, 'framing'), ['int'])),
                         ])
                         self.timeslots = None
                         self.payload = None
                         self.dejitter_buffer = None
                         self.framing = None
                         self._segment_path = lambda: "cem-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, [u'timeslots', u'payload', u'dejitter_buffer', u'framing'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.CemInformation, ['timeslots', 'payload', 'dejitter_buffer', 'framing'], name, value)
 
 
                 class GccInformation(Entity):
@@ -9424,15 +10030,16 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('derived_mode', YLeaf(YType.enumeration, 'derived-mode')),
-                            ('sec_state', YLeaf(YType.enumeration, 'sec-state')),
+                            ('derived_mode', (YLeaf(YType.enumeration, 'derived-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccDerState', '')])),
+                            ('sec_state', (YLeaf(YType.enumeration, 'sec-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'GccSecState', '')])),
                         ])
                         self.derived_mode = None
                         self.sec_state = None
                         self._segment_path = lambda: "gcc-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, [u'derived_mode', u'sec_state'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceTypeInformation.GccInformation, ['derived_mode', 'sec_state'], name, value)
 
 
             class DataRates(Entity):
@@ -9557,19 +10164,19 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                        ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                        ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                        ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
-                        ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
-                        ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
-                        ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
-                        ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
-                        ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                        ('load_interval', YLeaf(YType.uint32, 'load-interval')),
-                        ('output_load', YLeaf(YType.uint8, 'output-load')),
-                        ('input_load', YLeaf(YType.uint8, 'input-load')),
-                        ('reliability', YLeaf(YType.uint8, 'reliability')),
+                        ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                        ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                        ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                        ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
+                        ('peak_input_data_rate', (YLeaf(YType.uint64, 'peak-input-data-rate'), ['int'])),
+                        ('peak_input_packet_rate', (YLeaf(YType.uint64, 'peak-input-packet-rate'), ['int'])),
+                        ('peak_output_data_rate', (YLeaf(YType.uint64, 'peak-output-data-rate'), ['int'])),
+                        ('peak_output_packet_rate', (YLeaf(YType.uint64, 'peak-output-packet-rate'), ['int'])),
+                        ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                        ('load_interval', (YLeaf(YType.uint32, 'load-interval'), ['int'])),
+                        ('output_load', (YLeaf(YType.uint8, 'output-load'), ['int'])),
+                        ('input_load', (YLeaf(YType.uint8, 'input-load'), ['int'])),
+                        ('reliability', (YLeaf(YType.uint8, 'reliability'), ['int'])),
                     ])
                     self.input_data_rate = None
                     self.input_packet_rate = None
@@ -9585,9 +10192,10 @@ class Interfaces(Entity):
                     self.input_load = None
                     self.reliability = None
                     self._segment_path = lambda: "data-rates"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.DataRates, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
             class InterfaceStatistics(Entity):
@@ -9626,7 +10234,7 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("full-interface-stats", ("full_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats)), ("basic-interface-stats", ("basic_interface_stats", Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats))])
                     self._leafs = OrderedDict([
-                        ('stats_type', YLeaf(YType.enumeration, 'stats-type')),
+                        ('stats_type', (YLeaf(YType.enumeration, 'stats-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImCmdStatsEnum', '')])),
                     ])
                     self.stats_type = None
 
@@ -9638,9 +10246,10 @@ class Interfaces(Entity):
                     self.basic_interface_stats.parent = self
                     self._children_name_map["basic_interface_stats"] = "basic-interface-stats"
                     self._segment_path = lambda: "interface-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, [u'stats_type'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics, ['stats_type'], name, value)
 
 
                 class FullInterfaceStats(Entity):
@@ -9930,42 +10539,42 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -10004,9 +10613,10 @@ class Interfaces(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "full-interface-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.FullInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
                 class BasicInterfaceStats(Entity):
@@ -10156,22 +10766,22 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -10190,9 +10800,10 @@ class Interfaces(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "basic-interface-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'input_drops', u'input_queue_drops', u'input_errors', u'unknown_protocol_packets_received', u'output_drops', u'output_queue_drops', u'output_errors', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.InterfaceStatistics.BasicInterfaceStats, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'input_drops', 'input_queue_drops', 'input_errors', 'unknown_protocol_packets_received', 'output_drops', 'output_queue_drops', 'output_errors', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class L2InterfaceStatistics(Entity):
@@ -10243,8 +10854,8 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("stats-id", ("stats_id", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId)), ("block-array", ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray)), ("element-array", ("element_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray))])
                     self._leafs = OrderedDict([
-                        ('stats_type', YLeaf(YType.uint32, 'stats-type')),
-                        ('contents', YLeaf(YType.enumeration, 'contents')),
+                        ('stats_type', (YLeaf(YType.uint32, 'stats-type'), ['int'])),
+                        ('contents', (YLeaf(YType.enumeration, 'contents'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsTypeContents', '')])),
                     ])
                     self.stats_type = None
                     self.contents = None
@@ -10256,9 +10867,10 @@ class Interfaces(Entity):
                     self.block_array = YList(self)
                     self.element_array = YList(self)
                     self._segment_path = lambda: "l2-interface-statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, [u'stats_type', u'contents'], name, value)
+                    self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics, ['stats_type', 'contents'], name, value)
 
 
                 class StatsId(Entity):
@@ -10282,7 +10894,7 @@ class Interfaces(Entity):
                     	Interface Handle
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: node_id
                     
@@ -10322,12 +10934,12 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('id_type', YLeaf(YType.enumeration, 'id-type')),
-                            ('unused', YLeaf(YType.uint32, 'unused')),
-                            ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                            ('node_id', YLeaf(YType.str, 'node-id')),
-                            ('feature_id', YLeaf(YType.uint32, 'feature-id')),
-                            ('id', YLeaf(YType.uint32, 'id')),
+                            ('id_type', (YLeaf(YType.enumeration, 'id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsId', '')])),
+                            ('unused', (YLeaf(YType.uint32, 'unused'), ['int'])),
+                            ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                            ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                            ('feature_id', (YLeaf(YType.uint32, 'feature-id'), ['int'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
                         ])
                         self.id_type = None
                         self.unused = None
@@ -10336,9 +10948,10 @@ class Interfaces(Entity):
                         self.feature_id = None
                         self.id = None
                         self._segment_path = lambda: "stats-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, [u'id_type', u'unused', u'interface_handle', u'node_id', u'feature_id', u'id'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.StatsId, ['id_type', 'unused', 'interface_handle', 'node_id', 'feature_id', 'id'], name, value)
 
 
                 class BlockArray(Entity):
@@ -10381,17 +10994,18 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.enumeration, 'type')),
-                            ('count', YLeaf(YType.uint32, 'count')),
-                            ('data', YLeaf(YType.str, 'data')),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounter', '')])),
+                            ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                            ('data', (YLeaf(YType.str, 'data'), ['str'])),
                         ])
                         self.type = None
                         self.count = None
                         self.data = None
                         self._segment_path = lambda: "block-array"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, [u'type', u'count', u'data'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.BlockArray, ['type', 'count', 'data'], name, value)
 
 
                 class ElementArray(Entity):
@@ -10427,15 +11041,16 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("block-array", ("block_array", Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray))])
                         self._leafs = OrderedDict([
-                            ('key', YLeaf(YType.str, 'key')),
+                            ('key', (YLeaf(YType.str, 'key'), ['str'])),
                         ])
                         self.key = None
 
                         self.block_array = YList(self)
                         self._segment_path = lambda: "element-array"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, [u'key'], name, value)
+                        self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray, ['key'], name, value)
 
 
                     class BlockArray(Entity):
@@ -10478,17 +11093,18 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('count', YLeaf(YType.uint32, 'count')),
-                                ('data', YLeaf(YType.str, 'data')),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'StatsCounter', '')])),
+                                ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                                ('data', (YLeaf(YType.str, 'data'), ['str'])),
                             ])
                             self.type = None
                             self.count = None
                             self.data = None
                             self._segment_path = lambda: "block-array"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, [u'type', u'count', u'data'], name, value)
+                            self._perform_setattr(Interfaces.InterfaceXr.Interface.L2InterfaceStatistics.ElementArray.BlockArray, ['type', 'count', 'data'], name, value)
 
 
     class NodeTypeSets(Entity):
@@ -10522,6 +11138,7 @@ class Interfaces(Entity):
             self.node_type_set = YList(self)
             self._segment_path = lambda: "node-type-sets"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.NodeTypeSets, [], name, value)
@@ -10566,8 +11183,8 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("interface-summary", ("interface_summary", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
-                    ('type_set_name', YLeaf(YType.enumeration, 'type-set-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('type_set_name', (YLeaf(YType.enumeration, 'type-set-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'InterfaceTypeSet', '')])),
                 ])
                 self.node_name = None
                 self.type_set_name = None
@@ -10577,6 +11194,7 @@ class Interfaces(Entity):
                 self._children_name_map["interface_summary"] = "interface-summary"
                 self._segment_path = lambda: "node-type-set"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet, ['node_name', 'type_set_name'], name, value)
@@ -10621,6 +11239,7 @@ class Interfaces(Entity):
                     self.interface_type = YList(self)
                     self._segment_path = lambda: "interface-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary, [], name, value)
@@ -10675,10 +11294,10 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                            ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                            ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                            ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                            ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                            ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                            ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                            ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                         ])
                         self.interface_count = None
                         self.up_interface_count = None
@@ -10686,6 +11305,7 @@ class Interfaces(Entity):
                         self.admin_down_interface_count = None
                         self._segment_path = lambda: "interface-counts"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
@@ -10727,8 +11347,8 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts))])
                         self._leafs = OrderedDict([
-                            ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
-                            ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                            ('interface_type_name', (YLeaf(YType.str, 'interface-type-name'), ['str'])),
+                            ('interface_type_description', (YLeaf(YType.str, 'interface-type-description'), ['str'])),
                         ])
                         self.interface_type_name = None
                         self.interface_type_description = None
@@ -10738,6 +11358,7 @@ class Interfaces(Entity):
                         self._children_name_map["interface_counts"] = "interface-counts"
                         self._segment_path = lambda: "interface-type"
                         self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
@@ -10792,10 +11413,10 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                                ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                                ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                                ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                                ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                                ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                                ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                                ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                             ])
                             self.interface_count = None
                             self.up_interface_count = None
@@ -10803,6 +11424,7 @@ class Interfaces(Entity):
                             self.admin_down_interface_count = None
                             self._segment_path = lambda: "interface-counts"
                             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/node-type-sets/node-type-set/interface-summary/interface-type/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.NodeTypeSets.NodeTypeSet.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
@@ -10838,6 +11460,7 @@ class Interfaces(Entity):
             self.interface_brief = YList(self)
             self._segment_path = lambda: "interface-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.InterfaceBriefs, [], name, value)
@@ -10853,21 +11476,21 @@ class Interfaces(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: interface
             
             	Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: parent_interface
             
             	Parent Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: type
             
@@ -10951,20 +11574,20 @@ class Interfaces(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                    ('type', YLeaf(YType.str, 'type')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('actual_state', YLeaf(YType.enumeration, 'actual-state')),
-                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                    ('actual_line_state', YLeaf(YType.enumeration, 'actual-line-state')),
-                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
-                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                    ('sub_interface_mtu_overhead', YLeaf(YType.uint32, 'sub-interface-mtu-overhead')),
-                    ('l2_transport', YLeaf(YType.boolean, 'l2-transport')),
-                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                    ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('actual_state', (YLeaf(YType.enumeration, 'actual-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('actual_line_state', (YLeaf(YType.enumeration, 'actual-line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('encapsulation', (YLeaf(YType.str, 'encapsulation'), ['str'])),
+                    ('encapsulation_type_string', (YLeaf(YType.str, 'encapsulation-type-string'), ['str'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                    ('sub_interface_mtu_overhead', (YLeaf(YType.uint32, 'sub-interface-mtu-overhead'), ['int'])),
+                    ('l2_transport', (YLeaf(YType.boolean, 'l2-transport'), ['bool'])),
+                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                 ])
                 self.interface_name = None
                 self.interface = None
@@ -10982,6 +11605,7 @@ class Interfaces(Entity):
                 self.bandwidth = None
                 self._segment_path = lambda: "interface-brief" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InterfaceBriefs.InterfaceBrief, ['interface_name', u'interface', u'parent_interface', u'type', u'state', u'actual_state', u'line_state', u'actual_line_state', u'encapsulation', u'encapsulation_type_string', u'mtu', u'sub_interface_mtu_overhead', u'l2_transport', u'bandwidth'], name, value)
@@ -11026,6 +11650,7 @@ class Interfaces(Entity):
             self.interface_type = YList(self)
             self._segment_path = lambda: "inventory-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.InventorySummary, [], name, value)
@@ -11080,10 +11705,10 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                    ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                    ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                    ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                    ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                    ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                    ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                    ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                 ])
                 self.interface_count = None
                 self.up_interface_count = None
@@ -11091,6 +11716,7 @@ class Interfaces(Entity):
                 self.admin_down_interface_count = None
                 self._segment_path = lambda: "interface-counts"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InventorySummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
@@ -11132,8 +11758,8 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InventorySummary.InterfaceType.InterfaceCounts))])
                 self._leafs = OrderedDict([
-                    ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
-                    ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                    ('interface_type_name', (YLeaf(YType.str, 'interface-type-name'), ['str'])),
+                    ('interface_type_description', (YLeaf(YType.str, 'interface-type-description'), ['str'])),
                 ])
                 self.interface_type_name = None
                 self.interface_type_description = None
@@ -11143,6 +11769,7 @@ class Interfaces(Entity):
                 self._children_name_map["interface_counts"] = "interface-counts"
                 self._segment_path = lambda: "interface-type"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InventorySummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
@@ -11197,10 +11824,10 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                        ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                        ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                        ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                        ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                        ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                        ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                        ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                     ])
                     self.interface_count = None
                     self.up_interface_count = None
@@ -11208,6 +11835,7 @@ class Interfaces(Entity):
                     self.admin_down_interface_count = None
                     self._segment_path = lambda: "interface-counts"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/inventory-summary/interface-type/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InventorySummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
@@ -11243,6 +11871,7 @@ class Interfaces(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.Interfaces_, [], name, value)
@@ -11257,14 +11886,14 @@ class Interfaces(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: interface
             
             	Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: state
             
@@ -11298,11 +11927,11 @@ class Interfaces(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                    ('description', YLeaf(YType.str, 'description')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper', 'ImStateEnum', '')])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
                 ])
                 self.interface_name = None
                 self.interface = None
@@ -11311,9 +11940,10 @@ class Interfaces(Entity):
                 self.description = None
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', u'interface', u'state', u'line_state', u'description'], name, value)
+                self._perform_setattr(Interfaces.Interfaces_.Interface, ['interface_name', 'interface', 'state', 'line_state', 'description'], name, value)
 
 
     class InterfaceSummary(Entity):
@@ -11355,6 +11985,7 @@ class Interfaces(Entity):
             self.interface_type = YList(self)
             self._segment_path = lambda: "interface-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.InterfaceSummary, [], name, value)
@@ -11409,10 +12040,10 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                    ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                    ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                    ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                    ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                    ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                    ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                    ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                 ])
                 self.interface_count = None
                 self.up_interface_count = None
@@ -11420,6 +12051,7 @@ class Interfaces(Entity):
                 self.admin_down_interface_count = None
                 self._segment_path = lambda: "interface-counts"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InterfaceSummary.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)
@@ -11461,8 +12093,8 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("interface-counts", ("interface_counts", Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts))])
                 self._leafs = OrderedDict([
-                    ('interface_type_name', YLeaf(YType.str, 'interface-type-name')),
-                    ('interface_type_description', YLeaf(YType.str, 'interface-type-description')),
+                    ('interface_type_name', (YLeaf(YType.str, 'interface-type-name'), ['str'])),
+                    ('interface_type_description', (YLeaf(YType.str, 'interface-type-description'), ['str'])),
                 ])
                 self.interface_type_name = None
                 self.interface_type_description = None
@@ -11472,6 +12104,7 @@ class Interfaces(Entity):
                 self._children_name_map["interface_counts"] = "interface-counts"
                 self._segment_path = lambda: "interface-type"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType, [u'interface_type_name', u'interface_type_description'], name, value)
@@ -11526,10 +12159,10 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                        ('up_interface_count', YLeaf(YType.uint32, 'up-interface-count')),
-                        ('down_interface_count', YLeaf(YType.uint32, 'down-interface-count')),
-                        ('admin_down_interface_count', YLeaf(YType.uint32, 'admin-down-interface-count')),
+                        ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                        ('up_interface_count', (YLeaf(YType.uint32, 'up-interface-count'), ['int'])),
+                        ('down_interface_count', (YLeaf(YType.uint32, 'down-interface-count'), ['int'])),
+                        ('admin_down_interface_count', (YLeaf(YType.uint32, 'admin-down-interface-count'), ['int'])),
                     ])
                     self.interface_count = None
                     self.up_interface_count = None
@@ -11537,6 +12170,7 @@ class Interfaces(Entity):
                     self.admin_down_interface_count = None
                     self._segment_path = lambda: "interface-counts"
                     self._absolute_path = lambda: "Cisco-IOS-XR-pfi-im-cmd-oper:interfaces/interface-summary/interface-type/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.InterfaceSummary.InterfaceType.InterfaceCounts, [u'interface_count', u'up_interface_count', u'down_interface_count', u'admin_down_interface_count'], name, value)

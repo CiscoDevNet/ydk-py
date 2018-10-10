@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   object\-group\: Object\-group configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EndPort(Enum):
@@ -741,6 +742,7 @@ class ObjectGroup(Entity):
         self.network.parent = self
         self._children_name_map["network"] = "network"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ObjectGroup, [], name, value)
@@ -778,6 +780,7 @@ class ObjectGroup(Entity):
             self._children_name_map["udf_objects"] = "udf-objects"
             self._segment_path = lambda: "port"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectGroup.Port, [], name, value)
@@ -813,6 +816,7 @@ class ObjectGroup(Entity):
                 self.udf_object = YList(self)
                 self._segment_path = lambda: "udf-objects"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Port.UdfObjects, [], name, value)
@@ -868,8 +872,8 @@ class ObjectGroup(Entity):
                     self.ylist_key_names = ['object_name']
                     self._child_classes = OrderedDict([("operators", ("operators", ObjectGroup.Port.UdfObjects.UdfObject.Operators)), ("nested-groups", ("nested_groups", ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups)), ("port-ranges", ("port_ranges", ObjectGroup.Port.UdfObjects.UdfObject.PortRanges))])
                     self._leafs = OrderedDict([
-                        ('object_name', YLeaf(YType.str, 'object-name')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.object_name = None
                     self.description = None
@@ -887,6 +891,7 @@ class ObjectGroup(Entity):
                     self._children_name_map["port_ranges"] = "port-ranges"
                     self._segment_path = lambda: "udf-object" + "[object-name='" + str(self.object_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/port/udf-objects/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
@@ -921,6 +926,7 @@ class ObjectGroup(Entity):
 
                         self.operator = YList(self)
                         self._segment_path = lambda: "operators"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators, [], name, value)
@@ -963,12 +969,13 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = ['operator_type','port']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('operator_type', YLeaf(YType.enumeration, 'operator-type')),
-                                ('port', YLeaf(YType.str, 'port')),
+                                ('operator_type', (YLeaf(YType.enumeration, 'operator-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'PortOperator', '')])),
+                                ('port', (YLeaf(YType.str, 'port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'Port', ''),'int'])),
                             ])
                             self.operator_type = None
                             self.port = None
                             self._segment_path = lambda: "operator" + "[operator-type='" + str(self.operator_type) + "']" + "[port='" + str(self.port) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.Operators.Operator, ['operator_type', 'port'], name, value)
@@ -1003,6 +1010,7 @@ class ObjectGroup(Entity):
 
                         self.nested_group = YList(self)
                         self._segment_path = lambda: "nested-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups, [], name, value)
@@ -1036,10 +1044,11 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = ['nested_group_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
                             ])
                             self.nested_group_name = None
                             self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
@@ -1074,6 +1083,7 @@ class ObjectGroup(Entity):
 
                         self.port_range = YList(self)
                         self._segment_path = lambda: "port-ranges"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges, [], name, value)
@@ -1122,12 +1132,13 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = ['start_port','end_port']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('start_port', YLeaf(YType.str, 'start-port')),
-                                ('end_port', YLeaf(YType.str, 'end-port')),
+                                ('start_port', (YLeaf(YType.str, 'start-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'StartPort', ''),'int'])),
+                                ('end_port', (YLeaf(YType.str, 'end-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_cfg', 'EndPort', ''),'int'])),
                             ])
                             self.start_port = None
                             self.end_port = None
                             self._segment_path = lambda: "port-range" + "[start-port='" + str(self.start_port) + "']" + "[end-port='" + str(self.end_port) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.UdfObjects.UdfObject.PortRanges.PortRange, ['start_port', 'end_port'], name, value)
@@ -1174,6 +1185,7 @@ class ObjectGroup(Entity):
             self._children_name_map["ipv4"] = "ipv4"
             self._segment_path = lambda: "network"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectGroup.Network, [], name, value)
@@ -1211,6 +1223,7 @@ class ObjectGroup(Entity):
                 self._children_name_map["udf_objects"] = "udf-objects"
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Network.Ipv6, [], name, value)
@@ -1246,6 +1259,7 @@ class ObjectGroup(Entity):
                     self.udf_object = YList(self)
                     self._segment_path = lambda: "udf-objects"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects, [], name, value)
@@ -1306,8 +1320,8 @@ class ObjectGroup(Entity):
                         self.ylist_key_names = ['object_name']
                         self._child_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges)), ("addresses", ("addresses", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses)), ("hosts", ("hosts", ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts))])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('description', YLeaf(YType.str, 'description')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
                         ])
                         self.object_name = None
                         self.description = None
@@ -1329,6 +1343,7 @@ class ObjectGroup(Entity):
                         self._children_name_map["hosts"] = "hosts"
                         self._segment_path = lambda: "udf-object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv6/udf-objects/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
@@ -1363,6 +1378,7 @@ class ObjectGroup(Entity):
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups, [], name, value)
@@ -1396,10 +1412,11 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['nested_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                    ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
                                 ])
                                 self.nested_group_name = None
                                 self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
@@ -1434,6 +1451,7 @@ class ObjectGroup(Entity):
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges, [], name, value)
@@ -1446,28 +1464,16 @@ class ObjectGroup(Entity):
                             .. attribute:: start_address  (key)
                             
                             	IPv6 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: end_address  (key)
                             
                             	IPv6 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -1486,12 +1492,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['start_address','end_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('start_address', YLeaf(YType.str, 'start-address')),
-                                    ('end_address', YLeaf(YType.str, 'end-address')),
+                                    ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                    ('end_address', (YLeaf(YType.str, 'end-address'), ['str'])),
                                 ])
                                 self.start_address = None
                                 self.end_address = None
                                 self._segment_path = lambda: "address-range" + "[start-address='" + str(self.start_address) + "']" + "[end-address='" + str(self.end_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
@@ -1526,6 +1533,7 @@ class ObjectGroup(Entity):
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses, [], name, value)
@@ -1538,15 +1546,9 @@ class ObjectGroup(Entity):
                             .. attribute:: prefix  (key)
                             
                             	IPv6 prefix x\:x\:\:x/y
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length  (key)
                             
@@ -1572,12 +1574,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['prefix','prefix_length']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                 ])
                                 self.prefix = None
                                 self.prefix_length = None
                                 self._segment_path = lambda: "address" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
@@ -1612,6 +1615,7 @@ class ObjectGroup(Entity):
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts, [], name, value)
@@ -1624,15 +1628,9 @@ class ObjectGroup(Entity):
                             .. attribute:: host_address  (key)
                             
                             	host ipv6 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -1651,10 +1649,11 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['host_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('host_address', YLeaf(YType.str, 'host-address')),
+                                    ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
                                 ])
                                 self.host_address = None
                                 self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)
@@ -1692,6 +1691,7 @@ class ObjectGroup(Entity):
                 self._children_name_map["udf_objects"] = "udf-objects"
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Network.Ipv4, [], name, value)
@@ -1727,6 +1727,7 @@ class ObjectGroup(Entity):
                     self.udf_object = YList(self)
                     self._segment_path = lambda: "udf-objects"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects, [], name, value)
@@ -1787,8 +1788,8 @@ class ObjectGroup(Entity):
                         self.ylist_key_names = ['object_name']
                         self._child_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges)), ("addresses", ("addresses", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses)), ("hosts", ("hosts", ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts))])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
-                            ('description', YLeaf(YType.str, 'description')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
                         ])
                         self.object_name = None
                         self.description = None
@@ -1810,6 +1811,7 @@ class ObjectGroup(Entity):
                         self._children_name_map["hosts"] = "hosts"
                         self._segment_path = lambda: "udf-object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-cfg:object-group/network/ipv4/udf-objects/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject, ['object_name', 'description'], name, value)
@@ -1844,6 +1846,7 @@ class ObjectGroup(Entity):
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups, [], name, value)
@@ -1877,10 +1880,11 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['nested_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
+                                    ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
                                 ])
                                 self.nested_group_name = None
                                 self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.NestedGroups.NestedGroup, ['nested_group_name'], name, value)
@@ -1915,6 +1919,7 @@ class ObjectGroup(Entity):
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges, [], name, value)
@@ -1927,28 +1932,16 @@ class ObjectGroup(Entity):
                             .. attribute:: start_address  (key)
                             
                             	IPv4 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: end_address  (key)
                             
                             	IPv4 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -1967,12 +1960,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['start_address','end_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('start_address', YLeaf(YType.str, 'start-address')),
-                                    ('end_address', YLeaf(YType.str, 'end-address')),
+                                    ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                    ('end_address', (YLeaf(YType.str, 'end-address'), ['str'])),
                                 ])
                                 self.start_address = None
                                 self.end_address = None
                                 self._segment_path = lambda: "address-range" + "[start-address='" + str(self.start_address) + "']" + "[end-address='" + str(self.end_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.AddressRanges.AddressRange, ['start_address', 'end_address'], name, value)
@@ -2007,6 +2001,7 @@ class ObjectGroup(Entity):
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses, [], name, value)
@@ -2019,15 +2014,9 @@ class ObjectGroup(Entity):
                             .. attribute:: prefix  (key)
                             
                             	IPv4 address/prefix
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             .. attribute:: prefix_length  (key)
                             
@@ -2053,12 +2042,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['prefix','prefix_length']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                 ])
                                 self.prefix = None
                                 self.prefix_length = None
                                 self._segment_path = lambda: "address" + "[prefix='" + str(self.prefix) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Addresses.Address, ['prefix', 'prefix_length'], name, value)
@@ -2093,6 +2083,7 @@ class ObjectGroup(Entity):
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts, [], name, value)
@@ -2105,15 +2096,9 @@ class ObjectGroup(Entity):
                             .. attribute:: host_address  (key)
                             
                             	Host ipv4 address
-                            	**type**\: union of the below types:
+                            	**type**\: str
                             
-                            		**type**\: str
-                            
-                            			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            		**type**\: str
-                            
-                            			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
                             
                             
 
@@ -2132,10 +2117,11 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['host_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('host_address', YLeaf(YType.str, 'host-address')),
+                                    ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
                                 ])
                                 self.host_address = None
                                 self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.UdfObjects.UdfObject.Hosts.Host, ['host_address'], name, value)

@@ -8,7 +8,7 @@ for the following management objects\:
   dot1x\: Global Dot1x Configuration
   eap\: eap
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -51,6 +52,7 @@ class Dot1x(Entity):
 
         self.dot1x_profile = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-dot1x-cfg:dot1x"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Dot1x, [], name, value)
@@ -101,8 +103,8 @@ class Dot1x(Entity):
             self.ylist_key_names = ['profile_name']
             self._child_classes = OrderedDict([("supplicant", ("supplicant", Dot1x.Dot1xProfile.Supplicant)), ("authenticator", ("authenticator", Dot1x.Dot1xProfile.Authenticator))])
             self._leafs = OrderedDict([
-                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                ('pae', YLeaf(YType.str, 'pae')),
+                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                ('pae', (YLeaf(YType.str, 'pae'), ['str'])),
             ])
             self.profile_name = None
             self.pae = None
@@ -116,6 +118,7 @@ class Dot1x(Entity):
             self._children_name_map["authenticator"] = "authenticator"
             self._segment_path = lambda: "dot1x-profile" + "[profile-name='" + str(self.profile_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-cfg:dot1x/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dot1x.Dot1xProfile, ['profile_name', 'pae'], name, value)
@@ -149,10 +152,11 @@ class Dot1x(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('eap_profile', YLeaf(YType.str, 'eap-profile')),
+                    ('eap_profile', (YLeaf(YType.str, 'eap-profile'), ['str'])),
                 ])
                 self.eap_profile = None
                 self._segment_path = lambda: "supplicant"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Dot1x.Dot1xProfile.Supplicant, ['eap_profile'], name, value)
@@ -166,6 +170,13 @@ class Dot1x(Entity):
             
             	Timers for Authenticator
             	**type**\:  :py:class:`Timers <ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg.Dot1x.Dot1xProfile.Authenticator.Timers>`
+            
+            .. attribute:: eap_profile
+            
+            	EAP Profile for Local EAP Server
+            	**type**\: str
+            
+            	**length:** 1..63
             
             
 
@@ -183,15 +194,19 @@ class Dot1x(Entity):
                 self.has_list_ancestor = True
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("timers", ("timers", Dot1x.Dot1xProfile.Authenticator.Timers))])
-                self._leafs = OrderedDict()
+                self._leafs = OrderedDict([
+                    ('eap_profile', (YLeaf(YType.str, 'eap-profile'), ['str'])),
+                ])
+                self.eap_profile = None
 
                 self.timers = Dot1x.Dot1xProfile.Authenticator.Timers()
                 self.timers.parent = self
                 self._children_name_map["timers"] = "timers"
                 self._segment_path = lambda: "authenticator"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Dot1x.Dot1xProfile.Authenticator, [], name, value)
+                self._perform_setattr(Dot1x.Dot1xProfile.Authenticator, ['eap_profile'], name, value)
 
 
             class Timers(Entity):
@@ -225,6 +240,7 @@ class Dot1x(Entity):
                     self.reauth_time.parent = self
                     self._children_name_map["reauth_time"] = "reauth-time"
                     self._segment_path = lambda: "timers"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dot1x.Dot1xProfile.Authenticator.Timers, [], name, value)
@@ -266,12 +282,13 @@ class Dot1x(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('server', YLeaf(YType.boolean, 'server')),
-                            ('local', YLeaf(YType.uint32, 'local')),
+                            ('server', (YLeaf(YType.boolean, 'server'), ['bool'])),
+                            ('local', (YLeaf(YType.uint32, 'local'), ['int'])),
                         ])
                         self.server = None
                         self.local = None
                         self._segment_path = lambda: "reauth-time"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dot1x.Dot1xProfile.Authenticator.Timers.ReauthTime, ['server', 'local'], name, value)
@@ -310,6 +327,7 @@ class Eap(Entity):
 
         self.eap_profile = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-dot1x-cfg:eap"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Eap, [], name, value)
@@ -355,8 +373,8 @@ class Eap(Entity):
             self.ylist_key_names = ['profile_name']
             self._child_classes = OrderedDict([("eaptls", ("eaptls", Eap.EapProfile.Eaptls))])
             self._leafs = OrderedDict([
-                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                ('identity', YLeaf(YType.str, 'identity')),
+                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                ('identity', (YLeaf(YType.str, 'identity'), ['str'])),
             ])
             self.profile_name = None
             self.identity = None
@@ -366,6 +384,7 @@ class Eap(Entity):
             self._children_name_map["eaptls"] = "eaptls"
             self._segment_path = lambda: "eap-profile" + "[profile-name='" + str(self.profile_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-dot1x-cfg:eap/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Eap.EapProfile, ['profile_name', 'identity'], name, value)
@@ -399,10 +418,11 @@ class Eap(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pki_trustpoint', YLeaf(YType.str, 'pki-trustpoint')),
+                    ('pki_trustpoint', (YLeaf(YType.str, 'pki-trustpoint'), ['str'])),
                 ])
                 self.pki_trustpoint = None
                 self._segment_path = lambda: "eaptls"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Eap.EapProfile.Eaptls, ['pki_trustpoint'], name, value)

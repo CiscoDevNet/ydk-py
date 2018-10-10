@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Vlans(Entity):
     """
     Container for VLAN configuration and state
@@ -44,6 +45,7 @@ class Vlans(Entity):
 
         self.vlan = YList(self)
         self._segment_path = lambda: "openconfig-vlan:vlans"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vlans, [], name, value)
@@ -94,7 +96,7 @@ class Vlans(Entity):
             self.ylist_key_names = ['vlan_id']
             self._child_classes = OrderedDict([("config", ("config", Vlans.Vlan.Config)), ("state", ("state", Vlans.Vlan.State)), ("members", ("members", Vlans.Vlan.Members))])
             self._leafs = OrderedDict([
-                ('vlan_id', YLeaf(YType.str, 'vlan-id')),
+                ('vlan_id', (YLeaf(YType.str, 'vlan-id'), ['int'])),
             ])
             self.vlan_id = None
 
@@ -111,6 +113,7 @@ class Vlans(Entity):
             self._children_name_map["members"] = "members"
             self._segment_path = lambda: "vlan" + "[vlan-id='" + str(self.vlan_id) + "']"
             self._absolute_path = lambda: "openconfig-vlan:vlans/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vlans.Vlan, [u'vlan_id'], name, value)
@@ -163,16 +166,17 @@ class Vlans(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('status', YLeaf(YType.enumeration, 'status')),
-                    ('tpid', YLeaf(YType.identityref, 'tpid')),
+                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.openconfig.openconfig_vlan', 'Vlans', 'Vlan.Config.Status')])),
+                    ('tpid', (YLeaf(YType.identityref, 'tpid'), [('ydk.models.openconfig.openconfig_vlan_types', 'TPIDTYPES')])),
                 ])
                 self.vlan_id = None
                 self.name = None
                 self.status = None
                 self.tpid = None
                 self._segment_path = lambda: "config"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlans.Vlan.Config, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
@@ -246,16 +250,17 @@ class Vlans(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('status', YLeaf(YType.enumeration, 'status')),
-                    ('tpid', YLeaf(YType.identityref, 'tpid')),
+                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.openconfig.openconfig_vlan', 'Vlans', 'Vlan.State.Status')])),
+                    ('tpid', (YLeaf(YType.identityref, 'tpid'), [('ydk.models.openconfig.openconfig_vlan_types', 'TPIDTYPES')])),
                 ])
                 self.vlan_id = None
                 self.name = None
                 self.status = None
                 self.tpid = None
                 self._segment_path = lambda: "state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlans.Vlan.State, [u'vlan_id', u'name', u'status', u'tpid'], name, value)
@@ -311,6 +316,7 @@ class Vlans(Entity):
 
                 self.member = YList(self)
                 self._segment_path = lambda: "members"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlans.Vlan.Members, [], name, value)
@@ -348,6 +354,7 @@ class Vlans(Entity):
                     self.interface_ref.parent = self
                     self._children_name_map["interface_ref"] = "interface-ref"
                     self._segment_path = lambda: "member"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vlans.Vlan.Members.Member, [], name, value)
@@ -384,6 +391,7 @@ class Vlans(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "interface-ref"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef, [], name, value)
@@ -426,12 +434,13 @@ class Vlans(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                             ])
                             self.interface = None
                             self.subinterface = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vlans.Vlan.Members.Member.InterfaceRef.State, [u'interface', u'subinterface'], name, value)

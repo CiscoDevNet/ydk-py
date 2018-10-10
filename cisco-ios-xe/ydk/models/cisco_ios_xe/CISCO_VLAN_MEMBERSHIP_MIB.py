@@ -17,6 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOVLANMEMBERSHIPMIB(Entity):
     """
     
@@ -121,6 +122,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
         self.vmvoicevlantable.parent = self
         self._children_name_map["vmvoicevlantable"] = "vmVoiceVlanTable"
         self._segment_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOVLANMEMBERSHIPMIB, [], name, value)
@@ -187,12 +189,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vmvmpsvqpversion', YLeaf(YType.int32, 'vmVmpsVQPVersion')),
-                ('vmvmpsretries', YLeaf(YType.int32, 'vmVmpsRetries')),
-                ('vmvmpsreconfirminterval', YLeaf(YType.int32, 'vmVmpsReconfirmInterval')),
-                ('vmvmpsreconfirm', YLeaf(YType.enumeration, 'vmVmpsReconfirm')),
-                ('vmvmpsreconfirmresult', YLeaf(YType.enumeration, 'vmVmpsReconfirmResult')),
-                ('vmvmpscurrent', YLeaf(YType.str, 'vmVmpsCurrent')),
+                ('vmvmpsvqpversion', (YLeaf(YType.int32, 'vmVmpsVQPVersion'), ['int'])),
+                ('vmvmpsretries', (YLeaf(YType.int32, 'vmVmpsRetries'), ['int'])),
+                ('vmvmpsreconfirminterval', (YLeaf(YType.int32, 'vmVmpsReconfirmInterval'), ['int'])),
+                ('vmvmpsreconfirm', (YLeaf(YType.enumeration, 'vmVmpsReconfirm'), [('ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB', 'CISCOVLANMEMBERSHIPMIB', 'VmVmps.VmVmpsReconfirm')])),
+                ('vmvmpsreconfirmresult', (YLeaf(YType.enumeration, 'vmVmpsReconfirmResult'), [('ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB', 'CISCOVLANMEMBERSHIPMIB', 'VmVmps.VmVmpsReconfirmResult')])),
+                ('vmvmpscurrent', (YLeaf(YType.str, 'vmVmpsCurrent'), ['str'])),
             ])
             self.vmvmpsvqpversion = None
             self.vmvmpsretries = None
@@ -202,6 +204,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmvmpscurrent = None
             self._segment_path = lambda: "vmVmps"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmps, ['vmvmpsvqpversion', 'vmvmpsretries', 'vmvmpsreconfirminterval', 'vmvmpsreconfirm', 'vmvmpsreconfirmresult', 'vmvmpscurrent'], name, value)
@@ -311,11 +314,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vmvlancreationmode', YLeaf(YType.enumeration, 'vmVlanCreationMode')),
+                ('vmvlancreationmode', (YLeaf(YType.enumeration, 'vmVlanCreationMode'), [('ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB', 'CISCOVLANMEMBERSHIPMIB', 'VmMembership.VmVlanCreationMode')])),
             ])
             self.vmvlancreationmode = None
             self._segment_path = lambda: "vmMembership"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembership, ['vmvlancreationmode'], name, value)
@@ -433,14 +437,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vmvqpqueries', YLeaf(YType.uint32, 'vmVQPQueries')),
-                ('vmvqpresponses', YLeaf(YType.uint32, 'vmVQPResponses')),
-                ('vmvmpschanges', YLeaf(YType.uint32, 'vmVmpsChanges')),
-                ('vmvqpshutdown', YLeaf(YType.uint32, 'vmVQPShutdown')),
-                ('vmvqpdenied', YLeaf(YType.uint32, 'vmVQPDenied')),
-                ('vmvqpwrongdomain', YLeaf(YType.uint32, 'vmVQPWrongDomain')),
-                ('vmvqpwrongversion', YLeaf(YType.uint32, 'vmVQPWrongVersion')),
-                ('vminsufficientresources', YLeaf(YType.uint32, 'vmInsufficientResources')),
+                ('vmvqpqueries', (YLeaf(YType.uint32, 'vmVQPQueries'), ['int'])),
+                ('vmvqpresponses', (YLeaf(YType.uint32, 'vmVQPResponses'), ['int'])),
+                ('vmvmpschanges', (YLeaf(YType.uint32, 'vmVmpsChanges'), ['int'])),
+                ('vmvqpshutdown', (YLeaf(YType.uint32, 'vmVQPShutdown'), ['int'])),
+                ('vmvqpdenied', (YLeaf(YType.uint32, 'vmVQPDenied'), ['int'])),
+                ('vmvqpwrongdomain', (YLeaf(YType.uint32, 'vmVQPWrongDomain'), ['int'])),
+                ('vmvqpwrongversion', (YLeaf(YType.uint32, 'vmVQPWrongVersion'), ['int'])),
+                ('vminsufficientresources', (YLeaf(YType.uint32, 'vmInsufficientResources'), ['int'])),
             ])
             self.vmvqpqueries = None
             self.vmvqpresponses = None
@@ -452,6 +456,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vminsufficientresources = None
             self._segment_path = lambda: "vmStatistics"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmStatistics, ['vmvqpqueries', 'vmvqpresponses', 'vmvmpschanges', 'vmvqpshutdown', 'vmvqpdenied', 'vmvqpwrongdomain', 'vmvqpwrongversion', 'vminsufficientresources'], name, value)
@@ -483,11 +488,12 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('vmnotificationsenabled', YLeaf(YType.boolean, 'vmNotificationsEnabled')),
+                ('vmnotificationsenabled', (YLeaf(YType.boolean, 'vmNotificationsEnabled'), ['bool'])),
             ])
             self.vmnotificationsenabled = None
             self._segment_path = lambda: "vmStatus"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmStatus, ['vmnotificationsenabled'], name, value)
@@ -531,6 +537,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmvmpsentry = YList(self)
             self._segment_path = lambda: "vmVmpsTable"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmpsTable, [], name, value)
@@ -574,15 +581,16 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.ylist_key_names = ['vmvmpsipaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vmvmpsipaddress', YLeaf(YType.str, 'vmVmpsIpAddress')),
-                    ('vmvmpsprimary', YLeaf(YType.boolean, 'vmVmpsPrimary')),
-                    ('vmvmpsrowstatus', YLeaf(YType.enumeration, 'vmVmpsRowStatus')),
+                    ('vmvmpsipaddress', (YLeaf(YType.str, 'vmVmpsIpAddress'), ['str'])),
+                    ('vmvmpsprimary', (YLeaf(YType.boolean, 'vmVmpsPrimary'), ['bool'])),
+                    ('vmvmpsrowstatus', (YLeaf(YType.enumeration, 'vmVmpsRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.vmvmpsipaddress = None
                 self.vmvmpsprimary = None
                 self.vmvmpsrowstatus = None
                 self._segment_path = lambda: "vmVmpsEntry" + "[vmVmpsIpAddress='" + str(self.vmvmpsipaddress) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVmpsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVmpsTable.VmVmpsEntry, ['vmvmpsipaddress', 'vmvmpsprimary', 'vmvmpsrowstatus'], name, value)
@@ -627,6 +635,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmmembershipsummaryentry = YList(self)
             self._segment_path = lambda: "vmMembershipSummaryTable"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable, [], name, value)
@@ -677,15 +686,16 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.ylist_key_names = ['vmmembershipsummaryvlanindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vmmembershipsummaryvlanindex', YLeaf(YType.int32, 'vmMembershipSummaryVlanIndex')),
-                    ('vmmembershipsummarymemberports', YLeaf(YType.str, 'vmMembershipSummaryMemberPorts')),
-                    ('vmmembershipsummarymember2kports', YLeaf(YType.str, 'vmMembershipSummaryMember2kPorts')),
+                    ('vmmembershipsummaryvlanindex', (YLeaf(YType.int32, 'vmMembershipSummaryVlanIndex'), ['int'])),
+                    ('vmmembershipsummarymemberports', (YLeaf(YType.str, 'vmMembershipSummaryMemberPorts'), ['str'])),
+                    ('vmmembershipsummarymember2kports', (YLeaf(YType.str, 'vmMembershipSummaryMember2kPorts'), ['str'])),
                 ])
                 self.vmmembershipsummaryvlanindex = None
                 self.vmmembershipsummarymemberports = None
                 self.vmmembershipsummarymember2kports = None
                 self._segment_path = lambda: "vmMembershipSummaryEntry" + "[vmMembershipSummaryVlanIndex='" + str(self.vmmembershipsummaryvlanindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryTable.VmMembershipSummaryEntry, ['vmmembershipsummaryvlanindex', 'vmmembershipsummarymemberports', 'vmmembershipsummarymember2kports'], name, value)
@@ -727,6 +737,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmmembershipentry = YList(self)
             self._segment_path = lambda: "vmMembershipTable"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipTable, [], name, value)
@@ -807,14 +818,14 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('vmvlantype', YLeaf(YType.enumeration, 'vmVlanType')),
-                    ('vmvlan', YLeaf(YType.int32, 'vmVlan')),
-                    ('vmportstatus', YLeaf(YType.enumeration, 'vmPortStatus')),
-                    ('vmvlans', YLeaf(YType.str, 'vmVlans')),
-                    ('vmvlans2k', YLeaf(YType.str, 'vmVlans2k')),
-                    ('vmvlans3k', YLeaf(YType.str, 'vmVlans3k')),
-                    ('vmvlans4k', YLeaf(YType.str, 'vmVlans4k')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('vmvlantype', (YLeaf(YType.enumeration, 'vmVlanType'), [('ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB', 'CISCOVLANMEMBERSHIPMIB', 'VmMembershipTable.VmMembershipEntry.VmVlanType')])),
+                    ('vmvlan', (YLeaf(YType.int32, 'vmVlan'), ['int'])),
+                    ('vmportstatus', (YLeaf(YType.enumeration, 'vmPortStatus'), [('ydk.models.cisco_ios_xe.CISCO_VLAN_MEMBERSHIP_MIB', 'CISCOVLANMEMBERSHIPMIB', 'VmMembershipTable.VmMembershipEntry.VmPortStatus')])),
+                    ('vmvlans', (YLeaf(YType.str, 'vmVlans'), ['str'])),
+                    ('vmvlans2k', (YLeaf(YType.str, 'vmVlans2k'), ['str'])),
+                    ('vmvlans3k', (YLeaf(YType.str, 'vmVlans3k'), ['str'])),
+                    ('vmvlans4k', (YLeaf(YType.str, 'vmVlans4k'), ['str'])),
                 ])
                 self.ifindex = None
                 self.vmvlantype = None
@@ -826,6 +837,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.vmvlans4k = None
                 self._segment_path = lambda: "vmMembershipEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipTable.VmMembershipEntry, ['ifindex', 'vmvlantype', 'vmvlan', 'vmportstatus', 'vmvlans', 'vmvlans2k', 'vmvlans3k', 'vmvlans4k'], name, value)
@@ -946,6 +958,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmmembershipsummaryextentry = YList(self)
             self._segment_path = lambda: "vmMembershipSummaryExtTable"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable, [], name, value)
@@ -994,15 +1007,16 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.ylist_key_names = ['vmmembershipsummaryvlanindex','vmmembershipportrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vmmembershipsummaryvlanindex', YLeaf(YType.str, 'vmMembershipSummaryVlanIndex')),
-                    ('vmmembershipportrangeindex', YLeaf(YType.enumeration, 'vmMembershipPortRangeIndex')),
-                    ('vmmembershipsummaryextports', YLeaf(YType.str, 'vmMembershipSummaryExtPorts')),
+                    ('vmmembershipsummaryvlanindex', (YLeaf(YType.str, 'vmMembershipSummaryVlanIndex'), ['int'])),
+                    ('vmmembershipportrangeindex', (YLeaf(YType.enumeration, 'vmMembershipPortRangeIndex'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoPortListRange', '')])),
+                    ('vmmembershipsummaryextports', (YLeaf(YType.str, 'vmMembershipSummaryExtPorts'), ['str'])),
                 ])
                 self.vmmembershipsummaryvlanindex = None
                 self.vmmembershipportrangeindex = None
                 self.vmmembershipsummaryextports = None
                 self._segment_path = lambda: "vmMembershipSummaryExtEntry" + "[vmMembershipSummaryVlanIndex='" + str(self.vmmembershipsummaryvlanindex) + "']" + "[vmMembershipPortRangeIndex='" + str(self.vmmembershipportrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmMembershipSummaryExtTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmMembershipSummaryExtTable.VmMembershipSummaryExtEntry, ['vmmembershipsummaryvlanindex', 'vmmembershipportrangeindex', 'vmmembershipsummaryextports'], name, value)
@@ -1040,6 +1054,7 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
             self.vmvoicevlanentry = YList(self)
             self._segment_path = lambda: "vmVoiceVlanTable"
             self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable, [], name, value)
@@ -1089,15 +1104,16 @@ class CISCOVLANMEMBERSHIPMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('vmvoicevlanid', YLeaf(YType.int32, 'vmVoiceVlanId')),
-                    ('vmvoicevlancdpverifyenable', YLeaf(YType.boolean, 'vmVoiceVlanCdpVerifyEnable')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('vmvoicevlanid', (YLeaf(YType.int32, 'vmVoiceVlanId'), ['int'])),
+                    ('vmvoicevlancdpverifyenable', (YLeaf(YType.boolean, 'vmVoiceVlanCdpVerifyEnable'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.vmvoicevlanid = None
                 self.vmvoicevlancdpverifyenable = None
                 self._segment_path = lambda: "vmVoiceVlanEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-VLAN-MEMBERSHIP-MIB:CISCO-VLAN-MEMBERSHIP-MIB/vmVoiceVlanTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOVLANMEMBERSHIPMIB.VmVoiceVlanTable.VmVoiceVlanEntry, ['ifindex', 'vmvoicevlanid', 'vmvoicevlancdpverifyenable'], name, value)

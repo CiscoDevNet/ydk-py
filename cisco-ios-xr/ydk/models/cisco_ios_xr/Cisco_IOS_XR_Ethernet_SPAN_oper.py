@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   span\-monitor\-session\: Monitor Session operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DestinationClass(Enum):
@@ -352,6 +353,7 @@ class SpanMonitorSession(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SpanMonitorSession, [], name, value)
@@ -398,6 +400,7 @@ class SpanMonitorSession(Entity):
             self._children_name_map["global_sessions"] = "global-sessions"
             self._segment_path = lambda: "global"
             self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SpanMonitorSession.Global, [], name, value)
@@ -433,6 +436,7 @@ class SpanMonitorSession(Entity):
                 self.statistic = YList(self)
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SpanMonitorSession.Global.Statistics, [], name, value)
@@ -454,7 +458,7 @@ class SpanMonitorSession(Entity):
                 	Interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: rx_packets_mirrored
                 
@@ -515,14 +519,14 @@ class SpanMonitorSession(Entity):
                     self.ylist_key_names = ['session','interface']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('session', YLeaf(YType.str, 'session')),
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('rx_packets_mirrored', YLeaf(YType.uint64, 'rx-packets-mirrored')),
-                        ('rx_octets_mirrored', YLeaf(YType.uint64, 'rx-octets-mirrored')),
-                        ('tx_packets_mirrored', YLeaf(YType.uint64, 'tx-packets-mirrored')),
-                        ('tx_octets_mirrored', YLeaf(YType.uint64, 'tx-octets-mirrored')),
-                        ('packets_not_mirrored', YLeaf(YType.uint64, 'packets-not-mirrored')),
-                        ('octets_not_mirrored', YLeaf(YType.uint64, 'octets-not-mirrored')),
+                        ('session', (YLeaf(YType.str, 'session'), ['str'])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('rx_packets_mirrored', (YLeaf(YType.uint64, 'rx-packets-mirrored'), ['int'])),
+                        ('rx_octets_mirrored', (YLeaf(YType.uint64, 'rx-octets-mirrored'), ['int'])),
+                        ('tx_packets_mirrored', (YLeaf(YType.uint64, 'tx-packets-mirrored'), ['int'])),
+                        ('tx_octets_mirrored', (YLeaf(YType.uint64, 'tx-octets-mirrored'), ['int'])),
+                        ('packets_not_mirrored', (YLeaf(YType.uint64, 'packets-not-mirrored'), ['int'])),
+                        ('octets_not_mirrored', (YLeaf(YType.uint64, 'octets-not-mirrored'), ['int'])),
                     ])
                     self.session = None
                     self.interface = None
@@ -534,6 +538,7 @@ class SpanMonitorSession(Entity):
                     self.octets_not_mirrored = None
                     self._segment_path = lambda: "statistic" + "[session='" + str(self.session) + "']" + "[interface='" + str(self.interface) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Global.Statistics.Statistic, ['session', 'interface', 'rx_packets_mirrored', 'rx_octets_mirrored', 'tx_packets_mirrored', 'tx_octets_mirrored', 'packets_not_mirrored', 'octets_not_mirrored'], name, value)
@@ -569,6 +574,7 @@ class SpanMonitorSession(Entity):
                 self.global_session = YList(self)
                 self._segment_path = lambda: "global-sessions"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SpanMonitorSession.Global.GlobalSessions, [], name, value)
@@ -635,7 +641,7 @@ class SpanMonitorSession(Entity):
                 	Destination interface handle (deprecated by DestinationID, invalid for pseudowires)
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface_error
                 
@@ -661,14 +667,14 @@ class SpanMonitorSession(Entity):
                     self.ylist_key_names = ['session']
                     self._child_classes = OrderedDict([("destination-data", ("destination_data", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData)), ("destination-id", ("destination_id", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId)), ("inject-interface", ("inject_interface", SpanMonitorSession.Global.GlobalSessions.GlobalSession.InjectInterface))])
                     self._leafs = OrderedDict([
-                        ('session', YLeaf(YType.str, 'session')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('session_class', YLeaf(YType.enumeration, 'session-class')),
-                        ('id', YLeaf(YType.uint32, 'id')),
-                        ('destination_error', YLeaf(YType.uint32, 'destination-error')),
-                        ('destination_interface_name', YLeaf(YType.str, 'destination-interface-name')),
-                        ('destination_interface_handle', YLeaf(YType.str, 'destination-interface-handle')),
-                        ('interface_error', YLeaf(YType.uint32, 'interface-error')),
+                        ('session', (YLeaf(YType.str, 'session'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass', '')])),
+                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                        ('destination_error', (YLeaf(YType.uint32, 'destination-error'), ['int'])),
+                        ('destination_interface_name', (YLeaf(YType.str, 'destination-interface-name'), ['str'])),
+                        ('destination_interface_handle', (YLeaf(YType.str, 'destination-interface-handle'), ['str'])),
+                        ('interface_error', (YLeaf(YType.uint32, 'interface-error'), ['int'])),
                     ])
                     self.session = None
                     self.name = None
@@ -692,6 +698,7 @@ class SpanMonitorSession(Entity):
                     self._children_name_map["inject_interface"] = "inject-interface"
                     self._segment_path = lambda: "global-session" + "[session='" + str(self.session) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/global/global-sessions/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession, ['session', u'name', u'session_class', u'id', u'destination_error', u'destination_interface_name', u'destination_interface_handle', u'interface_error'], name, value)
@@ -750,8 +757,8 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-data", ("interface_data", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData)), ("pseudowire-data", ("pseudowire_data", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData)), ("next-hop-ipv4-data", ("next_hop_ipv4_data", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data)), ("next-hop-ipv6-data", ("next_hop_ipv6_data", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data))])
                         self._leafs = OrderedDict([
-                            ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                            ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                            ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                            ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                         ])
                         self.destination_class = None
                         self.invalid_value = None
@@ -772,6 +779,7 @@ class SpanMonitorSession(Entity):
                         self.next_hop_ipv6_data.parent = self
                         self._children_name_map["next_hop_ipv6_data"] = "next-hop-ipv6-data"
                         self._segment_path = lambda: "destination-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData, [u'destination_class', u'invalid_value'], name, value)
@@ -808,12 +816,13 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface_state', YLeaf(YType.enumeration, 'interface-state')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface_state', (YLeaf(YType.enumeration, 'interface-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnum', '')])),
                             ])
                             self.interface_name = None
                             self.interface_state = None
                             self._segment_path = lambda: "interface-data"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.InterfaceData, [u'interface_name', u'interface_state'], name, value)
@@ -850,12 +859,13 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('pseudowire_name', YLeaf(YType.str, 'pseudowire-name')),
-                                ('pseudowire_is_up', YLeaf(YType.boolean, 'pseudowire-is-up')),
+                                ('pseudowire_name', (YLeaf(YType.str, 'pseudowire-name'), ['str'])),
+                                ('pseudowire_is_up', (YLeaf(YType.boolean, 'pseudowire-is-up'), ['bool'])),
                             ])
                             self.pseudowire_name = None
                             self.pseudowire_is_up = None
                             self._segment_path = lambda: "pseudowire-data"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.PseudowireData, [u'pseudowire_name', u'pseudowire_is_up'], name, value)
@@ -899,14 +909,15 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('address_is_reachable', YLeaf(YType.boolean, 'address-is-reachable')),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('address_is_reachable', (YLeaf(YType.boolean, 'address-is-reachable'), ['bool'])),
                             ])
                             self.ipv4_address = None
                             self.vrf_name = None
                             self.address_is_reachable = None
                             self._segment_path = lambda: "next-hop-ipv4-data"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv4Data, [u'ipv4_address', u'vrf_name', u'address_is_reachable'], name, value)
@@ -950,14 +961,15 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('address_is_reachable', YLeaf(YType.boolean, 'address-is-reachable')),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('address_is_reachable', (YLeaf(YType.boolean, 'address-is-reachable'), ['bool'])),
                             ])
                             self.ipv6_address = None
                             self.vrf_name = None
                             self.address_is_reachable = None
                             self._segment_path = lambda: "next-hop-ipv6-data"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationData.NextHopIpv6Data, [u'ipv6_address', u'vrf_name', u'address_is_reachable'], name, value)
@@ -987,7 +999,7 @@ class SpanMonitorSession(Entity):
                     	Interface Handle
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: pseudowire_id
                     
@@ -1020,10 +1032,10 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("ipv4-address-and-vrf", ("ipv4_address_and_vrf", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf)), ("ipv6-address-and-vrf", ("ipv6_address_and_vrf", SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf))])
                         self._leafs = OrderedDict([
-                            ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                            ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                            ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                            ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                         ])
                         self.destination_class = None
                         self.interface = None
@@ -1038,9 +1050,10 @@ class SpanMonitorSession(Entity):
                         self.ipv6_address_and_vrf.parent = self
                         self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
                         self._segment_path = lambda: "destination-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
 
 
                     class Ipv4AddressAndVrf(Entity):
@@ -1076,15 +1089,16 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.ipv4_address = None
                             self.vrf_name = None
                             self._segment_path = lambda: "ipv4-address-and-vrf"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
 
 
                     class Ipv6AddressAndVrf(Entity):
@@ -1120,15 +1134,16 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.ipv6_address = None
                             self.vrf_name = None
                             self._segment_path = lambda: "ipv6-address-and-vrf"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
 
 
                 class InjectInterface(Entity):
@@ -1157,10 +1172,11 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
                         self._segment_path = lambda: "inject-interface"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SpanMonitorSession.Global.GlobalSessions.GlobalSession.InjectInterface, [u'name'], name, value)
@@ -1196,6 +1212,7 @@ class SpanMonitorSession(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SpanMonitorSession.Nodes, [], name, value)
@@ -1244,7 +1261,7 @@ class SpanMonitorSession(Entity):
                 self.ylist_key_names = ['node']
                 self._child_classes = OrderedDict([("attachments", ("attachments", SpanMonitorSession.Nodes.Node.Attachments)), ("hardware-sessions", ("hardware_sessions", SpanMonitorSession.Nodes.Node.HardwareSessions)), ("interfaces", ("interfaces", SpanMonitorSession.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node', YLeaf(YType.str, 'node')),
+                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                 ])
                 self.node = None
 
@@ -1261,6 +1278,7 @@ class SpanMonitorSession(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-oper:span-monitor-session/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SpanMonitorSession.Nodes.Node, ['node'], name, value)
@@ -1296,6 +1314,7 @@ class SpanMonitorSession(Entity):
 
                     self.attachment = YList(self)
                     self._segment_path = lambda: "attachments"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments, [], name, value)
@@ -1319,7 +1338,7 @@ class SpanMonitorSession(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: traffic_parameters
                     
@@ -1363,7 +1382,7 @@ class SpanMonitorSession(Entity):
                     	Source interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: source_interface_state
                     
@@ -1392,7 +1411,7 @@ class SpanMonitorSession(Entity):
                     	Destination interface (deprecated by DestinationID, invalid for pseudowires)
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: traffic_direction
                     
@@ -1416,20 +1435,20 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = ['session','interface']
                         self._child_classes = OrderedDict([("traffic-parameters", ("traffic_parameters", SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters)), ("destination-id", ("destination_id", SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId))])
                         self._leafs = OrderedDict([
-                            ('session', YLeaf(YType.str, 'session')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('local_class', YLeaf(YType.enumeration, 'local-class')),
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('global_class', YLeaf(YType.enumeration, 'global-class')),
-                            ('session_is_configured', YLeaf(YType.boolean, 'session-is-configured')),
-                            ('source_interface', YLeaf(YType.str, 'source-interface')),
-                            ('source_interface_state', YLeaf(YType.enumeration, 'source-interface-state')),
-                            ('pfi_error', YLeaf(YType.uint32, 'pfi-error')),
-                            ('dest_pw_type_not_supported', YLeaf(YType.boolean, 'dest-pw-type-not-supported')),
-                            ('source_interface_is_a_destination', YLeaf(YType.boolean, 'source-interface-is-a-destination')),
-                            ('destination_interface', YLeaf(YType.str, 'destination-interface')),
-                            ('traffic_direction', YLeaf(YType.enumeration, 'traffic-direction')),
+                            ('session', (YLeaf(YType.str, 'session'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('local_class', (YLeaf(YType.enumeration, 'local-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass', '')])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('global_class', (YLeaf(YType.enumeration, 'global-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass', '')])),
+                            ('session_is_configured', (YLeaf(YType.boolean, 'session-is-configured'), ['bool'])),
+                            ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                            ('source_interface_state', (YLeaf(YType.enumeration, 'source-interface-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'ImStateEnum', '')])),
+                            ('pfi_error', (YLeaf(YType.uint32, 'pfi-error'), ['int'])),
+                            ('dest_pw_type_not_supported', (YLeaf(YType.boolean, 'dest-pw-type-not-supported'), ['bool'])),
+                            ('source_interface_is_a_destination', (YLeaf(YType.boolean, 'source-interface-is-a-destination'), ['bool'])),
+                            ('destination_interface', (YLeaf(YType.str, 'destination-interface'), ['str'])),
+                            ('traffic_direction', (YLeaf(YType.enumeration, 'traffic-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection', '')])),
                         ])
                         self.session = None
                         self.interface = None
@@ -1454,6 +1473,7 @@ class SpanMonitorSession(Entity):
                         self.destination_id.parent = self
                         self._children_name_map["destination_id"] = "destination-id"
                         self._segment_path = lambda: "attachment" + "[session='" + str(self.session) + "']" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment, ['session', 'interface', 'name', 'local_class', 'id', 'global_class', 'session_is_configured', 'source_interface', 'source_interface_state', 'pfi_error', 'dest_pw_type_not_supported', 'source_interface_is_a_destination', 'destination_interface', 'traffic_direction'], name, value)
@@ -1514,12 +1534,12 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('traffic_direction', YLeaf(YType.enumeration, 'traffic-direction')),
-                                ('port_level', YLeaf(YType.boolean, 'port-level')),
-                                ('is_acl_enabled', YLeaf(YType.boolean, 'is-acl-enabled')),
-                                ('mirror_bytes', YLeaf(YType.uint32, 'mirror-bytes')),
-                                ('mirror_interval', YLeaf(YType.enumeration, 'mirror-interval')),
-                                ('acl_name', YLeaf(YType.str, 'acl-name')),
+                                ('traffic_direction', (YLeaf(YType.enumeration, 'traffic-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection', '')])),
+                                ('port_level', (YLeaf(YType.boolean, 'port-level'), ['bool'])),
+                                ('is_acl_enabled', (YLeaf(YType.boolean, 'is-acl-enabled'), ['bool'])),
+                                ('mirror_bytes', (YLeaf(YType.uint32, 'mirror-bytes'), ['int'])),
+                                ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval', '')])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
                             ])
                             self.traffic_direction = None
                             self.port_level = None
@@ -1528,9 +1548,10 @@ class SpanMonitorSession(Entity):
                             self.mirror_interval = None
                             self.acl_name = None
                             self._segment_path = lambda: "traffic-parameters"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.TrafficParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
 
 
                     class DestinationId(Entity):
@@ -1557,7 +1578,7 @@ class SpanMonitorSession(Entity):
                         	Interface Handle
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: pseudowire_id
                         
@@ -1590,10 +1611,10 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("ipv4-address-and-vrf", ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf)), ("ipv6-address-and-vrf", ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf))])
                             self._leafs = OrderedDict([
-                                ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                                ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                             ])
                             self.destination_class = None
                             self.interface = None
@@ -1608,9 +1629,10 @@ class SpanMonitorSession(Entity):
                             self.ipv6_address_and_vrf.parent = self
                             self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
                             self._segment_path = lambda: "destination-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -1646,15 +1668,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv4_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv4-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
 
 
                         class Ipv6AddressAndVrf(Entity):
@@ -1690,15 +1713,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv6_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv6-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Attachments.Attachment.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
 
 
             class HardwareSessions(Entity):
@@ -1734,6 +1758,7 @@ class SpanMonitorSession(Entity):
 
                     self.hardware_session = YList(self)
                     self._segment_path = lambda: "hardware-sessions"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions, [], name, value)
@@ -1783,7 +1808,7 @@ class SpanMonitorSession(Entity):
                     	Destination interface (deprecated by DestinationID, invalid for pseudowires)
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: platform_error
                     
@@ -1797,7 +1822,7 @@ class SpanMonitorSession(Entity):
                     	Inject Interface ifhandle
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: inject_interface_mac
                     
@@ -1828,16 +1853,16 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("destination-id", ("destination_id", SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId))])
                         self._leafs = OrderedDict([
-                            ('session_class', YLeaf(YType.enumeration, 'session-class')),
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('id', YLeaf(YType.uint32, 'id')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('session_class_xr', YLeaf(YType.enumeration, 'session-class-xr')),
-                            ('destination_interface', YLeaf(YType.str, 'destination-interface')),
-                            ('platform_error', YLeaf(YType.uint32, 'platform-error')),
-                            ('inject_interface_ifh', YLeaf(YType.str, 'inject-interface-ifh')),
-                            ('inject_interface_mac', YLeaf(YType.str, 'inject-interface-mac')),
-                            ('inject_interface_invalid', YLeaf(YType.boolean, 'inject-interface-invalid')),
+                            ('session_class', (YLeaf(YType.enumeration, 'session-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('session_class_xr', (YLeaf(YType.enumeration, 'session-class-xr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass', '')])),
+                            ('destination_interface', (YLeaf(YType.str, 'destination-interface'), ['str'])),
+                            ('platform_error', (YLeaf(YType.uint32, 'platform-error'), ['int'])),
+                            ('inject_interface_ifh', (YLeaf(YType.str, 'inject-interface-ifh'), ['str'])),
+                            ('inject_interface_mac', (YLeaf(YType.str, 'inject-interface-mac'), ['str'])),
+                            ('inject_interface_invalid', (YLeaf(YType.boolean, 'inject-interface-invalid'), ['bool'])),
                         ])
                         self.session_class = None
                         self.session_id = None
@@ -1854,9 +1879,10 @@ class SpanMonitorSession(Entity):
                         self.destination_id.parent = self
                         self._children_name_map["destination_id"] = "destination-id"
                         self._segment_path = lambda: "hardware-session"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['session_class', 'session_id', 'id', 'name', 'session_class_xr', 'destination_interface', 'platform_error', 'inject_interface_ifh', 'inject_interface_mac', 'inject_interface_invalid'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession, ['session_class', 'session_id', u'id', u'name', u'session_class_xr', u'destination_interface', u'platform_error', u'inject_interface_ifh', u'inject_interface_mac', u'inject_interface_invalid'], name, value)
 
 
                     class DestinationId(Entity):
@@ -1883,7 +1909,7 @@ class SpanMonitorSession(Entity):
                         	Interface Handle
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: pseudowire_id
                         
@@ -1916,10 +1942,10 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("ipv4-address-and-vrf", ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf)), ("ipv6-address-and-vrf", ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf))])
                             self._leafs = OrderedDict([
-                                ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                                ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                             ])
                             self.destination_class = None
                             self.interface = None
@@ -1934,9 +1960,10 @@ class SpanMonitorSession(Entity):
                             self.ipv6_address_and_vrf.parent = self
                             self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
                             self._segment_path = lambda: "destination-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -1972,15 +1999,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv4_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv4-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
 
 
                         class Ipv6AddressAndVrf(Entity):
@@ -2016,15 +2044,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv6_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv6-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.HardwareSessions.HardwareSession.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
 
 
             class Interfaces(Entity):
@@ -2059,6 +2088,7 @@ class SpanMonitorSession(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces, [], name, value)
@@ -2074,7 +2104,7 @@ class SpanMonitorSession(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: destination_id
                     
@@ -2091,7 +2121,7 @@ class SpanMonitorSession(Entity):
                     	Source interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: platform_error
                     
@@ -2105,7 +2135,7 @@ class SpanMonitorSession(Entity):
                     	Destination interface (deprecated by Attachment)
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: traffic_direction
                     
@@ -2134,11 +2164,11 @@ class SpanMonitorSession(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("destination-id", ("destination_id", SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId)), ("traffic-mirroring-parameters", ("traffic_mirroring_parameters", SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters)), ("attachment", ("attachment", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('source_interface', YLeaf(YType.str, 'source-interface')),
-                            ('platform_error', YLeaf(YType.uint32, 'platform-error')),
-                            ('destination_interface', YLeaf(YType.str, 'destination-interface')),
-                            ('traffic_direction', YLeaf(YType.enumeration, 'traffic-direction')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                            ('platform_error', (YLeaf(YType.uint32, 'platform-error'), ['int'])),
+                            ('destination_interface', (YLeaf(YType.str, 'destination-interface'), ['str'])),
+                            ('traffic_direction', (YLeaf(YType.enumeration, 'traffic-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection', '')])),
                         ])
                         self.interface = None
                         self.source_interface = None
@@ -2156,9 +2186,10 @@ class SpanMonitorSession(Entity):
 
                         self.attachment = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', 'source_interface', 'platform_error', 'destination_interface', 'traffic_direction'], name, value)
+                        self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface, ['interface', u'source_interface', u'platform_error', u'destination_interface', u'traffic_direction'], name, value)
 
 
                     class DestinationId(Entity):
@@ -2185,7 +2216,7 @@ class SpanMonitorSession(Entity):
                         	Interface Handle
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: pseudowire_id
                         
@@ -2218,10 +2249,10 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("ipv4-address-and-vrf", ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf)), ("ipv6-address-and-vrf", ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf))])
                             self._leafs = OrderedDict([
-                                ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                                ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                             ])
                             self.destination_class = None
                             self.interface = None
@@ -2236,9 +2267,10 @@ class SpanMonitorSession(Entity):
                             self.ipv6_address_and_vrf.parent = self
                             self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
                             self._segment_path = lambda: "destination-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
 
 
                         class Ipv4AddressAndVrf(Entity):
@@ -2274,15 +2306,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv4_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv4-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
 
 
                         class Ipv6AddressAndVrf(Entity):
@@ -2318,15 +2351,16 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                 ])
                                 self.ipv6_address = None
                                 self.vrf_name = None
                                 self._segment_path = lambda: "ipv6-address-and-vrf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
 
 
                     class TrafficMirroringParameters(Entity):
@@ -2385,12 +2419,12 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('traffic_direction', YLeaf(YType.enumeration, 'traffic-direction')),
-                                ('port_level', YLeaf(YType.boolean, 'port-level')),
-                                ('is_acl_enabled', YLeaf(YType.boolean, 'is-acl-enabled')),
-                                ('mirror_bytes', YLeaf(YType.uint32, 'mirror-bytes')),
-                                ('mirror_interval', YLeaf(YType.enumeration, 'mirror-interval')),
-                                ('acl_name', YLeaf(YType.str, 'acl-name')),
+                                ('traffic_direction', (YLeaf(YType.enumeration, 'traffic-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection', '')])),
+                                ('port_level', (YLeaf(YType.boolean, 'port-level'), ['bool'])),
+                                ('is_acl_enabled', (YLeaf(YType.boolean, 'is-acl-enabled'), ['bool'])),
+                                ('mirror_bytes', (YLeaf(YType.uint32, 'mirror-bytes'), ['int'])),
+                                ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval', '')])),
+                                ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
                             ])
                             self.traffic_direction = None
                             self.port_level = None
@@ -2399,9 +2433,10 @@ class SpanMonitorSession(Entity):
                             self.mirror_interval = None
                             self.acl_name = None
                             self._segment_path = lambda: "traffic-mirroring-parameters"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.TrafficMirroringParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
 
 
                     class Attachment(Entity):
@@ -2440,7 +2475,7 @@ class SpanMonitorSession(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("destination-id", ("destination_id", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId)), ("traffic-mirroring-parameters", ("traffic_mirroring_parameters", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters))])
                             self._leafs = OrderedDict([
-                                ('class_', YLeaf(YType.enumeration, 'class')),
+                                ('class_', (YLeaf(YType.enumeration, 'class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'SessionClass', '')])),
                             ])
                             self.class_ = None
 
@@ -2452,9 +2487,10 @@ class SpanMonitorSession(Entity):
                             self.traffic_mirroring_parameters.parent = self
                             self._children_name_map["traffic_mirroring_parameters"] = "traffic-mirroring-parameters"
                             self._segment_path = lambda: "attachment"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, ['class_'], name, value)
+                            self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment, [u'class_'], name, value)
 
 
                         class DestinationId(Entity):
@@ -2481,7 +2517,7 @@ class SpanMonitorSession(Entity):
                             	Interface Handle
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: pseudowire_id
                             
@@ -2514,10 +2550,10 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("ipv4-address-and-vrf", ("ipv4_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf)), ("ipv6-address-and-vrf", ("ipv6_address_and_vrf", SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf))])
                                 self._leafs = OrderedDict([
-                                    ('destination_class', YLeaf(YType.enumeration, 'destination-class')),
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                    ('invalid_value', YLeaf(YType.uint32, 'invalid-value')),
+                                    ('destination_class', (YLeaf(YType.enumeration, 'destination-class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'DestinationClass', '')])),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                    ('invalid_value', (YLeaf(YType.uint32, 'invalid-value'), ['int'])),
                                 ])
                                 self.destination_class = None
                                 self.interface = None
@@ -2532,9 +2568,10 @@ class SpanMonitorSession(Entity):
                                 self.ipv6_address_and_vrf.parent = self
                                 self._children_name_map["ipv6_address_and_vrf"] = "ipv6-address-and-vrf"
                                 self._segment_path = lambda: "destination-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, ['destination_class', 'interface', 'pseudowire_id', 'invalid_value'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId, [u'destination_class', u'interface', u'pseudowire_id', u'invalid_value'], name, value)
 
 
                             class Ipv4AddressAndVrf(Entity):
@@ -2570,15 +2607,16 @@ class SpanMonitorSession(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                     ])
                                     self.ipv4_address = None
                                     self.vrf_name = None
                                     self._segment_path = lambda: "ipv4-address-and-vrf"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, ['ipv4_address', 'vrf_name'], name, value)
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv4AddressAndVrf, [u'ipv4_address', u'vrf_name'], name, value)
 
 
                             class Ipv6AddressAndVrf(Entity):
@@ -2614,15 +2652,16 @@ class SpanMonitorSession(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                     ])
                                     self.ipv6_address = None
                                     self.vrf_name = None
                                     self._segment_path = lambda: "ipv6-address-and-vrf"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, ['ipv6_address', 'vrf_name'], name, value)
+                                    self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.DestinationId.Ipv6AddressAndVrf, [u'ipv6_address', u'vrf_name'], name, value)
 
 
                         class TrafficMirroringParameters(Entity):
@@ -2680,12 +2719,12 @@ class SpanMonitorSession(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('traffic_direction', YLeaf(YType.enumeration, 'traffic-direction')),
-                                    ('port_level', YLeaf(YType.boolean, 'port-level')),
-                                    ('is_acl_enabled', YLeaf(YType.boolean, 'is-acl-enabled')),
-                                    ('mirror_bytes', YLeaf(YType.uint32, 'mirror-bytes')),
-                                    ('mirror_interval', YLeaf(YType.enumeration, 'mirror-interval')),
-                                    ('acl_name', YLeaf(YType.str, 'acl-name')),
+                                    ('traffic_direction', (YLeaf(YType.enumeration, 'traffic-direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'TrafficDirection', '')])),
+                                    ('port_level', (YLeaf(YType.boolean, 'port-level'), ['bool'])),
+                                    ('is_acl_enabled', (YLeaf(YType.boolean, 'is-acl-enabled'), ['bool'])),
+                                    ('mirror_bytes', (YLeaf(YType.uint32, 'mirror-bytes'), ['int'])),
+                                    ('mirror_interval', (YLeaf(YType.enumeration, 'mirror-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_oper', 'MirrorInterval', '')])),
+                                    ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
                                 ])
                                 self.traffic_direction = None
                                 self.port_level = None
@@ -2694,9 +2733,10 @@ class SpanMonitorSession(Entity):
                                 self.mirror_interval = None
                                 self.acl_name = None
                                 self._segment_path = lambda: "traffic-mirroring-parameters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, ['traffic_direction', 'port_level', 'is_acl_enabled', 'mirror_bytes', 'mirror_interval', 'acl_name'], name, value)
+                                self._perform_setattr(SpanMonitorSession.Nodes.Node.Interfaces.Interface.Attachment.TrafficMirroringParameters, [u'traffic_direction', u'port_level', u'is_acl_enabled', u'mirror_bytes', u'mirror_interval', u'acl_name'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SpanMonitorSession()

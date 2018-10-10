@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class MasterReason(Enum):
     """
     MasterReason (Enum Class)
@@ -150,7 +151,7 @@ class VrrpOperData(Entity):
     """
 
     _prefix = 'vrrp-ios-xe-oper'
-    _revision = '2017-12-01'
+    _revision = '2018-05-10'
 
     def __init__(self):
         super(VrrpOperData, self).__init__()
@@ -166,6 +167,7 @@ class VrrpOperData(Entity):
 
         self.vrrp_oper_state = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-vrrp-oper:vrrp-oper-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(VrrpOperData, [], name, value)
@@ -379,12 +381,25 @@ class VrrpOperData(Entity):
         	Indicates the state of the Overlay Management protocol tracking
         	**type**\:  :py:class:`OmpStateUpdown <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper.OmpStateUpdown>`
         
+        .. attribute:: secondary_vip_addresses
+        
+        	Contains the list of secondary address configured on the group
+        	**type**\: union of the below types:
+        
+        		**type**\: list of str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: list of str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
         
 
         """
 
         _prefix = 'vrrp-ios-xe-oper'
-        _revision = '2017-12-01'
+        _revision = '2018-05-10'
 
         def __init__(self):
             super(VrrpOperData.VrrpOperState, self).__init__()
@@ -396,35 +411,36 @@ class VrrpOperData(Entity):
             self.ylist_key_names = ['if_number','group_id','addr_type']
             self._child_classes = OrderedDict([("track-list", ("track_list", VrrpOperData.VrrpOperState.TrackList))])
             self._leafs = OrderedDict([
-                ('if_number', YLeaf(YType.uint32, 'if-number')),
-                ('group_id', YLeaf(YType.uint32, 'group-id')),
-                ('addr_type', YLeaf(YType.enumeration, 'addr-type')),
-                ('version', YLeaf(YType.enumeration, 'version')),
-                ('virtual_ip', YLeaf(YType.str, 'virtual-ip')),
-                ('if_name', YLeaf(YType.str, 'if-name')),
-                ('vrrp_state', YLeaf(YType.enumeration, 'vrrp-state')),
-                ('virtual_mac', YLeaf(YType.str, 'virtual-mac')),
-                ('master_ip', YLeaf(YType.str, 'master-ip')),
-                ('is_owner', YLeaf(YType.boolean, 'is-owner')),
-                ('priority', YLeaf(YType.uint32, 'priority')),
-                ('advertisement_timer', YLeaf(YType.uint32, 'advertisement-timer')),
-                ('master_down_timer', YLeaf(YType.uint32, 'master-down-timer')),
-                ('skew_time', YLeaf(YType.uint32, 'skew-time')),
-                ('preempt', YLeaf(YType.boolean, 'preempt')),
-                ('master_transitions', YLeaf(YType.uint32, 'master-transitions')),
-                ('new_master_reason', YLeaf(YType.enumeration, 'new-master-reason')),
-                ('last_state_change_time', YLeaf(YType.str, 'last-state-change-time')),
-                ('adv_interval_errors', YLeaf(YType.uint32, 'adv-interval-errors')),
-                ('ip_ttl_errors', YLeaf(YType.uint32, 'ip-ttl-errors')),
-                ('rcvd_pri_zero_pak', YLeaf(YType.uint32, 'rcvd-pri-zero-pak')),
-                ('sent_pri_zero_pak', YLeaf(YType.uint32, 'sent-pri-zero-pak')),
-                ('rcvd_invalid_type_pak', YLeaf(YType.uint32, 'rcvd-invalid-type-pak')),
-                ('addr_list_errors', YLeaf(YType.uint32, 'addr-list-errors')),
-                ('pak_len_errors', YLeaf(YType.uint32, 'pak-len-errors')),
-                ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
-                ('advertisement_sent', YLeaf(YType.uint32, 'advertisement-sent')),
-                ('advertisement_rcvd', YLeaf(YType.uint32, 'advertisement-rcvd')),
-                ('omp_state', YLeaf(YType.enumeration, 'omp-state')),
+                ('if_number', (YLeaf(YType.uint32, 'if-number'), ['int'])),
+                ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                ('addr_type', (YLeaf(YType.enumeration, 'addr-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_common_types', 'AddrType', '')])),
+                ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'ProtoVersion', '')])),
+                ('virtual_ip', (YLeaf(YType.str, 'virtual-ip'), ['str','str'])),
+                ('if_name', (YLeaf(YType.str, 'if-name'), ['str'])),
+                ('vrrp_state', (YLeaf(YType.enumeration, 'vrrp-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'VrrpProtoState', '')])),
+                ('virtual_mac', (YLeaf(YType.str, 'virtual-mac'), ['str'])),
+                ('master_ip', (YLeaf(YType.str, 'master-ip'), ['str','str'])),
+                ('is_owner', (YLeaf(YType.boolean, 'is-owner'), ['bool'])),
+                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                ('advertisement_timer', (YLeaf(YType.uint32, 'advertisement-timer'), ['int'])),
+                ('master_down_timer', (YLeaf(YType.uint32, 'master-down-timer'), ['int'])),
+                ('skew_time', (YLeaf(YType.uint32, 'skew-time'), ['int'])),
+                ('preempt', (YLeaf(YType.boolean, 'preempt'), ['bool'])),
+                ('master_transitions', (YLeaf(YType.uint32, 'master-transitions'), ['int'])),
+                ('new_master_reason', (YLeaf(YType.enumeration, 'new-master-reason'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'MasterReason', '')])),
+                ('last_state_change_time', (YLeaf(YType.str, 'last-state-change-time'), ['str'])),
+                ('adv_interval_errors', (YLeaf(YType.uint32, 'adv-interval-errors'), ['int'])),
+                ('ip_ttl_errors', (YLeaf(YType.uint32, 'ip-ttl-errors'), ['int'])),
+                ('rcvd_pri_zero_pak', (YLeaf(YType.uint32, 'rcvd-pri-zero-pak'), ['int'])),
+                ('sent_pri_zero_pak', (YLeaf(YType.uint32, 'sent-pri-zero-pak'), ['int'])),
+                ('rcvd_invalid_type_pak', (YLeaf(YType.uint32, 'rcvd-invalid-type-pak'), ['int'])),
+                ('addr_list_errors', (YLeaf(YType.uint32, 'addr-list-errors'), ['int'])),
+                ('pak_len_errors', (YLeaf(YType.uint32, 'pak-len-errors'), ['int'])),
+                ('discontinuity_time', (YLeaf(YType.str, 'discontinuity-time'), ['str'])),
+                ('advertisement_sent', (YLeaf(YType.uint32, 'advertisement-sent'), ['int'])),
+                ('advertisement_rcvd', (YLeaf(YType.uint32, 'advertisement-rcvd'), ['int'])),
+                ('omp_state', (YLeaf(YType.enumeration, 'omp-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'OmpStateUpdown', '')])),
+                ('secondary_vip_addresses', (YLeafList(YType.str, 'secondary-vip-addresses'), ['str','str'])),
             ])
             self.if_number = None
             self.group_id = None
@@ -455,13 +471,15 @@ class VrrpOperData(Entity):
             self.advertisement_sent = None
             self.advertisement_rcvd = None
             self.omp_state = None
+            self.secondary_vip_addresses = []
 
             self.track_list = YList(self)
             self._segment_path = lambda: "vrrp-oper-state" + "[if-number='" + str(self.if_number) + "']" + "[group-id='" + str(self.group_id) + "']" + "[addr-type='" + str(self.addr_type) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-vrrp-oper:vrrp-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VrrpOperData.VrrpOperState, ['if_number', 'group_id', 'addr_type', 'version', 'virtual_ip', 'if_name', 'vrrp_state', 'virtual_mac', 'master_ip', 'is_owner', 'priority', 'advertisement_timer', 'master_down_timer', 'skew_time', 'preempt', 'master_transitions', 'new_master_reason', 'last_state_change_time', 'adv_interval_errors', 'ip_ttl_errors', 'rcvd_pri_zero_pak', 'sent_pri_zero_pak', 'rcvd_invalid_type_pak', 'addr_list_errors', 'pak_len_errors', 'discontinuity_time', 'advertisement_sent', 'advertisement_rcvd', 'omp_state'], name, value)
+            self._perform_setattr(VrrpOperData.VrrpOperState, ['if_number', 'group_id', 'addr_type', 'version', 'virtual_ip', 'if_name', 'vrrp_state', 'virtual_mac', 'master_ip', 'is_owner', 'priority', 'advertisement_timer', 'master_down_timer', 'skew_time', 'preempt', 'master_transitions', 'new_master_reason', 'last_state_change_time', 'adv_interval_errors', 'ip_ttl_errors', 'rcvd_pri_zero_pak', 'sent_pri_zero_pak', 'rcvd_invalid_type_pak', 'addr_list_errors', 'pak_len_errors', 'discontinuity_time', 'advertisement_sent', 'advertisement_rcvd', 'omp_state', 'secondary_vip_addresses'], name, value)
 
 
         class TrackList(Entity):
@@ -483,7 +501,7 @@ class VrrpOperData(Entity):
             """
 
             _prefix = 'vrrp-ios-xe-oper'
-            _revision = '2017-12-01'
+            _revision = '2018-05-10'
 
             def __init__(self):
                 super(VrrpOperData.VrrpOperState.TrackList, self).__init__()
@@ -495,12 +513,13 @@ class VrrpOperData(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('track_name', YLeaf(YType.str, 'track-name')),
-                    ('track_obj_state', YLeaf(YType.enumeration, 'track-obj-state')),
+                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
+                    ('track_obj_state', (YLeaf(YType.enumeration, 'track-obj-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vrrp_oper', 'TrackState', '')])),
                 ])
                 self.track_name = None
                 self.track_obj_state = None
                 self._segment_path = lambda: "track-list"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VrrpOperData.VrrpOperState.TrackList, ['track_name', 'track_obj_state'], name, value)

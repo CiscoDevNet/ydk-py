@@ -25,6 +25,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MPLSTESTDMIB(Entity):
     """
     
@@ -120,6 +121,7 @@ class MPLSTESTDMIB(Entity):
         self.mplstunnelcrldprestable.parent = self
         self._children_name_map["mplstunnelcrldprestable"] = "mplsTunnelCRLDPResTable"
         self._segment_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MPLSTESTDMIB, [], name, value)
@@ -179,11 +181,11 @@ class MPLSTESTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplstunnelconfigured', YLeaf(YType.uint32, 'mplsTunnelConfigured')),
-                ('mplstunnelactive', YLeaf(YType.uint32, 'mplsTunnelActive')),
-                ('mplstunneltedistproto', YLeaf(YType.bits, 'mplsTunnelTEDistProto')),
-                ('mplstunnelmaxhops', YLeaf(YType.uint32, 'mplsTunnelMaxHops')),
-                ('mplstunnelnotificationmaxrate', YLeaf(YType.uint32, 'mplsTunnelNotificationMaxRate')),
+                ('mplstunnelconfigured', (YLeaf(YType.uint32, 'mplsTunnelConfigured'), ['int'])),
+                ('mplstunnelactive', (YLeaf(YType.uint32, 'mplsTunnelActive'), ['int'])),
+                ('mplstunneltedistproto', (YLeaf(YType.bits, 'mplsTunnelTEDistProto'), ['Bits'])),
+                ('mplstunnelmaxhops', (YLeaf(YType.uint32, 'mplsTunnelMaxHops'), ['int'])),
+                ('mplstunnelnotificationmaxrate', (YLeaf(YType.uint32, 'mplsTunnelNotificationMaxRate'), ['int'])),
             ])
             self.mplstunnelconfigured = None
             self.mplstunnelactive = None
@@ -192,6 +194,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelnotificationmaxrate = None
             self._segment_path = lambda: "mplsTeScalars"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTeScalars, [u'mplstunnelconfigured', u'mplstunnelactive', u'mplstunneltedistproto', u'mplstunnelmaxhops', u'mplstunnelnotificationmaxrate'], name, value)
@@ -244,10 +247,10 @@ class MPLSTESTDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplstunnelindexnext', YLeaf(YType.uint32, 'mplsTunnelIndexNext')),
-                ('mplstunnelhoplistindexnext', YLeaf(YType.uint32, 'mplsTunnelHopListIndexNext')),
-                ('mplstunnelresourceindexnext', YLeaf(YType.uint32, 'mplsTunnelResourceIndexNext')),
-                ('mplstunnelnotificationenable', YLeaf(YType.boolean, 'mplsTunnelNotificationEnable')),
+                ('mplstunnelindexnext', (YLeaf(YType.uint32, 'mplsTunnelIndexNext'), ['int'])),
+                ('mplstunnelhoplistindexnext', (YLeaf(YType.uint32, 'mplsTunnelHopListIndexNext'), ['int'])),
+                ('mplstunnelresourceindexnext', (YLeaf(YType.uint32, 'mplsTunnelResourceIndexNext'), ['int'])),
+                ('mplstunnelnotificationenable', (YLeaf(YType.boolean, 'mplsTunnelNotificationEnable'), ['bool'])),
             ])
             self.mplstunnelindexnext = None
             self.mplstunnelhoplistindexnext = None
@@ -255,6 +258,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelnotificationenable = None
             self._segment_path = lambda: "mplsTeObjects"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTeObjects, [u'mplstunnelindexnext', u'mplstunnelhoplistindexnext', u'mplstunnelresourceindexnext', u'mplstunnelnotificationenable'], name, value)
@@ -298,6 +302,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelentry = YList(self)
             self._segment_path = lambda: "mplsTunnelTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable, [], name, value)
@@ -611,48 +616,48 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelindex','mplstunnelinstance','mplstunnelingresslsrid','mplstunnelegresslsrid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelindex', YLeaf(YType.uint32, 'mplsTunnelIndex')),
-                    ('mplstunnelinstance', YLeaf(YType.uint32, 'mplsTunnelInstance')),
-                    ('mplstunnelingresslsrid', YLeaf(YType.uint32, 'mplsTunnelIngressLSRId')),
-                    ('mplstunnelegresslsrid', YLeaf(YType.uint32, 'mplsTunnelEgressLSRId')),
-                    ('mplstunnelname', YLeaf(YType.str, 'mplsTunnelName')),
-                    ('mplstunneldescr', YLeaf(YType.str, 'mplsTunnelDescr')),
-                    ('mplstunnelisif', YLeaf(YType.boolean, 'mplsTunnelIsIf')),
-                    ('mplstunnelifindex', YLeaf(YType.int32, 'mplsTunnelIfIndex')),
-                    ('mplstunnelowner', YLeaf(YType.enumeration, 'mplsTunnelOwner')),
-                    ('mplstunnelrole', YLeaf(YType.enumeration, 'mplsTunnelRole')),
-                    ('mplstunnelxcpointer', YLeaf(YType.str, 'mplsTunnelXCPointer')),
-                    ('mplstunnelsignallingproto', YLeaf(YType.enumeration, 'mplsTunnelSignallingProto')),
-                    ('mplstunnelsetupprio', YLeaf(YType.int32, 'mplsTunnelSetupPrio')),
-                    ('mplstunnelholdingprio', YLeaf(YType.int32, 'mplsTunnelHoldingPrio')),
-                    ('mplstunnelsessionattributes', YLeaf(YType.bits, 'mplsTunnelSessionAttributes')),
-                    ('mplstunnellocalprotectinuse', YLeaf(YType.boolean, 'mplsTunnelLocalProtectInUse')),
-                    ('mplstunnelresourcepointer', YLeaf(YType.str, 'mplsTunnelResourcePointer')),
-                    ('mplstunnelprimaryinstance', YLeaf(YType.uint32, 'mplsTunnelPrimaryInstance')),
-                    ('mplstunnelinstancepriority', YLeaf(YType.uint32, 'mplsTunnelInstancePriority')),
-                    ('mplstunnelhoptableindex', YLeaf(YType.uint32, 'mplsTunnelHopTableIndex')),
-                    ('mplstunnelpathinuse', YLeaf(YType.uint32, 'mplsTunnelPathInUse')),
-                    ('mplstunnelarhoptableindex', YLeaf(YType.uint32, 'mplsTunnelARHopTableIndex')),
-                    ('mplstunnelchoptableindex', YLeaf(YType.uint32, 'mplsTunnelCHopTableIndex')),
-                    ('mplstunnelincludeanyaffinity', YLeaf(YType.uint32, 'mplsTunnelIncludeAnyAffinity')),
-                    ('mplstunnelincludeallaffinity', YLeaf(YType.uint32, 'mplsTunnelIncludeAllAffinity')),
-                    ('mplstunnelexcludeanyaffinity', YLeaf(YType.uint32, 'mplsTunnelExcludeAnyAffinity')),
-                    ('mplstunneltotaluptime', YLeaf(YType.uint32, 'mplsTunnelTotalUpTime')),
-                    ('mplstunnelinstanceuptime', YLeaf(YType.uint32, 'mplsTunnelInstanceUpTime')),
-                    ('mplstunnelprimaryuptime', YLeaf(YType.uint32, 'mplsTunnelPrimaryUpTime')),
-                    ('mplstunnelpathchanges', YLeaf(YType.uint32, 'mplsTunnelPathChanges')),
-                    ('mplstunnellastpathchange', YLeaf(YType.uint32, 'mplsTunnelLastPathChange')),
-                    ('mplstunnelcreationtime', YLeaf(YType.uint32, 'mplsTunnelCreationTime')),
-                    ('mplstunnelstatetransitions', YLeaf(YType.uint32, 'mplsTunnelStateTransitions')),
-                    ('mplstunneladminstatus', YLeaf(YType.enumeration, 'mplsTunnelAdminStatus')),
-                    ('mplstunneloperstatus', YLeaf(YType.enumeration, 'mplsTunnelOperStatus')),
-                    ('mplstunnelrowstatus', YLeaf(YType.enumeration, 'mplsTunnelRowStatus')),
-                    ('mplstunnelstoragetype', YLeaf(YType.enumeration, 'mplsTunnelStorageType')),
-                    ('mplstunnelperfpackets', YLeaf(YType.uint32, 'mplsTunnelPerfPackets')),
-                    ('mplstunnelperfhcpackets', YLeaf(YType.uint64, 'mplsTunnelPerfHCPackets')),
-                    ('mplstunnelperferrors', YLeaf(YType.uint32, 'mplsTunnelPerfErrors')),
-                    ('mplstunnelperfbytes', YLeaf(YType.uint32, 'mplsTunnelPerfBytes')),
-                    ('mplstunnelperfhcbytes', YLeaf(YType.uint64, 'mplsTunnelPerfHCBytes')),
+                    ('mplstunnelindex', (YLeaf(YType.uint32, 'mplsTunnelIndex'), ['int'])),
+                    ('mplstunnelinstance', (YLeaf(YType.uint32, 'mplsTunnelInstance'), ['int'])),
+                    ('mplstunnelingresslsrid', (YLeaf(YType.uint32, 'mplsTunnelIngressLSRId'), ['int'])),
+                    ('mplstunnelegresslsrid', (YLeaf(YType.uint32, 'mplsTunnelEgressLSRId'), ['int'])),
+                    ('mplstunnelname', (YLeaf(YType.str, 'mplsTunnelName'), ['str'])),
+                    ('mplstunneldescr', (YLeaf(YType.str, 'mplsTunnelDescr'), ['str'])),
+                    ('mplstunnelisif', (YLeaf(YType.boolean, 'mplsTunnelIsIf'), ['bool'])),
+                    ('mplstunnelifindex', (YLeaf(YType.int32, 'mplsTunnelIfIndex'), ['int'])),
+                    ('mplstunnelowner', (YLeaf(YType.enumeration, 'mplsTunnelOwner'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'MplsOwner', '')])),
+                    ('mplstunnelrole', (YLeaf(YType.enumeration, 'mplsTunnelRole'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelTable.MplsTunnelEntry.MplsTunnelRole')])),
+                    ('mplstunnelxcpointer', (YLeaf(YType.str, 'mplsTunnelXCPointer'), ['str'])),
+                    ('mplstunnelsignallingproto', (YLeaf(YType.enumeration, 'mplsTunnelSignallingProto'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelTable.MplsTunnelEntry.MplsTunnelSignallingProto')])),
+                    ('mplstunnelsetupprio', (YLeaf(YType.int32, 'mplsTunnelSetupPrio'), ['int'])),
+                    ('mplstunnelholdingprio', (YLeaf(YType.int32, 'mplsTunnelHoldingPrio'), ['int'])),
+                    ('mplstunnelsessionattributes', (YLeaf(YType.bits, 'mplsTunnelSessionAttributes'), ['Bits'])),
+                    ('mplstunnellocalprotectinuse', (YLeaf(YType.boolean, 'mplsTunnelLocalProtectInUse'), ['bool'])),
+                    ('mplstunnelresourcepointer', (YLeaf(YType.str, 'mplsTunnelResourcePointer'), ['str'])),
+                    ('mplstunnelprimaryinstance', (YLeaf(YType.uint32, 'mplsTunnelPrimaryInstance'), ['int'])),
+                    ('mplstunnelinstancepriority', (YLeaf(YType.uint32, 'mplsTunnelInstancePriority'), ['int'])),
+                    ('mplstunnelhoptableindex', (YLeaf(YType.uint32, 'mplsTunnelHopTableIndex'), ['int'])),
+                    ('mplstunnelpathinuse', (YLeaf(YType.uint32, 'mplsTunnelPathInUse'), ['int'])),
+                    ('mplstunnelarhoptableindex', (YLeaf(YType.uint32, 'mplsTunnelARHopTableIndex'), ['int'])),
+                    ('mplstunnelchoptableindex', (YLeaf(YType.uint32, 'mplsTunnelCHopTableIndex'), ['int'])),
+                    ('mplstunnelincludeanyaffinity', (YLeaf(YType.uint32, 'mplsTunnelIncludeAnyAffinity'), ['int'])),
+                    ('mplstunnelincludeallaffinity', (YLeaf(YType.uint32, 'mplsTunnelIncludeAllAffinity'), ['int'])),
+                    ('mplstunnelexcludeanyaffinity', (YLeaf(YType.uint32, 'mplsTunnelExcludeAnyAffinity'), ['int'])),
+                    ('mplstunneltotaluptime', (YLeaf(YType.uint32, 'mplsTunnelTotalUpTime'), ['int'])),
+                    ('mplstunnelinstanceuptime', (YLeaf(YType.uint32, 'mplsTunnelInstanceUpTime'), ['int'])),
+                    ('mplstunnelprimaryuptime', (YLeaf(YType.uint32, 'mplsTunnelPrimaryUpTime'), ['int'])),
+                    ('mplstunnelpathchanges', (YLeaf(YType.uint32, 'mplsTunnelPathChanges'), ['int'])),
+                    ('mplstunnellastpathchange', (YLeaf(YType.uint32, 'mplsTunnelLastPathChange'), ['int'])),
+                    ('mplstunnelcreationtime', (YLeaf(YType.uint32, 'mplsTunnelCreationTime'), ['int'])),
+                    ('mplstunnelstatetransitions', (YLeaf(YType.uint32, 'mplsTunnelStateTransitions'), ['int'])),
+                    ('mplstunneladminstatus', (YLeaf(YType.enumeration, 'mplsTunnelAdminStatus'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelTable.MplsTunnelEntry.MplsTunnelAdminStatus')])),
+                    ('mplstunneloperstatus', (YLeaf(YType.enumeration, 'mplsTunnelOperStatus'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelTable.MplsTunnelEntry.MplsTunnelOperStatus')])),
+                    ('mplstunnelrowstatus', (YLeaf(YType.enumeration, 'mplsTunnelRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplstunnelstoragetype', (YLeaf(YType.enumeration, 'mplsTunnelStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplstunnelperfpackets', (YLeaf(YType.uint32, 'mplsTunnelPerfPackets'), ['int'])),
+                    ('mplstunnelperfhcpackets', (YLeaf(YType.uint64, 'mplsTunnelPerfHCPackets'), ['int'])),
+                    ('mplstunnelperferrors', (YLeaf(YType.uint32, 'mplsTunnelPerfErrors'), ['int'])),
+                    ('mplstunnelperfbytes', (YLeaf(YType.uint32, 'mplsTunnelPerfBytes'), ['int'])),
+                    ('mplstunnelperfhcbytes', (YLeaf(YType.uint64, 'mplsTunnelPerfHCBytes'), ['int'])),
                 ])
                 self.mplstunnelindex = None
                 self.mplstunnelinstance = None
@@ -698,6 +703,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelperfhcbytes = None
                 self._segment_path = lambda: "mplsTunnelEntry" + "[mplsTunnelIndex='" + str(self.mplstunnelindex) + "']" + "[mplsTunnelInstance='" + str(self.mplstunnelinstance) + "']" + "[mplsTunnelIngressLSRId='" + str(self.mplstunnelingresslsrid) + "']" + "[mplsTunnelEgressLSRId='" + str(self.mplstunnelegresslsrid) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelTable.MplsTunnelEntry, [u'mplstunnelindex', u'mplstunnelinstance', u'mplstunnelingresslsrid', u'mplstunnelegresslsrid', u'mplstunnelname', u'mplstunneldescr', u'mplstunnelisif', u'mplstunnelifindex', u'mplstunnelowner', u'mplstunnelrole', u'mplstunnelxcpointer', u'mplstunnelsignallingproto', u'mplstunnelsetupprio', u'mplstunnelholdingprio', u'mplstunnelsessionattributes', u'mplstunnellocalprotectinuse', u'mplstunnelresourcepointer', u'mplstunnelprimaryinstance', u'mplstunnelinstancepriority', u'mplstunnelhoptableindex', u'mplstunnelpathinuse', u'mplstunnelarhoptableindex', u'mplstunnelchoptableindex', u'mplstunnelincludeanyaffinity', u'mplstunnelincludeallaffinity', u'mplstunnelexcludeanyaffinity', u'mplstunneltotaluptime', u'mplstunnelinstanceuptime', u'mplstunnelprimaryuptime', u'mplstunnelpathchanges', u'mplstunnellastpathchange', u'mplstunnelcreationtime', u'mplstunnelstatetransitions', u'mplstunneladminstatus', u'mplstunneloperstatus', u'mplstunnelrowstatus', u'mplstunnelstoragetype', u'mplstunnelperfpackets', u'mplstunnelperfhcpackets', u'mplstunnelperferrors', u'mplstunnelperfbytes', u'mplstunnelperfhcbytes'], name, value)
@@ -886,6 +892,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelhopentry = YList(self)
             self._segment_path = lambda: "mplsTunnelHopTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable, [], name, value)
@@ -1006,21 +1013,21 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelhoplistindex','mplstunnelhoppathoptionindex','mplstunnelhopindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelhoplistindex', YLeaf(YType.uint32, 'mplsTunnelHopListIndex')),
-                    ('mplstunnelhoppathoptionindex', YLeaf(YType.uint32, 'mplsTunnelHopPathOptionIndex')),
-                    ('mplstunnelhopindex', YLeaf(YType.uint32, 'mplsTunnelHopIndex')),
-                    ('mplstunnelhopaddrtype', YLeaf(YType.enumeration, 'mplsTunnelHopAddrType')),
-                    ('mplstunnelhopipaddr', YLeaf(YType.str, 'mplsTunnelHopIpAddr')),
-                    ('mplstunnelhopipprefixlen', YLeaf(YType.uint32, 'mplsTunnelHopIpPrefixLen')),
-                    ('mplstunnelhopasnumber', YLeaf(YType.str, 'mplsTunnelHopAsNumber')),
-                    ('mplstunnelhopaddrunnum', YLeaf(YType.str, 'mplsTunnelHopAddrUnnum')),
-                    ('mplstunnelhoplspid', YLeaf(YType.str, 'mplsTunnelHopLspId')),
-                    ('mplstunnelhoptype', YLeaf(YType.enumeration, 'mplsTunnelHopType')),
-                    ('mplstunnelhopinclude', YLeaf(YType.boolean, 'mplsTunnelHopInclude')),
-                    ('mplstunnelhoppathoptionname', YLeaf(YType.str, 'mplsTunnelHopPathOptionName')),
-                    ('mplstunnelhopentrypathcomp', YLeaf(YType.enumeration, 'mplsTunnelHopEntryPathComp')),
-                    ('mplstunnelhoprowstatus', YLeaf(YType.enumeration, 'mplsTunnelHopRowStatus')),
-                    ('mplstunnelhopstoragetype', YLeaf(YType.enumeration, 'mplsTunnelHopStorageType')),
+                    ('mplstunnelhoplistindex', (YLeaf(YType.uint32, 'mplsTunnelHopListIndex'), ['int'])),
+                    ('mplstunnelhoppathoptionindex', (YLeaf(YType.uint32, 'mplsTunnelHopPathOptionIndex'), ['int'])),
+                    ('mplstunnelhopindex', (YLeaf(YType.uint32, 'mplsTunnelHopIndex'), ['int'])),
+                    ('mplstunnelhopaddrtype', (YLeaf(YType.enumeration, 'mplsTunnelHopAddrType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'TeHopAddressType', '')])),
+                    ('mplstunnelhopipaddr', (YLeaf(YType.str, 'mplsTunnelHopIpAddr'), ['str'])),
+                    ('mplstunnelhopipprefixlen', (YLeaf(YType.uint32, 'mplsTunnelHopIpPrefixLen'), ['int'])),
+                    ('mplstunnelhopasnumber', (YLeaf(YType.str, 'mplsTunnelHopAsNumber'), ['str'])),
+                    ('mplstunnelhopaddrunnum', (YLeaf(YType.str, 'mplsTunnelHopAddrUnnum'), ['str'])),
+                    ('mplstunnelhoplspid', (YLeaf(YType.str, 'mplsTunnelHopLspId'), ['str'])),
+                    ('mplstunnelhoptype', (YLeaf(YType.enumeration, 'mplsTunnelHopType'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopType')])),
+                    ('mplstunnelhopinclude', (YLeaf(YType.boolean, 'mplsTunnelHopInclude'), ['bool'])),
+                    ('mplstunnelhoppathoptionname', (YLeaf(YType.str, 'mplsTunnelHopPathOptionName'), ['str'])),
+                    ('mplstunnelhopentrypathcomp', (YLeaf(YType.enumeration, 'mplsTunnelHopEntryPathComp'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelHopTable.MplsTunnelHopEntry.MplsTunnelHopEntryPathComp')])),
+                    ('mplstunnelhoprowstatus', (YLeaf(YType.enumeration, 'mplsTunnelHopRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplstunnelhopstoragetype', (YLeaf(YType.enumeration, 'mplsTunnelHopStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplstunnelhoplistindex = None
                 self.mplstunnelhoppathoptionindex = None
@@ -1039,6 +1046,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelhopstoragetype = None
                 self._segment_path = lambda: "mplsTunnelHopEntry" + "[mplsTunnelHopListIndex='" + str(self.mplstunnelhoplistindex) + "']" + "[mplsTunnelHopPathOptionIndex='" + str(self.mplstunnelhoppathoptionindex) + "']" + "[mplsTunnelHopIndex='" + str(self.mplstunnelhopindex) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelHopTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelHopTable.MplsTunnelHopEntry, [u'mplstunnelhoplistindex', u'mplstunnelhoppathoptionindex', u'mplstunnelhopindex', u'mplstunnelhopaddrtype', u'mplstunnelhopipaddr', u'mplstunnelhopipprefixlen', u'mplstunnelhopasnumber', u'mplstunnelhopaddrunnum', u'mplstunnelhoplspid', u'mplstunnelhoptype', u'mplstunnelhopinclude', u'mplstunnelhoppathoptionname', u'mplstunnelhopentrypathcomp', u'mplstunnelhoprowstatus', u'mplstunnelhopstoragetype'], name, value)
@@ -1132,6 +1140,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelresourceentry = YList(self)
             self._segment_path = lambda: "mplsTunnelResourceTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable, [], name, value)
@@ -1243,16 +1252,16 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelresourceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelresourceindex', YLeaf(YType.uint32, 'mplsTunnelResourceIndex')),
-                    ('mplstunnelresourcemaxrate', YLeaf(YType.uint32, 'mplsTunnelResourceMaxRate')),
-                    ('mplstunnelresourcemeanrate', YLeaf(YType.uint32, 'mplsTunnelResourceMeanRate')),
-                    ('mplstunnelresourcemaxburstsize', YLeaf(YType.uint32, 'mplsTunnelResourceMaxBurstSize')),
-                    ('mplstunnelresourcemeanburstsize', YLeaf(YType.uint32, 'mplsTunnelResourceMeanBurstSize')),
-                    ('mplstunnelresourceexburstsize', YLeaf(YType.uint32, 'mplsTunnelResourceExBurstSize')),
-                    ('mplstunnelresourcefrequency', YLeaf(YType.enumeration, 'mplsTunnelResourceFrequency')),
-                    ('mplstunnelresourceweight', YLeaf(YType.uint32, 'mplsTunnelResourceWeight')),
-                    ('mplstunnelresourcerowstatus', YLeaf(YType.enumeration, 'mplsTunnelResourceRowStatus')),
-                    ('mplstunnelresourcestoragetype', YLeaf(YType.enumeration, 'mplsTunnelResourceStorageType')),
+                    ('mplstunnelresourceindex', (YLeaf(YType.uint32, 'mplsTunnelResourceIndex'), ['int'])),
+                    ('mplstunnelresourcemaxrate', (YLeaf(YType.uint32, 'mplsTunnelResourceMaxRate'), ['int'])),
+                    ('mplstunnelresourcemeanrate', (YLeaf(YType.uint32, 'mplsTunnelResourceMeanRate'), ['int'])),
+                    ('mplstunnelresourcemaxburstsize', (YLeaf(YType.uint32, 'mplsTunnelResourceMaxBurstSize'), ['int'])),
+                    ('mplstunnelresourcemeanburstsize', (YLeaf(YType.uint32, 'mplsTunnelResourceMeanBurstSize'), ['int'])),
+                    ('mplstunnelresourceexburstsize', (YLeaf(YType.uint32, 'mplsTunnelResourceExBurstSize'), ['int'])),
+                    ('mplstunnelresourcefrequency', (YLeaf(YType.enumeration, 'mplsTunnelResourceFrequency'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelResourceTable.MplsTunnelResourceEntry.MplsTunnelResourceFrequency')])),
+                    ('mplstunnelresourceweight', (YLeaf(YType.uint32, 'mplsTunnelResourceWeight'), ['int'])),
+                    ('mplstunnelresourcerowstatus', (YLeaf(YType.enumeration, 'mplsTunnelResourceRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplstunnelresourcestoragetype', (YLeaf(YType.enumeration, 'mplsTunnelResourceStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplstunnelresourceindex = None
                 self.mplstunnelresourcemaxrate = None
@@ -1266,6 +1275,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelresourcestoragetype = None
                 self._segment_path = lambda: "mplsTunnelResourceEntry" + "[mplsTunnelResourceIndex='" + str(self.mplstunnelresourceindex) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelResourceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelResourceTable.MplsTunnelResourceEntry, [u'mplstunnelresourceindex', u'mplstunnelresourcemaxrate', u'mplstunnelresourcemeanrate', u'mplstunnelresourcemaxburstsize', u'mplstunnelresourcemeanburstsize', u'mplstunnelresourceexburstsize', u'mplstunnelresourcefrequency', u'mplstunnelresourceweight', u'mplstunnelresourcerowstatus', u'mplstunnelresourcestoragetype'], name, value)
@@ -1359,6 +1369,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelarhopentry = YList(self)
             self._segment_path = lambda: "mplsTunnelARHopTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable, [], name, value)
@@ -1427,12 +1438,12 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelarhoplistindex','mplstunnelarhopindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelarhoplistindex', YLeaf(YType.uint32, 'mplsTunnelARHopListIndex')),
-                    ('mplstunnelarhopindex', YLeaf(YType.uint32, 'mplsTunnelARHopIndex')),
-                    ('mplstunnelarhopaddrtype', YLeaf(YType.enumeration, 'mplsTunnelARHopAddrType')),
-                    ('mplstunnelarhopipaddr', YLeaf(YType.str, 'mplsTunnelARHopIpAddr')),
-                    ('mplstunnelarhopaddrunnum', YLeaf(YType.str, 'mplsTunnelARHopAddrUnnum')),
-                    ('mplstunnelarhoplspid', YLeaf(YType.str, 'mplsTunnelARHopLspId')),
+                    ('mplstunnelarhoplistindex', (YLeaf(YType.uint32, 'mplsTunnelARHopListIndex'), ['int'])),
+                    ('mplstunnelarhopindex', (YLeaf(YType.uint32, 'mplsTunnelARHopIndex'), ['int'])),
+                    ('mplstunnelarhopaddrtype', (YLeaf(YType.enumeration, 'mplsTunnelARHopAddrType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'TeHopAddressType', '')])),
+                    ('mplstunnelarhopipaddr', (YLeaf(YType.str, 'mplsTunnelARHopIpAddr'), ['str'])),
+                    ('mplstunnelarhopaddrunnum', (YLeaf(YType.str, 'mplsTunnelARHopAddrUnnum'), ['str'])),
+                    ('mplstunnelarhoplspid', (YLeaf(YType.str, 'mplsTunnelARHopLspId'), ['str'])),
                 ])
                 self.mplstunnelarhoplistindex = None
                 self.mplstunnelarhopindex = None
@@ -1442,6 +1453,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelarhoplspid = None
                 self._segment_path = lambda: "mplsTunnelARHopEntry" + "[mplsTunnelARHopListIndex='" + str(self.mplstunnelarhoplistindex) + "']" + "[mplsTunnelARHopIndex='" + str(self.mplstunnelarhopindex) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelARHopTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelARHopTable.MplsTunnelARHopEntry, [u'mplstunnelarhoplistindex', u'mplstunnelarhopindex', u'mplstunnelarhopaddrtype', u'mplstunnelarhopipaddr', u'mplstunnelarhopaddrunnum', u'mplstunnelarhoplspid'], name, value)
@@ -1501,6 +1513,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelchopentry = YList(self)
             self._segment_path = lambda: "mplsTunnelCHopTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable, [], name, value)
@@ -1591,15 +1604,15 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelchoplistindex','mplstunnelchopindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelchoplistindex', YLeaf(YType.uint32, 'mplsTunnelCHopListIndex')),
-                    ('mplstunnelchopindex', YLeaf(YType.uint32, 'mplsTunnelCHopIndex')),
-                    ('mplstunnelchopaddrtype', YLeaf(YType.enumeration, 'mplsTunnelCHopAddrType')),
-                    ('mplstunnelchopipaddr', YLeaf(YType.str, 'mplsTunnelCHopIpAddr')),
-                    ('mplstunnelchopipprefixlen', YLeaf(YType.uint32, 'mplsTunnelCHopIpPrefixLen')),
-                    ('mplstunnelchopasnumber', YLeaf(YType.str, 'mplsTunnelCHopAsNumber')),
-                    ('mplstunnelchopaddrunnum', YLeaf(YType.str, 'mplsTunnelCHopAddrUnnum')),
-                    ('mplstunnelchoplspid', YLeaf(YType.str, 'mplsTunnelCHopLspId')),
-                    ('mplstunnelchoptype', YLeaf(YType.enumeration, 'mplsTunnelCHopType')),
+                    ('mplstunnelchoplistindex', (YLeaf(YType.uint32, 'mplsTunnelCHopListIndex'), ['int'])),
+                    ('mplstunnelchopindex', (YLeaf(YType.uint32, 'mplsTunnelCHopIndex'), ['int'])),
+                    ('mplstunnelchopaddrtype', (YLeaf(YType.enumeration, 'mplsTunnelCHopAddrType'), [('ydk.models.cisco_ios_xe.MPLS_TC_STD_MIB', 'TeHopAddressType', '')])),
+                    ('mplstunnelchopipaddr', (YLeaf(YType.str, 'mplsTunnelCHopIpAddr'), ['str'])),
+                    ('mplstunnelchopipprefixlen', (YLeaf(YType.uint32, 'mplsTunnelCHopIpPrefixLen'), ['int'])),
+                    ('mplstunnelchopasnumber', (YLeaf(YType.str, 'mplsTunnelCHopAsNumber'), ['str'])),
+                    ('mplstunnelchopaddrunnum', (YLeaf(YType.str, 'mplsTunnelCHopAddrUnnum'), ['str'])),
+                    ('mplstunnelchoplspid', (YLeaf(YType.str, 'mplsTunnelCHopLspId'), ['str'])),
+                    ('mplstunnelchoptype', (YLeaf(YType.enumeration, 'mplsTunnelCHopType'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelCHopTable.MplsTunnelCHopEntry.MplsTunnelCHopType')])),
                 ])
                 self.mplstunnelchoplistindex = None
                 self.mplstunnelchopindex = None
@@ -1612,6 +1625,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelchoptype = None
                 self._segment_path = lambda: "mplsTunnelCHopEntry" + "[mplsTunnelCHopListIndex='" + str(self.mplstunnelchoplistindex) + "']" + "[mplsTunnelCHopIndex='" + str(self.mplstunnelchopindex) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCHopTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelCHopTable.MplsTunnelCHopEntry, [u'mplstunnelchoplistindex', u'mplstunnelchopindex', u'mplstunnelchopaddrtype', u'mplstunnelchopipaddr', u'mplstunnelchopipprefixlen', u'mplstunnelchopasnumber', u'mplstunnelchopaddrunnum', u'mplstunnelchoplspid', u'mplstunnelchoptype'], name, value)
@@ -1673,6 +1687,7 @@ class MPLSTESTDMIB(Entity):
             self.mplstunnelcrldpresentry = YList(self)
             self._segment_path = lambda: "mplsTunnelCRLDPResTable"
             self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable, [], name, value)
@@ -1760,14 +1775,14 @@ class MPLSTESTDMIB(Entity):
                 self.ylist_key_names = ['mplstunnelresourceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplstunnelresourceindex', YLeaf(YType.str, 'mplsTunnelResourceIndex')),
-                    ('mplstunnelcrldpresmeanburstsize', YLeaf(YType.uint32, 'mplsTunnelCRLDPResMeanBurstSize')),
-                    ('mplstunnelcrldpresexburstsize', YLeaf(YType.uint32, 'mplsTunnelCRLDPResExBurstSize')),
-                    ('mplstunnelcrldpresfrequency', YLeaf(YType.enumeration, 'mplsTunnelCRLDPResFrequency')),
-                    ('mplstunnelcrldpresweight', YLeaf(YType.uint32, 'mplsTunnelCRLDPResWeight')),
-                    ('mplstunnelcrldpresflags', YLeaf(YType.uint32, 'mplsTunnelCRLDPResFlags')),
-                    ('mplstunnelcrldpresrowstatus', YLeaf(YType.enumeration, 'mplsTunnelCRLDPResRowStatus')),
-                    ('mplstunnelcrldpresstoragetype', YLeaf(YType.enumeration, 'mplsTunnelCRLDPResStorageType')),
+                    ('mplstunnelresourceindex', (YLeaf(YType.str, 'mplsTunnelResourceIndex'), ['int'])),
+                    ('mplstunnelcrldpresmeanburstsize', (YLeaf(YType.uint32, 'mplsTunnelCRLDPResMeanBurstSize'), ['int'])),
+                    ('mplstunnelcrldpresexburstsize', (YLeaf(YType.uint32, 'mplsTunnelCRLDPResExBurstSize'), ['int'])),
+                    ('mplstunnelcrldpresfrequency', (YLeaf(YType.enumeration, 'mplsTunnelCRLDPResFrequency'), [('ydk.models.cisco_ios_xe.MPLS_TE_STD_MIB', 'MPLSTESTDMIB', 'MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry.MplsTunnelCRLDPResFrequency')])),
+                    ('mplstunnelcrldpresweight', (YLeaf(YType.uint32, 'mplsTunnelCRLDPResWeight'), ['int'])),
+                    ('mplstunnelcrldpresflags', (YLeaf(YType.uint32, 'mplsTunnelCRLDPResFlags'), ['int'])),
+                    ('mplstunnelcrldpresrowstatus', (YLeaf(YType.enumeration, 'mplsTunnelCRLDPResRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplstunnelcrldpresstoragetype', (YLeaf(YType.enumeration, 'mplsTunnelCRLDPResStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplstunnelresourceindex = None
                 self.mplstunnelcrldpresmeanburstsize = None
@@ -1779,6 +1794,7 @@ class MPLSTESTDMIB(Entity):
                 self.mplstunnelcrldpresstoragetype = None
                 self._segment_path = lambda: "mplsTunnelCRLDPResEntry" + "[mplsTunnelResourceIndex='" + str(self.mplstunnelresourceindex) + "']"
                 self._absolute_path = lambda: "MPLS-TE-STD-MIB:MPLS-TE-STD-MIB/mplsTunnelCRLDPResTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSTESTDMIB.MplsTunnelCRLDPResTable.MplsTunnelCRLDPResEntry, [u'mplstunnelresourceindex', u'mplstunnelcrldpresmeanburstsize', u'mplstunnelcrldpresexburstsize', u'mplstunnelcrldpresfrequency', u'mplstunnelcrldpresweight', u'mplstunnelcrldpresflags', u'mplstunnelcrldpresrowstatus', u'mplstunnelcrldpresstoragetype'], name, value)

@@ -39,12 +39,58 @@ module Cisco-IOS-XE-policy {
 
   description
     "Cisco XE Native Policy Map Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
+  revision 2018-05-14 {
+    description
+      "Limit string lengths for threat-defense features";
+  }
+
+  revision 2018-05-10 {
+    description
+        "changed leaf service-policy type to leafref under class of policy-map";
+  }
+
+  revision 2018-04-20 {
+     description
+       "Remove 'when' annotation from policy-map and class-map protocol models";
+  }
+
+  revision 2018-04-12 {
+     description
+       "Add AppFW models";
+  }
+
+  revision 2018-03-22 {
+     description
+       "add tailf:cli-remove-before-change for interface service-policy input/ouput";
+  }
+  revision 2018-03-13 {
+     description
+       "fix the empty key-entry issue under class";
+  }
+  revision 2018-03-08 {                                                                                        
+     description                                                                                               
+       "Add interface Cellular for policy";                                                                    
+  }                                                                                                            
+  revision 2018-03-05 {
+     description
+       "Allow to add random-detect and shape or bandwidth as the same commit";
+  }
+  revision 2018-02-06 {
+     description
+       "Refactor parameter-map";
+  }
+
   revision 2017-12-05 {
      description
        "Added Change for parameter-map and class-map match";
@@ -161,7 +207,9 @@ module Cisco-IOS-XE-policy {
 
   typedef class-name-type {
     type union {
-      type string;
+      type string {
+        length "1..512";
+      }
       // Note: leafref can't be used here due to part of union.
       //path "/ios:native/class-map/name";
       type enumeration {
@@ -802,7 +850,9 @@ module Cisco-IOS-XE-policy {
         "Configure QoS Policy Map";
       key "name";
       leaf name {
-        type string;
+        type string {
+          length "1..512";
+        }
       }
       leaf type {
         description
@@ -822,8 +872,8 @@ module Cisco-IOS-XE-policy {
         type empty;
       }
       leaf protocol {
-        when "../type = 'inspect'";
         type enumeration {
+          enum "avc";
           enum "http";
           enum "im";
           enum "imap";
@@ -1015,7 +1065,9 @@ module Cisco-IOS-XE-policy {
                 leaf parameter-map {
                   description
                     "Specify parameter map name";
-                  type string; 
+                  type string {
+                    length "1..256";
+                  }
                 }
               }
             }
@@ -1096,6 +1148,22 @@ module Cisco-IOS-XE-policy {
             type empty;
           }
         }
+        // policy-map * / class */ inspect avc
+        container avc {
+          when "../../protocol = 'avc'";
+          choice avc-allow-or-drop {
+            leaf allow {
+              description
+                "Allow the packet";
+              type empty;
+            }
+            leaf deny {
+              description
+                "Deny the packet";
+              type empty;
+            }
+          }
+        }
         // policy-map * / class * / inspect policy
         container policy {
           when "../../type = 'inspect'";
@@ -1105,7 +1173,6 @@ module Cisco-IOS-XE-policy {
               enum "drop";
               enum "inspect";
               enum "pass";
-              enum "service-policy";
             }
           }
           leaf log {
@@ -1116,28 +1183,32 @@ module Cisco-IOS-XE-policy {
           }
           leaf parameter-map {
             when "../action = 'inspect' or ../action = 'cxsc'";
-            type union {
-              type string;
-              type enumeration {
-                enum "global";
-                enum "gtp";
-              }
+            type string {
+              length "1..256";
             }
           }
-          container dpi {
-            when "../action = 'service-policy'";
-            leaf type {
-              type enumeration {
-                enum "gtpv0";
-                enum "gtpv1";
-                enum "imap";
-                enum "pop3";
-                enum "smtp";
-                enum "sunrpc";
-              }
+        }
+        // policy-map * / class * / service-policy
+        container service-policy {
+          when "../../type = 'inspect'";
+          description
+            "Deep Packet Inspection Engine";
+          leaf type {
+            type enumeration {
+              enum "avc";
+              enum "gtpv0";
+              enum "gtpv1";
+              enum "imap";
+              enum "pop3";
+              enum "smtp";
+              enum "sunrpc";
             }
-            leaf policy-map {
-              type string;
+          }
+          leaf policy-map {
+            description
+              "DPI policy-map name";
+            type string {
+              length "1..512";
             }
           }
         }
@@ -2171,7 +2242,9 @@ module Cisco-IOS-XE-policy {
             case service-policy-case {
               // policy-map * / class * / service-policy
               leaf service-policy {
-                type string;
+                type leafref {
+                  path "/ios:native/ios:policy/policy-map/name";
+                }
               }
             }
             case set-case {
@@ -2747,7 +2820,9 @@ module Cisco-IOS-XE-policy {
       leaf-list name {
         description
           "Named Access List";
-        type string;
+        type string {
+          length "1..64";
+        }
       }
     }
     // class-map * / match any
@@ -2760,7 +2835,9 @@ module Cisco-IOS-XE-policy {
     leaf-list class-map {
       description
         "Class map";
-      type string;
+      type string {
+        length "1..512";
+      }
 //      type leafref {
 //        path "/ios:native/class-map/name";
 //      }
@@ -3098,7 +3175,9 @@ module Cisco-IOS-XE-policy {
         "configure qos class map";
       key "name";
       leaf name {
-        type string;
+        type string {
+          length "1..512";
+        }
       }
       // class-map * type inspect
       leaf type {
@@ -3119,7 +3198,6 @@ module Cisco-IOS-XE-policy {
       }
       // class-map * <protocol>
       leaf protocol {
-        when "../type = 'inspect'";
         type enumeration {
           enum "aol";
           enum "edonkey";
@@ -3148,7 +3226,9 @@ module Cisco-IOS-XE-policy {
       leaf description {
         description
           "Class-Map description";
-        type string;
+        type string {
+          length "1..200";
+        }
       }
       // class-map * / match
       container match {
@@ -3171,805 +3251,1740 @@ module Cisco-IOS-XE-policy {
     }
   }
 
-  grouping config-parameter-map-grouping {
-    container regex {
-      when "/ios:native/ios:parameter-map/ios:type = 'regex'";
-      list pattern {
-        description
-          "Configure pattern to match";
-        key regexp;
-        leaf regexp {
-          type string;
-        }
-      }
-    }
-    container virtual-ip {
+  grouping config-parameter-map-type-cws-tunnel-global-grouping {
+    container cws-tunnel {
       description
-        "Virtual Ip Address";
-      container ipv4 {
+       "Cloud Web Security tunnel mode";
+      container global {
         description
-          "Ipv4 Address";
-        leaf address {
-          description "Recovery IP address";
-          type inet:ipv4-address;
-        }
-        leaf virtual-host {
+         "cws_tunnel global parameter-map";
+        presence true;
+        leaf fail-open {
           description
-            "WEBAUTH Timeout in Seconds";
-          type string;
+            "Allow traffic to go in clear if CWS Towers are unreachable";
+          type empty;
         }
-      }
-      container ipv6 {
-        description
-          "Ipv6 Address";
-        leaf address {
-          description "Recovery IP address";
-          type inet:ipv6-address;
-        }
-        leaf virtual-host {
+        container license {
           description
-            "WEBAUTH Timeout in Seconds";
-          type string;
+            "License Key";
+          container unencypted {
+            description
+              "Unencrypted License";
+            leaf hex-string {
+              description
+                "32 char non encrypted hex key";
+              type string;
+            }
+          }
+          container encrypted {
+            description
+              "Encrypted License";
+            leaf hex-string {
+              description
+                "66 char encrypted hex key";
+              type string;
+            }
+          }
+        }
+        leaf logging {
+          description
+            "CWS syslogs";
+          type empty;
+        }
+        container primary {
+          description
+            "Primary tower";
+          presence true;
+          container tower {
+            description
+              "Tower configuration for CWS";
+            leaf ipv4 {
+              description
+                "IPv4 address of the tower";
+              type inet:ipv4-address;
+            }
+            leaf name {
+              description
+                "Fully Qualified Domain Name of tower";
+              type string;
+            }
+          }
+        }
+        leaf redirect-list {
+          description
+            "Set access-list for reverse route from CWS Tower
+            Standard IP access-list number <1-199>
+            Standard IP access-list number (expanded range) <1300-2699>";
+          type union {
+            type uint16 {
+              range "1..199";
+            }
+            type uint16 {
+              range "1300..2699";
+            }
+          }
+        }
+        container secondary {
+          description
+            "Secondary tower";
+          presence true;
+          container tower {
+            description
+              "Tower configuration for CWS";
+            leaf ipv4 {
+              description
+                "IPv4 address of the tower";
+              type inet:ipv4-address;
+            }
+            leaf name {
+              description
+                "Fully Qualified Domain Name of tower";
+              type string;
+            }
+          }
+        }
+        container whitelist {
+          description
+            "Disable redirection to CWS
+             Access list (standard) <1-199>
+             Access list (extended) <1300-2699>
+             Access list name";
+          presence true;
+          container acl {
+            description
+              "Access list";
+            leaf acl-number {
+              type union {
+                type uint16 {
+                  range "1..199";
+                }
+                type uint16 {
+                  range "1300..2699";
+                }
+              }
+            }
+            leaf name {
+              description
+                "Access list name";
+              type string {
+                length "1..64";
+              }
+            }
+          }
+          container domain-name {
+            description
+              "Domain name based Whitelist";
+            leaf regex {
+              description
+                "Domain name regex parameter map";
+              type string;
+            }
+          }
+          container download {
+            description
+              "whitelist download command";
+            presence true;
+            leaf interval {
+              description
+                "Download interval in minutes";
+              type uint16 {
+                range "5..10080";
+              }
+            }
+          }
         }
       }
     }
-    leaf intercept-https-enable {
+  }
+
+  grouping config-parameter-map-type-inspect-grouping {
+    list inspect {
       description
-        "Enable intercept of https traffic";
-      type empty;
-    }
-    leaf captive-bypass-portal {
-      description
-        "Turn on captive bypass";
-      type empty;
-    }
-    leaf logout-window-disabled {
-      description
-        "Webauth logout window disable";
-      type empty;
-    }
-    leaf success-window-disable {
-      description
-        "Disable Success Window";
-      type empty;
-    }
-    leaf max-http-conns {
-      description
-        "Webauth max HTTP connections per client";
-      type uint8 {
-        range "1..200";
+        "inspect parameter-map";
+      key name;
+      leaf name {
+        type string {
+          length "1..256";
+        }
       }
-    }
-    container consent {
-      description
-        "consent parameters";
-      leaf email {
+      container alert {
         description
-          "Turn-on Consent with Email";
+          "Turn on/off alert";
+        leaf on {
+          description
+            "Turn on alert";
+          type empty;
+        }
+      }
+      container application-inspect {
+        description
+          "Turn on application inspection";
+        leaf dns {
+          type boolean;
+          default true;
+        }
+        leaf exec {
+          type boolean;
+          default true;
+        }
+        leaf ftp {
+          type boolean;
+          default true;
+        }
+        leaf gtp {
+          type boolean;
+          default true;
+        }
+        leaf h323 {
+          type boolean;
+          default true;
+        }
+        leaf http {
+          type boolean;
+          default true;
+        }
+        leaf imap {
+          type boolean;
+          default true;
+        }
+        leaf login {
+          type boolean;
+          default true;
+        }
+        leaf msrpc {
+          type boolean;
+          default true;
+        }
+        leaf netbios {
+          type boolean;
+          default true;
+        }
+        leaf pop3 {
+          type boolean;
+          default true;
+        }
+        leaf rtsp {
+          type boolean;
+          default true;
+        }
+        leaf shell {
+          type boolean;
+          default true;
+        }
+        leaf sip {
+          type boolean;
+          default true;
+        }
+        leaf skinny {
+          type boolean;
+          default true;
+        }
+        leaf smtp {
+          type boolean;
+          default true;
+        }
+        leaf sunrpc {
+          type boolean;
+          default true;
+        }
+        leaf tftp {
+          type boolean;
+          default true;
+        }
+      }
+      container audit-trail {
+        description
+          "Turn on/off audit trail";
+        leaf on {
+          description
+            "Turn on audit trail";
+          type empty;
+        }
+      }
+      leaf dns-timeout {
+        description
+          "Timeout in seconds";
+        type uint32 {
+          range "1..2147483";
+        }
+      }
+      container icmp {
+        description
+          "Config timeout values for icmp";
+        container idle-time {
+          description
+            "Specify idle timeout for icmp";
+          leaf timeout {
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+          leaf ageout-time {
+            description
+              "Specify aggressive age-out time for icmp";
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+        }
+      }
+      leaf icmp-unreachable-allow {
+        description
+          "ICMP unreachable packets are allowed";
         type empty;
       }
-    }
-    container custom-page {
-      description
-        "Sleep timeout in Minute";
-      container login {
+      container log {
         description
-          "Sleep timeout in Minute";
-        leaf device {
-          type string;
-        }
-        container expired {
+          "Configure inspect logging parameters";
+        leaf dropped-packets {
           description
-            "Sleep timeout in Minute";
-          leaf device {
-            type string;
-          }
+            "Log dropped packets";
+          type empty;
         }
       }
-      container failure {
+      container max-incomplete {
         description
-          "Sleep timeout in Minute";
-        leaf device {
-          type string;
-        }
-      }
-      container success {
-        description
-          "Sleep timeout in Minute";
-        leaf device {
-          type string;
-        }
-      }
-    }
-    container login-auth-bypass {
-      description
-        "Sleep timeout in Minute";
-      container ip-access-list {
-        description
-          "vrf binding with parameter map";
-        leaf name {
-          type string;
-        }
-        leaf domain-name-list {
+          "Specify maximum number of incomplete connections before clamping";
+        leaf high {
           description
-            "vrf binding with parameter map";
-          type string;
-        }
-      }
-    }
-    container redirect {
-      description
-        "enable sleeping client for webauth";
-      container append {
-        description
-          "Sleep timeout in Minute";
-        container ap-mac {
-          description
-            "Sleep timeout in Minute";
-          leaf tag {
-            type string;
-          }
-        }
-        container client-mac {
-          description
-            "Sleep timeout in Minute";
-          leaf tag {
-            type string;
-          }
-        }
-        container wlan-ssid {
-          description
-            "Sleep timeout in Minute";
-          leaf tag {
-            type string;
-          }
-        }
-      }
-      container portal {
-        description
-          "Sleep timeout in Minute";
-        leaf ipv4 {
-          type inet:ipv4-address;
-        }
-        leaf ipv6 {
-          type inet:ipv6-address;
-        }
-      }
-      leaf for-login {
-        type string;
-      }
-      leaf on-failure {
-        type string;
-      }
-      leaf on-success {
-        type string;
-      }
-    }
-    container sleeping-client {
-      description
-        "enable sleeping client for webauth";
-      leaf timeout {
-        description
-          "Sleep timeout in Minute";
-        type uint32 {
-          range "60..3932100";
-        }
-      }
-    }
-    container timeout {
-      description
-        "timeout for the webauth session";
-      when "/ios:native/ios:parameter-map/ios:type = 'webauth'";
-      container init-state {
-        description
-          "init-state timeout";
-        presence true;
-        leaf sec {
-          description
-            "WEBAUTH Timeout in Seconds";
+            "Specify high-watermark for clamping";
           type uint32 {
-            range "60..3932100";
+            range "1..2147483647";
           }
         }
-      }
-      container fin-wait {
-        description
-          "fin-wait timeout";
-        leaf msec {
+        leaf low {
           description
-            "WEBAUTH Timeout in milliseconds";
+            "Specify low-watermark for clamping";
           type uint32 {
             range "1..2147483647";
           }
         }
       }
-    }
-    container watch-list {
-      description
-        "Watch List of webauth clients";
-      when "/ios:native/ios:parameter-map/ios:type = 'webauth'";
-      leaf enabled {
+      container one-minute {
         description
-          "Enable Watchlist";
-        type empty;
-      }
-      leaf dynamic-expiry-timeout {
-        description
-          "dynamic_expiry_timeout";
-        type uint32 {
-          range "0..2147483";
-        }
-      }
-      container add-item {
-        description
-          "Add item to Watch-list";
-        leaf ipv4 {
+          "Specify one-minute-sample watermarks for clamping";
+        leaf high {
           description
-            "IPv4 Watch List Entry";
-          type inet:ipv4-address;
+            "Specify high-watermark for clamping";
+          type uint32 {
+            range "1..2147483647";
+          }
         }
-        leaf ipv6 {
+        leaf low {
           description
-            "IPv6 Watch List Entry";
-          type inet:ipv6-address;
+            "Specify low-watermark for clamping";
+          type uint32 {
+            range "1..2147483647";
+          }
+        }
+      }
+      container sessions {
+        description
+          "Configure sessions related parameters";
+        leaf maximum {
+          description
+            "Maximum sessions";
+          type uint32 {
+            range "1..2147483647";
+          }
+        }
+        leaf packet {
+          description
+            "Simultaneous packets per session";
+          type uint8 {
+            range "25..100";
+          }
+        }
+        container rate {
+          description
+            "Specify watermarks for clamping";
+          container high {
+            description
+              "Specify high-watermark for clamping";
+            leaf value {
+              type uint32 {
+                range "1..2147483647";
+              }
+            }
+            leaf time {
+              description
+                "Specify the time for which session rate limit is applied";
+              type uint32 {
+                range "1..2147483647";
+              }
+            }
+          }
+          container low {
+            description
+              "Specify low-watermark for clamping";
+            leaf value {
+              type uint32 {
+                range "1..2147483647";
+              }
+            }
+            leaf time {
+              description
+                "Specify the time for which session rate limit is applied";
+              type uint32 {
+                range "1..2147483647";
+              }
+            }
+          }
+        }
+      }
+      container tcp {
+        description
+          "Config timeout values for tcp connections";
+        container finwait-time {
+          description
+            "Specify timeout for TCP connections after a FIN";
+          leaf timeout {
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+          leaf ageout-time {
+            description
+              "Specify aggressive age-out time for tcp";
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+        }
+        container half-close {
+          description
+            "Specify tcp halfclose reset RST transmission on/off";
+          container reset {
+            description
+              "Specify tcp halfclose reset RST transmission on/off";
+            leaf off {
+              description
+                "Turn off tcp halfclose reset RST transmission";
+              type empty;
+            }
+          }
+        }
+        container half-open {
+          description
+            "Specify tcp halfopen reset RST transmission on/off";
+          container reset {
+            description
+              "Specify tcp halfopen reset RST transmission on/off";
+            leaf off {
+              description
+                "Turn off tcp halfopen reset RST transmission";
+              type empty;
+            }
+          }
+        }
+        container idle {
+          description
+            "Specify tcp idle reset RST transmission on/off";
+          container reset {
+            description 
+              "Specify tcp idle reset RST transmission on/off";
+            leaf off {
+              description
+                "Turn off tcp idle reset RST transmission";
+              type empty;
+            }
+          }
+        }
+        container idle-time {
+          description
+            "Specify idle timeout for tcp connections";
+          leaf timeout {
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+          leaf ageout-time {
+            description
+              "Specify aggressive age-out time for tcp";
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+        }
+        container max-incomplete {
+          description
+            "Specify max half-open connection per host";
+          container host {
+            description
+              "Specify max half-open connection per host";
+            leaf value {
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+            leaf block-time {
+              description
+                "Specify the maximum time to block new connection attempts to host";
+              type uint16 {
+                range "0..35791";
+              }
+            }
+          }
+        }
+        container synwait-time {
+          description
+            "Specify timeout for TCP connections after a SYN and no further data";
+          leaf timeout {
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+          leaf ageout-time {
+            description
+              "Specify aggressive age-out time for syn wait-time";
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+        }
+        container window-scale-enforcement {
+          description
+            "Specify tcp window scaling enforcement";
+          leaf loose {
+            description
+              "Loose enforcement";
+            type empty;
+          }
+        }
+      }
+      container udp {
+        description
+          "Config timeout values for udp flows";
+        container half-open {
+          description
+            "Config timeout values for udp half open flows";
+          container idle-time {
+            description
+              "Specify idle timeout for udp half open";
+            leaf timeout {
+              type uint32 {
+                range "1..2147483";
+              }
+            }
+            leaf ageout-time {
+              description
+                "Specify aggressive age-out time for udp half open";
+              type uint32 {
+                range "1..2147483";
+              }
+            }
+          }
+        }
+        container idle-time {
+          description
+            "Specify idle timeout for udp";
+          leaf timeout {
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+          leaf ageout-time {
+            description
+              "Specify aggressive age-out time for udp";
+            type uint32 {
+              range "1..2147483";
+            }
+          }
+        }
+      }
+      container zone-mismatch {
+        description
+          "Config zone-mismatch option";
+        leaf drop {
+          type empty;
         }
       }
     }
+  }
+
+  grouping config-inspect-aggressive-aging-grouping {
     container aggressive-aging {
       description
         "Aggressive Aging parameters";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect-global'";
-      container high {
-        description
-          "Specify the high watermark for aggressive-aging";
-        choice absolute-percent {
-          case absolute-case {
-            container absolute {
-              leaf value {
-                type uint64 {
-                  range "1..4294967295";
-                }
-              }
-              leaf low {
-                description
-                  "Specify the low watermark for aggressive-aging";
-                type uint64 {
-                  range "1..4294967295";
-                }
-              }
+      choice absolute-percent {
+        case absolute-case {
+          leaf high {
+            description
+              "Specify the high watermark for aggressive-aging";
+            type uint64 {
+              range "1..4294967295";
             }
           }
-          case percent-case {
-            container percent {
-              description
-                "high watermark in percentage of max-incomplete value";
-              leaf value {
-                type uint8 {
-                  range "1..100";
-                }
-              }
-              leaf low_percent {
-                description
-                  "Specify the low watermark for aggressive-aging in percents";
-                type uint8 {
-                  range "1..100";
-                }
-              }
+          leaf low {
+            description
+              "Specify the low watermark for aggressive-aging";
+            type uint64 {
+              range "1..4294967295";
+            }
+          }
+        }
+        case percent-case {
+          leaf high-percent {
+            description
+              "Specify the high watermark for aggressive-aging in percents";
+            type uint8 {
+              range "1..100";
+            }
+          }
+          leaf low-percent {
+            description
+              "Specify the low watermark for aggressive-aging in percents";
+            type uint8 {
+              range "1..100";
             }
           }
         }
       }
     }
-    leaf alert {
-      description
-        "Turn on/off alert";
-      type enumeration {
-        enum "off";
-        enum "on";
-      }
-    }
-    leaf application-inspect {
-      description
-        "Turn on application inspection";
-      type enumeration {
-        enum "all";
-        enum "dns";
-        enum "exec";
-        enum "ftp";
-        enum "gtp";
-        enum "h323";
-        enum "http";
-        enum "imap";
-        enum "login";
-        enum "msrpc";
-        enum "netbios";
-        enum "pop3";
-        enum "rtsp";
-        enum "shell";
-        enum "sip";
-        enum "skinny";
-        enum "smtp";
-        enum "sunrpc";
-        enum "tftp";
-      }
-    }
-    leaf audit-trail {
-      description
-        "Turn on/off audit trail";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      type enumeration {
-        enum "off";
-        enum "on";
-      }
-    }
-    leaf dns-timeout {
-      description
-        "Specify timeout for DNS";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      type uint32 {
-        range "1..2147483";
-      }
-    }
-    container global {
-      description
-        "cws_tunnel global parameter-map";
-      leaf fail-open {
-        description
-          "Allow traffic to go in clear if CWS Towers are unreachable";
-        when "/ios:native/ios:parameter-map/ios:type = 'cws-tunnel'";
-        type empty;
-      }
-      container license {
-        description
-          "License Key";
-        when "/ios:native/ios:parameter-map/ios:type = 'cws-tunnel'";
-        container Unencypted {
-          description
-            "Unencrypted License";
-          leaf Hex-string {
-            description
-              "32 char non encrypted hex key";
-            type string;
-          }
-        }
-        container Encrypted {
-          description
-            "Encrypted License";
-          leaf Hex-string {
-            description
-              "66 char encrypted hex key";
-            type string;
-          }
-        }
-      }
-      leaf logging {
-        description
-          "CWS syslogs";
-        type empty;
-      }
-      container primary {
-        description
-          "Primary tower";
-        when "/ios:native/ios:parameter-map/ios:type = 'cws-tunnel'";
-        presence true;
-        container tower {
-          description
-            "Tower configuration for CWS";
-          leaf ipv4 {
-            description
-              "IPv4 address of the tower";
-            type inet:ipv4-address;
-          }
-          leaf name {
-            description
-              "Fully Qualified Domain Name of tower";
-            type string;
-          }
-        }
-      }
-      leaf redirect-list {
-        description
-          "Set access-list for reverse route from CWS Tower
-          Standard IP access-list number <1-199>
-          Standard IP access-list number (expanded range) <1300-2699>";
-        when "/ios:native/ios:parameter-map/ios:type = 'cws-tunnel'";
-        type union {
-          type uint16 {
-            range "1..199";
-          }
-          type uint16 {
-            range "1300..2699";
-          }
-        }
-      }
-      container secondary {
-        description
-          "Secondary tower";
-        when "/ios:native/ios:parameter-map/ios:type = 'cws-tunnel'";
-        presence true;
-        container tower {
-          description
-            "Tower configuration for CWS";
-          leaf ipv4 {
-            description
-              "IPv4 address of the tower";
-            type inet:ipv4-address;
-          }
-          leaf name {
-            description
-              "Fully Qualified Domain Name of tower";
-            type string;
-          }
-        }
-      }
-      container whitelist {
-        description
-          "Disable redirection to CWS
-           Access list (standard) <1-199>
-           Access list (extended) <1300-2699>
-           Access list name";
-        presence true;
-        container acl {
-          description
-            "Access list";
-          leaf acl-number {
-            type union {
-              type uint16 {
-                range "1..199";
-              }
-              type uint16 {
-                range "1300..2699";
-              }
-            }
-          }
-          leaf name {
-            description
-              "Access list name";
-            type string;
-          }
-        }
-        container domain-name {
-          description
-            "Domain name based Whitelist";
-          leaf regex {
-            description
-              "Domain name regex parameter map";
-            type string;
-          }
-        }
-        container download {
-          description
-            "whitelist download command";
-          presence true;
-          leaf interval {
-            description
-              "Download interval in minutes";
-            type uint16 {
-              range "5..10080";
-            }
-          }
-        }
-      }
-    }
-    container icmp {
-      description
-        "Config timeout values for icmp";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      leaf idle-time {
-        description
-          "Specify timeout for icmp";
-        type uint32 {
-          range "1..2147483";
-        }
-      }
-    }
-    container lisp {
-      description
-        "Turn on LISP options";
-      leaf inner-packet-inspection {
-        description
-          "inner-packet-inspection";
-        type empty;
-      }
-    }
-    container log {
-      description
-        "Configure inspect logging parameters";
-      leaf dropped-packets {
-        description
-          "Log dropped packets";
-        type empty;
-      }
-      container flow-export {
-        description
-          "Configure inspect external logging parameters";
-        container template {
-          description
-            "Configure record template parameters";
-          leaf timeout-rate {
-            description
-              "Rate to resend the template in seconds";
-            type uint32 {
-              range "0..65535";
-            }
-          }
-        }
-        container v9 {
-          description
-            "Netflow version 9";
-          container udp {
-            description
-              "Use UDP to export records";
-            container destination {
-              description
-                "Specify the flow-export destination";
-              leaf dst-ip {
-                type inet:ipv4-address;
-              }
-              leaf dst-port {
-                type uint16;
-              }
-            }
-          }
-        }
-      }
-    }
-    leaf max-destination {
-      description
-        "config maximum destination";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect-zone'";
-      type uint32 {
-        range "1..4294967295";
-      }
-    }
-    container max-incomplete {
-      description
-        "Specify maximum number of incomplete connections before clamping";
-      leaf high {
-        description
-          "Specify high-watermark for clamping";
-        type uint32 {
-          range "1..2147483647";
-        }
-      }
-      leaf low {
-        description
-          "Specify low-watermark for clamping";
-        type uint32 {
-          range "1..2147483647";
-        }
-      }
-    }
-    container one-minute {
-      description
-        "Specify one-minute-sample watermarks for clamping";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      leaf high {
-        description
-          "Specify high-watermark for clamping";
-        type uint32 {
-          range "1..2147483647";
-        }
-      }
-      leaf low {
-        description
-          "Specify low-watermark for clamping";
-        type uint32 {
-          range "1..2147483647";
-        }
-      }
-    }
-    container sessions {
-      description
-        "Maximum number of inspect sessions";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      leaf maximum {
-        description
-          "Maximum sessions";
-        type uint32 {
-          range "1..2147483647";
-        }
-      }
-      container queue {
-        description
-          "queue";
-        leaf max-threshold {
-          type uint16 {
-            range "0..65535";
-          }
-        }
-        leaf min-threshold {
-          type uint16 {
-            range "0..65535";
-          }
-        }
-      }
-    }
+  }
 
-    choice tcp-ins {
-      container tcp-inspect {
-        when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-        container tcp {
+  grouping config-parameter-map-type-inspect-global-deprecate-grouping {
+    container inspect-global-deprecate {
+      container inspect {
+        description
+          "inspect parameter-map";
+        container global {
           description
-          "Config timeout values for tcp connections";
-          when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-          leaf finwait-time {
+            "inspect global parameter-map";
+          presence true;
+          container alert {
             description
-            "Specify timeout for TCP connections after a FIN";
-            type uint32 {
-              range "1..2147483";
+              "Turn on/off alert";
+            leaf on {
+              description
+                "Turn on alert";
+              type empty;
             }
           }
-          leaf idle-time {
+          container lisp {
             description
-              "Specify idle timeout for tcp connections";
-            type uint32 {
-              range "1..2147483";
+              "Turn on LISP options";
+            leaf inner-packet-inspection {
+              description
+                "inner-packet-inspection";
+              type empty;
+            }
+          }
+          container log {
+            description
+              "Configure inspect logging parameters";
+            leaf dropped-packets {
+              description
+                "Log dropped packets";
+              type empty;
+            }
+            container flow-export {
+              description
+                "Configure inspect external logging parameters";
+              container template {
+                description
+                  "Configure record template parameters";
+                leaf timeout-rate {
+                  description
+                    "Rate to resend the template in seconds";
+                  type uint32 {
+                    range "0..65535";
+                  }
+                }
+              }
+              container v9 {
+                description
+                  "Netflow version 9";
+                container udp {
+                  description
+                    "Use UDP to export records";
+                  container destination {
+                    description
+                      "Specify the flow-export destination";
+                    leaf dst-ip {
+                      type inet:ipv4-address;
+                    }
+                    leaf dst-port {
+                      type uint16;
+                    }
+                  }
+                }
+              }
             }
           }
           container max-incomplete {
             description
-              "Specify max half-open connection per host";
-            leaf host {
+              "Specify max half-open connection";
+            container half-open-sessions {
+              leaf number {
+                type uint32 {
+                  range "1..4294967295";
+                }
+              }
+              container aggressive-aging {
+                description
+                  "Aggressive Aging parameters";
+                choice absolute-percent {
+                  case absolute-case {
+                    leaf high {
+                      description
+                        "Specify the high watermark for aggressive-aging";
+                      type uint64 {
+                        range "1..4294967295";
+                      }
+                    }
+                    leaf low {
+                      description
+                        "Specify the low watermark for aggressive-aging";
+                      type uint64 {
+                        range "1..4294967295";
+                      }
+                    }
+                  }
+                  case percent-case {
+                    leaf high-percent {
+                      description
+                        "Specify the high watermark for aggressive-aging in percents";
+                      type uint8 {
+                        range "1..100";
+                      }
+                    }
+                    leaf low-percent {
+                      description
+                        "Specify the low watermark for aggressive-aging in percents";
+                      type uint8 {
+                        range "1..100";
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            leaf icmp {
               description
-                "Specify max half-open connection per host";
+                "Specify max half-open ICMP connections";
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+            leaf tcp {
+              description
+                "Specify max half-open TCP connections";
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+            leaf udp {
+              description
+                "Specify max half-open UDP connections";
               type uint32 {
                 range "1..4294967295";
               }
             }
           }
-          leaf synwait-time {
+          leaf multi-tenancy {
             description
-              "Specify timeout for TCP connections after a SYN and no";
-            type uint32 {
-              range "1..2147483";
+              "Enable multi-tenancy";
+            type empty;
+          }
+          container per-box {
+            description
+              "Configure per-box attributes";
+            uses config-inspect-aggressive-aging-grouping;
+            container max-incomplete {
+              description
+              "Specify max half-open connection";
+              container half-open-sessions {
+                leaf number {
+                  type uint32 {
+                    range "1..4294967295";
+                  }
+                }
+                container aggressive-aging {
+                  description
+                    "Aggressive Aging parameters";
+                  choice absolute-percent {
+                    case absolute-case {
+                      leaf high {
+                        description
+                          "Specify the high watermark for aggressive-aging";
+                        type uint64 {
+                          range "1..4294967295";
+                        }
+                      }
+                      leaf low {
+                        description
+                          "Specify the low watermark for aggressive-aging";
+                        type uint64 {
+                          range "1..4294967295";
+                        }
+                      }
+                    }
+                    case percent-case {
+                      leaf high-percent {
+                        description
+                          "Specify the high watermark for aggressive-aging in percents";
+                        type uint8 {
+                          range "1..100";
+                        }
+                      }
+                      leaf low-percent {
+                        description
+                          "Specify the low watermark for aggressive-aging in percents";
+                        type uint8 {
+                          range "1..100";
+                        }
+                      }
+                    }
+                  }                  
+                }
+              }
+              leaf icmp {
+                description
+                  "Specify max half-open ICMP connections";
+                type uint32 {
+                  range "1..4294967295";
+                }
+              }
+              leaf tcp {
+                description
+                  "Specify max half-open TCP connections";
+                type uint32 {
+                  range "1..4294967295";
+                }
+              }
+              leaf udp {
+                description
+                  "Specify max half-open UDP connections";
+                type uint32 {
+                  range "1..4294967295";
+                }
+              }
+            }
+            container tcp {
+              description
+                "Configure tcp syn-flood limit";
+              container syn-flood {
+                description
+                  "syn-flood limit";
+                leaf limit {
+                  description
+                    "syn-flood limit";
+                  type uint32 {
+                    range "1..4294967295";
+                  }
+                }
+              }
             }
           }
-        }
-      }
-      container tcp-inspect-zone {
-        when "/ios:native/ios:parameter-map/ios:type = 'inspect-zone'";
-        container tcp {
-          description
-            "Configure tcp syn-flood per-destination rate";
-          container syn-flood {
+          container session {
             description
-              "maximum syn packet";
-            container rate {
+              "Configure session total parameter";
+            leaf packet {
               description
-                "maximum syn packet rate";
-              leaf per-destination {
+                "Simultaneous packets per session";
+              type uint8 {
+                range "25..100";
+              }
+            }
+            leaf total {
+              description
+                "session total";
+              type uint32 {
+                range "1..4294967295";
+              }
+            }
+          }
+          container tcp {
+            description
+              "Configure tcp syn-flood limit";
+            container syn-flood {
+              description
+                "syn-flood limit";
+              leaf limit {
                 description
-                  "per destination
-                   maximum rate of TCP SYN packets";
+                  "syn-flood limit";
                 type uint32 {
-                  range "1..1000000000";
+                  range "1..4294967295";
                 }
+              }
+            }
+          }
+          list vrf {
+            description
+              "vrf binding with parameter map";
+            key id;
+            leaf id {
+	      must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	        error-message "VRF must be created 1st, deleted last";
+              }
+              type string {
+                length "1..32";
+              }
+            }
+            leaf inspect {
+              description
+                "vrf binding with parameter map";
+              type string {
+                length "1..256";
               }
             }
           }
         }
       }
     }
+  }
 
-    container threat-detection {
+  grouping config-parameter-map-type-inspect-global-grouping {
+    container inspect-global {
       description
-        "Configure Threat Detection";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect-zone'";
-      leaf basic-threat {
+        "inspect global parameter-map";
+      presence true;
+      uses config-inspect-aggressive-aging-grouping;
+      container alert {
         description
-          "Enable Threat Detection";
+          "Turn on/off alert";
+        leaf on {
+          description
+            "Turn on alert";
+          type empty;
+        }
+      }
+      leaf icmp-unreachable-allow {
+        description
+          "ICMP unreachable packets are allowed";
         type empty;
       }
-      container rate {
-        description
-          "Configure Threat Detection rate";
-        container fw-drop {
-          description
-            "Configure Threat Detection rate for firewall drop events";
-          leaf average-time-frame {
-            description
-              "Configure Threat Detection average time frame";
-            type uint32 {
-              range "600..3600";
-            }
-          }
-          leaf average-threshold {
-            description
-              "Configure Threat Detection average threshold";
-            type uint64 {
-              range "1..4294967295";
-            }
-          }
-          leaf burst-threshold {
-            description
-              " Configure Threat Detection burst threshold";
-            type uint64 {
-              range "1..1000000000";
-            }
-          }
-        }
-        container inspect-drop {
-          description
-            "Configure Threat Detection rate for firewall inspection based drop events";
-          leaf average-time-frame {
-            description
-              "Configure Threat Detection average time frame";
-            type uint32 {
-              range "600..3600";
-            }
-          }
-          leaf average-threshold {
-            description
-              "Configure Threat Detection average threshold";
-            type uint64 {
-              range "1..4294967295";
-            }
-          }
-          leaf burst-threshold {
-            description
-              " Configure Threat Detection burst threshold";
-            type uint64 {
-              range "1..1000000000";
-            }
-          }
-        }
-        container syn-attack {
-          description
-            "Configure Threat Detection rate for syn attack events";
-          leaf average-time-frame {
-            description
-              "Configure Threat Detection average time frame";
-            type uint32 {
-              range "600..3600";
-            }
-          }
-          leaf average-threshold {
-            description
-              "Configure Threat Detection average threshold";
-            type uint64 {
-              range "1..4294967295";
-            }
-          }
-          leaf burst-threshold {
-            description
-              " Configure Threat Detection burst threshold";
-            type uint64 {
-              range "1..1000000000";
-            }
-          }
-        }
-      }
-    }
-    container udp {
-      description
-        "Config timeout values for udp flows";
-      when "/ios:native/ios:parameter-map/ios:type = 'inspect'";
-      leaf idle-time {
-        description
-          "Specify idle timeout for udp";
-        type uint32 {
-          range "1..2147483";
-        }
-      }
-    }
-    container vrf {
-      description
-        "vrf binding with parameter map";
-      leaf name {
-        type string;
-      }
-      leaf inspect {
+      container inspect {
         description
           "vrf binding with parameter map";
-        type string;
+
+        leaf name {
+          type string {
+            length "1..256";
+          }
+        }
+
+        list vrf {
+          description
+            "vrf binding with parameter map";
+          key id;
+          leaf id {
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
+            type string {
+              length "1..32";
+            }
+          }
+          leaf name {
+            type string {
+              length "1..256";
+            }
+          }
+        }
+      }
+      container lisp {
+        description
+          "Turn on LISP options";
+        leaf inner-packet-inspection {
+          description
+            "inner-packet-inspection";
+          type empty;
+        }
+      }
+      container log {
+        description
+          "Configure inspect logging parameters";
+        leaf dropped-packets {
+          description
+            "Log dropped packets";
+          type empty;
+        }
+        container flow-export {
+          description
+            "Configure inspect external logging parameters";
+          container template {
+            description
+              "Configure record template parameters";
+            leaf timeout-rate {
+              description
+                "Rate to resend the template in seconds";
+              type uint32 {
+                range "0..65535";
+              }
+            }
+          }
+          container v9 {
+            description
+              "Netflow version 9";
+            container udp {
+              description
+                "Use UDP to export records";
+              container destination {
+                description
+                  "Specify the flow-export destination";
+                leaf dst-ip {
+                  type inet:ipv4-address;
+                }
+                leaf dst-port {
+                  type uint16;
+                }
+              }
+            }
+          }
+        }
+      }
+      container max-incomplete {
+        description
+          "Specify max half-open connection";
+        container half-open-sessions {
+          leaf number {
+            type uint32 {
+              range "1..4294967295";
+            }
+          }
+          container aggressive-aging {
+            description
+              "Aggressive Aging parameters";
+            choice absolute-percent {
+                case absolute-case {
+                  leaf high {
+                    description
+                      "Specify the high watermark for aggressive-aging";
+                    type uint64 {
+                      range "1..4294967295";
+                    }
+                  }
+                  leaf low {
+                    description
+                      "Specify the low watermark for aggressive-aging";
+                    type uint64 {
+                      range "1..4294967295";
+                    }
+                  }
+                }
+                case percent-case {
+                  leaf high-percent {
+                    description
+                      "Specify the high watermark for aggressive-aging in percents";
+                    type uint8 {
+                      range "1..100";
+                    }
+                  }
+                  leaf low-percent {
+                    description
+                      "Specify the low watermark for aggressive-aging in percents";
+                    type uint8 {
+                      range "1..100";
+                    }
+                  }
+                }
+              }
+          }
+        }
+        leaf icmp {
+          description
+            "Specify max half-open ICMP connections";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+        leaf tcp {
+          description
+            "Specify max half-open TCP connections";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+        leaf udp {
+          description
+            "Specify max half-open UDP connections";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+      }
+      leaf multi-tenancy {
+        description
+          "Enable multi-tenancy";
+        type empty;
+      }
+      container tcp {
+        description
+          "Configure tcp syn-flood limit";
+        container syn-flood {
+          description
+            "syn-flood limit";
+          leaf limit {
+            description
+              "syn-flood limit";
+            type uint32 {
+              range "1..4294967295";
+            }
+          }
+        }
+        container window-scale-enforcement {
+          description
+            "Specify tcp window scaling enforcement";
+          leaf loose {
+            description
+              "Loose enforcement";
+            type empty;
+          }
+        }
+      }
+      container zone-mismatch {
+        description
+          "Config zone-mismatch option";
+        leaf drop {
+          type empty;
+        }
       }
     }
-    leaf zone-mismatch {
+  }
+
+  grouping config-parameter-map-type-inspect-vrf-grouping {
+    list inspect-vrf {
       description
-        "Config zone-mismatch option";
-      type enumeration {
-        enum "drop";
+        "inspect vrf parameter-map";
+      key name;
+      leaf name {
+        type string {
+          length "1..256";
+        }
+      }
+      container alert {
+        description
+          "Turn on/off alert";
+        leaf on {
+          description
+            "Turn on alert";
+          type empty;
+        }
+      }
+      container max-incomplete {
+        description
+         "Specify max half-open connection per VRF";
+        container half-open-sessions {
+          leaf number {
+            type uint32 {
+              range "1..4294967295";
+            }
+          }
+        }
+        leaf icmp {
+          description
+            "Specify max half-open ICMP connections per VRF";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+        leaf tcp {
+          description
+            "Specify max half-open TCP connections per VRF";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+        leaf udp {
+          description
+            "Specify max half-open UDP connections per VRF";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+      }
+      container session {
+        description
+          "Configure session total";
+        leaf total {
+          description
+            "total";
+          type uint32 {
+            range "1..4294967295";
+          }
+        }
+      }
+      container tcp {
+        description
+          "Configure tcp syn-flood limit";
+        container syn-flood {
+          description
+            "syn-flood limit";
+          leaf limit {
+            description
+              "syn-flood limit";
+            type uint32 {
+              range "1..4294967295";
+            }
+          }
+        }
+      }
+    }
+  }
+
+  grouping config-td-rate-grouping {
+    leaf average-time-frame {
+      description
+        "Configure Threat Detection average time frame";
+      type uint16 {
+        range "600..3600";
+      }
+    }
+    leaf average-threshold {
+      description
+        "Configure Threat Detection average threshold";
+      type uint32 {
+        range "1..4294967295";
+      }
+    }
+    leaf burst-threshold {
+      description
+        "Configure Threat Detection burst threshold";
+      type uint32 {
+        range "1..1000000000";
+      }
+    }
+  }
+
+  grouping config-parameter-map-type-inspect-zone-grouping {
+    list inspect-zone {
+      description
+        "inspect zone parameter-map";
+      key name;
+      leaf name {
+        type string {
+          length "1..256";
+        }
+      }
+      container alert {
+        description
+          "Turn on/off alert";
+        leaf on {
+          description
+            "Turn on alert";
+          type empty;
+        }
+      }
+      leaf max-destination {
+        description
+          "config maximum destination";
+        type uint32 {
+          range "1..4294967295";
+        }
+      }
+      container tcp {
+        description
+          "Configure tcp syn-flood per-destination rate";
+        container syn-flood {
+          description
+            "maximum syn packet";
+          container rate {
+            description
+              "maximum syn packet rate";
+            leaf per-destination {
+              description 
+                "per destination";
+              type uint32 {
+                range "1..1000000000";
+              }
+            }
+          }
+        }
+      }
+      container threat-detection {
+        description
+          "Configure Threat Detection";
+        leaf basic-threat {
+          description
+            "Enable Threat Detection";
+          type empty;
+        }
+        container rate {
+          description
+            "Configure Threat Detection rate";
+          container fw-drop {
+            description
+              "Configure Threat Detection rate for firewall drop events";
+            uses config-td-rate-grouping;
+          }
+          container inspect-drop {
+            description
+              "Configure Threat Detection rate for firewall inspection based drop events";
+            uses config-td-rate-grouping;
+          }
+          container syn-attack {
+            description
+              "Configure Threat Detection rate for syn attack events";
+            uses config-td-rate-grouping;
+          }
+        }
+      }
+    }
+  }
+
+  grouping config-parameter-map-type-regex-grouping {
+    list regex {
+      description
+        "regex parameter-map";
+      key name;
+      leaf name {
+        type string {
+          length "1..256";
+        }
+      }
+      list pattern {
+        description
+          "Configure pattern to match";
+        key regexp;
+        leaf regexp {
+          type string {
+            length "1..240";
+          }
+        }
+      }
+    }
+  }
+
+  grouping config-parameter-map-type-webauth-grouping {
+    list webauth {
+      description
+        "WEBAUTH parameters";
+      key name;
+      leaf name {
+        type string {
+          length "1..256";
+        }
+      }
+      leaf captive-bypass-portal {
+        description
+          "Turn on captive bypass";
+        type empty;
+      }
+      container consent {
+        description
+          "consent parameters";
+        leaf email {
+          description
+            "Turn-on Consent with Email";
+          type empty;
+        }
+      }
+      container custom-page {
+        description
+          "custom-page - login, expired, success or failure page";
+        container login {
+          description
+            "auth-proxy login parameters";
+          leaf device {
+            type string;
+          }
+          container expired {
+            description
+              "Expired authentication proxy";
+            leaf device {
+              type string;
+            }
+          }
+        }
+        container failure {
+          description
+            "Failed authentication proxy";
+          leaf device {
+            type string;
+          }
+        }
+        container success {
+          description
+            "Successful authentication proxy";
+          leaf device {
+            type string;
+          }
+        }
+      }
+      container login-auth-bypass {
+        description
+          "Login Auth Bypass for FQDN";
+        container ip-access-list {
+          description
+            "fqdn acl name";
+          leaf name {
+            type string;
+          }
+          leaf domain-name-list {
+            description
+              "Domain list name";
+            type string;
+          }
+        }
+      }
+      leaf logout-window-disabled {
+        description
+          "Webauth logout window disable";
+        type empty;
+      }
+      leaf max-http-conns {
+        description
+          "Webauth max HTTP connections per client";
+        type uint8 {
+          range "1..200";
+        }
+      }
+      container redirect {
+        description
+          "redirect url";
+        container append {
+          description
+            "Append tag name to redirect URL";
+          container ap-mac {
+            description
+              "AP MAC Address";
+            leaf tag {
+              type string;
+            }
+          }
+          container client-mac {
+            description
+              "client MAC name";
+            leaf tag {
+              type string;
+            }
+          }
+          container wlan-ssid {
+            description
+              "WLAN SSID name";
+            leaf tag {
+              type string;
+            }
+          }
+        }
+        container portal {
+          description
+            "External Portal";
+          leaf ipv4 {
+            type inet:ipv4-address;
+          }
+          leaf ipv6 {
+            type inet:ipv6-address;
+          }
+        }
+        leaf for-login {
+          type string;
+        }
+        leaf on-failure {
+          type string;
+        }
+        leaf on-success {
+          type string;
+        }
+      }
+      container sleeping-client {
+        description
+          "enable sleeping client for webauth";
+        leaf timeout {
+          description
+            "Sleep timeout in Minute";
+          type uint32 {
+            range "60..3932100";
+          }
+        }
+      }
+      leaf success-window-disable {
+        description
+          "Disable Success Window";
+        type empty;
+      }
+      container timeout {
+        description
+          "timeout for the webauth session";
+        container init-state {
+          description
+            "init-state timeout";
+          presence true;
+          leaf sec {
+            description
+              "WEBAUTH Timeout in Seconds";
+            type uint32 {
+              range "60..3932100";
+            }
+          }
+        }
+        container fin-wait {
+          description
+            "fin-wait timeout";
+          leaf msec {
+            description
+              "WEBAUTH Timeout in milliseconds";
+            type uint32 {
+              range "1..2147483647";
+            }
+          }
+        }
+      }
+      leaf type {
+        description
+          "type - web-auth, consent or both";
+        type enumeration {
+          enum "authbypass";
+          enum "consent";
+          enum "webauth";
+          enum "webconsent";
+        }
+      }
+    }
+  }
+
+  grouping config-parameter-map-type-webauth-global-grouping {
+    container webauth-global {
+      container webauth {
+        description
+          "WEBAUTH parameters";
+        container global {
+          description
+            "Global parameter-map";
+          presence true;
+          leaf captive-bypass-portal {
+            description
+              "Turn on captive bypass";
+            type empty;
+          }
+          container consent {
+            description
+              "consent parameters";
+            leaf email {
+              description
+                "Turn-on Consent with Email";
+              type empty;
+            }
+          }
+          container custom-page {
+            description
+              "custom-page - login, expired, success or failure page";
+            container login {
+              description
+                "auth-proxy login parameters";
+              leaf device {
+                type string;
+              }
+              container expired {
+                description
+                  "Expired authentication proxy";
+                leaf device {
+                  type string;
+                }
+              }
+            }
+            container failure {
+              description
+                "Failed authentication proxy";
+              leaf device {
+                type string;
+              }
+            }
+            container success {
+              description
+                "Successful authentication proxy";
+              leaf device {
+                type string;
+              }
+            }
+          }
+          leaf intercept-https-enable {
+            description
+              "Enable intercept of https traffic";
+            type empty;
+          }
+          container login-auth-bypass {
+            description
+              "Login Auth Bypass for FQDN";
+            container ip-access-list {
+              description
+                "fqdn acl name";
+              leaf name {
+                type string;
+              }
+              leaf domain-name-list {
+                description
+                  "Domain list name";
+                type string;
+              }
+            }
+          }
+          leaf logout-window-disabled {
+            description
+              "Webauth logout window disable";
+            type empty;
+          }
+          leaf max-http-conns {
+            description
+              "Webauth max HTTP connections per client";
+            type uint8 {
+              range "1..200";
+            }
+          }
+          container redirect {
+            description
+              "redirect url";
+            container append {
+              description
+                "Append tag name to redirect URL";
+              container ap-mac {
+                description
+                  "AP MAC Address";
+                leaf tag {
+                  type string;
+                }
+              }
+              container client-mac {
+                description
+                  "client MAC name";
+                leaf tag {
+                  type string;
+                }
+              }
+              container wlan-ssid {
+                description
+                  "WLAN SSID name";
+                leaf tag {
+                  type string;
+                }
+              }
+            }
+            container portal {
+              description
+                "External portal";
+              leaf ipv4 {
+                type inet:ipv4-address;
+              }
+              leaf ipv6 {
+                type inet:ipv6-address;
+              }
+            }
+            leaf for-login {
+              type string;
+            }
+            leaf on-failure {
+              type string;
+            }
+            leaf on-success {
+              type string;
+            }
+          }
+          container sleeping-client {
+            description
+              "enable sleeping client for webauth";
+            leaf timeout {
+              description
+                "Sleep timeout in Minute";
+              type uint32 {
+                range "60..3932100";
+              }
+            }
+          }
+          leaf success-window-disable {
+            description
+              "Disable Success Window";
+            type empty;
+          }
+          container timeout {
+            description
+              "timeout for the webauth session";
+            container init-state {
+              description
+                "init-state timeout";
+              presence true;
+              leaf sec {
+                description
+                  "WEBAUTH Timeout in Seconds";
+                type uint32 {
+                  range "60..3932100";
+                }
+              }
+            }
+            container fin-wait {
+              description
+                "fin-wait timeout";
+              leaf msec {
+                description
+                  "WEBAUTH Timeout in milliseconds";
+                type uint32 {
+                  range "1..2147483647";
+                }
+              }
+            }
+          }
+          leaf type {
+            description
+              "type - web-auth, consent or both";
+            type enumeration {
+              enum "authbypass";
+              enum "consent";
+              enum "webauth";
+              enum "webconsent";
+            }
+          }
+          container virtual-ip {
+            description
+              "Virtual Ip Address";
+            container ipv4 {
+              description
+                "Ipv4 Address";
+              leaf address {
+                description "Recovery IP address";
+                type inet:ipv4-address;
+              }
+              leaf virtual-host {
+                description
+                  "Virtual host name";
+                type string;
+              }
+            }
+            container ipv6 {
+              description
+                "Ipv6 Address";
+              leaf address {
+                description "Recovery IP address";
+                type inet:ipv6-address;
+              }
+              leaf virtual-host {
+                description
+                  "Virtual host name";
+                type string;
+              }
+            }
+          }
+          container watch-list {
+            description
+              "Watch List of webauth clients";
+            leaf enabled {
+              description
+                "Enable Watchlist";
+              type empty;
+            }
+            leaf dynamic-expiry-timeout {
+              description
+                "dynamic_expiry_timeout";
+              type uint32 {
+                range "0..2147483";
+              }
+            }
+            container add-item {
+              description
+                "Add item to Watch-list";
+              leaf ipv4 {
+                description
+                  "IPv4 Watch List Entry";
+                type inet:ipv4-address;
+              }
+              leaf ipv6 {
+                description
+                  "IPv6 Watch List Entry";
+                type inet:ipv6-address;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -4055,12 +5070,66 @@ module Cisco-IOS-XE-policy {
   }
 
   /////////////////////////////////////////////////////////
-  // native / parameter-map
+  // native / parameter-map type cws-tunnel global
   /////////////////////////////////////////////////////////
-  augment "/ios:native/ios:parameter-map" {
-    uses config-parameter-map-grouping {
-      if-feature ios-features:parameter-map;
-    }
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-cws-tunnel-global-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type inspect <name>
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-inspect-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type inspect global
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-inspect-global-deprecate-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type inspect-global [gtp]
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-inspect-global-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type inspect-vrf <name>
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-inspect-vrf-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type inspect-zone <name>
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-inspect-zone-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type regex <name>
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-regex-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type webauth <name>
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-webauth-grouping;
+  }
+
+  /////////////////////////////////////////////////////////
+  // native / parameter-map type webauth global
+  /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:parameter-map/ios:type" {
+    uses config-parameter-map-type-webauth-global-grouping;
   }
 
   /////////////////////////////////////////////////////////
@@ -4076,6 +5145,16 @@ module Cisco-IOS-XE-policy {
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-service-policy-grouping;
   }
+
+  augment "/ios:native/ios:interface/ios:ATM" {
+    uses config-service-policy-grouping;
+  }
+
+ 
+  augment "/ios:native/ios:interface/ios:ATM-subinterface" {
+    uses config-service-policy-grouping;
+  }
+
 
   augment "/ios:native/ios:interface/ios:GigabitEthernet" {
     uses config-interface-service-policy-grouping;
@@ -4142,6 +5221,10 @@ module Cisco-IOS-XE-policy {
   }
 
   augment "/ios:native/ios:interface/ios:BDI" {
+    uses config-interface-service-policy-grouping;
+  }
+
+  augment "/ios:native/ios:interface/ios:Cellular" {
     uses config-interface-service-policy-grouping;
   }
 }//module

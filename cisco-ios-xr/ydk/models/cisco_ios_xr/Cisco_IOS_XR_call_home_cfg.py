@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   call\-home\: Set CallHome parameters
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CallHomeDayOfWeek(Enum):
@@ -256,11 +257,6 @@ class CallHome(Entity):
     	Enable or disable call\-home syslog message throttling
     	**type**\:  :py:class:`SyslogThrottling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SyslogThrottling>`
     
-    .. attribute:: smart_licensing
-    
-    	Enable/disable licensing messages. By default is enabled
-    	**type**\:  :py:class:`SmartLicensing <ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg.CallHome.SmartLicensing>`
-    
     .. attribute:: http_proxy
     
     	http proxy server address and port
@@ -350,7 +346,7 @@ class CallHome(Entity):
     	Source interface name to send call\-home messages
     	**type**\: str
     
-    	**pattern:** [a\-zA\-Z0\-9./\-]+
+    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
     
     .. attribute:: contract_id
     
@@ -379,7 +375,7 @@ class CallHome(Entity):
     """
 
     _prefix = 'call-home-cfg'
-    _revision = '2017-03-13'
+    _revision = '2018-06-21'
 
     def __init__(self):
         super(CallHome, self).__init__()
@@ -390,21 +386,21 @@ class CallHome(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("mail-servers", ("mail_servers", CallHome.MailServers)), ("syslog-throttling", ("syslog_throttling", CallHome.SyslogThrottling)), ("smart-licensing", ("smart_licensing", CallHome.SmartLicensing)), ("http-proxy", ("http_proxy", CallHome.HttpProxy)), ("profiles", ("profiles", CallHome.Profiles)), ("alert-groups", ("alert_groups", CallHome.AlertGroups)), ("data-privacies", ("data_privacies", CallHome.DataPrivacies)), ("alert-group-config", ("alert_group_config", CallHome.AlertGroupConfig)), ("authorization", ("authorization", CallHome.Authorization))])
+        self._child_classes = OrderedDict([("mail-servers", ("mail_servers", CallHome.MailServers)), ("syslog-throttling", ("syslog_throttling", CallHome.SyslogThrottling)), ("http-proxy", ("http_proxy", CallHome.HttpProxy)), ("profiles", ("profiles", CallHome.Profiles)), ("alert-groups", ("alert_groups", CallHome.AlertGroups)), ("data-privacies", ("data_privacies", CallHome.DataPrivacies)), ("alert-group-config", ("alert_group_config", CallHome.AlertGroupConfig)), ("authorization", ("authorization", CallHome.Authorization))])
         self._leafs = OrderedDict([
-            ('customer_id', YLeaf(YType.str, 'customer-id')),
-            ('phone_number', YLeaf(YType.str, 'phone-number')),
-            ('contact_smart_licensing', YLeaf(YType.boolean, 'contact-smart-licensing')),
-            ('contact_email_address', YLeaf(YType.str, 'contact-email-address')),
-            ('rate_limit', YLeaf(YType.uint32, 'rate-limit')),
-            ('site_id', YLeaf(YType.str, 'site-id')),
-            ('vrf', YLeaf(YType.str, 'vrf')),
-            ('street_address', YLeaf(YType.str, 'street-address')),
-            ('source_interface', YLeaf(YType.str, 'source-interface')),
-            ('contract_id', YLeaf(YType.str, 'contract-id')),
-            ('reply_to', YLeaf(YType.str, 'reply-to')),
-            ('from_', YLeaf(YType.str, 'from')),
-            ('active', YLeaf(YType.empty, 'active')),
+            ('customer_id', (YLeaf(YType.str, 'customer-id'), ['str'])),
+            ('phone_number', (YLeaf(YType.str, 'phone-number'), ['str'])),
+            ('contact_smart_licensing', (YLeaf(YType.boolean, 'contact-smart-licensing'), ['bool'])),
+            ('contact_email_address', (YLeaf(YType.str, 'contact-email-address'), ['str'])),
+            ('rate_limit', (YLeaf(YType.uint32, 'rate-limit'), ['int'])),
+            ('site_id', (YLeaf(YType.str, 'site-id'), ['str'])),
+            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+            ('street_address', (YLeaf(YType.str, 'street-address'), ['str'])),
+            ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+            ('contract_id', (YLeaf(YType.str, 'contract-id'), ['str'])),
+            ('reply_to', (YLeaf(YType.str, 'reply-to'), ['str'])),
+            ('from_', (YLeaf(YType.str, 'from'), ['str'])),
+            ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
         ])
         self.customer_id = None
         self.phone_number = None
@@ -427,10 +423,6 @@ class CallHome(Entity):
         self.syslog_throttling = CallHome.SyslogThrottling()
         self.syslog_throttling.parent = self
         self._children_name_map["syslog_throttling"] = "syslog-throttling"
-
-        self.smart_licensing = CallHome.SmartLicensing()
-        self.smart_licensing.parent = self
-        self._children_name_map["smart_licensing"] = "smart-licensing"
 
         self.http_proxy = CallHome.HttpProxy()
         self.http_proxy.parent = self
@@ -456,6 +448,7 @@ class CallHome(Entity):
         self.authorization.parent = self
         self._children_name_map["authorization"] = "authorization"
         self._segment_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CallHome, ['customer_id', 'phone_number', 'contact_smart_licensing', 'contact_email_address', 'rate_limit', 'site_id', 'vrf', 'street_address', 'source_interface', 'contract_id', 'reply_to', 'from_', 'active'], name, value)
@@ -475,7 +468,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.MailServers, self).__init__()
@@ -491,6 +484,7 @@ class CallHome(Entity):
             self.mail_server = YList(self)
             self._segment_path = lambda: "mail-servers"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.MailServers, [], name, value)
@@ -517,7 +511,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2017-03-13'
+            _revision = '2018-06-21'
 
             def __init__(self):
                 super(CallHome.MailServers.MailServer, self).__init__()
@@ -529,13 +523,14 @@ class CallHome(Entity):
                 self.ylist_key_names = ['mail_serv_address']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mail_serv_address', YLeaf(YType.str, 'mail-serv-address')),
-                    ('priority', YLeaf(YType.uint32, 'priority')),
+                    ('mail_serv_address', (YLeaf(YType.str, 'mail-serv-address'), ['str'])),
+                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                 ])
                 self.mail_serv_address = None
                 self.priority = None
                 self._segment_path = lambda: "mail-server" + "[mail-serv-address='" + str(self.mail_serv_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/mail-servers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.MailServers.MailServer, ['mail_serv_address', 'priority'], name, value)
@@ -556,7 +551,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.SyslogThrottling, self).__init__()
@@ -568,58 +563,15 @@ class CallHome(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('active', YLeaf(YType.boolean, 'active')),
+                ('active', (YLeaf(YType.boolean, 'active'), ['bool'])),
             ])
             self.active = None
             self._segment_path = lambda: "syslog-throttling"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.SyslogThrottling, ['active'], name, value)
-
-
-    class SmartLicensing(Entity):
-        """
-        Enable/disable licensing messages. By default is
-        enabled.
-        
-        .. attribute:: profile_name
-        
-        	To specify existing profile name used for TG so that licensing message
-        	**type**\: str
-        
-        .. attribute:: active
-        
-        	Active the smart\-licensing
-        	**type**\: :py:class:`Empty<ydk.types.Empty>`
-        
-        
-
-        """
-
-        _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
-
-        def __init__(self):
-            super(CallHome.SmartLicensing, self).__init__()
-
-            self.yang_name = "smart-licensing"
-            self.yang_parent_name = "call-home"
-            self.is_top_level_class = False
-            self.has_list_ancestor = False
-            self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
-            self._leafs = OrderedDict([
-                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                ('active', YLeaf(YType.empty, 'active')),
-            ])
-            self.profile_name = None
-            self.active = None
-            self._segment_path = lambda: "smart-licensing"
-            self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
-
-        def __setattr__(self, name, value):
-            self._perform_setattr(CallHome.SmartLicensing, ['profile_name', 'active'], name, value)
 
 
     class HttpProxy(Entity):
@@ -643,7 +595,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.HttpProxy, self).__init__()
@@ -655,13 +607,14 @@ class CallHome(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('server_address', YLeaf(YType.str, 'server-address')),
-                ('port', YLeaf(YType.uint16, 'port')),
+                ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
+                ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
             ])
             self.server_address = None
             self.port = None
             self._segment_path = lambda: "http-proxy"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.HttpProxy, ['server_address', 'port'], name, value)
@@ -681,7 +634,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.Profiles, self).__init__()
@@ -697,6 +650,7 @@ class CallHome(Entity):
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.Profiles, [], name, value)
@@ -765,7 +719,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2017-03-13'
+            _revision = '2018-06-21'
 
             def __init__(self):
                 super(CallHome.Profiles.Profile, self).__init__()
@@ -777,12 +731,12 @@ class CallHome(Entity):
                 self.ylist_key_names = ['profile_name']
                 self._child_classes = OrderedDict([("report-type", ("report_type", CallHome.Profiles.Profile.ReportType)), ("methods", ("methods", CallHome.Profiles.Profile.Methods)), ("addresses", ("addresses", CallHome.Profiles.Profile.Addresses)), ("subscribe-alert-group", ("subscribe_alert_group", CallHome.Profiles.Profile.SubscribeAlertGroup))])
                 self._leafs = OrderedDict([
-                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                    ('create', YLeaf(YType.empty, 'create')),
-                    ('message_format', YLeaf(YType.str, 'message-format')),
-                    ('anonymous', YLeaf(YType.boolean, 'anonymous')),
-                    ('message_size_limit', YLeaf(YType.uint32, 'message-size-limit')),
-                    ('active', YLeaf(YType.empty, 'active')),
+                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                    ('create', (YLeaf(YType.empty, 'create'), ['Empty'])),
+                    ('message_format', (YLeaf(YType.str, 'message-format'), ['str'])),
+                    ('anonymous', (YLeaf(YType.boolean, 'anonymous'), ['bool'])),
+                    ('message_size_limit', (YLeaf(YType.uint32, 'message-size-limit'), ['int'])),
+                    ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
                 ])
                 self.profile_name = None
                 self.create = None
@@ -808,6 +762,7 @@ class CallHome(Entity):
                 self._children_name_map["subscribe_alert_group"] = "subscribe-alert-group"
                 self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/profiles/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.Profiles.Profile, ['profile_name', 'create', 'message_format', 'anonymous', 'message_size_limit', 'active'], name, value)
@@ -832,7 +787,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2017-03-13'
+                _revision = '2018-06-21'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.ReportType, self).__init__()
@@ -853,6 +808,7 @@ class CallHome(Entity):
                     self.reporting_licensing_data.parent = self
                     self._children_name_map["reporting_licensing_data"] = "reporting-licensing-data"
                     self._segment_path = lambda: "report-type"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.Profiles.Profile.ReportType, [], name, value)
@@ -872,7 +828,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, self).__init__()
@@ -884,10 +840,11 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                         ])
                         self.enable = None
                         self._segment_path = lambda: "reporting-callhome-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingCallhomeData, ['enable'], name, value)
@@ -907,7 +864,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, self).__init__()
@@ -919,10 +876,11 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                         ])
                         self.enable = None
                         self._segment_path = lambda: "reporting-licensing-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.ReportType.ReportingLicensingData, ['enable'], name, value)
@@ -942,7 +900,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2017-03-13'
+                _revision = '2018-06-21'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.Methods, self).__init__()
@@ -957,6 +915,7 @@ class CallHome(Entity):
 
                     self.method = YList(self)
                     self._segment_path = lambda: "methods"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.Profiles.Profile.Methods, [], name, value)
@@ -981,7 +940,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.Methods.Method, self).__init__()
@@ -993,12 +952,13 @@ class CallHome(Entity):
                         self.ylist_key_names = ['method']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('method', YLeaf(YType.enumeration, 'method')),
-                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('method', (YLeaf(YType.enumeration, 'method'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeTransMethod', '')])),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                         ])
                         self.method = None
                         self.enable = None
                         self._segment_path = lambda: "method" + "[method='" + str(self.method) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Methods.Method, ['method', 'enable'], name, value)
@@ -1018,7 +978,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2017-03-13'
+                _revision = '2018-06-21'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.Addresses, self).__init__()
@@ -1033,6 +993,7 @@ class CallHome(Entity):
 
                     self.address = YList(self)
                     self._segment_path = lambda: "addresses"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.Profiles.Profile.Addresses, [], name, value)
@@ -1064,7 +1025,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.Addresses.Address, self).__init__()
@@ -1076,14 +1037,15 @@ class CallHome(Entity):
                         self.ylist_key_names = ['method','destination_addr']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('method', YLeaf(YType.enumeration, 'method')),
-                            ('destination_addr', YLeaf(YType.str, 'destination-addr')),
-                            ('enable', YLeaf(YType.boolean, 'enable')),
+                            ('method', (YLeaf(YType.enumeration, 'method'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeTransMethod', '')])),
+                            ('destination_addr', (YLeaf(YType.str, 'destination-addr'), ['str'])),
+                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                         ])
                         self.method = None
                         self.destination_addr = None
                         self.enable = None
                         self._segment_path = lambda: "address" + "[method='" + str(self.method) + "']" + "[destination-addr='" + str(self.destination_addr) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.Addresses.Address, ['method', 'destination_addr', 'enable'], name, value)
@@ -1128,7 +1090,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2017-03-13'
+                _revision = '2018-06-21'
 
                 def __init__(self):
                     super(CallHome.Profiles.Profile.SubscribeAlertGroup, self).__init__()
@@ -1165,6 +1127,7 @@ class CallHome(Entity):
                     self.syslogs.parent = self
                     self._children_name_map["syslogs"] = "syslogs"
                     self._segment_path = lambda: "subscribe-alert-group"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup, [], name, value)
@@ -1184,7 +1147,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, self).__init__()
@@ -1196,10 +1159,11 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeEventSeverity', '')])),
                         ])
                         self.severity = None
                         self._segment_path = lambda: "environment"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Environment, ['severity'], name, value)
@@ -1224,7 +1188,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, self).__init__()
@@ -1236,7 +1200,7 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("periodic", ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic))])
                         self._leafs = OrderedDict([
-                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                            ('subscribe', (YLeaf(YType.empty, 'subscribe'), ['Empty'])),
                         ])
                         self.subscribe = None
 
@@ -1244,6 +1208,7 @@ class CallHome(Entity):
                         self.periodic.parent = self
                         self._children_name_map["periodic"] = "periodic"
                         self._segment_path = lambda: "configuration"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration, ['subscribe'], name, value)
@@ -1289,7 +1254,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2017-03-13'
+                        _revision = '2018-06-21'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, self).__init__()
@@ -1301,11 +1266,11 @@ class CallHome(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interval', YLeaf(YType.enumeration, 'interval')),
-                                ('day', YLeaf(YType.uint32, 'day')),
-                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
-                                ('hour', YLeaf(YType.uint32, 'hour')),
-                                ('minute', YLeaf(YType.uint32, 'minute')),
+                                ('interval', (YLeaf(YType.enumeration, 'interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeMailSendInterval', '')])),
+                                ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                                ('weekday', (YLeaf(YType.enumeration, 'weekday'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeDayOfWeek', '')])),
+                                ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                                ('minute', (YLeaf(YType.uint32, 'minute'), ['int'])),
                             ])
                             self.interval = None
                             self.day = None
@@ -1313,6 +1278,7 @@ class CallHome(Entity):
                             self.hour = None
                             self.minute = None
                             self._segment_path = lambda: "periodic"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Configuration.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
@@ -1332,7 +1298,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, self).__init__()
@@ -1349,6 +1315,7 @@ class CallHome(Entity):
                         self.periodic.parent = self
                         self._children_name_map["periodic"] = "periodic"
                         self._segment_path = lambda: "snapshot"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot, [], name, value)
@@ -1394,7 +1361,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2017-03-13'
+                        _revision = '2018-06-21'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, self).__init__()
@@ -1406,11 +1373,11 @@ class CallHome(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interval', YLeaf(YType.enumeration, 'interval')),
-                                ('day', YLeaf(YType.uint32, 'day')),
-                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
-                                ('hour', YLeaf(YType.uint32, 'hour')),
-                                ('minute', YLeaf(YType.uint32, 'minute')),
+                                ('interval', (YLeaf(YType.enumeration, 'interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'SnapshotInterval', '')])),
+                                ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                                ('weekday', (YLeaf(YType.enumeration, 'weekday'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeDayOfWeek', '')])),
+                                ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                                ('minute', (YLeaf(YType.uint32, 'minute'), ['int'])),
                             ])
                             self.interval = None
                             self.day = None
@@ -1418,6 +1385,7 @@ class CallHome(Entity):
                             self.hour = None
                             self.minute = None
                             self._segment_path = lambda: "periodic"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Snapshot.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
@@ -1442,7 +1410,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, self).__init__()
@@ -1454,7 +1422,7 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("periodic", ("periodic", CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic))])
                         self._leafs = OrderedDict([
-                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                            ('subscribe', (YLeaf(YType.empty, 'subscribe'), ['Empty'])),
                         ])
                         self.subscribe = None
 
@@ -1462,6 +1430,7 @@ class CallHome(Entity):
                         self.periodic.parent = self
                         self._children_name_map["periodic"] = "periodic"
                         self._segment_path = lambda: "inventory"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory, ['subscribe'], name, value)
@@ -1507,7 +1476,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2017-03-13'
+                        _revision = '2018-06-21'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, self).__init__()
@@ -1519,11 +1488,11 @@ class CallHome(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interval', YLeaf(YType.enumeration, 'interval')),
-                                ('day', YLeaf(YType.uint32, 'day')),
-                                ('weekday', YLeaf(YType.enumeration, 'weekday')),
-                                ('hour', YLeaf(YType.uint32, 'hour')),
-                                ('minute', YLeaf(YType.uint32, 'minute')),
+                                ('interval', (YLeaf(YType.enumeration, 'interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeMailSendInterval', '')])),
+                                ('day', (YLeaf(YType.uint32, 'day'), ['int'])),
+                                ('weekday', (YLeaf(YType.enumeration, 'weekday'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeDayOfWeek', '')])),
+                                ('hour', (YLeaf(YType.uint32, 'hour'), ['int'])),
+                                ('minute', (YLeaf(YType.uint32, 'minute'), ['int'])),
                             ])
                             self.interval = None
                             self.day = None
@@ -1531,6 +1500,7 @@ class CallHome(Entity):
                             self.hour = None
                             self.minute = None
                             self._segment_path = lambda: "periodic"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Inventory.Periodic, ['interval', 'day', 'weekday', 'hour', 'minute'], name, value)
@@ -1550,7 +1520,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, self).__init__()
@@ -1562,10 +1532,11 @@ class CallHome(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('subscribe', YLeaf(YType.empty, 'subscribe')),
+                            ('subscribe', (YLeaf(YType.empty, 'subscribe'), ['Empty'])),
                         ])
                         self.subscribe = None
                         self._segment_path = lambda: "crash"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Crash, ['subscribe'], name, value)
@@ -1585,7 +1556,7 @@ class CallHome(Entity):
                     """
 
                     _prefix = 'call-home-cfg'
-                    _revision = '2017-03-13'
+                    _revision = '2018-06-21'
 
                     def __init__(self):
                         super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, self).__init__()
@@ -1600,6 +1571,7 @@ class CallHome(Entity):
 
                         self.syslog = YList(self)
                         self._segment_path = lambda: "syslogs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs, [], name, value)
@@ -1626,7 +1598,7 @@ class CallHome(Entity):
                         """
 
                         _prefix = 'call-home-cfg'
-                        _revision = '2017-03-13'
+                        _revision = '2018-06-21'
 
                         def __init__(self):
                             super(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, self).__init__()
@@ -1638,12 +1610,13 @@ class CallHome(Entity):
                             self.ylist_key_names = ['syslog_pattern']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('syslog_pattern', YLeaf(YType.str, 'syslog-pattern')),
-                                ('severity', YLeaf(YType.enumeration, 'severity')),
+                                ('syslog_pattern', (YLeaf(YType.str, 'syslog-pattern'), ['str'])),
+                                ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'CallHomeEventSeverity', '')])),
                             ])
                             self.syslog_pattern = None
                             self.severity = None
                             self._segment_path = lambda: "syslog" + "[syslog-pattern='" + str(self.syslog_pattern) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CallHome.Profiles.Profile.SubscribeAlertGroup.Syslogs.Syslog, ['syslog_pattern', 'severity'], name, value)
@@ -1663,7 +1636,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.AlertGroups, self).__init__()
@@ -1679,6 +1652,7 @@ class CallHome(Entity):
             self.alert_group = YList(self)
             self._segment_path = lambda: "alert-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.AlertGroups, [], name, value)
@@ -1710,7 +1684,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2017-03-13'
+            _revision = '2018-06-21'
 
             def __init__(self):
                 super(CallHome.AlertGroups.AlertGroup, self).__init__()
@@ -1722,15 +1696,16 @@ class CallHome(Entity):
                 self.ylist_key_names = ['alert_group_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('alert_group_name', YLeaf(YType.str, 'alert-group-name')),
-                    ('enable', YLeaf(YType.boolean, 'enable')),
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('alert_group_name', (YLeaf(YType.str, 'alert-group-name'), ['str'])),
+                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.alert_group_name = None
                 self.enable = None
                 self.disable = None
                 self._segment_path = lambda: "alert-group" + "[alert-group-name='" + str(self.alert_group_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/alert-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.AlertGroups.AlertGroup, ['alert_group_name', 'enable', 'disable'], name, value)
@@ -1750,7 +1725,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.DataPrivacies, self).__init__()
@@ -1766,6 +1741,7 @@ class CallHome(Entity):
             self.data_privacy = YList(self)
             self._segment_path = lambda: "data-privacies"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.DataPrivacies, [], name, value)
@@ -1790,7 +1766,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2017-03-13'
+            _revision = '2018-06-21'
 
             def __init__(self):
                 super(CallHome.DataPrivacies.DataPrivacy, self).__init__()
@@ -1802,13 +1778,14 @@ class CallHome(Entity):
                 self.ylist_key_names = ['host_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('host_name', YLeaf(YType.str, 'host-name')),
-                    ('level', YLeaf(YType.enumeration, 'level')),
+                    ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                    ('level', (YLeaf(YType.enumeration, 'level'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_call_home_cfg', 'DataPrivacyLevel', '')])),
                 ])
                 self.host_name = None
                 self.level = None
                 self._segment_path = lambda: "data-privacy" + "[host-name='" + str(self.host_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/data-privacies/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.DataPrivacies.DataPrivacy, ['host_name', 'level'], name, value)
@@ -1828,7 +1805,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.AlertGroupConfig, self).__init__()
@@ -1846,6 +1823,7 @@ class CallHome(Entity):
             self._children_name_map["snapshot_commands"] = "snapshot-commands"
             self._segment_path = lambda: "alert-group-config"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.AlertGroupConfig, [], name, value)
@@ -1865,7 +1843,7 @@ class CallHome(Entity):
             """
 
             _prefix = 'call-home-cfg'
-            _revision = '2017-03-13'
+            _revision = '2018-06-21'
 
             def __init__(self):
                 super(CallHome.AlertGroupConfig.SnapshotCommands, self).__init__()
@@ -1881,6 +1859,7 @@ class CallHome(Entity):
                 self.snapshot_command = YList(self)
                 self._segment_path = lambda: "snapshot-commands"
                 self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/alert-group-config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CallHome.AlertGroupConfig.SnapshotCommands, [], name, value)
@@ -1907,7 +1886,7 @@ class CallHome(Entity):
                 """
 
                 _prefix = 'call-home-cfg'
-                _revision = '2017-03-13'
+                _revision = '2018-06-21'
 
                 def __init__(self):
                     super(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, self).__init__()
@@ -1919,13 +1898,14 @@ class CallHome(Entity):
                     self.ylist_key_names = ['command']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('command', YLeaf(YType.str, 'command')),
-                        ('active', YLeaf(YType.empty, 'active')),
+                        ('command', (YLeaf(YType.str, 'command'), ['str'])),
+                        ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
                     ])
                     self.command = None
                     self.active = None
                     self._segment_path = lambda: "snapshot-command" + "[command='" + str(self.command) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/alert-group-config/snapshot-commands/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CallHome.AlertGroupConfig.SnapshotCommands.SnapshotCommand, ['command', 'active'], name, value)
@@ -1953,7 +1933,7 @@ class CallHome(Entity):
         """
 
         _prefix = 'call-home-cfg'
-        _revision = '2017-03-13'
+        _revision = '2018-06-21'
 
         def __init__(self):
             super(CallHome.Authorization, self).__init__()
@@ -1965,13 +1945,14 @@ class CallHome(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('username', YLeaf(YType.str, 'username')),
-                ('active', YLeaf(YType.empty, 'active')),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
             ])
             self.username = None
             self.active = None
             self._segment_path = lambda: "authorization"
             self._absolute_path = lambda: "Cisco-IOS-XR-call-home-cfg:call-home/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CallHome.Authorization, ['username', 'active'], name, value)

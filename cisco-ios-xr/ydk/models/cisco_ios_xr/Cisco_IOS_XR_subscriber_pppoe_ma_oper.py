@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pppoe\: PPPoE operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PppoeMaLimitState(Enum):
@@ -71,6 +72,198 @@ class PppoeMaSessionIdbSrgState(Enum):
     active = Enum.YLeaf(1, "active")
 
     standby = Enum.YLeaf(2, "standby")
+
+
+class PppoeMaSessionState(Enum):
+    """
+    PppoeMaSessionState (Enum Class)
+
+    Pppoe ma session state
+
+    .. data:: destroying = 0
+
+    	Destroying session
+
+    .. data:: deleting = 1
+
+    	Deleting interface
+
+    .. data:: initializing = 2
+
+    	Initializing
+
+    .. data:: created = 3
+
+    	Interface created
+
+    .. data:: stopping = 4
+
+    	Stopping AAA session
+
+    .. data:: started = 5
+
+    	AAA session started
+
+    .. data:: activated = 6
+
+    	SubDB Config activated
+
+    .. data:: complete = 7
+
+    	Complete
+
+    """
+
+    destroying = Enum.YLeaf(0, "destroying")
+
+    deleting = Enum.YLeaf(1, "deleting")
+
+    initializing = Enum.YLeaf(2, "initializing")
+
+    created = Enum.YLeaf(3, "created")
+
+    stopping = Enum.YLeaf(4, "stopping")
+
+    started = Enum.YLeaf(5, "started")
+
+    activated = Enum.YLeaf(6, "activated")
+
+    complete = Enum.YLeaf(7, "complete")
+
+
+class PppoeMaSessionTrig(Enum):
+    """
+    PppoeMaSessionTrig (Enum Class)
+
+    Pppoe ma session trig
+
+    .. data:: pppoe_ma_session_trig_error = 0
+
+    	pppoe ma session trig error
+
+    .. data:: pppoe_ma_session_trig_publish_encaps_attr_fail = 1
+
+    	pppoe ma session trig publish encaps attr fail
+
+    .. data:: pppoe_ma_session_trig_if_create_fail = 2
+
+    	pppoe ma session trig if create fail
+
+    .. data:: pppoe_ma_session_trig_iedge_session_start_fail = 3
+
+    	pppoe ma session trig iedge session start fail
+
+    .. data:: pppoe_ma_session_trig_iedge_session_update_fail = 4
+
+    	pppoe ma session trig iedge session update fail
+
+    .. data:: pppoe_ma_session_trig_sub_db_activate_fail = 5
+
+    	pppoe ma session trig sub db activate fail
+
+    .. data:: pppoe_ma_session_trig_in_flight_timeout = 6
+
+    	pppoe ma session trig in flight timeout
+
+    .. data:: pppoe_ma_session_trig_down = 7
+
+    	pppoe ma session trig down
+
+    .. data:: pppoe_ma_session_trig_parent = 8
+
+    	pppoe ma session trig parent
+
+    .. data:: pppoe_ma_session_trig_padt = 9
+
+    	pppoe ma session trig padt
+
+    .. data:: pppoe_ma_session_trig_session_pak = 10
+
+    	pppoe ma session trig session pak
+
+    .. data:: pppoe_ma_session_trig_final = 11
+
+    	pppoe ma session trig final
+
+    .. data:: pppoe_ma_session_trig_no_im_or = 12
+
+    	pppoe ma session trig no im or
+
+    .. data:: pppoe_ma_session_trig_restart = 13
+
+    	pppoe ma session trig restart
+
+    .. data:: pppoe_ma_session_trig_admissions_config_change = 14
+
+    	pppoe ma session trig admissions config change
+
+    .. data:: pppoe_ma_session_trig_iedge_disconnect = 15
+
+    	pppoe ma session trig iedge disconnect
+
+    .. data:: pppoe_ma_session_trig_invalid_vlan_tags = 16
+
+    	pppoe ma session trig invalid vlan tags
+
+    .. data:: pppoe_ma_session_trig_port_limit_disconnect = 17
+
+    	pppoe ma session trig port limit disconnect
+
+    .. data:: pppoe_ma_session_trig_srg_disconnect = 18
+
+    	pppoe ma session trig srg disconnect
+
+    .. data:: pppoe_ma_session_trig_srg_sweep = 19
+
+    	pppoe ma session trig srg sweep
+
+    .. data:: pppoe_ma_session_trig_count = 20
+
+    	pppoe ma session trig count
+
+    """
+
+    pppoe_ma_session_trig_error = Enum.YLeaf(0, "pppoe-ma-session-trig-error")
+
+    pppoe_ma_session_trig_publish_encaps_attr_fail = Enum.YLeaf(1, "pppoe-ma-session-trig-publish-encaps-attr-fail")
+
+    pppoe_ma_session_trig_if_create_fail = Enum.YLeaf(2, "pppoe-ma-session-trig-if-create-fail")
+
+    pppoe_ma_session_trig_iedge_session_start_fail = Enum.YLeaf(3, "pppoe-ma-session-trig-iedge-session-start-fail")
+
+    pppoe_ma_session_trig_iedge_session_update_fail = Enum.YLeaf(4, "pppoe-ma-session-trig-iedge-session-update-fail")
+
+    pppoe_ma_session_trig_sub_db_activate_fail = Enum.YLeaf(5, "pppoe-ma-session-trig-sub-db-activate-fail")
+
+    pppoe_ma_session_trig_in_flight_timeout = Enum.YLeaf(6, "pppoe-ma-session-trig-in-flight-timeout")
+
+    pppoe_ma_session_trig_down = Enum.YLeaf(7, "pppoe-ma-session-trig-down")
+
+    pppoe_ma_session_trig_parent = Enum.YLeaf(8, "pppoe-ma-session-trig-parent")
+
+    pppoe_ma_session_trig_padt = Enum.YLeaf(9, "pppoe-ma-session-trig-padt")
+
+    pppoe_ma_session_trig_session_pak = Enum.YLeaf(10, "pppoe-ma-session-trig-session-pak")
+
+    pppoe_ma_session_trig_final = Enum.YLeaf(11, "pppoe-ma-session-trig-final")
+
+    pppoe_ma_session_trig_no_im_or = Enum.YLeaf(12, "pppoe-ma-session-trig-no-im-or")
+
+    pppoe_ma_session_trig_restart = Enum.YLeaf(13, "pppoe-ma-session-trig-restart")
+
+    pppoe_ma_session_trig_admissions_config_change = Enum.YLeaf(14, "pppoe-ma-session-trig-admissions-config-change")
+
+    pppoe_ma_session_trig_iedge_disconnect = Enum.YLeaf(15, "pppoe-ma-session-trig-iedge-disconnect")
+
+    pppoe_ma_session_trig_invalid_vlan_tags = Enum.YLeaf(16, "pppoe-ma-session-trig-invalid-vlan-tags")
+
+    pppoe_ma_session_trig_port_limit_disconnect = Enum.YLeaf(17, "pppoe-ma-session-trig-port-limit-disconnect")
+
+    pppoe_ma_session_trig_srg_disconnect = Enum.YLeaf(18, "pppoe-ma-session-trig-srg-disconnect")
+
+    pppoe_ma_session_trig_srg_sweep = Enum.YLeaf(19, "pppoe-ma-session-trig-srg-sweep")
+
+    pppoe_ma_session_trig_count = Enum.YLeaf(20, "pppoe-ma-session-trig-count")
 
 
 class PppoeMaThrottleState(Enum):
@@ -142,6 +335,7 @@ class Pppoe(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pppoe, [], name, value)
@@ -177,6 +371,7 @@ class Pppoe(Entity):
             self.access_interface_statistic = YList(self)
             self._segment_path = lambda: "access-interface-statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pppoe.AccessInterfaceStatistics, [], name, value)
@@ -192,7 +387,7 @@ class Pppoe(Entity):
             	PPPoE Access Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: packet_counts
             
@@ -216,7 +411,7 @@ class Pppoe(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("packet-counts", ("packet_counts", Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -225,6 +420,7 @@ class Pppoe(Entity):
                 self._children_name_map["packet_counts"] = "packet-counts"
                 self._segment_path = lambda: "access-interface-statistic" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/access-interface-statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic, ['interface_name'], name, value)
@@ -324,6 +520,7 @@ class Pppoe(Entity):
                     self.other.parent = self
                     self._children_name_map["other"] = "other"
                     self._segment_path = lambda: "packet-counts"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts, [], name, value)
@@ -371,17 +568,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "padi"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padi, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class Pado(Entity):
@@ -426,17 +624,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "pado"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Pado, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class Padr(Entity):
@@ -481,17 +680,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "padr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padr, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class PadsSuccess(Entity):
@@ -536,17 +736,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "pads-success"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsSuccess, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class PadsError(Entity):
@@ -591,17 +792,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "pads-error"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.PadsError, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class Padt(Entity):
@@ -646,17 +848,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "padt"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Padt, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class SessionState(Entity):
@@ -701,17 +904,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "session-state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.SessionState, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class Other(Entity):
@@ -756,17 +960,18 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sent', YLeaf(YType.uint32, 'sent')),
-                            ('received', YLeaf(YType.uint32, 'received')),
-                            ('dropped', YLeaf(YType.uint32, 'dropped')),
+                            ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                            ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                         ])
                         self.sent = None
                         self.received = None
                         self.dropped = None
                         self._segment_path = lambda: "other"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
+                        self._perform_setattr(Pppoe.AccessInterfaceStatistics.AccessInterfaceStatistic.PacketCounts.Other, [u'sent', u'received', u'dropped'], name, value)
 
 
     class Nodes(Entity):
@@ -799,6 +1004,7 @@ class Pppoe(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pppoe.Nodes, [], name, value)
@@ -814,6 +1020,16 @@ class Pppoe(Entity):
             	**type**\: str
             
             	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
+            
+            .. attribute:: disconnect_history
+            
+            	PPPoE disconnect history for a given node
+            	**type**\:  :py:class:`DisconnectHistory <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory>`
+            
+            .. attribute:: disconnect_history_unique
+            
+            	PPPoE unique disconnect history for a given node
+            	**type**\:  :py:class:`DisconnectHistoryUnique <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique>`
             
             .. attribute:: statistics
             
@@ -855,11 +1071,19 @@ class Pppoe(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("statistics", ("statistics", Pppoe.Nodes.Node.Statistics)), ("access-interface", ("access_interface", Pppoe.Nodes.Node.AccessInterface)), ("interfaces", ("interfaces", Pppoe.Nodes.Node.Interfaces)), ("bba-groups", ("bba_groups", Pppoe.Nodes.Node.BbaGroups)), ("summary-total", ("summary_total", Pppoe.Nodes.Node.SummaryTotal))])
+                self._child_classes = OrderedDict([("disconnect-history", ("disconnect_history", Pppoe.Nodes.Node.DisconnectHistory)), ("disconnect-history-unique", ("disconnect_history_unique", Pppoe.Nodes.Node.DisconnectHistoryUnique)), ("statistics", ("statistics", Pppoe.Nodes.Node.Statistics)), ("access-interface", ("access_interface", Pppoe.Nodes.Node.AccessInterface)), ("interfaces", ("interfaces", Pppoe.Nodes.Node.Interfaces)), ("bba-groups", ("bba_groups", Pppoe.Nodes.Node.BbaGroups)), ("summary-total", ("summary_total", Pppoe.Nodes.Node.SummaryTotal))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
+
+                self.disconnect_history = Pppoe.Nodes.Node.DisconnectHistory()
+                self.disconnect_history.parent = self
+                self._children_name_map["disconnect_history"] = "disconnect-history"
+
+                self.disconnect_history_unique = Pppoe.Nodes.Node.DisconnectHistoryUnique()
+                self.disconnect_history_unique.parent = self
+                self._children_name_map["disconnect_history_unique"] = "disconnect-history-unique"
 
                 self.statistics = Pppoe.Nodes.Node.Statistics()
                 self.statistics.parent = self
@@ -882,9 +1106,2239 @@ class Pppoe(Entity):
                 self._children_name_map["summary_total"] = "summary-total"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-oper:pppoe/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pppoe.Nodes.Node, ['node_name'], name, value)
+
+
+            class DisconnectHistory(Entity):
+                """
+                PPPoE disconnect history for a given node
+                
+                .. attribute:: current_idx
+                
+                	Current index of history
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: entry
+                
+                	Array of disconnected subscribers
+                	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-pppoe-ma-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Pppoe.Nodes.Node.DisconnectHistory, self).__init__()
+
+                    self.yang_name = "disconnect-history"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("entry", ("entry", Pppoe.Nodes.Node.DisconnectHistory.Entry))])
+                    self._leafs = OrderedDict([
+                        ('current_idx', (YLeaf(YType.uint32, 'current-idx'), ['int'])),
+                    ])
+                    self.current_idx = None
+
+                    self.entry = YList(self)
+                    self._segment_path = lambda: "disconnect-history"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory, [u'current_idx'], name, value)
+
+
+                class Entry(Entity):
+                    """
+                    Array of disconnected subscribers
+                    
+                    .. attribute:: session_idb
+                    
+                    	Session IDB
+                    	**type**\:  :py:class:`SessionIdb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb>`
+                    
+                    .. attribute:: timestamp
+                    
+                    	Time when disconnected
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ifname
+                    
+                    	Interface name
+                    	**type**\: str
+                    
+                    .. attribute:: trigger
+                    
+                    	Disconnect Trigger
+                    	**type**\:  :py:class:`PppoeMaSessionTrig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionTrig>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-pppoe-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Pppoe.Nodes.Node.DisconnectHistory.Entry, self).__init__()
+
+                        self.yang_name = "entry"
+                        self.yang_parent_name = "disconnect-history"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("session-idb", ("session_idb", Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb))])
+                        self._leafs = OrderedDict([
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                            ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                            ('trigger', (YLeaf(YType.enumeration, 'trigger'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionTrig', '')])),
+                        ])
+                        self.timestamp = None
+                        self.ifname = None
+                        self.trigger = None
+
+                        self.session_idb = Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb()
+                        self.session_idb.parent = self
+                        self._children_name_map["session_idb"] = "session-idb"
+                        self._segment_path = lambda: "entry"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry, [u'timestamp', u'ifname', u'trigger'], name, value)
+
+
+                    class SessionIdb(Entity):
+                        """
+                        Session IDB
+                        
+                        .. attribute:: tags
+                        
+                        	Tags
+                        	**type**\:  :py:class:`Tags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags>`
+                        
+                        .. attribute:: vlan_outer_tag
+                        
+                        	VLAN Outer Tag
+                        	**type**\:  :py:class:`VlanOuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag>`
+                        
+                        .. attribute:: vlan_inner_tag
+                        
+                        	VLAN Inner Tag
+                        	**type**\:  :py:class:`VlanInnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag>`
+                        
+                        .. attribute:: interface
+                        
+                        	Interface
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        .. attribute:: access_interface
+                        
+                        	Access Interface
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: sub_label
+                        
+                        	Sub Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: peer_mac_address
+                        
+                        	Peer Mac\-Address
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: state
+                        
+                        	State
+                        	**type**\:  :py:class:`PppoeMaSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionState>`
+                        
+                        .. attribute:: cdm_object_handle
+                        
+                        	CDM Object Handle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: chkpt_id
+                        
+                        	Chkpt ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: punted_count
+                        
+                        	Punted Count
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: port_limit
+                        
+                        	Port Limit
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_counted
+                        
+                        	Is BBA Counted
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_vlan_outer_tag
+                        
+                        	Is VLAN Outer Tag
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_vlan_inner_tag
+                        
+                        	Is VLAN Inner Tag
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_cleanup_pending
+                        
+                        	Is Cleanup Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_disconnect_done_pending
+                        
+                        	Is Disconnect Done Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_delete_done_pending
+                        
+                        	Is Delete Done Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_create_callback_pending
+                        
+                        	Is Interface Create Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_publish_encaps_attr_pending
+                        
+                        	Is Publish Encaps Attr pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_publish_encaps_attr_cb_pending
+                        
+                        	Is Publish Encaps Attr Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_delete_callback_pending
+                        
+                        	Is Interface Delete Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_delete_pending
+                        
+                        	Is Interface Delete pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_owned_resource
+                        
+                        	Is IM Owned Resource
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_final_received
+                        
+                        	Is IM Final received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_owned_resource_missing
+                        
+                        	Is IM Owned Resource missing
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_start_request_callback_pending
+                        
+                        	Is AAA Start request callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_owned_resource
+                        
+                        	Is AAA Owned Resource
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_disconnect_requested
+                        
+                        	Is AAA Disconnect Requested
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_disconnect_received
+                        
+                        	Is AAA Disconnect Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_sub_db_activate_callback_pending
+                        
+                        	Is SubDB Activate callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_pads_sent
+                        
+                        	Is PADS Sent
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_padt_received
+                        
+                        	Is PADT Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_in_flight
+                        
+                        	Is Session In Flight
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_radius_override
+                        
+                        	Is RADIUS override enabled
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: expected_notifications
+                        
+                        	Expected Notifications
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: received_notifications
+                        
+                        	Received Notifications
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: srg_state
+                        
+                        	SRG state
+                        	**type**\:  :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
+                        
+                        .. attribute:: is_srg_data_received
+                        
+                        	Is SRG Data Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_iedge_data_received
+                        
+                        	Is IEDGE Data Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-pppoe-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, self).__init__()
+
+                            self.yang_name = "session-idb"
+                            self.yang_parent_name = "entry"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags)), ("vlan-outer-tag", ("vlan_outer_tag", Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag)), ("vlan-inner-tag", ("vlan_inner_tag", Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag))])
+                            self._leafs = OrderedDict([
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('access_interface', (YLeaf(YType.str, 'access-interface'), ['str'])),
+                                ('session_id', (YLeaf(YType.uint16, 'session-id'), ['int'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionState', '')])),
+                                ('cdm_object_handle', (YLeaf(YType.uint32, 'cdm-object-handle'), ['int'])),
+                                ('chkpt_id', (YLeaf(YType.uint32, 'chkpt-id'), ['int'])),
+                                ('punted_count', (YLeaf(YType.uint32, 'punted-count'), ['int'])),
+                                ('port_limit', (YLeaf(YType.uint32, 'port-limit'), ['int'])),
+                                ('is_counted', (YLeaf(YType.int32, 'is-counted'), ['int'])),
+                                ('is_vlan_outer_tag', (YLeaf(YType.int32, 'is-vlan-outer-tag'), ['int'])),
+                                ('is_vlan_inner_tag', (YLeaf(YType.int32, 'is-vlan-inner-tag'), ['int'])),
+                                ('is_cleanup_pending', (YLeaf(YType.int32, 'is-cleanup-pending'), ['int'])),
+                                ('is_disconnect_done_pending', (YLeaf(YType.int32, 'is-disconnect-done-pending'), ['int'])),
+                                ('is_delete_done_pending', (YLeaf(YType.int32, 'is-delete-done-pending'), ['int'])),
+                                ('is_intf_create_callback_pending', (YLeaf(YType.int32, 'is-intf-create-callback-pending'), ['int'])),
+                                ('is_publish_encaps_attr_pending', (YLeaf(YType.int32, 'is-publish-encaps-attr-pending'), ['int'])),
+                                ('is_publish_encaps_attr_cb_pending', (YLeaf(YType.int32, 'is-publish-encaps-attr-cb-pending'), ['int'])),
+                                ('is_intf_delete_callback_pending', (YLeaf(YType.int32, 'is-intf-delete-callback-pending'), ['int'])),
+                                ('is_intf_delete_pending', (YLeaf(YType.int32, 'is-intf-delete-pending'), ['int'])),
+                                ('is_im_owned_resource', (YLeaf(YType.int32, 'is-im-owned-resource'), ['int'])),
+                                ('is_im_final_received', (YLeaf(YType.int32, 'is-im-final-received'), ['int'])),
+                                ('is_im_owned_resource_missing', (YLeaf(YType.int32, 'is-im-owned-resource-missing'), ['int'])),
+                                ('is_aaa_start_request_callback_pending', (YLeaf(YType.int32, 'is-aaa-start-request-callback-pending'), ['int'])),
+                                ('is_aaa_owned_resource', (YLeaf(YType.int32, 'is-aaa-owned-resource'), ['int'])),
+                                ('is_aaa_disconnect_requested', (YLeaf(YType.int32, 'is-aaa-disconnect-requested'), ['int'])),
+                                ('is_aaa_disconnect_received', (YLeaf(YType.int32, 'is-aaa-disconnect-received'), ['int'])),
+                                ('is_sub_db_activate_callback_pending', (YLeaf(YType.int32, 'is-sub-db-activate-callback-pending'), ['int'])),
+                                ('is_pads_sent', (YLeaf(YType.int32, 'is-pads-sent'), ['int'])),
+                                ('is_padt_received', (YLeaf(YType.int32, 'is-padt-received'), ['int'])),
+                                ('is_in_flight', (YLeaf(YType.int32, 'is-in-flight'), ['int'])),
+                                ('is_radius_override', (YLeaf(YType.int32, 'is-radius-override'), ['int'])),
+                                ('expected_notifications', (YLeaf(YType.uint8, 'expected-notifications'), ['int'])),
+                                ('received_notifications', (YLeaf(YType.uint8, 'received-notifications'), ['int'])),
+                                ('srg_state', (YLeaf(YType.enumeration, 'srg-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionIdbSrgState', '')])),
+                                ('is_srg_data_received', (YLeaf(YType.int32, 'is-srg-data-received'), ['int'])),
+                                ('is_iedge_data_received', (YLeaf(YType.int32, 'is-iedge-data-received'), ['int'])),
+                            ])
+                            self.interface = None
+                            self.access_interface = None
+                            self.session_id = None
+                            self.sub_label = None
+                            self.peer_mac_address = None
+                            self.state = None
+                            self.cdm_object_handle = None
+                            self.chkpt_id = None
+                            self.punted_count = None
+                            self.port_limit = None
+                            self.is_counted = None
+                            self.is_vlan_outer_tag = None
+                            self.is_vlan_inner_tag = None
+                            self.is_cleanup_pending = None
+                            self.is_disconnect_done_pending = None
+                            self.is_delete_done_pending = None
+                            self.is_intf_create_callback_pending = None
+                            self.is_publish_encaps_attr_pending = None
+                            self.is_publish_encaps_attr_cb_pending = None
+                            self.is_intf_delete_callback_pending = None
+                            self.is_intf_delete_pending = None
+                            self.is_im_owned_resource = None
+                            self.is_im_final_received = None
+                            self.is_im_owned_resource_missing = None
+                            self.is_aaa_start_request_callback_pending = None
+                            self.is_aaa_owned_resource = None
+                            self.is_aaa_disconnect_requested = None
+                            self.is_aaa_disconnect_received = None
+                            self.is_sub_db_activate_callback_pending = None
+                            self.is_pads_sent = None
+                            self.is_padt_received = None
+                            self.is_in_flight = None
+                            self.is_radius_override = None
+                            self.expected_notifications = None
+                            self.received_notifications = None
+                            self.srg_state = None
+                            self.is_srg_data_received = None
+                            self.is_iedge_data_received = None
+
+                            self.tags = Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags()
+                            self.tags.parent = self
+                            self._children_name_map["tags"] = "tags"
+
+                            self.vlan_outer_tag = Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag()
+                            self.vlan_outer_tag.parent = self
+                            self._children_name_map["vlan_outer_tag"] = "vlan-outer-tag"
+
+                            self.vlan_inner_tag = Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag()
+                            self.vlan_inner_tag.parent = self
+                            self._children_name_map["vlan_inner_tag"] = "vlan-inner-tag"
+                            self._segment_path = lambda: "session-idb"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb, [u'interface', u'access_interface', u'session_id', u'sub_label', u'peer_mac_address', u'state', u'cdm_object_handle', u'chkpt_id', u'punted_count', u'port_limit', u'is_counted', u'is_vlan_outer_tag', u'is_vlan_inner_tag', u'is_cleanup_pending', u'is_disconnect_done_pending', u'is_delete_done_pending', u'is_intf_create_callback_pending', u'is_publish_encaps_attr_pending', u'is_publish_encaps_attr_cb_pending', u'is_intf_delete_callback_pending', u'is_intf_delete_pending', u'is_im_owned_resource', u'is_im_final_received', u'is_im_owned_resource_missing', u'is_aaa_start_request_callback_pending', u'is_aaa_owned_resource', u'is_aaa_disconnect_requested', u'is_aaa_disconnect_received', u'is_sub_db_activate_callback_pending', u'is_pads_sent', u'is_padt_received', u'is_in_flight', u'is_radius_override', u'expected_notifications', u'received_notifications', u'srg_state', u'is_srg_data_received', u'is_iedge_data_received'], name, value)
+
+
+                        class Tags(Entity):
+                            """
+                            Tags
+                            
+                            .. attribute:: access_loop_encapsulation
+                            
+                            	Access Loop Encapsulation
+                            	**type**\:  :py:class:`AccessLoopEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation>`
+                            
+                            .. attribute:: is_service_name
+                            
+                            	Is Service Name
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_max_payload
+                            
+                            	Is Max Payload
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_host_uniq
+                            
+                            	Is Host Uniq
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_relay_session_id
+                            
+                            	Is Relay Session ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_vendor_specific
+                            
+                            	Is Vendor Specific
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_iwf
+                            
+                            	Is IWF
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_remote_id
+                            
+                            	Is Remote ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_circuit_id
+                            
+                            	Is Circuit ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_tag
+                            
+                            	Is DSL Tag
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: service_name
+                            
+                            	Service Name
+                            	**type**\: str
+                            
+                            .. attribute:: max_payload
+                            
+                            	Max Payload
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: host_uniq
+                            
+                            	Host Uniq
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: relay_session_id
+                            
+                            	Relay Session ID
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: remote_id
+                            
+                            	Remote ID
+                            	**type**\: str
+                            
+                            .. attribute:: circuit_id
+                            
+                            	Circuit ID
+                            	**type**\: str
+                            
+                            .. attribute:: is_dsl_actual_up
+                            
+                            	Is DSL Actual Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_down
+                            
+                            	Is DSL Actual Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_up
+                            
+                            	Is DSL Min Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_down
+                            
+                            	Is DSL Min Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_attain_up
+                            
+                            	Is DSL Attain Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_attain_down
+                            
+                            	Is DSL Attain Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_up
+                            
+                            	Is DSL Max Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_down
+                            
+                            	Is DSL Max Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_up_low
+                            
+                            	Is DSL Min Up Low
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_down_low
+                            
+                            	Is DSL Min Down Low
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_delay_up
+                            
+                            	Is DSL Max Delay Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_delay_up
+                            
+                            	Is DSL Actual Delay Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_delay_down
+                            
+                            	Is DSL Max Delay Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_delay_down
+                            
+                            	Is DSL Actual Delay Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_access_loop_encapsulation
+                            
+                            	Is Access Loop Encapsulation
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: dsl_actual_up
+                            
+                            	DSL Actual Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_down
+                            
+                            	DSL Actual Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_up
+                            
+                            	DSL Min Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_down
+                            
+                            	DSL Min Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_attain_up
+                            
+                            	DSL Attain Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_attain_down
+                            
+                            	DSL Attain Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_up
+                            
+                            	DSL Max Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_down
+                            
+                            	DSL Max Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_up_low
+                            
+                            	DSL Min Up Low
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_down_low
+                            
+                            	DSL Min Down Low
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_delay_up
+                            
+                            	DSL Max Delay Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_delay_up
+                            
+                            	DSL Actual Delay Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_delay_down
+                            
+                            	DSL Max Delay Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_delay_down
+                            
+                            	DSL Actual Delay Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, self).__init__()
+
+                                self.yang_name = "tags"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation))])
+                                self._leafs = OrderedDict([
+                                    ('is_service_name', (YLeaf(YType.int32, 'is-service-name'), ['int'])),
+                                    ('is_max_payload', (YLeaf(YType.int32, 'is-max-payload'), ['int'])),
+                                    ('is_host_uniq', (YLeaf(YType.int32, 'is-host-uniq'), ['int'])),
+                                    ('is_relay_session_id', (YLeaf(YType.int32, 'is-relay-session-id'), ['int'])),
+                                    ('is_vendor_specific', (YLeaf(YType.int32, 'is-vendor-specific'), ['int'])),
+                                    ('is_iwf', (YLeaf(YType.int32, 'is-iwf'), ['int'])),
+                                    ('is_remote_id', (YLeaf(YType.int32, 'is-remote-id'), ['int'])),
+                                    ('is_circuit_id', (YLeaf(YType.int32, 'is-circuit-id'), ['int'])),
+                                    ('is_dsl_tag', (YLeaf(YType.int32, 'is-dsl-tag'), ['int'])),
+                                    ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                                    ('max_payload', (YLeaf(YType.uint32, 'max-payload'), ['int'])),
+                                    ('host_uniq', (YLeaf(YType.str, 'host-uniq'), ['str'])),
+                                    ('relay_session_id', (YLeaf(YType.str, 'relay-session-id'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                    ('is_dsl_actual_up', (YLeaf(YType.int32, 'is-dsl-actual-up'), ['int'])),
+                                    ('is_dsl_actual_down', (YLeaf(YType.int32, 'is-dsl-actual-down'), ['int'])),
+                                    ('is_dsl_min_up', (YLeaf(YType.int32, 'is-dsl-min-up'), ['int'])),
+                                    ('is_dsl_min_down', (YLeaf(YType.int32, 'is-dsl-min-down'), ['int'])),
+                                    ('is_dsl_attain_up', (YLeaf(YType.int32, 'is-dsl-attain-up'), ['int'])),
+                                    ('is_dsl_attain_down', (YLeaf(YType.int32, 'is-dsl-attain-down'), ['int'])),
+                                    ('is_dsl_max_up', (YLeaf(YType.int32, 'is-dsl-max-up'), ['int'])),
+                                    ('is_dsl_max_down', (YLeaf(YType.int32, 'is-dsl-max-down'), ['int'])),
+                                    ('is_dsl_min_up_low', (YLeaf(YType.int32, 'is-dsl-min-up-low'), ['int'])),
+                                    ('is_dsl_min_down_low', (YLeaf(YType.int32, 'is-dsl-min-down-low'), ['int'])),
+                                    ('is_dsl_max_delay_up', (YLeaf(YType.int32, 'is-dsl-max-delay-up'), ['int'])),
+                                    ('is_dsl_actual_delay_up', (YLeaf(YType.int32, 'is-dsl-actual-delay-up'), ['int'])),
+                                    ('is_dsl_max_delay_down', (YLeaf(YType.int32, 'is-dsl-max-delay-down'), ['int'])),
+                                    ('is_dsl_actual_delay_down', (YLeaf(YType.int32, 'is-dsl-actual-delay-down'), ['int'])),
+                                    ('is_access_loop_encapsulation', (YLeaf(YType.int32, 'is-access-loop-encapsulation'), ['int'])),
+                                    ('dsl_actual_up', (YLeaf(YType.uint32, 'dsl-actual-up'), ['int'])),
+                                    ('dsl_actual_down', (YLeaf(YType.uint32, 'dsl-actual-down'), ['int'])),
+                                    ('dsl_min_up', (YLeaf(YType.uint32, 'dsl-min-up'), ['int'])),
+                                    ('dsl_min_down', (YLeaf(YType.uint32, 'dsl-min-down'), ['int'])),
+                                    ('dsl_attain_up', (YLeaf(YType.uint32, 'dsl-attain-up'), ['int'])),
+                                    ('dsl_attain_down', (YLeaf(YType.uint32, 'dsl-attain-down'), ['int'])),
+                                    ('dsl_max_up', (YLeaf(YType.uint32, 'dsl-max-up'), ['int'])),
+                                    ('dsl_max_down', (YLeaf(YType.uint32, 'dsl-max-down'), ['int'])),
+                                    ('dsl_min_up_low', (YLeaf(YType.uint32, 'dsl-min-up-low'), ['int'])),
+                                    ('dsl_min_down_low', (YLeaf(YType.uint32, 'dsl-min-down-low'), ['int'])),
+                                    ('dsl_max_delay_up', (YLeaf(YType.uint32, 'dsl-max-delay-up'), ['int'])),
+                                    ('dsl_actual_delay_up', (YLeaf(YType.uint32, 'dsl-actual-delay-up'), ['int'])),
+                                    ('dsl_max_delay_down', (YLeaf(YType.uint32, 'dsl-max-delay-down'), ['int'])),
+                                    ('dsl_actual_delay_down', (YLeaf(YType.uint32, 'dsl-actual-delay-down'), ['int'])),
+                                ])
+                                self.is_service_name = None
+                                self.is_max_payload = None
+                                self.is_host_uniq = None
+                                self.is_relay_session_id = None
+                                self.is_vendor_specific = None
+                                self.is_iwf = None
+                                self.is_remote_id = None
+                                self.is_circuit_id = None
+                                self.is_dsl_tag = None
+                                self.service_name = None
+                                self.max_payload = None
+                                self.host_uniq = None
+                                self.relay_session_id = None
+                                self.remote_id = None
+                                self.circuit_id = None
+                                self.is_dsl_actual_up = None
+                                self.is_dsl_actual_down = None
+                                self.is_dsl_min_up = None
+                                self.is_dsl_min_down = None
+                                self.is_dsl_attain_up = None
+                                self.is_dsl_attain_down = None
+                                self.is_dsl_max_up = None
+                                self.is_dsl_max_down = None
+                                self.is_dsl_min_up_low = None
+                                self.is_dsl_min_down_low = None
+                                self.is_dsl_max_delay_up = None
+                                self.is_dsl_actual_delay_up = None
+                                self.is_dsl_max_delay_down = None
+                                self.is_dsl_actual_delay_down = None
+                                self.is_access_loop_encapsulation = None
+                                self.dsl_actual_up = None
+                                self.dsl_actual_down = None
+                                self.dsl_min_up = None
+                                self.dsl_min_down = None
+                                self.dsl_attain_up = None
+                                self.dsl_attain_down = None
+                                self.dsl_max_up = None
+                                self.dsl_max_down = None
+                                self.dsl_min_up_low = None
+                                self.dsl_min_down_low = None
+                                self.dsl_max_delay_up = None
+                                self.dsl_actual_delay_up = None
+                                self.dsl_max_delay_down = None
+                                self.dsl_actual_delay_down = None
+
+                                self.access_loop_encapsulation = Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation()
+                                self.access_loop_encapsulation.parent = self
+                                self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
+                                self._segment_path = lambda: "tags"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags, [u'is_service_name', u'is_max_payload', u'is_host_uniq', u'is_relay_session_id', u'is_vendor_specific', u'is_iwf', u'is_remote_id', u'is_circuit_id', u'is_dsl_tag', u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_dsl_actual_up', u'is_dsl_actual_down', u'is_dsl_min_up', u'is_dsl_min_down', u'is_dsl_attain_up', u'is_dsl_attain_down', u'is_dsl_max_up', u'is_dsl_max_down', u'is_dsl_min_up_low', u'is_dsl_min_down_low', u'is_dsl_max_delay_up', u'is_dsl_actual_delay_up', u'is_dsl_max_delay_down', u'is_dsl_actual_delay_down', u'is_access_loop_encapsulation', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
+
+
+                            class AccessLoopEncapsulation(Entity):
+                                """
+                                Access Loop Encapsulation
+                                
+                                .. attribute:: data_link
+                                
+                                	Data Link
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: encaps1
+                                
+                                	Encaps 1
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: encaps2
+                                
+                                	Encaps 2
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'subscriber-pppoe-ma-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
+
+                                    self.yang_name = "access-loop-encapsulation"
+                                    self.yang_parent_name = "tags"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('data_link', (YLeaf(YType.uint8, 'data-link'), ['int'])),
+                                        ('encaps1', (YLeaf(YType.uint8, 'encaps1'), ['int'])),
+                                        ('encaps2', (YLeaf(YType.uint8, 'encaps2'), ['int'])),
+                                    ])
+                                    self.data_link = None
+                                    self.encaps1 = None
+                                    self.encaps2 = None
+                                    self._segment_path = lambda: "access-loop-encapsulation"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
+
+
+                        class VlanOuterTag(Entity):
+                            """
+                            VLAN Outer Tag
+                            
+                            .. attribute:: ether_type
+                            
+                            	Ethertype. See IEEE 802.1Q for more information
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: user_priority
+                            
+                            	User Priority
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: cfi
+                            
+                            	CFI
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: vlan_id
+                            
+                            	VLAN ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, self).__init__()
+
+                                self.yang_name = "vlan-outer-tag"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', (YLeaf(YType.uint16, 'ether-type'), ['int'])),
+                                    ('user_priority', (YLeaf(YType.uint8, 'user-priority'), ['int'])),
+                                    ('cfi', (YLeaf(YType.uint8, 'cfi'), ['int'])),
+                                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                ])
+                                self.ether_type = None
+                                self.user_priority = None
+                                self.cfi = None
+                                self.vlan_id = None
+                                self._segment_path = lambda: "vlan-outer-tag"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanOuterTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+
+
+                        class VlanInnerTag(Entity):
+                            """
+                            VLAN Inner Tag
+                            
+                            .. attribute:: ether_type
+                            
+                            	Ethertype. See IEEE 802.1Q for more information
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: user_priority
+                            
+                            	User Priority
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: cfi
+                            
+                            	CFI
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: vlan_id
+                            
+                            	VLAN ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, self).__init__()
+
+                                self.yang_name = "vlan-inner-tag"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', (YLeaf(YType.uint16, 'ether-type'), ['int'])),
+                                    ('user_priority', (YLeaf(YType.uint8, 'user-priority'), ['int'])),
+                                    ('cfi', (YLeaf(YType.uint8, 'cfi'), ['int'])),
+                                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                ])
+                                self.ether_type = None
+                                self.user_priority = None
+                                self.cfi = None
+                                self.vlan_id = None
+                                self._segment_path = lambda: "vlan-inner-tag"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistory.Entry.SessionIdb.VlanInnerTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+
+
+            class DisconnectHistoryUnique(Entity):
+                """
+                PPPoE unique disconnect history for a given
+                node
+                
+                .. attribute:: disconnect_count
+                
+                	The total number of disconnects
+                	**type**\: list of int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: entry
+                
+                	Array of disconnected subscribers
+                	**type**\: list of  		 :py:class:`Entry <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry>`
+                
+                
+
+                """
+
+                _prefix = 'subscriber-pppoe-ma-oper'
+                _revision = '2015-11-09'
+
+                def __init__(self):
+                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique, self).__init__()
+
+                    self.yang_name = "disconnect-history-unique"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("entry", ("entry", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry))])
+                    self._leafs = OrderedDict([
+                        ('disconnect_count', (YLeafList(YType.uint32, 'disconnect-count'), ['int'])),
+                    ])
+                    self.disconnect_count = []
+
+                    self.entry = YList(self)
+                    self._segment_path = lambda: "disconnect-history-unique"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique, [u'disconnect_count'], name, value)
+
+
+                class Entry(Entity):
+                    """
+                    Array of disconnected subscribers
+                    
+                    .. attribute:: session_idb
+                    
+                    	Session IDB
+                    	**type**\:  :py:class:`SessionIdb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb>`
+                    
+                    .. attribute:: timestamp
+                    
+                    	Time when disconnected
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: ifname
+                    
+                    	Interface name
+                    	**type**\: str
+                    
+                    .. attribute:: trigger
+                    
+                    	Disconnect Trigger
+                    	**type**\:  :py:class:`PppoeMaSessionTrig <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionTrig>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'subscriber-pppoe-ma-oper'
+                    _revision = '2015-11-09'
+
+                    def __init__(self):
+                        super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, self).__init__()
+
+                        self.yang_name = "entry"
+                        self.yang_parent_name = "disconnect-history-unique"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("session-idb", ("session_idb", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb))])
+                        self._leafs = OrderedDict([
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                            ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                            ('trigger', (YLeaf(YType.enumeration, 'trigger'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionTrig', '')])),
+                        ])
+                        self.timestamp = None
+                        self.ifname = None
+                        self.trigger = None
+
+                        self.session_idb = Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb()
+                        self.session_idb.parent = self
+                        self._children_name_map["session_idb"] = "session-idb"
+                        self._segment_path = lambda: "entry"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry, [u'timestamp', u'ifname', u'trigger'], name, value)
+
+
+                    class SessionIdb(Entity):
+                        """
+                        Session IDB
+                        
+                        .. attribute:: tags
+                        
+                        	Tags
+                        	**type**\:  :py:class:`Tags <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags>`
+                        
+                        .. attribute:: vlan_outer_tag
+                        
+                        	VLAN Outer Tag
+                        	**type**\:  :py:class:`VlanOuterTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag>`
+                        
+                        .. attribute:: vlan_inner_tag
+                        
+                        	VLAN Inner Tag
+                        	**type**\:  :py:class:`VlanInnerTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag>`
+                        
+                        .. attribute:: interface
+                        
+                        	Interface
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        .. attribute:: access_interface
+                        
+                        	Access Interface
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        .. attribute:: session_id
+                        
+                        	Session ID
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        .. attribute:: sub_label
+                        
+                        	Sub Label
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: peer_mac_address
+                        
+                        	Peer Mac\-Address
+                        	**type**\: str
+                        
+                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                        
+                        .. attribute:: state
+                        
+                        	State
+                        	**type**\:  :py:class:`PppoeMaSessionState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionState>`
+                        
+                        .. attribute:: cdm_object_handle
+                        
+                        	CDM Object Handle
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: chkpt_id
+                        
+                        	Chkpt ID
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: punted_count
+                        
+                        	Punted Count
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: port_limit
+                        
+                        	Port Limit
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: is_counted
+                        
+                        	Is BBA Counted
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_vlan_outer_tag
+                        
+                        	Is VLAN Outer Tag
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_vlan_inner_tag
+                        
+                        	Is VLAN Inner Tag
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_cleanup_pending
+                        
+                        	Is Cleanup Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_disconnect_done_pending
+                        
+                        	Is Disconnect Done Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_delete_done_pending
+                        
+                        	Is Delete Done Pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_create_callback_pending
+                        
+                        	Is Interface Create Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_publish_encaps_attr_pending
+                        
+                        	Is Publish Encaps Attr pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_publish_encaps_attr_cb_pending
+                        
+                        	Is Publish Encaps Attr Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_delete_callback_pending
+                        
+                        	Is Interface Delete Callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_intf_delete_pending
+                        
+                        	Is Interface Delete pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_owned_resource
+                        
+                        	Is IM Owned Resource
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_final_received
+                        
+                        	Is IM Final received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_im_owned_resource_missing
+                        
+                        	Is IM Owned Resource missing
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_start_request_callback_pending
+                        
+                        	Is AAA Start request callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_owned_resource
+                        
+                        	Is AAA Owned Resource
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_disconnect_requested
+                        
+                        	Is AAA Disconnect Requested
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_aaa_disconnect_received
+                        
+                        	Is AAA Disconnect Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_sub_db_activate_callback_pending
+                        
+                        	Is SubDB Activate callback pending
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_pads_sent
+                        
+                        	Is PADS Sent
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_padt_received
+                        
+                        	Is PADT Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_in_flight
+                        
+                        	Is Session In Flight
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_radius_override
+                        
+                        	Is RADIUS override enabled
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: expected_notifications
+                        
+                        	Expected Notifications
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: received_notifications
+                        
+                        	Received Notifications
+                        	**type**\: int
+                        
+                        	**range:** 0..255
+                        
+                        .. attribute:: srg_state
+                        
+                        	SRG state
+                        	**type**\:  :py:class:`PppoeMaSessionIdbSrgState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.PppoeMaSessionIdbSrgState>`
+                        
+                        .. attribute:: is_srg_data_received
+                        
+                        	Is SRG Data Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        .. attribute:: is_iedge_data_received
+                        
+                        	Is IEDGE Data Received
+                        	**type**\: int
+                        
+                        	**range:** \-2147483648..2147483647
+                        
+                        
+
+                        """
+
+                        _prefix = 'subscriber-pppoe-ma-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, self).__init__()
+
+                            self.yang_name = "session-idb"
+                            self.yang_parent_name = "entry"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags)), ("vlan-outer-tag", ("vlan_outer_tag", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag)), ("vlan-inner-tag", ("vlan_inner_tag", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag))])
+                            self._leafs = OrderedDict([
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('access_interface', (YLeaf(YType.str, 'access-interface'), ['str'])),
+                                ('session_id', (YLeaf(YType.uint16, 'session-id'), ['int'])),
+                                ('sub_label', (YLeaf(YType.uint32, 'sub-label'), ['int'])),
+                                ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionState', '')])),
+                                ('cdm_object_handle', (YLeaf(YType.uint32, 'cdm-object-handle'), ['int'])),
+                                ('chkpt_id', (YLeaf(YType.uint32, 'chkpt-id'), ['int'])),
+                                ('punted_count', (YLeaf(YType.uint32, 'punted-count'), ['int'])),
+                                ('port_limit', (YLeaf(YType.uint32, 'port-limit'), ['int'])),
+                                ('is_counted', (YLeaf(YType.int32, 'is-counted'), ['int'])),
+                                ('is_vlan_outer_tag', (YLeaf(YType.int32, 'is-vlan-outer-tag'), ['int'])),
+                                ('is_vlan_inner_tag', (YLeaf(YType.int32, 'is-vlan-inner-tag'), ['int'])),
+                                ('is_cleanup_pending', (YLeaf(YType.int32, 'is-cleanup-pending'), ['int'])),
+                                ('is_disconnect_done_pending', (YLeaf(YType.int32, 'is-disconnect-done-pending'), ['int'])),
+                                ('is_delete_done_pending', (YLeaf(YType.int32, 'is-delete-done-pending'), ['int'])),
+                                ('is_intf_create_callback_pending', (YLeaf(YType.int32, 'is-intf-create-callback-pending'), ['int'])),
+                                ('is_publish_encaps_attr_pending', (YLeaf(YType.int32, 'is-publish-encaps-attr-pending'), ['int'])),
+                                ('is_publish_encaps_attr_cb_pending', (YLeaf(YType.int32, 'is-publish-encaps-attr-cb-pending'), ['int'])),
+                                ('is_intf_delete_callback_pending', (YLeaf(YType.int32, 'is-intf-delete-callback-pending'), ['int'])),
+                                ('is_intf_delete_pending', (YLeaf(YType.int32, 'is-intf-delete-pending'), ['int'])),
+                                ('is_im_owned_resource', (YLeaf(YType.int32, 'is-im-owned-resource'), ['int'])),
+                                ('is_im_final_received', (YLeaf(YType.int32, 'is-im-final-received'), ['int'])),
+                                ('is_im_owned_resource_missing', (YLeaf(YType.int32, 'is-im-owned-resource-missing'), ['int'])),
+                                ('is_aaa_start_request_callback_pending', (YLeaf(YType.int32, 'is-aaa-start-request-callback-pending'), ['int'])),
+                                ('is_aaa_owned_resource', (YLeaf(YType.int32, 'is-aaa-owned-resource'), ['int'])),
+                                ('is_aaa_disconnect_requested', (YLeaf(YType.int32, 'is-aaa-disconnect-requested'), ['int'])),
+                                ('is_aaa_disconnect_received', (YLeaf(YType.int32, 'is-aaa-disconnect-received'), ['int'])),
+                                ('is_sub_db_activate_callback_pending', (YLeaf(YType.int32, 'is-sub-db-activate-callback-pending'), ['int'])),
+                                ('is_pads_sent', (YLeaf(YType.int32, 'is-pads-sent'), ['int'])),
+                                ('is_padt_received', (YLeaf(YType.int32, 'is-padt-received'), ['int'])),
+                                ('is_in_flight', (YLeaf(YType.int32, 'is-in-flight'), ['int'])),
+                                ('is_radius_override', (YLeaf(YType.int32, 'is-radius-override'), ['int'])),
+                                ('expected_notifications', (YLeaf(YType.uint8, 'expected-notifications'), ['int'])),
+                                ('received_notifications', (YLeaf(YType.uint8, 'received-notifications'), ['int'])),
+                                ('srg_state', (YLeaf(YType.enumeration, 'srg-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionIdbSrgState', '')])),
+                                ('is_srg_data_received', (YLeaf(YType.int32, 'is-srg-data-received'), ['int'])),
+                                ('is_iedge_data_received', (YLeaf(YType.int32, 'is-iedge-data-received'), ['int'])),
+                            ])
+                            self.interface = None
+                            self.access_interface = None
+                            self.session_id = None
+                            self.sub_label = None
+                            self.peer_mac_address = None
+                            self.state = None
+                            self.cdm_object_handle = None
+                            self.chkpt_id = None
+                            self.punted_count = None
+                            self.port_limit = None
+                            self.is_counted = None
+                            self.is_vlan_outer_tag = None
+                            self.is_vlan_inner_tag = None
+                            self.is_cleanup_pending = None
+                            self.is_disconnect_done_pending = None
+                            self.is_delete_done_pending = None
+                            self.is_intf_create_callback_pending = None
+                            self.is_publish_encaps_attr_pending = None
+                            self.is_publish_encaps_attr_cb_pending = None
+                            self.is_intf_delete_callback_pending = None
+                            self.is_intf_delete_pending = None
+                            self.is_im_owned_resource = None
+                            self.is_im_final_received = None
+                            self.is_im_owned_resource_missing = None
+                            self.is_aaa_start_request_callback_pending = None
+                            self.is_aaa_owned_resource = None
+                            self.is_aaa_disconnect_requested = None
+                            self.is_aaa_disconnect_received = None
+                            self.is_sub_db_activate_callback_pending = None
+                            self.is_pads_sent = None
+                            self.is_padt_received = None
+                            self.is_in_flight = None
+                            self.is_radius_override = None
+                            self.expected_notifications = None
+                            self.received_notifications = None
+                            self.srg_state = None
+                            self.is_srg_data_received = None
+                            self.is_iedge_data_received = None
+
+                            self.tags = Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags()
+                            self.tags.parent = self
+                            self._children_name_map["tags"] = "tags"
+
+                            self.vlan_outer_tag = Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag()
+                            self.vlan_outer_tag.parent = self
+                            self._children_name_map["vlan_outer_tag"] = "vlan-outer-tag"
+
+                            self.vlan_inner_tag = Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag()
+                            self.vlan_inner_tag.parent = self
+                            self._children_name_map["vlan_inner_tag"] = "vlan-inner-tag"
+                            self._segment_path = lambda: "session-idb"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb, [u'interface', u'access_interface', u'session_id', u'sub_label', u'peer_mac_address', u'state', u'cdm_object_handle', u'chkpt_id', u'punted_count', u'port_limit', u'is_counted', u'is_vlan_outer_tag', u'is_vlan_inner_tag', u'is_cleanup_pending', u'is_disconnect_done_pending', u'is_delete_done_pending', u'is_intf_create_callback_pending', u'is_publish_encaps_attr_pending', u'is_publish_encaps_attr_cb_pending', u'is_intf_delete_callback_pending', u'is_intf_delete_pending', u'is_im_owned_resource', u'is_im_final_received', u'is_im_owned_resource_missing', u'is_aaa_start_request_callback_pending', u'is_aaa_owned_resource', u'is_aaa_disconnect_requested', u'is_aaa_disconnect_received', u'is_sub_db_activate_callback_pending', u'is_pads_sent', u'is_padt_received', u'is_in_flight', u'is_radius_override', u'expected_notifications', u'received_notifications', u'srg_state', u'is_srg_data_received', u'is_iedge_data_received'], name, value)
+
+
+                        class Tags(Entity):
+                            """
+                            Tags
+                            
+                            .. attribute:: access_loop_encapsulation
+                            
+                            	Access Loop Encapsulation
+                            	**type**\:  :py:class:`AccessLoopEncapsulation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper.Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation>`
+                            
+                            .. attribute:: is_service_name
+                            
+                            	Is Service Name
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_max_payload
+                            
+                            	Is Max Payload
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_host_uniq
+                            
+                            	Is Host Uniq
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_relay_session_id
+                            
+                            	Is Relay Session ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_vendor_specific
+                            
+                            	Is Vendor Specific
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_iwf
+                            
+                            	Is IWF
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_remote_id
+                            
+                            	Is Remote ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_circuit_id
+                            
+                            	Is Circuit ID
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_tag
+                            
+                            	Is DSL Tag
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: service_name
+                            
+                            	Service Name
+                            	**type**\: str
+                            
+                            .. attribute:: max_payload
+                            
+                            	Max Payload
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: host_uniq
+                            
+                            	Host Uniq
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: relay_session_id
+                            
+                            	Relay Session ID
+                            	**type**\: str
+                            
+                            	**pattern:** ([0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2})\*)?
+                            
+                            .. attribute:: remote_id
+                            
+                            	Remote ID
+                            	**type**\: str
+                            
+                            .. attribute:: circuit_id
+                            
+                            	Circuit ID
+                            	**type**\: str
+                            
+                            .. attribute:: is_dsl_actual_up
+                            
+                            	Is DSL Actual Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_down
+                            
+                            	Is DSL Actual Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_up
+                            
+                            	Is DSL Min Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_down
+                            
+                            	Is DSL Min Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_attain_up
+                            
+                            	Is DSL Attain Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_attain_down
+                            
+                            	Is DSL Attain Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_up
+                            
+                            	Is DSL Max Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_down
+                            
+                            	Is DSL Max Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_up_low
+                            
+                            	Is DSL Min Up Low
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_min_down_low
+                            
+                            	Is DSL Min Down Low
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_delay_up
+                            
+                            	Is DSL Max Delay Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_delay_up
+                            
+                            	Is DSL Actual Delay Up
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_max_delay_down
+                            
+                            	Is DSL Max Delay Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_dsl_actual_delay_down
+                            
+                            	Is DSL Actual Delay Down
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: is_access_loop_encapsulation
+                            
+                            	Is Access Loop Encapsulation
+                            	**type**\: int
+                            
+                            	**range:** \-2147483648..2147483647
+                            
+                            .. attribute:: dsl_actual_up
+                            
+                            	DSL Actual Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_down
+                            
+                            	DSL Actual Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_up
+                            
+                            	DSL Min Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_down
+                            
+                            	DSL Min Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_attain_up
+                            
+                            	DSL Attain Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_attain_down
+                            
+                            	DSL Attain Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_up
+                            
+                            	DSL Max Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_down
+                            
+                            	DSL Max Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_up_low
+                            
+                            	DSL Min Up Low
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_min_down_low
+                            
+                            	DSL Min Down Low
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_delay_up
+                            
+                            	DSL Max Delay Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_delay_up
+                            
+                            	DSL Actual Delay Up
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_max_delay_down
+                            
+                            	DSL Max Delay Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            .. attribute:: dsl_actual_delay_down
+                            
+                            	DSL Actual Delay Down
+                            	**type**\: int
+                            
+                            	**range:** 0..4294967295
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, self).__init__()
+
+                                self.yang_name = "tags"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation))])
+                                self._leafs = OrderedDict([
+                                    ('is_service_name', (YLeaf(YType.int32, 'is-service-name'), ['int'])),
+                                    ('is_max_payload', (YLeaf(YType.int32, 'is-max-payload'), ['int'])),
+                                    ('is_host_uniq', (YLeaf(YType.int32, 'is-host-uniq'), ['int'])),
+                                    ('is_relay_session_id', (YLeaf(YType.int32, 'is-relay-session-id'), ['int'])),
+                                    ('is_vendor_specific', (YLeaf(YType.int32, 'is-vendor-specific'), ['int'])),
+                                    ('is_iwf', (YLeaf(YType.int32, 'is-iwf'), ['int'])),
+                                    ('is_remote_id', (YLeaf(YType.int32, 'is-remote-id'), ['int'])),
+                                    ('is_circuit_id', (YLeaf(YType.int32, 'is-circuit-id'), ['int'])),
+                                    ('is_dsl_tag', (YLeaf(YType.int32, 'is-dsl-tag'), ['int'])),
+                                    ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                                    ('max_payload', (YLeaf(YType.uint32, 'max-payload'), ['int'])),
+                                    ('host_uniq', (YLeaf(YType.str, 'host-uniq'), ['str'])),
+                                    ('relay_session_id', (YLeaf(YType.str, 'relay-session-id'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                    ('is_dsl_actual_up', (YLeaf(YType.int32, 'is-dsl-actual-up'), ['int'])),
+                                    ('is_dsl_actual_down', (YLeaf(YType.int32, 'is-dsl-actual-down'), ['int'])),
+                                    ('is_dsl_min_up', (YLeaf(YType.int32, 'is-dsl-min-up'), ['int'])),
+                                    ('is_dsl_min_down', (YLeaf(YType.int32, 'is-dsl-min-down'), ['int'])),
+                                    ('is_dsl_attain_up', (YLeaf(YType.int32, 'is-dsl-attain-up'), ['int'])),
+                                    ('is_dsl_attain_down', (YLeaf(YType.int32, 'is-dsl-attain-down'), ['int'])),
+                                    ('is_dsl_max_up', (YLeaf(YType.int32, 'is-dsl-max-up'), ['int'])),
+                                    ('is_dsl_max_down', (YLeaf(YType.int32, 'is-dsl-max-down'), ['int'])),
+                                    ('is_dsl_min_up_low', (YLeaf(YType.int32, 'is-dsl-min-up-low'), ['int'])),
+                                    ('is_dsl_min_down_low', (YLeaf(YType.int32, 'is-dsl-min-down-low'), ['int'])),
+                                    ('is_dsl_max_delay_up', (YLeaf(YType.int32, 'is-dsl-max-delay-up'), ['int'])),
+                                    ('is_dsl_actual_delay_up', (YLeaf(YType.int32, 'is-dsl-actual-delay-up'), ['int'])),
+                                    ('is_dsl_max_delay_down', (YLeaf(YType.int32, 'is-dsl-max-delay-down'), ['int'])),
+                                    ('is_dsl_actual_delay_down', (YLeaf(YType.int32, 'is-dsl-actual-delay-down'), ['int'])),
+                                    ('is_access_loop_encapsulation', (YLeaf(YType.int32, 'is-access-loop-encapsulation'), ['int'])),
+                                    ('dsl_actual_up', (YLeaf(YType.uint32, 'dsl-actual-up'), ['int'])),
+                                    ('dsl_actual_down', (YLeaf(YType.uint32, 'dsl-actual-down'), ['int'])),
+                                    ('dsl_min_up', (YLeaf(YType.uint32, 'dsl-min-up'), ['int'])),
+                                    ('dsl_min_down', (YLeaf(YType.uint32, 'dsl-min-down'), ['int'])),
+                                    ('dsl_attain_up', (YLeaf(YType.uint32, 'dsl-attain-up'), ['int'])),
+                                    ('dsl_attain_down', (YLeaf(YType.uint32, 'dsl-attain-down'), ['int'])),
+                                    ('dsl_max_up', (YLeaf(YType.uint32, 'dsl-max-up'), ['int'])),
+                                    ('dsl_max_down', (YLeaf(YType.uint32, 'dsl-max-down'), ['int'])),
+                                    ('dsl_min_up_low', (YLeaf(YType.uint32, 'dsl-min-up-low'), ['int'])),
+                                    ('dsl_min_down_low', (YLeaf(YType.uint32, 'dsl-min-down-low'), ['int'])),
+                                    ('dsl_max_delay_up', (YLeaf(YType.uint32, 'dsl-max-delay-up'), ['int'])),
+                                    ('dsl_actual_delay_up', (YLeaf(YType.uint32, 'dsl-actual-delay-up'), ['int'])),
+                                    ('dsl_max_delay_down', (YLeaf(YType.uint32, 'dsl-max-delay-down'), ['int'])),
+                                    ('dsl_actual_delay_down', (YLeaf(YType.uint32, 'dsl-actual-delay-down'), ['int'])),
+                                ])
+                                self.is_service_name = None
+                                self.is_max_payload = None
+                                self.is_host_uniq = None
+                                self.is_relay_session_id = None
+                                self.is_vendor_specific = None
+                                self.is_iwf = None
+                                self.is_remote_id = None
+                                self.is_circuit_id = None
+                                self.is_dsl_tag = None
+                                self.service_name = None
+                                self.max_payload = None
+                                self.host_uniq = None
+                                self.relay_session_id = None
+                                self.remote_id = None
+                                self.circuit_id = None
+                                self.is_dsl_actual_up = None
+                                self.is_dsl_actual_down = None
+                                self.is_dsl_min_up = None
+                                self.is_dsl_min_down = None
+                                self.is_dsl_attain_up = None
+                                self.is_dsl_attain_down = None
+                                self.is_dsl_max_up = None
+                                self.is_dsl_max_down = None
+                                self.is_dsl_min_up_low = None
+                                self.is_dsl_min_down_low = None
+                                self.is_dsl_max_delay_up = None
+                                self.is_dsl_actual_delay_up = None
+                                self.is_dsl_max_delay_down = None
+                                self.is_dsl_actual_delay_down = None
+                                self.is_access_loop_encapsulation = None
+                                self.dsl_actual_up = None
+                                self.dsl_actual_down = None
+                                self.dsl_min_up = None
+                                self.dsl_min_down = None
+                                self.dsl_attain_up = None
+                                self.dsl_attain_down = None
+                                self.dsl_max_up = None
+                                self.dsl_max_down = None
+                                self.dsl_min_up_low = None
+                                self.dsl_min_down_low = None
+                                self.dsl_max_delay_up = None
+                                self.dsl_actual_delay_up = None
+                                self.dsl_max_delay_down = None
+                                self.dsl_actual_delay_down = None
+
+                                self.access_loop_encapsulation = Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation()
+                                self.access_loop_encapsulation.parent = self
+                                self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
+                                self._segment_path = lambda: "tags"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags, [u'is_service_name', u'is_max_payload', u'is_host_uniq', u'is_relay_session_id', u'is_vendor_specific', u'is_iwf', u'is_remote_id', u'is_circuit_id', u'is_dsl_tag', u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_dsl_actual_up', u'is_dsl_actual_down', u'is_dsl_min_up', u'is_dsl_min_down', u'is_dsl_attain_up', u'is_dsl_attain_down', u'is_dsl_max_up', u'is_dsl_max_down', u'is_dsl_min_up_low', u'is_dsl_min_down_low', u'is_dsl_max_delay_up', u'is_dsl_actual_delay_up', u'is_dsl_max_delay_down', u'is_dsl_actual_delay_down', u'is_access_loop_encapsulation', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
+
+
+                            class AccessLoopEncapsulation(Entity):
+                                """
+                                Access Loop Encapsulation
+                                
+                                .. attribute:: data_link
+                                
+                                	Data Link
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: encaps1
+                                
+                                	Encaps 1
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                .. attribute:: encaps2
+                                
+                                	Encaps 2
+                                	**type**\: int
+                                
+                                	**range:** 0..255
+                                
+                                
+
+                                """
+
+                                _prefix = 'subscriber-pppoe-ma-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, self).__init__()
+
+                                    self.yang_name = "access-loop-encapsulation"
+                                    self.yang_parent_name = "tags"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('data_link', (YLeaf(YType.uint8, 'data-link'), ['int'])),
+                                        ('encaps1', (YLeaf(YType.uint8, 'encaps1'), ['int'])),
+                                        ('encaps2', (YLeaf(YType.uint8, 'encaps2'), ['int'])),
+                                    ])
+                                    self.data_link = None
+                                    self.encaps1 = None
+                                    self.encaps2 = None
+                                    self._segment_path = lambda: "access-loop-encapsulation"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
+
+
+                        class VlanOuterTag(Entity):
+                            """
+                            VLAN Outer Tag
+                            
+                            .. attribute:: ether_type
+                            
+                            	Ethertype. See IEEE 802.1Q for more information
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: user_priority
+                            
+                            	User Priority
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: cfi
+                            
+                            	CFI
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: vlan_id
+                            
+                            	VLAN ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, self).__init__()
+
+                                self.yang_name = "vlan-outer-tag"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', (YLeaf(YType.uint16, 'ether-type'), ['int'])),
+                                    ('user_priority', (YLeaf(YType.uint8, 'user-priority'), ['int'])),
+                                    ('cfi', (YLeaf(YType.uint8, 'cfi'), ['int'])),
+                                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                ])
+                                self.ether_type = None
+                                self.user_priority = None
+                                self.cfi = None
+                                self.vlan_id = None
+                                self._segment_path = lambda: "vlan-outer-tag"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanOuterTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
+
+
+                        class VlanInnerTag(Entity):
+                            """
+                            VLAN Inner Tag
+                            
+                            .. attribute:: ether_type
+                            
+                            	Ethertype. See IEEE 802.1Q for more information
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: user_priority
+                            
+                            	User Priority
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: cfi
+                            
+                            	CFI
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: vlan_id
+                            
+                            	VLAN ID
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            
+
+                            """
+
+                            _prefix = 'subscriber-pppoe-ma-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, self).__init__()
+
+                                self.yang_name = "vlan-inner-tag"
+                                self.yang_parent_name = "session-idb"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('ether_type', (YLeaf(YType.uint16, 'ether-type'), ['int'])),
+                                    ('user_priority', (YLeaf(YType.uint8, 'user-priority'), ['int'])),
+                                    ('cfi', (YLeaf(YType.uint8, 'cfi'), ['int'])),
+                                    ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                ])
+                                self.ether_type = None
+                                self.user_priority = None
+                                self.cfi = None
+                                self.vlan_id = None
+                                self._segment_path = lambda: "vlan-inner-tag"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pppoe.Nodes.Node.DisconnectHistoryUnique.Entry.SessionIdb.VlanInnerTag, [u'ether_type', u'user_priority', u'cfi', u'vlan_id'], name, value)
 
 
             class Statistics(Entity):
@@ -927,6 +3381,7 @@ class Pppoe(Entity):
                     self.packet_error_counts.parent = self
                     self._children_name_map["packet_error_counts"] = "packet-error-counts"
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.Nodes.Node.Statistics, [], name, value)
@@ -1026,6 +3481,7 @@ class Pppoe(Entity):
                         self.other.parent = self
                         self._children_name_map["other"] = "other"
                         self._segment_path = lambda: "packet-counts"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts, [], name, value)
@@ -1073,17 +3529,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "padi"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padi, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class Pado(Entity):
@@ -1128,17 +3585,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "pado"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Pado, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class Padr(Entity):
@@ -1183,17 +3641,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "padr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padr, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class PadsSuccess(Entity):
@@ -1238,17 +3697,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "pads-success"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsSuccess, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class PadsError(Entity):
@@ -1293,17 +3753,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "pads-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.PadsError, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class Padt(Entity):
@@ -1348,17 +3809,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "padt"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Padt, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class SessionState(Entity):
@@ -1403,17 +3865,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "session-state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.SessionState, [u'sent', u'received', u'dropped'], name, value)
 
 
                     class Other(Entity):
@@ -1458,17 +3921,18 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sent', YLeaf(YType.uint32, 'sent')),
-                                ('received', YLeaf(YType.uint32, 'received')),
-                                ('dropped', YLeaf(YType.uint32, 'dropped')),
+                                ('sent', (YLeaf(YType.uint32, 'sent'), ['int'])),
+                                ('received', (YLeaf(YType.uint32, 'received'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint32, 'dropped'), ['int'])),
                             ])
                             self.sent = None
                             self.received = None
                             self.dropped = None
                             self._segment_path = lambda: "other"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, ['sent', 'received', 'dropped'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketCounts.Other, [u'sent', u'received', u'dropped'], name, value)
 
 
                 class PacketErrorCounts(Entity):
@@ -1856,58 +4320,58 @@ class Pppoe(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('no_interface_handle', YLeaf(YType.uint32, 'no-interface-handle')),
-                            ('no_packet_payload', YLeaf(YType.uint32, 'no-packet-payload')),
-                            ('no_packet_mac_address', YLeaf(YType.uint32, 'no-packet-mac-address')),
-                            ('invalid_version_type_value', YLeaf(YType.uint32, 'invalid-version-type-value')),
-                            ('bad_packet_length', YLeaf(YType.uint32, 'bad-packet-length')),
-                            ('unknown_interface', YLeaf(YType.uint32, 'unknown-interface')),
-                            ('pado_received', YLeaf(YType.uint32, 'pado-received')),
-                            ('pads_received', YLeaf(YType.uint32, 'pads-received')),
-                            ('unknown_packet_type_received', YLeaf(YType.uint32, 'unknown-packet-type-received')),
-                            ('unexpected_session_id_in_packet', YLeaf(YType.uint32, 'unexpected-session-id-in-packet')),
-                            ('no_service_name_tag', YLeaf(YType.uint32, 'no-service-name-tag')),
-                            ('padt_for_unknown_session', YLeaf(YType.uint32, 'padt-for-unknown-session')),
-                            ('padt_with_wrong_peer_mac', YLeaf(YType.uint32, 'padt-with-wrong-peer-mac')),
-                            ('padt_with_wrong_vlan_tags', YLeaf(YType.uint32, 'padt-with-wrong-vlan-tags')),
-                            ('zero_length_host_uniq', YLeaf(YType.uint32, 'zero-length-host-uniq')),
-                            ('padt_before_pads_sent', YLeaf(YType.uint32, 'padt-before-pads-sent')),
-                            ('session_stage_packet_for_unknown_session', YLeaf(YType.uint32, 'session-stage-packet-for-unknown-session')),
-                            ('session_stage_packet_with_wrong_mac', YLeaf(YType.uint32, 'session-stage-packet-with-wrong-mac')),
-                            ('session_stage_packet_with_wrong_vlan_tags', YLeaf(YType.uint32, 'session-stage-packet-with-wrong-vlan-tags')),
-                            ('session_stage_packet_with_no_error', YLeaf(YType.uint32, 'session-stage-packet-with-no-error')),
-                            ('tag_too_short', YLeaf(YType.uint32, 'tag-too-short')),
-                            ('bad_tag_length_field', YLeaf(YType.uint32, 'bad-tag-length-field')),
-                            ('multiple_service_name_tags', YLeaf(YType.uint32, 'multiple-service-name-tags')),
-                            ('multiple_max_payload_tags', YLeaf(YType.uint32, 'multiple-max-payload-tags')),
-                            ('invalid_max_payload_tag', YLeaf(YType.uint32, 'invalid-max-payload-tag')),
-                            ('multiple_vendor_specific_tags', YLeaf(YType.uint32, 'multiple-vendor-specific-tags')),
-                            ('unexpected_ac_name_tag', YLeaf(YType.uint32, 'unexpected-ac-name-tag')),
-                            ('unexpected_error_tags', YLeaf(YType.uint32, 'unexpected-error-tags')),
-                            ('unknown_tag_received', YLeaf(YType.uint32, 'unknown-tag-received')),
-                            ('no_iana_code_invendor_tag', YLeaf(YType.uint32, 'no-iana-code-invendor-tag')),
-                            ('invalid_iana_code_invendor_tag', YLeaf(YType.uint32, 'invalid-iana-code-invendor-tag')),
-                            ('vendor_tag_too_short', YLeaf(YType.uint32, 'vendor-tag-too-short')),
-                            ('bad_vendor_tag_length_field', YLeaf(YType.uint32, 'bad-vendor-tag-length-field')),
-                            ('multiple_host_uniq_tags', YLeaf(YType.uint32, 'multiple-host-uniq-tags')),
-                            ('multiple_relay_session_id_tags', YLeaf(YType.uint32, 'multiple-relay-session-id-tags')),
-                            ('multiple_circuit_id_tags', YLeaf(YType.uint32, 'multiple-circuit-id-tags')),
-                            ('multiple_remote_id_tags', YLeaf(YType.uint32, 'multiple-remote-id-tags')),
-                            ('invalid_dsl_tag', YLeaf(YType.uint32, 'invalid-dsl-tag')),
-                            ('multiple_of_the_same_dsl_tag', YLeaf(YType.uint32, 'multiple-of-the-same-dsl-tag')),
-                            ('invalid_iwf_tag', YLeaf(YType.uint32, 'invalid-iwf-tag')),
-                            ('multiple_iwf_tags', YLeaf(YType.uint32, 'multiple-iwf-tags')),
-                            ('unknownvendor_tag', YLeaf(YType.uint32, 'unknownvendor-tag')),
-                            ('no_space_left_in_packet', YLeaf(YType.uint32, 'no-space-left-in-packet')),
-                            ('duplicate_host_uniq_tag_received', YLeaf(YType.uint32, 'duplicate-host-uniq-tag-received')),
-                            ('duplicate_relay_session_id_tag_received', YLeaf(YType.uint32, 'duplicate-relay-session-id-tag-received')),
-                            ('packet_too_long', YLeaf(YType.uint32, 'packet-too-long')),
-                            ('invalid_ale_tag', YLeaf(YType.uint32, 'invalid-ale-tag')),
-                            ('multiple_ale_tags', YLeaf(YType.uint32, 'multiple-ale-tags')),
-                            ('invalid_service_name', YLeaf(YType.uint32, 'invalid-service-name')),
-                            ('invalid_peer_mac', YLeaf(YType.uint32, 'invalid-peer-mac')),
-                            ('invalid_vlan_tags', YLeaf(YType.uint32, 'invalid-vlan-tags')),
-                            ('packet_on_srg_slave', YLeaf(YType.uint32, 'packet-on-srg-slave')),
+                            ('no_interface_handle', (YLeaf(YType.uint32, 'no-interface-handle'), ['int'])),
+                            ('no_packet_payload', (YLeaf(YType.uint32, 'no-packet-payload'), ['int'])),
+                            ('no_packet_mac_address', (YLeaf(YType.uint32, 'no-packet-mac-address'), ['int'])),
+                            ('invalid_version_type_value', (YLeaf(YType.uint32, 'invalid-version-type-value'), ['int'])),
+                            ('bad_packet_length', (YLeaf(YType.uint32, 'bad-packet-length'), ['int'])),
+                            ('unknown_interface', (YLeaf(YType.uint32, 'unknown-interface'), ['int'])),
+                            ('pado_received', (YLeaf(YType.uint32, 'pado-received'), ['int'])),
+                            ('pads_received', (YLeaf(YType.uint32, 'pads-received'), ['int'])),
+                            ('unknown_packet_type_received', (YLeaf(YType.uint32, 'unknown-packet-type-received'), ['int'])),
+                            ('unexpected_session_id_in_packet', (YLeaf(YType.uint32, 'unexpected-session-id-in-packet'), ['int'])),
+                            ('no_service_name_tag', (YLeaf(YType.uint32, 'no-service-name-tag'), ['int'])),
+                            ('padt_for_unknown_session', (YLeaf(YType.uint32, 'padt-for-unknown-session'), ['int'])),
+                            ('padt_with_wrong_peer_mac', (YLeaf(YType.uint32, 'padt-with-wrong-peer-mac'), ['int'])),
+                            ('padt_with_wrong_vlan_tags', (YLeaf(YType.uint32, 'padt-with-wrong-vlan-tags'), ['int'])),
+                            ('zero_length_host_uniq', (YLeaf(YType.uint32, 'zero-length-host-uniq'), ['int'])),
+                            ('padt_before_pads_sent', (YLeaf(YType.uint32, 'padt-before-pads-sent'), ['int'])),
+                            ('session_stage_packet_for_unknown_session', (YLeaf(YType.uint32, 'session-stage-packet-for-unknown-session'), ['int'])),
+                            ('session_stage_packet_with_wrong_mac', (YLeaf(YType.uint32, 'session-stage-packet-with-wrong-mac'), ['int'])),
+                            ('session_stage_packet_with_wrong_vlan_tags', (YLeaf(YType.uint32, 'session-stage-packet-with-wrong-vlan-tags'), ['int'])),
+                            ('session_stage_packet_with_no_error', (YLeaf(YType.uint32, 'session-stage-packet-with-no-error'), ['int'])),
+                            ('tag_too_short', (YLeaf(YType.uint32, 'tag-too-short'), ['int'])),
+                            ('bad_tag_length_field', (YLeaf(YType.uint32, 'bad-tag-length-field'), ['int'])),
+                            ('multiple_service_name_tags', (YLeaf(YType.uint32, 'multiple-service-name-tags'), ['int'])),
+                            ('multiple_max_payload_tags', (YLeaf(YType.uint32, 'multiple-max-payload-tags'), ['int'])),
+                            ('invalid_max_payload_tag', (YLeaf(YType.uint32, 'invalid-max-payload-tag'), ['int'])),
+                            ('multiple_vendor_specific_tags', (YLeaf(YType.uint32, 'multiple-vendor-specific-tags'), ['int'])),
+                            ('unexpected_ac_name_tag', (YLeaf(YType.uint32, 'unexpected-ac-name-tag'), ['int'])),
+                            ('unexpected_error_tags', (YLeaf(YType.uint32, 'unexpected-error-tags'), ['int'])),
+                            ('unknown_tag_received', (YLeaf(YType.uint32, 'unknown-tag-received'), ['int'])),
+                            ('no_iana_code_invendor_tag', (YLeaf(YType.uint32, 'no-iana-code-invendor-tag'), ['int'])),
+                            ('invalid_iana_code_invendor_tag', (YLeaf(YType.uint32, 'invalid-iana-code-invendor-tag'), ['int'])),
+                            ('vendor_tag_too_short', (YLeaf(YType.uint32, 'vendor-tag-too-short'), ['int'])),
+                            ('bad_vendor_tag_length_field', (YLeaf(YType.uint32, 'bad-vendor-tag-length-field'), ['int'])),
+                            ('multiple_host_uniq_tags', (YLeaf(YType.uint32, 'multiple-host-uniq-tags'), ['int'])),
+                            ('multiple_relay_session_id_tags', (YLeaf(YType.uint32, 'multiple-relay-session-id-tags'), ['int'])),
+                            ('multiple_circuit_id_tags', (YLeaf(YType.uint32, 'multiple-circuit-id-tags'), ['int'])),
+                            ('multiple_remote_id_tags', (YLeaf(YType.uint32, 'multiple-remote-id-tags'), ['int'])),
+                            ('invalid_dsl_tag', (YLeaf(YType.uint32, 'invalid-dsl-tag'), ['int'])),
+                            ('multiple_of_the_same_dsl_tag', (YLeaf(YType.uint32, 'multiple-of-the-same-dsl-tag'), ['int'])),
+                            ('invalid_iwf_tag', (YLeaf(YType.uint32, 'invalid-iwf-tag'), ['int'])),
+                            ('multiple_iwf_tags', (YLeaf(YType.uint32, 'multiple-iwf-tags'), ['int'])),
+                            ('unknownvendor_tag', (YLeaf(YType.uint32, 'unknownvendor-tag'), ['int'])),
+                            ('no_space_left_in_packet', (YLeaf(YType.uint32, 'no-space-left-in-packet'), ['int'])),
+                            ('duplicate_host_uniq_tag_received', (YLeaf(YType.uint32, 'duplicate-host-uniq-tag-received'), ['int'])),
+                            ('duplicate_relay_session_id_tag_received', (YLeaf(YType.uint32, 'duplicate-relay-session-id-tag-received'), ['int'])),
+                            ('packet_too_long', (YLeaf(YType.uint32, 'packet-too-long'), ['int'])),
+                            ('invalid_ale_tag', (YLeaf(YType.uint32, 'invalid-ale-tag'), ['int'])),
+                            ('multiple_ale_tags', (YLeaf(YType.uint32, 'multiple-ale-tags'), ['int'])),
+                            ('invalid_service_name', (YLeaf(YType.uint32, 'invalid-service-name'), ['int'])),
+                            ('invalid_peer_mac', (YLeaf(YType.uint32, 'invalid-peer-mac'), ['int'])),
+                            ('invalid_vlan_tags', (YLeaf(YType.uint32, 'invalid-vlan-tags'), ['int'])),
+                            ('packet_on_srg_slave', (YLeaf(YType.uint32, 'packet-on-srg-slave'), ['int'])),
                         ])
                         self.no_interface_handle = None
                         self.no_packet_payload = None
@@ -1962,9 +4426,10 @@ class Pppoe(Entity):
                         self.invalid_vlan_tags = None
                         self.packet_on_srg_slave = None
                         self._segment_path = lambda: "packet-error-counts"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, ['no_interface_handle', 'no_packet_payload', 'no_packet_mac_address', 'invalid_version_type_value', 'bad_packet_length', 'unknown_interface', 'pado_received', 'pads_received', 'unknown_packet_type_received', 'unexpected_session_id_in_packet', 'no_service_name_tag', 'padt_for_unknown_session', 'padt_with_wrong_peer_mac', 'padt_with_wrong_vlan_tags', 'zero_length_host_uniq', 'padt_before_pads_sent', 'session_stage_packet_for_unknown_session', 'session_stage_packet_with_wrong_mac', 'session_stage_packet_with_wrong_vlan_tags', 'session_stage_packet_with_no_error', 'tag_too_short', 'bad_tag_length_field', 'multiple_service_name_tags', 'multiple_max_payload_tags', 'invalid_max_payload_tag', 'multiple_vendor_specific_tags', 'unexpected_ac_name_tag', 'unexpected_error_tags', 'unknown_tag_received', 'no_iana_code_invendor_tag', 'invalid_iana_code_invendor_tag', 'vendor_tag_too_short', 'bad_vendor_tag_length_field', 'multiple_host_uniq_tags', 'multiple_relay_session_id_tags', 'multiple_circuit_id_tags', 'multiple_remote_id_tags', 'invalid_dsl_tag', 'multiple_of_the_same_dsl_tag', 'invalid_iwf_tag', 'multiple_iwf_tags', 'unknownvendor_tag', 'no_space_left_in_packet', 'duplicate_host_uniq_tag_received', 'duplicate_relay_session_id_tag_received', 'packet_too_long', 'invalid_ale_tag', 'multiple_ale_tags', 'invalid_service_name', 'invalid_peer_mac', 'invalid_vlan_tags', 'packet_on_srg_slave'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.Statistics.PacketErrorCounts, [u'no_interface_handle', u'no_packet_payload', u'no_packet_mac_address', u'invalid_version_type_value', u'bad_packet_length', u'unknown_interface', u'pado_received', u'pads_received', u'unknown_packet_type_received', u'unexpected_session_id_in_packet', u'no_service_name_tag', u'padt_for_unknown_session', u'padt_with_wrong_peer_mac', u'padt_with_wrong_vlan_tags', u'zero_length_host_uniq', u'padt_before_pads_sent', u'session_stage_packet_for_unknown_session', u'session_stage_packet_with_wrong_mac', u'session_stage_packet_with_wrong_vlan_tags', u'session_stage_packet_with_no_error', u'tag_too_short', u'bad_tag_length_field', u'multiple_service_name_tags', u'multiple_max_payload_tags', u'invalid_max_payload_tag', u'multiple_vendor_specific_tags', u'unexpected_ac_name_tag', u'unexpected_error_tags', u'unknown_tag_received', u'no_iana_code_invendor_tag', u'invalid_iana_code_invendor_tag', u'vendor_tag_too_short', u'bad_vendor_tag_length_field', u'multiple_host_uniq_tags', u'multiple_relay_session_id_tags', u'multiple_circuit_id_tags', u'multiple_remote_id_tags', u'invalid_dsl_tag', u'multiple_of_the_same_dsl_tag', u'invalid_iwf_tag', u'multiple_iwf_tags', u'unknownvendor_tag', u'no_space_left_in_packet', u'duplicate_host_uniq_tag_received', u'duplicate_relay_session_id_tag_received', u'packet_too_long', u'invalid_ale_tag', u'multiple_ale_tags', u'invalid_service_name', u'invalid_peer_mac', u'invalid_vlan_tags', u'packet_on_srg_slave'], name, value)
 
 
             class AccessInterface(Entity):
@@ -1998,6 +4463,7 @@ class Pppoe(Entity):
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
                     self._segment_path = lambda: "access-interface"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.Nodes.Node.AccessInterface, [], name, value)
@@ -2032,6 +4498,7 @@ class Pppoe(Entity):
 
                         self.summary = YList(self)
                         self._segment_path = lambda: "summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries, [], name, value)
@@ -2047,14 +4514,14 @@ class Pppoe(Entity):
                         	PPPoE Access Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: interface_name_xr
                         
                         	Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: interface_state
                         
@@ -2113,14 +4580,14 @@ class Pppoe(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                                ('interface_state', YLeaf(YType.uint32, 'interface-state')),
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
-                                ('is_ready', YLeaf(YType.int32, 'is-ready')),
-                                ('sessions', YLeaf(YType.uint32, 'sessions')),
-                                ('incomplete_sessions', YLeaf(YType.uint32, 'incomplete-sessions')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                                ('interface_state', (YLeaf(YType.uint32, 'interface-state'), ['int'])),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                ('bba_group_name', (YLeaf(YType.str, 'bba-group-name'), ['str'])),
+                                ('is_ready', (YLeaf(YType.int32, 'is-ready'), ['int'])),
+                                ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                                ('incomplete_sessions', (YLeaf(YType.uint32, 'incomplete-sessions'), ['int'])),
                             ])
                             self.interface_name = None
                             self.interface_name_xr = None
@@ -2131,9 +4598,10 @@ class Pppoe(Entity):
                             self.sessions = None
                             self.incomplete_sessions = None
                             self._segment_path = lambda: "summary" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', 'interface_name_xr', 'interface_state', 'mac_address', 'bba_group_name', 'is_ready', 'sessions', 'incomplete_sessions'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.AccessInterface.Summaries.Summary, ['interface_name', u'interface_name_xr', u'interface_state', u'mac_address', u'bba_group_name', u'is_ready', u'sessions', u'incomplete_sessions'], name, value)
 
 
             class Interfaces(Entity):
@@ -2165,6 +4633,7 @@ class Pppoe(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.Nodes.Node.Interfaces, [], name, value)
@@ -2179,7 +4648,7 @@ class Pppoe(Entity):
                     	PPPoE Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: tags
                     
@@ -2191,14 +4660,14 @@ class Pppoe(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: access_interface_name
                     
                     	Access Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: bba_group_name
                     
@@ -2269,17 +4738,17 @@ class Pppoe(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("tags", ("tags", Pppoe.Nodes.Node.Interfaces.Interface.Tags))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                            ('access_interface_name', YLeaf(YType.str, 'access-interface-name')),
-                            ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
-                            ('session_id', YLeaf(YType.uint16, 'session-id')),
-                            ('local_mac_address', YLeaf(YType.str, 'local-mac-address')),
-                            ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
-                            ('is_complete', YLeaf(YType.int32, 'is-complete')),
-                            ('vlan_outer_id', YLeaf(YType.uint16, 'vlan-outer-id')),
-                            ('vlan_inner_id', YLeaf(YType.uint16, 'vlan-inner-id')),
-                            ('srg_state', YLeaf(YType.enumeration, 'srg-state')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                            ('access_interface_name', (YLeaf(YType.str, 'access-interface-name'), ['str'])),
+                            ('bba_group_name', (YLeaf(YType.str, 'bba-group-name'), ['str'])),
+                            ('session_id', (YLeaf(YType.uint16, 'session-id'), ['int'])),
+                            ('local_mac_address', (YLeaf(YType.str, 'local-mac-address'), ['str'])),
+                            ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                            ('is_complete', (YLeaf(YType.int32, 'is-complete'), ['int'])),
+                            ('vlan_outer_id', (YLeaf(YType.uint16, 'vlan-outer-id'), ['int'])),
+                            ('vlan_inner_id', (YLeaf(YType.uint16, 'vlan-inner-id'), ['int'])),
+                            ('srg_state', (YLeaf(YType.enumeration, 'srg-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaSessionIdbSrgState', '')])),
                         ])
                         self.interface_name = None
                         self.interface_name_xr = None
@@ -2297,9 +4766,10 @@ class Pppoe(Entity):
                         self.tags.parent = self
                         self._children_name_map["tags"] = "tags"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'access_interface_name', 'bba_group_name', 'session_id', 'local_mac_address', 'peer_mac_address', 'is_complete', 'vlan_outer_id', 'vlan_inner_id', 'srg_state'], name, value)
+                        self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface, ['interface_name', u'interface_name_xr', u'access_interface_name', u'bba_group_name', u'session_id', u'local_mac_address', u'peer_mac_address', u'is_complete', u'vlan_outer_id', u'vlan_inner_id', u'srg_state'], name, value)
 
 
                     class Tags(Entity):
@@ -2469,27 +4939,27 @@ class Pppoe(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("access-loop-encapsulation", ("access_loop_encapsulation", Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation))])
                             self._leafs = OrderedDict([
-                                ('service_name', YLeaf(YType.str, 'service-name')),
-                                ('max_payload', YLeaf(YType.uint16, 'max-payload')),
-                                ('host_uniq', YLeaf(YType.str, 'host-uniq')),
-                                ('relay_session_id', YLeaf(YType.str, 'relay-session-id')),
-                                ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                ('circuit_id', YLeaf(YType.str, 'circuit-id')),
-                                ('is_iwf', YLeaf(YType.int32, 'is-iwf')),
-                                ('dsl_actual_up', YLeaf(YType.uint32, 'dsl-actual-up')),
-                                ('dsl_actual_down', YLeaf(YType.uint32, 'dsl-actual-down')),
-                                ('dsl_min_up', YLeaf(YType.uint32, 'dsl-min-up')),
-                                ('dsl_min_down', YLeaf(YType.uint32, 'dsl-min-down')),
-                                ('dsl_attain_up', YLeaf(YType.uint32, 'dsl-attain-up')),
-                                ('dsl_attain_down', YLeaf(YType.uint32, 'dsl-attain-down')),
-                                ('dsl_max_up', YLeaf(YType.uint32, 'dsl-max-up')),
-                                ('dsl_max_down', YLeaf(YType.uint32, 'dsl-max-down')),
-                                ('dsl_min_up_low', YLeaf(YType.uint32, 'dsl-min-up-low')),
-                                ('dsl_min_down_low', YLeaf(YType.uint32, 'dsl-min-down-low')),
-                                ('dsl_max_delay_up', YLeaf(YType.uint32, 'dsl-max-delay-up')),
-                                ('dsl_actual_delay_up', YLeaf(YType.uint32, 'dsl-actual-delay-up')),
-                                ('dsl_max_delay_down', YLeaf(YType.uint32, 'dsl-max-delay-down')),
-                                ('dsl_actual_delay_down', YLeaf(YType.uint32, 'dsl-actual-delay-down')),
+                                ('service_name', (YLeaf(YType.str, 'service-name'), ['str'])),
+                                ('max_payload', (YLeaf(YType.uint16, 'max-payload'), ['int'])),
+                                ('host_uniq', (YLeaf(YType.str, 'host-uniq'), ['str'])),
+                                ('relay_session_id', (YLeaf(YType.str, 'relay-session-id'), ['str'])),
+                                ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                ('is_iwf', (YLeaf(YType.int32, 'is-iwf'), ['int'])),
+                                ('dsl_actual_up', (YLeaf(YType.uint32, 'dsl-actual-up'), ['int'])),
+                                ('dsl_actual_down', (YLeaf(YType.uint32, 'dsl-actual-down'), ['int'])),
+                                ('dsl_min_up', (YLeaf(YType.uint32, 'dsl-min-up'), ['int'])),
+                                ('dsl_min_down', (YLeaf(YType.uint32, 'dsl-min-down'), ['int'])),
+                                ('dsl_attain_up', (YLeaf(YType.uint32, 'dsl-attain-up'), ['int'])),
+                                ('dsl_attain_down', (YLeaf(YType.uint32, 'dsl-attain-down'), ['int'])),
+                                ('dsl_max_up', (YLeaf(YType.uint32, 'dsl-max-up'), ['int'])),
+                                ('dsl_max_down', (YLeaf(YType.uint32, 'dsl-max-down'), ['int'])),
+                                ('dsl_min_up_low', (YLeaf(YType.uint32, 'dsl-min-up-low'), ['int'])),
+                                ('dsl_min_down_low', (YLeaf(YType.uint32, 'dsl-min-down-low'), ['int'])),
+                                ('dsl_max_delay_up', (YLeaf(YType.uint32, 'dsl-max-delay-up'), ['int'])),
+                                ('dsl_actual_delay_up', (YLeaf(YType.uint32, 'dsl-actual-delay-up'), ['int'])),
+                                ('dsl_max_delay_down', (YLeaf(YType.uint32, 'dsl-max-delay-down'), ['int'])),
+                                ('dsl_actual_delay_down', (YLeaf(YType.uint32, 'dsl-actual-delay-down'), ['int'])),
                             ])
                             self.service_name = None
                             self.max_payload = None
@@ -2517,9 +4987,10 @@ class Pppoe(Entity):
                             self.access_loop_encapsulation.parent = self
                             self._children_name_map["access_loop_encapsulation"] = "access-loop-encapsulation"
                             self._segment_path = lambda: "tags"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags, ['service_name', 'max_payload', 'host_uniq', 'relay_session_id', 'remote_id', 'circuit_id', 'is_iwf', 'dsl_actual_up', 'dsl_actual_down', 'dsl_min_up', 'dsl_min_down', 'dsl_attain_up', 'dsl_attain_down', 'dsl_max_up', 'dsl_max_down', 'dsl_min_up_low', 'dsl_min_down_low', 'dsl_max_delay_up', 'dsl_actual_delay_up', 'dsl_max_delay_down', 'dsl_actual_delay_down'], name, value)
+                            self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags, [u'service_name', u'max_payload', u'host_uniq', u'relay_session_id', u'remote_id', u'circuit_id', u'is_iwf', u'dsl_actual_up', u'dsl_actual_down', u'dsl_min_up', u'dsl_min_down', u'dsl_attain_up', u'dsl_attain_down', u'dsl_max_up', u'dsl_max_down', u'dsl_min_up_low', u'dsl_min_down_low', u'dsl_max_delay_up', u'dsl_actual_delay_up', u'dsl_max_delay_down', u'dsl_actual_delay_down'], name, value)
 
 
                         class AccessLoopEncapsulation(Entity):
@@ -2564,17 +5035,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('data_link', YLeaf(YType.uint8, 'data-link')),
-                                    ('encaps1', YLeaf(YType.uint8, 'encaps1')),
-                                    ('encaps2', YLeaf(YType.uint8, 'encaps2')),
+                                    ('data_link', (YLeaf(YType.uint8, 'data-link'), ['int'])),
+                                    ('encaps1', (YLeaf(YType.uint8, 'encaps1'), ['int'])),
+                                    ('encaps2', (YLeaf(YType.uint8, 'encaps2'), ['int'])),
                                 ])
                                 self.data_link = None
                                 self.encaps1 = None
                                 self.encaps2 = None
                                 self._segment_path = lambda: "access-loop-encapsulation"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, ['data_link', 'encaps1', 'encaps2'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.Interfaces.Interface.Tags.AccessLoopEncapsulation, [u'data_link', u'encaps1', u'encaps2'], name, value)
 
 
             class BbaGroups(Entity):
@@ -2606,6 +5078,7 @@ class Pppoe(Entity):
 
                     self.bba_group = YList(self)
                     self._segment_path = lambda: "bba-groups"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppoe.Nodes.Node.BbaGroups, [], name, value)
@@ -2659,7 +5132,7 @@ class Pppoe(Entity):
                         self.ylist_key_names = ['bba_group_name']
                         self._child_classes = OrderedDict([("limit-config", ("limit_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig)), ("limits", ("limits", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits)), ("throttles", ("throttles", Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles)), ("throttle-config", ("throttle_config", Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig))])
                         self._leafs = OrderedDict([
-                            ('bba_group_name', YLeaf(YType.str, 'bba-group-name')),
+                            ('bba_group_name', (YLeaf(YType.str, 'bba-group-name'), ['str'])),
                         ])
                         self.bba_group_name = None
 
@@ -2679,6 +5152,7 @@ class Pppoe(Entity):
                         self.throttle_config.parent = self
                         self._children_name_map["throttle_config"] = "throttle-config"
                         self._segment_path = lambda: "bba-group" + "[bba-group-name='" + str(self.bba_group_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup, ['bba_group_name'], name, value)
@@ -2814,6 +5288,7 @@ class Pppoe(Entity):
                             self.vlan_id.parent = self
                             self._children_name_map["vlan_id"] = "vlan-id"
                             self._segment_path = lambda: "limit-config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig, [], name, value)
@@ -2861,17 +5336,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "card"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Card, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class AccessIntf(Entity):
@@ -2916,17 +5392,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "access-intf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.AccessIntf, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class Mac(Entity):
@@ -2971,17 +5448,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.Mac, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class MacIwf(Entity):
@@ -3026,17 +5504,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-iwf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwf, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class MacAccessInterface(Entity):
@@ -3081,17 +5560,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-access-interface"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacAccessInterface, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class MacIwfAccessInterface(Entity):
@@ -3136,17 +5616,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "mac-iwf-access-interface"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.MacIwfAccessInterface, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class CircuitId(Entity):
@@ -3191,17 +5672,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "circuit-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class RemoteId(Entity):
@@ -3246,17 +5728,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "remote-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.RemoteId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class CircuitIdAndRemoteId(Entity):
@@ -3301,17 +5784,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "circuit-id-and-remote-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.CircuitIdAndRemoteId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class OuterVlanId(Entity):
@@ -3356,17 +5840,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "outer-vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.OuterVlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class InnerVlanId(Entity):
@@ -3411,17 +5896,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "inner-vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.InnerVlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                         class VlanId(Entity):
@@ -3466,17 +5952,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_limit', YLeaf(YType.uint32, 'max-limit')),
-                                    ('threshold', YLeaf(YType.uint32, 'threshold')),
-                                    ('radius_override_enabled', YLeaf(YType.int32, 'radius-override-enabled')),
+                                    ('max_limit', (YLeaf(YType.uint32, 'max-limit'), ['int'])),
+                                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                                    ('radius_override_enabled', (YLeaf(YType.int32, 'radius-override-enabled'), ['int'])),
                                 ])
                                 self.max_limit = None
                                 self.threshold = None
                                 self.radius_override_enabled = None
                                 self._segment_path = lambda: "vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, ['max_limit', 'threshold', 'radius_override_enabled'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.LimitConfig.VlanId, [u'max_limit', u'threshold', u'radius_override_enabled'], name, value)
 
 
                     class Limits(Entity):
@@ -3508,6 +5995,7 @@ class Pppoe(Entity):
 
                             self.limit = YList(self)
                             self._segment_path = lambda: "limits"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits, [], name, value)
@@ -3522,7 +6010,7 @@ class Pppoe(Entity):
                             	Access Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: mac_address
                             
@@ -3607,17 +6095,17 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('iwf', YLeaf(YType.boolean, 'iwf')),
-                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
-                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                    ('outer_vlan_id', YLeaf(YType.uint32, 'outer-vlan-id')),
-                                    ('inner_vlan_id', YLeaf(YType.uint32, 'inner-vlan-id')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('session_count', YLeaf(YType.uint32, 'session-count')),
-                                    ('radius_override_set', YLeaf(YType.int32, 'radius-override-set')),
-                                    ('override_limit', YLeaf(YType.uint32, 'override-limit')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('iwf', (YLeaf(YType.boolean, 'iwf'), ['bool'])),
+                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('outer_vlan_id', (YLeaf(YType.uint32, 'outer-vlan-id'), ['int'])),
+                                    ('inner_vlan_id', (YLeaf(YType.uint32, 'inner-vlan-id'), ['int'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaLimitState', '')])),
+                                    ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                                    ('radius_override_set', (YLeaf(YType.int32, 'radius-override-set'), ['int'])),
+                                    ('override_limit', (YLeaf(YType.uint32, 'override-limit'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.mac_address = None
@@ -3631,9 +6119,10 @@ class Pppoe(Entity):
                                 self.radius_override_set = None
                                 self.override_limit = None
                                 self._segment_path = lambda: "limit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'session_count', 'radius_override_set', 'override_limit'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Limits.Limit, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', u'state', u'session_count', u'radius_override_set', u'override_limit'], name, value)
 
 
                     class Throttles(Entity):
@@ -3665,6 +6154,7 @@ class Pppoe(Entity):
 
                             self.throttle = YList(self)
                             self._segment_path = lambda: "throttles"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles, [], name, value)
@@ -3679,7 +6169,7 @@ class Pppoe(Entity):
                             	Access Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: mac_address
                             
@@ -3775,18 +6265,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('iwf', YLeaf(YType.boolean, 'iwf')),
-                                    ('circuit_id', YLeaf(YType.str, 'circuit-id')),
-                                    ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                    ('outer_vlan_id', YLeaf(YType.uint32, 'outer-vlan-id')),
-                                    ('inner_vlan_id', YLeaf(YType.uint32, 'inner-vlan-id')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('time_left', YLeaf(YType.uint32, 'time-left')),
-                                    ('since_reset', YLeaf(YType.uint32, 'since-reset')),
-                                    ('padi_count', YLeaf(YType.uint32, 'padi-count')),
-                                    ('padr_count', YLeaf(YType.uint32, 'padr-count')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('iwf', (YLeaf(YType.boolean, 'iwf'), ['bool'])),
+                                    ('circuit_id', (YLeaf(YType.str, 'circuit-id'), ['str'])),
+                                    ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                    ('outer_vlan_id', (YLeaf(YType.uint32, 'outer-vlan-id'), ['int'])),
+                                    ('inner_vlan_id', (YLeaf(YType.uint32, 'inner-vlan-id'), ['int'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper', 'PppoeMaThrottleState', '')])),
+                                    ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
+                                    ('since_reset', (YLeaf(YType.uint32, 'since-reset'), ['int'])),
+                                    ('padi_count', (YLeaf(YType.uint32, 'padi-count'), ['int'])),
+                                    ('padr_count', (YLeaf(YType.uint32, 'padr-count'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.mac_address = None
@@ -3801,9 +6291,10 @@ class Pppoe(Entity):
                                 self.padi_count = None
                                 self.padr_count = None
                                 self._segment_path = lambda: "throttle"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', 'state', 'time_left', 'since_reset', 'padi_count', 'padr_count'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.Throttles.Throttle, ['interface_name', 'mac_address', 'iwf', 'circuit_id', 'remote_id', 'outer_vlan_id', 'inner_vlan_id', u'state', u'time_left', u'since_reset', u'padi_count', u'padr_count'], name, value)
 
 
                     class ThrottleConfig(Entity):
@@ -3909,6 +6400,7 @@ class Pppoe(Entity):
                             self.vlan_id.parent = self
                             self._children_name_map["vlan_id"] = "vlan-id"
                             self._segment_path = lambda: "throttle-config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig, [], name, value)
@@ -3956,17 +6448,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "mac"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.Mac, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class MacAccessInterface(Entity):
@@ -4011,17 +6504,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "mac-access-interface"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacAccessInterface, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class MacIwfAccessInterface(Entity):
@@ -4066,17 +6560,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "mac-iwf-access-interface"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.MacIwfAccessInterface, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class CircuitId(Entity):
@@ -4121,17 +6616,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "circuit-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class RemoteId(Entity):
@@ -4176,17 +6672,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "remote-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.RemoteId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class CircuitIdAndRemoteId(Entity):
@@ -4231,17 +6728,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "circuit-id-and-remote-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.CircuitIdAndRemoteId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class OuterVlanId(Entity):
@@ -4286,17 +6784,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "outer-vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.OuterVlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class InnerVlanId(Entity):
@@ -4341,17 +6840,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "inner-vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.InnerVlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
                         class VlanId(Entity):
@@ -4396,17 +6896,18 @@ class Pppoe(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request_period', YLeaf(YType.uint32, 'request-period')),
-                                    ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                                    ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request_period = None
                                 self.blocking_period = None
                                 self._segment_path = lambda: "vlan-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, ['limit', 'request_period', 'blocking_period'], name, value)
+                                self._perform_setattr(Pppoe.Nodes.Node.BbaGroups.BbaGroup.ThrottleConfig.VlanId, [u'limit', u'request_period', u'blocking_period'], name, value)
 
 
             class SummaryTotal(Entity):
@@ -4500,16 +7001,16 @@ class Pppoe(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ready_access_interfaces', YLeaf(YType.uint32, 'ready-access-interfaces')),
-                        ('not_ready_access_interfaces', YLeaf(YType.uint32, 'not-ready-access-interfaces')),
-                        ('complete_sessions', YLeaf(YType.uint32, 'complete-sessions')),
-                        ('incomplete_sessions', YLeaf(YType.uint32, 'incomplete-sessions')),
-                        ('flow_control_limit', YLeaf(YType.uint32, 'flow-control-limit')),
-                        ('flow_control_in_flight_sessions', YLeaf(YType.uint32, 'flow-control-in-flight-sessions')),
-                        ('flow_control_dropped_sessions', YLeaf(YType.uint64, 'flow-control-dropped-sessions')),
-                        ('flow_control_disconnected_sessions', YLeaf(YType.uint64, 'flow-control-disconnected-sessions')),
-                        ('flow_control_successful_sessions', YLeaf(YType.uint64, 'flow-control-successful-sessions')),
-                        ('pppoema_subscriber_infra_flow_control', YLeaf(YType.uint32, 'pppoema-subscriber-infra-flow-control')),
+                        ('ready_access_interfaces', (YLeaf(YType.uint32, 'ready-access-interfaces'), ['int'])),
+                        ('not_ready_access_interfaces', (YLeaf(YType.uint32, 'not-ready-access-interfaces'), ['int'])),
+                        ('complete_sessions', (YLeaf(YType.uint32, 'complete-sessions'), ['int'])),
+                        ('incomplete_sessions', (YLeaf(YType.uint32, 'incomplete-sessions'), ['int'])),
+                        ('flow_control_limit', (YLeaf(YType.uint32, 'flow-control-limit'), ['int'])),
+                        ('flow_control_in_flight_sessions', (YLeaf(YType.uint32, 'flow-control-in-flight-sessions'), ['int'])),
+                        ('flow_control_dropped_sessions', (YLeaf(YType.uint64, 'flow-control-dropped-sessions'), ['int'])),
+                        ('flow_control_disconnected_sessions', (YLeaf(YType.uint64, 'flow-control-disconnected-sessions'), ['int'])),
+                        ('flow_control_successful_sessions', (YLeaf(YType.uint64, 'flow-control-successful-sessions'), ['int'])),
+                        ('pppoema_subscriber_infra_flow_control', (YLeaf(YType.uint32, 'pppoema-subscriber-infra-flow-control'), ['int'])),
                     ])
                     self.ready_access_interfaces = None
                     self.not_ready_access_interfaces = None
@@ -4522,9 +7023,10 @@ class Pppoe(Entity):
                     self.flow_control_successful_sessions = None
                     self.pppoema_subscriber_infra_flow_control = None
                     self._segment_path = lambda: "summary-total"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pppoe.Nodes.Node.SummaryTotal, ['ready_access_interfaces', 'not_ready_access_interfaces', 'complete_sessions', 'incomplete_sessions', 'flow_control_limit', 'flow_control_in_flight_sessions', 'flow_control_dropped_sessions', 'flow_control_disconnected_sessions', 'flow_control_successful_sessions', 'pppoema_subscriber_infra_flow_control'], name, value)
+                    self._perform_setattr(Pppoe.Nodes.Node.SummaryTotal, [u'ready_access_interfaces', u'not_ready_access_interfaces', u'complete_sessions', u'incomplete_sessions', u'flow_control_limit', u'flow_control_in_flight_sessions', u'flow_control_dropped_sessions', u'flow_control_disconnected_sessions', u'flow_control_successful_sessions', u'pppoema_subscriber_infra_flow_control'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pppoe()

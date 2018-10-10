@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   tty\: TTY Line Configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Tty(Entity):
         self.tty_lines.parent = self
         self._children_name_map["tty_lines"] = "tty-lines"
         self._segment_path = lambda: "Cisco-IOS-XR-tty-server-cfg:tty"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Tty, [], name, value)
@@ -87,6 +89,7 @@ class Tty(Entity):
             self.tty_line = YList(self)
             self._segment_path = lambda: "tty-lines"
             self._absolute_path = lambda: "Cisco-IOS-XR-tty-server-cfg:tty/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Tty.TtyLines, [], name, value)
@@ -153,7 +156,7 @@ class Tty(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("general", ("general", Tty.TtyLines.TtyLine.General)), ("telnet", ("telnet", Tty.TtyLines.TtyLine.Telnet)), ("aaa", ("aaa", Tty.TtyLines.TtyLine.Aaa)), ("exec", ("exec_", Tty.TtyLines.TtyLine.Exec)), ("Cisco-IOS-XR-tty-management-cfg:connection", ("connection", Tty.TtyLines.TtyLine.Connection)), ("Cisco-IOS-XR-tty-management-cfg:exec-mode", ("exec_mode", Tty.TtyLines.TtyLine.ExecMode))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -182,6 +185,7 @@ class Tty(Entity):
                 self._children_name_map["exec_mode"] = "Cisco-IOS-XR-tty-management-cfg:exec-mode"
                 self._segment_path = lambda: "tty-line" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-server-cfg:tty/tty-lines/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Tty.TtyLines.TtyLine, ['name'], name, value)
@@ -237,14 +241,15 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('length', YLeaf(YType.uint32, 'length')),
-                        ('absolute_timeout', YLeaf(YType.uint32, 'absolute-timeout')),
-                        ('width', YLeaf(YType.uint32, 'width')),
+                        ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                        ('absolute_timeout', (YLeaf(YType.uint32, 'absolute-timeout'), ['int'])),
+                        ('width', (YLeaf(YType.uint32, 'width'), ['int'])),
                     ])
                     self.length = None
                     self.absolute_timeout = None
                     self.width = None
                     self._segment_path = lambda: "general"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.General, ['length', 'absolute_timeout', 'width'], name, value)
@@ -276,10 +281,11 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('transparent', YLeaf(YType.empty, 'transparent')),
+                        ('transparent', (YLeaf(YType.empty, 'transparent'), ['Empty'])),
                     ])
                     self.transparent = None
                     self._segment_path = lambda: "telnet"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.Telnet, ['transparent'], name, value)
@@ -352,9 +358,9 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("user-groups", ("user_groups", Tty.TtyLines.TtyLine.Aaa.UserGroups)), ("authorization", ("authorization", Tty.TtyLines.TtyLine.Aaa.Authorization)), ("authentication", ("authentication", Tty.TtyLines.TtyLine.Aaa.Authentication)), ("accounting", ("accounting", Tty.TtyLines.TtyLine.Aaa.Accounting))])
                     self._leafs = OrderedDict([
-                        ('login_timeout', YLeaf(YType.uint32, 'login-timeout')),
-                        ('secret', YLeaf(YType.str, 'secret')),
-                        ('password', YLeaf(YType.str, 'password')),
+                        ('login_timeout', (YLeaf(YType.uint32, 'login-timeout'), ['int'])),
+                        ('secret', (YLeaf(YType.str, 'secret'), ['str'])),
+                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
                     ])
                     self.login_timeout = None
                     self.secret = None
@@ -376,6 +382,7 @@ class Tty(Entity):
                     self.accounting.parent = self
                     self._children_name_map["accounting"] = "accounting"
                     self._segment_path = lambda: "aaa"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.Aaa, ['login_timeout', 'secret', 'password'], name, value)
@@ -410,6 +417,7 @@ class Tty(Entity):
 
                         self.user_group = YList(self)
                         self._segment_path = lambda: "user-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.UserGroups, [], name, value)
@@ -450,12 +458,13 @@ class Tty(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('category', YLeaf(YType.str, 'category')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('category', (YLeaf(YType.str, 'category'), ['str'])),
                             ])
                             self.name = None
                             self.category = None
                             self._segment_path = lambda: "user-group" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.UserGroups.UserGroup, ['name', 'category'], name, value)
@@ -497,14 +506,15 @@ class Tty(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('exec_', YLeaf(YType.str, 'exec')),
-                            ('event_manager', YLeaf(YType.str, 'event-manager')),
-                            ('commands', YLeaf(YType.str, 'commands')),
+                            ('exec_', (YLeaf(YType.str, 'exec'), ['str'])),
+                            ('event_manager', (YLeaf(YType.str, 'event-manager'), ['str'])),
+                            ('commands', (YLeaf(YType.str, 'commands'), ['str'])),
                         ])
                         self.exec_ = None
                         self.event_manager = None
                         self.commands = None
                         self._segment_path = lambda: "authorization"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authorization, ['exec_', 'event_manager', 'commands'], name, value)
@@ -536,10 +546,11 @@ class Tty(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('login', YLeaf(YType.str, 'login')),
+                            ('login', (YLeaf(YType.str, 'login'), ['str'])),
                         ])
                         self.login = None
                         self._segment_path = lambda: "authentication"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Authentication, ['login'], name, value)
@@ -576,12 +587,13 @@ class Tty(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('exec_', YLeaf(YType.str, 'exec')),
-                            ('commands', YLeaf(YType.str, 'commands')),
+                            ('exec_', (YLeaf(YType.str, 'exec'), ['str'])),
+                            ('commands', (YLeaf(YType.str, 'commands'), ['str'])),
                         ])
                         self.exec_ = None
                         self.commands = None
                         self._segment_path = lambda: "accounting"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Aaa.Accounting, ['exec_', 'commands'], name, value)
@@ -620,13 +632,14 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("timeout", ("timeout", Tty.TtyLines.TtyLine.Exec.Timeout))])
                     self._leafs = OrderedDict([
-                        ('time_stamp', YLeaf(YType.boolean, 'time-stamp')),
+                        ('time_stamp', (YLeaf(YType.boolean, 'time-stamp'), ['bool'])),
                     ])
                     self.time_stamp = None
 
                     self.timeout = None
                     self._children_name_map["timeout"] = "timeout"
                     self._segment_path = lambda: "exec"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.Exec, ['time_stamp'], name, value)
@@ -678,12 +691,13 @@ class Tty(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('minutes', YLeaf(YType.uint32, 'minutes')),
-                            ('seconds', YLeaf(YType.uint32, 'seconds')),
+                            ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint32, 'seconds'), ['int'])),
                         ])
                         self.minutes = None
                         self.seconds = None
                         self._segment_path = lambda: "timeout"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Exec.Timeout, ['minutes', 'seconds'], name, value)
@@ -774,7 +788,7 @@ class Tty(Entity):
                 """
 
                 _prefix = 'tty-management-cfg'
-                _revision = '2015-09-25'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Tty.TtyLines.TtyLine.Connection, self).__init__()
@@ -786,13 +800,13 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("transport-input", ("transport_input", Tty.TtyLines.TtyLine.Connection.TransportInput)), ("transport-output", ("transport_output", Tty.TtyLines.TtyLine.Connection.TransportOutput)), ("session-timeout", ("session_timeout", Tty.TtyLines.TtyLine.Connection.SessionTimeout))])
                     self._leafs = OrderedDict([
-                        ('disconnect_character', YLeaf(YType.str, 'disconnect-character')),
-                        ('acl_in', YLeaf(YType.str, 'acl-in')),
-                        ('acl_out', YLeaf(YType.str, 'acl-out')),
-                        ('cli_white_space_completion', YLeaf(YType.empty, 'cli-white-space-completion')),
-                        ('session_limit', YLeaf(YType.uint32, 'session-limit')),
-                        ('escape_character', YLeaf(YType.str, 'escape-character')),
-                        ('transport_preferred', YLeaf(YType.enumeration, 'transport-preferred')),
+                        ('disconnect_character', (YLeaf(YType.str, 'disconnect-character'), ['str','int'])),
+                        ('acl_in', (YLeaf(YType.str, 'acl-in'), ['str'])),
+                        ('acl_out', (YLeaf(YType.str, 'acl-out'), ['str'])),
+                        ('cli_white_space_completion', (YLeaf(YType.empty, 'cli-white-space-completion'), ['Empty'])),
+                        ('session_limit', (YLeaf(YType.uint32, 'session-limit'), ['int'])),
+                        ('escape_character', (YLeaf(YType.str, 'escape-character'), ['str','int'])),
+                        ('transport_preferred', (YLeaf(YType.enumeration, 'transport-preferred'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol', '')])),
                     ])
                     self.disconnect_character = None
                     self.acl_in = None
@@ -812,6 +826,7 @@ class Tty(Entity):
                     self.session_timeout = None
                     self._children_name_map["session_timeout"] = "session-timeout"
                     self._segment_path = lambda: "Cisco-IOS-XR-tty-management-cfg:connection"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.Connection, ['disconnect_character', 'acl_in', 'acl_out', 'cli_white_space_completion', 'session_limit', 'escape_character', 'transport_preferred'], name, value)
@@ -844,14 +859,14 @@ class Tty(Entity):
                     	Not used
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'tty-management-cfg'
-                    _revision = '2015-09-25'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tty.TtyLines.TtyLine.Connection.TransportInput, self).__init__()
@@ -863,16 +878,17 @@ class Tty(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('select', YLeaf(YType.enumeration, 'select')),
-                            ('protocol1', YLeaf(YType.enumeration, 'protocol1')),
-                            ('protocol2', YLeaf(YType.enumeration, 'protocol2')),
-                            ('none', YLeaf(YType.int32, 'none')),
+                            ('select', (YLeaf(YType.enumeration, 'select'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelect', '')])),
+                            ('protocol1', (YLeaf(YType.enumeration, 'protocol1'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol', '')])),
+                            ('protocol2', (YLeaf(YType.enumeration, 'protocol2'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol', '')])),
+                            ('none', (YLeaf(YType.uint32, 'none'), ['int'])),
                         ])
                         self.select = None
                         self.protocol1 = None
                         self.protocol2 = None
                         self.none = None
                         self._segment_path = lambda: "transport-input"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.TransportInput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
@@ -904,7 +920,7 @@ class Tty(Entity):
                     	Not used
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
@@ -913,7 +929,7 @@ class Tty(Entity):
                     """
 
                     _prefix = 'tty-management-cfg'
-                    _revision = '2015-09-25'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tty.TtyLines.TtyLine.Connection.TransportOutput, self).__init__()
@@ -926,16 +942,17 @@ class Tty(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('select', YLeaf(YType.enumeration, 'select')),
-                            ('protocol1', YLeaf(YType.enumeration, 'protocol1')),
-                            ('protocol2', YLeaf(YType.enumeration, 'protocol2')),
-                            ('none', YLeaf(YType.int32, 'none')),
+                            ('select', (YLeaf(YType.enumeration, 'select'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocolSelect', '')])),
+                            ('protocol1', (YLeaf(YType.enumeration, 'protocol1'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol', '')])),
+                            ('protocol2', (YLeaf(YType.enumeration, 'protocol2'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyTransportProtocol', '')])),
+                            ('none', (YLeaf(YType.uint32, 'none'), ['int'])),
                         ])
                         self.select = None
                         self.protocol1 = None
                         self.protocol2 = None
                         self.none = None
                         self._segment_path = lambda: "transport-output"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.TransportOutput, ['select', 'protocol1', 'protocol2', 'none'], name, value)
@@ -969,7 +986,7 @@ class Tty(Entity):
                     """
 
                     _prefix = 'tty-management-cfg'
-                    _revision = '2015-09-25'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Tty.TtyLines.TtyLine.Connection.SessionTimeout, self).__init__()
@@ -982,12 +999,13 @@ class Tty(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('timeout', YLeaf(YType.uint32, 'timeout')),
-                            ('direction', YLeaf(YType.enumeration, 'direction')),
+                            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                            ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtySessionTimeoutDirection', '')])),
                         ])
                         self.timeout = None
                         self.direction = None
                         self._segment_path = lambda: "session-timeout"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tty.TtyLines.TtyLine.Connection.SessionTimeout, ['timeout', 'direction'], name, value)
@@ -1009,7 +1027,7 @@ class Tty(Entity):
                 """
 
                 _prefix = 'tty-management-cfg'
-                _revision = '2015-09-25'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Tty.TtyLines.TtyLine.ExecMode, self).__init__()
@@ -1021,10 +1039,11 @@ class Tty(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pager', YLeaf(YType.enumeration, 'pager')),
+                        ('pager', (YLeaf(YType.enumeration, 'pager'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tty_management_datatypes', 'TtyPager', '')])),
                     ])
                     self.pager = None
                     self._segment_path = lambda: "Cisco-IOS-XR-tty-management-cfg:exec-mode"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tty.TtyLines.TtyLine.ExecMode, ['pager'], name, value)

@@ -8,7 +8,7 @@ for the following management objects\:
   interface\-dampening\: Interface dampening data
   interface\-properties\: interface properties
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ImStateEnum(Enum):
@@ -185,6 +186,7 @@ class InterfaceDampening(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(InterfaceDampening, [], name, value)
@@ -221,6 +223,7 @@ class InterfaceDampening(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceDampening.Interfaces, [], name, value)
@@ -236,7 +239,7 @@ class InterfaceDampening(Entity):
             	The name of the
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: if_dampening
             
@@ -260,7 +263,7 @@ class InterfaceDampening(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("if-dampening", ("if_dampening", InterfaceDampening.Interfaces.Interface.IfDampening))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -269,6 +272,7 @@ class InterfaceDampening(Entity):
                 self._children_name_map["if_dampening"] = "if-dampening"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfaceDampening.Interfaces.Interface, ['interface_name'], name, value)
@@ -363,14 +367,14 @@ class InterfaceDampening(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation))])
                     self._leafs = OrderedDict([
-                        ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
-                        ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
-                        ('is_dampening_enabled', YLeaf(YType.boolean, 'is-dampening-enabled')),
-                        ('half_life', YLeaf(YType.uint32, 'half-life')),
-                        ('reuse_threshold', YLeaf(YType.uint32, 'reuse-threshold')),
-                        ('suppress_threshold', YLeaf(YType.uint32, 'suppress-threshold')),
-                        ('maximum_suppress_time', YLeaf(YType.uint32, 'maximum-suppress-time')),
-                        ('restart_penalty', YLeaf(YType.uint32, 'restart-penalty')),
+                        ('state_transition_count', (YLeaf(YType.uint32, 'state-transition-count'), ['int'])),
+                        ('last_state_transition_time', (YLeaf(YType.uint32, 'last-state-transition-time'), ['int'])),
+                        ('is_dampening_enabled', (YLeaf(YType.boolean, 'is-dampening-enabled'), ['bool'])),
+                        ('half_life', (YLeaf(YType.uint32, 'half-life'), ['int'])),
+                        ('reuse_threshold', (YLeaf(YType.uint32, 'reuse-threshold'), ['int'])),
+                        ('suppress_threshold', (YLeaf(YType.uint32, 'suppress-threshold'), ['int'])),
+                        ('maximum_suppress_time', (YLeaf(YType.uint32, 'maximum-suppress-time'), ['int'])),
+                        ('restart_penalty', (YLeaf(YType.uint32, 'restart-penalty'), ['int'])),
                     ])
                     self.state_transition_count = None
                     self.last_state_transition_time = None
@@ -387,6 +391,7 @@ class InterfaceDampening(Entity):
 
                     self.capsulation = YList(self)
                     self._segment_path = lambda: "if-dampening"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening, ['state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
@@ -446,11 +451,11 @@ class InterfaceDampening(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('penalty', YLeaf(YType.uint32, 'penalty')),
-                            ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                            ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                            ('flaps', YLeaf(YType.uint32, 'flaps')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                            ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                            ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                            ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                         ])
                         self.penalty = None
                         self.is_suppressed_enabled = None
@@ -458,6 +463,7 @@ class InterfaceDampening(Entity):
                         self.flaps = None
                         self.state = None
                         self._segment_path = lambda: "interface-dampening"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -494,7 +500,7 @@ class InterfaceDampening(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening))])
                         self._leafs = OrderedDict([
-                            ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
+                            ('capsulation_number', (YLeaf(YType.str, 'capsulation-number'), ['str'])),
                         ])
                         self.capsulation_number = None
 
@@ -502,6 +508,7 @@ class InterfaceDampening(Entity):
                         self.capsulation_dampening.parent = self
                         self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
                         self._segment_path = lambda: "capsulation"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation, ['capsulation_number'], name, value)
@@ -561,11 +568,11 @@ class InterfaceDampening(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('penalty', YLeaf(YType.uint32, 'penalty')),
-                                ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                                ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                                ('flaps', YLeaf(YType.uint32, 'flaps')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
+                                ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                                ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                                ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                                ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                             ])
                             self.penalty = None
                             self.is_suppressed_enabled = None
@@ -573,6 +580,7 @@ class InterfaceDampening(Entity):
                             self.flaps = None
                             self.state = None
                             self._segment_path = lambda: "capsulation-dampening"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceDampening.Interfaces.Interface.IfDampening.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -608,6 +616,7 @@ class InterfaceDampening(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceDampening.Nodes, [], name, value)
@@ -646,7 +655,7 @@ class InterfaceDampening(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("show", ("show", InterfaceDampening.Nodes.Node.Show))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -655,6 +664,7 @@ class InterfaceDampening(Entity):
                 self._children_name_map["show"] = "show"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-dampening/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfaceDampening.Nodes.Node, ['node_name'], name, value)
@@ -691,6 +701,7 @@ class InterfaceDampening(Entity):
                     self.dampening.parent = self
                     self._children_name_map["dampening"] = "dampening"
                     self._segment_path = lambda: "show"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show, [], name, value)
@@ -737,6 +748,7 @@ class InterfaceDampening(Entity):
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
                         self._segment_path = lambda: "dampening"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening, [], name, value)
@@ -772,6 +784,7 @@ class InterfaceDampening(Entity):
 
                             self.if_handle = YList(self)
                             self._segment_path = lambda: "if-handles"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles, [], name, value)
@@ -873,15 +886,15 @@ class InterfaceDampening(Entity):
                                 self.ylist_key_names = ['interface_handle_name']
                                 self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation))])
                                 self._leafs = OrderedDict([
-                                    ('interface_handle_name', YLeaf(YType.str, 'interface-handle-name')),
-                                    ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
-                                    ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
-                                    ('is_dampening_enabled', YLeaf(YType.boolean, 'is-dampening-enabled')),
-                                    ('half_life', YLeaf(YType.uint32, 'half-life')),
-                                    ('reuse_threshold', YLeaf(YType.uint32, 'reuse-threshold')),
-                                    ('suppress_threshold', YLeaf(YType.uint32, 'suppress-threshold')),
-                                    ('maximum_suppress_time', YLeaf(YType.uint32, 'maximum-suppress-time')),
-                                    ('restart_penalty', YLeaf(YType.uint32, 'restart-penalty')),
+                                    ('interface_handle_name', (YLeaf(YType.str, 'interface-handle-name'), ['str'])),
+                                    ('state_transition_count', (YLeaf(YType.uint32, 'state-transition-count'), ['int'])),
+                                    ('last_state_transition_time', (YLeaf(YType.uint32, 'last-state-transition-time'), ['int'])),
+                                    ('is_dampening_enabled', (YLeaf(YType.boolean, 'is-dampening-enabled'), ['bool'])),
+                                    ('half_life', (YLeaf(YType.uint32, 'half-life'), ['int'])),
+                                    ('reuse_threshold', (YLeaf(YType.uint32, 'reuse-threshold'), ['int'])),
+                                    ('suppress_threshold', (YLeaf(YType.uint32, 'suppress-threshold'), ['int'])),
+                                    ('maximum_suppress_time', (YLeaf(YType.uint32, 'maximum-suppress-time'), ['int'])),
+                                    ('restart_penalty', (YLeaf(YType.uint32, 'restart-penalty'), ['int'])),
                                 ])
                                 self.interface_handle_name = None
                                 self.state_transition_count = None
@@ -899,6 +912,7 @@ class InterfaceDampening(Entity):
 
                                 self.capsulation = YList(self)
                                 self._segment_path = lambda: "if-handle" + "[interface-handle-name='" + str(self.interface_handle_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle, ['interface_handle_name', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
@@ -958,11 +972,11 @@ class InterfaceDampening(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('penalty', YLeaf(YType.uint32, 'penalty')),
-                                        ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                                        ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                                        ('flaps', YLeaf(YType.uint32, 'flaps')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                                        ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                                        ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                                        ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                                     ])
                                     self.penalty = None
                                     self.is_suppressed_enabled = None
@@ -970,6 +984,7 @@ class InterfaceDampening(Entity):
                                     self.flaps = None
                                     self.state = None
                                     self._segment_path = lambda: "interface-dampening"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -1006,7 +1021,7 @@ class InterfaceDampening(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening))])
                                     self._leafs = OrderedDict([
-                                        ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
+                                        ('capsulation_number', (YLeaf(YType.str, 'capsulation-number'), ['str'])),
                                     ])
                                     self.capsulation_number = None
 
@@ -1014,6 +1029,7 @@ class InterfaceDampening(Entity):
                                     self.capsulation_dampening.parent = self
                                     self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
                                     self._segment_path = lambda: "capsulation"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation, ['capsulation_number'], name, value)
@@ -1073,11 +1089,11 @@ class InterfaceDampening(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('penalty', YLeaf(YType.uint32, 'penalty')),
-                                            ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                                            ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                                            ('flaps', YLeaf(YType.uint32, 'flaps')),
-                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                            ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                                            ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                                            ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                                            ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                                         ])
                                         self.penalty = None
                                         self.is_suppressed_enabled = None
@@ -1085,6 +1101,7 @@ class InterfaceDampening(Entity):
                                         self.flaps = None
                                         self.state = None
                                         self._segment_path = lambda: "capsulation-dampening"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.IfHandles.IfHandle.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -1120,6 +1137,7 @@ class InterfaceDampening(Entity):
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces, [], name, value)
@@ -1134,7 +1152,7 @@ class InterfaceDampening(Entity):
                             	The name of the
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: interface_dampening
                             
@@ -1221,15 +1239,15 @@ class InterfaceDampening(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([("interface-dampening", ("interface_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_)), ("capsulation", ("capsulation", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation))])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('state_transition_count', YLeaf(YType.uint32, 'state-transition-count')),
-                                    ('last_state_transition_time', YLeaf(YType.uint32, 'last-state-transition-time')),
-                                    ('is_dampening_enabled', YLeaf(YType.boolean, 'is-dampening-enabled')),
-                                    ('half_life', YLeaf(YType.uint32, 'half-life')),
-                                    ('reuse_threshold', YLeaf(YType.uint32, 'reuse-threshold')),
-                                    ('suppress_threshold', YLeaf(YType.uint32, 'suppress-threshold')),
-                                    ('maximum_suppress_time', YLeaf(YType.uint32, 'maximum-suppress-time')),
-                                    ('restart_penalty', YLeaf(YType.uint32, 'restart-penalty')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('state_transition_count', (YLeaf(YType.uint32, 'state-transition-count'), ['int'])),
+                                    ('last_state_transition_time', (YLeaf(YType.uint32, 'last-state-transition-time'), ['int'])),
+                                    ('is_dampening_enabled', (YLeaf(YType.boolean, 'is-dampening-enabled'), ['bool'])),
+                                    ('half_life', (YLeaf(YType.uint32, 'half-life'), ['int'])),
+                                    ('reuse_threshold', (YLeaf(YType.uint32, 'reuse-threshold'), ['int'])),
+                                    ('suppress_threshold', (YLeaf(YType.uint32, 'suppress-threshold'), ['int'])),
+                                    ('maximum_suppress_time', (YLeaf(YType.uint32, 'maximum-suppress-time'), ['int'])),
+                                    ('restart_penalty', (YLeaf(YType.uint32, 'restart-penalty'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.state_transition_count = None
@@ -1247,6 +1265,7 @@ class InterfaceDampening(Entity):
 
                                 self.capsulation = YList(self)
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface, ['interface_name', 'state_transition_count', 'last_state_transition_time', 'is_dampening_enabled', 'half_life', 'reuse_threshold', 'suppress_threshold', 'maximum_suppress_time', 'restart_penalty'], name, value)
@@ -1306,11 +1325,11 @@ class InterfaceDampening(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('penalty', YLeaf(YType.uint32, 'penalty')),
-                                        ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                                        ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                                        ('flaps', YLeaf(YType.uint32, 'flaps')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
+                                        ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                                        ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                                        ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                                        ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                                     ])
                                     self.penalty = None
                                     self.is_suppressed_enabled = None
@@ -1318,6 +1337,7 @@ class InterfaceDampening(Entity):
                                     self.flaps = None
                                     self.state = None
                                     self._segment_path = lambda: "interface-dampening"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.InterfaceDampening_, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -1354,7 +1374,7 @@ class InterfaceDampening(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("capsulation-dampening", ("capsulation_dampening", InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening))])
                                     self._leafs = OrderedDict([
-                                        ('capsulation_number', YLeaf(YType.str, 'capsulation-number')),
+                                        ('capsulation_number', (YLeaf(YType.str, 'capsulation-number'), ['str'])),
                                     ])
                                     self.capsulation_number = None
 
@@ -1362,6 +1382,7 @@ class InterfaceDampening(Entity):
                                     self.capsulation_dampening.parent = self
                                     self._children_name_map["capsulation_dampening"] = "capsulation-dampening"
                                     self._segment_path = lambda: "capsulation"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation, ['capsulation_number'], name, value)
@@ -1421,11 +1442,11 @@ class InterfaceDampening(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('penalty', YLeaf(YType.uint32, 'penalty')),
-                                            ('is_suppressed_enabled', YLeaf(YType.boolean, 'is-suppressed-enabled')),
-                                            ('seconds_remaining', YLeaf(YType.uint32, 'seconds-remaining')),
-                                            ('flaps', YLeaf(YType.uint32, 'flaps')),
-                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                            ('penalty', (YLeaf(YType.uint32, 'penalty'), ['int'])),
+                                            ('is_suppressed_enabled', (YLeaf(YType.boolean, 'is-suppressed-enabled'), ['bool'])),
+                                            ('seconds_remaining', (YLeaf(YType.uint32, 'seconds-remaining'), ['int'])),
+                                            ('flaps', (YLeaf(YType.uint32, 'flaps'), ['int'])),
+                                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
                                         ])
                                         self.penalty = None
                                         self.is_suppressed_enabled = None
@@ -1433,6 +1454,7 @@ class InterfaceDampening(Entity):
                                         self.flaps = None
                                         self.state = None
                                         self._segment_path = lambda: "capsulation-dampening"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(InterfaceDampening.Nodes.Node.Show.Dampening.Interfaces.Interface.Capsulation.CapsulationDampening, ['penalty', 'is_suppressed_enabled', 'seconds_remaining', 'flaps', 'state'], name, value)
@@ -1473,6 +1495,7 @@ class InterfaceProperties(Entity):
         self.data_nodes.parent = self
         self._children_name_map["data_nodes"] = "data-nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-properties"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(InterfaceProperties, [], name, value)
@@ -1508,6 +1531,7 @@ class InterfaceProperties(Entity):
             self.data_node = YList(self)
             self._segment_path = lambda: "data-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-properties/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InterfaceProperties.DataNodes, [], name, value)
@@ -1557,7 +1581,7 @@ class InterfaceProperties(Entity):
                 self.ylist_key_names = ['data_node_name']
                 self._child_classes = OrderedDict([("locationviews", ("locationviews", InterfaceProperties.DataNodes.DataNode.Locationviews)), ("pq-node-locations", ("pq_node_locations", InterfaceProperties.DataNodes.DataNode.PqNodeLocations)), ("system-view", ("system_view", InterfaceProperties.DataNodes.DataNode.SystemView))])
                 self._leafs = OrderedDict([
-                    ('data_node_name', YLeaf(YType.str, 'data-node-name')),
+                    ('data_node_name', (YLeaf(YType.str, 'data-node-name'), ['str'])),
                 ])
                 self.data_node_name = None
 
@@ -1574,6 +1598,7 @@ class InterfaceProperties(Entity):
                 self._children_name_map["system_view"] = "system-view"
                 self._segment_path = lambda: "data-node" + "[data-node-name='" + str(self.data_node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ifmgr-oper:interface-properties/data-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode, ['data_node_name'], name, value)
@@ -1609,6 +1634,7 @@ class InterfaceProperties(Entity):
 
                     self.locationview = YList(self)
                     self._segment_path = lambda: "locationviews"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews, [], name, value)
@@ -1648,7 +1674,7 @@ class InterfaceProperties(Entity):
                         self.ylist_key_names = ['locationview_name']
                         self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces))])
                         self._leafs = OrderedDict([
-                            ('locationview_name', YLeaf(YType.str, 'locationview-name')),
+                            ('locationview_name', (YLeaf(YType.str, 'locationview-name'), ['str'])),
                         ])
                         self.locationview_name = None
 
@@ -1656,6 +1682,7 @@ class InterfaceProperties(Entity):
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
                         self._segment_path = lambda: "locationview" + "[locationview-name='" + str(self.locationview_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview, ['locationview_name'], name, value)
@@ -1691,6 +1718,7 @@ class InterfaceProperties(Entity):
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces, [], name, value)
@@ -1706,21 +1734,21 @@ class InterfaceProperties(Entity):
                             	The name of the interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: interface
                             
                             	Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: parent_interface
                             
                             	Parent Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: type
                             
@@ -1804,20 +1832,20 @@ class InterfaceProperties(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                                    ('type', YLeaf(YType.str, 'type')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('actual_state', YLeaf(YType.enumeration, 'actual-state')),
-                                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                    ('actual_line_state', YLeaf(YType.enumeration, 'actual-line-state')),
-                                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
-                                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
-                                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                    ('sub_interface_mtu_overhead', YLeaf(YType.uint32, 'sub-interface-mtu-overhead')),
-                                    ('l2_transport', YLeaf(YType.boolean, 'l2-transport')),
-                                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                                    ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('actual_state', (YLeaf(YType.enumeration, 'actual-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('actual_line_state', (YLeaf(YType.enumeration, 'actual-line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('encapsulation', (YLeaf(YType.str, 'encapsulation'), ['str'])),
+                                    ('encapsulation_type_string', (YLeaf(YType.str, 'encapsulation-type-string'), ['str'])),
+                                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                    ('sub_interface_mtu_overhead', (YLeaf(YType.uint32, 'sub-interface-mtu-overhead'), ['int'])),
+                                    ('l2_transport', (YLeaf(YType.boolean, 'l2-transport'), ['bool'])),
+                                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.interface = None
@@ -1834,6 +1862,7 @@ class InterfaceProperties(Entity):
                                 self.l2_transport = None
                                 self.bandwidth = None
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.Locationviews.Locationview.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
@@ -1869,6 +1898,7 @@ class InterfaceProperties(Entity):
 
                     self.pq_node_location = YList(self)
                     self._segment_path = lambda: "pq-node-locations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations, [], name, value)
@@ -1908,7 +1938,7 @@ class InterfaceProperties(Entity):
                         self.ylist_key_names = ['pq_node_name']
                         self._child_classes = OrderedDict([("interfaces", ("interfaces", InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces))])
                         self._leafs = OrderedDict([
-                            ('pq_node_name', YLeaf(YType.str, 'pq-node-name')),
+                            ('pq_node_name', (YLeaf(YType.str, 'pq-node-name'), ['str'])),
                         ])
                         self.pq_node_name = None
 
@@ -1916,6 +1946,7 @@ class InterfaceProperties(Entity):
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
                         self._segment_path = lambda: "pq-node-location" + "[pq-node-name='" + str(self.pq_node_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation, ['pq_node_name'], name, value)
@@ -1951,6 +1982,7 @@ class InterfaceProperties(Entity):
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces, [], name, value)
@@ -1966,21 +1998,21 @@ class InterfaceProperties(Entity):
                             	The name of the interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: interface
                             
                             	Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: parent_interface
                             
                             	Parent Interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: type
                             
@@ -2064,20 +2096,20 @@ class InterfaceProperties(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                                    ('type', YLeaf(YType.str, 'type')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('actual_state', YLeaf(YType.enumeration, 'actual-state')),
-                                    ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                    ('actual_line_state', YLeaf(YType.enumeration, 'actual-line-state')),
-                                    ('encapsulation', YLeaf(YType.str, 'encapsulation')),
-                                    ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
-                                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                    ('sub_interface_mtu_overhead', YLeaf(YType.uint32, 'sub-interface-mtu-overhead')),
-                                    ('l2_transport', YLeaf(YType.boolean, 'l2-transport')),
-                                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                                    ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('actual_state', (YLeaf(YType.enumeration, 'actual-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('actual_line_state', (YLeaf(YType.enumeration, 'actual-line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                    ('encapsulation', (YLeaf(YType.str, 'encapsulation'), ['str'])),
+                                    ('encapsulation_type_string', (YLeaf(YType.str, 'encapsulation-type-string'), ['str'])),
+                                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                    ('sub_interface_mtu_overhead', (YLeaf(YType.uint32, 'sub-interface-mtu-overhead'), ['int'])),
+                                    ('l2_transport', (YLeaf(YType.boolean, 'l2-transport'), ['bool'])),
+                                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.interface = None
@@ -2094,6 +2126,7 @@ class InterfaceProperties(Entity):
                                 self.l2_transport = None
                                 self.bandwidth = None
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(InterfaceProperties.DataNodes.DataNode.PqNodeLocations.PqNodeLocation.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)
@@ -2130,6 +2163,7 @@ class InterfaceProperties(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "system-view"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView, [], name, value)
@@ -2165,6 +2199,7 @@ class InterfaceProperties(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces, [], name, value)
@@ -2180,21 +2215,21 @@ class InterfaceProperties(Entity):
                         	The name of the interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: interface
                         
                         	Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: parent_interface
                         
                         	Parent Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: type
                         
@@ -2278,20 +2313,20 @@ class InterfaceProperties(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                                ('type', YLeaf(YType.str, 'type')),
-                                ('state', YLeaf(YType.enumeration, 'state')),
-                                ('actual_state', YLeaf(YType.enumeration, 'actual-state')),
-                                ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                ('actual_line_state', YLeaf(YType.enumeration, 'actual-line-state')),
-                                ('encapsulation', YLeaf(YType.str, 'encapsulation')),
-                                ('encapsulation_type_string', YLeaf(YType.str, 'encapsulation-type-string')),
-                                ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                ('sub_interface_mtu_overhead', YLeaf(YType.uint32, 'sub-interface-mtu-overhead')),
-                                ('l2_transport', YLeaf(YType.boolean, 'l2-transport')),
-                                ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                                ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                                ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                ('actual_state', (YLeaf(YType.enumeration, 'actual-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                ('actual_line_state', (YLeaf(YType.enumeration, 'actual-line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ifmgr_oper', 'ImStateEnum', '')])),
+                                ('encapsulation', (YLeaf(YType.str, 'encapsulation'), ['str'])),
+                                ('encapsulation_type_string', (YLeaf(YType.str, 'encapsulation-type-string'), ['str'])),
+                                ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                ('sub_interface_mtu_overhead', (YLeaf(YType.uint32, 'sub-interface-mtu-overhead'), ['int'])),
+                                ('l2_transport', (YLeaf(YType.boolean, 'l2-transport'), ['bool'])),
+                                ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                             ])
                             self.interface_name = None
                             self.interface = None
@@ -2308,6 +2343,7 @@ class InterfaceProperties(Entity):
                             self.l2_transport = None
                             self.bandwidth = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfaceProperties.DataNodes.DataNode.SystemView.Interfaces.Interface, ['interface_name', 'interface', 'parent_interface', 'type', 'state', 'actual_state', 'line_state', 'actual_line_state', 'encapsulation', 'encapsulation_type_string', 'mtu', 'sub_interface_mtu_overhead', 'l2_transport', 'bandwidth'], name, value)

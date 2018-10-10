@@ -24,11 +24,11 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ydk>=0.7.2']
+INSTALL_REQUIREMENTS = ['ydk>=0.7.3']
 
 NMSP_PKG_NAME = "ydk-models-cisco-nx-os"
-NMSP_PKG_VERSION = "0.7.4"
-NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.5-post1']
+NMSP_PKG_VERSION = "9.2.1"
+NMSP_PKG_DEPENDENCIES = ['ydk-models-ietf>=0.1.5-post2']
 
 
 if NMSP_PKG_DEPENDENCIES != "$DEPENDENCY$":

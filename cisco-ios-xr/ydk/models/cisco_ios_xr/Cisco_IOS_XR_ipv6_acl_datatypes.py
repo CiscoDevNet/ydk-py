@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -13,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Ipv6AclDscpNumber(Enum):
@@ -1000,57 +1001,6 @@ class Ipv6AclStatusEnum(Enum):
     disabled = Enum.YLeaf(0, "disabled")
 
     enabled = Enum.YLeaf(1, "enabled")
-
-
-class Ipv6AclTcpBitsNumber(Enum):
-    """
-    Ipv6AclTcpBitsNumber (Enum Class)
-
-    Ipv6 acl tcp bits number
-
-    .. data:: established = 20
-
-    	Match established connections (0x14)
-
-    .. data:: ack = 16
-
-    	Match on the ACK bit (0x10)
-
-    .. data:: rst = 4
-
-    	Match on the RST bit (0x04)
-
-    .. data:: fin = 1
-
-    	Match on the FIN bit (0x01)
-
-    .. data:: psh = 8
-
-    	Match on the PSH bit (0x08)
-
-    .. data:: syn = 2
-
-    	Match on the SYN bit (0x02)
-
-    .. data:: urg = 32
-
-    	Match on the URG bit (0x20)
-
-    """
-
-    established = Enum.YLeaf(20, "established")
-
-    ack = Enum.YLeaf(16, "ack")
-
-    rst = Enum.YLeaf(4, "rst")
-
-    fin = Enum.YLeaf(1, "fin")
-
-    psh = Enum.YLeaf(8, "psh")
-
-    syn = Enum.YLeaf(2, "syn")
-
-    urg = Enum.YLeaf(32, "urg")
 
 
 class Ipv6AclTcpMatchOperatorEnum(Enum):

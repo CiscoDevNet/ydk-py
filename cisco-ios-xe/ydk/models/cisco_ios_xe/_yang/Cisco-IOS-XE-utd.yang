@@ -10,6 +10,10 @@ module Cisco-IOS-XE-utd {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-policy {
+    prefix ios-policy;
+  }
+
 
   organization
     "Cisco Systems, Inc.";
@@ -27,15 +31,50 @@ module Cisco-IOS-XE-utd {
 
   description
     "Cisco XE Native Unified Threat Defense (UTD) Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
+  revision 2018-05-14 {
+    description
+      "Limit string lengths for threat-defense features";
+  }
+
+  revision 2018-04-24 {
+    description
+      "Add 'all-interfaces' and 'fail close' to multi-tenancy policy";
+  }
+
+  revision 2018-04-23 {
+    description
+      "Add generator id key to multi-tenancy whitelist";
+  }
+
+  revision 2018-03-22 {
+    description
+      "Add generator id key to single-tenancy whitelist";
+  }
+
+  revision 2018-02-22 {
+    description
+      "Add threat-defense support for Ethernet interfaces";
+  }
+
+  revision 2018-02-06 {
+    description
+      "Refactor parameter-map";
+  }
+
   revision 2017-11-27 {
-     description
-       "Added Change 25GE name";
+    description
+      "Added Change 25GE name";
   }
 
   revision 2017-11-14 {
@@ -157,7 +196,9 @@ module Cisco-IOS-XE-utd {
           "Provide the profile ID";
         key id;
         leaf id {
-          type string;
+          type string {
+            length "1..512";
+          }
         }
 
         leaf alert {
@@ -181,8 +222,8 @@ module Cisco-IOS-XE-utd {
             leaf regex {
               description
                 "Provide the regex parameter-map name";
-              type union {
-                type string;
+              type string {
+                length "1..256";
               }
             }
           }
@@ -200,7 +241,9 @@ module Cisco-IOS-XE-utd {
             leaf local-block-server {
               description
                 "Use the local block server as the redirect server";
-              type string;
+              type string {
+                length "1..512";
+              }
             }
           }
         }
@@ -216,8 +259,8 @@ module Cisco-IOS-XE-utd {
             leaf regex {
               description
                 "Provide the regex parameter-map name";
-              type union {
-                type string;
+              type string {
+                length "1..256";
               }
             }
           }
@@ -241,7 +284,9 @@ module Cisco-IOS-XE-utd {
               "Provide the profile ID";
             key id;
             leaf id {
-              type string;
+              type string {
+                length "1..512";
+              }
             }
 
             container block-page-interface {
@@ -261,12 +306,16 @@ module Cisco-IOS-XE-utd {
                 leaf text {
                   description
                     "Provide the text to be printed in the web page served";
-                  type string;
+                  type string {
+                    length "1..512";
+                  }
                 }
                 leaf file {
                   description
                     "Provide the HTML file to be served";
-                  type string;
+                  type string {
+                    length "1..512";
+                  }
                 }
               }
             }
@@ -274,7 +323,9 @@ module Cisco-IOS-XE-utd {
             leaf http-ports {
               description
                 "Provide the HTTP ports to be used";
-              type string;
+              type string {
+                length "1..100";
+              }
             }
           }
         }
@@ -287,25 +338,33 @@ module Cisco-IOS-XE-utd {
               "Provide the profile ID";
             key id;
             leaf id {
-              type string;
+              type string {
+                length "1..512";
+              }
             }
             choice page-choice {
               leaf file {
                 description
                   "Specify the file name to be used for the block page";
-                type string;
+                type string {
+                  length "1..512";
+                }
               }
 
               leaf redirect-url {
                 description
                   "Specify the URL to be used for redirection";
-                type string;
+                type string {
+                  length "1..512";
+                }
               }
 
               leaf text {
                 description
                   "Specify the text to be used to be sent back";
-                type string;
+                type string {
+                  length "1..512";
+                }
               }
             }
           }
@@ -317,7 +376,9 @@ module Cisco-IOS-XE-utd {
           "UTD Web filtering source DB configuration submode";
         key id;
         leaf id {
-          type string;
+          type string {
+            length "1..512";
+          }
         }
 
         container logging {
@@ -345,7 +406,9 @@ module Cisco-IOS-XE-utd {
             "Provide the profile ID";
           key id;
           leaf id {
-            type string;
+            type string {
+              length "1..512";
+            }
           }
 
           leaf-list alert {
@@ -370,8 +433,8 @@ module Cisco-IOS-XE-utd {
               leaf regex {
                 description
                   "Provide the regex parameter-map name";
-                type union {
-                  type string;
+                type string {
+                  length "1..256";
                 }
               }
             }
@@ -415,13 +478,17 @@ module Cisco-IOS-XE-utd {
             leaf local-server {
               description
                 "Provide the local block server profile ID";
-              type string;
+              type string {
+                length "1..512";
+              }
             }
 
             leaf page-profile {
               description
                 "Provide the ID of the block page profile to be used";
-              type string;
+              type string {
+                length "1..512";
+              }
             }
           }
 
@@ -481,8 +548,8 @@ module Cisco-IOS-XE-utd {
               leaf regex {
                 description
                   "Provide the regex parameter-map name";
-                type union {
-                  type string;
+                type string {
+                  length "1..256";
                 }
               }
             }
@@ -509,12 +576,16 @@ module Cisco-IOS-XE-utd {
     leaf username {
       description
         "Provide the username for authentication";
-      type string;
+      type string {
+        length "1..512";
+      }
     }
     leaf password {
       description
         "Provide the password for authentication";
-      type string;
+      type string {
+        length "1..512";
+      }
     }
   }
 
@@ -527,7 +598,9 @@ module Cisco-IOS-XE-utd {
           "Log the alerts to a host";
         key name;
         leaf name {
-          type string;
+          type string {
+            length "1..45";
+          }
         }
       }
       leaf syslog {
@@ -558,12 +631,16 @@ module Cisco-IOS-XE-utd {
               leaf monthly {
                 description
                   "Option for monthly update";
-                type string;
+                type string {
+                  length "1..512";
+                }
               }
               leaf weekly {
                 description
                   "Option for weekly update";
-                type string;
+                type string {
+                  length "1..512";
+                }
               }
             }
             uses hour-minute-grouping;
@@ -583,14 +660,18 @@ module Cisco-IOS-XE-utd {
                 case all-case {
                   container all {
                     leaf name {
-                      type string;
+                      type string {
+                        length "1..512";
+                      }
                     }
                     uses username-password-grouping;
                   }
                 }
                 case name-only {
                   leaf name {
-                    type string;
+                    type string {
+                      length "1..512";
+                    }
                   }
                 }
               }
@@ -606,7 +687,9 @@ module Cisco-IOS-XE-utd {
       leaf sourcedb {
         description
           "Choose the source DB profile to use for web filtering";
-        type string;
+        type string {
+          length "1..512";
+        }
       }
     }
   }
@@ -692,23 +775,41 @@ module Cisco-IOS-XE-utd {
                       "UTD whitelist profile";
                     key name;
                     leaf name {
-                      type string;
+                      type string {
+                        length "1..512";
+                      }
                     }
 
                     // utd engine standard multi-tenancy / threat-inspection whitelist profile * / signature id *
-                    list signature {           
+                    list generator {
                       description
-                        "Provide signatures for the whitelist";
+		        "Provide generator for the whitelist";
                       key id;
                       leaf id {
                         description
-                          "Provide signature id for the whitelist";
-                        type uint32;
+                          "Provide the generator ID to be whitelisted";
+                        type uint32 {
+                          range "0..4294967295";
+                        }
                       }
-                      leaf comment {
+                      list signature {
                         description
-                          "Provide a comment for the signature";
-                        type string;
+                          "Provide signature for the whitelist";
+                        key id;
+                        leaf id {
+                          description
+                            "Provide the signature ID to be whitelisted";
+                          type uint32 {
+                            range "0..4294967295";
+                          }
+                        }
+                        leaf comment {
+                          description
+                            "Provide a comment for the whitelist";
+                          type string  {
+                            length "1..512";
+                          }
+                        }
                       }
                     }
                   }
@@ -720,7 +821,9 @@ module Cisco-IOS-XE-utd {
                     "UTD Threat Inspection profile";
                   key name;
                   leaf name {
-                    type string;
+                    type string {
+                      length "1..512";
+                    }
                   }
 
                   // utd engine standard multi-tenancy / threat-inspection profile * / threat
@@ -735,7 +838,9 @@ module Cisco-IOS-XE-utd {
                     leaf profile {                 
                       description
                         "UTD whitelist profile";
-                      type string;
+                      type string {
+                        length "1..512";
+                      }
                     }
                   }
                 }
@@ -760,7 +865,25 @@ module Cisco-IOS-XE-utd {
                   "Multi-tenancy utd policy";
                 key name;
                 leaf name {
-                  type string;
+                  type string {
+                    length "1..512";
+                  }
+                }
+
+                leaf all-interfaces {
+                  description
+                    "Enable intrusion inspection on all supported interfaces for this set of VRFs";
+                  type empty;
+                }
+
+                container fail {
+                  description
+                    "Enter the UTD engine fail mode operation";
+                  leaf close {
+                    description
+                      "Drop all IPS/IDS traffic on UTD engine failure";
+                    type empty;
+                  }
                 }
 
                 // utd engine standard multi-tenancy / policy * / vrf *
@@ -769,7 +892,12 @@ module Cisco-IOS-XE-utd {
                     "Associate a VRF with this policy";
                   key name;
                   leaf name {
-                    type string;
+		    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+		      error-message "VRF must be created 1st, deleted last";
+                    }
+                    type string {
+                      length "1..32";
+                    }
                   }
                 }
 
@@ -780,7 +908,9 @@ module Cisco-IOS-XE-utd {
                   leaf profile {
                     description
                       "Associate threat-inspection profile with this policy";
-                    type string;
+                    type string {
+                      length "1..512";
+                    }
                   }
                 }
 
@@ -794,7 +924,9 @@ module Cisco-IOS-XE-utd {
                     leaf profile {
                       description 
                         "Associate web filter profile with this policy";
-                      type string;
+                      type string {
+                        length "1..512";
+                      }
                     }
                   }
                 }
@@ -852,12 +984,16 @@ module Cisco-IOS-XE-utd {
                 leaf domain-profile {
                   description
                     "Choose the domain profile to use for web filtering";
-                  type string;
+                  type string {
+                    length "1..512";
+                  }
                 }
                 leaf url-profile {
                   description
                     "Choose the url profile to use for web filtering";
-                  type string;
+                  type string {
+                    length "1..512";
+                  }
                 }
               }
             }
@@ -870,21 +1006,35 @@ module Cisco-IOS-XE-utd {
             description
               "UTD whitelist config submode";
             presence true;
-            list signature {
+            list generator {
               description
-                "Provide signatures for the whitelist";
+                "Provide generator for the whitelist";
               key id;
               leaf id {
                 description
-                  "Provide signature id for the whitelist";
+                  "Provide the generator ID to be whitelisted";
                 type uint32 {
                   range "0..4294967295";
                 }
               }
-              leaf comment {
+              list signature {
                 description
-                  "Provide a comment for the signature";
-                type string;
+                  "Provide signature for the whitelist";
+                key id;
+                leaf id {
+                  description
+                    "Provide the signature ID to be whitelisted";
+                  type uint32 {
+                    range "0..4294967295";
+                  }
+                }
+                leaf comment {
+                  description
+                    "Provide a comment for the whitelist";
+                  type string {
+                    length "1..512";
+                  }
+                }
               }
             }
           }
@@ -915,7 +1065,9 @@ module Cisco-IOS-XE-utd {
             leaf BDI {
               description
                 "Bridge-Domain interface";
-              type string;
+              type string {
+                length "1..64";
+              }
             }
             leaf VirtualPortGroup {
               description
@@ -977,6 +1129,10 @@ module Cisco-IOS-XE-utd {
   /////////////////////////////////////////////////////////
   // native / interface
   /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:Ethernet" {
+    uses config-interface-utd-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-utd-grouping;
   }

@@ -1,16 +1,10 @@
 """ Cisco_IOS_XR_sysadmin_dumper 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin dumper to
 configure file path options to copy the core files to.
 
 Copyright(c) 2015\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -20,6 +14,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +48,7 @@ class Exception(Entity):
 
         self.choice = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-dumper:exception"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Exception, [], name, value)
@@ -93,13 +89,14 @@ class Exception(Entity):
             self.ylist_key_names = ['order']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('order', YLeaf(YType.int32, 'order')),
-                ('filepath', YLeaf(YType.str, 'filepath')),
+                ('order', (YLeaf(YType.int32, 'order'), ['int'])),
+                ('filepath', (YLeaf(YType.str, 'filepath'), ['str'])),
             ])
             self.order = None
             self.filepath = None
             self._segment_path = lambda: "choice" + "[order='" + str(self.order) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-dumper:exception/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Exception.Choice, ['order', 'filepath'], name, value)

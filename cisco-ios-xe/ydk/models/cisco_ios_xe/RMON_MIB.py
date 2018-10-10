@@ -13,6 +13,8 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
+
 
 class EntryStatus(Enum):
     """
@@ -168,7 +170,7 @@ class EntryStatus(Enum):
 
 
 
-class RmonEventsV2(Identity):
+class RmonEventsV2(ObjectIdentity):
     """
     Definition point for RMON notifications.
     
@@ -179,8 +181,8 @@ class RmonEventsV2(Identity):
     _prefix = 'RMON-MIB'
     _revision = '2000-05-11'
 
-    def __init__(self):
-        super(RmonEventsV2, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:RMON-MIB", "RMON-MIB", "RMON-MIB:rmonEventsV2")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:RMON-MIB", pref="RMON-MIB", tag="RMON-MIB:rmonEventsV2"):
+        super(RmonEventsV2, self).__init__(ns, pref, tag)
 
 
 class RMONMIB(Entity):
@@ -368,6 +370,7 @@ class RMONMIB(Entity):
         self.logtable.parent = self
         self._children_name_map["logtable"] = "logTable"
         self._segment_path = lambda: "RMON-MIB:RMON-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RMONMIB, [], name, value)
@@ -403,6 +406,7 @@ class RMONMIB(Entity):
             self.etherstatsentry = YList(self)
             self._segment_path = lambda: "etherStatsTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.EtherStatsTable, [], name, value)
@@ -622,29 +626,29 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['etherstatsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('etherstatsindex', YLeaf(YType.int32, 'etherStatsIndex')),
-                    ('etherstatsdatasource', YLeaf(YType.str, 'etherStatsDataSource')),
-                    ('etherstatsdropevents', YLeaf(YType.uint32, 'etherStatsDropEvents')),
-                    ('etherstatsoctets', YLeaf(YType.uint32, 'etherStatsOctets')),
-                    ('etherstatspkts', YLeaf(YType.uint32, 'etherStatsPkts')),
-                    ('etherstatsbroadcastpkts', YLeaf(YType.uint32, 'etherStatsBroadcastPkts')),
-                    ('etherstatsmulticastpkts', YLeaf(YType.uint32, 'etherStatsMulticastPkts')),
-                    ('etherstatscrcalignerrors', YLeaf(YType.uint32, 'etherStatsCRCAlignErrors')),
-                    ('etherstatsundersizepkts', YLeaf(YType.uint32, 'etherStatsUndersizePkts')),
-                    ('etherstatsoversizepkts', YLeaf(YType.uint32, 'etherStatsOversizePkts')),
-                    ('etherstatsfragments', YLeaf(YType.uint32, 'etherStatsFragments')),
-                    ('etherstatsjabbers', YLeaf(YType.uint32, 'etherStatsJabbers')),
-                    ('etherstatscollisions', YLeaf(YType.uint32, 'etherStatsCollisions')),
-                    ('etherstatspkts64octets', YLeaf(YType.uint32, 'etherStatsPkts64Octets')),
-                    ('etherstatspkts65to127octets', YLeaf(YType.uint32, 'etherStatsPkts65to127Octets')),
-                    ('etherstatspkts128to255octets', YLeaf(YType.uint32, 'etherStatsPkts128to255Octets')),
-                    ('etherstatspkts256to511octets', YLeaf(YType.uint32, 'etherStatsPkts256to511Octets')),
-                    ('etherstatspkts512to1023octets', YLeaf(YType.uint32, 'etherStatsPkts512to1023Octets')),
-                    ('etherstatspkts1024to1518octets', YLeaf(YType.uint32, 'etherStatsPkts1024to1518Octets')),
-                    ('etherstatsowner', YLeaf(YType.str, 'etherStatsOwner')),
-                    ('etherstatsstatus', YLeaf(YType.enumeration, 'etherStatsStatus')),
-                    ('etherstatsdroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:etherStatsDroppedFrames')),
-                    ('etherstatscreatetime', YLeaf(YType.uint32, 'RMON2-MIB:etherStatsCreateTime')),
+                    ('etherstatsindex', (YLeaf(YType.int32, 'etherStatsIndex'), ['int'])),
+                    ('etherstatsdatasource', (YLeaf(YType.str, 'etherStatsDataSource'), ['str'])),
+                    ('etherstatsdropevents', (YLeaf(YType.uint32, 'etherStatsDropEvents'), ['int'])),
+                    ('etherstatsoctets', (YLeaf(YType.uint32, 'etherStatsOctets'), ['int'])),
+                    ('etherstatspkts', (YLeaf(YType.uint32, 'etherStatsPkts'), ['int'])),
+                    ('etherstatsbroadcastpkts', (YLeaf(YType.uint32, 'etherStatsBroadcastPkts'), ['int'])),
+                    ('etherstatsmulticastpkts', (YLeaf(YType.uint32, 'etherStatsMulticastPkts'), ['int'])),
+                    ('etherstatscrcalignerrors', (YLeaf(YType.uint32, 'etherStatsCRCAlignErrors'), ['int'])),
+                    ('etherstatsundersizepkts', (YLeaf(YType.uint32, 'etherStatsUndersizePkts'), ['int'])),
+                    ('etherstatsoversizepkts', (YLeaf(YType.uint32, 'etherStatsOversizePkts'), ['int'])),
+                    ('etherstatsfragments', (YLeaf(YType.uint32, 'etherStatsFragments'), ['int'])),
+                    ('etherstatsjabbers', (YLeaf(YType.uint32, 'etherStatsJabbers'), ['int'])),
+                    ('etherstatscollisions', (YLeaf(YType.uint32, 'etherStatsCollisions'), ['int'])),
+                    ('etherstatspkts64octets', (YLeaf(YType.uint32, 'etherStatsPkts64Octets'), ['int'])),
+                    ('etherstatspkts65to127octets', (YLeaf(YType.uint32, 'etherStatsPkts65to127Octets'), ['int'])),
+                    ('etherstatspkts128to255octets', (YLeaf(YType.uint32, 'etherStatsPkts128to255Octets'), ['int'])),
+                    ('etherstatspkts256to511octets', (YLeaf(YType.uint32, 'etherStatsPkts256to511Octets'), ['int'])),
+                    ('etherstatspkts512to1023octets', (YLeaf(YType.uint32, 'etherStatsPkts512to1023Octets'), ['int'])),
+                    ('etherstatspkts1024to1518octets', (YLeaf(YType.uint32, 'etherStatsPkts1024to1518Octets'), ['int'])),
+                    ('etherstatsowner', (YLeaf(YType.str, 'etherStatsOwner'), ['str'])),
+                    ('etherstatsstatus', (YLeaf(YType.enumeration, 'etherStatsStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('etherstatsdroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:etherStatsDroppedFrames'), ['int'])),
+                    ('etherstatscreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:etherStatsCreateTime'), ['int'])),
                 ])
                 self.etherstatsindex = None
                 self.etherstatsdatasource = None
@@ -671,6 +675,7 @@ class RMONMIB(Entity):
                 self.etherstatscreatetime = None
                 self._segment_path = lambda: "etherStatsEntry" + "[etherStatsIndex='" + str(self.etherstatsindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/etherStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.EtherStatsTable.EtherStatsEntry, [u'etherstatsindex', u'etherstatsdatasource', u'etherstatsdropevents', u'etherstatsoctets', u'etherstatspkts', u'etherstatsbroadcastpkts', u'etherstatsmulticastpkts', u'etherstatscrcalignerrors', u'etherstatsundersizepkts', u'etherstatsoversizepkts', u'etherstatsfragments', u'etherstatsjabbers', u'etherstatscollisions', u'etherstatspkts64octets', u'etherstatspkts65to127octets', u'etherstatspkts128to255octets', u'etherstatspkts256to511octets', u'etherstatspkts512to1023octets', u'etherstatspkts1024to1518octets', u'etherstatsowner', u'etherstatsstatus', u'etherstatsdroppedframes', u'etherstatscreatetime'], name, value)
@@ -706,6 +711,7 @@ class RMONMIB(Entity):
             self.historycontrolentry = YList(self)
             self._segment_path = lambda: "historyControlTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HistoryControlTable, [], name, value)
@@ -791,14 +797,14 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['historycontrolindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('historycontrolindex', YLeaf(YType.int32, 'historyControlIndex')),
-                    ('historycontroldatasource', YLeaf(YType.str, 'historyControlDataSource')),
-                    ('historycontrolbucketsrequested', YLeaf(YType.int32, 'historyControlBucketsRequested')),
-                    ('historycontrolbucketsgranted', YLeaf(YType.int32, 'historyControlBucketsGranted')),
-                    ('historycontrolinterval', YLeaf(YType.int32, 'historyControlInterval')),
-                    ('historycontrolowner', YLeaf(YType.str, 'historyControlOwner')),
-                    ('historycontrolstatus', YLeaf(YType.enumeration, 'historyControlStatus')),
-                    ('historycontroldroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:historyControlDroppedFrames')),
+                    ('historycontrolindex', (YLeaf(YType.int32, 'historyControlIndex'), ['int'])),
+                    ('historycontroldatasource', (YLeaf(YType.str, 'historyControlDataSource'), ['str'])),
+                    ('historycontrolbucketsrequested', (YLeaf(YType.int32, 'historyControlBucketsRequested'), ['int'])),
+                    ('historycontrolbucketsgranted', (YLeaf(YType.int32, 'historyControlBucketsGranted'), ['int'])),
+                    ('historycontrolinterval', (YLeaf(YType.int32, 'historyControlInterval'), ['int'])),
+                    ('historycontrolowner', (YLeaf(YType.str, 'historyControlOwner'), ['str'])),
+                    ('historycontrolstatus', (YLeaf(YType.enumeration, 'historyControlStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('historycontroldroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:historyControlDroppedFrames'), ['int'])),
                 ])
                 self.historycontrolindex = None
                 self.historycontroldatasource = None
@@ -810,6 +816,7 @@ class RMONMIB(Entity):
                 self.historycontroldroppedframes = None
                 self._segment_path = lambda: "historyControlEntry" + "[historyControlIndex='" + str(self.historycontrolindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/historyControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HistoryControlTable.HistoryControlEntry, [u'historycontrolindex', u'historycontroldatasource', u'historycontrolbucketsrequested', u'historycontrolbucketsgranted', u'historycontrolinterval', u'historycontrolowner', u'historycontrolstatus', u'historycontroldroppedframes'], name, value)
@@ -845,6 +852,7 @@ class RMONMIB(Entity):
             self.etherhistoryentry = YList(self)
             self._segment_path = lambda: "etherHistoryTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.EtherHistoryTable, [], name, value)
@@ -1001,21 +1009,21 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['etherhistoryindex','etherhistorysampleindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('etherhistoryindex', YLeaf(YType.int32, 'etherHistoryIndex')),
-                    ('etherhistorysampleindex', YLeaf(YType.int32, 'etherHistorySampleIndex')),
-                    ('etherhistoryintervalstart', YLeaf(YType.uint32, 'etherHistoryIntervalStart')),
-                    ('etherhistorydropevents', YLeaf(YType.uint32, 'etherHistoryDropEvents')),
-                    ('etherhistoryoctets', YLeaf(YType.uint32, 'etherHistoryOctets')),
-                    ('etherhistorypkts', YLeaf(YType.uint32, 'etherHistoryPkts')),
-                    ('etherhistorybroadcastpkts', YLeaf(YType.uint32, 'etherHistoryBroadcastPkts')),
-                    ('etherhistorymulticastpkts', YLeaf(YType.uint32, 'etherHistoryMulticastPkts')),
-                    ('etherhistorycrcalignerrors', YLeaf(YType.uint32, 'etherHistoryCRCAlignErrors')),
-                    ('etherhistoryundersizepkts', YLeaf(YType.uint32, 'etherHistoryUndersizePkts')),
-                    ('etherhistoryoversizepkts', YLeaf(YType.uint32, 'etherHistoryOversizePkts')),
-                    ('etherhistoryfragments', YLeaf(YType.uint32, 'etherHistoryFragments')),
-                    ('etherhistoryjabbers', YLeaf(YType.uint32, 'etherHistoryJabbers')),
-                    ('etherhistorycollisions', YLeaf(YType.uint32, 'etherHistoryCollisions')),
-                    ('etherhistoryutilization', YLeaf(YType.int32, 'etherHistoryUtilization')),
+                    ('etherhistoryindex', (YLeaf(YType.int32, 'etherHistoryIndex'), ['int'])),
+                    ('etherhistorysampleindex', (YLeaf(YType.int32, 'etherHistorySampleIndex'), ['int'])),
+                    ('etherhistoryintervalstart', (YLeaf(YType.uint32, 'etherHistoryIntervalStart'), ['int'])),
+                    ('etherhistorydropevents', (YLeaf(YType.uint32, 'etherHistoryDropEvents'), ['int'])),
+                    ('etherhistoryoctets', (YLeaf(YType.uint32, 'etherHistoryOctets'), ['int'])),
+                    ('etherhistorypkts', (YLeaf(YType.uint32, 'etherHistoryPkts'), ['int'])),
+                    ('etherhistorybroadcastpkts', (YLeaf(YType.uint32, 'etherHistoryBroadcastPkts'), ['int'])),
+                    ('etherhistorymulticastpkts', (YLeaf(YType.uint32, 'etherHistoryMulticastPkts'), ['int'])),
+                    ('etherhistorycrcalignerrors', (YLeaf(YType.uint32, 'etherHistoryCRCAlignErrors'), ['int'])),
+                    ('etherhistoryundersizepkts', (YLeaf(YType.uint32, 'etherHistoryUndersizePkts'), ['int'])),
+                    ('etherhistoryoversizepkts', (YLeaf(YType.uint32, 'etherHistoryOversizePkts'), ['int'])),
+                    ('etherhistoryfragments', (YLeaf(YType.uint32, 'etherHistoryFragments'), ['int'])),
+                    ('etherhistoryjabbers', (YLeaf(YType.uint32, 'etherHistoryJabbers'), ['int'])),
+                    ('etherhistorycollisions', (YLeaf(YType.uint32, 'etherHistoryCollisions'), ['int'])),
+                    ('etherhistoryutilization', (YLeaf(YType.int32, 'etherHistoryUtilization'), ['int'])),
                 ])
                 self.etherhistoryindex = None
                 self.etherhistorysampleindex = None
@@ -1034,6 +1042,7 @@ class RMONMIB(Entity):
                 self.etherhistoryutilization = None
                 self._segment_path = lambda: "etherHistoryEntry" + "[etherHistoryIndex='" + str(self.etherhistoryindex) + "']" + "[etherHistorySampleIndex='" + str(self.etherhistorysampleindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/etherHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.EtherHistoryTable.EtherHistoryEntry, [u'etherhistoryindex', u'etherhistorysampleindex', u'etherhistoryintervalstart', u'etherhistorydropevents', u'etherhistoryoctets', u'etherhistorypkts', u'etherhistorybroadcastpkts', u'etherhistorymulticastpkts', u'etherhistorycrcalignerrors', u'etherhistoryundersizepkts', u'etherhistoryoversizepkts', u'etherhistoryfragments', u'etherhistoryjabbers', u'etherhistorycollisions', u'etherhistoryutilization'], name, value)
@@ -1069,6 +1078,7 @@ class RMONMIB(Entity):
             self.alarmentry = YList(self)
             self._segment_path = lambda: "alarmTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.AlarmTable, [], name, value)
@@ -1177,18 +1187,18 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['alarmindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('alarmindex', YLeaf(YType.int32, 'alarmIndex')),
-                    ('alarminterval', YLeaf(YType.int32, 'alarmInterval')),
-                    ('alarmvariable', YLeaf(YType.str, 'alarmVariable')),
-                    ('alarmsampletype', YLeaf(YType.enumeration, 'alarmSampleType')),
-                    ('alarmvalue', YLeaf(YType.int32, 'alarmValue')),
-                    ('alarmstartupalarm', YLeaf(YType.enumeration, 'alarmStartupAlarm')),
-                    ('alarmrisingthreshold', YLeaf(YType.int32, 'alarmRisingThreshold')),
-                    ('alarmfallingthreshold', YLeaf(YType.int32, 'alarmFallingThreshold')),
-                    ('alarmrisingeventindex', YLeaf(YType.int32, 'alarmRisingEventIndex')),
-                    ('alarmfallingeventindex', YLeaf(YType.int32, 'alarmFallingEventIndex')),
-                    ('alarmowner', YLeaf(YType.str, 'alarmOwner')),
-                    ('alarmstatus', YLeaf(YType.enumeration, 'alarmStatus')),
+                    ('alarmindex', (YLeaf(YType.int32, 'alarmIndex'), ['int'])),
+                    ('alarminterval', (YLeaf(YType.int32, 'alarmInterval'), ['int'])),
+                    ('alarmvariable', (YLeaf(YType.str, 'alarmVariable'), ['str'])),
+                    ('alarmsampletype', (YLeaf(YType.enumeration, 'alarmSampleType'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'AlarmTable.AlarmEntry.AlarmSampleType')])),
+                    ('alarmvalue', (YLeaf(YType.int32, 'alarmValue'), ['int'])),
+                    ('alarmstartupalarm', (YLeaf(YType.enumeration, 'alarmStartupAlarm'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'AlarmTable.AlarmEntry.AlarmStartupAlarm')])),
+                    ('alarmrisingthreshold', (YLeaf(YType.int32, 'alarmRisingThreshold'), ['int'])),
+                    ('alarmfallingthreshold', (YLeaf(YType.int32, 'alarmFallingThreshold'), ['int'])),
+                    ('alarmrisingeventindex', (YLeaf(YType.int32, 'alarmRisingEventIndex'), ['int'])),
+                    ('alarmfallingeventindex', (YLeaf(YType.int32, 'alarmFallingEventIndex'), ['int'])),
+                    ('alarmowner', (YLeaf(YType.str, 'alarmOwner'), ['str'])),
+                    ('alarmstatus', (YLeaf(YType.enumeration, 'alarmStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
                 ])
                 self.alarmindex = None
                 self.alarminterval = None
@@ -1204,6 +1214,7 @@ class RMONMIB(Entity):
                 self.alarmstatus = None
                 self._segment_path = lambda: "alarmEntry" + "[alarmIndex='" + str(self.alarmindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/alarmTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.AlarmTable.AlarmEntry, [u'alarmindex', u'alarminterval', u'alarmvariable', u'alarmsampletype', u'alarmvalue', u'alarmstartupalarm', u'alarmrisingthreshold', u'alarmfallingthreshold', u'alarmrisingeventindex', u'alarmfallingeventindex', u'alarmowner', u'alarmstatus'], name, value)
@@ -1321,6 +1332,7 @@ class RMONMIB(Entity):
             self.hostcontrolentry = YList(self)
             self._segment_path = lambda: "hostControlTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HostControlTable, [], name, value)
@@ -1405,14 +1417,14 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['hostcontrolindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hostcontrolindex', YLeaf(YType.int32, 'hostControlIndex')),
-                    ('hostcontroldatasource', YLeaf(YType.str, 'hostControlDataSource')),
-                    ('hostcontroltablesize', YLeaf(YType.int32, 'hostControlTableSize')),
-                    ('hostcontrollastdeletetime', YLeaf(YType.uint32, 'hostControlLastDeleteTime')),
-                    ('hostcontrolowner', YLeaf(YType.str, 'hostControlOwner')),
-                    ('hostcontrolstatus', YLeaf(YType.enumeration, 'hostControlStatus')),
-                    ('hostcontroldroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:hostControlDroppedFrames')),
-                    ('hostcontrolcreatetime', YLeaf(YType.uint32, 'RMON2-MIB:hostControlCreateTime')),
+                    ('hostcontrolindex', (YLeaf(YType.int32, 'hostControlIndex'), ['int'])),
+                    ('hostcontroldatasource', (YLeaf(YType.str, 'hostControlDataSource'), ['str'])),
+                    ('hostcontroltablesize', (YLeaf(YType.int32, 'hostControlTableSize'), ['int'])),
+                    ('hostcontrollastdeletetime', (YLeaf(YType.uint32, 'hostControlLastDeleteTime'), ['int'])),
+                    ('hostcontrolowner', (YLeaf(YType.str, 'hostControlOwner'), ['str'])),
+                    ('hostcontrolstatus', (YLeaf(YType.enumeration, 'hostControlStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('hostcontroldroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:hostControlDroppedFrames'), ['int'])),
+                    ('hostcontrolcreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:hostControlCreateTime'), ['int'])),
                 ])
                 self.hostcontrolindex = None
                 self.hostcontroldatasource = None
@@ -1424,6 +1436,7 @@ class RMONMIB(Entity):
                 self.hostcontrolcreatetime = None
                 self._segment_path = lambda: "hostControlEntry" + "[hostControlIndex='" + str(self.hostcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HostControlTable.HostControlEntry, [u'hostcontrolindex', u'hostcontroldatasource', u'hostcontroltablesize', u'hostcontrollastdeletetime', u'hostcontrolowner', u'hostcontrolstatus', u'hostcontroldroppedframes', u'hostcontrolcreatetime'], name, value)
@@ -1459,6 +1472,7 @@ class RMONMIB(Entity):
             self.hostentry = YList(self)
             self._segment_path = lambda: "hostTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HostTable, [], name, value)
@@ -1570,16 +1584,16 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['hostindex','hostaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hostindex', YLeaf(YType.int32, 'hostIndex')),
-                    ('hostaddress', YLeaf(YType.str, 'hostAddress')),
-                    ('hostcreationorder', YLeaf(YType.int32, 'hostCreationOrder')),
-                    ('hostinpkts', YLeaf(YType.uint32, 'hostInPkts')),
-                    ('hostoutpkts', YLeaf(YType.uint32, 'hostOutPkts')),
-                    ('hostinoctets', YLeaf(YType.uint32, 'hostInOctets')),
-                    ('hostoutoctets', YLeaf(YType.uint32, 'hostOutOctets')),
-                    ('hostouterrors', YLeaf(YType.uint32, 'hostOutErrors')),
-                    ('hostoutbroadcastpkts', YLeaf(YType.uint32, 'hostOutBroadcastPkts')),
-                    ('hostoutmulticastpkts', YLeaf(YType.uint32, 'hostOutMulticastPkts')),
+                    ('hostindex', (YLeaf(YType.int32, 'hostIndex'), ['int'])),
+                    ('hostaddress', (YLeaf(YType.str, 'hostAddress'), ['str'])),
+                    ('hostcreationorder', (YLeaf(YType.int32, 'hostCreationOrder'), ['int'])),
+                    ('hostinpkts', (YLeaf(YType.uint32, 'hostInPkts'), ['int'])),
+                    ('hostoutpkts', (YLeaf(YType.uint32, 'hostOutPkts'), ['int'])),
+                    ('hostinoctets', (YLeaf(YType.uint32, 'hostInOctets'), ['int'])),
+                    ('hostoutoctets', (YLeaf(YType.uint32, 'hostOutOctets'), ['int'])),
+                    ('hostouterrors', (YLeaf(YType.uint32, 'hostOutErrors'), ['int'])),
+                    ('hostoutbroadcastpkts', (YLeaf(YType.uint32, 'hostOutBroadcastPkts'), ['int'])),
+                    ('hostoutmulticastpkts', (YLeaf(YType.uint32, 'hostOutMulticastPkts'), ['int'])),
                 ])
                 self.hostindex = None
                 self.hostaddress = None
@@ -1593,6 +1607,7 @@ class RMONMIB(Entity):
                 self.hostoutmulticastpkts = None
                 self._segment_path = lambda: "hostEntry" + "[hostIndex='" + str(self.hostindex) + "']" + "[hostAddress='" + str(self.hostaddress) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HostTable.HostEntry, [u'hostindex', u'hostaddress', u'hostcreationorder', u'hostinpkts', u'hostoutpkts', u'hostinoctets', u'hostoutoctets', u'hostouterrors', u'hostoutbroadcastpkts', u'hostoutmulticastpkts'], name, value)
@@ -1628,6 +1643,7 @@ class RMONMIB(Entity):
             self.hosttimeentry = YList(self)
             self._segment_path = lambda: "hostTimeTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HostTimeTable, [], name, value)
@@ -1741,16 +1757,16 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['hosttimeindex','hosttimecreationorder']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hosttimeindex', YLeaf(YType.int32, 'hostTimeIndex')),
-                    ('hosttimecreationorder', YLeaf(YType.int32, 'hostTimeCreationOrder')),
-                    ('hosttimeaddress', YLeaf(YType.str, 'hostTimeAddress')),
-                    ('hosttimeinpkts', YLeaf(YType.uint32, 'hostTimeInPkts')),
-                    ('hosttimeoutpkts', YLeaf(YType.uint32, 'hostTimeOutPkts')),
-                    ('hosttimeinoctets', YLeaf(YType.uint32, 'hostTimeInOctets')),
-                    ('hosttimeoutoctets', YLeaf(YType.uint32, 'hostTimeOutOctets')),
-                    ('hosttimeouterrors', YLeaf(YType.uint32, 'hostTimeOutErrors')),
-                    ('hosttimeoutbroadcastpkts', YLeaf(YType.uint32, 'hostTimeOutBroadcastPkts')),
-                    ('hosttimeoutmulticastpkts', YLeaf(YType.uint32, 'hostTimeOutMulticastPkts')),
+                    ('hosttimeindex', (YLeaf(YType.int32, 'hostTimeIndex'), ['int'])),
+                    ('hosttimecreationorder', (YLeaf(YType.int32, 'hostTimeCreationOrder'), ['int'])),
+                    ('hosttimeaddress', (YLeaf(YType.str, 'hostTimeAddress'), ['str'])),
+                    ('hosttimeinpkts', (YLeaf(YType.uint32, 'hostTimeInPkts'), ['int'])),
+                    ('hosttimeoutpkts', (YLeaf(YType.uint32, 'hostTimeOutPkts'), ['int'])),
+                    ('hosttimeinoctets', (YLeaf(YType.uint32, 'hostTimeInOctets'), ['int'])),
+                    ('hosttimeoutoctets', (YLeaf(YType.uint32, 'hostTimeOutOctets'), ['int'])),
+                    ('hosttimeouterrors', (YLeaf(YType.uint32, 'hostTimeOutErrors'), ['int'])),
+                    ('hosttimeoutbroadcastpkts', (YLeaf(YType.uint32, 'hostTimeOutBroadcastPkts'), ['int'])),
+                    ('hosttimeoutmulticastpkts', (YLeaf(YType.uint32, 'hostTimeOutMulticastPkts'), ['int'])),
                 ])
                 self.hosttimeindex = None
                 self.hosttimecreationorder = None
@@ -1764,6 +1780,7 @@ class RMONMIB(Entity):
                 self.hosttimeoutmulticastpkts = None
                 self._segment_path = lambda: "hostTimeEntry" + "[hostTimeIndex='" + str(self.hosttimeindex) + "']" + "[hostTimeCreationOrder='" + str(self.hosttimecreationorder) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTimeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HostTimeTable.HostTimeEntry, [u'hosttimeindex', u'hosttimecreationorder', u'hosttimeaddress', u'hosttimeinpkts', u'hosttimeoutpkts', u'hosttimeinoctets', u'hosttimeoutoctets', u'hosttimeouterrors', u'hosttimeoutbroadcastpkts', u'hosttimeoutmulticastpkts'], name, value)
@@ -1799,6 +1816,7 @@ class RMONMIB(Entity):
             self.hosttopncontrolentry = YList(self)
             self._segment_path = lambda: "hostTopNControlTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HostTopNControlTable, [], name, value)
@@ -1898,16 +1916,16 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['hosttopncontrolindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hosttopncontrolindex', YLeaf(YType.int32, 'hostTopNControlIndex')),
-                    ('hosttopnhostindex', YLeaf(YType.int32, 'hostTopNHostIndex')),
-                    ('hosttopnratebase', YLeaf(YType.enumeration, 'hostTopNRateBase')),
-                    ('hosttopntimeremaining', YLeaf(YType.int32, 'hostTopNTimeRemaining')),
-                    ('hosttopnduration', YLeaf(YType.int32, 'hostTopNDuration')),
-                    ('hosttopnrequestedsize', YLeaf(YType.int32, 'hostTopNRequestedSize')),
-                    ('hosttopngrantedsize', YLeaf(YType.int32, 'hostTopNGrantedSize')),
-                    ('hosttopnstarttime', YLeaf(YType.uint32, 'hostTopNStartTime')),
-                    ('hosttopnowner', YLeaf(YType.str, 'hostTopNOwner')),
-                    ('hosttopnstatus', YLeaf(YType.enumeration, 'hostTopNStatus')),
+                    ('hosttopncontrolindex', (YLeaf(YType.int32, 'hostTopNControlIndex'), ['int'])),
+                    ('hosttopnhostindex', (YLeaf(YType.int32, 'hostTopNHostIndex'), ['int'])),
+                    ('hosttopnratebase', (YLeaf(YType.enumeration, 'hostTopNRateBase'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'HostTopNControlTable.HostTopNControlEntry.HostTopNRateBase')])),
+                    ('hosttopntimeremaining', (YLeaf(YType.int32, 'hostTopNTimeRemaining'), ['int'])),
+                    ('hosttopnduration', (YLeaf(YType.int32, 'hostTopNDuration'), ['int'])),
+                    ('hosttopnrequestedsize', (YLeaf(YType.int32, 'hostTopNRequestedSize'), ['int'])),
+                    ('hosttopngrantedsize', (YLeaf(YType.int32, 'hostTopNGrantedSize'), ['int'])),
+                    ('hosttopnstarttime', (YLeaf(YType.uint32, 'hostTopNStartTime'), ['int'])),
+                    ('hosttopnowner', (YLeaf(YType.str, 'hostTopNOwner'), ['str'])),
+                    ('hosttopnstatus', (YLeaf(YType.enumeration, 'hostTopNStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
                 ])
                 self.hosttopncontrolindex = None
                 self.hosttopnhostindex = None
@@ -1921,6 +1939,7 @@ class RMONMIB(Entity):
                 self.hosttopnstatus = None
                 self._segment_path = lambda: "hostTopNControlEntry" + "[hostTopNControlIndex='" + str(self.hosttopncontrolindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTopNControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HostTopNControlTable.HostTopNControlEntry, [u'hosttopncontrolindex', u'hosttopnhostindex', u'hosttopnratebase', u'hosttopntimeremaining', u'hosttopnduration', u'hosttopnrequestedsize', u'hosttopngrantedsize', u'hosttopnstarttime', u'hosttopnowner', u'hosttopnstatus'], name, value)
@@ -1999,6 +2018,7 @@ class RMONMIB(Entity):
             self.hosttopnentry = YList(self)
             self._segment_path = lambda: "hostTopNTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.HostTopNTable, [], name, value)
@@ -2053,10 +2073,10 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['hosttopnreport','hosttopnindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hosttopnreport', YLeaf(YType.int32, 'hostTopNReport')),
-                    ('hosttopnindex', YLeaf(YType.int32, 'hostTopNIndex')),
-                    ('hosttopnaddress', YLeaf(YType.str, 'hostTopNAddress')),
-                    ('hosttopnrate', YLeaf(YType.int32, 'hostTopNRate')),
+                    ('hosttopnreport', (YLeaf(YType.int32, 'hostTopNReport'), ['int'])),
+                    ('hosttopnindex', (YLeaf(YType.int32, 'hostTopNIndex'), ['int'])),
+                    ('hosttopnaddress', (YLeaf(YType.str, 'hostTopNAddress'), ['str'])),
+                    ('hosttopnrate', (YLeaf(YType.int32, 'hostTopNRate'), ['int'])),
                 ])
                 self.hosttopnreport = None
                 self.hosttopnindex = None
@@ -2064,6 +2084,7 @@ class RMONMIB(Entity):
                 self.hosttopnrate = None
                 self._segment_path = lambda: "hostTopNEntry" + "[hostTopNReport='" + str(self.hosttopnreport) + "']" + "[hostTopNIndex='" + str(self.hosttopnindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/hostTopNTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.HostTopNTable.HostTopNEntry, [u'hosttopnreport', u'hosttopnindex', u'hosttopnaddress', u'hosttopnrate'], name, value)
@@ -2100,6 +2121,7 @@ class RMONMIB(Entity):
             self.matrixcontrolentry = YList(self)
             self._segment_path = lambda: "matrixControlTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.MatrixControlTable, [], name, value)
@@ -2183,14 +2205,14 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['matrixcontrolindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('matrixcontrolindex', YLeaf(YType.int32, 'matrixControlIndex')),
-                    ('matrixcontroldatasource', YLeaf(YType.str, 'matrixControlDataSource')),
-                    ('matrixcontroltablesize', YLeaf(YType.int32, 'matrixControlTableSize')),
-                    ('matrixcontrollastdeletetime', YLeaf(YType.uint32, 'matrixControlLastDeleteTime')),
-                    ('matrixcontrolowner', YLeaf(YType.str, 'matrixControlOwner')),
-                    ('matrixcontrolstatus', YLeaf(YType.enumeration, 'matrixControlStatus')),
-                    ('matrixcontroldroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:matrixControlDroppedFrames')),
-                    ('matrixcontrolcreatetime', YLeaf(YType.uint32, 'RMON2-MIB:matrixControlCreateTime')),
+                    ('matrixcontrolindex', (YLeaf(YType.int32, 'matrixControlIndex'), ['int'])),
+                    ('matrixcontroldatasource', (YLeaf(YType.str, 'matrixControlDataSource'), ['str'])),
+                    ('matrixcontroltablesize', (YLeaf(YType.int32, 'matrixControlTableSize'), ['int'])),
+                    ('matrixcontrollastdeletetime', (YLeaf(YType.uint32, 'matrixControlLastDeleteTime'), ['int'])),
+                    ('matrixcontrolowner', (YLeaf(YType.str, 'matrixControlOwner'), ['str'])),
+                    ('matrixcontrolstatus', (YLeaf(YType.enumeration, 'matrixControlStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('matrixcontroldroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:matrixControlDroppedFrames'), ['int'])),
+                    ('matrixcontrolcreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:matrixControlCreateTime'), ['int'])),
                 ])
                 self.matrixcontrolindex = None
                 self.matrixcontroldatasource = None
@@ -2202,6 +2224,7 @@ class RMONMIB(Entity):
                 self.matrixcontrolcreatetime = None
                 self._segment_path = lambda: "matrixControlEntry" + "[matrixControlIndex='" + str(self.matrixcontrolindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.MatrixControlTable.MatrixControlEntry, [u'matrixcontrolindex', u'matrixcontroldatasource', u'matrixcontroltablesize', u'matrixcontrollastdeletetime', u'matrixcontrolowner', u'matrixcontrolstatus', u'matrixcontroldroppedframes', u'matrixcontrolcreatetime'], name, value)
@@ -2238,6 +2261,7 @@ class RMONMIB(Entity):
             self.matrixsdentry = YList(self)
             self._segment_path = lambda: "matrixSDTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.MatrixSDTable, [], name, value)
@@ -2311,12 +2335,12 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['matrixsdindex','matrixsdsourceaddress','matrixsddestaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('matrixsdindex', YLeaf(YType.int32, 'matrixSDIndex')),
-                    ('matrixsdsourceaddress', YLeaf(YType.str, 'matrixSDSourceAddress')),
-                    ('matrixsddestaddress', YLeaf(YType.str, 'matrixSDDestAddress')),
-                    ('matrixsdpkts', YLeaf(YType.uint32, 'matrixSDPkts')),
-                    ('matrixsdoctets', YLeaf(YType.uint32, 'matrixSDOctets')),
-                    ('matrixsderrors', YLeaf(YType.uint32, 'matrixSDErrors')),
+                    ('matrixsdindex', (YLeaf(YType.int32, 'matrixSDIndex'), ['int'])),
+                    ('matrixsdsourceaddress', (YLeaf(YType.str, 'matrixSDSourceAddress'), ['str'])),
+                    ('matrixsddestaddress', (YLeaf(YType.str, 'matrixSDDestAddress'), ['str'])),
+                    ('matrixsdpkts', (YLeaf(YType.uint32, 'matrixSDPkts'), ['int'])),
+                    ('matrixsdoctets', (YLeaf(YType.uint32, 'matrixSDOctets'), ['int'])),
+                    ('matrixsderrors', (YLeaf(YType.uint32, 'matrixSDErrors'), ['int'])),
                 ])
                 self.matrixsdindex = None
                 self.matrixsdsourceaddress = None
@@ -2326,6 +2350,7 @@ class RMONMIB(Entity):
                 self.matrixsderrors = None
                 self._segment_path = lambda: "matrixSDEntry" + "[matrixSDIndex='" + str(self.matrixsdindex) + "']" + "[matrixSDSourceAddress='" + str(self.matrixsdsourceaddress) + "']" + "[matrixSDDestAddress='" + str(self.matrixsddestaddress) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixSDTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.MatrixSDTable.MatrixSDEntry, [u'matrixsdindex', u'matrixsdsourceaddress', u'matrixsddestaddress', u'matrixsdpkts', u'matrixsdoctets', u'matrixsderrors'], name, value)
@@ -2362,6 +2387,7 @@ class RMONMIB(Entity):
             self.matrixdsentry = YList(self)
             self._segment_path = lambda: "matrixDSTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.MatrixDSTable, [], name, value)
@@ -2435,12 +2461,12 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['matrixdsindex','matrixdsdestaddress','matrixdssourceaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('matrixdsindex', YLeaf(YType.int32, 'matrixDSIndex')),
-                    ('matrixdsdestaddress', YLeaf(YType.str, 'matrixDSDestAddress')),
-                    ('matrixdssourceaddress', YLeaf(YType.str, 'matrixDSSourceAddress')),
-                    ('matrixdspkts', YLeaf(YType.uint32, 'matrixDSPkts')),
-                    ('matrixdsoctets', YLeaf(YType.uint32, 'matrixDSOctets')),
-                    ('matrixdserrors', YLeaf(YType.uint32, 'matrixDSErrors')),
+                    ('matrixdsindex', (YLeaf(YType.int32, 'matrixDSIndex'), ['int'])),
+                    ('matrixdsdestaddress', (YLeaf(YType.str, 'matrixDSDestAddress'), ['str'])),
+                    ('matrixdssourceaddress', (YLeaf(YType.str, 'matrixDSSourceAddress'), ['str'])),
+                    ('matrixdspkts', (YLeaf(YType.uint32, 'matrixDSPkts'), ['int'])),
+                    ('matrixdsoctets', (YLeaf(YType.uint32, 'matrixDSOctets'), ['int'])),
+                    ('matrixdserrors', (YLeaf(YType.uint32, 'matrixDSErrors'), ['int'])),
                 ])
                 self.matrixdsindex = None
                 self.matrixdsdestaddress = None
@@ -2450,6 +2476,7 @@ class RMONMIB(Entity):
                 self.matrixdserrors = None
                 self._segment_path = lambda: "matrixDSEntry" + "[matrixDSIndex='" + str(self.matrixdsindex) + "']" + "[matrixDSDestAddress='" + str(self.matrixdsdestaddress) + "']" + "[matrixDSSourceAddress='" + str(self.matrixdssourceaddress) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/matrixDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.MatrixDSTable.MatrixDSEntry, [u'matrixdsindex', u'matrixdsdestaddress', u'matrixdssourceaddress', u'matrixdspkts', u'matrixdsoctets', u'matrixdserrors'], name, value)
@@ -2485,6 +2512,7 @@ class RMONMIB(Entity):
             self.filterentry = YList(self)
             self._segment_path = lambda: "filterTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.FilterTable, [], name, value)
@@ -2598,19 +2626,19 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['filterindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('filterindex', YLeaf(YType.int32, 'filterIndex')),
-                    ('filterchannelindex', YLeaf(YType.int32, 'filterChannelIndex')),
-                    ('filterpktdataoffset', YLeaf(YType.int32, 'filterPktDataOffset')),
-                    ('filterpktdata', YLeaf(YType.str, 'filterPktData')),
-                    ('filterpktdatamask', YLeaf(YType.str, 'filterPktDataMask')),
-                    ('filterpktdatanotmask', YLeaf(YType.str, 'filterPktDataNotMask')),
-                    ('filterpktstatus', YLeaf(YType.int32, 'filterPktStatus')),
-                    ('filterpktstatusmask', YLeaf(YType.int32, 'filterPktStatusMask')),
-                    ('filterpktstatusnotmask', YLeaf(YType.int32, 'filterPktStatusNotMask')),
-                    ('filterowner', YLeaf(YType.str, 'filterOwner')),
-                    ('filterstatus', YLeaf(YType.enumeration, 'filterStatus')),
-                    ('filterprotocoldirdatalocalindex', YLeaf(YType.int32, 'RMON2-MIB:filterProtocolDirDataLocalIndex')),
-                    ('filterprotocoldirlocalindex', YLeaf(YType.int32, 'RMON2-MIB:filterProtocolDirLocalIndex')),
+                    ('filterindex', (YLeaf(YType.int32, 'filterIndex'), ['int'])),
+                    ('filterchannelindex', (YLeaf(YType.int32, 'filterChannelIndex'), ['int'])),
+                    ('filterpktdataoffset', (YLeaf(YType.int32, 'filterPktDataOffset'), ['int'])),
+                    ('filterpktdata', (YLeaf(YType.str, 'filterPktData'), ['str'])),
+                    ('filterpktdatamask', (YLeaf(YType.str, 'filterPktDataMask'), ['str'])),
+                    ('filterpktdatanotmask', (YLeaf(YType.str, 'filterPktDataNotMask'), ['str'])),
+                    ('filterpktstatus', (YLeaf(YType.int32, 'filterPktStatus'), ['int'])),
+                    ('filterpktstatusmask', (YLeaf(YType.int32, 'filterPktStatusMask'), ['int'])),
+                    ('filterpktstatusnotmask', (YLeaf(YType.int32, 'filterPktStatusNotMask'), ['int'])),
+                    ('filterowner', (YLeaf(YType.str, 'filterOwner'), ['str'])),
+                    ('filterstatus', (YLeaf(YType.enumeration, 'filterStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('filterprotocoldirdatalocalindex', (YLeaf(YType.int32, 'RMON2-MIB:filterProtocolDirDataLocalIndex'), ['int'])),
+                    ('filterprotocoldirlocalindex', (YLeaf(YType.int32, 'RMON2-MIB:filterProtocolDirLocalIndex'), ['int'])),
                 ])
                 self.filterindex = None
                 self.filterchannelindex = None
@@ -2627,6 +2655,7 @@ class RMONMIB(Entity):
                 self.filterprotocoldirlocalindex = None
                 self._segment_path = lambda: "filterEntry" + "[filterIndex='" + str(self.filterindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/filterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.FilterTable.FilterEntry, [u'filterindex', u'filterchannelindex', u'filterpktdataoffset', u'filterpktdata', u'filterpktdatamask', u'filterpktdatanotmask', u'filterpktstatus', u'filterpktstatusmask', u'filterpktstatusnotmask', u'filterowner', u'filterstatus', u'filterprotocoldirdatalocalindex', u'filterprotocoldirlocalindex'], name, value)
@@ -2662,6 +2691,7 @@ class RMONMIB(Entity):
             self.channelentry = YList(self)
             self._segment_path = lambda: "channelTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.ChannelTable, [], name, value)
@@ -2782,20 +2812,20 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['channelindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('channelindex', YLeaf(YType.int32, 'channelIndex')),
-                    ('channelifindex', YLeaf(YType.int32, 'channelIfIndex')),
-                    ('channelaccepttype', YLeaf(YType.enumeration, 'channelAcceptType')),
-                    ('channeldatacontrol', YLeaf(YType.enumeration, 'channelDataControl')),
-                    ('channelturnoneventindex', YLeaf(YType.int32, 'channelTurnOnEventIndex')),
-                    ('channelturnoffeventindex', YLeaf(YType.int32, 'channelTurnOffEventIndex')),
-                    ('channeleventindex', YLeaf(YType.int32, 'channelEventIndex')),
-                    ('channeleventstatus', YLeaf(YType.enumeration, 'channelEventStatus')),
-                    ('channelmatches', YLeaf(YType.uint32, 'channelMatches')),
-                    ('channeldescription', YLeaf(YType.str, 'channelDescription')),
-                    ('channelowner', YLeaf(YType.str, 'channelOwner')),
-                    ('channelstatus', YLeaf(YType.enumeration, 'channelStatus')),
-                    ('channeldroppedframes', YLeaf(YType.uint32, 'RMON2-MIB:channelDroppedFrames')),
-                    ('channelcreatetime', YLeaf(YType.uint32, 'RMON2-MIB:channelCreateTime')),
+                    ('channelindex', (YLeaf(YType.int32, 'channelIndex'), ['int'])),
+                    ('channelifindex', (YLeaf(YType.int32, 'channelIfIndex'), ['int'])),
+                    ('channelaccepttype', (YLeaf(YType.enumeration, 'channelAcceptType'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'ChannelTable.ChannelEntry.ChannelAcceptType')])),
+                    ('channeldatacontrol', (YLeaf(YType.enumeration, 'channelDataControl'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'ChannelTable.ChannelEntry.ChannelDataControl')])),
+                    ('channelturnoneventindex', (YLeaf(YType.int32, 'channelTurnOnEventIndex'), ['int'])),
+                    ('channelturnoffeventindex', (YLeaf(YType.int32, 'channelTurnOffEventIndex'), ['int'])),
+                    ('channeleventindex', (YLeaf(YType.int32, 'channelEventIndex'), ['int'])),
+                    ('channeleventstatus', (YLeaf(YType.enumeration, 'channelEventStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'ChannelTable.ChannelEntry.ChannelEventStatus')])),
+                    ('channelmatches', (YLeaf(YType.uint32, 'channelMatches'), ['int'])),
+                    ('channeldescription', (YLeaf(YType.str, 'channelDescription'), ['str'])),
+                    ('channelowner', (YLeaf(YType.str, 'channelOwner'), ['str'])),
+                    ('channelstatus', (YLeaf(YType.enumeration, 'channelStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
+                    ('channeldroppedframes', (YLeaf(YType.uint32, 'RMON2-MIB:channelDroppedFrames'), ['int'])),
+                    ('channelcreatetime', (YLeaf(YType.uint32, 'RMON2-MIB:channelCreateTime'), ['int'])),
                 ])
                 self.channelindex = None
                 self.channelifindex = None
@@ -2813,6 +2843,7 @@ class RMONMIB(Entity):
                 self.channelcreatetime = None
                 self._segment_path = lambda: "channelEntry" + "[channelIndex='" + str(self.channelindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/channelTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.ChannelTable.ChannelEntry, [u'channelindex', u'channelifindex', u'channelaccepttype', u'channeldatacontrol', u'channelturnoneventindex', u'channelturnoffeventindex', u'channeleventindex', u'channeleventstatus', u'channelmatches', u'channeldescription', u'channelowner', u'channelstatus', u'channeldroppedframes', u'channelcreatetime'], name, value)
@@ -2969,6 +3000,7 @@ class RMONMIB(Entity):
             self.buffercontrolentry = YList(self)
             self._segment_path = lambda: "bufferControlTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.BufferControlTable, [], name, value)
@@ -3095,19 +3127,19 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['buffercontrolindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('buffercontrolindex', YLeaf(YType.int32, 'bufferControlIndex')),
-                    ('buffercontrolchannelindex', YLeaf(YType.int32, 'bufferControlChannelIndex')),
-                    ('buffercontrolfullstatus', YLeaf(YType.enumeration, 'bufferControlFullStatus')),
-                    ('buffercontrolfullaction', YLeaf(YType.enumeration, 'bufferControlFullAction')),
-                    ('buffercontrolcaptureslicesize', YLeaf(YType.int32, 'bufferControlCaptureSliceSize')),
-                    ('buffercontroldownloadslicesize', YLeaf(YType.int32, 'bufferControlDownloadSliceSize')),
-                    ('buffercontroldownloadoffset', YLeaf(YType.int32, 'bufferControlDownloadOffset')),
-                    ('buffercontrolmaxoctetsrequested', YLeaf(YType.int32, 'bufferControlMaxOctetsRequested')),
-                    ('buffercontrolmaxoctetsgranted', YLeaf(YType.int32, 'bufferControlMaxOctetsGranted')),
-                    ('buffercontrolcapturedpackets', YLeaf(YType.int32, 'bufferControlCapturedPackets')),
-                    ('buffercontrolturnontime', YLeaf(YType.uint32, 'bufferControlTurnOnTime')),
-                    ('buffercontrolowner', YLeaf(YType.str, 'bufferControlOwner')),
-                    ('buffercontrolstatus', YLeaf(YType.enumeration, 'bufferControlStatus')),
+                    ('buffercontrolindex', (YLeaf(YType.int32, 'bufferControlIndex'), ['int'])),
+                    ('buffercontrolchannelindex', (YLeaf(YType.int32, 'bufferControlChannelIndex'), ['int'])),
+                    ('buffercontrolfullstatus', (YLeaf(YType.enumeration, 'bufferControlFullStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'BufferControlTable.BufferControlEntry.BufferControlFullStatus')])),
+                    ('buffercontrolfullaction', (YLeaf(YType.enumeration, 'bufferControlFullAction'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'BufferControlTable.BufferControlEntry.BufferControlFullAction')])),
+                    ('buffercontrolcaptureslicesize', (YLeaf(YType.int32, 'bufferControlCaptureSliceSize'), ['int'])),
+                    ('buffercontroldownloadslicesize', (YLeaf(YType.int32, 'bufferControlDownloadSliceSize'), ['int'])),
+                    ('buffercontroldownloadoffset', (YLeaf(YType.int32, 'bufferControlDownloadOffset'), ['int'])),
+                    ('buffercontrolmaxoctetsrequested', (YLeaf(YType.int32, 'bufferControlMaxOctetsRequested'), ['int'])),
+                    ('buffercontrolmaxoctetsgranted', (YLeaf(YType.int32, 'bufferControlMaxOctetsGranted'), ['int'])),
+                    ('buffercontrolcapturedpackets', (YLeaf(YType.int32, 'bufferControlCapturedPackets'), ['int'])),
+                    ('buffercontrolturnontime', (YLeaf(YType.uint32, 'bufferControlTurnOnTime'), ['int'])),
+                    ('buffercontrolowner', (YLeaf(YType.str, 'bufferControlOwner'), ['str'])),
+                    ('buffercontrolstatus', (YLeaf(YType.enumeration, 'bufferControlStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
                 ])
                 self.buffercontrolindex = None
                 self.buffercontrolchannelindex = None
@@ -3124,6 +3156,7 @@ class RMONMIB(Entity):
                 self.buffercontrolstatus = None
                 self._segment_path = lambda: "bufferControlEntry" + "[bufferControlIndex='" + str(self.buffercontrolindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/bufferControlTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.BufferControlTable.BufferControlEntry, [u'buffercontrolindex', u'buffercontrolchannelindex', u'buffercontrolfullstatus', u'buffercontrolfullaction', u'buffercontrolcaptureslicesize', u'buffercontroldownloadslicesize', u'buffercontroldownloadoffset', u'buffercontrolmaxoctetsrequested', u'buffercontrolmaxoctetsgranted', u'buffercontrolcapturedpackets', u'buffercontrolturnontime', u'buffercontrolowner', u'buffercontrolstatus'], name, value)
@@ -3237,6 +3270,7 @@ class RMONMIB(Entity):
             self.capturebufferentry = YList(self)
             self._segment_path = lambda: "captureBufferTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.CaptureBufferTable, [], name, value)
@@ -3316,13 +3350,13 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['capturebuffercontrolindex','capturebufferindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('capturebuffercontrolindex', YLeaf(YType.int32, 'captureBufferControlIndex')),
-                    ('capturebufferindex', YLeaf(YType.int32, 'captureBufferIndex')),
-                    ('capturebufferpacketid', YLeaf(YType.int32, 'captureBufferPacketID')),
-                    ('capturebufferpacketdata', YLeaf(YType.str, 'captureBufferPacketData')),
-                    ('capturebufferpacketlength', YLeaf(YType.int32, 'captureBufferPacketLength')),
-                    ('capturebufferpackettime', YLeaf(YType.int32, 'captureBufferPacketTime')),
-                    ('capturebufferpacketstatus', YLeaf(YType.int32, 'captureBufferPacketStatus')),
+                    ('capturebuffercontrolindex', (YLeaf(YType.int32, 'captureBufferControlIndex'), ['int'])),
+                    ('capturebufferindex', (YLeaf(YType.int32, 'captureBufferIndex'), ['int'])),
+                    ('capturebufferpacketid', (YLeaf(YType.int32, 'captureBufferPacketID'), ['int'])),
+                    ('capturebufferpacketdata', (YLeaf(YType.str, 'captureBufferPacketData'), ['str'])),
+                    ('capturebufferpacketlength', (YLeaf(YType.int32, 'captureBufferPacketLength'), ['int'])),
+                    ('capturebufferpackettime', (YLeaf(YType.int32, 'captureBufferPacketTime'), ['int'])),
+                    ('capturebufferpacketstatus', (YLeaf(YType.int32, 'captureBufferPacketStatus'), ['int'])),
                 ])
                 self.capturebuffercontrolindex = None
                 self.capturebufferindex = None
@@ -3333,6 +3367,7 @@ class RMONMIB(Entity):
                 self.capturebufferpacketstatus = None
                 self._segment_path = lambda: "captureBufferEntry" + "[captureBufferControlIndex='" + str(self.capturebuffercontrolindex) + "']" + "[captureBufferIndex='" + str(self.capturebufferindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/captureBufferTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.CaptureBufferTable.CaptureBufferEntry, [u'capturebuffercontrolindex', u'capturebufferindex', u'capturebufferpacketid', u'capturebufferpacketdata', u'capturebufferpacketlength', u'capturebufferpackettime', u'capturebufferpacketstatus'], name, value)
@@ -3368,6 +3403,7 @@ class RMONMIB(Entity):
             self.evententry = YList(self)
             self._segment_path = lambda: "eventTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.EventTable, [], name, value)
@@ -3442,13 +3478,13 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['eventindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('eventindex', YLeaf(YType.int32, 'eventIndex')),
-                    ('eventdescription', YLeaf(YType.str, 'eventDescription')),
-                    ('eventtype', YLeaf(YType.enumeration, 'eventType')),
-                    ('eventcommunity', YLeaf(YType.str, 'eventCommunity')),
-                    ('eventlasttimesent', YLeaf(YType.uint32, 'eventLastTimeSent')),
-                    ('eventowner', YLeaf(YType.str, 'eventOwner')),
-                    ('eventstatus', YLeaf(YType.enumeration, 'eventStatus')),
+                    ('eventindex', (YLeaf(YType.int32, 'eventIndex'), ['int'])),
+                    ('eventdescription', (YLeaf(YType.str, 'eventDescription'), ['str'])),
+                    ('eventtype', (YLeaf(YType.enumeration, 'eventType'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'RMONMIB', 'EventTable.EventEntry.EventType')])),
+                    ('eventcommunity', (YLeaf(YType.str, 'eventCommunity'), ['str'])),
+                    ('eventlasttimesent', (YLeaf(YType.uint32, 'eventLastTimeSent'), ['int'])),
+                    ('eventowner', (YLeaf(YType.str, 'eventOwner'), ['str'])),
+                    ('eventstatus', (YLeaf(YType.enumeration, 'eventStatus'), [('ydk.models.cisco_ios_xe.RMON_MIB', 'EntryStatus', '')])),
                 ])
                 self.eventindex = None
                 self.eventdescription = None
@@ -3459,6 +3495,7 @@ class RMONMIB(Entity):
                 self.eventstatus = None
                 self._segment_path = lambda: "eventEntry" + "[eventIndex='" + str(self.eventindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/eventTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.EventTable.EventEntry, [u'eventindex', u'eventdescription', u'eventtype', u'eventcommunity', u'eventlasttimesent', u'eventowner', u'eventstatus'], name, value)
@@ -3527,6 +3564,7 @@ class RMONMIB(Entity):
             self.logentry = YList(self)
             self._segment_path = lambda: "logTable"
             self._absolute_path = lambda: "RMON-MIB:RMON-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RMONMIB.LogTable, [], name, value)
@@ -3583,10 +3621,10 @@ class RMONMIB(Entity):
                 self.ylist_key_names = ['logeventindex','logindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('logeventindex', YLeaf(YType.int32, 'logEventIndex')),
-                    ('logindex', YLeaf(YType.int32, 'logIndex')),
-                    ('logtime', YLeaf(YType.uint32, 'logTime')),
-                    ('logdescription', YLeaf(YType.str, 'logDescription')),
+                    ('logeventindex', (YLeaf(YType.int32, 'logEventIndex'), ['int'])),
+                    ('logindex', (YLeaf(YType.int32, 'logIndex'), ['int'])),
+                    ('logtime', (YLeaf(YType.uint32, 'logTime'), ['int'])),
+                    ('logdescription', (YLeaf(YType.str, 'logDescription'), ['str'])),
                 ])
                 self.logeventindex = None
                 self.logindex = None
@@ -3594,6 +3632,7 @@ class RMONMIB(Entity):
                 self.logdescription = None
                 self._segment_path = lambda: "logEntry" + "[logEventIndex='" + str(self.logeventindex) + "']" + "[logIndex='" + str(self.logindex) + "']"
                 self._absolute_path = lambda: "RMON-MIB:RMON-MIB/logTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RMONMIB.LogTable.LogEntry, [u'logeventindex', u'logindex', u'logtime', u'logdescription'], name, value)

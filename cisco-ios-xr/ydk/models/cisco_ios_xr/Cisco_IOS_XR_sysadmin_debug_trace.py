@@ -1,8 +1,5 @@
 """ Cisco_IOS_XR_sysadmin_debug_trace 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 This module contains definitions
@@ -12,9 +9,6 @@ debug\_trace\: Calvados debug trace.
 Copyright (c) 2015\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
 """
 from collections import OrderedDict
 
@@ -22,6 +16,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -57,6 +52,7 @@ class Config(Entity):
         self.debug.parent = self
         self._children_name_map["debug"] = "debug"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-debug-trace:config"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Config, [], name, value)
@@ -92,6 +88,7 @@ class Config(Entity):
             self.trace = YList(self)
             self._segment_path = lambda: "debug"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-debug-trace:config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Config.Debug, [], name, value)
@@ -133,15 +130,16 @@ class Config(Entity):
                 self.ylist_key_names = ['connection_type']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('connection_type', YLeaf(YType.str, 'connection_type')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('disable', YLeaf(YType.empty, 'disable')),
+                    ('connection_type', (YLeaf(YType.str, 'connection_type'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                 ])
                 self.connection_type = None
                 self.enable = None
                 self.disable = None
                 self._segment_path = lambda: "trace" + "[connection_type='" + str(self.connection_type) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-debug-trace:config/debug/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Config.Debug.Trace, ['connection_type', 'enable', 'disable'], name, value)

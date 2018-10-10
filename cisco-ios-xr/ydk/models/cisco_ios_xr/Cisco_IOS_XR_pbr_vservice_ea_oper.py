@@ -8,7 +8,7 @@ for the following management objects\:
   service\-function\-chaining\: NSH Service Function Chaining
     operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class VsNshStats(Enum):
@@ -110,6 +111,7 @@ class ServiceFunctionChaining(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ServiceFunctionChaining, [], name, value)
@@ -146,6 +148,7 @@ class ServiceFunctionChaining(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ServiceFunctionChaining.Nodes, [], name, value)
@@ -184,7 +187,7 @@ class ServiceFunctionChaining(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("process", ("process", ServiceFunctionChaining.Nodes.Node.Process))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -193,6 +196,7 @@ class ServiceFunctionChaining(Entity):
                 self._children_name_map["process"] = "process"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-vservice-ea-oper:service-function-chaining/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node, ['node_name'], name, value)
@@ -247,6 +251,7 @@ class ServiceFunctionChaining(Entity):
                     self.service_function_forwarder.parent = self
                     self._children_name_map["service_function_forwarder"] = "service-function-forwarder"
                     self._segment_path = lambda: "process"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process, [], name, value)
@@ -283,6 +288,7 @@ class ServiceFunctionChaining(Entity):
                         self.path_ids.parent = self
                         self._children_name_map["path_ids"] = "path-ids"
                         self._segment_path = lambda: "service-function-path"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath, [], name, value)
@@ -317,6 +323,7 @@ class ServiceFunctionChaining(Entity):
 
                             self.path_id = YList(self)
                             self._segment_path = lambda: "path-ids"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds, [], name, value)
@@ -360,7 +367,7 @@ class ServiceFunctionChaining(Entity):
                                 self.ylist_key_names = ['id']
                                 self._child_classes = OrderedDict([("service-indexes", ("service_indexes", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes)), ("stats", ("stats", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats))])
                                 self._leafs = OrderedDict([
-                                    ('id', YLeaf(YType.uint32, 'id')),
+                                    ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
                                 ])
                                 self.id = None
 
@@ -372,6 +379,7 @@ class ServiceFunctionChaining(Entity):
                                 self.stats.parent = self
                                 self._children_name_map["stats"] = "stats"
                                 self._segment_path = lambda: "path-id" + "[id='" + str(self.id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId, ['id'], name, value)
@@ -406,6 +414,7 @@ class ServiceFunctionChaining(Entity):
 
                                     self.service_index = YList(self)
                                     self._segment_path = lambda: "service-indexes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes, [], name, value)
@@ -450,7 +459,7 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = ['index']
                                         self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data)), ("si-arr", ("si_arr", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr))])
                                         self._leafs = OrderedDict([
-                                            ('index', YLeaf(YType.uint32, 'index')),
+                                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
                                         ])
                                         self.index = None
 
@@ -460,6 +469,7 @@ class ServiceFunctionChaining(Entity):
 
                                         self.si_arr = YList(self)
                                         self._segment_path = lambda: "service-index" + "[index='" + str(self.index) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex, ['index'], name, value)
@@ -521,7 +531,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal))])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                             ])
                                             self.type = None
 
@@ -549,6 +559,7 @@ class ServiceFunctionChaining(Entity):
                                             self.sff_local.parent = self
                                             self._children_name_map["sff_local"] = "sff-local"
                                             self._segment_path = lambda: "data"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data, [u'type'], name, value)
@@ -594,6 +605,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "sfp"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp, [], name, value)
@@ -636,12 +648,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -684,12 +697,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -732,12 +746,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "spi-si"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -780,12 +795,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                    ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                    ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                    ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                 ])
                                                 self.terminated_pkts = None
                                                 self.terminated_bytes = None
                                                 self._segment_path = lambda: "term"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -828,12 +844,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sf"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -876,12 +893,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sff"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -940,16 +958,17 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                                    ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                                    ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                                    ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                                    ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                                    ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                                    ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                                    ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                                 ])
                                                 self.malformed_err_pkts = None
                                                 self.lookup_err_pkts = None
                                                 self.malformed_err_bytes = None
                                                 self.lookup_err_bytes = None
                                                 self._segment_path = lambda: "sff-local"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -988,7 +1007,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data))])
                                             self._leafs = OrderedDict([
-                                                ('si', YLeaf(YType.uint8, 'si')),
+                                                ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                             ])
                                             self.si = None
 
@@ -996,6 +1015,7 @@ class ServiceFunctionChaining(Entity):
                                             self.data.parent = self
                                             self._children_name_map["data"] = "data"
                                             self._segment_path = lambda: "si-arr"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr, [u'si'], name, value)
@@ -1037,7 +1057,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term))])
                                                 self._leafs = OrderedDict([
-                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                                 ])
                                                 self.type = None
 
@@ -1049,6 +1069,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "data"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data, [u'type'], name, value)
@@ -1091,12 +1112,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1139,12 +1161,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.ServiceIndexes.ServiceIndex.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -1190,6 +1213,7 @@ class ServiceFunctionChaining(Entity):
                                     self.summarized.parent = self
                                     self._children_name_map["summarized"] = "summarized"
                                     self._segment_path = lambda: "stats"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats, [], name, value)
@@ -1233,6 +1257,7 @@ class ServiceFunctionChaining(Entity):
 
                                         self.si_arr = YList(self)
                                         self._segment_path = lambda: "detail"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail, [], name, value)
@@ -1294,7 +1319,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal))])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                             ])
                                             self.type = None
 
@@ -1322,6 +1347,7 @@ class ServiceFunctionChaining(Entity):
                                             self.sff_local.parent = self
                                             self._children_name_map["sff_local"] = "sff-local"
                                             self._segment_path = lambda: "data"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data, [u'type'], name, value)
@@ -1367,6 +1393,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "sfp"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp, [], name, value)
@@ -1409,12 +1436,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1457,12 +1485,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -1505,12 +1534,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "spi-si"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1553,12 +1583,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                    ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                    ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                    ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                 ])
                                                 self.terminated_pkts = None
                                                 self.terminated_bytes = None
                                                 self._segment_path = lambda: "term"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -1601,12 +1632,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sf"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1649,12 +1681,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sff"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1713,16 +1746,17 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                                    ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                                    ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                                    ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                                    ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                                    ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                                    ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                                    ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                                 ])
                                                 self.malformed_err_pkts = None
                                                 self.lookup_err_pkts = None
                                                 self.malformed_err_bytes = None
                                                 self.lookup_err_bytes = None
                                                 self._segment_path = lambda: "sff-local"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -1761,7 +1795,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data))])
                                             self._leafs = OrderedDict([
-                                                ('si', YLeaf(YType.uint8, 'si')),
+                                                ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                             ])
                                             self.si = None
 
@@ -1769,6 +1803,7 @@ class ServiceFunctionChaining(Entity):
                                             self.data.parent = self
                                             self._children_name_map["data"] = "data"
                                             self._segment_path = lambda: "si-arr"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr, [u'si'], name, value)
@@ -1810,7 +1845,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term))])
                                                 self._leafs = OrderedDict([
-                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                                 ])
                                                 self.type = None
 
@@ -1822,6 +1857,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "data"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data, [u'type'], name, value)
@@ -1864,12 +1900,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -1912,12 +1949,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Detail.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -1962,6 +2000,7 @@ class ServiceFunctionChaining(Entity):
 
                                         self.si_arr = YList(self)
                                         self._segment_path = lambda: "summarized"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized, [], name, value)
@@ -2023,7 +2062,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal))])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                             ])
                                             self.type = None
 
@@ -2051,6 +2090,7 @@ class ServiceFunctionChaining(Entity):
                                             self.sff_local.parent = self
                                             self._children_name_map["sff_local"] = "sff-local"
                                             self._segment_path = lambda: "data"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data, [u'type'], name, value)
@@ -2096,6 +2136,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "sfp"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp, [], name, value)
@@ -2138,12 +2179,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2186,12 +2228,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -2234,12 +2277,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "spi-si"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2282,12 +2326,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                    ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                    ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                    ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                 ])
                                                 self.terminated_pkts = None
                                                 self.terminated_bytes = None
                                                 self._segment_path = lambda: "term"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -2330,12 +2375,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sf"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2378,12 +2424,13 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                    ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                    ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                    ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                 ])
                                                 self.processed_pkts = None
                                                 self.processed_bytes = None
                                                 self._segment_path = lambda: "sff"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2442,16 +2489,17 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                                    ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                                    ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                                    ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                                    ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                                    ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                                    ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                                    ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                                 ])
                                                 self.malformed_err_pkts = None
                                                 self.lookup_err_pkts = None
                                                 self.malformed_err_bytes = None
                                                 self.lookup_err_bytes = None
                                                 self._segment_path = lambda: "sff-local"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -2490,7 +2538,7 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data))])
                                             self._leafs = OrderedDict([
-                                                ('si', YLeaf(YType.uint8, 'si')),
+                                                ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                             ])
                                             self.si = None
 
@@ -2498,6 +2546,7 @@ class ServiceFunctionChaining(Entity):
                                             self.data.parent = self
                                             self._children_name_map["data"] = "data"
                                             self._segment_path = lambda: "si-arr"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr, [u'si'], name, value)
@@ -2539,7 +2588,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term))])
                                                 self._leafs = OrderedDict([
-                                                    ('type', YLeaf(YType.enumeration, 'type')),
+                                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                                 ])
                                                 self.type = None
 
@@ -2551,6 +2600,7 @@ class ServiceFunctionChaining(Entity):
                                                 self.term.parent = self
                                                 self._children_name_map["term"] = "term"
                                                 self._segment_path = lambda: "data"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data, [u'type'], name, value)
@@ -2593,12 +2643,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                        ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                        ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                        ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                                     ])
                                                     self.processed_pkts = None
                                                     self.processed_bytes = None
                                                     self._segment_path = lambda: "spi-si"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2641,12 +2692,13 @@ class ServiceFunctionChaining(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                        ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                        ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                        ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                                     ])
                                                     self.terminated_pkts = None
                                                     self.terminated_bytes = None
                                                     self._segment_path = lambda: "term"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionPath.PathIds.PathId.Stats.Summarized.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -2683,6 +2735,7 @@ class ServiceFunctionChaining(Entity):
                         self.sf_names.parent = self
                         self._children_name_map["sf_names"] = "sf-names"
                         self._segment_path = lambda: "service-function"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction, [], name, value)
@@ -2717,6 +2770,7 @@ class ServiceFunctionChaining(Entity):
 
                             self.sf_name = YList(self)
                             self._segment_path = lambda: "sf-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames, [], name, value)
@@ -2760,7 +2814,7 @@ class ServiceFunctionChaining(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data)), ("si-arr", ("si_arr", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
@@ -2770,6 +2824,7 @@ class ServiceFunctionChaining(Entity):
 
                                 self.si_arr = YList(self)
                                 self._segment_path = lambda: "sf-name" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName, ['name'], name, value)
@@ -2831,7 +2886,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal))])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                     ])
                                     self.type = None
 
@@ -2859,6 +2914,7 @@ class ServiceFunctionChaining(Entity):
                                     self.sff_local.parent = self
                                     self._children_name_map["sff_local"] = "sff-local"
                                     self._segment_path = lambda: "data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data, [u'type'], name, value)
@@ -2904,6 +2960,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "sfp"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp, [], name, value)
@@ -2946,12 +3003,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -2994,12 +3052,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -3042,12 +3101,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "spi-si"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3090,12 +3150,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                            ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                            ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                            ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                         ])
                                         self.terminated_pkts = None
                                         self.terminated_bytes = None
                                         self._segment_path = lambda: "term"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -3138,12 +3199,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3186,12 +3248,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3250,16 +3313,17 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                            ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                            ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                            ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                            ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                            ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                            ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                            ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                         ])
                                         self.malformed_err_pkts = None
                                         self.lookup_err_pkts = None
                                         self.malformed_err_bytes = None
                                         self.lookup_err_bytes = None
                                         self._segment_path = lambda: "sff-local"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -3298,7 +3362,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data))])
                                     self._leafs = OrderedDict([
-                                        ('si', YLeaf(YType.uint8, 'si')),
+                                        ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                     ])
                                     self.si = None
 
@@ -3306,6 +3370,7 @@ class ServiceFunctionChaining(Entity):
                                     self.data.parent = self
                                     self._children_name_map["data"] = "data"
                                     self._segment_path = lambda: "si-arr"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr, [u'si'], name, value)
@@ -3347,7 +3412,7 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term))])
                                         self._leafs = OrderedDict([
-                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                         ])
                                         self.type = None
 
@@ -3359,6 +3424,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "data"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data, [u'type'], name, value)
@@ -3401,12 +3467,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3449,12 +3516,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunction.SfNames.SfName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -3500,6 +3568,7 @@ class ServiceFunctionChaining(Entity):
                         self.sff_names.parent = self
                         self._children_name_map["sff_names"] = "sff-names"
                         self._segment_path = lambda: "service-function-forwarder"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder, [], name, value)
@@ -3537,6 +3606,7 @@ class ServiceFunctionChaining(Entity):
                             self.error.parent = self
                             self._children_name_map["error"] = "error"
                             self._segment_path = lambda: "local"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local, [], name, value)
@@ -3581,6 +3651,7 @@ class ServiceFunctionChaining(Entity):
 
                                 self.si_arr = YList(self)
                                 self._segment_path = lambda: "error"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error, [], name, value)
@@ -3642,7 +3713,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal))])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                     ])
                                     self.type = None
 
@@ -3670,6 +3741,7 @@ class ServiceFunctionChaining(Entity):
                                     self.sff_local.parent = self
                                     self._children_name_map["sff_local"] = "sff-local"
                                     self._segment_path = lambda: "data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data, [u'type'], name, value)
@@ -3715,6 +3787,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "sfp"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp, [], name, value)
@@ -3757,12 +3830,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3805,12 +3879,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -3853,12 +3928,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "spi-si"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3901,12 +3977,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                            ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                            ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                            ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                         ])
                                         self.terminated_pkts = None
                                         self.terminated_bytes = None
                                         self._segment_path = lambda: "term"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -3949,12 +4026,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -3997,12 +4075,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4061,16 +4140,17 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                            ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                            ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                            ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                            ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                            ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                            ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                            ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                         ])
                                         self.malformed_err_pkts = None
                                         self.lookup_err_pkts = None
                                         self.malformed_err_bytes = None
                                         self.lookup_err_bytes = None
                                         self._segment_path = lambda: "sff-local"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -4109,7 +4189,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data))])
                                     self._leafs = OrderedDict([
-                                        ('si', YLeaf(YType.uint8, 'si')),
+                                        ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                     ])
                                     self.si = None
 
@@ -4117,6 +4197,7 @@ class ServiceFunctionChaining(Entity):
                                     self.data.parent = self
                                     self._children_name_map["data"] = "data"
                                     self._segment_path = lambda: "si-arr"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr, [u'si'], name, value)
@@ -4158,7 +4239,7 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term))])
                                         self._leafs = OrderedDict([
-                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                         ])
                                         self.type = None
 
@@ -4170,6 +4251,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "data"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data, [u'type'], name, value)
@@ -4212,12 +4294,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4260,12 +4343,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.Local.Error.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -4300,6 +4384,7 @@ class ServiceFunctionChaining(Entity):
 
                             self.sff_name = YList(self)
                             self._segment_path = lambda: "sff-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames, [], name, value)
@@ -4343,7 +4428,7 @@ class ServiceFunctionChaining(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data)), ("si-arr", ("si_arr", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
@@ -4353,6 +4438,7 @@ class ServiceFunctionChaining(Entity):
 
                                 self.si_arr = YList(self)
                                 self._segment_path = lambda: "sff-name" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName, ['name'], name, value)
@@ -4414,7 +4500,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("sfp", ("sfp", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp)), ("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term)), ("sf", ("sf", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf)), ("sff", ("sff", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff)), ("sff-local", ("sff_local", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal))])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                     ])
                                     self.type = None
 
@@ -4442,6 +4528,7 @@ class ServiceFunctionChaining(Entity):
                                     self.sff_local.parent = self
                                     self._children_name_map["sff_local"] = "sff-local"
                                     self._segment_path = lambda: "data"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data, [u'type'], name, value)
@@ -4487,6 +4574,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "sfp"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp, [], name, value)
@@ -4529,12 +4617,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4577,12 +4666,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sfp.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -4625,12 +4715,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "spi-si"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4673,12 +4764,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                            ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                            ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                            ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                         ])
                                         self.terminated_pkts = None
                                         self.terminated_bytes = None
                                         self._segment_path = lambda: "term"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)
@@ -4721,12 +4813,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sf, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4769,12 +4862,13 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                            ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                            ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                            ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                         ])
                                         self.processed_pkts = None
                                         self.processed_bytes = None
                                         self._segment_path = lambda: "sff"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.Sff, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -4833,16 +4927,17 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('malformed_err_pkts', YLeaf(YType.uint64, 'malformed-err-pkts')),
-                                            ('lookup_err_pkts', YLeaf(YType.uint64, 'lookup-err-pkts')),
-                                            ('malformed_err_bytes', YLeaf(YType.uint64, 'malformed-err-bytes')),
-                                            ('lookup_err_bytes', YLeaf(YType.uint64, 'lookup-err-bytes')),
+                                            ('malformed_err_pkts', (YLeaf(YType.uint64, 'malformed-err-pkts'), ['int'])),
+                                            ('lookup_err_pkts', (YLeaf(YType.uint64, 'lookup-err-pkts'), ['int'])),
+                                            ('malformed_err_bytes', (YLeaf(YType.uint64, 'malformed-err-bytes'), ['int'])),
+                                            ('lookup_err_bytes', (YLeaf(YType.uint64, 'lookup-err-bytes'), ['int'])),
                                         ])
                                         self.malformed_err_pkts = None
                                         self.lookup_err_pkts = None
                                         self.malformed_err_bytes = None
                                         self.lookup_err_bytes = None
                                         self._segment_path = lambda: "sff-local"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.Data.SffLocal, [u'malformed_err_pkts', u'lookup_err_pkts', u'malformed_err_bytes', u'lookup_err_bytes'], name, value)
@@ -4881,7 +4976,7 @@ class ServiceFunctionChaining(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("data", ("data", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data))])
                                     self._leafs = OrderedDict([
-                                        ('si', YLeaf(YType.uint8, 'si')),
+                                        ('si', (YLeaf(YType.uint8, 'si'), ['int'])),
                                     ])
                                     self.si = None
 
@@ -4889,6 +4984,7 @@ class ServiceFunctionChaining(Entity):
                                     self.data.parent = self
                                     self._children_name_map["data"] = "data"
                                     self._segment_path = lambda: "si-arr"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr, [u'si'], name, value)
@@ -4930,7 +5026,7 @@ class ServiceFunctionChaining(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("spi-si", ("spi_si", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi)), ("term", ("term", ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term))])
                                         self._leafs = OrderedDict([
-                                            ('type', YLeaf(YType.enumeration, 'type')),
+                                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_vservice_ea_oper', 'VsNshStats', '')])),
                                         ])
                                         self.type = None
 
@@ -4942,6 +5038,7 @@ class ServiceFunctionChaining(Entity):
                                         self.term.parent = self
                                         self._children_name_map["term"] = "term"
                                         self._segment_path = lambda: "data"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data, [u'type'], name, value)
@@ -4984,12 +5081,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('processed_pkts', YLeaf(YType.uint64, 'processed-pkts')),
-                                                ('processed_bytes', YLeaf(YType.uint64, 'processed-bytes')),
+                                                ('processed_pkts', (YLeaf(YType.uint64, 'processed-pkts'), ['int'])),
+                                                ('processed_bytes', (YLeaf(YType.uint64, 'processed-bytes'), ['int'])),
                                             ])
                                             self.processed_pkts = None
                                             self.processed_bytes = None
                                             self._segment_path = lambda: "spi-si"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.SpiSi, [u'processed_pkts', u'processed_bytes'], name, value)
@@ -5032,12 +5130,13 @@ class ServiceFunctionChaining(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('terminated_pkts', YLeaf(YType.uint64, 'terminated-pkts')),
-                                                ('terminated_bytes', YLeaf(YType.uint64, 'terminated-bytes')),
+                                                ('terminated_pkts', (YLeaf(YType.uint64, 'terminated-pkts'), ['int'])),
+                                                ('terminated_bytes', (YLeaf(YType.uint64, 'terminated-bytes'), ['int'])),
                                             ])
                                             self.terminated_pkts = None
                                             self.terminated_bytes = None
                                             self._segment_path = lambda: "term"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(ServiceFunctionChaining.Nodes.Node.Process.ServiceFunctionForwarder.SffNames.SffName.SiArr.Data.Term, [u'terminated_pkts', u'terminated_bytes'], name, value)

@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CheckpointArchives(Entity):
     """
     Contents of the checkpoint archive information base
@@ -61,9 +62,9 @@ class CheckpointArchives(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("archives", ("archives", CheckpointArchives.Archives))])
         self._leafs = OrderedDict([
-            ('max', YLeaf(YType.uint8, 'max')),
-            ('current', YLeaf(YType.uint8, 'current')),
-            ('recent', YLeaf(YType.str, 'recent')),
+            ('max', (YLeaf(YType.uint8, 'max'), ['int'])),
+            ('current', (YLeaf(YType.uint8, 'current'), ['int'])),
+            ('recent', (YLeaf(YType.str, 'recent'), ['str'])),
         ])
         self.max = None
         self.current = None
@@ -73,6 +74,7 @@ class CheckpointArchives(Entity):
         self.archives.parent = self
         self._children_name_map["archives"] = "archives"
         self._segment_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CheckpointArchives, ['max', 'current', 'recent'], name, value)
@@ -108,6 +110,7 @@ class CheckpointArchives(Entity):
             self.archive = YList(self)
             self._segment_path = lambda: "archives"
             self._absolute_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CheckpointArchives.Archives, [], name, value)
@@ -146,13 +149,14 @@ class CheckpointArchives(Entity):
                 self.ylist_key_names = ['number']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('number', YLeaf(YType.uint16, 'number')),
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('number', (YLeaf(YType.uint16, 'number'), ['int'])),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.number = None
                 self.name = None
                 self._segment_path = lambda: "archive" + "[number='" + str(self.number) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-checkpoint-archive-oper:checkpoint-archives/archives/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CheckpointArchives.Archives.Archive, ['number', 'name'], name, value)

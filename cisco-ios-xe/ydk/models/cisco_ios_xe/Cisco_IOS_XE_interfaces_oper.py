@@ -2,7 +2,7 @@
 
 This module contains a collection of YANG definitions for
 monitoring the interfaces in a Network Element.
-Copyright (c) 2016\-2017 by Cisco Systems, Inc.
+Copyright (c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,42 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+
+class AggregationType(Enum):
+    """
+    AggregationType (Enum Class)
+
+    Type to define the lag\-type, i.e., how the LAG is
+
+    defined and managed
+
+    .. data:: lag_off = 0
+
+    	LAG mode is off
+
+    .. data:: lag_auto = 1
+
+    	LAG mode is auto
+
+    .. data:: lag_active = 2
+
+    	LAG mode is active
+
+    .. data:: lag_passive = 3
+
+    	LAG mode is passive
+
+    """
+
+    lag_off = Enum.YLeaf(0, "lag-off")
+
+    lag_auto = Enum.YLeaf(1, "lag-auto")
+
+    lag_active = Enum.YLeaf(2, "lag-active")
+
+    lag_passive = Enum.YLeaf(3, "lag-passive")
 
 
 class EtherDuplex(Enum):
@@ -51,7 +87,7 @@ class EtherSpeed(Enum):
 
     .. data:: speed_1gb = 2
 
-    .. data:: speed_10bg = 3
+    .. data:: speed_10gb = 3
 
     .. data:: speed_25gb = 4
 
@@ -59,7 +95,7 @@ class EtherSpeed(Enum):
 
     .. data:: speed_50gb = 6
 
-    .. data:: speed_100bg = 7
+    .. data:: speed_100gb = 7
 
     .. data:: speed_unknown = 8
 
@@ -71,7 +107,7 @@ class EtherSpeed(Enum):
 
     speed_1gb = Enum.YLeaf(2, "speed-1gb")
 
-    speed_10bg = Enum.YLeaf(3, "speed-10bg")
+    speed_10gb = Enum.YLeaf(3, "speed-10gb")
 
     speed_25gb = Enum.YLeaf(4, "speed-25gb")
 
@@ -79,7 +115,7 @@ class EtherSpeed(Enum):
 
     speed_50gb = Enum.YLeaf(6, "speed-50gb")
 
-    speed_100bg = Enum.YLeaf(7, "speed-100bg")
+    speed_100gb = Enum.YLeaf(7, "speed-100gb")
 
     speed_unknown = Enum.YLeaf(8, "speed-unknown")
 
@@ -1536,7 +1572,7 @@ class Interfaces(Entity):
     """
 
     _prefix = 'interfaces-ios-xe-oper'
-    _revision = '2017-10-10'
+    _revision = '2018-02-01'
 
     def __init__(self):
         super(Interfaces, self).__init__()
@@ -1552,6 +1588,7 @@ class Interfaces(Entity):
 
         self.interface = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-interfaces-oper:interfaces"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Interfaces, [], name, value)
@@ -1699,6 +1736,38 @@ class Interfaces(Entity):
         
         	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
         
+        .. attribute:: ipv6_addrs
+        
+        	A list of the IPv6 addresses associated with the interface. This conatins all the IPv6 addresses, including the link local addresses, assigned to the interface
+        	**type**\: union of the below types:
+        
+        		**type**\: list of str
+        
+        			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+        
+        		**type**\: list of str
+        
+        			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+        
+        .. attribute:: lag_aggregate_state
+        
+        	Operational state variables for logical aggregate / LAG interfaces
+        	**type**\: list of  		 :py:class:`LagAggregateState <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.Interfaces.Interface.LagAggregateState>`
+        
+        .. attribute:: ipv4_tcp_adjust_mss
+        
+        	When ip tcp adjust\-mss is configured, this vlaue shows the tcp mss, or the value is zero
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: ipv6_tcp_adjust_mss
+        
+        	When ipv6 tcp adjust\-mss is configured, this value shows the tcp mss, or the value is zero
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
         .. attribute:: ether_state
         
         	The Ethernet state information
@@ -1729,7 +1798,7 @@ class Interfaces(Entity):
         """
 
         _prefix = 'interfaces-ios-xe-oper'
-        _revision = '2017-10-10'
+        _revision = '2018-02-01'
 
         def __init__(self):
             super(Interfaces.Interface, self).__init__()
@@ -1739,27 +1808,30 @@ class Interfaces(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_classes = OrderedDict([("statistics", ("statistics", Interfaces.Interface.Statistics)), ("diffserv-info", ("diffserv_info", Interfaces.Interface.DiffservInfo)), ("v4-protocol-stats", ("v4_protocol_stats", Interfaces.Interface.V4ProtocolStats)), ("v6-protocol-stats", ("v6_protocol_stats", Interfaces.Interface.V6ProtocolStats)), ("ether-state", ("ether_state", Interfaces.Interface.EtherState)), ("ether-stats", ("ether_stats", Interfaces.Interface.EtherStats)), ("serial-state", ("serial_state", Interfaces.Interface.SerialState)), ("serial-stats", ("serial_stats", Interfaces.Interface.SerialStats))])
+            self._child_classes = OrderedDict([("statistics", ("statistics", Interfaces.Interface.Statistics)), ("diffserv-info", ("diffserv_info", Interfaces.Interface.DiffservInfo)), ("v4-protocol-stats", ("v4_protocol_stats", Interfaces.Interface.V4ProtocolStats)), ("v6-protocol-stats", ("v6_protocol_stats", Interfaces.Interface.V6ProtocolStats)), ("lag-aggregate-state", ("lag_aggregate_state", Interfaces.Interface.LagAggregateState)), ("ether-state", ("ether_state", Interfaces.Interface.EtherState)), ("ether-stats", ("ether_stats", Interfaces.Interface.EtherStats)), ("serial-state", ("serial_state", Interfaces.Interface.SerialState)), ("serial-stats", ("serial_stats", Interfaces.Interface.SerialStats))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('interface_type', YLeaf(YType.enumeration, 'interface-type')),
-                ('admin_status', YLeaf(YType.enumeration, 'admin-status')),
-                ('oper_status', YLeaf(YType.enumeration, 'oper-status')),
-                ('last_change', YLeaf(YType.str, 'last-change')),
-                ('if_index', YLeaf(YType.int32, 'if-index')),
-                ('phys_address', YLeaf(YType.str, 'phys-address')),
-                ('higher_layer_if', YLeafList(YType.str, 'higher-layer-if')),
-                ('lower_layer_if', YLeafList(YType.str, 'lower-layer-if')),
-                ('speed', YLeaf(YType.uint64, 'speed')),
-                ('vrf', YLeaf(YType.str, 'vrf')),
-                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                ('ipv4_subnet_mask', YLeaf(YType.str, 'ipv4-subnet-mask')),
-                ('description', YLeaf(YType.str, 'description')),
-                ('mtu', YLeaf(YType.uint32, 'mtu')),
-                ('input_security_acl', YLeaf(YType.str, 'input-security-acl')),
-                ('output_security_acl', YLeaf(YType.str, 'output-security-acl')),
-                ('bia_address', YLeaf(YType.str, 'bia-address')),
-                ('intf_class_unspecified', YLeaf(YType.boolean, 'intf-class-unspecified')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('interface_type', (YLeaf(YType.enumeration, 'interface-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'IetfIntfType', '')])),
+                ('admin_status', (YLeaf(YType.enumeration, 'admin-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'IntfState', '')])),
+                ('oper_status', (YLeaf(YType.enumeration, 'oper-status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'OperState', '')])),
+                ('last_change', (YLeaf(YType.str, 'last-change'), ['str'])),
+                ('if_index', (YLeaf(YType.int32, 'if-index'), ['int'])),
+                ('phys_address', (YLeaf(YType.str, 'phys-address'), ['str'])),
+                ('higher_layer_if', (YLeafList(YType.str, 'higher-layer-if'), ['str'])),
+                ('lower_layer_if', (YLeafList(YType.str, 'lower-layer-if'), ['str'])),
+                ('speed', (YLeaf(YType.uint64, 'speed'), ['int'])),
+                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str','str'])),
+                ('ipv4_subnet_mask', (YLeaf(YType.str, 'ipv4-subnet-mask'), ['str','str'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                ('input_security_acl', (YLeaf(YType.str, 'input-security-acl'), ['str'])),
+                ('output_security_acl', (YLeaf(YType.str, 'output-security-acl'), ['str'])),
+                ('bia_address', (YLeaf(YType.str, 'bia-address'), ['str'])),
+                ('ipv6_addrs', (YLeafList(YType.str, 'ipv6-addrs'), ['str','str'])),
+                ('ipv4_tcp_adjust_mss', (YLeaf(YType.uint16, 'ipv4-tcp-adjust-mss'), ['int'])),
+                ('ipv6_tcp_adjust_mss', (YLeaf(YType.uint16, 'ipv6-tcp-adjust-mss'), ['int'])),
+                ('intf_class_unspecified', (YLeaf(YType.boolean, 'intf-class-unspecified'), ['bool'])),
             ])
             self.name = None
             self.interface_type = None
@@ -1779,6 +1851,9 @@ class Interfaces(Entity):
             self.input_security_acl = None
             self.output_security_acl = None
             self.bia_address = None
+            self.ipv6_addrs = []
+            self.ipv4_tcp_adjust_mss = None
+            self.ipv6_tcp_adjust_mss = None
             self.intf_class_unspecified = None
 
             self.statistics = Interfaces.Interface.Statistics()
@@ -1810,11 +1885,13 @@ class Interfaces(Entity):
             self._children_name_map["serial_stats"] = "serial-stats"
 
             self.diffserv_info = YList(self)
+            self.lag_aggregate_state = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-interfaces-oper:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Interfaces.Interface, ['name', 'interface_type', 'admin_status', 'oper_status', 'last_change', 'if_index', 'phys_address', 'higher_layer_if', 'lower_layer_if', 'speed', 'vrf', 'ipv4', 'ipv4_subnet_mask', 'description', 'mtu', 'input_security_acl', 'output_security_acl', 'bia_address', 'intf_class_unspecified'], name, value)
+            self._perform_setattr(Interfaces.Interface, ['name', 'interface_type', 'admin_status', 'oper_status', 'last_change', 'if_index', 'phys_address', 'higher_layer_if', 'lower_layer_if', 'speed', 'vrf', 'ipv4', 'ipv4_subnet_mask', 'description', 'mtu', 'input_security_acl', 'output_security_acl', 'bia_address', 'ipv6_addrs', 'ipv4_tcp_adjust_mss', 'ipv6_tcp_adjust_mss', 'intf_class_unspecified'], name, value)
 
 
         class Statistics(Entity):
@@ -1842,7 +1919,7 @@ class Interfaces(Entity):
             
             	**range:** 0..18446744073709551615
             
-            .. attribute:: new_name
+            .. attribute:: in_broadcast_pkts
             
             	The number of packets, delivered by this sub\-layer to a higher (sub\-)layer, that were addressed to a broadcast address at this sub\-layer. Discontinuities in the value of this counter can occur at re\-initialization of the management system, and at other times as indicated by the value of 'discontinuity\-time'
             	**type**\: int
@@ -1966,7 +2043,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.Statistics, self).__init__()
@@ -1978,31 +2055,31 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
-                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                    ('in_unicast_pkts', YLeaf(YType.uint64, 'in-unicast-pkts')),
-                    ('new_name', YLeaf(YType.uint64, 'new-name')),
-                    ('in_multicast_pkts', YLeaf(YType.uint64, 'in-multicast-pkts')),
-                    ('in_discards', YLeaf(YType.uint32, 'in-discards')),
-                    ('in_errors', YLeaf(YType.uint32, 'in-errors')),
-                    ('in_unknown_protos', YLeaf(YType.uint32, 'in-unknown-protos')),
-                    ('out_octets', YLeaf(YType.uint32, 'out-octets')),
-                    ('out_unicast_pkts', YLeaf(YType.uint64, 'out-unicast-pkts')),
-                    ('out_broadcast_pkts', YLeaf(YType.uint64, 'out-broadcast-pkts')),
-                    ('out_multicast_pkts', YLeaf(YType.uint64, 'out-multicast-pkts')),
-                    ('out_discards', YLeaf(YType.uint64, 'out-discards')),
-                    ('out_errors', YLeaf(YType.uint64, 'out-errors')),
-                    ('rx_pps', YLeaf(YType.uint64, 'rx-pps')),
-                    ('rx_kbps', YLeaf(YType.uint64, 'rx-kbps')),
-                    ('tx_pps', YLeaf(YType.uint64, 'tx-pps')),
-                    ('tx_kbps', YLeaf(YType.uint64, 'tx-kbps')),
-                    ('num_flaps', YLeaf(YType.uint64, 'num-flaps')),
-                    ('in_crc_errors', YLeaf(YType.uint64, 'in-crc-errors')),
+                    ('discontinuity_time', (YLeaf(YType.str, 'discontinuity-time'), ['str'])),
+                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                    ('in_unicast_pkts', (YLeaf(YType.uint64, 'in-unicast-pkts'), ['int'])),
+                    ('in_broadcast_pkts', (YLeaf(YType.uint64, 'in-broadcast-pkts'), ['int'])),
+                    ('in_multicast_pkts', (YLeaf(YType.uint64, 'in-multicast-pkts'), ['int'])),
+                    ('in_discards', (YLeaf(YType.uint32, 'in-discards'), ['int'])),
+                    ('in_errors', (YLeaf(YType.uint32, 'in-errors'), ['int'])),
+                    ('in_unknown_protos', (YLeaf(YType.uint32, 'in-unknown-protos'), ['int'])),
+                    ('out_octets', (YLeaf(YType.uint32, 'out-octets'), ['int'])),
+                    ('out_unicast_pkts', (YLeaf(YType.uint64, 'out-unicast-pkts'), ['int'])),
+                    ('out_broadcast_pkts', (YLeaf(YType.uint64, 'out-broadcast-pkts'), ['int'])),
+                    ('out_multicast_pkts', (YLeaf(YType.uint64, 'out-multicast-pkts'), ['int'])),
+                    ('out_discards', (YLeaf(YType.uint64, 'out-discards'), ['int'])),
+                    ('out_errors', (YLeaf(YType.uint64, 'out-errors'), ['int'])),
+                    ('rx_pps', (YLeaf(YType.uint64, 'rx-pps'), ['int'])),
+                    ('rx_kbps', (YLeaf(YType.uint64, 'rx-kbps'), ['int'])),
+                    ('tx_pps', (YLeaf(YType.uint64, 'tx-pps'), ['int'])),
+                    ('tx_kbps', (YLeaf(YType.uint64, 'tx-kbps'), ['int'])),
+                    ('num_flaps', (YLeaf(YType.uint64, 'num-flaps'), ['int'])),
+                    ('in_crc_errors', (YLeaf(YType.uint64, 'in-crc-errors'), ['int'])),
                 ])
                 self.discontinuity_time = None
                 self.in_octets = None
                 self.in_unicast_pkts = None
-                self.new_name = None
+                self.in_broadcast_pkts = None
                 self.in_multicast_pkts = None
                 self.in_discards = None
                 self.in_errors = None
@@ -2020,9 +2097,10 @@ class Interfaces(Entity):
                 self.num_flaps = None
                 self.in_crc_errors = None
                 self._segment_path = lambda: "statistics"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Interfaces.Interface.Statistics, ['discontinuity_time', 'in_octets', 'in_unicast_pkts', 'new_name', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'rx_pps', 'rx_kbps', 'tx_pps', 'tx_kbps', 'num_flaps', 'in_crc_errors'], name, value)
+                self._perform_setattr(Interfaces.Interface.Statistics, ['discontinuity_time', 'in_octets', 'in_unicast_pkts', 'in_broadcast_pkts', 'in_multicast_pkts', 'in_discards', 'in_errors', 'in_unknown_protos', 'out_octets', 'out_unicast_pkts', 'out_broadcast_pkts', 'out_multicast_pkts', 'out_discards', 'out_errors', 'rx_pps', 'rx_kbps', 'tx_pps', 'tx_kbps', 'num_flaps', 'in_crc_errors'], name, value)
 
 
         class DiffservInfo(Entity):
@@ -2054,7 +2132,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.DiffservInfo, self).__init__()
@@ -2066,8 +2144,8 @@ class Interfaces(Entity):
                 self.ylist_key_names = ['direction','policy_name']
                 self._child_classes = OrderedDict([("diffserv-target-classifier-stats", ("diffserv_target_classifier_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats)), ("priority-oper-list", ("priority_oper_list", Interfaces.Interface.DiffservInfo.PriorityOperList))])
                 self._leafs = OrderedDict([
-                    ('direction', YLeaf(YType.enumeration, 'direction')),
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                    ('direction', (YLeaf(YType.enumeration, 'direction'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'QosDirection', '')])),
+                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
                 ])
                 self.direction = None
                 self.policy_name = None
@@ -2075,6 +2153,7 @@ class Interfaces(Entity):
                 self.diffserv_target_classifier_stats = YList(self)
                 self.priority_oper_list = YList(self)
                 self._segment_path = lambda: "diffserv-info" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.DiffservInfo, ['direction', 'policy_name'], name, value)
@@ -2124,7 +2203,7 @@ class Interfaces(Entity):
                 """
 
                 _prefix = 'interfaces-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats, self).__init__()
@@ -2136,8 +2215,8 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['classifier_entry_name','parent_path']
                     self._child_classes = OrderedDict([("classifier-entry-stats", ("classifier_entry_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats)), ("meter-stats", ("meter_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats)), ("queuing-stats", ("queuing_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats)), ("subclass-list", ("subclass_list", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList)), ("marking-stats", ("marking_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats))])
                     self._leafs = OrderedDict([
-                        ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
-                        ('parent_path', YLeaf(YType.str, 'parent-path')),
+                        ('classifier_entry_name', (YLeaf(YType.str, 'classifier-entry-name'), ['str'])),
+                        ('parent_path', (YLeaf(YType.str, 'parent-path'), ['str'])),
                     ])
                     self.classifier_entry_name = None
                     self.parent_path = None
@@ -2157,6 +2236,7 @@ class Interfaces(Entity):
                     self.meter_stats = YList(self)
                     self.subclass_list = YList(self)
                     self._segment_path = lambda: "diffserv-target-classifier-stats" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']" + "[parent-path='" + str(self.parent_path) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats, ['classifier_entry_name', 'parent_path'], name, value)
@@ -2192,7 +2272,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats, self).__init__()
@@ -2204,14 +2284,15 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
-                            ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
-                            ('classified_rate', YLeaf(YType.uint64, 'classified-rate')),
+                            ('classified_pkts', (YLeaf(YType.uint64, 'classified-pkts'), ['int'])),
+                            ('classified_bytes', (YLeaf(YType.uint64, 'classified-bytes'), ['int'])),
+                            ('classified_rate', (YLeaf(YType.uint64, 'classified-rate'), ['int'])),
                         ])
                         self.classified_pkts = None
                         self.classified_bytes = None
                         self.classified_rate = None
                         self._segment_path = lambda: "classifier-entry-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.ClassifierEntryStats, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
@@ -2261,7 +2342,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats, self).__init__()
@@ -2273,11 +2354,11 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['meter_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('meter_id', YLeaf(YType.uint16, 'meter-id')),
-                            ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
-                            ('meter_succeed_bytes', YLeaf(YType.uint64, 'meter-succeed-bytes')),
-                            ('meter_failed_pkts', YLeaf(YType.uint64, 'meter-failed-pkts')),
-                            ('meter_failed_bytes', YLeaf(YType.uint64, 'meter-failed-bytes')),
+                            ('meter_id', (YLeaf(YType.uint16, 'meter-id'), ['int'])),
+                            ('meter_succeed_pkts', (YLeaf(YType.uint64, 'meter-succeed-pkts'), ['int'])),
+                            ('meter_succeed_bytes', (YLeaf(YType.uint64, 'meter-succeed-bytes'), ['int'])),
+                            ('meter_failed_pkts', (YLeaf(YType.uint64, 'meter-failed-pkts'), ['int'])),
+                            ('meter_failed_bytes', (YLeaf(YType.uint64, 'meter-failed-bytes'), ['int'])),
                         ])
                         self.meter_id = None
                         self.meter_succeed_pkts = None
@@ -2285,6 +2366,7 @@ class Interfaces(Entity):
                         self.meter_failed_pkts = None
                         self.meter_failed_bytes = None
                         self._segment_path = lambda: "meter-stats" + "[meter-id='" + str(self.meter_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MeterStats, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
@@ -2351,7 +2433,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats, self).__init__()
@@ -2363,12 +2445,12 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("wred-stats", ("wred_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats)), ("cac-stats", ("cac_stats", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats))])
                         self._leafs = OrderedDict([
-                            ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
-                            ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
-                            ('queue_size_pkts', YLeaf(YType.uint64, 'queue-size-pkts')),
-                            ('queue_size_bytes', YLeaf(YType.uint64, 'queue-size-bytes')),
-                            ('drop_pkts', YLeaf(YType.uint64, 'drop-pkts')),
-                            ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
+                            ('output_pkts', (YLeaf(YType.uint64, 'output-pkts'), ['int'])),
+                            ('output_bytes', (YLeaf(YType.uint64, 'output-bytes'), ['int'])),
+                            ('queue_size_pkts', (YLeaf(YType.uint64, 'queue-size-pkts'), ['int'])),
+                            ('queue_size_bytes', (YLeaf(YType.uint64, 'queue-size-bytes'), ['int'])),
+                            ('drop_pkts', (YLeaf(YType.uint64, 'drop-pkts'), ['int'])),
+                            ('drop_bytes', (YLeaf(YType.uint64, 'drop-bytes'), ['int'])),
                         ])
                         self.output_pkts = None
                         self.output_bytes = None
@@ -2385,6 +2467,7 @@ class Interfaces(Entity):
                         self.cac_stats.parent = self
                         self._children_name_map["cac_stats"] = "cac-stats"
                         self._segment_path = lambda: "queuing-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes'], name, value)
@@ -2483,7 +2566,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats, self).__init__()
@@ -2495,18 +2578,18 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
-                                ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),
-                                ('mean_queue_depth', YLeaf(YType.uint16, 'mean-queue-depth')),
-                                ('transmitted_pkts', YLeaf(YType.uint64, 'transmitted-pkts')),
-                                ('transmitted_bytes', YLeaf(YType.uint64, 'transmitted-bytes')),
-                                ('tail_drop_pkts', YLeaf(YType.uint64, 'tail-drop-pkts')),
-                                ('tail_drop_bytes', YLeaf(YType.uint64, 'tail-drop-bytes')),
-                                ('drop_pkts_flow', YLeaf(YType.uint64, 'drop-pkts-flow')),
-                                ('drop_pkts_no_buffer', YLeaf(YType.uint64, 'drop-pkts-no-buffer')),
-                                ('queue_peak_size_pkts', YLeaf(YType.uint64, 'queue-peak-size-pkts')),
-                                ('queue_peak_size_bytes', YLeaf(YType.uint64, 'queue-peak-size-bytes')),
-                                ('bandwidth_exceed_drops', YLeaf(YType.uint64, 'bandwidth-exceed-drops')),
+                                ('early_drop_pkts', (YLeaf(YType.uint64, 'early-drop-pkts'), ['int'])),
+                                ('early_drop_bytes', (YLeaf(YType.uint64, 'early-drop-bytes'), ['int'])),
+                                ('mean_queue_depth', (YLeaf(YType.uint16, 'mean-queue-depth'), ['int'])),
+                                ('transmitted_pkts', (YLeaf(YType.uint64, 'transmitted-pkts'), ['int'])),
+                                ('transmitted_bytes', (YLeaf(YType.uint64, 'transmitted-bytes'), ['int'])),
+                                ('tail_drop_pkts', (YLeaf(YType.uint64, 'tail-drop-pkts'), ['int'])),
+                                ('tail_drop_bytes', (YLeaf(YType.uint64, 'tail-drop-bytes'), ['int'])),
+                                ('drop_pkts_flow', (YLeaf(YType.uint64, 'drop-pkts-flow'), ['int'])),
+                                ('drop_pkts_no_buffer', (YLeaf(YType.uint64, 'drop-pkts-no-buffer'), ['int'])),
+                                ('queue_peak_size_pkts', (YLeaf(YType.uint64, 'queue-peak-size-pkts'), ['int'])),
+                                ('queue_peak_size_bytes', (YLeaf(YType.uint64, 'queue-peak-size-bytes'), ['int'])),
+                                ('bandwidth_exceed_drops', (YLeaf(YType.uint64, 'bandwidth-exceed-drops'), ['int'])),
                             ])
                             self.early_drop_pkts = None
                             self.early_drop_bytes = None
@@ -2521,6 +2604,7 @@ class Interfaces(Entity):
                             self.queue_peak_size_bytes = None
                             self.bandwidth_exceed_drops = None
                             self._segment_path = lambda: "wred-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.WredStats, ['early_drop_pkts', 'early_drop_bytes', 'mean_queue_depth', 'transmitted_pkts', 'transmitted_bytes', 'tail_drop_pkts', 'tail_drop_bytes', 'drop_pkts_flow', 'drop_pkts_no_buffer', 'queue_peak_size_pkts', 'queue_peak_size_bytes', 'bandwidth_exceed_drops'], name, value)
@@ -2549,7 +2633,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats, self).__init__()
@@ -2561,12 +2645,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('num_admitted_flows', YLeaf(YType.uint32, 'num-admitted-flows')),
-                                ('num_non_admitted_flows', YLeaf(YType.uint32, 'num-non-admitted-flows')),
+                                ('num_admitted_flows', (YLeaf(YType.uint32, 'num-admitted-flows'), ['int'])),
+                                ('num_non_admitted_flows', (YLeaf(YType.uint32, 'num-non-admitted-flows'), ['int'])),
                             ])
                             self.num_admitted_flows = None
                             self.num_non_admitted_flows = None
                             self._segment_path = lambda: "cac-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.QueuingStats.CacStats, ['num_admitted_flows', 'num_non_admitted_flows'], name, value)
@@ -2660,7 +2745,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList, self).__init__()
@@ -2672,7 +2757,7 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['match_type']
                         self._child_classes = OrderedDict([("cos-counters", ("cos_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters)), ("cos-default", ("cos_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault)), ("dscp-counters", ("dscp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters)), ("dscp-default", ("dscp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault)), ("discard-class-counters", ("discard_class_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters)), ("disc-class-default", ("disc_class_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault)), ("precedence-counters", ("precedence_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters)), ("prec-default", ("prec_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault)), ("mpls-exp-counters", ("mpls_exp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters)), ("mpls-exp-default", ("mpls_exp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault)), ("dei-counters", ("dei_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters)), ("dei-counts-default", ("dei_counts_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault)), ("clp-counters", ("clp_counters", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters)), ("clp-default", ("clp_default", Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault))])
                         self._leafs = OrderedDict([
-                            ('match_type', YLeaf(YType.enumeration, 'match-type')),
+                            ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'QosMatchType', '')])),
                         ])
                         self.match_type = None
 
@@ -2712,6 +2797,7 @@ class Interfaces(Entity):
                         self.dei_counters = YList(self)
                         self.clp_counters = YList(self)
                         self._segment_path = lambda: "subclass-list" + "[match-type='" + str(self.match_type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList, ['match_type'], name, value)
@@ -2783,7 +2869,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters, self).__init__()
@@ -2795,14 +2881,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['cos_min','cos_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('cos_min', YLeaf(YType.uint32, 'cos-min')),
-                                ('cos_max', YLeaf(YType.uint32, 'cos-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('cos_min', (YLeaf(YType.uint32, 'cos-min'), ['int'])),
+                                ('cos_max', (YLeaf(YType.uint32, 'cos-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.cos_min = None
                             self.cos_max = None
@@ -2813,6 +2899,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "cos-counters" + "[cos-min='" + str(self.cos_min) + "']" + "[cos-max='" + str(self.cos_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosCounters, ['cos_min', 'cos_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -2869,7 +2956,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault, self).__init__()
@@ -2881,12 +2968,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -2895,6 +2982,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "cos-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.CosDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -2965,7 +3053,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters, self).__init__()
@@ -2977,14 +3065,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['dscp_min','dscp_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dscp_min', YLeaf(YType.uint32, 'dscp-min')),
-                                ('dscp_max', YLeaf(YType.uint32, 'dscp-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('dscp_min', (YLeaf(YType.uint32, 'dscp-min'), ['int'])),
+                                ('dscp_max', (YLeaf(YType.uint32, 'dscp-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.dscp_min = None
                             self.dscp_max = None
@@ -2995,6 +3083,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "dscp-counters" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpCounters, ['dscp_min', 'dscp_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3051,7 +3140,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault, self).__init__()
@@ -3063,12 +3152,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3077,6 +3166,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "dscp-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DscpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3147,7 +3237,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters, self).__init__()
@@ -3159,14 +3249,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['disc_class_min','disc_class_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('disc_class_min', YLeaf(YType.uint32, 'disc-class-min')),
-                                ('disc_class_max', YLeaf(YType.uint32, 'disc-class-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('disc_class_min', (YLeaf(YType.uint32, 'disc-class-min'), ['int'])),
+                                ('disc_class_max', (YLeaf(YType.uint32, 'disc-class-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.disc_class_min = None
                             self.disc_class_max = None
@@ -3177,6 +3267,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "discard-class-counters" + "[disc-class-min='" + str(self.disc_class_min) + "']" + "[disc-class-max='" + str(self.disc_class_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscardClassCounters, ['disc_class_min', 'disc_class_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3233,7 +3324,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault, self).__init__()
@@ -3245,12 +3336,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3259,6 +3350,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "disc-class-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DiscClassDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3329,7 +3421,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters, self).__init__()
@@ -3341,14 +3433,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['prec_min','prec_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prec_min', YLeaf(YType.uint32, 'prec-min')),
-                                ('prec_max', YLeaf(YType.uint32, 'prec-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('prec_min', (YLeaf(YType.uint32, 'prec-min'), ['int'])),
+                                ('prec_max', (YLeaf(YType.uint32, 'prec-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.prec_min = None
                             self.prec_max = None
@@ -3359,6 +3451,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "precedence-counters" + "[prec-min='" + str(self.prec_min) + "']" + "[prec-max='" + str(self.prec_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecedenceCounters, ['prec_min', 'prec_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3415,7 +3508,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault, self).__init__()
@@ -3427,12 +3520,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3441,6 +3534,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "prec-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.PrecDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3511,7 +3605,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters, self).__init__()
@@ -3523,14 +3617,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['exp_min','exp_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('exp_min', YLeaf(YType.uint32, 'exp-min')),
-                                ('exp_max', YLeaf(YType.uint32, 'exp-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('exp_min', (YLeaf(YType.uint32, 'exp-min'), ['int'])),
+                                ('exp_max', (YLeaf(YType.uint32, 'exp-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.exp_min = None
                             self.exp_max = None
@@ -3541,6 +3635,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "mpls-exp-counters" + "[exp-min='" + str(self.exp_min) + "']" + "[exp-max='" + str(self.exp_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpCounters, ['exp_min', 'exp_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3597,7 +3692,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault, self).__init__()
@@ -3609,12 +3704,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3623,6 +3718,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "mpls-exp-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.MplsExpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3693,7 +3789,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters, self).__init__()
@@ -3705,14 +3801,14 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['dei_min','dei_max']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dei_min', YLeaf(YType.uint32, 'dei-min')),
-                                ('dei_max', YLeaf(YType.uint32, 'dei-max')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('dei_min', (YLeaf(YType.uint32, 'dei-min'), ['int'])),
+                                ('dei_max', (YLeaf(YType.uint32, 'dei-max'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.dei_min = None
                             self.dei_max = None
@@ -3723,6 +3819,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "dei-counters" + "[dei-min='" + str(self.dei_min) + "']" + "[dei-max='" + str(self.dei_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCounters, ['dei_min', 'dei_max', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3779,7 +3876,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault, self).__init__()
@@ -3791,12 +3888,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3805,6 +3902,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "dei-counts-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.DeiCountsDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3868,7 +3966,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters, self).__init__()
@@ -3880,13 +3978,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['clp_val']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('clp_val', YLeaf(YType.uint32, 'clp-val')),
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('clp_val', (YLeaf(YType.uint32, 'clp-val'), ['int'])),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.clp_val = None
                             self.wred_tx_pkts = None
@@ -3896,6 +3994,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "clp-counters" + "[clp-val='" + str(self.clp_val) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpCounters, ['clp_val', 'wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -3952,7 +4051,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault, self).__init__()
@@ -3964,12 +4063,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wred_tx_pkts', YLeaf(YType.uint64, 'wred-tx-pkts')),
-                                ('wred_tx_bytes', YLeaf(YType.uint64, 'wred-tx-bytes')),
-                                ('wred_tail_drop_pkts', YLeaf(YType.uint64, 'wred-tail-drop-pkts')),
-                                ('wred_tail_drop_bytes', YLeaf(YType.uint64, 'wred-tail-drop-bytes')),
-                                ('wred_early_drop_pkts', YLeaf(YType.uint64, 'wred-early-drop-pkts')),
-                                ('wred_early_drop_bytes', YLeaf(YType.uint64, 'wred-early-drop-bytes')),
+                                ('wred_tx_pkts', (YLeaf(YType.uint64, 'wred-tx-pkts'), ['int'])),
+                                ('wred_tx_bytes', (YLeaf(YType.uint64, 'wred-tx-bytes'), ['int'])),
+                                ('wred_tail_drop_pkts', (YLeaf(YType.uint64, 'wred-tail-drop-pkts'), ['int'])),
+                                ('wred_tail_drop_bytes', (YLeaf(YType.uint64, 'wred-tail-drop-bytes'), ['int'])),
+                                ('wred_early_drop_pkts', (YLeaf(YType.uint64, 'wred-early-drop-pkts'), ['int'])),
+                                ('wred_early_drop_bytes', (YLeaf(YType.uint64, 'wred-early-drop-bytes'), ['int'])),
                             ])
                             self.wred_tx_pkts = None
                             self.wred_tx_bytes = None
@@ -3978,6 +4077,7 @@ class Interfaces(Entity):
                             self.wred_early_drop_pkts = None
                             self.wred_early_drop_bytes = None
                             self._segment_path = lambda: "clp-default"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.SubclassList.ClpDefault, ['wred_tx_pkts', 'wred_tx_bytes', 'wred_tail_drop_pkts', 'wred_tail_drop_bytes', 'wred_early_drop_pkts', 'wred_early_drop_bytes'], name, value)
@@ -4082,7 +4182,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats, self).__init__()
@@ -4167,6 +4267,7 @@ class Interfaces(Entity):
                         self.marking_wlan_user_priority_stats_val.parent = self
                         self._children_name_map["marking_wlan_user_priority_stats_val"] = "marking-wlan-user-priority-stats-val"
                         self._segment_path = lambda: "marking-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats, [], name, value)
@@ -4195,7 +4296,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal, self).__init__()
@@ -4207,12 +4308,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dscp', YLeaf(YType.uint32, 'dscp')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.dscp = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-dscp-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpStatsVal, ['dscp', 'marked_pkts'], name, value)
@@ -4241,7 +4343,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal, self).__init__()
@@ -4253,12 +4355,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dscp_val', YLeaf(YType.uint32, 'dscp-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('dscp_val', (YLeaf(YType.uint32, 'dscp-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.dscp_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-dscp-tunnel-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDscpTunnelStatsVal, ['dscp_val', 'marked_pkts'], name, value)
@@ -4287,7 +4390,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal, self).__init__()
@@ -4299,12 +4402,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('cos_val', YLeaf(YType.uint32, 'cos-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('cos_val', (YLeaf(YType.uint32, 'cos-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.cos_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-cos-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosStatsVal, ['cos_val', 'marked_pkts'], name, value)
@@ -4333,7 +4437,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal, self).__init__()
@@ -4345,12 +4449,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('cos_inner_val', YLeaf(YType.uint32, 'cos-inner-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('cos_inner_val', (YLeaf(YType.uint32, 'cos-inner-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.cos_inner_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-cos-inner-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingCosInnerStatsVal, ['cos_inner_val', 'marked_pkts'], name, value)
@@ -4379,7 +4484,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal, self).__init__()
@@ -4391,12 +4496,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('disc_class_val', YLeaf(YType.uint32, 'disc-class-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('disc_class_val', (YLeaf(YType.uint32, 'disc-class-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.disc_class_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-discard-class-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDiscardClassStatsVal, ['disc_class_val', 'marked_pkts'], name, value)
@@ -4425,7 +4531,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal, self).__init__()
@@ -4437,12 +4543,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('qos_grp_val', YLeaf(YType.uint32, 'qos-grp-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('qos_grp_val', (YLeaf(YType.uint32, 'qos-grp-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.qos_grp_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-qos-grp-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingQosGrpStatsVal, ['qos_grp_val', 'marked_pkts'], name, value)
@@ -4471,7 +4578,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal, self).__init__()
@@ -4483,12 +4590,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prec_val', YLeaf(YType.uint32, 'prec-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('prec_val', (YLeaf(YType.uint32, 'prec-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.prec_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-prec-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecStatsVal, ['prec_val', 'marked_pkts'], name, value)
@@ -4517,7 +4625,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal, self).__init__()
@@ -4529,12 +4637,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prec_val', YLeaf(YType.uint32, 'prec-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('prec_val', (YLeaf(YType.uint32, 'prec-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.prec_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-prec-tunnel-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingPrecTunnelStatsVal, ['prec_val', 'marked_pkts'], name, value)
@@ -4563,7 +4672,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal, self).__init__()
@@ -4575,12 +4684,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mpls_exp_imp_val', YLeaf(YType.uint32, 'mpls-exp-imp-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('mpls_exp_imp_val', (YLeaf(YType.uint32, 'mpls-exp-imp-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.mpls_exp_imp_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-mpls-exp-imp-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpImpStatsVal, ['mpls_exp_imp_val', 'marked_pkts'], name, value)
@@ -4609,7 +4719,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal, self).__init__()
@@ -4621,12 +4731,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mpls_exp_top_val', YLeaf(YType.uint32, 'mpls-exp-top-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('mpls_exp_top_val', (YLeaf(YType.uint32, 'mpls-exp-top-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.mpls_exp_top_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-mpls-exp-top-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingMplsExpTopStatsVal, ['mpls_exp_top_val', 'marked_pkts'], name, value)
@@ -4653,7 +4764,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal, self).__init__()
@@ -4665,12 +4776,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('fr_de', YLeaf(YType.boolean, 'fr-de')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('fr_de', (YLeaf(YType.boolean, 'fr-de'), ['bool'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.fr_de = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-fr-de-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrDeStatsVal, ['fr_de', 'marked_pkts'], name, value)
@@ -4699,7 +4811,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal, self).__init__()
@@ -4711,12 +4823,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('fecn_becn_val', YLeaf(YType.uint32, 'fecn-becn-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('fecn_becn_val', (YLeaf(YType.uint32, 'fecn-becn-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.fecn_becn_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-fr-fecn-becn-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingFrFecnBecnStatsVal, ['fecn_becn_val', 'marked_pkts'], name, value)
@@ -4745,7 +4858,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal, self).__init__()
@@ -4757,12 +4870,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('atm_clp_val', YLeaf(YType.uint8, 'atm-clp-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('atm_clp_val', (YLeaf(YType.uint8, 'atm-clp-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.atm_clp_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-atm-clp-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingAtmClpStatsVal, ['atm_clp_val', 'marked_pkts'], name, value)
@@ -4791,7 +4905,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal, self).__init__()
@@ -4803,12 +4917,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('vlan_inner_val', YLeaf(YType.uint32, 'vlan-inner-val')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('vlan_inner_val', (YLeaf(YType.uint32, 'vlan-inner-val'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.vlan_inner_val = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-vlan-inner-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingVlanInnerStatsVal, ['vlan_inner_val', 'marked_pkts'], name, value)
@@ -4837,7 +4952,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal, self).__init__()
@@ -4849,12 +4964,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dei_imp_value', YLeaf(YType.uint32, 'dei-imp-value')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('dei_imp_value', (YLeaf(YType.uint32, 'dei-imp-value'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.dei_imp_value = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-dei-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiStatsVal, ['dei_imp_value', 'marked_pkts'], name, value)
@@ -4883,7 +4999,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal, self).__init__()
@@ -4895,12 +5011,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dei_imp_value', YLeaf(YType.uint32, 'dei-imp-value')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('dei_imp_value', (YLeaf(YType.uint32, 'dei-imp-value'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.dei_imp_value = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-dei-imp-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingDeiImpStatsVal, ['dei_imp_value', 'marked_pkts'], name, value)
@@ -4929,7 +5046,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal, self).__init__()
@@ -4941,12 +5058,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('srp_priority_value', YLeaf(YType.uint8, 'srp-priority-value')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('srp_priority_value', (YLeaf(YType.uint8, 'srp-priority-value'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.srp_priority_value = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-srp-priority-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingSrpPriorityStatsVal, ['srp_priority_value', 'marked_pkts'], name, value)
@@ -4975,7 +5093,7 @@ class Interfaces(Entity):
                         """
 
                         _prefix = 'interfaces-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-02-01'
 
                         def __init__(self):
                             super(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal, self).__init__()
@@ -4987,12 +5105,13 @@ class Interfaces(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wlan_user_priority_value', YLeaf(YType.uint8, 'wlan-user-priority-value')),
-                                ('marked_pkts', YLeaf(YType.uint64, 'marked-pkts')),
+                                ('wlan_user_priority_value', (YLeaf(YType.uint8, 'wlan-user-priority-value'), ['int'])),
+                                ('marked_pkts', (YLeaf(YType.uint64, 'marked-pkts'), ['int'])),
                             ])
                             self.wlan_user_priority_value = None
                             self.marked_pkts = None
                             self._segment_path = lambda: "marking-wlan-user-priority-stats-val"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.DiffservInfo.DiffservTargetClassifierStats.MarkingStats.MarkingWlanUserPriorityStatsVal, ['wlan_user_priority_value', 'marked_pkts'], name, value)
@@ -5049,7 +5168,7 @@ class Interfaces(Entity):
                 """
 
                 _prefix = 'interfaces-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(Interfaces.Interface.DiffservInfo.PriorityOperList, self).__init__()
@@ -5061,7 +5180,7 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['priority_level']
                     self._child_classes = OrderedDict([("agg-priority-stats", ("agg_priority_stats", Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats)), ("qlimit-default-thresh", ("qlimit_default_thresh", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh)), ("qlimit-cos-thresh-list", ("qlimit_cos_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList)), ("qlimit-disc-class-thresh-list", ("qlimit_disc_class_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList)), ("qlimit-qos-grp-thresh-list", ("qlimit_qos_grp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList)), ("qlimit-mpls-exp-thresh-list", ("qlimit_mpls_exp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList)), ("qlimit-dscp-thresh-list", ("qlimit_dscp_thresh_list", Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList))])
                     self._leafs = OrderedDict([
-                        ('priority_level', YLeaf(YType.uint16, 'priority-level')),
+                        ('priority_level', (YLeaf(YType.uint16, 'priority-level'), ['int'])),
                     ])
                     self.priority_level = None
 
@@ -5079,6 +5198,7 @@ class Interfaces(Entity):
                     self.qlimit_mpls_exp_thresh_list = YList(self)
                     self.qlimit_dscp_thresh_list = YList(self)
                     self._segment_path = lambda: "priority-oper-list" + "[priority-level='" + str(self.priority_level) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList, ['priority_level'], name, value)
@@ -5149,7 +5269,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats, self).__init__()
@@ -5161,14 +5281,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
-                            ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
-                            ('queue_size_pkts', YLeaf(YType.uint64, 'queue-size-pkts')),
-                            ('queue_size_bytes', YLeaf(YType.uint64, 'queue-size-bytes')),
-                            ('drop_pkts', YLeaf(YType.uint64, 'drop-pkts')),
-                            ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
-                            ('drop_pkts_flow', YLeaf(YType.uint64, 'drop-pkts-flow')),
-                            ('drop_pkts_no_buffer', YLeaf(YType.uint64, 'drop-pkts-no-buffer')),
+                            ('output_pkts', (YLeaf(YType.uint64, 'output-pkts'), ['int'])),
+                            ('output_bytes', (YLeaf(YType.uint64, 'output-bytes'), ['int'])),
+                            ('queue_size_pkts', (YLeaf(YType.uint64, 'queue-size-pkts'), ['int'])),
+                            ('queue_size_bytes', (YLeaf(YType.uint64, 'queue-size-bytes'), ['int'])),
+                            ('drop_pkts', (YLeaf(YType.uint64, 'drop-pkts'), ['int'])),
+                            ('drop_bytes', (YLeaf(YType.uint64, 'drop-bytes'), ['int'])),
+                            ('drop_pkts_flow', (YLeaf(YType.uint64, 'drop-pkts-flow'), ['int'])),
+                            ('drop_pkts_no_buffer', (YLeaf(YType.uint64, 'drop-pkts-no-buffer'), ['int'])),
                         ])
                         self.output_pkts = None
                         self.output_bytes = None
@@ -5179,6 +5299,7 @@ class Interfaces(Entity):
                         self.drop_pkts_flow = None
                         self.drop_pkts_no_buffer = None
                         self._segment_path = lambda: "agg-priority-stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.AggPriorityStats, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes', 'drop_pkts_flow', 'drop_pkts_no_buffer'], name, value)
@@ -5231,7 +5352,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh, self).__init__()
@@ -5243,12 +5364,12 @@ class Interfaces(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.bytes = None
                         self.thresh_size_metric = None
@@ -5257,6 +5378,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-default-thresh"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDefaultThresh, ['bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5323,7 +5445,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList, self).__init__()
@@ -5335,14 +5457,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['cos_min','cos_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('cos_min', YLeaf(YType.uint32, 'cos-min')),
-                            ('cos_max', YLeaf(YType.uint32, 'cos-max')),
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('cos_min', (YLeaf(YType.uint32, 'cos-min'), ['int'])),
+                            ('cos_max', (YLeaf(YType.uint32, 'cos-max'), ['int'])),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.cos_min = None
                         self.cos_max = None
@@ -5353,6 +5475,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-cos-thresh-list" + "[cos-min='" + str(self.cos_min) + "']" + "[cos-max='" + str(self.cos_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitCosThreshList, ['cos_min', 'cos_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5419,7 +5542,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList, self).__init__()
@@ -5431,14 +5554,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['disc_class_min','disc_class_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disc_class_min', YLeaf(YType.uint32, 'disc-class-min')),
-                            ('disc_class_max', YLeaf(YType.uint32, 'disc-class-max')),
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('disc_class_min', (YLeaf(YType.uint32, 'disc-class-min'), ['int'])),
+                            ('disc_class_max', (YLeaf(YType.uint32, 'disc-class-max'), ['int'])),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.disc_class_min = None
                         self.disc_class_max = None
@@ -5449,6 +5572,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-disc-class-thresh-list" + "[disc-class-min='" + str(self.disc_class_min) + "']" + "[disc-class-max='" + str(self.disc_class_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDiscClassThreshList, ['disc_class_min', 'disc_class_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5515,7 +5639,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList, self).__init__()
@@ -5527,14 +5651,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['qos_group_min','qos_group_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('qos_group_min', YLeaf(YType.uint32, 'qos-group-min')),
-                            ('qos_group_max', YLeaf(YType.uint32, 'qos-group-max')),
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('qos_group_min', (YLeaf(YType.uint32, 'qos-group-min'), ['int'])),
+                            ('qos_group_max', (YLeaf(YType.uint32, 'qos-group-max'), ['int'])),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.qos_group_min = None
                         self.qos_group_max = None
@@ -5545,6 +5669,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-qos-grp-thresh-list" + "[qos-group-min='" + str(self.qos_group_min) + "']" + "[qos-group-max='" + str(self.qos_group_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitQosGrpThreshList, ['qos_group_min', 'qos_group_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5611,7 +5736,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList, self).__init__()
@@ -5623,14 +5748,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['exp_min','exp_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('exp_min', YLeaf(YType.uint32, 'exp-min')),
-                            ('exp_max', YLeaf(YType.uint32, 'exp-max')),
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('exp_min', (YLeaf(YType.uint32, 'exp-min'), ['int'])),
+                            ('exp_max', (YLeaf(YType.uint32, 'exp-max'), ['int'])),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.exp_min = None
                         self.exp_max = None
@@ -5641,6 +5766,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-mpls-exp-thresh-list" + "[exp-min='" + str(self.exp_min) + "']" + "[exp-max='" + str(self.exp_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitMplsExpThreshList, ['exp_min', 'exp_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5707,7 +5833,7 @@ class Interfaces(Entity):
                     """
 
                     _prefix = 'interfaces-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList, self).__init__()
@@ -5719,14 +5845,14 @@ class Interfaces(Entity):
                         self.ylist_key_names = ['dscp_min','dscp_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('dscp_min', YLeaf(YType.uint32, 'dscp-min')),
-                            ('dscp_max', YLeaf(YType.uint32, 'dscp-max')),
-                            ('bytes', YLeaf(YType.uint64, 'bytes')),
-                            ('thresh_size_metric', YLeaf(YType.uint32, 'thresh-size-metric')),
-                            ('unit_val', YLeaf(YType.enumeration, 'unit-val')),
-                            ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
-                            ('thresh_interval_metric', YLeaf(YType.uint32, 'thresh-interval-metric')),
-                            ('interval_unit_val', YLeaf(YType.enumeration, 'interval-unit-val')),
+                            ('dscp_min', (YLeaf(YType.uint32, 'dscp-min'), ['int'])),
+                            ('dscp_max', (YLeaf(YType.uint32, 'dscp-max'), ['int'])),
+                            ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
+                            ('thresh_size_metric', (YLeaf(YType.uint32, 'thresh-size-metric'), ['int'])),
+                            ('unit_val', (YLeaf(YType.enumeration, 'unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
+                            ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
+                            ('thresh_interval_metric', (YLeaf(YType.uint32, 'thresh-interval-metric'), ['int'])),
+                            ('interval_unit_val', (YLeaf(YType.enumeration, 'interval-unit-val'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'ThreshUnit', '')])),
                         ])
                         self.dscp_min = None
                         self.dscp_max = None
@@ -5737,6 +5863,7 @@ class Interfaces(Entity):
                         self.thresh_interval_metric = None
                         self.interval_unit_val = None
                         self._segment_path = lambda: "qlimit-dscp-thresh-list" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.DiffservInfo.PriorityOperList.QlimitDscpThreshList, ['dscp_min', 'dscp_max', 'bytes', 'thresh_size_metric', 'unit_val', 'threshold_interval', 'thresh_interval_metric', 'interval_unit_val'], name, value)
@@ -5835,7 +5962,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.V4ProtocolStats, self).__init__()
@@ -5847,18 +5974,18 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
-                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                    ('in_error_pkts', YLeaf(YType.uint64, 'in-error-pkts')),
-                    ('in_forwarded_pkts', YLeaf(YType.uint64, 'in-forwarded-pkts')),
-                    ('in_forwarded_octets', YLeaf(YType.uint64, 'in-forwarded-octets')),
-                    ('in_discarded_pkts', YLeaf(YType.uint64, 'in-discarded-pkts')),
-                    ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
-                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                    ('out_error_pkts', YLeaf(YType.uint64, 'out-error-pkts')),
-                    ('out_forwarded_pkts', YLeaf(YType.uint64, 'out-forwarded-pkts')),
-                    ('out_forwarded_octets', YLeaf(YType.uint64, 'out-forwarded-octets')),
-                    ('out_discarded_pkts', YLeaf(YType.uint64, 'out-discarded-pkts')),
+                    ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                    ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                    ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                    ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                    ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                    ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                    ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                    ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                    ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                    ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
                 ])
                 self.in_pkts = None
                 self.in_octets = None
@@ -5873,6 +6000,7 @@ class Interfaces(Entity):
                 self.out_forwarded_octets = None
                 self.out_discarded_pkts = None
                 self._segment_path = lambda: "v4-protocol-stats"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.V4ProtocolStats, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
@@ -5971,7 +6099,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.V6ProtocolStats, self).__init__()
@@ -5983,18 +6111,18 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
-                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                    ('in_error_pkts', YLeaf(YType.uint64, 'in-error-pkts')),
-                    ('in_forwarded_pkts', YLeaf(YType.uint64, 'in-forwarded-pkts')),
-                    ('in_forwarded_octets', YLeaf(YType.uint64, 'in-forwarded-octets')),
-                    ('in_discarded_pkts', YLeaf(YType.uint64, 'in-discarded-pkts')),
-                    ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
-                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                    ('out_error_pkts', YLeaf(YType.uint64, 'out-error-pkts')),
-                    ('out_forwarded_pkts', YLeaf(YType.uint64, 'out-forwarded-pkts')),
-                    ('out_forwarded_octets', YLeaf(YType.uint64, 'out-forwarded-octets')),
-                    ('out_discarded_pkts', YLeaf(YType.uint64, 'out-discarded-pkts')),
+                    ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                    ('in_error_pkts', (YLeaf(YType.uint64, 'in-error-pkts'), ['int'])),
+                    ('in_forwarded_pkts', (YLeaf(YType.uint64, 'in-forwarded-pkts'), ['int'])),
+                    ('in_forwarded_octets', (YLeaf(YType.uint64, 'in-forwarded-octets'), ['int'])),
+                    ('in_discarded_pkts', (YLeaf(YType.uint64, 'in-discarded-pkts'), ['int'])),
+                    ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                    ('out_error_pkts', (YLeaf(YType.uint64, 'out-error-pkts'), ['int'])),
+                    ('out_forwarded_pkts', (YLeaf(YType.uint64, 'out-forwarded-pkts'), ['int'])),
+                    ('out_forwarded_octets', (YLeaf(YType.uint64, 'out-forwarded-octets'), ['int'])),
+                    ('out_discarded_pkts', (YLeaf(YType.uint64, 'out-discarded-pkts'), ['int'])),
                 ])
                 self.in_pkts = None
                 self.in_octets = None
@@ -6009,9 +6137,79 @@ class Interfaces(Entity):
                 self.out_forwarded_octets = None
                 self.out_discarded_pkts = None
                 self._segment_path = lambda: "v6-protocol-stats"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.V6ProtocolStats, ['in_pkts', 'in_octets', 'in_error_pkts', 'in_forwarded_pkts', 'in_forwarded_octets', 'in_discarded_pkts', 'out_pkts', 'out_octets', 'out_error_pkts', 'out_forwarded_pkts', 'out_forwarded_octets', 'out_discarded_pkts'], name, value)
+
+
+        class LagAggregateState(Entity):
+            """
+            Operational state variables for logical
+            aggregate / LAG interfaces
+            
+            .. attribute:: aggregate_id  (key)
+            
+            	Specify the logical aggregate interface to which this id belongs
+            	**type**\: str
+            
+            .. attribute:: lag_type
+            
+            	Type to define the lag\-type, i.e., how the LAG is defined and managed
+            	**type**\:  :py:class:`AggregationType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper.AggregationType>`
+            
+            .. attribute:: min_links
+            
+            	Specifies the minimum number of member interfaces that must be active for the aggregate interface to be available
+            	**type**\: int
+            
+            	**range:** 0..65535
+            
+            .. attribute:: lag_speed
+            
+            	Reports effective speed of the aggregate interface, based on speed of active member interfaces
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: members
+            
+            	List of current member interfaces for the aggregate, expressed as references to existing interfaces
+            	**type**\: list of str
+            
+            
+
+            """
+
+            _prefix = 'interfaces-ios-xe-oper'
+            _revision = '2018-02-01'
+
+            def __init__(self):
+                super(Interfaces.Interface.LagAggregateState, self).__init__()
+
+                self.yang_name = "lag-aggregate-state"
+                self.yang_parent_name = "interface"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = ['aggregate_id']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('aggregate_id', (YLeaf(YType.str, 'aggregate-id'), ['str'])),
+                    ('lag_type', (YLeaf(YType.enumeration, 'lag-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'AggregationType', '')])),
+                    ('min_links', (YLeaf(YType.uint16, 'min-links'), ['int'])),
+                    ('lag_speed', (YLeaf(YType.uint32, 'lag-speed'), ['int'])),
+                    ('members', (YLeafList(YType.str, 'members'), ['str'])),
+                ])
+                self.aggregate_id = None
+                self.lag_type = None
+                self.min_links = None
+                self.lag_speed = None
+                self.members = []
+                self._segment_path = lambda: "lag-aggregate-state" + "[aggregate-id='" + str(self.aggregate_id) + "']"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Interfaces.Interface.LagAggregateState, ['aggregate_id', 'lag_type', 'min_links', 'lag_speed', 'members'], name, value)
 
 
         class EtherState(Entity):
@@ -6043,7 +6241,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.EtherState, self).__init__()
@@ -6055,16 +6253,17 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('negotiated_duplex_mode', YLeaf(YType.enumeration, 'negotiated-duplex-mode')),
-                    ('negotiated_port_speed', YLeaf(YType.enumeration, 'negotiated-port-speed')),
-                    ('auto_negotiate', YLeaf(YType.boolean, 'auto-negotiate')),
-                    ('enable_flow_control', YLeaf(YType.boolean, 'enable-flow-control')),
+                    ('negotiated_duplex_mode', (YLeaf(YType.enumeration, 'negotiated-duplex-mode'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'EtherDuplex', '')])),
+                    ('negotiated_port_speed', (YLeaf(YType.enumeration, 'negotiated-port-speed'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'EtherSpeed', '')])),
+                    ('auto_negotiate', (YLeaf(YType.boolean, 'auto-negotiate'), ['bool'])),
+                    ('enable_flow_control', (YLeaf(YType.boolean, 'enable-flow-control'), ['bool'])),
                 ])
                 self.negotiated_duplex_mode = None
                 self.negotiated_port_speed = None
                 self.auto_negotiate = None
                 self.enable_flow_control = None
                 self._segment_path = lambda: "ether-state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.EtherState, ['negotiated_duplex_mode', 'negotiated_port_speed', 'auto_negotiate', 'enable_flow_control'], name, value)
@@ -6142,7 +6341,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.EtherStats, self).__init__()
@@ -6154,15 +6353,15 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('in_mac_control_frames', YLeaf(YType.uint64, 'in-mac-control-frames')),
-                    ('in_mac_pause_frames', YLeaf(YType.uint64, 'in-mac-pause-frames')),
-                    ('in_oversize_frames', YLeaf(YType.uint64, 'in-oversize-frames')),
-                    ('in_jabber_frames', YLeaf(YType.uint64, 'in-jabber-frames')),
-                    ('in_fragment_frames', YLeaf(YType.uint64, 'in-fragment-frames')),
-                    ('in_8021q_frames', YLeaf(YType.uint64, 'in-8021q-frames')),
-                    ('out_mac_control_frames', YLeaf(YType.uint64, 'out-mac-control-frames')),
-                    ('out_mac_pause_frames', YLeaf(YType.uint64, 'out-mac-pause-frames')),
-                    ('out_8021q_frames', YLeaf(YType.uint64, 'out-8021q-frames')),
+                    ('in_mac_control_frames', (YLeaf(YType.uint64, 'in-mac-control-frames'), ['int'])),
+                    ('in_mac_pause_frames', (YLeaf(YType.uint64, 'in-mac-pause-frames'), ['int'])),
+                    ('in_oversize_frames', (YLeaf(YType.uint64, 'in-oversize-frames'), ['int'])),
+                    ('in_jabber_frames', (YLeaf(YType.uint64, 'in-jabber-frames'), ['int'])),
+                    ('in_fragment_frames', (YLeaf(YType.uint64, 'in-fragment-frames'), ['int'])),
+                    ('in_8021q_frames', (YLeaf(YType.uint64, 'in-8021q-frames'), ['int'])),
+                    ('out_mac_control_frames', (YLeaf(YType.uint64, 'out-mac-control-frames'), ['int'])),
+                    ('out_mac_pause_frames', (YLeaf(YType.uint64, 'out-mac-pause-frames'), ['int'])),
+                    ('out_8021q_frames', (YLeaf(YType.uint64, 'out-8021q-frames'), ['int'])),
                 ])
                 self.in_mac_control_frames = None
                 self.in_mac_pause_frames = None
@@ -6174,6 +6373,7 @@ class Interfaces(Entity):
                 self.out_mac_pause_frames = None
                 self.out_8021q_frames = None
                 self._segment_path = lambda: "ether-stats"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.EtherStats, ['in_mac_control_frames', 'in_mac_pause_frames', 'in_oversize_frames', 'in_jabber_frames', 'in_fragment_frames', 'in_8021q_frames', 'out_mac_control_frames', 'out_mac_pause_frames', 'out_8021q_frames'], name, value)
@@ -6217,7 +6417,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.SerialState, self).__init__()
@@ -6229,11 +6429,11 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('crc_type', YLeaf(YType.enumeration, 'crc-type')),
-                    ('loopback', YLeaf(YType.enumeration, 'loopback')),
-                    ('keeplive', YLeaf(YType.uint32, 'keeplive')),
-                    ('timeslot', YLeaf(YType.uint32, 'timeslot')),
-                    ('subrate', YLeaf(YType.enumeration, 'subrate')),
+                    ('crc_type', (YLeaf(YType.enumeration, 'crc-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'SerialCrc', '')])),
+                    ('loopback', (YLeaf(YType.enumeration, 'loopback'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'T1e1LoopbackMode', '')])),
+                    ('keeplive', (YLeaf(YType.uint32, 'keeplive'), ['int'])),
+                    ('timeslot', (YLeaf(YType.uint32, 'timeslot'), ['int'])),
+                    ('subrate', (YLeaf(YType.enumeration, 'subrate'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_interfaces_oper', 'SubrateSpeed', '')])),
                 ])
                 self.crc_type = None
                 self.loopback = None
@@ -6241,6 +6441,7 @@ class Interfaces(Entity):
                 self.timeslot = None
                 self.subrate = None
                 self._segment_path = lambda: "serial-state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.SerialState, ['crc_type', 'loopback', 'keeplive', 'timeslot', 'subrate'], name, value)
@@ -6262,7 +6463,7 @@ class Interfaces(Entity):
             """
 
             _prefix = 'interfaces-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(Interfaces.Interface.SerialStats, self).__init__()
@@ -6274,10 +6475,11 @@ class Interfaces(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('in_abort_clock_error', YLeaf(YType.uint32, 'in-abort-clock-error')),
+                    ('in_abort_clock_error', (YLeaf(YType.uint32, 'in-abort-clock-error'), ['int'])),
                 ])
                 self.in_abort_clock_error = None
                 self._segment_path = lambda: "serial-stats"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.SerialStats, ['in_abort_clock_error'], name, value)

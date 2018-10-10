@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-segment\-routing\-ms\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class XtcAddressFamily(Enum):
@@ -293,6 +294,33 @@ class XtcSegment(Enum):
     ipv4_address = Enum.YLeaf(1, "ipv4-address")
 
     mpls_label = Enum.YLeaf(3, "mpls-label")
+
+
+class XtcSteeringApplication(Enum):
+    """
+    XtcSteeringApplication (Enum Class)
+
+    Xtc steering application
+
+    .. data:: bgp = 1
+
+    	BGP as steering client
+
+    .. data:: isis = 2
+
+    	ISIS as steering client
+
+    .. data:: ospf = 3
+
+    	OSPF as steering client
+
+    """
+
+    bgp = Enum.YLeaf(1, "bgp")
+
+    isis = Enum.YLeaf(2, "isis")
+
+    ospf = Enum.YLeaf(3, "ospf")
 
 
 

@@ -8,7 +8,7 @@ for the following management objects\:
   ssh1\: Crypto Secure Shell(SSH) data
   ssh\: ssh
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Authen(Enum):
@@ -52,6 +53,10 @@ class Cipher(Enum):
     Cipher (Enum Class)
 
     SSH session in and out cipher standards
+
+    .. data:: cipher_not_applicable = -1
+
+    	unknown
 
     .. data:: aes128_cbc = 0
 
@@ -108,6 +113,8 @@ class Cipher(Enum):
     	mode (GCM)
 
     """
+
+    cipher_not_applicable = Enum.YLeaf(-1, "cipher-not-applicable")
 
     aes128_cbc = Enum.YLeaf(0, "aes128-cbc")
 
@@ -191,6 +198,10 @@ class Hostkey(Enum):
 
     SSH session authentication types
 
+    .. data:: host_key_not_applicable = -1
+
+    	unknown
+
     .. data:: ssh_dss = 0
 
     	Algorithm type DSS
@@ -213,6 +224,8 @@ class Hostkey(Enum):
 
     """
 
+    host_key_not_applicable = Enum.YLeaf(-1, "host-key-not-applicable")
+
     ssh_dss = Enum.YLeaf(0, "ssh-dss")
 
     ssh_rsa = Enum.YLeaf(1, "ssh-rsa")
@@ -229,6 +242,10 @@ class KexName(Enum):
     KexName (Enum Class)
 
     Different key\-exchange(kex) algorithms
+
+    .. data:: kex_not_applicable = -1
+
+    	unknown
 
     .. data:: diffie_hellman_group1 = 0
 
@@ -278,6 +295,8 @@ class KexName(Enum):
 
     """
 
+    kex_not_applicable = Enum.YLeaf(-1, "kex-not-applicable")
+
     diffie_hellman_group1 = Enum.YLeaf(0, "diffie-hellman-group1")
 
     diffie_hellman_group14 = Enum.YLeaf(1, "diffie-hellman-group14")
@@ -306,6 +325,10 @@ class Mac(Enum):
     Different Message Authentication Code(MAC)
 
     functions
+
+    .. data:: mac_not_applicable = -1
+
+    	unknown
 
     .. data:: hmac_md5 = 0
 
@@ -338,6 +361,8 @@ class Mac(Enum):
     	algorithm
 
     """
+
+    mac_not_applicable = Enum.YLeaf(-1, "mac-not-applicable")
 
     hmac_md5 = Enum.YLeaf(0, "hmac-md5")
 
@@ -491,6 +516,7 @@ class Ssh1(Entity):
         self.kex.parent = self
         self._children_name_map["kex"] = "kex"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ssh1, [], name, value)
@@ -528,6 +554,7 @@ class Ssh1(Entity):
             self._children_name_map["nodes"] = "nodes"
             self._segment_path = lambda: "kex"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ssh1.Kex, [], name, value)
@@ -563,6 +590,7 @@ class Ssh1(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh1.Kex.Nodes, [], name, value)
@@ -606,7 +634,7 @@ class Ssh1(Entity):
                     self.ylist_key_names = ['node_name']
                     self._child_classes = OrderedDict([("incoming-sessions", ("incoming_sessions", Ssh1.Kex.Nodes.Node.IncomingSessions)), ("outgoing-connections", ("outgoing_connections", Ssh1.Kex.Nodes.Node.OutgoingConnections))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                     ])
                     self.node_name = None
 
@@ -619,6 +647,7 @@ class Ssh1(Entity):
                     self._children_name_map["outgoing_connections"] = "outgoing-connections"
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh1/kex/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh1.Kex.Nodes.Node, ['node_name'], name, value)
@@ -653,6 +682,7 @@ class Ssh1(Entity):
 
                         self.session_detail_info = YList(self)
                         self._segment_path = lambda: "incoming-sessions"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions, [], name, value)
@@ -726,15 +756,15 @@ class Ssh1(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('session_id', YLeaf(YType.uint32, 'session-id')),
-                                ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                                ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                                ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                                ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                                ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                                ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                                ('start_time', YLeaf(YType.str, 'start-time')),
-                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                                ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                                ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                                ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                                ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                                ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                                ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                                ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                                ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                             ])
                             self.session_id = None
                             self.key_exchange = None
@@ -746,6 +776,7 @@ class Ssh1(Entity):
                             self.start_time = None
                             self.end_time = None
                             self._segment_path = lambda: "session-detail-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
@@ -780,6 +811,7 @@ class Ssh1(Entity):
 
                         self.session_detail_info = YList(self)
                         self._segment_path = lambda: "outgoing-connections"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections, [], name, value)
@@ -853,15 +885,15 @@ class Ssh1(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('session_id', YLeaf(YType.uint32, 'session-id')),
-                                ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                                ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                                ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                                ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                                ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                                ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                                ('start_time', YLeaf(YType.str, 'start-time')),
-                                ('end_time', YLeaf(YType.str, 'end-time')),
+                                ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                                ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                                ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                                ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                                ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                                ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                                ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                                ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                                ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                             ])
                             self.session_id = None
                             self.key_exchange = None
@@ -873,6 +905,7 @@ class Ssh1(Entity):
                             self.start_time = None
                             self.end_time = None
                             self._segment_path = lambda: "session-detail-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh1.Kex.Nodes.Node.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
@@ -913,6 +946,7 @@ class Ssh(Entity):
         self.session.parent = self
         self._children_name_map["session"] = "session"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ssh, [], name, value)
@@ -986,6 +1020,7 @@ class Ssh(Entity):
             self._children_name_map["detail"] = "detail"
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ssh.Session, [], name, value)
@@ -1032,6 +1067,7 @@ class Ssh(Entity):
                 self._children_name_map["outgoing_connections"] = "outgoing-connections"
                 self._segment_path = lambda: "rekey"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Session.Rekey, [], name, value)
@@ -1067,6 +1103,7 @@ class Ssh(Entity):
                     self.session_rekey_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Rekey.IncomingSessions, [], name, value)
@@ -1117,10 +1154,10 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('session_rekey_count', YLeaf(YType.uint32, 'session-rekey-count')),
-                            ('time_to_rekey', YLeaf(YType.str, 'time-to-rekey')),
-                            ('volume_to_rekey', YLeaf(YType.str, 'volume-to-rekey')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('session_rekey_count', (YLeaf(YType.uint32, 'session-rekey-count'), ['int'])),
+                            ('time_to_rekey', (YLeaf(YType.str, 'time-to-rekey'), ['str'])),
+                            ('volume_to_rekey', (YLeaf(YType.str, 'volume-to-rekey'), ['str'])),
                         ])
                         self.session_id = None
                         self.session_rekey_count = None
@@ -1128,6 +1165,7 @@ class Ssh(Entity):
                         self.volume_to_rekey = None
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/incoming-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Rekey.IncomingSessions.SessionRekeyInfo, [u'session_id', u'session_rekey_count', u'time_to_rekey', u'volume_to_rekey'], name, value)
@@ -1163,6 +1201,7 @@ class Ssh(Entity):
                     self.session_rekey_info = YList(self)
                     self._segment_path = lambda: "outgoing-connections"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections, [], name, value)
@@ -1213,10 +1252,10 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('session_rekey_count', YLeaf(YType.uint32, 'session-rekey-count')),
-                            ('time_to_rekey', YLeaf(YType.str, 'time-to-rekey')),
-                            ('volume_to_rekey', YLeaf(YType.str, 'volume-to-rekey')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('session_rekey_count', (YLeaf(YType.uint32, 'session-rekey-count'), ['int'])),
+                            ('time_to_rekey', (YLeaf(YType.str, 'time-to-rekey'), ['str'])),
+                            ('volume_to_rekey', (YLeaf(YType.str, 'volume-to-rekey'), ['str'])),
                         ])
                         self.session_id = None
                         self.session_rekey_count = None
@@ -1224,6 +1263,7 @@ class Ssh(Entity):
                         self.volume_to_rekey = None
                         self._segment_path = lambda: "session-rekey-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/rekey/outgoing-connections/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Rekey.OutgoingConnections.SessionRekeyInfo, [u'session_id', u'session_rekey_count', u'time_to_rekey', u'volume_to_rekey'], name, value)
@@ -1270,6 +1310,7 @@ class Ssh(Entity):
                 self._children_name_map["outgoing_connections"] = "outgoing-connections"
                 self._segment_path = lambda: "history-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Session.HistoryDetail, [], name, value)
@@ -1305,6 +1346,7 @@ class Ssh(Entity):
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions, [], name, value)
@@ -1378,15 +1420,15 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                            ('start_time', YLeaf(YType.str, 'start-time')),
-                            ('end_time', YLeaf(YType.str, 'end-time')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                            ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                            ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                            ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                         ])
                         self.session_id = None
                         self.key_exchange = None
@@ -1399,6 +1441,7 @@ class Ssh(Entity):
                         self.end_time = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/incoming-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.HistoryDetail.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
@@ -1434,6 +1477,7 @@ class Ssh(Entity):
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "outgoing-connections"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections, [], name, value)
@@ -1507,15 +1551,15 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                            ('start_time', YLeaf(YType.str, 'start-time')),
-                            ('end_time', YLeaf(YType.str, 'end-time')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                            ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                            ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                            ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                         ])
                         self.session_id = None
                         self.key_exchange = None
@@ -1528,6 +1572,7 @@ class Ssh(Entity):
                         self.end_time = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history-detail/outgoing-connections/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.HistoryDetail.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
@@ -1574,6 +1619,7 @@ class Ssh(Entity):
                 self._children_name_map["outgoing_sessions"] = "outgoing-sessions"
                 self._segment_path = lambda: "brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Session.Brief, [], name, value)
@@ -1609,6 +1655,7 @@ class Ssh(Entity):
                     self.session_brief_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Brief.IncomingSessions, [], name, value)
@@ -1679,13 +1726,13 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo))])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
-                            ('user_id', YLeaf(YType.str, 'user-id')),
-                            ('host_address', YLeaf(YType.str, 'host-address')),
-                            ('version', YLeaf(YType.enumeration, 'version')),
-                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('session_state', (YLeaf(YType.enumeration, 'session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'States', '')])),
+                            ('user_id', (YLeaf(YType.str, 'user-id'), ['str'])),
+                            ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
+                            ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Version', '')])),
+                            ('authentication_type', (YLeaf(YType.enumeration, 'authentication-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Authen', '')])),
                         ])
                         self.session_id = None
                         self.node_name = None
@@ -1698,6 +1745,7 @@ class Ssh(Entity):
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo, [u'session_id', u'node_name', u'session_state', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
@@ -1748,10 +1796,10 @@ class Ssh(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('channel_id', YLeaf(YType.uint32, 'channel-id')),
-                                ('connection_type', YLeaf(YType.enumeration, 'connection-type')),
-                                ('vty_line_number', YLeaf(YType.uint32, 'vty-line-number')),
-                                ('vty_assigned', YLeaf(YType.boolean, 'vty-assigned')),
+                                ('channel_id', (YLeaf(YType.uint32, 'channel-id'), ['int'])),
+                                ('connection_type', (YLeaf(YType.enumeration, 'connection-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Connection', '')])),
+                                ('vty_line_number', (YLeaf(YType.uint32, 'vty-line-number'), ['int'])),
+                                ('vty_assigned', (YLeaf(YType.boolean, 'vty-assigned'), ['bool'])),
                             ])
                             self.channel_id = None
                             self.connection_type = None
@@ -1759,6 +1807,7 @@ class Ssh(Entity):
                             self.vty_assigned = None
                             self._segment_path = lambda: "mc-info"
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/incoming-sessions/session-brief-info/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.Brief.IncomingSessions.SessionBriefInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
@@ -1794,6 +1843,7 @@ class Ssh(Entity):
                     self.session_brief_info = YList(self)
                     self._segment_path = lambda: "outgoing-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Brief.OutgoingSessions, [], name, value)
@@ -1864,13 +1914,13 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo))])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('session_state', YLeaf(YType.enumeration, 'session-state')),
-                            ('user_id', YLeaf(YType.str, 'user-id')),
-                            ('host_address', YLeaf(YType.str, 'host-address')),
-                            ('version', YLeaf(YType.enumeration, 'version')),
-                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('session_state', (YLeaf(YType.enumeration, 'session-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'States', '')])),
+                            ('user_id', (YLeaf(YType.str, 'user-id'), ['str'])),
+                            ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
+                            ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Version', '')])),
+                            ('authentication_type', (YLeaf(YType.enumeration, 'authentication-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Authen', '')])),
                         ])
                         self.session_id = None
                         self.node_name = None
@@ -1883,6 +1933,7 @@ class Ssh(Entity):
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-brief-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo, [u'session_id', u'node_name', u'session_state', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
@@ -1933,10 +1984,10 @@ class Ssh(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('channel_id', YLeaf(YType.uint32, 'channel-id')),
-                                ('connection_type', YLeaf(YType.enumeration, 'connection-type')),
-                                ('vty_line_number', YLeaf(YType.uint32, 'vty-line-number')),
-                                ('vty_assigned', YLeaf(YType.boolean, 'vty-assigned')),
+                                ('channel_id', (YLeaf(YType.uint32, 'channel-id'), ['int'])),
+                                ('connection_type', (YLeaf(YType.enumeration, 'connection-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Connection', '')])),
+                                ('vty_line_number', (YLeaf(YType.uint32, 'vty-line-number'), ['int'])),
+                                ('vty_assigned', (YLeaf(YType.boolean, 'vty-assigned'), ['bool'])),
                             ])
                             self.channel_id = None
                             self.connection_type = None
@@ -1944,6 +1995,7 @@ class Ssh(Entity):
                             self.vty_assigned = None
                             self._segment_path = lambda: "mc-info"
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/brief/outgoing-sessions/session-brief-info/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.Brief.OutgoingSessions.SessionBriefInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
@@ -1981,6 +2033,7 @@ class Ssh(Entity):
                 self._children_name_map["incoming_sessions"] = "incoming-sessions"
                 self._segment_path = lambda: "history"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Session.History, [], name, value)
@@ -2016,6 +2069,7 @@ class Ssh(Entity):
                     self.session_history_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.History.IncomingSessions, [], name, value)
@@ -2081,12 +2135,12 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("mc-info", ("mc_info", Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo))])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('user_id', YLeaf(YType.str, 'user-id')),
-                            ('host_address', YLeaf(YType.str, 'host-address')),
-                            ('version', YLeaf(YType.enumeration, 'version')),
-                            ('authentication_type', YLeaf(YType.enumeration, 'authentication-type')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('user_id', (YLeaf(YType.str, 'user-id'), ['str'])),
+                            ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
+                            ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Version', '')])),
+                            ('authentication_type', (YLeaf(YType.enumeration, 'authentication-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Authen', '')])),
                         ])
                         self.session_id = None
                         self.node_name = None
@@ -2098,6 +2152,7 @@ class Ssh(Entity):
                         self.mc_info = YList(self)
                         self._segment_path = lambda: "session-history-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo, [u'session_id', u'node_name', u'user_id', u'host_address', u'version', u'authentication_type'], name, value)
@@ -2148,10 +2203,10 @@ class Ssh(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('channel_id', YLeaf(YType.uint32, 'channel-id')),
-                                ('connection_type', YLeaf(YType.enumeration, 'connection-type')),
-                                ('vty_line_number', YLeaf(YType.uint32, 'vty-line-number')),
-                                ('vty_assigned', YLeaf(YType.boolean, 'vty-assigned')),
+                                ('channel_id', (YLeaf(YType.uint32, 'channel-id'), ['int'])),
+                                ('connection_type', (YLeaf(YType.enumeration, 'connection-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Connection', '')])),
+                                ('vty_line_number', (YLeaf(YType.uint32, 'vty-line-number'), ['int'])),
+                                ('vty_assigned', (YLeaf(YType.boolean, 'vty-assigned'), ['bool'])),
                             ])
                             self.channel_id = None
                             self.connection_type = None
@@ -2159,6 +2214,7 @@ class Ssh(Entity):
                             self.vty_assigned = None
                             self._segment_path = lambda: "mc-info"
                             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/history/incoming-sessions/session-history-info/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ssh.Session.History.IncomingSessions.SessionHistoryInfo.McInfo, [u'channel_id', u'connection_type', u'vty_line_number', u'vty_assigned'], name, value)
@@ -2205,6 +2261,7 @@ class Ssh(Entity):
                 self._children_name_map["outgoing_connections"] = "outgoing-connections"
                 self._segment_path = lambda: "detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssh.Session.Detail, [], name, value)
@@ -2240,6 +2297,7 @@ class Ssh(Entity):
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "incoming-sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Detail.IncomingSessions, [], name, value)
@@ -2313,15 +2371,15 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                            ('start_time', YLeaf(YType.str, 'start-time')),
-                            ('end_time', YLeaf(YType.str, 'end-time')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                            ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                            ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                            ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                         ])
                         self.session_id = None
                         self.key_exchange = None
@@ -2334,6 +2392,7 @@ class Ssh(Entity):
                         self.end_time = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/incoming-sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Detail.IncomingSessions.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)
@@ -2369,6 +2428,7 @@ class Ssh(Entity):
                     self.session_detail_info = YList(self)
                     self._segment_path = lambda: "outgoing-connections"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ssh.Session.Detail.OutgoingConnections, [], name, value)
@@ -2442,15 +2502,15 @@ class Ssh(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('key_exchange', YLeaf(YType.enumeration, 'key-exchange')),
-                            ('public_key', YLeaf(YType.enumeration, 'public-key')),
-                            ('in_cipher', YLeaf(YType.enumeration, 'in-cipher')),
-                            ('out_cipher', YLeaf(YType.enumeration, 'out-cipher')),
-                            ('in_mac', YLeaf(YType.enumeration, 'in-mac')),
-                            ('out_mac', YLeaf(YType.enumeration, 'out-mac')),
-                            ('start_time', YLeaf(YType.str, 'start-time')),
-                            ('end_time', YLeaf(YType.str, 'end-time')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('key_exchange', (YLeaf(YType.enumeration, 'key-exchange'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'KexName', '')])),
+                            ('public_key', (YLeaf(YType.enumeration, 'public-key'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Hostkey', '')])),
+                            ('in_cipher', (YLeaf(YType.enumeration, 'in-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('out_cipher', (YLeaf(YType.enumeration, 'out-cipher'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Cipher', '')])),
+                            ('in_mac', (YLeaf(YType.enumeration, 'in-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('out_mac', (YLeaf(YType.enumeration, 'out-mac'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_ssh_oper', 'Mac', '')])),
+                            ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                            ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
                         ])
                         self.session_id = None
                         self.key_exchange = None
@@ -2463,6 +2523,7 @@ class Ssh(Entity):
                         self.end_time = None
                         self._segment_path = lambda: "session-detail-info"
                         self._absolute_path = lambda: "Cisco-IOS-XR-crypto-ssh-oper:ssh/session/detail/outgoing-connections/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ssh.Session.Detail.OutgoingConnections.SessionDetailInfo, [u'session_id', u'key_exchange', u'public_key', u'in_cipher', u'out_cipher', u'in_mac', u'out_mac', u'start_time', u'end_time'], name, value)

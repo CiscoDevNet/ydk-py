@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOMPLSLSREXTSTDMIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
         self.cmplsxcexttable.parent = self
         self._children_name_map["cmplsxcexttable"] = "cmplsXCExtTable"
         self._segment_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOMPLSLSREXTSTDMIB, [], name, value)
@@ -87,6 +89,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
             self.cmplsxcextentry = YList(self)
             self._segment_path = lambda: "cmplsXCExtTable"
             self._absolute_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable, [], name, value)
@@ -159,11 +162,11 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
                 self.ylist_key_names = ['mplsxcindex','mplsxcinsegmentindex','mplsxcoutsegmentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsxcindex', YLeaf(YType.str, 'mplsXCIndex')),
-                    ('mplsxcinsegmentindex', YLeaf(YType.str, 'mplsXCInSegmentIndex')),
-                    ('mplsxcoutsegmentindex', YLeaf(YType.str, 'mplsXCOutSegmentIndex')),
-                    ('cmplsxcexttunnelpointer', YLeaf(YType.str, 'cmplsXCExtTunnelPointer')),
-                    ('cmplsxcoppositedirxcptr', YLeaf(YType.str, 'cmplsXCOppositeDirXCPtr')),
+                    ('mplsxcindex', (YLeaf(YType.str, 'mplsXCIndex'), ['str'])),
+                    ('mplsxcinsegmentindex', (YLeaf(YType.str, 'mplsXCInSegmentIndex'), ['str'])),
+                    ('mplsxcoutsegmentindex', (YLeaf(YType.str, 'mplsXCOutSegmentIndex'), ['str'])),
+                    ('cmplsxcexttunnelpointer', (YLeaf(YType.str, 'cmplsXCExtTunnelPointer'), ['str'])),
+                    ('cmplsxcoppositedirxcptr', (YLeaf(YType.str, 'cmplsXCOppositeDirXCPtr'), ['str'])),
                 ])
                 self.mplsxcindex = None
                 self.mplsxcinsegmentindex = None
@@ -172,6 +175,7 @@ class CISCOMPLSLSREXTSTDMIB(Entity):
                 self.cmplsxcoppositedirxcptr = None
                 self._segment_path = lambda: "cmplsXCExtEntry" + "[mplsXCIndex='" + str(self.mplsxcindex) + "']" + "[mplsXCInSegmentIndex='" + str(self.mplsxcinsegmentindex) + "']" + "[mplsXCOutSegmentIndex='" + str(self.mplsxcoutsegmentindex) + "']"
                 self._absolute_path = lambda: "CISCO-MPLS-LSR-EXT-STD-MIB:CISCO-MPLS-LSR-EXT-STD-MIB/cmplsXCExtTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOMPLSLSREXTSTDMIB.CmplsXCExtTable.CmplsXCExtEntry, ['mplsxcindex', 'mplsxcinsegmentindex', 'mplsxcoutsegmentindex', 'cmplsxcexttunnelpointer', 'cmplsxcoppositedirxcptr'], name, value)

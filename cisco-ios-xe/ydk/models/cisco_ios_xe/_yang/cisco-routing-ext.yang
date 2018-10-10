@@ -56,11 +56,31 @@ module cisco-routing-ext {
     description
       "Eigrp.";
   }
-  identity mobile {
+
+  identity igrp {
     base rt:routing-protocol;
     description
-      "Mobile.";
+      "IGRP";
   }
+
+  identity nhrp {
+    base rt:routing-protocol;
+    description
+      "NHRP";
+  }
+
+  identity hsrp {
+    base rt:routing-protocol;
+    description
+      "HSRP";
+  }
+
+  identity lisp {
+    base rt:routing-protocol;
+    description
+      "LISP";
+  }
+
 
 } // --end module
 

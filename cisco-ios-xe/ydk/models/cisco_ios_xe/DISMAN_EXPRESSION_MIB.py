@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class DISMANEXPRESSIONMIB(Entity):
     """
     
@@ -81,6 +82,7 @@ class DISMANEXPRESSIONMIB(Entity):
         self.expvaluetable.parent = self
         self._children_name_map["expvaluetable"] = "expValueTable"
         self._segment_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DISMANEXPRESSIONMIB, [], name, value)
@@ -152,11 +154,11 @@ class DISMANEXPRESSIONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('expresourcedeltaminimum', YLeaf(YType.int32, 'expResourceDeltaMinimum')),
-                ('expresourcedeltawildcardinstancemaximum', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceMaximum')),
-                ('expresourcedeltawildcardinstances', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstances')),
-                ('expresourcedeltawildcardinstanceshigh', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstancesHigh')),
-                ('expresourcedeltawildcardinstanceresourcelacks', YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceResourceLacks')),
+                ('expresourcedeltaminimum', (YLeaf(YType.int32, 'expResourceDeltaMinimum'), ['int'])),
+                ('expresourcedeltawildcardinstancemaximum', (YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceMaximum'), ['int'])),
+                ('expresourcedeltawildcardinstances', (YLeaf(YType.uint32, 'expResourceDeltaWildcardInstances'), ['int'])),
+                ('expresourcedeltawildcardinstanceshigh', (YLeaf(YType.uint32, 'expResourceDeltaWildcardInstancesHigh'), ['int'])),
+                ('expresourcedeltawildcardinstanceresourcelacks', (YLeaf(YType.uint32, 'expResourceDeltaWildcardInstanceResourceLacks'), ['int'])),
             ])
             self.expresourcedeltaminimum = None
             self.expresourcedeltawildcardinstancemaximum = None
@@ -165,6 +167,7 @@ class DISMANEXPRESSIONMIB(Entity):
             self.expresourcedeltawildcardinstanceresourcelacks = None
             self._segment_path = lambda: "expResource"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEXPRESSIONMIB.ExpResource, ['expresourcedeltaminimum', 'expresourcedeltawildcardinstancemaximum', 'expresourcedeltawildcardinstances', 'expresourcedeltawildcardinstanceshigh', 'expresourcedeltawildcardinstanceresourcelacks'], name, value)
@@ -200,6 +203,7 @@ class DISMANEXPRESSIONMIB(Entity):
             self.expexpressionentry = YList(self)
             self._segment_path = lambda: "expExpressionTable"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEXPRESSIONMIB.ExpExpressionTable, [], name, value)
@@ -321,15 +325,15 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.ylist_key_names = ['expexpressionowner','expexpressionname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
-                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
-                    ('expexpression', YLeaf(YType.str, 'expExpression')),
-                    ('expexpressionvaluetype', YLeaf(YType.enumeration, 'expExpressionValueType')),
-                    ('expexpressioncomment', YLeaf(YType.str, 'expExpressionComment')),
-                    ('expexpressiondeltainterval', YLeaf(YType.int32, 'expExpressionDeltaInterval')),
-                    ('expexpressionprefix', YLeaf(YType.str, 'expExpressionPrefix')),
-                    ('expexpressionerrors', YLeaf(YType.uint32, 'expExpressionErrors')),
-                    ('expexpressionentrystatus', YLeaf(YType.enumeration, 'expExpressionEntryStatus')),
+                    ('expexpressionowner', (YLeaf(YType.str, 'expExpressionOwner'), ['str'])),
+                    ('expexpressionname', (YLeaf(YType.str, 'expExpressionName'), ['str'])),
+                    ('expexpression', (YLeaf(YType.str, 'expExpression'), ['str'])),
+                    ('expexpressionvaluetype', (YLeaf(YType.enumeration, 'expExpressionValueType'), [('ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB', 'DISMANEXPRESSIONMIB', 'ExpExpressionTable.ExpExpressionEntry.ExpExpressionValueType')])),
+                    ('expexpressioncomment', (YLeaf(YType.str, 'expExpressionComment'), ['str'])),
+                    ('expexpressiondeltainterval', (YLeaf(YType.int32, 'expExpressionDeltaInterval'), ['int'])),
+                    ('expexpressionprefix', (YLeaf(YType.str, 'expExpressionPrefix'), ['str'])),
+                    ('expexpressionerrors', (YLeaf(YType.uint32, 'expExpressionErrors'), ['int'])),
+                    ('expexpressionentrystatus', (YLeaf(YType.enumeration, 'expExpressionEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.expexpressionowner = None
                 self.expexpressionname = None
@@ -342,6 +346,7 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.expexpressionentrystatus = None
                 self._segment_path = lambda: "expExpressionEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expExpressionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEXPRESSIONMIB.ExpExpressionTable.ExpExpressionEntry, ['expexpressionowner', 'expexpressionname', 'expexpression', 'expexpressionvaluetype', 'expexpressioncomment', 'expexpressiondeltainterval', 'expexpressionprefix', 'expexpressionerrors', 'expexpressionentrystatus'], name, value)
@@ -426,6 +431,7 @@ class DISMANEXPRESSIONMIB(Entity):
             self.experrorentry = YList(self)
             self._segment_path = lambda: "expErrorTable"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEXPRESSIONMIB.ExpErrorTable, [], name, value)
@@ -501,12 +507,12 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.ylist_key_names = ['expexpressionowner','expexpressionname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
-                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
-                    ('experrortime', YLeaf(YType.uint32, 'expErrorTime')),
-                    ('experrorindex', YLeaf(YType.int32, 'expErrorIndex')),
-                    ('experrorcode', YLeaf(YType.enumeration, 'expErrorCode')),
-                    ('experrorinstance', YLeaf(YType.str, 'expErrorInstance')),
+                    ('expexpressionowner', (YLeaf(YType.str, 'expExpressionOwner'), ['str'])),
+                    ('expexpressionname', (YLeaf(YType.str, 'expExpressionName'), ['str'])),
+                    ('experrortime', (YLeaf(YType.uint32, 'expErrorTime'), ['int'])),
+                    ('experrorindex', (YLeaf(YType.int32, 'expErrorIndex'), ['int'])),
+                    ('experrorcode', (YLeaf(YType.enumeration, 'expErrorCode'), [('ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB', 'DISMANEXPRESSIONMIB', 'ExpErrorTable.ExpErrorEntry.ExpErrorCode')])),
+                    ('experrorinstance', (YLeaf(YType.str, 'expErrorInstance'), ['str'])),
                 ])
                 self.expexpressionowner = None
                 self.expexpressionname = None
@@ -516,6 +522,7 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.experrorinstance = None
                 self._segment_path = lambda: "expErrorEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expErrorTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEXPRESSIONMIB.ExpErrorTable.ExpErrorEntry, ['expexpressionowner', 'expexpressionname', 'experrortime', 'experrorindex', 'experrorcode', 'experrorinstance'], name, value)
@@ -700,6 +707,7 @@ class DISMANEXPRESSIONMIB(Entity):
             self.expobjectentry = YList(self)
             self._segment_path = lambda: "expObjectTable"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEXPRESSIONMIB.ExpObjectTable, [], name, value)
@@ -807,18 +815,18 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.ylist_key_names = ['expexpressionowner','expexpressionname','expobjectindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
-                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
-                    ('expobjectindex', YLeaf(YType.uint32, 'expObjectIndex')),
-                    ('expobjectid', YLeaf(YType.str, 'expObjectID')),
-                    ('expobjectidwildcard', YLeaf(YType.boolean, 'expObjectIDWildcard')),
-                    ('expobjectsampletype', YLeaf(YType.enumeration, 'expObjectSampleType')),
-                    ('expobjectdeltadiscontinuityid', YLeaf(YType.str, 'expObjectDeltaDiscontinuityID')),
-                    ('expobjectdiscontinuityidwildcard', YLeaf(YType.boolean, 'expObjectDiscontinuityIDWildcard')),
-                    ('expobjectdiscontinuityidtype', YLeaf(YType.enumeration, 'expObjectDiscontinuityIDType')),
-                    ('expobjectconditional', YLeaf(YType.str, 'expObjectConditional')),
-                    ('expobjectconditionalwildcard', YLeaf(YType.boolean, 'expObjectConditionalWildcard')),
-                    ('expobjectentrystatus', YLeaf(YType.enumeration, 'expObjectEntryStatus')),
+                    ('expexpressionowner', (YLeaf(YType.str, 'expExpressionOwner'), ['str'])),
+                    ('expexpressionname', (YLeaf(YType.str, 'expExpressionName'), ['str'])),
+                    ('expobjectindex', (YLeaf(YType.uint32, 'expObjectIndex'), ['int'])),
+                    ('expobjectid', (YLeaf(YType.str, 'expObjectID'), ['str'])),
+                    ('expobjectidwildcard', (YLeaf(YType.boolean, 'expObjectIDWildcard'), ['bool'])),
+                    ('expobjectsampletype', (YLeaf(YType.enumeration, 'expObjectSampleType'), [('ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB', 'DISMANEXPRESSIONMIB', 'ExpObjectTable.ExpObjectEntry.ExpObjectSampleType')])),
+                    ('expobjectdeltadiscontinuityid', (YLeaf(YType.str, 'expObjectDeltaDiscontinuityID'), ['str'])),
+                    ('expobjectdiscontinuityidwildcard', (YLeaf(YType.boolean, 'expObjectDiscontinuityIDWildcard'), ['bool'])),
+                    ('expobjectdiscontinuityidtype', (YLeaf(YType.enumeration, 'expObjectDiscontinuityIDType'), [('ydk.models.cisco_ios_xe.DISMAN_EXPRESSION_MIB', 'DISMANEXPRESSIONMIB', 'ExpObjectTable.ExpObjectEntry.ExpObjectDiscontinuityIDType')])),
+                    ('expobjectconditional', (YLeaf(YType.str, 'expObjectConditional'), ['str'])),
+                    ('expobjectconditionalwildcard', (YLeaf(YType.boolean, 'expObjectConditionalWildcard'), ['bool'])),
+                    ('expobjectentrystatus', (YLeaf(YType.enumeration, 'expObjectEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.expexpressionowner = None
                 self.expexpressionname = None
@@ -834,6 +842,7 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.expobjectentrystatus = None
                 self._segment_path = lambda: "expObjectEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']" + "[expObjectIndex='" + str(self.expobjectindex) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expObjectTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEXPRESSIONMIB.ExpObjectTable.ExpObjectEntry, ['expexpressionowner', 'expexpressionname', 'expobjectindex', 'expobjectid', 'expobjectidwildcard', 'expobjectsampletype', 'expobjectdeltadiscontinuityid', 'expobjectdiscontinuityidwildcard', 'expobjectdiscontinuityidtype', 'expobjectconditional', 'expobjectconditionalwildcard', 'expobjectentrystatus'], name, value)
@@ -951,6 +960,7 @@ class DISMANEXPRESSIONMIB(Entity):
             self.expvalueentry = YList(self)
             self._segment_path = lambda: "expValueTable"
             self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEXPRESSIONMIB.ExpValueTable, [], name, value)
@@ -1088,17 +1098,17 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.ylist_key_names = ['expexpressionowner','expexpressionname','expvalueinstance']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('expexpressionowner', YLeaf(YType.str, 'expExpressionOwner')),
-                    ('expexpressionname', YLeaf(YType.str, 'expExpressionName')),
-                    ('expvalueinstance', YLeaf(YType.str, 'expValueInstance')),
-                    ('expvaluecounter32val', YLeaf(YType.uint32, 'expValueCounter32Val')),
-                    ('expvalueunsigned32val', YLeaf(YType.uint32, 'expValueUnsigned32Val')),
-                    ('expvaluetimeticksval', YLeaf(YType.uint32, 'expValueTimeTicksVal')),
-                    ('expvalueinteger32val', YLeaf(YType.int32, 'expValueInteger32Val')),
-                    ('expvalueipaddressval', YLeaf(YType.str, 'expValueIpAddressVal')),
-                    ('expvalueoctetstringval', YLeaf(YType.str, 'expValueOctetStringVal')),
-                    ('expvalueoidval', YLeaf(YType.str, 'expValueOidVal')),
-                    ('expvaluecounter64val', YLeaf(YType.uint64, 'expValueCounter64Val')),
+                    ('expexpressionowner', (YLeaf(YType.str, 'expExpressionOwner'), ['str'])),
+                    ('expexpressionname', (YLeaf(YType.str, 'expExpressionName'), ['str'])),
+                    ('expvalueinstance', (YLeaf(YType.str, 'expValueInstance'), ['str'])),
+                    ('expvaluecounter32val', (YLeaf(YType.uint32, 'expValueCounter32Val'), ['int'])),
+                    ('expvalueunsigned32val', (YLeaf(YType.uint32, 'expValueUnsigned32Val'), ['int'])),
+                    ('expvaluetimeticksval', (YLeaf(YType.uint32, 'expValueTimeTicksVal'), ['int'])),
+                    ('expvalueinteger32val', (YLeaf(YType.int32, 'expValueInteger32Val'), ['int'])),
+                    ('expvalueipaddressval', (YLeaf(YType.str, 'expValueIpAddressVal'), ['str'])),
+                    ('expvalueoctetstringval', (YLeaf(YType.str, 'expValueOctetStringVal'), ['str'])),
+                    ('expvalueoidval', (YLeaf(YType.str, 'expValueOidVal'), ['str'])),
+                    ('expvaluecounter64val', (YLeaf(YType.uint64, 'expValueCounter64Val'), ['int'])),
                 ])
                 self.expexpressionowner = None
                 self.expexpressionname = None
@@ -1113,6 +1123,7 @@ class DISMANEXPRESSIONMIB(Entity):
                 self.expvaluecounter64val = None
                 self._segment_path = lambda: "expValueEntry" + "[expExpressionOwner='" + str(self.expexpressionowner) + "']" + "[expExpressionName='" + str(self.expexpressionname) + "']" + "[expValueInstance='" + str(self.expvalueinstance) + "']"
                 self._absolute_path = lambda: "DISMAN-EXPRESSION-MIB:DISMAN-EXPRESSION-MIB/expValueTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEXPRESSIONMIB.ExpValueTable.ExpValueEntry, ['expexpressionowner', 'expexpressionname', 'expvalueinstance', 'expvaluecounter32val', 'expvalueunsigned32val', 'expvaluetimeticksval', 'expvalueinteger32val', 'expvalueipaddressval', 'expvalueoctetstringval', 'expvalueoidval', 'expvaluecounter64val'], name, value)

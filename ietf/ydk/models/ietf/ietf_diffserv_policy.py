@@ -26,6 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ActionType(Identity):
     """
     This base identity type defines action\-types
@@ -37,8 +38,8 @@ class ActionType(Identity):
     _prefix = 'policy'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(ActionType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-policy", "ietf-diffserv-policy", "ietf-diffserv-policy:action-type")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-policy", pref="ietf-diffserv-policy", tag="ietf-diffserv-policy:action-type"):
+        super(ActionType, self).__init__(ns, pref, tag)
 
 
 class Policies(Entity):
@@ -71,6 +72,7 @@ class Policies(Entity):
 
         self.policy_entry = YList(self)
         self._segment_path = lambda: "ietf-diffserv-policy:policies"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Policies, [], name, value)
@@ -112,8 +114,8 @@ class Policies(Entity):
             self.ylist_key_names = ['policy_name']
             self._child_classes = OrderedDict([("classifier-entry", ("classifier_entry", Policies.PolicyEntry.ClassifierEntry))])
             self._leafs = OrderedDict([
-                ('policy_name', YLeaf(YType.str, 'policy-name')),
-                ('policy_descr', YLeaf(YType.str, 'policy-descr')),
+                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                ('policy_descr', (YLeaf(YType.str, 'policy-descr'), ['str'])),
             ])
             self.policy_name = None
             self.policy_descr = None
@@ -121,6 +123,7 @@ class Policies(Entity):
             self.classifier_entry = YList(self)
             self._segment_path = lambda: "policy-entry" + "[policy-name='" + str(self.policy_name) + "']"
             self._absolute_path = lambda: "ietf-diffserv-policy:policies/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Policies.PolicyEntry, ['policy_name', 'policy_descr'], name, value)
@@ -176,9 +179,9 @@ class Policies(Entity):
                 self.ylist_key_names = ['classifier_entry_name']
                 self._child_classes = OrderedDict([("filter-entry", ("filter_entry", Policies.PolicyEntry.ClassifierEntry.FilterEntry)), ("classifier-action-entry-cfg", ("classifier_action_entry_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg))])
                 self._leafs = OrderedDict([
-                    ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
-                    ('classifier_entry_inline', YLeaf(YType.boolean, 'classifier-entry-inline')),
-                    ('classifier_entry_filter_oper', YLeaf(YType.identityref, 'classifier-entry-filter-oper')),
+                    ('classifier_entry_name', (YLeaf(YType.str, 'classifier-entry-name'), ['str'])),
+                    ('classifier_entry_inline', (YLeaf(YType.boolean, 'classifier-entry-inline'), ['bool'])),
+                    ('classifier_entry_filter_oper', (YLeaf(YType.identityref, 'classifier-entry-filter-oper'), [('ydk.models.ietf.ietf_diffserv_classifier', 'ClassifierEntryFilterOperationType')])),
                 ])
                 self.classifier_entry_name = None
                 self.classifier_entry_inline = None
@@ -187,6 +190,7 @@ class Policies(Entity):
                 self.filter_entry = YList(self)
                 self.classifier_action_entry_cfg = YList(self)
                 self._segment_path = lambda: "classifier-entry" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry, ['classifier_entry_name', u'classifier_entry_inline', u'classifier_entry_filter_oper'], name, value)
@@ -253,8 +257,8 @@ class Policies(Entity):
                     self.ylist_key_names = ['filter_type','filter_logical_not']
                     self._child_classes = OrderedDict([("dscp-cfg", ("dscp_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg)), ("source-ip-address-cfg", ("source_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg)), ("destination-ip-address-cfg", ("destination_ip_address_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg)), ("source-port-cfg", ("source_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg)), ("destination-port-cfg", ("destination_port_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg)), ("protocol-cfg", ("protocol_cfg", Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg))])
                     self._leafs = OrderedDict([
-                        ('filter_type', YLeaf(YType.identityref, 'filter-type')),
-                        ('filter_logical_not', YLeaf(YType.boolean, 'filter-logical-not')),
+                        ('filter_type', (YLeaf(YType.identityref, 'filter-type'), [('ydk.models.ietf.ietf_diffserv_classifier', 'FilterType')])),
+                        ('filter_logical_not', (YLeaf(YType.boolean, 'filter-logical-not'), ['bool'])),
                     ])
                     self.filter_type = None
                     self.filter_logical_not = None
@@ -266,6 +270,7 @@ class Policies(Entity):
                     self.destination_port_cfg = YList(self)
                     self.protocol_cfg = YList(self)
                     self._segment_path = lambda: "filter-entry" + "[filter-type='" + str(self.filter_type) + "']" + "[filter-logical-not='" + str(self.filter_logical_not) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry, [u'filter_type', u'filter_logical_not'], name, value)
@@ -306,12 +311,13 @@ class Policies(Entity):
                         self.ylist_key_names = ['dscp_min','dscp_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('dscp_min', YLeaf(YType.uint8, 'dscp-min')),
-                            ('dscp_max', YLeaf(YType.uint8, 'dscp-max')),
+                            ('dscp_min', (YLeaf(YType.uint8, 'dscp-min'), ['int'])),
+                            ('dscp_max', (YLeaf(YType.uint8, 'dscp-max'), ['int'])),
                         ])
                         self.dscp_min = None
                         self.dscp_max = None
                         self._segment_path = lambda: "dscp-cfg" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DscpCfg, [u'dscp_min', u'dscp_max'], name, value)
@@ -351,10 +357,11 @@ class Policies(Entity):
                         self.ylist_key_names = ['source_ip_addr']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_ip_addr', YLeaf(YType.str, 'source-ip-addr')),
+                            ('source_ip_addr', (YLeaf(YType.str, 'source-ip-addr'), ['str','str'])),
                         ])
                         self.source_ip_addr = None
                         self._segment_path = lambda: "source-ip-address-cfg" + "[source-ip-addr='" + str(self.source_ip_addr) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourceIpAddressCfg, [u'source_ip_addr'], name, value)
@@ -394,10 +401,11 @@ class Policies(Entity):
                         self.ylist_key_names = ['destination_ip_addr']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('destination_ip_addr', YLeaf(YType.str, 'destination-ip-addr')),
+                            ('destination_ip_addr', (YLeaf(YType.str, 'destination-ip-addr'), ['str','str'])),
                         ])
                         self.destination_ip_addr = None
                         self._segment_path = lambda: "destination-ip-address-cfg" + "[destination-ip-addr='" + str(self.destination_ip_addr) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationIpAddressCfg, [u'destination_ip_addr'], name, value)
@@ -438,12 +446,13 @@ class Policies(Entity):
                         self.ylist_key_names = ['source_port_min','source_port_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_port_min', YLeaf(YType.uint16, 'source-port-min')),
-                            ('source_port_max', YLeaf(YType.uint16, 'source-port-max')),
+                            ('source_port_min', (YLeaf(YType.uint16, 'source-port-min'), ['int'])),
+                            ('source_port_max', (YLeaf(YType.uint16, 'source-port-max'), ['int'])),
                         ])
                         self.source_port_min = None
                         self.source_port_max = None
                         self._segment_path = lambda: "source-port-cfg" + "[source-port-min='" + str(self.source_port_min) + "']" + "[source-port-max='" + str(self.source_port_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.SourcePortCfg, [u'source_port_min', u'source_port_max'], name, value)
@@ -484,12 +493,13 @@ class Policies(Entity):
                         self.ylist_key_names = ['destination_port_min','destination_port_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('destination_port_min', YLeaf(YType.uint16, 'destination-port-min')),
-                            ('destination_port_max', YLeaf(YType.uint16, 'destination-port-max')),
+                            ('destination_port_min', (YLeaf(YType.uint16, 'destination-port-min'), ['int'])),
+                            ('destination_port_max', (YLeaf(YType.uint16, 'destination-port-max'), ['int'])),
                         ])
                         self.destination_port_min = None
                         self.destination_port_max = None
                         self._segment_path = lambda: "destination-port-cfg" + "[destination-port-min='" + str(self.destination_port_min) + "']" + "[destination-port-max='" + str(self.destination_port_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.DestinationPortCfg, [u'destination_port_min', u'destination_port_max'], name, value)
@@ -530,12 +540,13 @@ class Policies(Entity):
                         self.ylist_key_names = ['protocol_min','protocol_max']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('protocol_min', YLeaf(YType.uint8, 'protocol-min')),
-                            ('protocol_max', YLeaf(YType.uint8, 'protocol-max')),
+                            ('protocol_min', (YLeaf(YType.uint8, 'protocol-min'), ['int'])),
+                            ('protocol_max', (YLeaf(YType.uint8, 'protocol-max'), ['int'])),
                         ])
                         self.protocol_min = None
                         self.protocol_max = None
                         self._segment_path = lambda: "protocol-cfg" + "[protocol-min='" + str(self.protocol_min) + "']" + "[protocol-max='" + str(self.protocol_max) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.FilterEntry.ProtocolCfg, [u'protocol_min', u'protocol_max'], name, value)
@@ -607,7 +618,7 @@ class Policies(Entity):
                     self.ylist_key_names = ['action_type']
                     self._child_classes = OrderedDict([("ietf-diffserv-action:marking-cfg", ("marking_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg)), ("ietf-diffserv-action:priority-cfg", ("priority_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg)), ("ietf-diffserv-action:meter-cfg", ("meter_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg)), ("ietf-diffserv-action:min-rate-cfg", ("min_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg)), ("ietf-diffserv-action:max-rate-cfg", ("max_rate_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg)), ("ietf-diffserv-action:drop-cfg", ("drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg)), ("ietf-diffserv-action:tail-drop-cfg", ("tail_drop_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg)), ("ietf-diffserv-action:random-detect-cfg", ("random_detect_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg))])
                     self._leafs = OrderedDict([
-                        ('action_type', YLeaf(YType.identityref, 'action-type')),
+                        ('action_type', (YLeaf(YType.identityref, 'action-type'), [('ydk.models.ietf.ietf_diffserv_policy', 'ActionType')])),
                     ])
                     self.action_type = None
 
@@ -643,6 +654,7 @@ class Policies(Entity):
                     self.random_detect_cfg.parent = self
                     self._children_name_map["random_detect_cfg"] = "ietf-diffserv-action:random-detect-cfg"
                     self._segment_path = lambda: "classifier-action-entry-cfg" + "[action-type='" + str(self.action_type) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg, ['action_type'], name, value)
@@ -676,10 +688,11 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('dscp', YLeaf(YType.uint8, 'dscp')),
+                            ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
                         ])
                         self.dscp = None
                         self._segment_path = lambda: "ietf-diffserv-action:marking-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MarkingCfg, ['dscp'], name, value)
@@ -718,7 +731,7 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("rate-burst", ("rate_burst", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst))])
                         self._leafs = OrderedDict([
-                            ('priority_level', YLeaf(YType.uint8, 'priority-level')),
+                            ('priority_level', (YLeaf(YType.uint8, 'priority-level'), ['int'])),
                         ])
                         self.priority_level = None
 
@@ -726,6 +739,7 @@ class Policies(Entity):
                         self.rate_burst.parent = self
                         self._children_name_map["rate_burst"] = "rate-burst"
                         self._segment_path = lambda: "ietf-diffserv-action:priority-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg, ['priority_level'], name, value)
@@ -805,13 +819,13 @@ class Policies(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rate', YLeaf(YType.uint64, 'rate')),
-                                ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
-                                ('absolute_rate_units', YLeaf(YType.enumeration, 'absolute-rate-units')),
-                                ('rate_percent', YLeaf(YType.uint8, 'rate-percent')),
-                                ('rate_ratio', YLeaf(YType.uint32, 'rate-ratio')),
-                                ('burst_size', YLeaf(YType.uint64, 'burst-size')),
-                                ('burst_interval', YLeaf(YType.uint64, 'burst-interval')),
+                                ('rate', (YLeaf(YType.uint64, 'rate'), ['int'])),
+                                ('absolute_rate_metric', (YLeaf(YType.enumeration, 'absolute-rate-metric'), [('ydk.models.ietf.policy_types', 'Metric', '')])),
+                                ('absolute_rate_units', (YLeaf(YType.enumeration, 'absolute-rate-units'), [('ydk.models.ietf.policy_types', 'RateUnit', '')])),
+                                ('rate_percent', (YLeaf(YType.uint8, 'rate-percent'), ['int'])),
+                                ('rate_ratio', (YLeaf(YType.uint32, 'rate-ratio'), ['int'])),
+                                ('burst_size', (YLeaf(YType.uint64, 'burst-size'), ['int'])),
+                                ('burst_interval', (YLeaf(YType.uint64, 'burst-interval'), ['int'])),
                             ])
                             self.rate = None
                             self.absolute_rate_metric = None
@@ -821,6 +835,7 @@ class Policies(Entity):
                             self.burst_size = None
                             self.burst_interval = None
                             self._segment_path = lambda: "rate-burst"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.PriorityCfg.RateBurst, ['rate', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio', 'burst_size', 'burst_interval'], name, value)
@@ -855,6 +870,7 @@ class Policies(Entity):
 
                         self.meter_list = YList(self)
                         self._segment_path = lambda: "ietf-diffserv-action:meter-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg, [], name, value)
@@ -930,10 +946,10 @@ class Policies(Entity):
                             self.ylist_key_names = ['meter_id']
                             self._child_classes = OrderedDict([("color", ("color", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color)), ("succeed-action", ("succeed_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction)), ("fail-action", ("fail_action", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction))])
                             self._leafs = OrderedDict([
-                                ('meter_id', YLeaf(YType.uint16, 'meter-id')),
-                                ('meter_rate', YLeaf(YType.uint64, 'meter-rate')),
-                                ('burst_size', YLeaf(YType.uint64, 'burst-size')),
-                                ('burst_interval', YLeaf(YType.uint64, 'burst-interval')),
+                                ('meter_id', (YLeaf(YType.uint16, 'meter-id'), ['int'])),
+                                ('meter_rate', (YLeaf(YType.uint64, 'meter-rate'), ['int'])),
+                                ('burst_size', (YLeaf(YType.uint64, 'burst-size'), ['int'])),
+                                ('burst_interval', (YLeaf(YType.uint64, 'burst-interval'), ['int'])),
                             ])
                             self.meter_id = None
                             self.meter_rate = None
@@ -952,6 +968,7 @@ class Policies(Entity):
                             self.fail_action.parent = self
                             self._children_name_map["fail_action"] = "fail-action"
                             self._segment_path = lambda: "meter-list" + "[meter-id='" + str(self.meter_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList, ['meter_id', 'meter_rate', 'burst_size', 'burst_interval'], name, value)
@@ -995,14 +1012,15 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
-                                    ('classifier_entry_descr', YLeaf(YType.str, 'classifier-entry-descr')),
-                                    ('classifier_entry_filter_operation', YLeaf(YType.identityref, 'classifier-entry-filter-operation')),
+                                    ('classifier_entry_name', (YLeaf(YType.str, 'classifier-entry-name'), ['str'])),
+                                    ('classifier_entry_descr', (YLeaf(YType.str, 'classifier-entry-descr'), ['str'])),
+                                    ('classifier_entry_filter_operation', (YLeaf(YType.identityref, 'classifier-entry-filter-operation'), [('ydk.models.ietf.ietf_diffserv_classifier', 'ClassifierEntryFilterOperationType')])),
                                 ])
                                 self.classifier_entry_name = None
                                 self.classifier_entry_descr = None
                                 self.classifier_entry_filter_operation = None
                                 self._segment_path = lambda: "color"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.Color, [u'classifier_entry_name', u'classifier_entry_descr', u'classifier_entry_filter_operation'], name, value)
@@ -1053,16 +1071,17 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('meter_action_type', YLeaf(YType.identityref, 'meter-action-type')),
-                                    ('next_meter_id', YLeaf(YType.uint16, 'next-meter-id')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('drop_action', YLeaf(YType.empty, 'drop-action')),
+                                    ('meter_action_type', (YLeaf(YType.identityref, 'meter-action-type'), [('ydk.models.ietf.ietf_diffserv_action', 'MeterActionType')])),
+                                    ('next_meter_id', (YLeaf(YType.uint16, 'next-meter-id'), ['int'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('drop_action', (YLeaf(YType.empty, 'drop-action'), ['Empty'])),
                                 ])
                                 self.meter_action_type = None
                                 self.next_meter_id = None
                                 self.dscp = None
                                 self.drop_action = None
                                 self._segment_path = lambda: "succeed-action"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.SucceedAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
@@ -1113,16 +1132,17 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('meter_action_type', YLeaf(YType.identityref, 'meter-action-type')),
-                                    ('next_meter_id', YLeaf(YType.uint16, 'next-meter-id')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('drop_action', YLeaf(YType.empty, 'drop-action')),
+                                    ('meter_action_type', (YLeaf(YType.identityref, 'meter-action-type'), [('ydk.models.ietf.ietf_diffserv_action', 'MeterActionType')])),
+                                    ('next_meter_id', (YLeaf(YType.uint16, 'next-meter-id'), ['int'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('drop_action', (YLeaf(YType.empty, 'drop-action'), ['Empty'])),
                                 ])
                                 self.meter_action_type = None
                                 self.next_meter_id = None
                                 self.dscp = None
                                 self.drop_action = None
                                 self._segment_path = lambda: "fail-action"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MeterCfg.MeterList.FailAction, ['meter_action_type', 'next_meter_id', 'dscp', 'drop_action'], name, value)
@@ -1189,11 +1209,11 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("bw-excess-share-cfg", ("bw_excess_share_cfg", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg))])
                         self._leafs = OrderedDict([
-                            ('min_rate', YLeaf(YType.uint64, 'min-rate')),
-                            ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
-                            ('absolute_rate_units', YLeaf(YType.enumeration, 'absolute-rate-units')),
-                            ('rate_percent', YLeaf(YType.uint8, 'rate-percent')),
-                            ('rate_ratio', YLeaf(YType.uint32, 'rate-ratio')),
+                            ('min_rate', (YLeaf(YType.uint64, 'min-rate'), ['int'])),
+                            ('absolute_rate_metric', (YLeaf(YType.enumeration, 'absolute-rate-metric'), [('ydk.models.ietf.policy_types', 'Metric', '')])),
+                            ('absolute_rate_units', (YLeaf(YType.enumeration, 'absolute-rate-units'), [('ydk.models.ietf.policy_types', 'RateUnit', '')])),
+                            ('rate_percent', (YLeaf(YType.uint8, 'rate-percent'), ['int'])),
+                            ('rate_ratio', (YLeaf(YType.uint32, 'rate-ratio'), ['int'])),
                         ])
                         self.min_rate = None
                         self.absolute_rate_metric = None
@@ -1205,6 +1225,7 @@ class Policies(Entity):
                         self.bw_excess_share_cfg.parent = self
                         self._children_name_map["bw_excess_share_cfg"] = "bw-excess-share-cfg"
                         self._segment_path = lambda: "ietf-diffserv-action:min-rate-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg, ['min_rate', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
@@ -1264,11 +1285,11 @@ class Policies(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
-                                ('absolute_rate_units', YLeaf(YType.enumeration, 'absolute-rate-units')),
-                                ('rate_percent', YLeaf(YType.uint8, 'rate-percent')),
-                                ('rate_ratio', YLeaf(YType.uint32, 'rate-ratio')),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('absolute_rate_metric', (YLeaf(YType.enumeration, 'absolute-rate-metric'), [('ydk.models.ietf.policy_types', 'Metric', '')])),
+                                ('absolute_rate_units', (YLeaf(YType.enumeration, 'absolute-rate-units'), [('ydk.models.ietf.policy_types', 'RateUnit', '')])),
+                                ('rate_percent', (YLeaf(YType.uint8, 'rate-percent'), ['int'])),
+                                ('rate_ratio', (YLeaf(YType.uint32, 'rate-ratio'), ['int'])),
                             ])
                             self.value = None
                             self.absolute_rate_metric = None
@@ -1276,6 +1297,7 @@ class Policies(Entity):
                             self.rate_percent = None
                             self.rate_ratio = None
                             self._segment_path = lambda: "bw-excess-share-cfg"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MinRateCfg.BwExcessShareCfg, ['value', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
@@ -1355,13 +1377,13 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('absolute_rate', YLeaf(YType.uint64, 'absolute-rate')),
-                            ('burst_size', YLeaf(YType.uint64, 'burst-size')),
-                            ('burst_interval', YLeaf(YType.uint64, 'burst-interval')),
-                            ('absolute_rate_metric', YLeaf(YType.enumeration, 'absolute-rate-metric')),
-                            ('absolute_rate_units', YLeaf(YType.enumeration, 'absolute-rate-units')),
-                            ('rate_percent', YLeaf(YType.uint8, 'rate-percent')),
-                            ('rate_ratio', YLeaf(YType.uint32, 'rate-ratio')),
+                            ('absolute_rate', (YLeaf(YType.uint64, 'absolute-rate'), ['int'])),
+                            ('burst_size', (YLeaf(YType.uint64, 'burst-size'), ['int'])),
+                            ('burst_interval', (YLeaf(YType.uint64, 'burst-interval'), ['int'])),
+                            ('absolute_rate_metric', (YLeaf(YType.enumeration, 'absolute-rate-metric'), [('ydk.models.ietf.policy_types', 'Metric', '')])),
+                            ('absolute_rate_units', (YLeaf(YType.enumeration, 'absolute-rate-units'), [('ydk.models.ietf.policy_types', 'RateUnit', '')])),
+                            ('rate_percent', (YLeaf(YType.uint8, 'rate-percent'), ['int'])),
+                            ('rate_ratio', (YLeaf(YType.uint32, 'rate-ratio'), ['int'])),
                         ])
                         self.absolute_rate = None
                         self.burst_size = None
@@ -1371,6 +1393,7 @@ class Policies(Entity):
                         self.rate_percent = None
                         self.rate_ratio = None
                         self._segment_path = lambda: "ietf-diffserv-action:max-rate-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.MaxRateCfg, ['absolute_rate', 'burst_size', 'burst_interval', 'absolute_rate_metric', 'absolute_rate_units', 'rate_percent', 'rate_ratio'], name, value)
@@ -1402,10 +1425,11 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('drop_action', YLeaf(YType.empty, 'drop-action')),
+                            ('drop_action', (YLeaf(YType.empty, 'drop-action'), ['Empty'])),
                         ])
                         self.drop_action = None
                         self._segment_path = lambda: "ietf-diffserv-action:drop-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.DropCfg, ['drop_action'], name, value)
@@ -1440,6 +1464,7 @@ class Policies(Entity):
 
                         self.qlimit_dscp_thresh = YList(self)
                         self._segment_path = lambda: "ietf-diffserv-action:tail-drop-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg, [], name, value)
@@ -1485,8 +1510,8 @@ class Policies(Entity):
                             self.ylist_key_names = ['dscp_min','dscp_max']
                             self._child_classes = OrderedDict([("threshold", ("threshold", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold))])
                             self._leafs = OrderedDict([
-                                ('dscp_min', YLeaf(YType.uint8, 'dscp-min')),
-                                ('dscp_max', YLeaf(YType.uint8, 'dscp-max')),
+                                ('dscp_min', (YLeaf(YType.uint8, 'dscp-min'), ['int'])),
+                                ('dscp_max', (YLeaf(YType.uint8, 'dscp-max'), ['int'])),
                             ])
                             self.dscp_min = None
                             self.dscp_max = None
@@ -1495,6 +1520,7 @@ class Policies(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "qlimit-dscp-thresh" + "[dscp-min='" + str(self.dscp_min) + "']" + "[dscp-max='" + str(self.dscp_max) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh, ['dscp_min', 'dscp_max'], name, value)
@@ -1539,12 +1565,13 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
-                                    ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
+                                    ('threshold_size', (YLeaf(YType.uint64, 'threshold-size'), ['int'])),
+                                    ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
                                 ])
                                 self.threshold_size = None
                                 self.threshold_interval = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.TailDropCfg.QlimitDscpThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
@@ -1595,8 +1622,8 @@ class Policies(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("red-min-thresh", ("red_min_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh)), ("red-max-thresh", ("red_max_thresh", Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh))])
                         self._leafs = OrderedDict([
-                            ('exp_weighting_const', YLeaf(YType.uint32, 'exp-weighting-const')),
-                            ('mark_probability', YLeaf(YType.uint32, 'mark-probability')),
+                            ('exp_weighting_const', (YLeaf(YType.uint32, 'exp-weighting-const'), ['int'])),
+                            ('mark_probability', (YLeaf(YType.uint32, 'mark-probability'), ['int'])),
                         ])
                         self.exp_weighting_const = None
                         self.mark_probability = None
@@ -1609,6 +1636,7 @@ class Policies(Entity):
                         self.red_max_thresh.parent = self
                         self._children_name_map["red_max_thresh"] = "red-max-thresh"
                         self._segment_path = lambda: "ietf-diffserv-action:random-detect-cfg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg, ['exp_weighting_const', 'mark_probability'], name, value)
@@ -1645,6 +1673,7 @@ class Policies(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "red-min-thresh"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh, [], name, value)
@@ -1689,12 +1718,13 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
-                                    ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
+                                    ('threshold_size', (YLeaf(YType.uint64, 'threshold-size'), ['int'])),
+                                    ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
                                 ])
                                 self.threshold_size = None
                                 self.threshold_interval = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMinThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)
@@ -1731,6 +1761,7 @@ class Policies(Entity):
                             self.threshold.parent = self
                             self._children_name_map["threshold"] = "threshold"
                             self._segment_path = lambda: "red-max-thresh"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh, [], name, value)
@@ -1775,12 +1806,13 @@ class Policies(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('threshold_size', YLeaf(YType.uint64, 'threshold-size')),
-                                    ('threshold_interval', YLeaf(YType.uint64, 'threshold-interval')),
+                                    ('threshold_size', (YLeaf(YType.uint64, 'threshold-size'), ['int'])),
+                                    ('threshold_interval', (YLeaf(YType.uint64, 'threshold-interval'), ['int'])),
                                 ])
                                 self.threshold_size = None
                                 self.threshold_interval = None
                                 self._segment_path = lambda: "threshold"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Policies.PolicyEntry.ClassifierEntry.ClassifierActionEntryCfg.RandomDetectCfg.RedMaxThresh.Threshold, ['threshold_size', 'threshold_interval'], name, value)

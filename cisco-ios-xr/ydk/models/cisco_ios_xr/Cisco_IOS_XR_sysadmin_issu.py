@@ -1,6 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_issu 
 
-Execution and monitoring of sysadmin ISSU operations 
+This module contains a collection of YANG
+definitions for executing and monitoring Cisco IOS\-XR
+sysadmin ISSU operations.
+
+Copyright(c) 2016\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -9,6 +14,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IssuNotif(Enum):
@@ -240,6 +246,7 @@ class Issu(Entity):
     """
 
     _prefix = 'issu'
+    _revision = '2018-03-12'
 
     def __init__(self):
         super(Issu, self).__init__()
@@ -265,6 +272,7 @@ class Issu(Entity):
         self.internals.parent = self
         self._children_name_map["internals"] = "internals"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Issu, [], name, value)
@@ -345,6 +353,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
+        _revision = '2018-03-12'
 
         def __init__(self):
             super(Issu.Status, self).__init__()
@@ -356,15 +365,15 @@ class Issu(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("prepare", ("prepare", Issu.Status.Prepare)), ("activate", ("activate", Issu.Status.Activate)), ("error", ("error", Issu.Status.Error))])
             self._leafs = OrderedDict([
-                ('operation_type', YLeaf(YType.enumeration, 'operation-type')),
-                ('id', YLeaf(YType.uint32, 'id')),
-                ('prepare_id', YLeaf(YType.uint32, 'prepare-id')),
-                ('activate_id', YLeaf(YType.uint32, 'activate-id')),
-                ('sysadmin_packages', YLeafList(YType.str, 'sysadmin-packages')),
-                ('host_packages', YLeafList(YType.str, 'host-packages')),
-                ('complete', YLeaf(YType.boolean, 'complete')),
-                ('result', YLeaf(YType.enumeration, 'result')),
-                ('recover_result', YLeaf(YType.enumeration, 'recover-result')),
+                ('operation_type', (YLeaf(YType.enumeration, 'operation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Status.OperationType')])),
+                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                ('prepare_id', (YLeaf(YType.uint32, 'prepare-id'), ['int'])),
+                ('activate_id', (YLeaf(YType.uint32, 'activate-id'), ['int'])),
+                ('sysadmin_packages', (YLeafList(YType.str, 'sysadmin-packages'), ['str'])),
+                ('host_packages', (YLeafList(YType.str, 'host-packages'), ['str'])),
+                ('complete', (YLeaf(YType.boolean, 'complete'), ['bool'])),
+                ('result', (YLeaf(YType.enumeration, 'result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpResult', '')])),
+                ('recover_result', (YLeaf(YType.enumeration, 'recover-result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpResult', '')])),
             ])
             self.operation_type = None
             self.id = None
@@ -389,6 +398,7 @@ class Issu(Entity):
             self._children_name_map["error"] = "error"
             self._segment_path = lambda: "status"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Issu.Status, ['operation_type', 'id', 'prepare_id', 'activate_id', 'sysadmin_packages', 'host_packages', 'complete', 'result', 'recover_result'], name, value)
@@ -454,6 +464,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Status.Prepare, self).__init__()
@@ -465,10 +476,10 @@ class Issu(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stage', YLeaf(YType.enumeration, 'stage')),
-                    ('start_time', YLeaf(YType.str, 'start-time')),
-                    ('activity', YLeaf(YType.str, 'activity')),
-                    ('activity_start_time', YLeaf(YType.str, 'activity-start-time')),
+                    ('stage', (YLeaf(YType.enumeration, 'stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpStage', '')])),
+                    ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                    ('activity', (YLeaf(YType.str, 'activity'), ['str'])),
+                    ('activity_start_time', (YLeaf(YType.str, 'activity-start-time'), ['str'])),
                 ])
                 self.stage = None
                 self.start_time = None
@@ -476,6 +487,7 @@ class Issu(Entity):
                 self.activity_start_time = None
                 self._segment_path = lambda: "prepare"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Status.Prepare, ['stage', 'start_time', 'activity', 'activity_start_time'], name, value)
@@ -524,6 +536,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Status.Activate, self).__init__()
@@ -535,12 +548,12 @@ class Issu(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stage', YLeaf(YType.enumeration, 'stage')),
-                    ('start_time', YLeaf(YType.str, 'start-time')),
-                    ('activity', YLeaf(YType.str, 'activity')),
-                    ('activity_nodes', YLeafList(YType.str, 'activity-nodes')),
-                    ('activity_waiting_for', YLeaf(YType.str, 'activity-waiting-for')),
-                    ('activity_start_time', YLeaf(YType.str, 'activity-start-time')),
+                    ('stage', (YLeaf(YType.enumeration, 'stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpStage', '')])),
+                    ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                    ('activity', (YLeaf(YType.str, 'activity'), ['str'])),
+                    ('activity_nodes', (YLeafList(YType.str, 'activity-nodes'), ['str'])),
+                    ('activity_waiting_for', (YLeaf(YType.str, 'activity-waiting-for'), ['str'])),
+                    ('activity_start_time', (YLeaf(YType.str, 'activity-start-time'), ['str'])),
                 ])
                 self.stage = None
                 self.start_time = None
@@ -550,6 +563,7 @@ class Issu(Entity):
                 self.activity_start_time = None
                 self._segment_path = lambda: "activate"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Status.Activate, ['stage', 'start_time', 'activity', 'activity_nodes', 'activity_waiting_for', 'activity_start_time'], name, value)
@@ -584,6 +598,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Status.Error, self).__init__()
@@ -595,9 +610,9 @@ class Issu(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("details", ("details", Issu.Status.Error.Details))])
                 self._leafs = OrderedDict([
-                    ('result', YLeaf(YType.enumeration, 'result')),
-                    ('stage', YLeaf(YType.enumeration, 'stage')),
-                    ('error_message', YLeaf(YType.str, 'error-message')),
+                    ('result', (YLeaf(YType.enumeration, 'result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpResult', '')])),
+                    ('stage', (YLeaf(YType.enumeration, 'stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpStage', '')])),
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
                 ])
                 self.result = None
                 self.stage = None
@@ -608,6 +623,7 @@ class Issu(Entity):
                 self._children_name_map["details"] = "details"
                 self._segment_path = lambda: "error"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/status/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Status.Error, ['result', 'stage', 'error_message'], name, value)
@@ -644,6 +660,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Status.Error.Details, self).__init__()
@@ -655,10 +672,10 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('nodes', YLeafList(YType.str, 'nodes')),
-                        ('clients', YLeafList(YType.str, 'clients')),
-                        ('packages', YLeafList(YType.str, 'packages')),
-                        ('operation_ids', YLeafList(YType.uint32, 'operation-ids')),
+                        ('nodes', (YLeafList(YType.str, 'nodes'), ['str'])),
+                        ('clients', (YLeafList(YType.str, 'clients'), ['str'])),
+                        ('packages', (YLeafList(YType.str, 'packages'), ['str'])),
+                        ('operation_ids', (YLeafList(YType.uint32, 'operation-ids'), ['int'])),
                     ])
                     self.nodes = []
                     self.clients = []
@@ -666,6 +683,7 @@ class Issu(Entity):
                     self.operation_ids = []
                     self._segment_path = lambda: "details"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/status/error/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Status.Error.Details, ['nodes', 'clients', 'packages', 'operation_ids'], name, value)
@@ -695,6 +713,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
+        _revision = '2018-03-12'
 
         def __init__(self):
             super(Issu.Clients, self).__init__()
@@ -706,8 +725,8 @@ class Issu(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("client", ("client", Issu.Clients.Client))])
             self._leafs = OrderedDict([
-                ('announcement', YLeaf(YType.enumeration, 'announcement')),
-                ('announcement_status', YLeaf(YType.enumeration, 'announcement-status')),
+                ('announcement', (YLeaf(YType.enumeration, 'announcement'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'IssuNotif', '')])),
+                ('announcement_status', (YLeaf(YType.enumeration, 'announcement-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Clients.AnnouncementStatus')])),
             ])
             self.announcement = None
             self.announcement_status = None
@@ -715,6 +734,7 @@ class Issu(Entity):
             self.client = YList(self)
             self._segment_path = lambda: "clients"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Issu.Clients, ['announcement', 'announcement_status'], name, value)
@@ -821,6 +841,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Clients.Client, self).__init__()
@@ -832,13 +853,13 @@ class Issu(Entity):
                 self.ylist_key_names = ['name','location']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('registered_for', YLeafList(YType.enumeration, 'registered-for')),
-                    ('notif', YLeaf(YType.enumeration, 'notif')),
-                    ('response', YLeaf(YType.enumeration, 'response')),
-                    ('aborted', YLeaf(YType.boolean, 'aborted')),
-                    ('abort_reason', YLeaf(YType.str, 'abort-reason')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('registered_for', (YLeafList(YType.enumeration, 'registered-for'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'IssuNotif', '')])),
+                    ('notif', (YLeaf(YType.enumeration, 'notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'IssuNotif', '')])),
+                    ('response', (YLeaf(YType.enumeration, 'response'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Clients.Client.Response')])),
+                    ('aborted', (YLeaf(YType.boolean, 'aborted'), ['bool'])),
+                    ('abort_reason', (YLeaf(YType.str, 'abort-reason'), ['str'])),
                 ])
                 self.name = None
                 self.location = None
@@ -849,6 +870,7 @@ class Issu(Entity):
                 self.abort_reason = None
                 self._segment_path = lambda: "client" + "[name='" + str(self.name) + "']" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/clients/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Clients.Client, ['name', 'location', 'registered_for', 'notif', 'response', 'aborted', 'abort_reason'], name, value)
@@ -941,6 +963,7 @@ class Issu(Entity):
         """
 
         _prefix = 'issu'
+        _revision = '2018-03-12'
 
         def __init__(self):
             super(Issu.Internals, self).__init__()
@@ -966,6 +989,7 @@ class Issu(Entity):
             self._children_name_map["inventory_monitor"] = "inventory-monitor"
             self._segment_path = lambda: "internals"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Issu.Internals, [], name, value)
@@ -1263,6 +1287,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Internals.Orchestrator, self).__init__()
@@ -1274,12 +1299,12 @@ class Issu(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("operation-start-details", ("operation_start_details", Issu.Internals.Orchestrator.OperationStartDetails)), ("internal-prepare", ("internal_prepare", Issu.Internals.Orchestrator.InternalPrepare)), ("internal-activate", ("internal_activate", Issu.Internals.Orchestrator.InternalActivate)), ("error", ("error", Issu.Internals.Orchestrator.Error))])
                 self._leafs = OrderedDict([
-                    ('command', YLeaf(YType.enumeration, 'command')),
-                    ('operation_type', YLeaf(YType.enumeration, 'operation-type')),
-                    ('current_operation', YLeaf(YType.enumeration, 'current-operation')),
-                    ('issu_completed', YLeaf(YType.boolean, 'issu-completed')),
-                    ('operation_id', YLeaf(YType.uint32, 'operation-id')),
-                    ('in_progress', YLeaf(YType.boolean, 'in-progress')),
+                    ('command', (YLeaf(YType.enumeration, 'command'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.OpRequestType')])),
+                    ('operation_type', (YLeaf(YType.enumeration, 'operation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.OpRequestType')])),
+                    ('current_operation', (YLeaf(YType.enumeration, 'current-operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.OpRequestType')])),
+                    ('issu_completed', (YLeaf(YType.boolean, 'issu-completed'), ['bool'])),
+                    ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
+                    ('in_progress', (YLeaf(YType.boolean, 'in-progress'), ['bool'])),
                 ])
                 self.command = None
                 self.operation_type = None
@@ -1305,6 +1330,7 @@ class Issu(Entity):
                 self._children_name_map["error"] = "error"
                 self._segment_path = lambda: "orchestrator"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Internals.Orchestrator, ['command', 'operation_type', 'current_operation', 'issu_completed', 'operation_id', 'in_progress'], name, value)
@@ -1331,6 +1357,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.OperationStartDetails, self).__init__()
@@ -1342,13 +1369,14 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('input_package', YLeafList(YType.str, 'input-package')),
-                        ('input_operation_id', YLeafList(YType.uint32, 'input-operation-id')),
+                        ('input_package', (YLeafList(YType.str, 'input-package'), ['str'])),
+                        ('input_operation_id', (YLeafList(YType.uint32, 'input-operation-id'), ['int'])),
                     ])
                     self.input_package = []
                     self.input_operation_id = []
                     self._segment_path = lambda: "operation-start-details"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.OperationStartDetails, ['input_package', 'input_operation_id'], name, value)
@@ -1395,6 +1423,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.InternalPrepare, self).__init__()
@@ -1406,11 +1435,11 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("prepare-stage-history", ("prepare_stage_history", Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
-                        ('complete', YLeaf(YType.boolean, 'complete')),
-                        ('current_stage', YLeaf(YType.enumeration, 'current-stage')),
-                        ('host_package', YLeafList(YType.str, 'host-package')),
-                        ('calvados_package', YLeafList(YType.str, 'calvados-package')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
+                        ('complete', (YLeaf(YType.boolean, 'complete'), ['bool'])),
+                        ('current_stage', (YLeaf(YType.enumeration, 'current-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.StageType')])),
+                        ('host_package', (YLeafList(YType.str, 'host-package'), ['str'])),
+                        ('calvados_package', (YLeafList(YType.str, 'calvados-package'), ['str'])),
                     ])
                     self.operation_id = None
                     self.complete = None
@@ -1423,6 +1452,7 @@ class Issu(Entity):
                     self._children_name_map["prepare_stage_history"] = "prepare-stage-history"
                     self._segment_path = lambda: "internal-prepare"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare, ['operation_id', 'complete', 'current_stage', 'host_package', 'calvados_package'], name, value)
@@ -1442,6 +1472,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, self).__init__()
@@ -1457,6 +1488,7 @@ class Issu(Entity):
                         self.historical_stage = YList(self)
                         self._segment_path = lambda: "prepare-stage-history"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-prepare/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory, [], name, value)
@@ -1517,6 +1549,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
+                        _revision = '2018-03-12'
 
                         def __init__(self):
                             super(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, self).__init__()
@@ -1528,14 +1561,14 @@ class Issu(Entity):
                             self.ylist_key_names = ['stage_index']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('stage_index', YLeaf(YType.uint32, 'stage-index')),
-                                ('external_stage', YLeaf(YType.enumeration, 'external-stage')),
-                                ('internal_stage_details', YLeaf(YType.str, 'internal-stage-details')),
-                                ('status', YLeaf(YType.str, 'status')),
-                                ('error_details', YLeaf(YType.str, 'error-details')),
-                                ('start_time', YLeaf(YType.str, 'start-time')),
-                                ('end_time', YLeaf(YType.str, 'end-time')),
-                                ('complete', YLeaf(YType.boolean, 'complete')),
+                                ('stage_index', (YLeaf(YType.uint32, 'stage-index'), ['int'])),
+                                ('external_stage', (YLeaf(YType.enumeration, 'external-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpStage', '')])),
+                                ('internal_stage_details', (YLeaf(YType.str, 'internal-stage-details'), ['str'])),
+                                ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                                ('error_details', (YLeaf(YType.str, 'error-details'), ['str'])),
+                                ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                                ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
+                                ('complete', (YLeaf(YType.boolean, 'complete'), ['bool'])),
                             ])
                             self.stage_index = None
                             self.external_stage = None
@@ -1547,6 +1580,7 @@ class Issu(Entity):
                             self.complete = None
                             self._segment_path = lambda: "historical-stage" + "[stage-index='" + str(self.stage_index) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-prepare/prepare-stage-history/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalPrepare.PrepareStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
@@ -1613,6 +1647,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.InternalActivate, self).__init__()
@@ -1624,15 +1659,15 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("activate-stage-history", ("activate_stage_history", Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory))])
                     self._leafs = OrderedDict([
-                        ('operation_id', YLeaf(YType.uint32, 'operation-id')),
-                        ('complete', YLeaf(YType.boolean, 'complete')),
-                        ('current_stage', YLeaf(YType.enumeration, 'current-stage')),
-                        ('current_phase', YLeaf(YType.enumeration, 'current-phase')),
-                        ('host_prepared', YLeaf(YType.boolean, 'host-prepared')),
-                        ('calvados_prepared', YLeaf(YType.boolean, 'calvados-prepared')),
-                        ('host_node', YLeafList(YType.str, 'host-node')),
-                        ('calvados_phase_one_node', YLeafList(YType.str, 'calvados-phase-one-node')),
-                        ('calvados_phase_two_node', YLeafList(YType.str, 'calvados-phase-two-node')),
+                        ('operation_id', (YLeaf(YType.uint32, 'operation-id'), ['int'])),
+                        ('complete', (YLeaf(YType.boolean, 'complete'), ['bool'])),
+                        ('current_stage', (YLeaf(YType.enumeration, 'current-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.StageType')])),
+                        ('current_phase', (YLeaf(YType.enumeration, 'current-phase'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.PhaseType')])),
+                        ('host_prepared', (YLeaf(YType.boolean, 'host-prepared'), ['bool'])),
+                        ('calvados_prepared', (YLeaf(YType.boolean, 'calvados-prepared'), ['bool'])),
+                        ('host_node', (YLeafList(YType.str, 'host-node'), ['str'])),
+                        ('calvados_phase_one_node', (YLeafList(YType.str, 'calvados-phase-one-node'), ['str'])),
+                        ('calvados_phase_two_node', (YLeafList(YType.str, 'calvados-phase-two-node'), ['str'])),
                     ])
                     self.operation_id = None
                     self.complete = None
@@ -1649,6 +1684,7 @@ class Issu(Entity):
                     self._children_name_map["activate_stage_history"] = "activate-stage-history"
                     self._segment_path = lambda: "internal-activate"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate, ['operation_id', 'complete', 'current_stage', 'current_phase', 'host_prepared', 'calvados_prepared', 'host_node', 'calvados_phase_one_node', 'calvados_phase_two_node'], name, value)
@@ -1668,6 +1704,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, self).__init__()
@@ -1683,6 +1720,7 @@ class Issu(Entity):
                         self.historical_stage = YList(self)
                         self._segment_path = lambda: "activate-stage-history"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-activate/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory, [], name, value)
@@ -1743,6 +1781,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
+                        _revision = '2018-03-12'
 
                         def __init__(self):
                             super(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, self).__init__()
@@ -1754,14 +1793,14 @@ class Issu(Entity):
                             self.ylist_key_names = ['stage_index']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('stage_index', YLeaf(YType.uint32, 'stage-index')),
-                                ('external_stage', YLeaf(YType.enumeration, 'external-stage')),
-                                ('internal_stage_details', YLeaf(YType.str, 'internal-stage-details')),
-                                ('status', YLeaf(YType.str, 'status')),
-                                ('error_details', YLeaf(YType.str, 'error-details')),
-                                ('start_time', YLeaf(YType.str, 'start-time')),
-                                ('end_time', YLeaf(YType.str, 'end-time')),
-                                ('complete', YLeaf(YType.boolean, 'complete')),
+                                ('stage_index', (YLeaf(YType.uint32, 'stage-index'), ['int'])),
+                                ('external_stage', (YLeaf(YType.enumeration, 'external-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'OpStage', '')])),
+                                ('internal_stage_details', (YLeaf(YType.str, 'internal-stage-details'), ['str'])),
+                                ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                                ('error_details', (YLeaf(YType.str, 'error-details'), ['str'])),
+                                ('start_time', (YLeaf(YType.str, 'start-time'), ['str'])),
+                                ('end_time', (YLeaf(YType.str, 'end-time'), ['str'])),
+                                ('complete', (YLeaf(YType.boolean, 'complete'), ['bool'])),
                             ])
                             self.stage_index = None
                             self.external_stage = None
@@ -1773,6 +1812,7 @@ class Issu(Entity):
                             self.complete = None
                             self._segment_path = lambda: "historical-stage" + "[stage-index='" + str(self.stage_index) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/internal-activate/activate-stage-history/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Orchestrator.InternalActivate.ActivateStageHistory.HistoricalStage, ['stage_index', 'external_stage', 'internal_stage_details', 'status', 'error_details', 'start_time', 'end_time', 'complete'], name, value)
@@ -1844,6 +1884,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Orchestrator.Error, self).__init__()
@@ -1855,17 +1896,17 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('operation_status', YLeaf(YType.str, 'operation-status')),
-                        ('failure_operation', YLeaf(YType.enumeration, 'failure-operation')),
-                        ('failure_external_stage', YLeaf(YType.enumeration, 'failure-external-stage')),
-                        ('failure_internal_stage_details', YLeaf(YType.str, 'failure-internal-stage-details')),
-                        ('error_details', YLeaf(YType.str, 'error-details')),
-                        ('failed_node', YLeafList(YType.str, 'failed-node')),
-                        ('failed_package', YLeafList(YType.str, 'failed-package')),
-                        ('failed_operation_id', YLeafList(YType.uint32, 'failed-operation-id')),
-                        ('failed_client', YLeafList(YType.str, 'failed-client')),
-                        ('recovery_attempted', YLeaf(YType.boolean, 'recovery-attempted')),
-                        ('recovery_status', YLeaf(YType.str, 'recovery-status')),
+                        ('operation_status', (YLeaf(YType.str, 'operation-status'), ['str'])),
+                        ('failure_operation', (YLeaf(YType.enumeration, 'failure-operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.OpRequestType')])),
+                        ('failure_external_stage', (YLeaf(YType.enumeration, 'failure-external-stage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.StageType')])),
+                        ('failure_internal_stage_details', (YLeaf(YType.str, 'failure-internal-stage-details'), ['str'])),
+                        ('error_details', (YLeaf(YType.str, 'error-details'), ['str'])),
+                        ('failed_node', (YLeafList(YType.str, 'failed-node'), ['str'])),
+                        ('failed_package', (YLeafList(YType.str, 'failed-package'), ['str'])),
+                        ('failed_operation_id', (YLeafList(YType.uint32, 'failed-operation-id'), ['int'])),
+                        ('failed_client', (YLeafList(YType.str, 'failed-client'), ['str'])),
+                        ('recovery_attempted', (YLeaf(YType.boolean, 'recovery-attempted'), ['bool'])),
+                        ('recovery_status', (YLeaf(YType.str, 'recovery-status'), ['str'])),
                     ])
                     self.operation_status = None
                     self.failure_operation = None
@@ -1880,6 +1921,7 @@ class Issu(Entity):
                     self.recovery_status = None
                     self._segment_path = lambda: "error"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/orchestrator/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Orchestrator.Error, ['operation_status', 'failure_operation', 'failure_external_stage', 'failure_internal_stage_details', 'error_details', 'failed_node', 'failed_package', 'failed_operation_id', 'failed_client', 'recovery_attempted', 'recovery_status'], name, value)
@@ -1909,6 +1951,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Internals.Agents, self).__init__()
@@ -1934,6 +1977,7 @@ class Issu(Entity):
                 self._children_name_map["reload_tracking"] = "reload-tracking"
                 self._segment_path = lambda: "agents"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Internals.Agents, [], name, value)
@@ -1953,6 +1997,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.Requests, self).__init__()
@@ -1968,6 +2013,7 @@ class Issu(Entity):
                     self.request = YList(self)
                     self._segment_path = lambda: "requests"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Agents.Requests, [], name, value)
@@ -2018,6 +2064,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.Requests.Request, self).__init__()
@@ -2029,10 +2076,10 @@ class Issu(Entity):
                         self.ylist_key_names = ['request_index']
                         self._child_classes = OrderedDict([("checkpoint", ("checkpoint", Issu.Internals.Agents.Requests.Request.Checkpoint)), ("agents", ("agents", Issu.Internals.Agents.Requests.Request.Agents_))])
                         self._leafs = OrderedDict([
-                            ('request_index', YLeaf(YType.uint32, 'request-index')),
-                            ('request_type', YLeaf(YType.enumeration, 'request-type')),
-                            ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
-                            ('responses_received', YLeaf(YType.uint32, 'responses-received')),
+                            ('request_index', (YLeaf(YType.uint32, 'request-index'), ['int'])),
+                            ('request_type', (YLeaf(YType.enumeration, 'request-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.Agents.Requests.Request.RequestType')])),
+                            ('requests_sent', (YLeaf(YType.uint32, 'requests-sent'), ['int'])),
+                            ('responses_received', (YLeaf(YType.uint32, 'responses-received'), ['int'])),
                         ])
                         self.request_index = None
                         self.request_type = None
@@ -2048,6 +2095,7 @@ class Issu(Entity):
                         self._children_name_map["agents"] = "agents"
                         self._segment_path = lambda: "request" + "[request-index='" + str(self.request_index) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/requests/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Agents.Requests.Request, ['request_index', 'request_type', 'requests_sent', 'responses_received'], name, value)
@@ -2106,6 +2154,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
+                        _revision = '2018-03-12'
 
                         def __init__(self):
                             super(Issu.Internals.Agents.Requests.Request.Checkpoint, self).__init__()
@@ -2117,14 +2166,15 @@ class Issu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('message_type', YLeaf(YType.enumeration, 'message-type')),
-                                ('data_length', YLeaf(YType.uint32, 'data-length')),
-                                ('filename', YLeaf(YType.str, 'filename')),
+                                ('message_type', (YLeaf(YType.enumeration, 'message-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.Agents.Requests.Request.Checkpoint.MessageType')])),
+                                ('data_length', (YLeaf(YType.uint32, 'data-length'), ['int'])),
+                                ('filename', (YLeaf(YType.str, 'filename'), ['str'])),
                             ])
                             self.message_type = None
                             self.data_length = None
                             self.filename = None
                             self._segment_path = lambda: "checkpoint"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Agents.Requests.Request.Checkpoint, ['message_type', 'data_length', 'filename'], name, value)
@@ -2171,6 +2221,7 @@ class Issu(Entity):
                         """
 
                         _prefix = 'issu'
+                        _revision = '2018-03-12'
 
                         def __init__(self):
                             super(Issu.Internals.Agents.Requests.Request.Agents_, self).__init__()
@@ -2185,6 +2236,7 @@ class Issu(Entity):
 
                             self.agent = YList(self)
                             self._segment_path = lambda: "agents"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Issu.Internals.Agents.Requests.Request.Agents_, [], name, value)
@@ -2221,6 +2273,7 @@ class Issu(Entity):
                             """
 
                             _prefix = 'issu'
+                            _revision = '2018-03-12'
 
                             def __init__(self):
                                 super(Issu.Internals.Agents.Requests.Request.Agents_.Agent, self).__init__()
@@ -2232,9 +2285,9 @@ class Issu(Entity):
                                 self.ylist_key_names = ['agent_index']
                                 self._child_classes = OrderedDict([("response-contents", ("response_contents", Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents))])
                                 self._leafs = OrderedDict([
-                                    ('agent_index', YLeaf(YType.uint32, 'agent-index')),
-                                    ('node', YLeaf(YType.str, 'node')),
-                                    ('waiting_for_response', YLeaf(YType.boolean, 'waiting-for-response')),
+                                    ('agent_index', (YLeaf(YType.uint32, 'agent-index'), ['int'])),
+                                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                                    ('waiting_for_response', (YLeaf(YType.boolean, 'waiting-for-response'), ['bool'])),
                                 ])
                                 self.agent_index = None
                                 self.node = None
@@ -2244,6 +2297,7 @@ class Issu(Entity):
                                 self.response_contents.parent = self
                                 self._children_name_map["response_contents"] = "response-contents"
                                 self._segment_path = lambda: "agent" + "[agent-index='" + str(self.agent_index) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Issu.Internals.Agents.Requests.Request.Agents_.Agent, ['agent_index', 'node', 'waiting_for_response'], name, value)
@@ -2268,6 +2322,7 @@ class Issu(Entity):
                                 """
 
                                 _prefix = 'issu'
+                                _revision = '2018-03-12'
 
                                 def __init__(self):
                                     super(Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents, self).__init__()
@@ -2279,12 +2334,13 @@ class Issu(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('agent_status', YLeaf(YType.enumeration, 'agent-status')),
-                                        ('error_details', YLeaf(YType.str, 'error-details')),
+                                        ('agent_status', (YLeaf(YType.enumeration, 'agent-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_issu', 'Issu', 'Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents.AgentStatus')])),
+                                        ('error_details', (YLeaf(YType.str, 'error-details'), ['str'])),
                                     ])
                                     self.agent_status = None
                                     self.error_details = None
                                     self._segment_path = lambda: "response-contents"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Issu.Internals.Agents.Requests.Request.Agents_.Agent.ResponseContents, ['agent_status', 'error_details'], name, value)
@@ -2337,6 +2393,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.Inventory, self).__init__()
@@ -2352,6 +2409,7 @@ class Issu(Entity):
                     self.agent = YList(self)
                     self._segment_path = lambda: "inventory"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Agents.Inventory, [], name, value)
@@ -2383,6 +2441,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.Inventory.Agent, self).__init__()
@@ -2394,15 +2453,16 @@ class Issu(Entity):
                         self.ylist_key_names = ['agent_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('agent_index', YLeaf(YType.uint32, 'agent-index')),
-                            ('agent_node', YLeaf(YType.str, 'agent-node')),
-                            ('reloaded', YLeaf(YType.boolean, 'reloaded')),
+                            ('agent_index', (YLeaf(YType.uint32, 'agent-index'), ['int'])),
+                            ('agent_node', (YLeaf(YType.str, 'agent-node'), ['str'])),
+                            ('reloaded', (YLeaf(YType.boolean, 'reloaded'), ['bool'])),
                         ])
                         self.agent_index = None
                         self.agent_node = None
                         self.reloaded = None
                         self._segment_path = lambda: "agent" + "[agent-index='" + str(self.agent_index) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/inventory/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Agents.Inventory.Agent, ['agent_index', 'agent_node', 'reloaded'], name, value)
@@ -2434,6 +2494,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.Agents.ReloadTracking, self).__init__()
@@ -2445,8 +2506,8 @@ class Issu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("node", ("node", Issu.Internals.Agents.ReloadTracking.Node))])
                     self._leafs = OrderedDict([
-                        ('in_progress', YLeaf(YType.boolean, 'in-progress')),
-                        ('remaining_nodes_count', YLeaf(YType.uint32, 'remaining-nodes-count')),
+                        ('in_progress', (YLeaf(YType.boolean, 'in-progress'), ['bool'])),
+                        ('remaining_nodes_count', (YLeaf(YType.uint32, 'remaining-nodes-count'), ['int'])),
                     ])
                     self.in_progress = None
                     self.remaining_nodes_count = None
@@ -2454,6 +2515,7 @@ class Issu(Entity):
                     self.node = YList(self)
                     self._segment_path = lambda: "reload-tracking"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.Agents.ReloadTracking, ['in_progress', 'remaining_nodes_count'], name, value)
@@ -2485,6 +2547,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.Agents.ReloadTracking.Node, self).__init__()
@@ -2496,15 +2559,16 @@ class Issu(Entity):
                         self.ylist_key_names = ['node_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('node_index', YLeaf(YType.uint32, 'node-index')),
-                            ('id', YLeaf(YType.str, 'id')),
-                            ('reloaded', YLeaf(YType.boolean, 'reloaded')),
+                            ('node_index', (YLeaf(YType.uint32, 'node-index'), ['int'])),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                            ('reloaded', (YLeaf(YType.boolean, 'reloaded'), ['bool'])),
                         ])
                         self.node_index = None
                         self.id = None
                         self.reloaded = None
                         self._segment_path = lambda: "node" + "[node-index='" + str(self.node_index) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/agents/reload-tracking/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.Agents.ReloadTracking.Node, ['node_index', 'id', 'reloaded'], name, value)
@@ -2524,6 +2588,7 @@ class Issu(Entity):
             """
 
             _prefix = 'issu'
+            _revision = '2018-03-12'
 
             def __init__(self):
                 super(Issu.Internals.InventoryMonitor, self).__init__()
@@ -2541,6 +2606,7 @@ class Issu(Entity):
                 self._children_name_map["inventory"] = "inventory"
                 self._segment_path = lambda: "inventory-monitor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Issu.Internals.InventoryMonitor, [], name, value)
@@ -2560,6 +2626,7 @@ class Issu(Entity):
                 """
 
                 _prefix = 'issu'
+                _revision = '2018-03-12'
 
                 def __init__(self):
                     super(Issu.Internals.InventoryMonitor.Inventory, self).__init__()
@@ -2575,6 +2642,7 @@ class Issu(Entity):
                     self.node = YList(self)
                     self._segment_path = lambda: "inventory"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/inventory-monitor/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Issu.Internals.InventoryMonitor.Inventory, [], name, value)
@@ -2599,6 +2667,7 @@ class Issu(Entity):
                     """
 
                     _prefix = 'issu'
+                    _revision = '2018-03-12'
 
                     def __init__(self):
                         super(Issu.Internals.InventoryMonitor.Inventory.Node, self).__init__()
@@ -2610,13 +2679,14 @@ class Issu(Entity):
                         self.ylist_key_names = ['node']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('node', YLeaf(YType.str, 'node')),
-                            ('ip', YLeaf(YType.str, 'ip')),
+                            ('node', (YLeaf(YType.str, 'node'), ['str'])),
+                            ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
                         ])
                         self.node = None
                         self.ip = None
                         self._segment_path = lambda: "node" + "[node='" + str(self.node) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-issu:issu/internals/inventory-monitor/inventory/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Issu.Internals.InventoryMonitor.Inventory.Node, ['node', 'ip'], name, value)

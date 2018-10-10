@@ -66,7 +66,25 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
         example, IP telephones and wireless access points
         or bridges.";
 
-  revision 2009-12-11 {
+  revision 2018-01-19 {
+    description
+     "Added following OBJECT-GROUP
+      - cpeExtPseInfoPwrGroup
+      Added new compliance
+      - cpeExtMIBCompliance6.";
+  }
+
+  revision 2013-07-10 {
+    description
+     "Added following TEXTUAL-CONVENTION
+      - CpeExtLldpPwrClassOrZero
+      Added following OBJECT-GROUP
+      - cpeExtPsePortLldpPowerGroup
+      Added new compliance
+      - cpeExtMIBCompliance5.";
+  }
+
+  revision 2011-07-18 {
     description
      "Added cpeExtPowerPriorityGroup, cpeExtPsePortLldpGroup
       and cpeExtPsePortCapabilitiesGroup.
@@ -207,6 +225,50 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
       'unknown'  - power priority level is unknown.";
   }
 
+  typedef CpeExtLldpPwrClassOrZero {
+    type enumeration {
+      enum "unknown" {
+        value "0";
+      }
+      enum "class0" {
+        value "1";
+      }
+      enum "class1" {
+        value "2";
+      }
+      enum "class2" {
+        value "3";
+      }
+      enum "class3" {
+        value "4";
+      }
+      enum "class4" {
+        value "5";
+      }
+    }
+    description
+     "The power class of the PD or PSE port that implements
+      the LLDP based Data Link Layer power classification
+      
+      'unknown' - power classification of the powered devices is
+                  unknown.
+      
+      'class0'  - power classification of the powered devices is
+                  class 0 in IEEE specifications.
+      
+      'class1'  - power classification of the powered devices is
+                  class 1 in IEEE specifications.
+      
+      'class2'  - power classification of the powered devices is
+                  class 2 in IEEE specifications.
+      
+      'class3'  - power classification of the powered devices is
+                  class 3 in IEEE specifications.
+      
+      'class4'  - power classification of the powered devices is
+                  class 4 in IEEE specifications.";
+  }
+
 
   container CISCO-POWER-ETHERNET-EXT-MIB {
     config false;
@@ -340,7 +402,7 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
           type uint32;
           units "miliwatts";
           description
-           "Used power expressed in miliwatts.";
+           "This object indicates used power expressed in miliwatts.";
           smiv2:max-access "read-only";
           smiv2:oid "1.3.6.1.4.1.9.9.402.1.3.1.4";
         }
@@ -349,8 +411,8 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
           type uint32;
           units "miliwatts";
           description
-           "Remaining power expressed in miliwatts, this
-            parameter is calculated as pethMainPsePower
+           "This object indicates remaining power expressed in
+            miliwatts, this parameter is calculated as pethMainPsePower
             minus cpeExtMainPseUsedPower.";
           smiv2:max-access "read-only";
           smiv2:oid "1.3.6.1.4.1.9.9.402.1.3.1.5";
@@ -454,9 +516,9 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
       list cpeExtPsePortLldpEntry {
         key "pethPsePortGroupIndex pethPsePortIndex";
         description
-         "A cpeExtPseDllPowerEntry entry contains the LLDP
-          based DLL power classification characteristics for a particular
-          PSE and the PD attached to it. 
+         "A cpeExtPsePortLldpEntry entry contains the LLDP
+          based 802.3at DLL power classification characteristics for
+          a particular PSE and the PD attached to it. 
           
           A PSE has its entry here when all of the following conditions
           are satisfied:
@@ -564,6 +626,89 @@ module CISCO-POWER-ETHERNET-EXT-MIB {
             remote system (PD).";
           smiv2:max-access "read-only";
           smiv2:oid "1.3.6.1.4.1.9.9.402.1.7.1.10";
+        }
+
+        leaf cpeExtPsePortLldpPwrClass {
+          type CISCO-POWER-ETHERNET-EXT-MIB:CpeExtLldpPwrClassOrZero;
+          description
+           "The PSE power classification sent to the remote PD via MDI TLV
+            in LLDP Protocol.";
+          reference
+           "IEEE Std 802.3af Section 30.9.1.1.6
+            aPSEPowerClassification";
+          smiv2:max-access "read-only";
+          smiv2:oid "1.3.6.1.4.1.9.9.402.1.7.1.11";
+        }
+
+        leaf cpeExtPsePortLldpPdPwrClass {
+          type CISCO-POWER-ETHERNET-EXT-MIB:CpeExtLldpPwrClassOrZero;
+          description
+           "This power classification received from the remote
+            system (PD).";
+          reference
+           "IEEE Std 802.3af Section 30.9.1.1.6
+            aPSEPowerClassification";
+          smiv2:max-access "read-only";
+          smiv2:oid "1.3.6.1.4.1.9.9.402.1.7.1.12";
+        }
+
+        leaf cpeExtPsePortLldpPdPwrSupport {
+          type bits {
+            bit portClass {
+              position "0";
+            }
+            bit pseMdiPwrSupport {
+              position "1";
+            }
+            bit pseMdiPwrState {
+              position "2";
+            }
+            bit psePairCtrlAbility {
+              position "3";
+            }
+          }
+          description
+           "This object indicates the power support mode received
+            from the remote PD via MDI TLV in LLDP protocol.
+            
+            'portClass'          - This bit is set if the port is
+                                   operating as PSE.  Otherwise, it is
+                                   operating as PD.
+            
+            'pseMdiPwrSupport'   - This bit is set if power is supported in
+                                   MDI TLV.
+            
+            'pseMdiPwrState'     - This bit is set if power is enabled.
+            
+            'psePairCtrlAbility' - This bit is set if pair selection can
+                                   be controlled.";
+          smiv2:max-access "read-only";
+          smiv2:oid "1.3.6.1.4.1.9.9.402.1.7.1.13";
+        }
+
+        leaf cpeExtPsePortLldpPdPwrPairsOrZero {
+          type enumeration {
+            enum "unknown" {
+              value "0";
+            }
+            enum "signal" {
+              value "1";
+            }
+            enum "spare" {
+              value "2";
+            }
+          }
+          description
+           "This object indicates the pinout pairs in use received
+            from the remote PD via MDI TLV in LLDP Protocol.
+            
+            'unknown' - information is not available
+            
+            'signal'  - the signal pairs are in use.
+            
+            'spare'   - the spare pairs are in use.";
+          smiv2:max-access "read-only";
+          smiv2:oid "1.3.6.1.4.1.9.9.402.1.7.1.14";
         }
       }
     }

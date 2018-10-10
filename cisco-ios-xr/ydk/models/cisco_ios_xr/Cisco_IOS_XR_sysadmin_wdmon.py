@@ -11,6 +11,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Wdmon(Entity):
     """
     
@@ -41,6 +42,7 @@ class Wdmon(Entity):
 
         self.trace = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-wdmon:wdmon"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Wdmon, [], name, value)
@@ -77,13 +79,14 @@ class Wdmon(Entity):
             self.ylist_key_names = ['buffer']
             self._child_classes = OrderedDict([("location", ("location", Wdmon.Trace.Location))])
             self._leafs = OrderedDict([
-                ('buffer', YLeaf(YType.str, 'buffer')),
+                ('buffer', (YLeaf(YType.str, 'buffer'), ['str'])),
             ])
             self.buffer = None
 
             self.location = YList(self)
             self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-wdmon:wdmon/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Wdmon.Trace, [u'buffer'], name, value)
@@ -120,12 +123,13 @@ class Wdmon(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("all-options", ("all_options", Wdmon.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location_name')),
+                    ('location_name', (YLeaf(YType.str, 'location_name'), ['str'])),
                 ])
                 self.location_name = None
 
                 self.all_options = YList(self)
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Wdmon.Trace.Location, [u'location_name'], name, value)
@@ -162,12 +166,13 @@ class Wdmon(Entity):
                     self.ylist_key_names = ['option']
                     self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", Wdmon.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
-                        ('option', YLeaf(YType.str, 'option')),
+                        ('option', (YLeaf(YType.str, 'option'), ['str'])),
                     ])
                     self.option = None
 
                     self.trace_blocks = YList(self)
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Wdmon.Trace.Location.AllOptions, [u'option'], name, value)
@@ -199,10 +204,11 @@ class Wdmon(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('data', YLeaf(YType.str, 'data')),
+                            ('data', (YLeaf(YType.str, 'data'), ['str'])),
                         ])
                         self.data = None
                         self._segment_path = lambda: "trace-blocks"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Wdmon.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
@@ -241,6 +247,7 @@ class WdmonInfo(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-wdmon:wdmon-info"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(WdmonInfo, [], name, value)
@@ -403,30 +410,30 @@ class WdmonInfo(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
-                ('start_timestamp', YLeaf(YType.str, 'start-timestamp')),
-                ('hushd_timeout', YLeaf(YType.str, 'hushd-timeout')),
-                ('calv_restart_timeout', YLeaf(YType.uint32, 'calv-restart-timeout')),
-                ('hushd_wd_action_disable', YLeaf(YType.boolean, 'hushd-wd-action-disable')),
-                ('hushd_wd_action_timestamp', YLeaf(YType.str, 'hushd-wd-action-timestamp')),
-                ('hushd_capi_up', YLeaf(YType.boolean, 'hushd-capi-up')),
-                ('hushd_pending_resp', YLeaf(YType.boolean, 'hushd-pending-resp')),
-                ('hushd_stop_punching', YLeaf(YType.boolean, 'hushd-stop-punching')),
-                ('hushd_capi_up_timestamp', YLeaf(YType.str, 'hushd-capi-up-timestamp')),
-                ('hushd_last_hb_resp', YLeaf(YType.str, 'hushd-last-hb-resp')),
-                ('hushd_num_capi_connects', YLeaf(YType.uint32, 'hushd-num-capi-connects')),
-                ('wds_action_disable', YLeaf(YType.boolean, 'wds-action-disable')),
-                ('wds_action_timestamp', YLeaf(YType.str, 'wds-action-timestamp')),
-                ('wds_restart_timeout', YLeaf(YType.uint32, 'wds-restart-timeout')),
-                ('wds_liveness_timeout', YLeaf(YType.uint32, 'wds-liveness-timeout')),
-                ('wds_client_up', YLeaf(YType.boolean, 'wds-client-up')),
-                ('wds_client_pid', YLeaf(YType.uint32, 'wds-client-pid')),
-                ('wds_client_up_timestamp', YLeaf(YType.str, 'wds-client-up-timestamp')),
-                ('wds_client_last_hb', YLeaf(YType.str, 'wds-client-last-hb')),
-                ('wds_client_num_connects', YLeaf(YType.uint32, 'wds-client-num-connects')),
-                ('wds_num_liveness_timeout', YLeaf(YType.uint32, 'wds-num-liveness-timeout')),
-                ('wds_num_restart_timeout', YLeaf(YType.uint32, 'wds-num-restart-timeout')),
-                ('wds_client_reported_status', YLeaf(YType.str, 'wds-client-reported-status')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                ('start_timestamp', (YLeaf(YType.str, 'start-timestamp'), ['str'])),
+                ('hushd_timeout', (YLeaf(YType.str, 'hushd-timeout'), ['str'])),
+                ('calv_restart_timeout', (YLeaf(YType.uint32, 'calv-restart-timeout'), ['int'])),
+                ('hushd_wd_action_disable', (YLeaf(YType.boolean, 'hushd-wd-action-disable'), ['bool'])),
+                ('hushd_wd_action_timestamp', (YLeaf(YType.str, 'hushd-wd-action-timestamp'), ['str'])),
+                ('hushd_capi_up', (YLeaf(YType.boolean, 'hushd-capi-up'), ['bool'])),
+                ('hushd_pending_resp', (YLeaf(YType.boolean, 'hushd-pending-resp'), ['bool'])),
+                ('hushd_stop_punching', (YLeaf(YType.boolean, 'hushd-stop-punching'), ['bool'])),
+                ('hushd_capi_up_timestamp', (YLeaf(YType.str, 'hushd-capi-up-timestamp'), ['str'])),
+                ('hushd_last_hb_resp', (YLeaf(YType.str, 'hushd-last-hb-resp'), ['str'])),
+                ('hushd_num_capi_connects', (YLeaf(YType.uint32, 'hushd-num-capi-connects'), ['int'])),
+                ('wds_action_disable', (YLeaf(YType.boolean, 'wds-action-disable'), ['bool'])),
+                ('wds_action_timestamp', (YLeaf(YType.str, 'wds-action-timestamp'), ['str'])),
+                ('wds_restart_timeout', (YLeaf(YType.uint32, 'wds-restart-timeout'), ['int'])),
+                ('wds_liveness_timeout', (YLeaf(YType.uint32, 'wds-liveness-timeout'), ['int'])),
+                ('wds_client_up', (YLeaf(YType.boolean, 'wds-client-up'), ['bool'])),
+                ('wds_client_pid', (YLeaf(YType.uint32, 'wds-client-pid'), ['int'])),
+                ('wds_client_up_timestamp', (YLeaf(YType.str, 'wds-client-up-timestamp'), ['str'])),
+                ('wds_client_last_hb', (YLeaf(YType.str, 'wds-client-last-hb'), ['str'])),
+                ('wds_client_num_connects', (YLeaf(YType.uint32, 'wds-client-num-connects'), ['int'])),
+                ('wds_num_liveness_timeout', (YLeaf(YType.uint32, 'wds-num-liveness-timeout'), ['int'])),
+                ('wds_num_restart_timeout', (YLeaf(YType.uint32, 'wds-num-restart-timeout'), ['int'])),
+                ('wds_client_reported_status', (YLeaf(YType.str, 'wds-client-reported-status'), ['str'])),
             ])
             self.location = None
             self.start_timestamp = None
@@ -454,6 +461,7 @@ class WdmonInfo(Entity):
             self.wds_client_reported_status = None
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-wdmon:wdmon-info/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(WdmonInfo.AllLocations, ['location', 'start_timestamp', 'hushd_timeout', 'calv_restart_timeout', 'hushd_wd_action_disable', 'hushd_wd_action_timestamp', 'hushd_capi_up', 'hushd_pending_resp', 'hushd_stop_punching', 'hushd_capi_up_timestamp', 'hushd_last_hb_resp', 'hushd_num_capi_connects', 'wds_action_disable', 'wds_action_timestamp', 'wds_restart_timeout', 'wds_liveness_timeout', 'wds_client_up', 'wds_client_pid', 'wds_client_up_timestamp', 'wds_client_last_hb', 'wds_client_num_connects', 'wds_num_liveness_timeout', 'wds_num_restart_timeout', 'wds_client_reported_status'], name, value)

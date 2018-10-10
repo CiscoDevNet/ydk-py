@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIGMPFILTERMIB(Entity):
     """
     
@@ -75,6 +76,7 @@ class CISCOIGMPFILTERMIB(Entity):
         self.cigmpfilterinterfacetable.parent = self
         self._children_name_map["cigmpfilterinterfacetable"] = "cIgmpFilterInterfaceTable"
         self._segment_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIGMPFILTERMIB, [], name, value)
@@ -115,13 +117,14 @@ class CISCOIGMPFILTERMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cigmpfilterenable', YLeaf(YType.boolean, 'cIgmpFilterEnable')),
-                ('cigmpfiltermaxprofiles', YLeaf(YType.uint32, 'cIgmpFilterMaxProfiles')),
+                ('cigmpfilterenable', (YLeaf(YType.boolean, 'cIgmpFilterEnable'), ['bool'])),
+                ('cigmpfiltermaxprofiles', (YLeaf(YType.uint32, 'cIgmpFilterMaxProfiles'), ['int'])),
             ])
             self.cigmpfilterenable = None
             self.cigmpfiltermaxprofiles = None
             self._segment_path = lambda: "cIgmpFilterGeneral"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterGeneral, ['cigmpfilterenable', 'cigmpfiltermaxprofiles'], name, value)
@@ -201,15 +204,15 @@ class CISCOIGMPFILTERMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cigmpfiltereditspinlock', YLeaf(YType.int32, 'cIgmpFilterEditSpinLock')),
-                ('cigmpfiltereditprofileindex', YLeaf(YType.uint32, 'cIgmpFilterEditProfileIndex')),
-                ('cigmpfiltereditstartaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEditStartAddressType')),
-                ('cigmpfiltereditstartaddress', YLeaf(YType.str, 'cIgmpFilterEditStartAddress')),
-                ('cigmpfiltereditendaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEditEndAddressType')),
-                ('cigmpfiltereditendaddress', YLeaf(YType.str, 'cIgmpFilterEditEndAddress')),
-                ('cigmpfiltereditprofileaction', YLeaf(YType.enumeration, 'cIgmpFilterEditProfileAction')),
-                ('cigmpfiltereditoperation', YLeaf(YType.enumeration, 'cIgmpFilterEditOperation')),
-                ('cigmpfilterapplystatus', YLeaf(YType.enumeration, 'cIgmpFilterApplyStatus')),
+                ('cigmpfiltereditspinlock', (YLeaf(YType.int32, 'cIgmpFilterEditSpinLock'), ['int'])),
+                ('cigmpfiltereditprofileindex', (YLeaf(YType.uint32, 'cIgmpFilterEditProfileIndex'), ['int'])),
+                ('cigmpfiltereditstartaddresstype', (YLeaf(YType.enumeration, 'cIgmpFilterEditStartAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                ('cigmpfiltereditstartaddress', (YLeaf(YType.str, 'cIgmpFilterEditStartAddress'), ['str'])),
+                ('cigmpfiltereditendaddresstype', (YLeaf(YType.enumeration, 'cIgmpFilterEditEndAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                ('cigmpfiltereditendaddress', (YLeaf(YType.str, 'cIgmpFilterEditEndAddress'), ['str'])),
+                ('cigmpfiltereditprofileaction', (YLeaf(YType.enumeration, 'cIgmpFilterEditProfileAction'), [('ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB', 'CISCOIGMPFILTERMIB', 'CIgmpFilterEditor.CIgmpFilterEditProfileAction')])),
+                ('cigmpfiltereditoperation', (YLeaf(YType.enumeration, 'cIgmpFilterEditOperation'), [('ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB', 'CISCOIGMPFILTERMIB', 'CIgmpFilterEditor.CIgmpFilterEditOperation')])),
+                ('cigmpfilterapplystatus', (YLeaf(YType.enumeration, 'cIgmpFilterApplyStatus'), [('ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB', 'CISCOIGMPFILTERMIB', 'CIgmpFilterEditor.CIgmpFilterApplyStatus')])),
             ])
             self.cigmpfiltereditspinlock = None
             self.cigmpfiltereditprofileindex = None
@@ -222,6 +225,7 @@ class CISCOIGMPFILTERMIB(Entity):
             self.cigmpfilterapplystatus = None
             self._segment_path = lambda: "cIgmpFilterEditor"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterEditor, ['cigmpfiltereditspinlock', 'cigmpfiltereditprofileindex', 'cigmpfiltereditstartaddresstype', 'cigmpfiltereditstartaddress', 'cigmpfiltereditendaddresstype', 'cigmpfiltereditendaddress', 'cigmpfiltereditprofileaction', 'cigmpfiltereditoperation', 'cigmpfilterapplystatus'], name, value)
@@ -431,6 +435,7 @@ class CISCOIGMPFILTERMIB(Entity):
             self.cigmpfilterentry = YList(self)
             self._segment_path = lambda: "cIgmpFilterTable"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterTable, [], name, value)
@@ -497,12 +502,12 @@ class CISCOIGMPFILTERMIB(Entity):
                 self.ylist_key_names = ['cigmpfilterprofileindex','cigmpfilterstartaddresstype','cigmpfilterstartaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cigmpfilterprofileindex', YLeaf(YType.uint32, 'cIgmpFilterProfileIndex')),
-                    ('cigmpfilterstartaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterStartAddressType')),
-                    ('cigmpfilterstartaddress', YLeaf(YType.str, 'cIgmpFilterStartAddress')),
-                    ('cigmpfilterendaddresstype', YLeaf(YType.enumeration, 'cIgmpFilterEndAddressType')),
-                    ('cigmpfilterendaddress', YLeaf(YType.str, 'cIgmpFilterEndAddress')),
-                    ('cigmpfilterprofileaction', YLeaf(YType.enumeration, 'cIgmpFilterProfileAction')),
+                    ('cigmpfilterprofileindex', (YLeaf(YType.uint32, 'cIgmpFilterProfileIndex'), ['int'])),
+                    ('cigmpfilterstartaddresstype', (YLeaf(YType.enumeration, 'cIgmpFilterStartAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cigmpfilterstartaddress', (YLeaf(YType.str, 'cIgmpFilterStartAddress'), ['str'])),
+                    ('cigmpfilterendaddresstype', (YLeaf(YType.enumeration, 'cIgmpFilterEndAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cigmpfilterendaddress', (YLeaf(YType.str, 'cIgmpFilterEndAddress'), ['str'])),
+                    ('cigmpfilterprofileaction', (YLeaf(YType.enumeration, 'cIgmpFilterProfileAction'), [('ydk.models.cisco_ios_xe.CISCO_IGMP_FILTER_MIB', 'CISCOIGMPFILTERMIB', 'CIgmpFilterTable.CIgmpFilterEntry.CIgmpFilterProfileAction')])),
                 ])
                 self.cigmpfilterprofileindex = None
                 self.cigmpfilterstartaddresstype = None
@@ -512,6 +517,7 @@ class CISCOIGMPFILTERMIB(Entity):
                 self.cigmpfilterprofileaction = None
                 self._segment_path = lambda: "cIgmpFilterEntry" + "[cIgmpFilterProfileIndex='" + str(self.cigmpfilterprofileindex) + "']" + "[cIgmpFilterStartAddressType='" + str(self.cigmpfilterstartaddresstype) + "']" + "[cIgmpFilterStartAddress='" + str(self.cigmpfilterstartaddress) + "']"
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterTable.CIgmpFilterEntry, ['cigmpfilterprofileindex', 'cigmpfilterstartaddresstype', 'cigmpfilterstartaddress', 'cigmpfilterendaddresstype', 'cigmpfilterendaddress', 'cigmpfilterprofileaction'], name, value)
@@ -583,6 +589,7 @@ class CISCOIGMPFILTERMIB(Entity):
             self.cigmpfilterinterfaceentry = YList(self)
             self._segment_path = lambda: "cIgmpFilterInterfaceTable"
             self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable, [], name, value)
@@ -632,13 +639,14 @@ class CISCOIGMPFILTERMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cigmpfilterinterfaceprofileindex', YLeaf(YType.uint32, 'cIgmpFilterInterfaceProfileIndex')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cigmpfilterinterfaceprofileindex', (YLeaf(YType.uint32, 'cIgmpFilterInterfaceProfileIndex'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cigmpfilterinterfaceprofileindex = None
                 self._segment_path = lambda: "cIgmpFilterInterfaceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-IGMP-FILTER-MIB:CISCO-IGMP-FILTER-MIB/cIgmpFilterInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIGMPFILTERMIB.CIgmpFilterInterfaceTable.CIgmpFilterInterfaceEntry, ['ifindex', 'cigmpfilterinterfaceprofileindex'], name, value)

@@ -7,6 +7,10 @@ module Cisco-IOS-XE-zone {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-policy {
+    prefix ios-policy;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -23,15 +27,35 @@ module Cisco-IOS-XE-zone {
 
   description
     "Cisco XE Native Zone Interfaces Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-12 {
+    description
+      "Further restrict zone and zone-pair string lengths";
+  }
+
+  revision 2018-05-14 {
+    description
+      "Limit string lengths for threat-defense features";
+  }
+
+  revision 2018-04-28 {
+    description
+      "Add leaf-refs to other models to fix depencencies";
+  }
+
+  revision 2018-02-22 {
+    description
+      "Add threat-defense support for Ethernet interfaces";
+  }
+
   revision 2017-11-27 {
-     description
-       "Added Change 25GE name";
+    description
+      "Added Change 25GE name";
   }
 
   revision 2017-09-15 {
@@ -57,7 +81,9 @@ module Cisco-IOS-XE-zone {
       leaf security {
         description
           "Security zone";
-        type string;
+        type string {
+          length "1..64";
+        }
       }
     }
   }
@@ -68,17 +94,23 @@ module Cisco-IOS-XE-zone {
         "Security zone";
       key "id";
       leaf id {
-        type string;
+        type string {
+          length "1..64";
+        }
       }
       leaf description {
         description
           "Zone description";
-        type string;
+        type string {
+          length "1..200";
+        }
       }
       leaf protection {
         description
           "config sync cookie protection against sync flood";
-        type string;
+        type string {
+          length "1..256";
+        }
       }
     }
   }
@@ -91,17 +123,23 @@ module Cisco-IOS-XE-zone {
         "Zone-pair name";
       key "id";
       leaf id {
-        type string;
+        type string {
+          length "1..128";
+        }
       }
       leaf source {
         description
           "Source zone";
-        type string;
+        type string {
+          length "1..64";
+        }
       }
       leaf destination {
         description
           "Destination zone";
-        type string;
+        type string {
+          length "1..64";
+        }
       }
       leaf description {
         description
@@ -112,14 +150,16 @@ module Cisco-IOS-XE-zone {
       }
       container service-policy {
         description
-          "Configure CBAC Service Policy";
+          "Configure Zone Pair Service Policy";
         container type {
           description
             "Service Policy type";
           leaf inspect {
             description
-              "Configure CBAC Service Policy type inspect";
-            type string;
+              "Configure Zone Pair Service Policy type inspect";
+            type string {
+              length "1..512";
+            }
           }
         }
       }
@@ -143,6 +183,10 @@ module Cisco-IOS-XE-zone {
   /////////////////////////////////////////////////////////
   // native / interface *
   /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:Ethernet" {
+    uses config-interface-zone-member-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-zone-member-grouping;
   }

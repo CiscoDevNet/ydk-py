@@ -14,7 +14,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,6 +24,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BackupDisable(Enum):
@@ -107,7 +108,7 @@ class BgpRouteTarget(Enum):
 
     .. data:: stitching = 1
 
-    	RT is for stitching (Golf-L2)
+    	RT is for stitching (Golf-L2) (DEPRECATED)
 
     """
 
@@ -336,15 +337,24 @@ class EthernetSegmentLoadBalance(Enum):
 
     	Single Active
 
-    .. data:: port_active = 2
-
-    	Port Active
-
     """
 
     single_active = Enum.YLeaf(1, "single-active")
 
-    port_active = Enum.YLeaf(2, "port-active")
+
+class EthernetSegmentServiceCarving(Enum):
+    """
+    EthernetSegmentServiceCarving (Enum Class)
+
+    Ethernet segment service carving
+
+    .. data:: hrw = 2
+
+    	HRW
+
+    """
+
+    hrw = Enum.YLeaf(2, "hrw")
 
 
 class EvpnEncapsulation(Enum):
@@ -374,11 +384,17 @@ class EvpnSide(Enum):
 
     Evpn side
 
+    .. data:: evpn_side_regular = 1
+
+    	EVPN Instance side defined as regular
+
     .. data:: evpn_side_stitching = 2
 
     	EVPN Instance side defined as stitching
 
     """
+
+    evpn_side_regular = Enum.YLeaf(1, "evpn-side-regular")
 
     evpn_side_stitching = Enum.YLeaf(2, "evpn-side-stitching")
 
@@ -403,7 +419,7 @@ class FlowLabelLoadBalance(Enum):
 
     .. data:: both = 3
 
-    	Insert/Delete  Flow Label on transmit/receive
+    	Insert/Delete Flow Label on transmit/receive
 
     	side
 
@@ -1270,18 +1286,18 @@ class L2vpn(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("pw-routing", ("pw_routing", L2vpn.PwRouting)), ("neighbor", ("neighbor", L2vpn.Neighbor)), ("database", ("database", L2vpn.Database)), ("pbb", ("pbb", L2vpn.Pbb)), ("auto-discovery", ("auto_discovery", L2vpn.AutoDiscovery)), ("utility", ("utility", L2vpn.Utility)), ("snmp", ("snmp", L2vpn.Snmp))])
         self._leafs = OrderedDict([
-            ('nsr', YLeaf(YType.empty, 'nsr')),
-            ('mtu_mismatch_ignore', YLeaf(YType.empty, 'mtu-mismatch-ignore')),
-            ('tcn_propagation', YLeaf(YType.empty, 'tcn-propagation')),
-            ('pwoam_refresh', YLeaf(YType.uint32, 'pwoam-refresh')),
-            ('load_balance', YLeaf(YType.enumeration, 'load-balance')),
-            ('mspw_description', YLeaf(YType.str, 'mspw-description')),
-            ('mac_limit_threshold', YLeaf(YType.uint32, 'mac-limit-threshold')),
-            ('pw_status_disable', YLeaf(YType.empty, 'pw-status-disable')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('pw_grouping', YLeaf(YType.empty, 'pw-grouping')),
-            ('capability', YLeaf(YType.enumeration, 'capability')),
-            ('l2vpn_router_id', YLeaf(YType.str, 'l2vpn-router-id')),
+            ('nsr', (YLeaf(YType.empty, 'nsr'), ['Empty'])),
+            ('mtu_mismatch_ignore', (YLeaf(YType.empty, 'mtu-mismatch-ignore'), ['Empty'])),
+            ('tcn_propagation', (YLeaf(YType.empty, 'tcn-propagation'), ['Empty'])),
+            ('pwoam_refresh', (YLeaf(YType.uint32, 'pwoam-refresh'), ['int'])),
+            ('load_balance', (YLeaf(YType.enumeration, 'load-balance'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'LoadBalance', '')])),
+            ('mspw_description', (YLeaf(YType.str, 'mspw-description'), ['str'])),
+            ('mac_limit_threshold', (YLeaf(YType.uint32, 'mac-limit-threshold'), ['int'])),
+            ('pw_status_disable', (YLeaf(YType.empty, 'pw-status-disable'), ['Empty'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('pw_grouping', (YLeaf(YType.empty, 'pw-grouping'), ['Empty'])),
+            ('capability', (YLeaf(YType.enumeration, 'capability'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnCapabilityMode', '')])),
+            ('l2vpn_router_id', (YLeaf(YType.str, 'l2vpn-router-id'), ['str'])),
         ])
         self.nsr = None
         self.mtu_mismatch_ignore = None
@@ -1324,9 +1340,10 @@ class L2vpn(Entity):
         self.snmp.parent = self
         self._children_name_map["snmp"] = "snmp"
         self._segment_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(L2vpn, [u'nsr', u'mtu_mismatch_ignore', u'tcn_propagation', u'pwoam_refresh', u'load_balance', u'mspw_description', u'mac_limit_threshold', u'pw_status_disable', u'enable', u'pw_grouping', u'capability', u'l2vpn_router_id'], name, value)
+        self._perform_setattr(L2vpn, ['nsr', 'mtu_mismatch_ignore', 'tcn_propagation', 'pwoam_refresh', 'load_balance', 'mspw_description', 'mac_limit_threshold', 'pw_status_disable', 'enable', 'pw_grouping', 'capability', 'l2vpn_router_id'], name, value)
 
 
     class PwRouting(Entity):
@@ -1362,7 +1379,7 @@ class L2vpn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("pw-routing-bgp", ("pw_routing_bgp", L2vpn.PwRouting.PwRoutingBgp))])
             self._leafs = OrderedDict([
-                ('pw_routing_global_id', YLeaf(YType.uint32, 'pw-routing-global-id')),
+                ('pw_routing_global_id', (YLeaf(YType.uint32, 'pw-routing-global-id'), ['int'])),
             ])
             self.pw_routing_global_id = None
 
@@ -1371,9 +1388,10 @@ class L2vpn(Entity):
             self._children_name_map["pw_routing_bgp"] = "pw-routing-bgp"
             self._segment_path = lambda: "pw-routing"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.PwRouting, [u'pw_routing_global_id'], name, value)
+            self._perform_setattr(L2vpn.PwRouting, ['pw_routing_global_id'], name, value)
 
 
         class PwRoutingBgp(Entity):
@@ -1407,7 +1425,7 @@ class L2vpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
 
@@ -1416,9 +1434,10 @@ class L2vpn(Entity):
                 self._children_name_map["evpn_route_distinguisher"] = "evpn-route-distinguisher"
                 self._segment_path = lambda: "pw-routing-bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/pw-routing/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp, [u'enable'], name, value)
+                self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp, ['enable'], name, value)
 
 
             class EvpnRouteDistinguisher(Entity):
@@ -1475,11 +1494,11 @@ class L2vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('as_', YLeaf(YType.uint32, 'as')),
-                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                     ])
                     self.type = None
                     self.as_ = None
@@ -1488,9 +1507,10 @@ class L2vpn(Entity):
                     self.addr_index = None
                     self._segment_path = lambda: "evpn-route-distinguisher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/pw-routing/pw-routing-bgp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                    self._perform_setattr(L2vpn.PwRouting.PwRoutingBgp.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
     class Neighbor(Entity):
@@ -1519,14 +1539,15 @@ class L2vpn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ldp_flap', YLeaf(YType.empty, 'ldp-flap')),
+                ('ldp_flap', (YLeaf(YType.empty, 'ldp-flap'), ['Empty'])),
             ])
             self.ldp_flap = None
             self._segment_path = lambda: "neighbor"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.Neighbor, [u'ldp_flap'], name, value)
+            self._perform_setattr(L2vpn.Neighbor, ['ldp_flap'], name, value)
 
 
     class Database(Entity):
@@ -1545,13 +1566,18 @@ class L2vpn(Entity):
         
         .. attribute:: bridge_domain_groups
         
-        	List of bridge  groups
+        	List of bridge groups
         	**type**\:  :py:class:`BridgeDomainGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups>`
         
         .. attribute:: pseudowire_classes
         
         	List of pseudowire classes
         	**type**\:  :py:class:`PseudowireClasses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.PseudowireClasses>`
+        
+        .. attribute:: vlan_switches
+        
+        	List of VLAN Switches
+        	**type**\:  :py:class:`VlanSwitches <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches>`
         
         .. attribute:: flexible_xconnect_service_table
         
@@ -1578,7 +1604,7 @@ class L2vpn(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("g8032-rings", ("g8032_rings", L2vpn.Database.G8032Rings)), ("xconnect-groups", ("xconnect_groups", L2vpn.Database.XconnectGroups)), ("bridge-domain-groups", ("bridge_domain_groups", L2vpn.Database.BridgeDomainGroups)), ("pseudowire-classes", ("pseudowire_classes", L2vpn.Database.PseudowireClasses)), ("flexible-xconnect-service-table", ("flexible_xconnect_service_table", L2vpn.Database.FlexibleXconnectServiceTable)), ("redundancy", ("redundancy", L2vpn.Database.Redundancy))])
+            self._child_classes = OrderedDict([("g8032-rings", ("g8032_rings", L2vpn.Database.G8032Rings)), ("xconnect-groups", ("xconnect_groups", L2vpn.Database.XconnectGroups)), ("bridge-domain-groups", ("bridge_domain_groups", L2vpn.Database.BridgeDomainGroups)), ("pseudowire-classes", ("pseudowire_classes", L2vpn.Database.PseudowireClasses)), ("vlan-switches", ("vlan_switches", L2vpn.Database.VlanSwitches)), ("flexible-xconnect-service-table", ("flexible_xconnect_service_table", L2vpn.Database.FlexibleXconnectServiceTable)), ("redundancy", ("redundancy", L2vpn.Database.Redundancy))])
             self._leafs = OrderedDict()
 
             self.g8032_rings = L2vpn.Database.G8032Rings()
@@ -1597,6 +1623,10 @@ class L2vpn(Entity):
             self.pseudowire_classes.parent = self
             self._children_name_map["pseudowire_classes"] = "pseudowire-classes"
 
+            self.vlan_switches = L2vpn.Database.VlanSwitches()
+            self.vlan_switches.parent = self
+            self._children_name_map["vlan_switches"] = "vlan-switches"
+
             self.flexible_xconnect_service_table = L2vpn.Database.FlexibleXconnectServiceTable()
             self.flexible_xconnect_service_table.parent = self
             self._children_name_map["flexible_xconnect_service_table"] = "flexible-xconnect-service-table"
@@ -1606,6 +1636,7 @@ class L2vpn(Entity):
             self._children_name_map["redundancy"] = "redundancy"
             self._segment_path = lambda: "database"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Database, [], name, value)
@@ -1641,6 +1672,7 @@ class L2vpn(Entity):
                 self.g8032_ring = YList(self)
                 self._segment_path = lambda: "g8032-rings"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Database.G8032Rings, [], name, value)
@@ -1704,10 +1736,10 @@ class L2vpn(Entity):
                     self.ylist_key_names = ['g8032_ring_name']
                     self._child_classes = OrderedDict([("erp-port0s", ("erp_port0s", L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s)), ("erp-instances", ("erp_instances", L2vpn.Database.G8032Rings.G8032Ring.ErpInstances)), ("erp-port1s", ("erp_port1s", L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s))])
                     self._leafs = OrderedDict([
-                        ('g8032_ring_name', YLeaf(YType.str, 'g8032-ring-name')),
-                        ('open_ring', YLeaf(YType.empty, 'open-ring')),
-                        ('exclusion_list', YLeaf(YType.str, 'exclusion-list')),
-                        ('erp_provider_bridge', YLeaf(YType.empty, 'erp-provider-bridge')),
+                        ('g8032_ring_name', (YLeaf(YType.str, 'g8032-ring-name'), ['str'])),
+                        ('open_ring', (YLeaf(YType.empty, 'open-ring'), ['Empty'])),
+                        ('exclusion_list', (YLeaf(YType.str, 'exclusion-list'), ['str'])),
+                        ('erp_provider_bridge', (YLeaf(YType.empty, 'erp-provider-bridge'), ['Empty'])),
                     ])
                     self.g8032_ring_name = None
                     self.open_ring = None
@@ -1727,9 +1759,10 @@ class L2vpn(Entity):
                     self._children_name_map["erp_port1s"] = "erp-port1s"
                     self._segment_path = lambda: "g8032-ring" + "[g8032-ring-name='" + str(self.g8032_ring_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/g8032-rings/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring, [u'g8032_ring_name', u'open_ring', u'exclusion_list', u'erp_provider_bridge'], name, value)
+                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring, ['g8032_ring_name', 'open_ring', 'exclusion_list', 'erp_provider_bridge'], name, value)
 
 
                 class ErpPort0s(Entity):
@@ -1761,6 +1794,7 @@ class L2vpn(Entity):
 
                         self.erp_port0 = YList(self)
                         self._segment_path = lambda: "erp-port0s"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s, [], name, value)
@@ -1775,14 +1809,14 @@ class L2vpn(Entity):
                         	Port0 interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: monitor
                         
                         	Ethernet ring protection port0 monitor
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         
 
@@ -1801,15 +1835,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('monitor', YLeaf(YType.str, 'monitor')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('monitor', (YLeaf(YType.str, 'monitor'), ['str'])),
                             ])
                             self.interface_name = None
                             self.monitor = None
                             self._segment_path = lambda: "erp-port0" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, [u'interface_name', u'monitor'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort0s.ErpPort0, ['interface_name', 'monitor'], name, value)
 
 
                 class ErpInstances(Entity):
@@ -1841,6 +1876,7 @@ class L2vpn(Entity):
 
                         self.erp_instance = YList(self)
                         self._segment_path = lambda: "erp-instances"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances, [], name, value)
@@ -1903,10 +1939,10 @@ class L2vpn(Entity):
                             self.ylist_key_names = ['erp_instance_id']
                             self._child_classes = OrderedDict([("rpl", ("rpl", L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl)), ("aps", ("aps", L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps))])
                             self._leafs = OrderedDict([
-                                ('erp_instance_id', YLeaf(YType.uint32, 'erp-instance-id')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('inclusion_list', YLeaf(YType.str, 'inclusion-list')),
-                                ('profile', YLeaf(YType.str, 'profile')),
+                                ('erp_instance_id', (YLeaf(YType.uint32, 'erp-instance-id'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('inclusion_list', (YLeaf(YType.str, 'inclusion-list'), ['str'])),
+                                ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                             ])
                             self.erp_instance_id = None
                             self.description = None
@@ -1921,9 +1957,10 @@ class L2vpn(Entity):
                             self.aps.parent = self
                             self._children_name_map["aps"] = "aps"
                             self._segment_path = lambda: "erp-instance" + "[erp-instance-id='" + str(self.erp_instance_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, [u'erp_instance_id', u'description', u'inclusion_list', u'profile'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance, ['erp_instance_id', 'description', 'inclusion_list', 'profile'], name, value)
 
 
                         class Rpl(Entity):
@@ -1957,15 +1994,16 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('port', YLeaf(YType.enumeration, 'port')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
+                                    ('port', (YLeaf(YType.enumeration, 'port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'ErpPort1', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'RplRole', '')])),
                                 ])
                                 self.port = None
                                 self.role = None
                                 self._segment_path = lambda: "rpl"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, [u'port', u'role'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Rpl, ['port', 'role'], name, value)
 
 
                         class Aps(Entity):
@@ -2011,9 +2049,9 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("port1", ("port1", L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1))])
                                 self._leafs = OrderedDict([
-                                    ('port0', YLeaf(YType.str, 'port0')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
+                                    ('port0', (YLeaf(YType.str, 'port0'), ['str'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
                                 ])
                                 self.port0 = None
                                 self.enable = None
@@ -2023,9 +2061,10 @@ class L2vpn(Entity):
                                 self.port1.parent = self
                                 self._children_name_map["port1"] = "port1"
                                 self._segment_path = lambda: "aps"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, [u'port0', u'enable', u'level'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps, ['port0', 'enable', 'level'], name, value)
 
 
                             class Port1(Entity):
@@ -2059,15 +2098,16 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('aps_type', YLeaf(YType.enumeration, 'aps-type')),
-                                        ('aps_channel', YLeaf(YType.str, 'aps-channel')),
+                                        ('aps_type', (YLeaf(YType.enumeration, 'aps-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Erpaps', '')])),
+                                        ('aps_channel', (YLeaf(YType.str, 'aps-channel'), ['str'])),
                                     ])
                                     self.aps_type = None
                                     self.aps_channel = None
                                     self._segment_path = lambda: "port1"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, [u'aps_type', u'aps_channel'], name, value)
+                                    self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpInstances.ErpInstance.Aps.Port1, ['aps_type', 'aps_channel'], name, value)
 
 
                 class ErpPort1s(Entity):
@@ -2099,6 +2139,7 @@ class L2vpn(Entity):
 
                         self.erp_port1 = YList(self)
                         self._segment_path = lambda: "erp-port1s"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s, [], name, value)
@@ -2142,7 +2183,7 @@ class L2vpn(Entity):
                             self.ylist_key_names = ['erp_port_type']
                             self._child_classes = OrderedDict([("none-or-virtual", ("none_or_virtual", L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual)), ("interface", ("interface", L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface))])
                             self._leafs = OrderedDict([
-                                ('erp_port_type', YLeaf(YType.enumeration, 'erp-port-type')),
+                                ('erp_port_type', (YLeaf(YType.enumeration, 'erp-port-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'ErpPort', '')])),
                             ])
                             self.erp_port_type = None
 
@@ -2151,9 +2192,10 @@ class L2vpn(Entity):
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "erp-port1" + "[erp-port-type='" + str(self.erp_port_type) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, [u'erp_port_type'], name, value)
+                            self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1, ['erp_port_type'], name, value)
 
 
                         class NoneOrVirtual(Entity):
@@ -2165,7 +2207,7 @@ class L2vpn(Entity):
                             	Ethernet ring protection port1 monitor
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -2187,13 +2229,14 @@ class L2vpn(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('monitor', YLeaf(YType.str, 'monitor')),
+                                    ('monitor', (YLeaf(YType.str, 'monitor'), ['str'])),
                                 ])
                                 self.monitor = None
                                 self._segment_path = lambda: "none-or-virtual"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, [u'monitor'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.NoneOrVirtual, ['monitor'], name, value)
 
 
                         class Interface(Entity):
@@ -2205,14 +2248,14 @@ class L2vpn(Entity):
                             	Port1 interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: monitor
                             
                             	Ethernet ring protection port1 monitor
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -2231,15 +2274,16 @@ class L2vpn(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('monitor', YLeaf(YType.str, 'monitor')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('monitor', (YLeaf(YType.str, 'monitor'), ['str'])),
                                 ])
                                 self.interface_name = None
                                 self.monitor = None
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, [u'interface_name', u'monitor'], name, value)
+                                self._perform_setattr(L2vpn.Database.G8032Rings.G8032Ring.ErpPort1s.ErpPort1.Interface, ['interface_name', 'monitor'], name, value)
 
 
         class XconnectGroups(Entity):
@@ -2272,6 +2316,7 @@ class L2vpn(Entity):
                 self.xconnect_group = YList(self)
                 self._segment_path = lambda: "xconnect-groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Database.XconnectGroups, [], name, value)
@@ -2315,7 +2360,7 @@ class L2vpn(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("p2p-xconnects", ("p2p_xconnects", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects)), ("mp2mp-xconnects", ("mp2mp_xconnects", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -2328,9 +2373,10 @@ class L2vpn(Entity):
                     self._children_name_map["mp2mp_xconnects"] = "mp2mp-xconnects"
                     self._segment_path = lambda: "xconnect-group" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/xconnect-groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup, [u'name'], name, value)
+                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup, ['name'], name, value)
 
 
                 class P2pXconnects(Entity):
@@ -2362,6 +2408,7 @@ class L2vpn(Entity):
 
                         self.p2p_xconnect = YList(self)
                         self._segment_path = lambda: "p2p-xconnects"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects, [], name, value)
@@ -2437,9 +2484,9 @@ class L2vpn(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([("backup-attachment-circuits", ("backup_attachment_circuits", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits)), ("pseudowire-evpns", ("pseudowire_evpns", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns)), ("pseudowires", ("pseudowires", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires)), ("monitor-sessions", ("monitor_sessions", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions)), ("pseudowire-routeds", ("pseudowire_routeds", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds)), ("attachment-circuits", ("attachment_circuits", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits))])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('p2p_description', YLeaf(YType.str, 'p2p-description')),
-                                ('interworking', YLeaf(YType.enumeration, 'interworking')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('p2p_description', (YLeaf(YType.str, 'p2p-description'), ['str'])),
+                                ('interworking', (YLeaf(YType.enumeration, 'interworking'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Interworking', '')])),
                             ])
                             self.name = None
                             self.p2p_description = None
@@ -2469,9 +2516,10 @@ class L2vpn(Entity):
                             self.attachment_circuits.parent = self
                             self._children_name_map["attachment_circuits"] = "attachment-circuits"
                             self._segment_path = lambda: "p2p-xconnect" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, [u'name', u'p2p_description', u'interworking'], name, value)
+                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect, ['name', 'p2p_description', 'interworking'], name, value)
 
 
                         class BackupAttachmentCircuits(Entity):
@@ -2503,6 +2551,7 @@ class L2vpn(Entity):
 
                                 self.backup_attachment_circuit = YList(self)
                                 self._segment_path = lambda: "backup-attachment-circuits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits, [], name, value)
@@ -2517,7 +2566,7 @@ class L2vpn(Entity):
                                 	Name of the attachment circuit interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 
 
@@ -2536,13 +2585,14 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                     ])
                                     self.interface_name = None
                                     self._segment_path = lambda: "backup-attachment-circuit" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, [u'interface_name'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.BackupAttachmentCircuits.BackupAttachmentCircuit, ['interface_name'], name, value)
 
 
                         class PseudowireEvpns(Entity):
@@ -2574,6 +2624,7 @@ class L2vpn(Entity):
 
                                 self.pseudowire_evpn = YList(self)
                                 self._segment_path = lambda: "pseudowire-evpns"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns, [], name, value)
@@ -2628,19 +2679,20 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['eviid','remote_acid','source_acid']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
-                                        ('remote_acid', YLeaf(YType.uint32, 'remote-acid')),
-                                        ('source_acid', YLeaf(YType.uint32, 'source-acid')),
-                                        ('class_', YLeaf(YType.str, 'class')),
+                                        ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                                        ('remote_acid', (YLeaf(YType.uint32, 'remote-acid'), ['int'])),
+                                        ('source_acid', (YLeaf(YType.uint32, 'source-acid'), ['int'])),
+                                        ('class_', (YLeaf(YType.str, 'class'), ['str'])),
                                     ])
                                     self.eviid = None
                                     self.remote_acid = None
                                     self.source_acid = None
                                     self.class_ = None
                                     self._segment_path = lambda: "pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[remote-acid='" + str(self.remote_acid) + "']" + "[source-acid='" + str(self.source_acid) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, [u'eviid', u'remote_acid', u'source_acid', u'class_'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireEvpns.PseudowireEvpn, ['eviid', 'remote_acid', 'source_acid', 'class_'], name, value)
 
 
                         class Pseudowires(Entity):
@@ -2672,6 +2724,7 @@ class L2vpn(Entity):
 
                                 self.pseudowire = YList(self)
                                 self._segment_path = lambda: "pseudowires"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires, [], name, value)
@@ -2715,16 +2768,17 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['pseudowire_id']
                                     self._child_classes = OrderedDict([("neighbor", ("neighbor", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor)), ("pseudowire-address", ("pseudowire_address", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress))])
                                     self._leafs = OrderedDict([
-                                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                                        ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
                                     ])
                                     self.pseudowire_id = None
 
                                     self.neighbor = YList(self)
                                     self.pseudowire_address = YList(self)
                                     self._segment_path = lambda: "pseudowire" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, [u'pseudowire_id'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire, ['pseudowire_id'], name, value)
 
 
                                 class Neighbor(Entity):
@@ -2809,11 +2863,11 @@ class L2vpn(Entity):
                                         self.ylist_key_names = ['neighbor']
                                         self._child_classes = OrderedDict([("mpls-static-labels", ("mpls_static_labels", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels)), ("backup-pseudowires", ("backup_pseudowires", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires)), ("l2tp-static-attributes", ("l2tp_static_attributes", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes)), ("l2tp-static", ("l2tp_static", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic))])
                                         self._leafs = OrderedDict([
-                                            ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                            ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
-                                            ('class_', YLeaf(YType.str, 'class')),
-                                            ('source_address', YLeaf(YType.str, 'source-address')),
-                                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                            ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                            ('tag_impose', (YLeaf(YType.uint32, 'tag-impose'), ['int'])),
+                                            ('class_', (YLeaf(YType.str, 'class'), ['str'])),
+                                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                            ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                         ])
                                         self.neighbor = None
                                         self.tag_impose = None
@@ -2837,9 +2891,10 @@ class L2vpn(Entity):
                                         self.l2tp_static.parent = self
                                         self._children_name_map["l2tp_static"] = "l2tp-static"
                                         self._segment_path = lambda: "neighbor" + "[neighbor='" + str(self.neighbor) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, [u'neighbor', u'tag_impose', u'class_', u'source_address', u'bandwidth'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor, ['neighbor', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
                                     class MplsStaticLabels(Entity):
@@ -2877,15 +2932,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                                ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                             ])
                                             self.local_static_label = None
                                             self.remote_static_label = None
                                             self._segment_path = lambda: "mpls-static-labels"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                     class BackupPseudowires(Entity):
@@ -2917,6 +2973,7 @@ class L2vpn(Entity):
 
                                             self.backup_pseudowire = YList(self)
                                             self._segment_path = lambda: "backup-pseudowires"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires, [], name, value)
@@ -2969,9 +3026,9 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['neighbor','pseudowire_id']
                                                 self._child_classes = OrderedDict([("backup-mpls-static-labels", ("backup_mpls_static_labels", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels))])
                                                 self._leafs = OrderedDict([
-                                                    ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                                    ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                                    ('backup_pw_class', YLeaf(YType.str, 'backup-pw-class')),
+                                                    ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                    ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                    ('backup_pw_class', (YLeaf(YType.str, 'backup-pw-class'), ['str'])),
                                                 ])
                                                 self.neighbor = None
                                                 self.pseudowire_id = None
@@ -2981,9 +3038,10 @@ class L2vpn(Entity):
                                                 self.backup_mpls_static_labels.parent = self
                                                 self._children_name_map["backup_mpls_static_labels"] = "backup-mpls-static-labels"
                                                 self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, [u'neighbor', u'pseudowire_id', u'backup_pw_class'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
                                             class BackupMplsStaticLabels(Entity):
@@ -3021,15 +3079,16 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                                        ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                        ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                        ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                                     ])
                                                     self.local_static_label = None
                                                     self.remote_static_label = None
                                                     self._segment_path = lambda: "backup-mpls-static-labels"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                     class L2tpStaticAttributes(Entity):
@@ -3082,8 +3141,8 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("l2tp-remote-cookie", ("l2tp_remote_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie)), ("l2tp-secondary-local-cookie", ("l2tp_secondary_local_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie)), ("l2tp-local-cookie", ("l2tp_local_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie))])
                                             self._leafs = OrderedDict([
-                                                ('l2tp_remote_session_id', YLeaf(YType.uint32, 'l2tp-remote-session-id')),
-                                                ('l2tp_local_session_id', YLeaf(YType.uint32, 'l2tp-local-session-id')),
+                                                ('l2tp_remote_session_id', (YLeaf(YType.uint32, 'l2tp-remote-session-id'), ['int'])),
+                                                ('l2tp_local_session_id', (YLeaf(YType.uint32, 'l2tp-local-session-id'), ['int'])),
                                             ])
                                             self.l2tp_remote_session_id = None
                                             self.l2tp_local_session_id = None
@@ -3100,9 +3159,10 @@ class L2vpn(Entity):
                                             self.l2tp_local_cookie.parent = self
                                             self._children_name_map["l2tp_local_cookie"] = "l2tp-local-cookie"
                                             self._segment_path = lambda: "l2tp-static-attributes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, [u'l2tp_remote_session_id', u'l2tp_local_session_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
                                         class L2tpRemoteCookie(Entity):
@@ -3145,17 +3205,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-remote-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                         class L2tpSecondaryLocalCookie(Entity):
@@ -3198,17 +3259,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-secondary-local-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                         class L2tpLocalCookie(Entity):
@@ -3251,17 +3313,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-local-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                     class L2tpStatic(Entity):
@@ -3290,13 +3353,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.enable = None
                                             self._segment_path = lambda: "l2tp-static"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.Neighbor.L2tpStatic, ['enable'], name, value)
 
 
                                 class PseudowireAddress(Entity):
@@ -3381,11 +3445,11 @@ class L2vpn(Entity):
                                         self.ylist_key_names = ['pseudowire_address']
                                         self._child_classes = OrderedDict([("mpls-static-labels", ("mpls_static_labels", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels)), ("backup-pseudowires", ("backup_pseudowires", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires)), ("l2tp-static-attributes", ("l2tp_static_attributes", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes)), ("l2tp-static", ("l2tp_static", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic))])
                                         self._leafs = OrderedDict([
-                                            ('pseudowire_address', YLeaf(YType.str, 'pseudowire-address')),
-                                            ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
-                                            ('class_', YLeaf(YType.str, 'class')),
-                                            ('source_address', YLeaf(YType.str, 'source-address')),
-                                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                            ('pseudowire_address', (YLeaf(YType.str, 'pseudowire-address'), ['str'])),
+                                            ('tag_impose', (YLeaf(YType.uint32, 'tag-impose'), ['int'])),
+                                            ('class_', (YLeaf(YType.str, 'class'), ['str'])),
+                                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                                            ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                         ])
                                         self.pseudowire_address = None
                                         self.tag_impose = None
@@ -3409,9 +3473,10 @@ class L2vpn(Entity):
                                         self.l2tp_static.parent = self
                                         self._children_name_map["l2tp_static"] = "l2tp-static"
                                         self._segment_path = lambda: "pseudowire-address" + "[pseudowire-address='" + str(self.pseudowire_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, [u'pseudowire_address', u'tag_impose', u'class_', u'source_address', u'bandwidth'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress, ['pseudowire_address', 'tag_impose', 'class_', 'source_address', 'bandwidth'], name, value)
 
 
                                     class MplsStaticLabels(Entity):
@@ -3449,15 +3514,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                                ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                             ])
                                             self.local_static_label = None
                                             self.remote_static_label = None
                                             self._segment_path = lambda: "mpls-static-labels"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.MplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                     class BackupPseudowires(Entity):
@@ -3489,6 +3555,7 @@ class L2vpn(Entity):
 
                                             self.backup_pseudowire = YList(self)
                                             self._segment_path = lambda: "backup-pseudowires"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires, [], name, value)
@@ -3541,9 +3608,9 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['neighbor','pseudowire_id']
                                                 self._child_classes = OrderedDict([("backup-mpls-static-labels", ("backup_mpls_static_labels", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels))])
                                                 self._leafs = OrderedDict([
-                                                    ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                                    ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                                    ('backup_pw_class', YLeaf(YType.str, 'backup-pw-class')),
+                                                    ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                    ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                    ('backup_pw_class', (YLeaf(YType.str, 'backup-pw-class'), ['str'])),
                                                 ])
                                                 self.neighbor = None
                                                 self.pseudowire_id = None
@@ -3553,9 +3620,10 @@ class L2vpn(Entity):
                                                 self.backup_mpls_static_labels.parent = self
                                                 self._children_name_map["backup_mpls_static_labels"] = "backup-mpls-static-labels"
                                                 self._segment_path = lambda: "backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, [u'neighbor', u'pseudowire_id', u'backup_pw_class'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire, ['neighbor', 'pseudowire_id', 'backup_pw_class'], name, value)
 
 
                                             class BackupMplsStaticLabels(Entity):
@@ -3593,15 +3661,16 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                                        ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                        ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                        ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                                     ])
                                                     self.local_static_label = None
                                                     self.remote_static_label = None
                                                     self._segment_path = lambda: "backup-mpls-static-labels"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.BackupPseudowires.BackupPseudowire.BackupMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                     class L2tpStaticAttributes(Entity):
@@ -3654,8 +3723,8 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("l2tp-remote-cookie", ("l2tp_remote_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie)), ("l2tp-secondary-local-cookie", ("l2tp_secondary_local_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie)), ("l2tp-local-cookie", ("l2tp_local_cookie", L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie))])
                                             self._leafs = OrderedDict([
-                                                ('l2tp_remote_session_id', YLeaf(YType.uint32, 'l2tp-remote-session-id')),
-                                                ('l2tp_local_session_id', YLeaf(YType.uint32, 'l2tp-local-session-id')),
+                                                ('l2tp_remote_session_id', (YLeaf(YType.uint32, 'l2tp-remote-session-id'), ['int'])),
+                                                ('l2tp_local_session_id', (YLeaf(YType.uint32, 'l2tp-local-session-id'), ['int'])),
                                             ])
                                             self.l2tp_remote_session_id = None
                                             self.l2tp_local_session_id = None
@@ -3672,9 +3741,10 @@ class L2vpn(Entity):
                                             self.l2tp_local_cookie.parent = self
                                             self._children_name_map["l2tp_local_cookie"] = "l2tp-local-cookie"
                                             self._segment_path = lambda: "l2tp-static-attributes"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, [u'l2tp_remote_session_id', u'l2tp_local_session_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes, ['l2tp_remote_session_id', 'l2tp_local_session_id'], name, value)
 
 
                                         class L2tpRemoteCookie(Entity):
@@ -3717,17 +3787,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-remote-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpRemoteCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                         class L2tpSecondaryLocalCookie(Entity):
@@ -3770,17 +3841,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-secondary-local-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpSecondaryLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                         class L2tpLocalCookie(Entity):
@@ -3823,17 +3895,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('size', YLeaf(YType.enumeration, 'size')),
-                                                    ('lower_value', YLeaf(YType.uint32, 'lower-value')),
-                                                    ('higher_value', YLeaf(YType.uint32, 'higher-value')),
+                                                    ('size', (YLeaf(YType.enumeration, 'size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                                                    ('lower_value', (YLeaf(YType.uint32, 'lower-value'), ['int'])),
+                                                    ('higher_value', (YLeaf(YType.uint32, 'higher-value'), ['int'])),
                                                 ])
                                                 self.size = None
                                                 self.lower_value = None
                                                 self.higher_value = None
                                                 self._segment_path = lambda: "l2tp-local-cookie"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, [u'size', u'lower_value', u'higher_value'], name, value)
+                                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStaticAttributes.L2tpLocalCookie, ['size', 'lower_value', 'higher_value'], name, value)
 
 
                                     class L2tpStatic(Entity):
@@ -3862,13 +3935,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.enable = None
                                             self._segment_path = lambda: "l2tp-static"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.Pseudowires.Pseudowire.PseudowireAddress.L2tpStatic, ['enable'], name, value)
 
 
                         class MonitorSessions(Entity):
@@ -3900,6 +3974,7 @@ class L2vpn(Entity):
 
                                 self.monitor_session = YList(self)
                                 self._segment_path = lambda: "monitor-sessions"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions, [], name, value)
@@ -3938,15 +4013,16 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ])
                                     self.name = None
                                     self.enable = None
                                     self._segment_path = lambda: "monitor-session" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, [u'name', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.MonitorSessions.MonitorSession, ['name', 'enable'], name, value)
 
 
                         class PseudowireRouteds(Entity):
@@ -3978,6 +4054,7 @@ class L2vpn(Entity):
 
                                 self.pseudowire_routed = YList(self)
                                 self._segment_path = lambda: "pseudowire-routeds"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds, [], name, value)
@@ -4046,12 +4123,12 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['global_id','prefix','acid','sacid']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('global_id', YLeaf(YType.uint32, 'global-id')),
-                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                        ('acid', YLeaf(YType.uint32, 'acid')),
-                                        ('sacid', YLeaf(YType.uint32, 'sacid')),
-                                        ('tag_impose', YLeaf(YType.uint32, 'tag-impose')),
-                                        ('class_', YLeaf(YType.str, 'class')),
+                                        ('global_id', (YLeaf(YType.uint32, 'global-id'), ['int'])),
+                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                        ('acid', (YLeaf(YType.uint32, 'acid'), ['int'])),
+                                        ('sacid', (YLeaf(YType.uint32, 'sacid'), ['int'])),
+                                        ('tag_impose', (YLeaf(YType.uint32, 'tag-impose'), ['int'])),
+                                        ('class_', (YLeaf(YType.str, 'class'), ['str'])),
                                     ])
                                     self.global_id = None
                                     self.prefix = None
@@ -4060,9 +4137,10 @@ class L2vpn(Entity):
                                     self.tag_impose = None
                                     self.class_ = None
                                     self._segment_path = lambda: "pseudowire-routed" + "[global-id='" + str(self.global_id) + "']" + "[prefix='" + str(self.prefix) + "']" + "[acid='" + str(self.acid) + "']" + "[sacid='" + str(self.sacid) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, [u'global_id', u'prefix', u'acid', u'sacid', u'tag_impose', u'class_'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.PseudowireRouteds.PseudowireRouted, ['global_id', 'prefix', 'acid', 'sacid', 'tag_impose', 'class_'], name, value)
 
 
                         class AttachmentCircuits(Entity):
@@ -4094,6 +4172,7 @@ class L2vpn(Entity):
 
                                 self.attachment_circuit = YList(self)
                                 self._segment_path = lambda: "attachment-circuits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits, [], name, value)
@@ -4108,7 +4187,7 @@ class L2vpn(Entity):
                                 	Name of the attachment circuit interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: enable
                                 
@@ -4132,15 +4211,16 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ])
                                     self.name = None
                                     self.enable = None
                                     self._segment_path = lambda: "attachment-circuit" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, [u'name', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.P2pXconnects.P2pXconnect.AttachmentCircuits.AttachmentCircuit, ['name', 'enable'], name, value)
 
 
                 class Mp2mpXconnects(Entity):
@@ -4172,6 +4252,7 @@ class L2vpn(Entity):
 
                         self.mp2mp_xconnect = YList(self)
                         self._segment_path = lambda: "mp2mp-xconnects"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects, [], name, value)
@@ -4246,13 +4327,13 @@ class L2vpn(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([("mp2mp-auto-discovery", ("mp2mp_auto_discovery", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery))])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('mp2mpmtu', YLeaf(YType.uint32, 'mp2mpmtu')),
-                                ('mp2mp_control_word', YLeaf(YType.empty, 'mp2mp-control-word')),
-                                ('mp2mpl2_encapsulation', YLeaf(YType.enumeration, 'mp2mpl2-encapsulation')),
-                                ('mp2mp_interworking', YLeaf(YType.enumeration, 'mp2mp-interworking')),
-                                ('mp2mp_shutdown', YLeaf(YType.empty, 'mp2mp-shutdown')),
-                                ('mp2mpvpn_id', YLeaf(YType.uint32, 'mp2mpvpn-id')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('mp2mpmtu', (YLeaf(YType.uint32, 'mp2mpmtu'), ['int'])),
+                                ('mp2mp_control_word', (YLeaf(YType.empty, 'mp2mp-control-word'), ['Empty'])),
+                                ('mp2mpl2_encapsulation', (YLeaf(YType.enumeration, 'mp2mpl2-encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2Encapsulation', '')])),
+                                ('mp2mp_interworking', (YLeaf(YType.enumeration, 'mp2mp-interworking'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'Interworking', '')])),
+                                ('mp2mp_shutdown', (YLeaf(YType.empty, 'mp2mp-shutdown'), ['Empty'])),
+                                ('mp2mpvpn_id', (YLeaf(YType.uint32, 'mp2mpvpn-id'), ['int'])),
                             ])
                             self.name = None
                             self.mp2mpmtu = None
@@ -4266,9 +4347,10 @@ class L2vpn(Entity):
                             self.mp2mp_auto_discovery.parent = self
                             self._children_name_map["mp2mp_auto_discovery"] = "mp2mp-auto-discovery"
                             self._segment_path = lambda: "mp2mp-xconnect" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, [u'name', u'mp2mpmtu', u'mp2mp_control_word', u'mp2mpl2_encapsulation', u'mp2mp_interworking', u'mp2mp_shutdown', u'mp2mpvpn_id'], name, value)
+                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect, ['name', 'mp2mpmtu', 'mp2mp_control_word', 'mp2mpl2_encapsulation', 'mp2mp_interworking', 'mp2mp_shutdown', 'mp2mpvpn_id'], name, value)
 
 
                         class Mp2mpAutoDiscovery(Entity):
@@ -4317,7 +4399,7 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("route-distinguisher", ("route_distinguisher", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher)), ("mp2mp-route-policy", ("mp2mp_route_policy", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy)), ("mp2mp-route-targets", ("mp2mp_route_targets", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets)), ("mp2mp-signaling-protocol", ("mp2mp_signaling_protocol", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol))])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.enable = None
 
@@ -4337,9 +4419,10 @@ class L2vpn(Entity):
                                 self.mp2mp_signaling_protocol.parent = self
                                 self._children_name_map["mp2mp_signaling_protocol"] = "mp2mp-signaling-protocol"
                                 self._segment_path = lambda: "mp2mp-auto-discovery"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, [u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery, ['enable'], name, value)
 
 
                             class RouteDistinguisher(Entity):
@@ -4396,11 +4479,11 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.enumeration, 'type')),
-                                        ('as_', YLeaf(YType.uint32, 'as')),
-                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                        ('address', YLeaf(YType.str, 'address')),
-                                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                        ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                                     ])
                                     self.type = None
                                     self.as_ = None
@@ -4408,9 +4491,10 @@ class L2vpn(Entity):
                                     self.address = None
                                     self.addr_index = None
                                     self._segment_path = lambda: "route-distinguisher"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
                             class Mp2mpRoutePolicy(Entity):
@@ -4439,13 +4523,14 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('export', YLeaf(YType.str, 'export')),
+                                        ('export', (YLeaf(YType.str, 'export'), ['str'])),
                                     ])
                                     self.export = None
                                     self._segment_path = lambda: "mp2mp-route-policy"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, [u'export'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRoutePolicy, ['export'], name, value)
 
 
                             class Mp2mpRouteTargets(Entity):
@@ -4477,6 +4562,7 @@ class L2vpn(Entity):
 
                                     self.mp2mp_route_target = YList(self)
                                     self._segment_path = lambda: "mp2mp-route-targets"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets, [], name, value)
@@ -4523,8 +4609,8 @@ class L2vpn(Entity):
                                         self.ylist_key_names = ['role','format']
                                         self._child_classes = OrderedDict([("two-byte-as-or-four-byte-as", ("two_byte_as_or_four_byte_as", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs)), ("ipv4-address", ("ipv4_address", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address))])
                                         self._leafs = OrderedDict([
-                                            ('role', YLeaf(YType.enumeration, 'role')),
-                                            ('format', YLeaf(YType.enumeration, 'format')),
+                                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                            ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
                                         ])
                                         self.role = None
                                         self.format = None
@@ -4532,9 +4618,10 @@ class L2vpn(Entity):
                                         self.two_byte_as_or_four_byte_as = YList(self)
                                         self.ipv4_address = YList(self)
                                         self._segment_path = lambda: "mp2mp-route-target" + "[role='" + str(self.role) + "']" + "[format='" + str(self.format) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, [u'role', u'format'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget, ['role', 'format'], name, value)
 
 
                                     class TwoByteAsOrFourByteAs(Entity):
@@ -4572,15 +4659,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['as_','as_index']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('as_', YLeaf(YType.uint32, 'as')),
-                                                ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
                                             ])
                                             self.as_ = None
                                             self.as_index = None
                                             self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, [u'as_', u'as_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
                                     class Ipv4Address(Entity):
@@ -4618,15 +4706,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['address','addr_index']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                                             ])
                                             self.address = None
                                             self.addr_index = None
                                             self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, [u'address', u'addr_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpRouteTargets.Mp2mpRouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
 
 
                             class Mp2mpSignalingProtocol(Entity):
@@ -4672,8 +4761,8 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance)), ("ceids", ("ceids", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids))])
                                     self._leafs = OrderedDict([
-                                        ('ce_range', YLeaf(YType.uint32, 'ce-range')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('ce_range', (YLeaf(YType.uint32, 'ce-range'), ['int'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ])
                                     self.ce_range = None
                                     self.enable = None
@@ -4686,9 +4775,10 @@ class L2vpn(Entity):
                                     self.ceids.parent = self
                                     self._children_name_map["ceids"] = "ceids"
                                     self._segment_path = lambda: "mp2mp-signaling-protocol"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, [u'ce_range', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol, ['ce_range', 'enable'], name, value)
 
 
                                 class FlowLabelLoadBalance(Entity):
@@ -4722,15 +4812,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
-                                            ('static', YLeaf(YType.empty, 'static')),
+                                            ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                            ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
                                         ])
                                         self.flow_label = None
                                         self.static = None
                                         self._segment_path = lambda: "flow-label-load-balance"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                        self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
                                 class Ceids(Entity):
@@ -4762,6 +4853,7 @@ class L2vpn(Entity):
 
                                         self.ceid = YList(self)
                                         self._segment_path = lambda: "ceids"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids, [], name, value)
@@ -4800,7 +4892,7 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['ce_id']
                                             self._child_classes = OrderedDict([("remote-ceid-attachment-circuits", ("remote_ceid_attachment_circuits", L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits))])
                                             self._leafs = OrderedDict([
-                                                ('ce_id', YLeaf(YType.uint32, 'ce-id')),
+                                                ('ce_id', (YLeaf(YType.uint32, 'ce-id'), ['int'])),
                                             ])
                                             self.ce_id = None
 
@@ -4808,9 +4900,10 @@ class L2vpn(Entity):
                                             self.remote_ceid_attachment_circuits.parent = self
                                             self._children_name_map["remote_ceid_attachment_circuits"] = "remote-ceid-attachment-circuits"
                                             self._segment_path = lambda: "ceid" + "[ce-id='" + str(self.ce_id) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, [u'ce_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid, ['ce_id'], name, value)
 
 
                                         class RemoteCeidAttachmentCircuits(Entity):
@@ -4843,6 +4936,7 @@ class L2vpn(Entity):
 
                                                 self.remote_ceid_attachment_circuit = YList(self)
                                                 self._segment_path = lambda: "remote-ceid-attachment-circuits"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits, [], name, value)
@@ -4857,7 +4951,7 @@ class L2vpn(Entity):
                                                 	The name of the Attachment Circuit
                                                 	**type**\: str
                                                 
-                                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                                 
                                                 .. attribute:: remote_ce_id  (key)
                                                 
@@ -4883,20 +4977,21 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = ['name','remote_ce_id']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('name', YLeaf(YType.str, 'name')),
-                                                        ('remote_ce_id', YLeaf(YType.uint32, 'remote-ce-id')),
+                                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                                        ('remote_ce_id', (YLeaf(YType.uint32, 'remote-ce-id'), ['int'])),
                                                     ])
                                                     self.name = None
                                                     self.remote_ce_id = None
                                                     self._segment_path = lambda: "remote-ceid-attachment-circuit" + "[name='" + str(self.name) + "']" + "[remote-ce-id='" + str(self.remote_ce_id) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, [u'name', u'remote_ce_id'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.XconnectGroups.XconnectGroup.Mp2mpXconnects.Mp2mpXconnect.Mp2mpAutoDiscovery.Mp2mpSignalingProtocol.Ceids.Ceid.RemoteCeidAttachmentCircuits.RemoteCeidAttachmentCircuit, ['name', 'remote_ce_id'], name, value)
 
 
         class BridgeDomainGroups(Entity):
             """
-            List of bridge  groups
+            List of bridge groups
             
             .. attribute:: bridge_domain_group
             
@@ -4924,6 +5019,7 @@ class L2vpn(Entity):
                 self.bridge_domain_group = YList(self)
                 self._segment_path = lambda: "bridge-domain-groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups, [], name, value)
@@ -4962,7 +5058,7 @@ class L2vpn(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("bridge-domains", ("bridge_domains", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -4971,9 +5067,10 @@ class L2vpn(Entity):
                     self._children_name_map["bridge_domains"] = "bridge-domains"
                     self._segment_path = lambda: "bridge-domain-group" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/bridge-domain-groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, [u'name'], name, value)
+                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup, ['name'], name, value)
 
 
                 class BridgeDomains(Entity):
@@ -5005,6 +5102,7 @@ class L2vpn(Entity):
 
                         self.bridge_domain = YList(self)
                         self._segment_path = lambda: "bridge-domains"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains, [], name, value)
@@ -5065,6 +5163,11 @@ class L2vpn(Entity):
                         
                         	Specify the virtual forwarding interface name
                         	**type**\:  :py:class:`Vfis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis>`
+                        
+                        .. attribute:: bridge_domainvnis
+                        
+                        	Bridge Domain EVPN VxLAN Network Identifier Table
+                        	**type**\:  :py:class:`BridgeDomainvnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis>`
                         
                         .. attribute:: bd_attachment_circuits
                         
@@ -5173,20 +5276,20 @@ class L2vpn(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = ['name']
-                            self._child_classes = OrderedDict([("bd-storm-controls", ("bd_storm_controls", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls)), ("member-vnis", ("member_vnis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis)), ("bridge-domain-mac", ("bridge_domain_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac)), ("nv-satellite", ("nv_satellite", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite)), ("bridge-domain-pbb", ("bridge_domain_pbb", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb)), ("bridge-domain-evis", ("bridge_domain_evis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis)), ("access-vfis", ("access_vfis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis)), ("bd-pseudowires", ("bd_pseudowires", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires)), ("vfis", ("vfis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis)), ("bd-attachment-circuits", ("bd_attachment_circuits", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits)), ("bd-pseudowire-evpns", ("bd_pseudowire_evpns", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns)), ("ip-source-guard", ("ip_source_guard", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard)), ("dai", ("dai", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai)), ("routed-interfaces", ("routed_interfaces", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces))])
+                            self._child_classes = OrderedDict([("bd-storm-controls", ("bd_storm_controls", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls)), ("member-vnis", ("member_vnis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis)), ("bridge-domain-mac", ("bridge_domain_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac)), ("nv-satellite", ("nv_satellite", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite)), ("bridge-domain-pbb", ("bridge_domain_pbb", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb)), ("bridge-domain-evis", ("bridge_domain_evis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis)), ("access-vfis", ("access_vfis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis)), ("bd-pseudowires", ("bd_pseudowires", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires)), ("vfis", ("vfis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis)), ("bridge-domainvnis", ("bridge_domainvnis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis)), ("bd-attachment-circuits", ("bd_attachment_circuits", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits)), ("bd-pseudowire-evpns", ("bd_pseudowire_evpns", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns)), ("ip-source-guard", ("ip_source_guard", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard)), ("dai", ("dai", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai)), ("routed-interfaces", ("routed_interfaces", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces))])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('coupled_mode', YLeaf(YType.empty, 'coupled-mode')),
-                                ('shutdown', YLeaf(YType.empty, 'shutdown')),
-                                ('flooding_unknown_unicast', YLeaf(YType.empty, 'flooding-unknown-unicast')),
-                                ('igmp_snooping_disable', YLeaf(YType.empty, 'igmp-snooping-disable')),
-                                ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
-                                ('mld_snooping', YLeaf(YType.str, 'mld-snooping')),
-                                ('bridge_domain_mtu', YLeaf(YType.uint32, 'bridge-domain-mtu')),
-                                ('dhcp', YLeaf(YType.str, 'dhcp')),
-                                ('bridge_description', YLeaf(YType.str, 'bridge-description')),
-                                ('igmp_snooping', YLeaf(YType.str, 'igmp-snooping')),
-                                ('flooding', YLeaf(YType.empty, 'flooding')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('coupled_mode', (YLeaf(YType.empty, 'coupled-mode'), ['Empty'])),
+                                ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
+                                ('flooding_unknown_unicast', (YLeaf(YType.empty, 'flooding-unknown-unicast'), ['Empty'])),
+                                ('igmp_snooping_disable', (YLeaf(YType.empty, 'igmp-snooping-disable'), ['Empty'])),
+                                ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BridgeDomainTransportMode', '')])),
+                                ('mld_snooping', (YLeaf(YType.str, 'mld-snooping'), ['str'])),
+                                ('bridge_domain_mtu', (YLeaf(YType.uint32, 'bridge-domain-mtu'), ['int'])),
+                                ('dhcp', (YLeaf(YType.str, 'dhcp'), ['str'])),
+                                ('bridge_description', (YLeaf(YType.str, 'bridge-description'), ['str'])),
+                                ('igmp_snooping', (YLeaf(YType.str, 'igmp-snooping'), ['str'])),
+                                ('flooding', (YLeaf(YType.empty, 'flooding'), ['Empty'])),
                             ])
                             self.name = None
                             self.coupled_mode = None
@@ -5237,6 +5340,10 @@ class L2vpn(Entity):
                             self.vfis.parent = self
                             self._children_name_map["vfis"] = "vfis"
 
+                            self.bridge_domainvnis = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis()
+                            self.bridge_domainvnis.parent = self
+                            self._children_name_map["bridge_domainvnis"] = "bridge-domainvnis"
+
                             self.bd_attachment_circuits = L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits()
                             self.bd_attachment_circuits.parent = self
                             self._children_name_map["bd_attachment_circuits"] = "bd-attachment-circuits"
@@ -5257,9 +5364,10 @@ class L2vpn(Entity):
                             self.routed_interfaces.parent = self
                             self._children_name_map["routed_interfaces"] = "routed-interfaces"
                             self._segment_path = lambda: "bridge-domain" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, [u'name', u'coupled_mode', u'shutdown', u'flooding_unknown_unicast', u'igmp_snooping_disable', u'transport_mode', u'mld_snooping', u'bridge_domain_mtu', u'dhcp', u'bridge_description', u'igmp_snooping', u'flooding'], name, value)
+                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
 
 
                         class BdStormControls(Entity):
@@ -5291,6 +5399,7 @@ class L2vpn(Entity):
 
                                 self.bd_storm_control = YList(self)
                                 self._segment_path = lambda: "bd-storm-controls"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls, [], name, value)
@@ -5327,7 +5436,7 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['sctype']
                                     self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit))])
                                     self._leafs = OrderedDict([
-                                        ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                        ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
                                     ])
                                     self.sctype = None
 
@@ -5335,9 +5444,10 @@ class L2vpn(Entity):
                                     self.storm_control_unit.parent = self
                                     self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                     self._segment_path = lambda: "bd-storm-control" + "[sctype='" + str(self.sctype) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, [u'sctype'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
 
 
                                 class StormControlUnit(Entity):
@@ -5379,25 +5489,25 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
-                                            ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                            ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                            ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
                                         ])
                                         self.kbits_per_sec = None
                                         self.pkts_per_sec = None
                                         self._segment_path = lambda: "storm-control-unit"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
                         class MemberVnis(Entity):
                             """
-                            Bridge Domain VxLAN Network Identifier
-                            Table
+                            Bridge Domain VxLAN Network Identifier Table
                             
                             .. attribute:: member_vni
                             
-                            	Bridge Domain Member VxLAN Network Identifier 
+                            	Bridge Domain Member VxLAN Network Identifier
                             	**type**\: list of  		 :py:class:`MemberVni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
                             
                             
@@ -5420,6 +5530,7 @@ class L2vpn(Entity):
 
                                 self.member_vni = YList(self)
                                 self._segment_path = lambda: "member-vnis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis, [], name, value)
@@ -5427,8 +5538,7 @@ class L2vpn(Entity):
 
                             class MemberVni(Entity):
                                 """
-                                Bridge Domain Member VxLAN Network
-                                Identifier 
+                                Bridge Domain Member VxLAN Network Identifier
                                 
                                 .. attribute:: vni  (key)
                                 
@@ -5459,7 +5569,7 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['vni']
                                     self._child_classes = OrderedDict([("member-vni-static-mac-addresses", ("member_vni_static_mac_addresses", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses))])
                                     self._leafs = OrderedDict([
-                                        ('vni', YLeaf(YType.uint32, 'vni')),
+                                        ('vni', (YLeaf(YType.uint32, 'vni'), ['int'])),
                                     ])
                                     self.vni = None
 
@@ -5467,9 +5577,10 @@ class L2vpn(Entity):
                                     self.member_vni_static_mac_addresses.parent = self
                                     self._children_name_map["member_vni_static_mac_addresses"] = "member-vni-static-mac-addresses"
                                     self._segment_path = lambda: "member-vni" + "[vni='" + str(self.vni) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, [u'vni'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
 
 
                                 class MemberVniStaticMacAddresses(Entity):
@@ -5501,6 +5612,7 @@ class L2vpn(Entity):
 
                                         self.member_vni_static_mac_address = YList(self)
                                         self._segment_path = lambda: "member-vni-static-mac-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, [], name, value)
@@ -5541,15 +5653,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['mac_address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                                ('next_hop_ip', YLeaf(YType.str, 'next-hop-ip')),
+                                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                                ('next_hop_ip', (YLeaf(YType.str, 'next-hop-ip'), ['str'])),
                                             ])
                                             self.mac_address = None
                                             self.next_hop_ip = None
                                             self._segment_path = lambda: "member-vni-static-mac-address" + "[mac-address='" + str(self.mac_address) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, [u'mac_address', u'next_hop_ip'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
 
 
                         class BridgeDomainMac(Entity):
@@ -5623,12 +5736,12 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("bd-mac-limit", ("bd_mac_limit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit)), ("bd-mac-filters", ("bd_mac_filters", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters)), ("mac-secure", ("mac_secure", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure)), ("bd-mac-aging", ("bd_mac_aging", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging))])
                                 self._leafs = OrderedDict([
-                                    ('bd_mac_withdraw_relay', YLeaf(YType.empty, 'bd-mac-withdraw-relay')),
-                                    ('bd_mac_withdraw_access_pw_disable', YLeaf(YType.empty, 'bd-mac-withdraw-access-pw-disable')),
-                                    ('bd_mac_port_down_flush', YLeaf(YType.empty, 'bd-mac-port-down-flush')),
-                                    ('bd_mac_withdraw', YLeaf(YType.empty, 'bd-mac-withdraw')),
-                                    ('bd_mac_withdraw_behavior', YLeaf(YType.enumeration, 'bd-mac-withdraw-behavior')),
-                                    ('bd_mac_learn', YLeaf(YType.enumeration, 'bd-mac-learn')),
+                                    ('bd_mac_withdraw_relay', (YLeaf(YType.empty, 'bd-mac-withdraw-relay'), ['Empty'])),
+                                    ('bd_mac_withdraw_access_pw_disable', (YLeaf(YType.empty, 'bd-mac-withdraw-access-pw-disable'), ['Empty'])),
+                                    ('bd_mac_port_down_flush', (YLeaf(YType.empty, 'bd-mac-port-down-flush'), ['Empty'])),
+                                    ('bd_mac_withdraw', (YLeaf(YType.empty, 'bd-mac-withdraw'), ['Empty'])),
+                                    ('bd_mac_withdraw_behavior', (YLeaf(YType.enumeration, 'bd-mac-withdraw-behavior'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacWithdrawBehavior', '')])),
+                                    ('bd_mac_learn', (YLeaf(YType.enumeration, 'bd-mac-learn'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BdmacLearn', '')])),
                                 ])
                                 self.bd_mac_withdraw_relay = None
                                 self.bd_mac_withdraw_access_pw_disable = None
@@ -5653,9 +5766,10 @@ class L2vpn(Entity):
                                 self.bd_mac_aging.parent = self
                                 self._children_name_map["bd_mac_aging"] = "bd-mac-aging"
                                 self._segment_path = lambda: "bridge-domain-mac"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, [u'bd_mac_withdraw_relay', u'bd_mac_withdraw_access_pw_disable', u'bd_mac_port_down_flush', u'bd_mac_withdraw', u'bd_mac_withdraw_behavior', u'bd_mac_learn'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
 
 
                             class BdMacLimit(Entity):
@@ -5696,17 +5810,18 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('bd_mac_limit_action', YLeaf(YType.enumeration, 'bd-mac-limit-action')),
-                                        ('bd_mac_limit_notif', YLeaf(YType.enumeration, 'bd-mac-limit-notif')),
-                                        ('bd_mac_limit_max', YLeaf(YType.uint32, 'bd-mac-limit-max')),
+                                        ('bd_mac_limit_action', (YLeaf(YType.enumeration, 'bd-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                        ('bd_mac_limit_notif', (YLeaf(YType.enumeration, 'bd-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                        ('bd_mac_limit_max', (YLeaf(YType.uint32, 'bd-mac-limit-max'), ['int'])),
                                     ])
                                     self.bd_mac_limit_action = None
                                     self.bd_mac_limit_notif = None
                                     self.bd_mac_limit_max = None
                                     self._segment_path = lambda: "bd-mac-limit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, [u'bd_mac_limit_action', u'bd_mac_limit_notif', u'bd_mac_limit_max'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
 
 
                             class BdMacFilters(Entity):
@@ -5738,6 +5853,7 @@ class L2vpn(Entity):
 
                                     self.bd_mac_filter = YList(self)
                                     self._segment_path = lambda: "bd-mac-filters"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, [], name, value)
@@ -5776,15 +5892,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = ['address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('drop', YLeaf(YType.empty, 'drop')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('drop', (YLeaf(YType.empty, 'drop'), ['Empty'])),
                                         ])
                                         self.address = None
                                         self.drop = None
                                         self._segment_path = lambda: "bd-mac-filter" + "[address='" + str(self.address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, [u'address', u'drop'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
 
 
                             class MacSecure(Entity):
@@ -5828,19 +5945,20 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('logging', YLeaf(YType.empty, 'logging')),
-                                        ('action', YLeaf(YType.enumeration, 'action')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
-                                        ('threshold', YLeaf(YType.empty, 'threshold')),
+                                        ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ('threshold', (YLeaf(YType.empty, 'threshold'), ['Empty'])),
                                     ])
                                     self.logging = None
                                     self.action = None
                                     self.enable = None
                                     self.threshold = None
                                     self._segment_path = lambda: "mac-secure"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, [u'logging', u'action', u'enable', u'threshold'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
 
 
                             class BdMacAging(Entity):
@@ -5876,15 +5994,16 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('bd_mac_aging_type', YLeaf(YType.enumeration, 'bd-mac-aging-type')),
-                                        ('bd_mac_aging_time', YLeaf(YType.uint32, 'bd-mac-aging-time')),
+                                        ('bd_mac_aging_type', (YLeaf(YType.enumeration, 'bd-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                        ('bd_mac_aging_time', (YLeaf(YType.uint32, 'bd-mac-aging-time'), ['int'])),
                                     ])
                                     self.bd_mac_aging_type = None
                                     self.bd_mac_aging_time = None
                                     self._segment_path = lambda: "bd-mac-aging"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, [u'bd_mac_aging_type', u'bd_mac_aging_time'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
 
 
                         class NvSatellite(Entity):
@@ -5918,15 +6037,16 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('offload_ipv4_multicast_enable', YLeaf(YType.empty, 'offload-ipv4-multicast-enable')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('offload_ipv4_multicast_enable', (YLeaf(YType.empty, 'offload-ipv4-multicast-enable'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.offload_ipv4_multicast_enable = None
                                 self.enable = None
                                 self._segment_path = lambda: "nv-satellite"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, [u'offload_ipv4_multicast_enable', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
 
 
                         class BridgeDomainPbb(Entity):
@@ -5969,6 +6089,7 @@ class L2vpn(Entity):
                                 self.pbb_core.parent = self
                                 self._children_name_map["pbb_core"] = "pbb-core"
                                 self._segment_path = lambda: "bridge-domain-pbb"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb, [], name, value)
@@ -6003,6 +6124,7 @@ class L2vpn(Entity):
 
                                     self.pbb_edge = YList(self)
                                     self._segment_path = lambda: "pbb-edges"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, [], name, value)
@@ -6078,10 +6200,10 @@ class L2vpn(Entity):
                                         self.ylist_key_names = ['isid','core_bd_name']
                                         self._child_classes = OrderedDict([("pbb-edge-split-horizon-group", ("pbb_edge_split_horizon_group", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup)), ("pbb-static-mac-mappings", ("pbb_static_mac_mappings", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings)), ("pbb-edge-dhcp-profile", ("pbb_edge_dhcp_profile", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile)), ("pbb-edge-mac", ("pbb_edge_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac))])
                                         self._leafs = OrderedDict([
-                                            ('isid', YLeaf(YType.uint32, 'isid')),
-                                            ('core_bd_name', YLeaf(YType.str, 'core-bd-name')),
-                                            ('pbb_edge_igmp_profile', YLeaf(YType.str, 'pbb-edge-igmp-profile')),
-                                            ('unknown_unicast_bmac', YLeaf(YType.str, 'unknown-unicast-bmac')),
+                                            ('isid', (YLeaf(YType.uint32, 'isid'), ['int'])),
+                                            ('core_bd_name', (YLeaf(YType.str, 'core-bd-name'), ['str'])),
+                                            ('pbb_edge_igmp_profile', (YLeaf(YType.str, 'pbb-edge-igmp-profile'), ['str'])),
+                                            ('unknown_unicast_bmac', (YLeaf(YType.str, 'unknown-unicast-bmac'), ['str'])),
                                         ])
                                         self.isid = None
                                         self.core_bd_name = None
@@ -6104,9 +6226,10 @@ class L2vpn(Entity):
                                         self.pbb_edge_mac.parent = self
                                         self._children_name_map["pbb_edge_mac"] = "pbb-edge-mac"
                                         self._segment_path = lambda: "pbb-edge" + "[isid='" + str(self.isid) + "']" + "[core-bd-name='" + str(self.core_bd_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, [u'isid', u'core_bd_name', u'pbb_edge_igmp_profile', u'unknown_unicast_bmac'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
 
 
                                     class PbbEdgeSplitHorizonGroup(Entity):
@@ -6135,13 +6258,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('disable', YLeaf(YType.empty, 'disable')),
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                                             ])
                                             self.disable = None
                                             self._segment_path = lambda: "pbb-edge-split-horizon-group"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, [u'disable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
 
 
                                     class PbbStaticMacMappings(Entity):
@@ -6173,6 +6297,7 @@ class L2vpn(Entity):
 
                                             self.pbb_static_mac_mapping = YList(self)
                                             self._segment_path = lambda: "pbb-static-mac-mappings"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, [], name, value)
@@ -6214,15 +6339,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['address']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address', YLeaf(YType.str, 'address')),
-                                                    ('pbb_static_mac_mapping_bmac', YLeaf(YType.str, 'pbb-static-mac-mapping-bmac')),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('pbb_static_mac_mapping_bmac', (YLeaf(YType.str, 'pbb-static-mac-mapping-bmac'), ['str'])),
                                                 ])
                                                 self.address = None
                                                 self.pbb_static_mac_mapping_bmac = None
                                                 self._segment_path = lambda: "pbb-static-mac-mapping" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, [u'address', u'pbb_static_mac_mapping_bmac'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
 
 
                                     class PbbEdgeDhcpProfile(Entity):
@@ -6256,15 +6382,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
-                                                ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                                ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                                ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
                                             ])
                                             self.profile_id = None
                                             self.dhcp_snooping_id = None
                                             self._segment_path = lambda: "pbb-edge-dhcp-profile"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
                                     class PbbEdgeMac(Entity):
@@ -6308,7 +6435,7 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("pbb-edge-mac-limit", ("pbb_edge_mac_limit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit)), ("pbb-edge-mac-aging", ("pbb_edge_mac_aging", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging)), ("pbb-edge-mac-secure", ("pbb_edge_mac_secure", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure))])
                                             self._leafs = OrderedDict([
-                                                ('pbb_edge_mac_learning', YLeaf(YType.enumeration, 'pbb-edge-mac-learning')),
+                                                ('pbb_edge_mac_learning', (YLeaf(YType.enumeration, 'pbb-edge-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
                                             ])
                                             self.pbb_edge_mac_learning = None
 
@@ -6324,9 +6451,10 @@ class L2vpn(Entity):
                                             self.pbb_edge_mac_secure.parent = self
                                             self._children_name_map["pbb_edge_mac_secure"] = "pbb-edge-mac-secure"
                                             self._segment_path = lambda: "pbb-edge-mac"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, [u'pbb_edge_mac_learning'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
 
 
                                         class PbbEdgeMacLimit(Entity):
@@ -6367,17 +6495,18 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('pbb_edge_mac_limit_action', YLeaf(YType.enumeration, 'pbb-edge-mac-limit-action')),
-                                                    ('pbb_edge_mac_limit_max', YLeaf(YType.uint32, 'pbb-edge-mac-limit-max')),
-                                                    ('pbb_edge_mac_limit_notif', YLeaf(YType.enumeration, 'pbb-edge-mac-limit-notif')),
+                                                    ('pbb_edge_mac_limit_action', (YLeaf(YType.enumeration, 'pbb-edge-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                                    ('pbb_edge_mac_limit_max', (YLeaf(YType.uint32, 'pbb-edge-mac-limit-max'), ['int'])),
+                                                    ('pbb_edge_mac_limit_notif', (YLeaf(YType.enumeration, 'pbb-edge-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
                                                 ])
                                                 self.pbb_edge_mac_limit_action = None
                                                 self.pbb_edge_mac_limit_max = None
                                                 self.pbb_edge_mac_limit_notif = None
                                                 self._segment_path = lambda: "pbb-edge-mac-limit"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, [u'pbb_edge_mac_limit_action', u'pbb_edge_mac_limit_max', u'pbb_edge_mac_limit_notif'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
 
 
                                         class PbbEdgeMacAging(Entity):
@@ -6413,15 +6542,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('pbb_edge_mac_aging_type', YLeaf(YType.enumeration, 'pbb-edge-mac-aging-type')),
-                                                    ('pbb_edge_mac_aging_time', YLeaf(YType.uint32, 'pbb-edge-mac-aging-time')),
+                                                    ('pbb_edge_mac_aging_type', (YLeaf(YType.enumeration, 'pbb-edge-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                    ('pbb_edge_mac_aging_time', (YLeaf(YType.uint32, 'pbb-edge-mac-aging-time'), ['int'])),
                                                 ])
                                                 self.pbb_edge_mac_aging_type = None
                                                 self.pbb_edge_mac_aging_time = None
                                                 self._segment_path = lambda: "pbb-edge-mac-aging"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, [u'pbb_edge_mac_aging_type', u'pbb_edge_mac_aging_time'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
 
 
                                         class PbbEdgeMacSecure(Entity):
@@ -6470,11 +6600,11 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('logging', YLeaf(YType.enumeration, 'logging')),
-                                                    ('disable', YLeaf(YType.empty, 'disable')),
-                                                    ('action', YLeaf(YType.enumeration, 'action')),
-                                                    ('enable', YLeaf(YType.empty, 'enable')),
-                                                    ('accept_shutdown', YLeaf(YType.empty, 'accept-shutdown')),
+                                                    ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
                                                 ])
                                                 self.logging = None
                                                 self.disable = None
@@ -6482,9 +6612,10 @@ class L2vpn(Entity):
                                                 self.enable = None
                                                 self.accept_shutdown = None
                                                 self._segment_path = lambda: "pbb-edge-mac-secure"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, [u'logging', u'disable', u'action', u'enable', u'accept_shutdown'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
 
 
                             class PbbCore(Entity):
@@ -6547,10 +6678,10 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("pbb-core-mac", ("pbb_core_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac)), ("pbb-core-evis", ("pbb_core_evis", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis)), ("pbb-core-dhcp-profile", ("pbb_core_dhcp_profile", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile))])
                                     self._leafs = OrderedDict([
-                                        ('pbb_core_mmrp_flood_optimization', YLeaf(YType.empty, 'pbb-core-mmrp-flood-optimization')),
-                                        ('vlan_id', YLeaf(YType.uint32, 'vlan-id')),
-                                        ('pbb_core_igmp_profile', YLeaf(YType.str, 'pbb-core-igmp-profile')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('pbb_core_mmrp_flood_optimization', (YLeaf(YType.empty, 'pbb-core-mmrp-flood-optimization'), ['Empty'])),
+                                        ('vlan_id', (YLeaf(YType.uint32, 'vlan-id'), ['int'])),
+                                        ('pbb_core_igmp_profile', (YLeaf(YType.str, 'pbb-core-igmp-profile'), ['str'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ])
                                     self.pbb_core_mmrp_flood_optimization = None
                                     self.vlan_id = None
@@ -6569,9 +6700,10 @@ class L2vpn(Entity):
                                     self.pbb_core_dhcp_profile.parent = self
                                     self._children_name_map["pbb_core_dhcp_profile"] = "pbb-core-dhcp-profile"
                                     self._segment_path = lambda: "pbb-core"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, [u'pbb_core_mmrp_flood_optimization', u'vlan_id', u'pbb_core_igmp_profile', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
 
 
                                 class PbbCoreMac(Entity):
@@ -6610,7 +6742,7 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("pbb-core-mac-aging", ("pbb_core_mac_aging", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging)), ("pbb-core-mac-limit", ("pbb_core_mac_limit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit))])
                                         self._leafs = OrderedDict([
-                                            ('pbb_core_mac_learning', YLeaf(YType.enumeration, 'pbb-core-mac-learning')),
+                                            ('pbb_core_mac_learning', (YLeaf(YType.enumeration, 'pbb-core-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
                                         ])
                                         self.pbb_core_mac_learning = None
 
@@ -6622,9 +6754,10 @@ class L2vpn(Entity):
                                         self.pbb_core_mac_limit.parent = self
                                         self._children_name_map["pbb_core_mac_limit"] = "pbb-core-mac-limit"
                                         self._segment_path = lambda: "pbb-core-mac"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, [u'pbb_core_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
 
 
                                     class PbbCoreMacAging(Entity):
@@ -6660,15 +6793,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('pbb_core_mac_aging_type', YLeaf(YType.enumeration, 'pbb-core-mac-aging-type')),
-                                                ('pbb_core_mac_aging_time', YLeaf(YType.uint32, 'pbb-core-mac-aging-time')),
+                                                ('pbb_core_mac_aging_type', (YLeaf(YType.enumeration, 'pbb-core-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                ('pbb_core_mac_aging_time', (YLeaf(YType.uint32, 'pbb-core-mac-aging-time'), ['int'])),
                                             ])
                                             self.pbb_core_mac_aging_type = None
                                             self.pbb_core_mac_aging_time = None
                                             self._segment_path = lambda: "pbb-core-mac-aging"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, [u'pbb_core_mac_aging_type', u'pbb_core_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
 
 
                                     class PbbCoreMacLimit(Entity):
@@ -6709,17 +6843,18 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('pbb_core_mac_limit_max', YLeaf(YType.uint32, 'pbb-core-mac-limit-max')),
-                                                ('pbb_core_mac_limit_notif', YLeaf(YType.enumeration, 'pbb-core-mac-limit-notif')),
-                                                ('pbb_core_mac_limit_action', YLeaf(YType.enumeration, 'pbb-core-mac-limit-action')),
+                                                ('pbb_core_mac_limit_max', (YLeaf(YType.uint32, 'pbb-core-mac-limit-max'), ['int'])),
+                                                ('pbb_core_mac_limit_notif', (YLeaf(YType.enumeration, 'pbb-core-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('pbb_core_mac_limit_action', (YLeaf(YType.enumeration, 'pbb-core-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
                                             ])
                                             self.pbb_core_mac_limit_max = None
                                             self.pbb_core_mac_limit_notif = None
                                             self.pbb_core_mac_limit_action = None
                                             self._segment_path = lambda: "pbb-core-mac-limit"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, [u'pbb_core_mac_limit_max', u'pbb_core_mac_limit_notif', u'pbb_core_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
 
 
                                 class PbbCoreEvis(Entity):
@@ -6751,6 +6886,7 @@ class L2vpn(Entity):
 
                                         self.pbb_core_evi = YList(self)
                                         self._segment_path = lambda: "pbb-core-evis"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, [], name, value)
@@ -6784,13 +6920,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['eviid']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                                ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
                                             ])
                                             self.eviid = None
                                             self._segment_path = lambda: "pbb-core-evi" + "[eviid='" + str(self.eviid) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, [u'eviid'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
 
 
                                 class PbbCoreDhcpProfile(Entity):
@@ -6824,15 +6961,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
-                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
                                         ])
                                         self.profile_id = None
                                         self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "pbb-core-dhcp-profile"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
                         class BridgeDomainEvis(Entity):
@@ -6841,7 +6979,7 @@ class L2vpn(Entity):
                             
                             .. attribute:: bridge_domain_evi
                             
-                            	Bridge Domain EVI
+                            	Bridge Domain MPLS EVPN
                             	**type**\: list of  		 :py:class:`BridgeDomainEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi>`
                             
                             
@@ -6864,6 +7002,7 @@ class L2vpn(Entity):
 
                                 self.bridge_domain_evi = YList(self)
                                 self._segment_path = lambda: "bridge-domain-evis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis, [], name, value)
@@ -6871,11 +7010,11 @@ class L2vpn(Entity):
 
                             class BridgeDomainEvi(Entity):
                                 """
-                                Bridge Domain EVI
+                                Bridge Domain MPLS EVPN
                                 
-                                .. attribute:: eviid  (key)
+                                .. attribute:: vpn_id  (key)
                                 
-                                	Ethernet VPN ID
+                                	MPLS Ethernet VPN\-ID
                                 	**type**\: int
                                 
                                 	**range:** 1..65534
@@ -6894,16 +7033,17 @@ class L2vpn(Entity):
                                     self.yang_parent_name = "bridge-domain-evis"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
-                                    self.ylist_key_names = ['eviid']
+                                    self.ylist_key_names = ['vpn_id']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
+                                        ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
                                     ])
-                                    self.eviid = None
-                                    self._segment_path = lambda: "bridge-domain-evi" + "[eviid='" + str(self.eviid) + "']"
+                                    self.vpn_id = None
+                                    self._segment_path = lambda: "bridge-domain-evi" + "[vpn-id='" + str(self.vpn_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, [u'eviid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
 
 
                         class AccessVfis(Entity):
@@ -6936,6 +7076,7 @@ class L2vpn(Entity):
 
                                 self.access_vfi = YList(self)
                                 self._segment_path = lambda: "access-vfis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis, [], name, value)
@@ -6980,8 +7121,8 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['name']
                                     self._child_classes = OrderedDict([("access-vfi-pseudowires", ("access_vfi_pseudowires", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires))])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('access_vfi_shutdown', YLeaf(YType.empty, 'access-vfi-shutdown')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('access_vfi_shutdown', (YLeaf(YType.empty, 'access-vfi-shutdown'), ['Empty'])),
                                     ])
                                     self.name = None
                                     self.access_vfi_shutdown = None
@@ -6990,9 +7131,10 @@ class L2vpn(Entity):
                                     self.access_vfi_pseudowires.parent = self
                                     self._children_name_map["access_vfi_pseudowires"] = "access-vfi-pseudowires"
                                     self._segment_path = lambda: "access-vfi" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, [u'name', u'access_vfi_shutdown'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
 
 
                                 class AccessVfiPseudowires(Entity):
@@ -7024,6 +7166,7 @@ class L2vpn(Entity):
 
                                         self.access_vfi_pseudowire = YList(self)
                                         self._segment_path = lambda: "access-vfi-pseudowires"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, [], name, value)
@@ -7076,9 +7219,9 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['neighbor','pseudowire_id']
                                             self._child_classes = OrderedDict([("access-vfi-pseudowire-static-mac-addresses", ("access_vfi_pseudowire_static_mac_addresses", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses))])
                                             self._leafs = OrderedDict([
-                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                                ('access_vfi_pw_class', YLeaf(YType.str, 'access-vfi-pw-class')),
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('access_vfi_pw_class', (YLeaf(YType.str, 'access-vfi-pw-class'), ['str'])),
                                             ])
                                             self.neighbor = None
                                             self.pseudowire_id = None
@@ -7088,9 +7231,10 @@ class L2vpn(Entity):
                                             self.access_vfi_pseudowire_static_mac_addresses.parent = self
                                             self._children_name_map["access_vfi_pseudowire_static_mac_addresses"] = "access-vfi-pseudowire-static-mac-addresses"
                                             self._segment_path = lambda: "access-vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, [u'neighbor', u'pseudowire_id', u'access_vfi_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
 
 
                                         class AccessVfiPseudowireStaticMacAddresses(Entity):
@@ -7122,6 +7266,7 @@ class L2vpn(Entity):
 
                                                 self.access_vfi_pseudowire_static_mac_address = YList(self)
                                                 self._segment_path = lambda: "access-vfi-pseudowire-static-mac-addresses"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, [], name, value)
@@ -7155,13 +7300,14 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = ['address']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('address', YLeaf(YType.str, 'address')),
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                     ])
                                                     self.address = None
                                                     self._segment_path = lambda: "access-vfi-pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
 
 
                         class BdPseudowires(Entity):
@@ -7193,6 +7339,7 @@ class L2vpn(Entity):
 
                                 self.bd_pseudowire = YList(self)
                                 self._segment_path = lambda: "bd-pseudowires"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires, [], name, value)
@@ -7309,13 +7456,13 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['neighbor','pseudowire_id']
                                     self._child_classes = OrderedDict([("pseudowire-dai", ("pseudowire_dai", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai)), ("bdpw-storm-control-types", ("bdpw_storm_control_types", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes)), ("pseudowire-profile", ("pseudowire_profile", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile)), ("bd-pw-static-mac-addresses", ("bd_pw_static_mac_addresses", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses)), ("pseudowire-ip-source-guard", ("pseudowire_ip_source_guard", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard)), ("pseudowire-mac", ("pseudowire_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac)), ("bd-pw-split-horizon", ("bd_pw_split_horizon", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon)), ("bd-pw-mpls-static-labels", ("bd_pw_mpls_static_labels", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels)), ("bridge-domain-backup-pseudowires", ("bridge_domain_backup_pseudowires", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires))])
                                     self._leafs = OrderedDict([
-                                        ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                        ('pseudowire_mld_snoop', YLeaf(YType.str, 'pseudowire-mld-snoop')),
-                                        ('pseudowire_igmp_snoop', YLeaf(YType.str, 'pseudowire-igmp-snoop')),
-                                        ('pseudowire_flooding', YLeaf(YType.enumeration, 'pseudowire-flooding')),
-                                        ('bd_pw_class', YLeaf(YType.str, 'bd-pw-class')),
-                                        ('pseudowire_flooding_unknown_unicast', YLeaf(YType.enumeration, 'pseudowire-flooding-unknown-unicast')),
+                                        ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                        ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                        ('pseudowire_mld_snoop', (YLeaf(YType.str, 'pseudowire-mld-snoop'), ['str'])),
+                                        ('pseudowire_igmp_snoop', (YLeaf(YType.str, 'pseudowire-igmp-snoop'), ['str'])),
+                                        ('pseudowire_flooding', (YLeaf(YType.enumeration, 'pseudowire-flooding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('bd_pw_class', (YLeaf(YType.str, 'bd-pw-class'), ['str'])),
+                                        ('pseudowire_flooding_unknown_unicast', (YLeaf(YType.enumeration, 'pseudowire-flooding-unknown-unicast'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
                                     ])
                                     self.neighbor = None
                                     self.pseudowire_id = None
@@ -7361,9 +7508,10 @@ class L2vpn(Entity):
                                     self.bridge_domain_backup_pseudowires.parent = self
                                     self._children_name_map["bridge_domain_backup_pseudowires"] = "bridge-domain-backup-pseudowires"
                                     self._segment_path = lambda: "bd-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, [u'neighbor', u'pseudowire_id', u'pseudowire_mld_snoop', u'pseudowire_igmp_snoop', u'pseudowire_flooding', u'bd_pw_class', u'pseudowire_flooding_unknown_unicast'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
 
 
                                 class PseudowireDai(Entity):
@@ -7407,9 +7555,9 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("pseudowire-dai-address-validation", ("pseudowire_dai_address_validation", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation))])
                                         self._leafs = OrderedDict([
-                                            ('logging', YLeaf(YType.enumeration, 'logging')),
-                                            ('disable', YLeaf(YType.empty, 'disable')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.logging = None
                                         self.disable = None
@@ -7419,9 +7567,10 @@ class L2vpn(Entity):
                                         self.pseudowire_dai_address_validation.parent = self
                                         self._children_name_map["pseudowire_dai_address_validation"] = "pseudowire-dai-address-validation"
                                         self._segment_path = lambda: "pseudowire-dai"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class PseudowireDaiAddressValidation(Entity):
@@ -7460,17 +7609,18 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('ipv4_verification', YLeaf(YType.enumeration, 'ipv4-verification')),
-                                                ('destination_mac_verification', YLeaf(YType.enumeration, 'destination-mac-verification')),
-                                                ('source_mac_verification', YLeaf(YType.enumeration, 'source-mac-verification')),
+                                                ('ipv4_verification', (YLeaf(YType.enumeration, 'ipv4-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('destination_mac_verification', (YLeaf(YType.enumeration, 'destination-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('source_mac_verification', (YLeaf(YType.enumeration, 'source-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
                                             ])
                                             self.ipv4_verification = None
                                             self.destination_mac_verification = None
                                             self.source_mac_verification = None
                                             self._segment_path = lambda: "pseudowire-dai-address-validation"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
 
 
                                 class BdpwStormControlTypes(Entity):
@@ -7502,6 +7652,7 @@ class L2vpn(Entity):
 
                                         self.bdpw_storm_control_type = YList(self)
                                         self._segment_path = lambda: "bdpw-storm-control-types"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, [], name, value)
@@ -7538,7 +7689,7 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['sctype']
                                             self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit))])
                                             self._leafs = OrderedDict([
-                                                ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                                ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
                                             ])
                                             self.sctype = None
 
@@ -7546,9 +7697,10 @@ class L2vpn(Entity):
                                             self.storm_control_unit.parent = self
                                             self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                             self._segment_path = lambda: "bdpw-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -7590,15 +7742,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
-                                                    ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                                    ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                                    ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
                                                 ])
                                                 self.kbits_per_sec = None
                                                 self.pkts_per_sec = None
                                                 self._segment_path = lambda: "storm-control-unit"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
                                 class PseudowireProfile(Entity):
@@ -7632,15 +7785,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
-                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
                                         ])
                                         self.profile_id = None
                                         self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "pseudowire-profile"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
                                 class BdPwStaticMacAddresses(Entity):
@@ -7672,6 +7826,7 @@ class L2vpn(Entity):
 
                                         self.bd_pw_static_mac_address = YList(self)
                                         self._segment_path = lambda: "bd-pw-static-mac-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, [], name, value)
@@ -7705,13 +7860,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "bd-pw-static-mac-address" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
 
 
                                 class PseudowireIpSourceGuard(Entity):
@@ -7750,23 +7906,24 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('logging', YLeaf(YType.enumeration, 'logging')),
-                                            ('disable', YLeaf(YType.empty, 'disable')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.logging = None
                                         self.disable = None
                                         self.enable = None
                                         self._segment_path = lambda: "pseudowire-ip-source-guard"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
                                 class PseudowireMac(Entity):
                                     """
-                                    Bridge\-domain Pseudowire MAC
-                                    configuration commands
+                                    Bridge\-domain Pseudowire MAC configuration
+                                    commands
                                     
                                     .. attribute:: pseudowire_mac_secure
                                     
@@ -7815,9 +7972,9 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("pseudowire-mac-secure", ("pseudowire_mac_secure", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure)), ("pseudowire-mac-aging", ("pseudowire_mac_aging", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging)), ("pseudowire-mac-limit", ("pseudowire_mac_limit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit))])
                                         self._leafs = OrderedDict([
-                                            ('pseudowire_mac_port_down_flush', YLeaf(YType.enumeration, 'pseudowire-mac-port-down-flush')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
-                                            ('pseudowire_mac_learning', YLeaf(YType.enumeration, 'pseudowire-mac-learning')),
+                                            ('pseudowire_mac_port_down_flush', (YLeaf(YType.enumeration, 'pseudowire-mac-port-down-flush'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PortDownFlush', '')])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ('pseudowire_mac_learning', (YLeaf(YType.enumeration, 'pseudowire-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
                                         ])
                                         self.pseudowire_mac_port_down_flush = None
                                         self.enable = None
@@ -7835,9 +7992,10 @@ class L2vpn(Entity):
                                         self.pseudowire_mac_limit.parent = self
                                         self._children_name_map["pseudowire_mac_limit"] = "pseudowire-mac-limit"
                                         self._segment_path = lambda: "pseudowire-mac"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, [u'pseudowire_mac_port_down_flush', u'enable', u'pseudowire_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
 
 
                                     class PseudowireMacSecure(Entity):
@@ -7881,19 +8039,20 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('logging', YLeaf(YType.enumeration, 'logging')),
-                                                ('disable', YLeaf(YType.empty, 'disable')),
-                                                ('action', YLeaf(YType.enumeration, 'action')),
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
                                             self.enable = None
                                             self._segment_path = lambda: "pseudowire-mac-secure"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
                                     class PseudowireMacAging(Entity):
@@ -7929,15 +8088,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('pseudowire_mac_aging_type', YLeaf(YType.enumeration, 'pseudowire-mac-aging-type')),
-                                                ('pseudowire_mac_aging_time', YLeaf(YType.uint32, 'pseudowire-mac-aging-time')),
+                                                ('pseudowire_mac_aging_type', (YLeaf(YType.enumeration, 'pseudowire-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                ('pseudowire_mac_aging_time', (YLeaf(YType.uint32, 'pseudowire-mac-aging-time'), ['int'])),
                                             ])
                                             self.pseudowire_mac_aging_type = None
                                             self.pseudowire_mac_aging_time = None
                                             self._segment_path = lambda: "pseudowire-mac-aging"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, [u'pseudowire_mac_aging_type', u'pseudowire_mac_aging_time'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
 
 
                                     class PseudowireMacLimit(Entity):
@@ -7978,17 +8138,18 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('pseudowire_mac_limit_action', YLeaf(YType.enumeration, 'pseudowire-mac-limit-action')),
-                                                ('pseudowire_mac_limit_notif', YLeaf(YType.enumeration, 'pseudowire-mac-limit-notif')),
-                                                ('pseudowire_mac_limit_max', YLeaf(YType.uint32, 'pseudowire-mac-limit-max')),
+                                                ('pseudowire_mac_limit_action', (YLeaf(YType.enumeration, 'pseudowire-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                                ('pseudowire_mac_limit_notif', (YLeaf(YType.enumeration, 'pseudowire-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('pseudowire_mac_limit_max', (YLeaf(YType.uint32, 'pseudowire-mac-limit-max'), ['int'])),
                                             ])
                                             self.pseudowire_mac_limit_action = None
                                             self.pseudowire_mac_limit_notif = None
                                             self.pseudowire_mac_limit_max = None
                                             self._segment_path = lambda: "pseudowire-mac-limit"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, [u'pseudowire_mac_limit_action', u'pseudowire_mac_limit_notif', u'pseudowire_mac_limit_max'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
 
 
                                 class BdPwSplitHorizon(Entity):
@@ -8022,6 +8183,7 @@ class L2vpn(Entity):
                                         self.bd_pw_split_horizon_group.parent = self
                                         self._children_name_map["bd_pw_split_horizon_group"] = "bd-pw-split-horizon-group"
                                         self._segment_path = lambda: "bd-pw-split-horizon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, [], name, value)
@@ -8053,13 +8215,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.enable = None
                                             self._segment_path = lambda: "bd-pw-split-horizon-group"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
 
 
                                 class BdPwMplsStaticLabels(Entity):
@@ -8097,15 +8260,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                            ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                            ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                            ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                         ])
                                         self.local_static_label = None
                                         self.remote_static_label = None
                                         self._segment_path = lambda: "bd-pw-mpls-static-labels"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                 class BridgeDomainBackupPseudowires(Entity):
@@ -8137,6 +8301,7 @@ class L2vpn(Entity):
 
                                         self.bridge_domain_backup_pseudowire = YList(self)
                                         self._segment_path = lambda: "bridge-domain-backup-pseudowires"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, [], name, value)
@@ -8184,23 +8349,23 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['neighbor','pseudowire_id']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                                ('bridge_domain_backup_pw_class', YLeaf(YType.str, 'bridge-domain-backup-pw-class')),
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('bridge_domain_backup_pw_class', (YLeaf(YType.str, 'bridge-domain-backup-pw-class'), ['str'])),
                                             ])
                                             self.neighbor = None
                                             self.pseudowire_id = None
                                             self.bridge_domain_backup_pw_class = None
                                             self._segment_path = lambda: "bridge-domain-backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, [u'neighbor', u'pseudowire_id', u'bridge_domain_backup_pw_class'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
 
 
                         class Vfis(Entity):
                             """
-                            Specify the virtual forwarding interface
-                            name
+                            Specify the virtual forwarding interface name
                             
                             .. attribute:: vfi
                             
@@ -8227,6 +8392,7 @@ class L2vpn(Entity):
 
                                 self.vfi = YList(self)
                                 self._segment_path = lambda: "vfis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis, [], name, value)
@@ -8287,9 +8453,9 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['name']
                                     self._child_classes = OrderedDict([("multicast-p2mp", ("multicast_p2mp", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp)), ("vfi-pseudowires", ("vfi_pseudowires", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires)), ("bgp-auto-discovery", ("bgp_auto_discovery", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery))])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('vfi_shutdown', YLeaf(YType.empty, 'vfi-shutdown')),
-                                        ('vpnid', YLeaf(YType.uint32, 'vpnid')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('vfi_shutdown', (YLeaf(YType.empty, 'vfi-shutdown'), ['Empty'])),
+                                        ('vpnid', (YLeaf(YType.uint32, 'vpnid'), ['int'])),
                                     ])
                                     self.name = None
                                     self.vfi_shutdown = None
@@ -8307,9 +8473,10 @@ class L2vpn(Entity):
                                     self.bgp_auto_discovery.parent = self
                                     self._children_name_map["bgp_auto_discovery"] = "bgp-auto-discovery"
                                     self._segment_path = lambda: "vfi" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, [u'name', u'vfi_shutdown', u'vpnid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
 
 
                                 class MulticastP2mp(Entity):
@@ -8348,7 +8515,7 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("transports", ("transports", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports)), ("signalings", ("signalings", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings))])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.enable = None
 
@@ -8360,9 +8527,10 @@ class L2vpn(Entity):
                                         self.signalings.parent = self
                                         self._children_name_map["signalings"] = "signalings"
                                         self._segment_path = lambda: "multicast-p2mp"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, [u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
 
 
                                     class Transports(Entity):
@@ -8394,6 +8562,7 @@ class L2vpn(Entity):
 
                                             self.transport = YList(self)
                                             self._segment_path = lambda: "transports"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, [], name, value)
@@ -8434,15 +8603,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['transport_name']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('transport_name', YLeaf(YType.str, 'transport-name')),
-                                                    ('attribute_set_name', YLeaf(YType.str, 'attribute-set-name')),
+                                                    ('transport_name', (YLeaf(YType.str, 'transport-name'), ['str'])),
+                                                    ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
                                                 ])
                                                 self.transport_name = None
                                                 self.attribute_set_name = None
                                                 self._segment_path = lambda: "transport" + "[transport-name='" + str(self.transport_name) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, [u'transport_name', u'attribute_set_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
 
 
                                     class Signalings(Entity):
@@ -8474,6 +8644,7 @@ class L2vpn(Entity):
 
                                             self.signaling = YList(self)
                                             self._segment_path = lambda: "signalings"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, [], name, value)
@@ -8507,13 +8678,14 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['signaling_name']
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('signaling_name', YLeaf(YType.str, 'signaling-name')),
+                                                    ('signaling_name', (YLeaf(YType.str, 'signaling-name'), ['str'])),
                                                 ])
                                                 self.signaling_name = None
                                                 self._segment_path = lambda: "signaling" + "[signaling-name='" + str(self.signaling_name) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, [u'signaling_name'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
 
 
                                 class VfiPseudowires(Entity):
@@ -8545,6 +8717,7 @@ class L2vpn(Entity):
 
                                         self.vfi_pseudowire = YList(self)
                                         self._segment_path = lambda: "vfi-pseudowires"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, [], name, value)
@@ -8621,11 +8794,11 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['neighbor','pseudowire_id']
                                             self._child_classes = OrderedDict([("vfi-pw-dhcp-snoop", ("vfi_pw_dhcp_snoop", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop)), ("vfi-pw-mpls-static-labels", ("vfi_pw_mpls_static_labels", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels)), ("pseudowire-static-mac-addresses", ("pseudowire_static_mac_addresses", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses))])
                                             self._leafs = OrderedDict([
-                                                ('neighbor', YLeaf(YType.str, 'neighbor')),
-                                                ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
-                                                ('vfi_pw_class', YLeaf(YType.str, 'vfi-pw-class')),
-                                                ('vfi_pw_igmp_snoop', YLeaf(YType.str, 'vfi-pw-igmp-snoop')),
-                                                ('vfi_pw_mld_snoop', YLeaf(YType.str, 'vfi-pw-mld-snoop')),
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('vfi_pw_class', (YLeaf(YType.str, 'vfi-pw-class'), ['str'])),
+                                                ('vfi_pw_igmp_snoop', (YLeaf(YType.str, 'vfi-pw-igmp-snoop'), ['str'])),
+                                                ('vfi_pw_mld_snoop', (YLeaf(YType.str, 'vfi-pw-mld-snoop'), ['str'])),
                                             ])
                                             self.neighbor = None
                                             self.pseudowire_id = None
@@ -8645,9 +8818,10 @@ class L2vpn(Entity):
                                             self.pseudowire_static_mac_addresses.parent = self
                                             self._children_name_map["pseudowire_static_mac_addresses"] = "pseudowire-static-mac-addresses"
                                             self._segment_path = lambda: "vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, [u'neighbor', u'pseudowire_id', u'vfi_pw_class', u'vfi_pw_igmp_snoop', u'vfi_pw_mld_snoop'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
 
 
                                         class VfiPwDhcpSnoop(Entity):
@@ -8681,15 +8855,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
-                                                    ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                                    ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                                    ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
                                                 ])
                                                 self.profile_id = None
                                                 self.dhcp_snooping_id = None
                                                 self._segment_path = lambda: "vfi-pw-dhcp-snoop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
                                         class VfiPwMplsStaticLabels(Entity):
@@ -8727,15 +8902,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('local_static_label', YLeaf(YType.uint32, 'local-static-label')),
-                                                    ('remote_static_label', YLeaf(YType.uint32, 'remote-static-label')),
+                                                    ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                    ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
                                                 ])
                                                 self.local_static_label = None
                                                 self.remote_static_label = None
                                                 self._segment_path = lambda: "vfi-pw-mpls-static-labels"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, [u'local_static_label', u'remote_static_label'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
 
 
                                         class PseudowireStaticMacAddresses(Entity):
@@ -8767,6 +8943,7 @@ class L2vpn(Entity):
 
                                                 self.pseudowire_static_mac_address = YList(self)
                                                 self._segment_path = lambda: "pseudowire-static-mac-addresses"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, [], name, value)
@@ -8800,13 +8977,14 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = ['address']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('address', YLeaf(YType.str, 'address')),
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                     ])
                                                     self.address = None
                                                     self._segment_path = lambda: "pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, [u'address'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
 
 
                                 class BgpAutoDiscovery(Entity):
@@ -8870,9 +9048,9 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("ldp-signaling-protocol", ("ldp_signaling_protocol", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol)), ("bgp-route-policy", ("bgp_route_policy", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy)), ("route-distinguisher", ("route_distinguisher", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher)), ("bgp-signaling-protocol", ("bgp_signaling_protocol", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol)), ("route-targets", ("route_targets", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets))])
                                         self._leafs = OrderedDict([
-                                            ('table_policy', YLeaf(YType.str, 'table-policy')),
-                                            ('ad_control_word', YLeaf(YType.empty, 'ad-control-word')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                                            ('ad_control_word', (YLeaf(YType.empty, 'ad-control-word'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.table_policy = None
                                         self.ad_control_word = None
@@ -8898,9 +9076,10 @@ class L2vpn(Entity):
                                         self.route_targets.parent = self
                                         self._children_name_map["route_targets"] = "route-targets"
                                         self._segment_path = lambda: "bgp-auto-discovery"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, [u'table_policy', u'ad_control_word', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
 
 
                                     class LdpSignalingProtocol(Entity):
@@ -8920,7 +9099,7 @@ class L2vpn(Entity):
                                         
                                         .. attribute:: enable
                                         
-                                        	Enable LDP as Signaling Protocol .Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
+                                        	Enable LDP as Signaling Protocol.Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
                                         	**type**\: :py:class:`Empty<ydk.types.Empty>`
                                         
                                         
@@ -8940,7 +9119,7 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("vpls-id", ("vpls_id", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId)), ("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance))])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.enable = None
 
@@ -8952,9 +9131,10 @@ class L2vpn(Entity):
                                             self.flow_label_load_balance.parent = self
                                             self._children_name_map["flow_label_load_balance"] = "flow-label-load-balance"
                                             self._segment_path = lambda: "ldp-signaling-protocol"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
 
 
                                         class VplsId(Entity):
@@ -9011,11 +9191,11 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('type', YLeaf(YType.enumeration, 'type')),
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                                    ('address', YLeaf(YType.str, 'address')),
-                                                    ('address_index', YLeaf(YType.uint32, 'address-index')),
+                                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'LdpVplsId', '')])),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
                                                 ])
                                                 self.type = None
                                                 self.as_ = None
@@ -9023,9 +9203,10 @@ class L2vpn(Entity):
                                                 self.address = None
                                                 self.address_index = None
                                                 self._segment_path = lambda: "vpls-id"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, [u'type', u'as_', u'as_index', u'address', u'address_index'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
 
 
                                         class FlowLabelLoadBalance(Entity):
@@ -9059,15 +9240,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
-                                                    ('static', YLeaf(YType.empty, 'static')),
+                                                    ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                                    ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
                                                 ])
                                                 self.flow_label = None
                                                 self.static = None
                                                 self._segment_path = lambda: "flow-label-load-balance"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
                                     class BgpRoutePolicy(Entity):
@@ -9096,13 +9278,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('export', YLeaf(YType.str, 'export')),
+                                                ('export', (YLeaf(YType.str, 'export'), ['str'])),
                                             ])
                                             self.export = None
                                             self._segment_path = lambda: "bgp-route-policy"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, [u'export'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
 
 
                                     class RouteDistinguisher(Entity):
@@ -9159,11 +9342,11 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('type', YLeaf(YType.enumeration, 'type')),
-                                                ('as_', YLeaf(YType.uint32, 'as')),
-                                                ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                                             ])
                                             self.type = None
                                             self.as_ = None
@@ -9171,15 +9354,15 @@ class L2vpn(Entity):
                                             self.address = None
                                             self.addr_index = None
                                             self._segment_path = lambda: "route-distinguisher"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
                                     class BgpSignalingProtocol(Entity):
                                         """
-                                        Enable Signaling Protocol BGP in this
-                                        VFI
+                                        Enable Signaling Protocol BGP in this VFI
                                         
                                         .. attribute:: flow_label_load_balance
                                         
@@ -9222,9 +9405,9 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance))])
                                             self._leafs = OrderedDict([
-                                                ('ve_range', YLeaf(YType.uint32, 've-range')),
-                                                ('veid', YLeaf(YType.uint32, 'veid')),
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('ve_range', (YLeaf(YType.uint32, 've-range'), ['int'])),
+                                                ('veid', (YLeaf(YType.uint32, 'veid'), ['int'])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.ve_range = None
                                             self.veid = None
@@ -9234,9 +9417,10 @@ class L2vpn(Entity):
                                             self.flow_label_load_balance.parent = self
                                             self._children_name_map["flow_label_load_balance"] = "flow-label-load-balance"
                                             self._segment_path = lambda: "bgp-signaling-protocol"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, [u've_range', u'veid', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
 
 
                                         class FlowLabelLoadBalance(Entity):
@@ -9270,15 +9454,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
-                                                    ('static', YLeaf(YType.empty, 'static')),
+                                                    ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                                    ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
                                                 ])
                                                 self.flow_label = None
                                                 self.static = None
                                                 self._segment_path = lambda: "flow-label-load-balance"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
 
 
                                     class RouteTargets(Entity):
@@ -9310,6 +9495,7 @@ class L2vpn(Entity):
 
                                             self.route_target = YList(self)
                                             self._segment_path = lambda: "route-targets"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, [], name, value)
@@ -9356,8 +9542,8 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = ['role','format']
                                                 self._child_classes = OrderedDict([("two-byte-as-or-four-byte-as", ("two_byte_as_or_four_byte_as", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs)), ("ipv4-address", ("ipv4_address", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address))])
                                                 self._leafs = OrderedDict([
-                                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                                    ('format', YLeaf(YType.enumeration, 'format')),
+                                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
                                                 ])
                                                 self.role = None
                                                 self.format = None
@@ -9365,9 +9551,10 @@ class L2vpn(Entity):
                                                 self.two_byte_as_or_four_byte_as = YList(self)
                                                 self.ipv4_address = YList(self)
                                                 self._segment_path = lambda: "route-target" + "[role='" + str(self.role) + "']" + "[format='" + str(self.format) + "']"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, [u'role', u'format'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
 
 
                                             class TwoByteAsOrFourByteAs(Entity):
@@ -9405,15 +9592,16 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = ['as_','as_index']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('as_', YLeaf(YType.uint32, 'as')),
-                                                        ('as_index', YLeaf(YType.uint32, 'as-index')),
+                                                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
                                                     ])
                                                     self.as_ = None
                                                     self.as_index = None
                                                     self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, [u'as_', u'as_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
 
 
                                             class Ipv4Address(Entity):
@@ -9451,15 +9639,90 @@ class L2vpn(Entity):
                                                     self.ylist_key_names = ['address','addr_index']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('address', YLeaf(YType.str, 'address')),
-                                                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                        ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                                                     ])
                                                     self.address = None
                                                     self.addr_index = None
                                                     self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
-                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, [u'address', u'addr_index'], name, value)
+                                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
+
+
+                        class BridgeDomainvnis(Entity):
+                            """
+                            Bridge Domain EVPN VxLAN Network Identifier
+                            Table
+                            
+                            .. attribute:: bridge_domainvni
+                            
+                            	Bridge Domain VxLAN EVPN
+                            	**type**\: list of  		 :py:class:`BridgeDomainvni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
+
+                                self.yang_name = "bridge-domainvnis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bridge-domainvni", ("bridge_domainvni", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni))])
+                                self._leafs = OrderedDict()
+
+                                self.bridge_domainvni = YList(self)
+                                self._segment_path = lambda: "bridge-domainvnis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis, [], name, value)
+
+
+                            class BridgeDomainvni(Entity):
+                                """
+                                Bridge Domain VxLAN EVPN
+                                
+                                .. attribute:: vpn_id  (key)
+                                
+                                	VxLAN Ethernet VPN\-ID
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
+
+                                    self.yang_name = "bridge-domainvni"
+                                    self.yang_parent_name = "bridge-domainvnis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vpn_id']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
+                                    ])
+                                    self.vpn_id = None
+                                    self._segment_path = lambda: "bridge-domainvni" + "[vpn-id='" + str(self.vpn_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
 
 
                         class BdAttachmentCircuits(Entity):
@@ -9491,6 +9754,7 @@ class L2vpn(Entity):
 
                                 self.bd_attachment_circuit = YList(self)
                                 self._segment_path = lambda: "bd-attachment-circuits"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits, [], name, value)
@@ -9505,7 +9769,7 @@ class L2vpn(Entity):
                                 	The name of the Attachment Circuit
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: interface_ip_source_guard
                                 
@@ -9583,11 +9847,11 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['name']
                                     self._child_classes = OrderedDict([("interface-ip-source-guard", ("interface_ip_source_guard", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard)), ("interface-dai", ("interface_dai", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai)), ("interface-profile", ("interface_profile", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile)), ("bdac-storm-control-types", ("bdac_storm_control_types", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes)), ("split-horizon", ("split_horizon", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon)), ("static-mac-addresses", ("static_mac_addresses", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses)), ("interface-mac", ("interface_mac", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac))])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('interface_flooding', YLeaf(YType.enumeration, 'interface-flooding')),
-                                        ('interface_igmp_snoop', YLeaf(YType.str, 'interface-igmp-snoop')),
-                                        ('interface_flooding_unknown_unicast', YLeaf(YType.enumeration, 'interface-flooding-unknown-unicast')),
-                                        ('interface_mld_snoop', YLeaf(YType.str, 'interface-mld-snoop')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('interface_flooding', (YLeaf(YType.enumeration, 'interface-flooding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('interface_igmp_snoop', (YLeaf(YType.str, 'interface-igmp-snoop'), ['str'])),
+                                        ('interface_flooding_unknown_unicast', (YLeaf(YType.enumeration, 'interface-flooding-unknown-unicast'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('interface_mld_snoop', (YLeaf(YType.str, 'interface-mld-snoop'), ['str'])),
                                     ])
                                     self.name = None
                                     self.interface_flooding = None
@@ -9623,9 +9887,10 @@ class L2vpn(Entity):
                                     self.interface_mac.parent = self
                                     self._children_name_map["interface_mac"] = "interface-mac"
                                     self._segment_path = lambda: "bd-attachment-circuit" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, [u'name', u'interface_flooding', u'interface_igmp_snoop', u'interface_flooding_unknown_unicast', u'interface_mld_snoop'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
 
 
                                 class InterfaceIpSourceGuard(Entity):
@@ -9664,17 +9929,18 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('logging', YLeaf(YType.enumeration, 'logging')),
-                                            ('disable', YLeaf(YType.empty, 'disable')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.logging = None
                                         self.disable = None
                                         self.enable = None
                                         self._segment_path = lambda: "interface-ip-source-guard"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
 
 
                                 class InterfaceDai(Entity):
@@ -9718,9 +9984,9 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("interface-dai-address-validation", ("interface_dai_address_validation", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation))])
                                         self._leafs = OrderedDict([
-                                            ('logging', YLeaf(YType.enumeration, 'logging')),
-                                            ('disable', YLeaf(YType.empty, 'disable')),
-                                            ('enable', YLeaf(YType.empty, 'enable')),
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                         ])
                                         self.logging = None
                                         self.disable = None
@@ -9730,9 +9996,10 @@ class L2vpn(Entity):
                                         self.interface_dai_address_validation.parent = self
                                         self._children_name_map["interface_dai_address_validation"] = "interface-dai-address-validation"
                                         self._segment_path = lambda: "interface-dai"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, [u'logging', u'disable', u'enable'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
 
 
                                     class InterfaceDaiAddressValidation(Entity):
@@ -9776,19 +10043,20 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('ipv4_verification', YLeaf(YType.enumeration, 'ipv4-verification')),
-                                                ('destination_mac_verification', YLeaf(YType.enumeration, 'destination-mac-verification')),
-                                                ('source_mac_verification', YLeaf(YType.enumeration, 'source-mac-verification')),
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('ipv4_verification', (YLeaf(YType.enumeration, 'ipv4-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('destination_mac_verification', (YLeaf(YType.enumeration, 'destination-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('source_mac_verification', (YLeaf(YType.enumeration, 'source-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.ipv4_verification = None
                                             self.destination_mac_verification = None
                                             self.source_mac_verification = None
                                             self.enable = None
                                             self._segment_path = lambda: "interface-dai-address-validation"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
                                 class InterfaceProfile(Entity):
@@ -9822,15 +10090,16 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('profile_id', YLeaf(YType.enumeration, 'profile-id')),
-                                            ('dhcp_snooping_id', YLeaf(YType.str, 'dhcp-snooping-id')),
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
                                         ])
                                         self.profile_id = None
                                         self.dhcp_snooping_id = None
                                         self._segment_path = lambda: "interface-profile"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, [u'profile_id', u'dhcp_snooping_id'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
 
 
                                 class BdacStormControlTypes(Entity):
@@ -9862,6 +10131,7 @@ class L2vpn(Entity):
 
                                         self.bdac_storm_control_type = YList(self)
                                         self._segment_path = lambda: "bdac-storm-control-types"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, [], name, value)
@@ -9898,7 +10168,7 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['sctype']
                                             self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit))])
                                             self._leafs = OrderedDict([
-                                                ('sctype', YLeaf(YType.enumeration, 'sctype')),
+                                                ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
                                             ])
                                             self.sctype = None
 
@@ -9906,9 +10176,10 @@ class L2vpn(Entity):
                                             self.storm_control_unit.parent = self
                                             self._children_name_map["storm_control_unit"] = "storm-control-unit"
                                             self._segment_path = lambda: "bdac-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, [u'sctype'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
 
 
                                         class StormControlUnit(Entity):
@@ -9950,15 +10221,16 @@ class L2vpn(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('kbits_per_sec', YLeaf(YType.uint32, 'kbits-per-sec')),
-                                                    ('pkts_per_sec', YLeaf(YType.uint32, 'pkts-per-sec')),
+                                                    ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                                    ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
                                                 ])
                                                 self.kbits_per_sec = None
                                                 self.pkts_per_sec = None
                                                 self._segment_path = lambda: "storm-control-unit"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
-                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, [u'kbits_per_sec', u'pkts_per_sec'], name, value)
+                                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
 
 
                                 class SplitHorizon(Entity):
@@ -9992,6 +10264,7 @@ class L2vpn(Entity):
                                         self.split_horizon_group_id.parent = self
                                         self._children_name_map["split_horizon_group_id"] = "split-horizon-group-id"
                                         self._segment_path = lambda: "split-horizon"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, [], name, value)
@@ -10023,13 +10296,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.enable = None
                                             self._segment_path = lambda: "split-horizon-group-id"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, [u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
 
 
                                 class StaticMacAddresses(Entity):
@@ -10061,6 +10335,7 @@ class L2vpn(Entity):
 
                                         self.static_mac_address = YList(self)
                                         self._segment_path = lambda: "static-mac-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, [], name, value)
@@ -10094,13 +10369,14 @@ class L2vpn(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                             ])
                                             self.address = None
                                             self._segment_path = lambda: "static-mac-address" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, [u'address'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
 
 
                                 class InterfaceMac(Entity):
@@ -10149,8 +10425,8 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("interface-mac-aging", ("interface_mac_aging", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging)), ("interface-mac-secure", ("interface_mac_secure", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure)), ("interface-mac-limit", ("interface_mac_limit", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit))])
                                         self._leafs = OrderedDict([
-                                            ('interface_mac_port_down_flush', YLeaf(YType.enumeration, 'interface-mac-port-down-flush')),
-                                            ('interface_mac_learning', YLeaf(YType.enumeration, 'interface-mac-learning')),
+                                            ('interface_mac_port_down_flush', (YLeaf(YType.enumeration, 'interface-mac-port-down-flush'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PortDownFlush', '')])),
+                                            ('interface_mac_learning', (YLeaf(YType.enumeration, 'interface-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
                                         ])
                                         self.interface_mac_port_down_flush = None
                                         self.interface_mac_learning = None
@@ -10167,9 +10443,10 @@ class L2vpn(Entity):
                                         self.interface_mac_limit.parent = self
                                         self._children_name_map["interface_mac_limit"] = "interface-mac-limit"
                                         self._segment_path = lambda: "interface-mac"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, [u'interface_mac_port_down_flush', u'interface_mac_learning'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
 
 
                                     class InterfaceMacAging(Entity):
@@ -10205,15 +10482,16 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface_mac_aging_time', YLeaf(YType.uint32, 'interface-mac-aging-time')),
-                                                ('interface_mac_aging_type', YLeaf(YType.enumeration, 'interface-mac-aging-type')),
+                                                ('interface_mac_aging_time', (YLeaf(YType.uint32, 'interface-mac-aging-time'), ['int'])),
+                                                ('interface_mac_aging_type', (YLeaf(YType.enumeration, 'interface-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
                                             ])
                                             self.interface_mac_aging_time = None
                                             self.interface_mac_aging_type = None
                                             self._segment_path = lambda: "interface-mac-aging"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, [u'interface_mac_aging_time', u'interface_mac_aging_type'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
 
 
                                     class InterfaceMacSecure(Entity):
@@ -10257,19 +10535,20 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('logging', YLeaf(YType.enumeration, 'logging')),
-                                                ('disable', YLeaf(YType.empty, 'disable')),
-                                                ('action', YLeaf(YType.enumeration, 'action')),
-                                                ('enable', YLeaf(YType.empty, 'enable')),
+                                                ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                             ])
                                             self.logging = None
                                             self.disable = None
                                             self.action = None
                                             self.enable = None
                                             self._segment_path = lambda: "interface-mac-secure"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, [u'logging', u'disable', u'action', u'enable'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
 
 
                                     class InterfaceMacLimit(Entity):
@@ -10310,17 +10589,18 @@ class L2vpn(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface_mac_limit_max', YLeaf(YType.uint32, 'interface-mac-limit-max')),
-                                                ('interface_mac_limit_notif', YLeaf(YType.enumeration, 'interface-mac-limit-notif')),
-                                                ('interface_mac_limit_action', YLeaf(YType.enumeration, 'interface-mac-limit-action')),
+                                                ('interface_mac_limit_max', (YLeaf(YType.uint32, 'interface-mac-limit-max'), ['int'])),
+                                                ('interface_mac_limit_notif', (YLeaf(YType.enumeration, 'interface-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('interface_mac_limit_action', (YLeaf(YType.enumeration, 'interface-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
                                             ])
                                             self.interface_mac_limit_max = None
                                             self.interface_mac_limit_notif = None
                                             self.interface_mac_limit_action = None
                                             self._segment_path = lambda: "interface-mac-limit"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, [u'interface_mac_limit_max', u'interface_mac_limit_notif', u'interface_mac_limit_action'], name, value)
+                                            self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
 
 
                         class BdPseudowireEvpns(Entity):
@@ -10352,6 +10632,7 @@ class L2vpn(Entity):
 
                                 self.bd_pseudowire_evpn = YList(self)
                                 self._segment_path = lambda: "bd-pseudowire-evpns"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns, [], name, value)
@@ -10392,15 +10673,16 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['eviid','acid']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('eviid', YLeaf(YType.uint32, 'eviid')),
-                                        ('acid', YLeaf(YType.uint32, 'acid')),
+                                        ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                                        ('acid', (YLeaf(YType.uint32, 'acid'), ['int'])),
                                     ])
                                     self.eviid = None
                                     self.acid = None
                                     self._segment_path = lambda: "bd-pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[acid='" + str(self.acid) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, [u'eviid', u'acid'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
                         class IpSourceGuard(Entity):
@@ -10434,15 +10716,16 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.enable = None
                                 self._segment_path = lambda: "ip-source-guard"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
 
 
                         class Dai(Entity):
@@ -10481,8 +10764,8 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("dai-address-validation", ("dai_address_validation", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation))])
                                 self._leafs = OrderedDict([
-                                    ('logging', YLeaf(YType.empty, 'logging')),
-                                    ('enable', YLeaf(YType.empty, 'enable')),
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                 ])
                                 self.logging = None
                                 self.enable = None
@@ -10491,9 +10774,10 @@ class L2vpn(Entity):
                                 self.dai_address_validation.parent = self
                                 self._children_name_map["dai_address_validation"] = "dai-address-validation"
                                 self._segment_path = lambda: "dai"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, [u'logging', u'enable'], name, value)
+                                self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
 
 
                             class DaiAddressValidation(Entity):
@@ -10537,19 +10821,20 @@ class L2vpn(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ipv4_verification', YLeaf(YType.empty, 'ipv4-verification')),
-                                        ('destination_mac_verification', YLeaf(YType.empty, 'destination-mac-verification')),
-                                        ('source_mac_verification', YLeaf(YType.empty, 'source-mac-verification')),
-                                        ('enable', YLeaf(YType.empty, 'enable')),
+                                        ('ipv4_verification', (YLeaf(YType.empty, 'ipv4-verification'), ['Empty'])),
+                                        ('destination_mac_verification', (YLeaf(YType.empty, 'destination-mac-verification'), ['Empty'])),
+                                        ('source_mac_verification', (YLeaf(YType.empty, 'source-mac-verification'), ['Empty'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                                     ])
                                     self.ipv4_verification = None
                                     self.destination_mac_verification = None
                                     self.source_mac_verification = None
                                     self.enable = None
                                     self._segment_path = lambda: "dai-address-validation"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, [u'ipv4_verification', u'destination_mac_verification', u'source_mac_verification', u'enable'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
 
 
                         class RoutedInterfaces(Entity):
@@ -10581,6 +10866,7 @@ class L2vpn(Entity):
 
                                 self.routed_interface = YList(self)
                                 self._segment_path = lambda: "routed-interfaces"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces, [], name, value)
@@ -10595,7 +10881,7 @@ class L2vpn(Entity):
                                 	The name of the Routed Interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: routed_interface_split_horizon_group
                                 
@@ -10619,7 +10905,7 @@ class L2vpn(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("routed-interface-split-horizon-group", ("routed_interface_split_horizon_group", L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                     ])
                                     self.interface_name = None
 
@@ -10627,9 +10913,10 @@ class L2vpn(Entity):
                                     self.routed_interface_split_horizon_group.parent = self
                                     self._children_name_map["routed_interface_split_horizon_group"] = "routed-interface-split-horizon-group"
                                     self._segment_path = lambda: "routed-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, [u'interface_name'], name, value)
+                                    self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
 
 
                                 class RoutedInterfaceSplitHorizonGroup(Entity):
@@ -10658,13 +10945,14 @@ class L2vpn(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('routed_interface_split_horizon_group_core', YLeaf(YType.empty, 'routed-interface-split-horizon-group-core')),
+                                            ('routed_interface_split_horizon_group_core', (YLeaf(YType.empty, 'routed-interface-split-horizon-group-core'), ['Empty'])),
                                         ])
                                         self.routed_interface_split_horizon_group_core = None
                                         self._segment_path = lambda: "routed-interface-split-horizon-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, [u'routed_interface_split_horizon_group_core'], name, value)
+                                        self._perform_setattr(L2vpn.Database.BridgeDomainGroups.BridgeDomainGroup.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
 
         class PseudowireClasses(Entity):
@@ -10697,6 +10985,7 @@ class L2vpn(Entity):
                 self.pseudowire_class = YList(self)
                 self._segment_path = lambda: "pseudowire-classes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Database.PseudowireClasses, [], name, value)
@@ -10755,9 +11044,9 @@ class L2vpn(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("l2tpv3-encapsulation", ("l2tpv3_encapsulation", L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation)), ("backup-disable-delay", ("backup_disable_delay", L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay)), ("mpls-encapsulation", ("mpls_encapsulation", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('mac_withdraw', YLeaf(YType.empty, 'mac-withdraw')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('mac_withdraw', (YLeaf(YType.empty, 'mac-withdraw'), ['Empty'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.name = None
                     self.mac_withdraw = None
@@ -10776,9 +11065,10 @@ class L2vpn(Entity):
                     self._children_name_map["mpls_encapsulation"] = "mpls-encapsulation"
                     self._segment_path = lambda: "pseudowire-class" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/pseudowire-classes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass, [u'name', u'mac_withdraw', u'enable'], name, value)
+                    self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass, ['name', 'mac_withdraw', 'enable'], name, value)
 
 
                 class L2tpv3Encapsulation(Entity):
@@ -10858,12 +11148,12 @@ class L2vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sequencing", ("sequencing", L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing)), ("type-of-service", ("type_of_service", L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService)), ("signaling-protocol", ("signaling_protocol", L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol)), ("path-mtu", ("path_mtu", L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu))])
                         self._leafs = OrderedDict([
-                            ('df_bit_set', YLeaf(YType.empty, 'df-bit-set')),
-                            ('cookie_size', YLeaf(YType.enumeration, 'cookie-size')),
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('time_to_live', YLeaf(YType.uint32, 'time-to-live')),
+                            ('df_bit_set', (YLeaf(YType.empty, 'df-bit-set'), ['Empty'])),
+                            ('cookie_size', (YLeaf(YType.enumeration, 'cookie-size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpCookieSize', '')])),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                            ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'TransportMode', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('time_to_live', (YLeaf(YType.uint32, 'time-to-live'), ['int'])),
                         ])
                         self.df_bit_set = None
                         self.cookie_size = None
@@ -10888,9 +11178,10 @@ class L2vpn(Entity):
                         self.path_mtu.parent = self
                         self._children_name_map["path_mtu"] = "path-mtu"
                         self._segment_path = lambda: "l2tpv3-encapsulation"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, [u'df_bit_set', u'cookie_size', u'source_address', u'transport_mode', u'enable', u'time_to_live'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation, ['df_bit_set', 'cookie_size', 'source_address', 'transport_mode', 'enable', 'time_to_live'], name, value)
 
 
                     class Sequencing(Entity):
@@ -10930,15 +11221,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sequencing', YLeaf(YType.enumeration, 'sequencing')),
-                                ('resync_threshold', YLeaf(YType.uint32, 'resync-threshold')),
+                                ('sequencing', (YLeaf(YType.enumeration, 'sequencing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpv3Sequencing', '')])),
+                                ('resync_threshold', (YLeaf(YType.uint32, 'resync-threshold'), ['int'])),
                             ])
                             self.sequencing = None
                             self.resync_threshold = None
                             self._segment_path = lambda: "sequencing"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, [u'sequencing', u'resync_threshold'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
                     class TypeOfService(Entity):
@@ -10974,15 +11266,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type_of_service_value', YLeaf(YType.uint32, 'type-of-service-value')),
-                                ('type_of_service_mode', YLeaf(YType.enumeration, 'type-of-service-mode')),
+                                ('type_of_service_value', (YLeaf(YType.uint32, 'type-of-service-value'), ['int'])),
+                                ('type_of_service_mode', (YLeaf(YType.enumeration, 'type-of-service-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'TypeOfServiceMode', '')])),
                             ])
                             self.type_of_service_value = None
                             self.type_of_service_mode = None
                             self._segment_path = lambda: "type-of-service"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, [u'type_of_service_value', u'type_of_service_mode'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.TypeOfService, ['type_of_service_value', 'type_of_service_mode'], name, value)
 
 
                     class SignalingProtocol(Entity):
@@ -11020,15 +11313,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('protocol', YLeaf(YType.enumeration, 'protocol')),
-                                ('l2tpv3_class_name', YLeaf(YType.str, 'l2tpv3-class-name')),
+                                ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2tpSignalingProtocol', '')])),
+                                ('l2tpv3_class_name', (YLeaf(YType.str, 'l2tpv3-class-name'), ['str'])),
                             ])
                             self.protocol = None
                             self.l2tpv3_class_name = None
                             self._segment_path = lambda: "signaling-protocol"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, [u'protocol', u'l2tpv3_class_name'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.SignalingProtocol, ['protocol', 'l2tpv3_class_name'], name, value)
 
 
                     class PathMtu(Entity):
@@ -11064,15 +11358,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('max_path_mtu', YLeaf(YType.uint32, 'max-path-mtu')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('max_path_mtu', (YLeaf(YType.uint32, 'max-path-mtu'), ['int'])),
                             ])
                             self.enable = None
                             self.max_path_mtu = None
                             self._segment_path = lambda: "path-mtu"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, [u'enable', u'max_path_mtu'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.L2tpv3Encapsulation.PathMtu, ['enable', 'max_path_mtu'], name, value)
 
 
                 class BackupDisableDelay(Entity):
@@ -11108,15 +11403,16 @@ class L2vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.enumeration, 'type')),
-                            ('disable_backup', YLeaf(YType.uint32, 'disable-backup')),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BackupDisable', '')])),
+                            ('disable_backup', (YLeaf(YType.uint32, 'disable-backup'), ['int'])),
                         ])
                         self.type = None
                         self.disable_backup = None
                         self._segment_path = lambda: "backup-disable-delay"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, [u'type', u'disable_backup'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.BackupDisableDelay, ['type', 'disable_backup'], name, value)
 
 
                 class MplsEncapsulation(Entity):
@@ -11208,14 +11504,14 @@ class L2vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sequencing", ("sequencing", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing)), ("mpls-redundancy", ("mpls_redundancy", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy)), ("preferred-path", ("preferred_path", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath)), ("load-balance-group", ("load_balance_group", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup))])
                         self._leafs = OrderedDict([
-                            ('pw_switching_tlv', YLeaf(YType.enumeration, 'pw-switching-tlv')),
-                            ('static_tag_rewrite', YLeaf(YType.uint32, 'static-tag-rewrite')),
-                            ('signaling_protocol', YLeaf(YType.enumeration, 'signaling-protocol')),
-                            ('vccv_type', YLeaf(YType.enumeration, 'vccv-type')),
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('transport_mode', YLeaf(YType.enumeration, 'transport-mode')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('control_word', YLeaf(YType.enumeration, 'control-word')),
+                            ('pw_switching_tlv', (YLeaf(YType.enumeration, 'pw-switching-tlv'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PwSwitchingPointTlv', '')])),
+                            ('static_tag_rewrite', (YLeaf(YType.uint32, 'static-tag-rewrite'), ['int'])),
+                            ('signaling_protocol', (YLeaf(YType.enumeration, 'signaling-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MplsSignalingProtocol', '')])),
+                            ('vccv_type', (YLeaf(YType.enumeration, 'vccv-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'VccvVerification', '')])),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                            ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'TransportMode', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('control_word', (YLeaf(YType.enumeration, 'control-word'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'ControlWord', '')])),
                         ])
                         self.pw_switching_tlv = None
                         self.static_tag_rewrite = None
@@ -11242,9 +11538,10 @@ class L2vpn(Entity):
                         self.load_balance_group.parent = self
                         self._children_name_map["load_balance_group"] = "load-balance-group"
                         self._segment_path = lambda: "mpls-encapsulation"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, [u'pw_switching_tlv', u'static_tag_rewrite', u'signaling_protocol', u'vccv_type', u'source_address', u'transport_mode', u'enable', u'control_word'], name, value)
+                        self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation, ['pw_switching_tlv', 'static_tag_rewrite', 'signaling_protocol', 'vccv_type', 'source_address', 'transport_mode', 'enable', 'control_word'], name, value)
 
 
                     class Sequencing(Entity):
@@ -11284,15 +11581,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sequencing', YLeaf(YType.enumeration, 'sequencing')),
-                                ('resync_threshold', YLeaf(YType.uint32, 'resync-threshold')),
+                                ('sequencing', (YLeaf(YType.enumeration, 'sequencing'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MplsSequencing', '')])),
+                                ('resync_threshold', (YLeaf(YType.uint32, 'resync-threshold'), ['int'])),
                             ])
                             self.sequencing = None
                             self.resync_threshold = None
                             self._segment_path = lambda: "sequencing"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, [u'sequencing', u'resync_threshold'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.Sequencing, ['sequencing', 'resync_threshold'], name, value)
 
 
                     class MplsRedundancy(Entity):
@@ -11330,15 +11628,16 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('redundancy_one_way', YLeaf(YType.empty, 'redundancy-one-way')),
-                                ('redundancy_initial_delay', YLeaf(YType.uint32, 'redundancy-initial-delay')),
+                                ('redundancy_one_way', (YLeaf(YType.empty, 'redundancy-one-way'), ['Empty'])),
+                                ('redundancy_initial_delay', (YLeaf(YType.uint32, 'redundancy-initial-delay'), ['int'])),
                             ])
                             self.redundancy_one_way = None
                             self.redundancy_initial_delay = None
                             self._segment_path = lambda: "mpls-redundancy"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, [u'redundancy_one_way', u'redundancy_initial_delay'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.MplsRedundancy, ['redundancy_one_way', 'redundancy_initial_delay'], name, value)
 
 
                     class PreferredPath(Entity):
@@ -11386,19 +11685,20 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('interface_tunnel_number', YLeaf(YType.uint32, 'interface-tunnel-number')),
-                                ('fallback_disable', YLeaf(YType.empty, 'fallback-disable')),
-                                ('srte_policy', YLeaf(YType.str, 'srte-policy')),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PreferredPath', '')])),
+                                ('interface_tunnel_number', (YLeaf(YType.uint32, 'interface-tunnel-number'), ['int'])),
+                                ('fallback_disable', (YLeaf(YType.empty, 'fallback-disable'), ['Empty'])),
+                                ('srte_policy', (YLeaf(YType.str, 'srte-policy'), ['str'])),
                             ])
                             self.type = None
                             self.interface_tunnel_number = None
                             self.fallback_disable = None
                             self.srte_policy = None
                             self._segment_path = lambda: "preferred-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, [u'type', u'interface_tunnel_number', u'fallback_disable', u'srte_policy'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.PreferredPath, ['type', 'interface_tunnel_number', 'fallback_disable', 'srte_policy'], name, value)
 
 
                     class LoadBalanceGroup(Entity):
@@ -11437,8 +11737,8 @@ class L2vpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance))])
                             self._leafs = OrderedDict([
-                                ('flow_label_load_balance_code', YLeaf(YType.enumeration, 'flow-label-load-balance-code')),
-                                ('pw_label_load_balance', YLeaf(YType.enumeration, 'pw-label-load-balance')),
+                                ('flow_label_load_balance_code', (YLeaf(YType.enumeration, 'flow-label-load-balance-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelTlvCode', '')])),
+                                ('pw_label_load_balance', (YLeaf(YType.enumeration, 'pw-label-load-balance'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'LoadBalance', '')])),
                             ])
                             self.flow_label_load_balance_code = None
                             self.pw_label_load_balance = None
@@ -11447,9 +11747,10 @@ class L2vpn(Entity):
                             self.flow_label_load_balance.parent = self
                             self._children_name_map["flow_label_load_balance"] = "flow-label-load-balance"
                             self._segment_path = lambda: "load-balance-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, [u'flow_label_load_balance_code', u'pw_label_load_balance'], name, value)
+                            self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup, ['flow_label_load_balance_code', 'pw_label_load_balance'], name, value)
 
 
                         class FlowLabelLoadBalance(Entity):
@@ -11483,15 +11784,6666 @@ class L2vpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('flow_label', YLeaf(YType.enumeration, 'flow-label')),
-                                    ('static', YLeaf(YType.empty, 'static')),
+                                    ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                    ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
                                 ])
                                 self.flow_label = None
                                 self.static = None
                                 self._segment_path = lambda: "flow-label-load-balance"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, [u'flow_label', u'static'], name, value)
+                                self._perform_setattr(L2vpn.Database.PseudowireClasses.PseudowireClass.MplsEncapsulation.LoadBalanceGroup.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
+        class VlanSwitches(Entity):
+            """
+            List of VLAN Switches
+            
+            .. attribute:: vlan_switch
+            
+            	VLAN Switch
+            	**type**\: list of  		 :py:class:`VlanSwitch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch>`
+            
+            
+
+            """
+
+            _prefix = 'l2vpn-cfg'
+            _revision = '2017-06-26'
+
+            def __init__(self):
+                super(L2vpn.Database.VlanSwitches, self).__init__()
+
+                self.yang_name = "vlan-switches"
+                self.yang_parent_name = "database"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("vlan-switch", ("vlan_switch", L2vpn.Database.VlanSwitches.VlanSwitch))])
+                self._leafs = OrderedDict()
+
+                self.vlan_switch = YList(self)
+                self._segment_path = lambda: "vlan-switches"
+                self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2vpn.Database.VlanSwitches, [], name, value)
+
+
+            class VlanSwitch(Entity):
+                """
+                VLAN Switch
+                
+                .. attribute:: name  (key)
+                
+                	Name of the VLAN Switch
+                	**type**\: str
+                
+                	**length:** 1..32
+                
+                .. attribute:: vlan_switch_ports
+                
+                	List of VLAN Switched Ports
+                	**type**\:  :py:class:`VlanSwitchPorts <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts>`
+                
+                .. attribute:: vni_ranges
+                
+                	Configure VLAN Switch VxLAN Ethernet VPN\-ID ranges
+                	**type**\:  :py:class:`VniRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges>`
+                
+                .. attribute:: vlan_ranges
+                
+                	Configure VLAN Switch VLAN ranges
+                	**type**\:  :py:class:`VlanRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges>`
+                
+                .. attribute:: routed_interface_ranges
+                
+                	Configure VLAN Switch Routed BVI Interface ranges
+                	**type**\:  :py:class:`RoutedInterfaceRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges>`
+                
+                .. attribute:: bridge_domains
+                
+                	List of Bridge Domain
+                	**type**\:  :py:class:`BridgeDomains <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains>`
+                
+                
+
+                """
+
+                _prefix = 'l2vpn-cfg'
+                _revision = '2017-06-26'
+
+                def __init__(self):
+                    super(L2vpn.Database.VlanSwitches.VlanSwitch, self).__init__()
+
+                    self.yang_name = "vlan-switch"
+                    self.yang_parent_name = "vlan-switches"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = ['name']
+                    self._child_classes = OrderedDict([("vlan-switch-ports", ("vlan_switch_ports", L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts)), ("vni-ranges", ("vni_ranges", L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges)), ("vlan-ranges", ("vlan_ranges", L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges)), ("routed-interface-ranges", ("routed_interface_ranges", L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges)), ("bridge-domains", ("bridge_domains", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains))])
+                    self._leafs = OrderedDict([
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ])
+                    self.name = None
+
+                    self.vlan_switch_ports = L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts()
+                    self.vlan_switch_ports.parent = self
+                    self._children_name_map["vlan_switch_ports"] = "vlan-switch-ports"
+
+                    self.vni_ranges = L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges()
+                    self.vni_ranges.parent = self
+                    self._children_name_map["vni_ranges"] = "vni-ranges"
+
+                    self.vlan_ranges = L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges()
+                    self.vlan_ranges.parent = self
+                    self._children_name_map["vlan_ranges"] = "vlan-ranges"
+
+                    self.routed_interface_ranges = L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges()
+                    self.routed_interface_ranges.parent = self
+                    self._children_name_map["routed_interface_ranges"] = "routed-interface-ranges"
+
+                    self.bridge_domains = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains()
+                    self.bridge_domains.parent = self
+                    self._children_name_map["bridge_domains"] = "bridge-domains"
+                    self._segment_path = lambda: "vlan-switch" + "[name='" + str(self.name) + "']"
+                    self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/vlan-switches/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch, ['name'], name, value)
+
+
+                class VlanSwitchPorts(Entity):
+                    """
+                    List of VLAN Switched Ports
+                    
+                    .. attribute:: vlan_switch_port
+                    
+                    	VLAN Switched Port
+                    	**type**\: list of  		 :py:class:`VlanSwitchPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, self).__init__()
+
+                        self.yang_name = "vlan-switch-ports"
+                        self.yang_parent_name = "vlan-switch"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("vlan-switch-port", ("vlan_switch_port", L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort))])
+                        self._leafs = OrderedDict()
+
+                        self.vlan_switch_port = YList(self)
+                        self._segment_path = lambda: "vlan-switch-ports"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts, [], name, value)
+
+
+                    class VlanSwitchPort(Entity):
+                        """
+                        VLAN Switched Port
+                        
+                        .. attribute:: interface_name  (key)
+                        
+                        	Interface name
+                        	**type**\: str
+                        
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2vpn-cfg'
+                        _revision = '2017-06-26'
+
+                        def __init__(self):
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, self).__init__()
+
+                            self.yang_name = "vlan-switch-port"
+                            self.yang_parent_name = "vlan-switch-ports"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['interface_name']
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ])
+                            self.interface_name = None
+                            self._segment_path = lambda: "vlan-switch-port" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanSwitchPorts.VlanSwitchPort, ['interface_name'], name, value)
+
+
+                class VniRanges(Entity):
+                    """
+                    Configure VLAN Switch VxLAN Ethernet VPN\-ID
+                    ranges
+                    
+                    .. attribute:: vni_range1_min
+                    
+                    	Minimum value of VNI range #1
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range1_max
+                    
+                    	Maximum value of VNI range #1
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range2_min
+                    
+                    	Minimum value of VNI range #2
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range2_max
+                    
+                    	Maximum value of VNI range #2
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range3_min
+                    
+                    	Minimum value of VNI range #3
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range3_max
+                    
+                    	Maximum value of VNI range #3
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range4_min
+                    
+                    	Minimum value of VNI range #4
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range4_max
+                    
+                    	Maximum value of VNI range #4
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range5_min
+                    
+                    	Minimum value of VNI range #5
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range5_max
+                    
+                    	Maximum value of VNI range #5
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range6_min
+                    
+                    	Minimum value of VNI range #6
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range6_max
+                    
+                    	Maximum value of VNI range #6
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range7_min
+                    
+                    	Minimum value of VNI range #7
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range7_max
+                    
+                    	Maximum value of VNI range #7
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range8_min
+                    
+                    	Minimum value of VNI range #8
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range8_max
+                    
+                    	Maximum value of VNI range #8
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range9_min
+                    
+                    	Minimum value of VNI range #9
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vni_range9_max
+                    
+                    	Maximum value of VNI range #9
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, self).__init__()
+
+                        self.yang_name = "vni-ranges"
+                        self.yang_parent_name = "vlan-switch"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vni_range1_min', (YLeaf(YType.uint32, 'vni-range1-min'), ['int'])),
+                            ('vni_range1_max', (YLeaf(YType.uint32, 'vni-range1-max'), ['int'])),
+                            ('vni_range2_min', (YLeaf(YType.uint32, 'vni-range2-min'), ['int'])),
+                            ('vni_range2_max', (YLeaf(YType.uint32, 'vni-range2-max'), ['int'])),
+                            ('vni_range3_min', (YLeaf(YType.uint32, 'vni-range3-min'), ['int'])),
+                            ('vni_range3_max', (YLeaf(YType.uint32, 'vni-range3-max'), ['int'])),
+                            ('vni_range4_min', (YLeaf(YType.uint32, 'vni-range4-min'), ['int'])),
+                            ('vni_range4_max', (YLeaf(YType.uint32, 'vni-range4-max'), ['int'])),
+                            ('vni_range5_min', (YLeaf(YType.uint32, 'vni-range5-min'), ['int'])),
+                            ('vni_range5_max', (YLeaf(YType.uint32, 'vni-range5-max'), ['int'])),
+                            ('vni_range6_min', (YLeaf(YType.uint32, 'vni-range6-min'), ['int'])),
+                            ('vni_range6_max', (YLeaf(YType.uint32, 'vni-range6-max'), ['int'])),
+                            ('vni_range7_min', (YLeaf(YType.uint32, 'vni-range7-min'), ['int'])),
+                            ('vni_range7_max', (YLeaf(YType.uint32, 'vni-range7-max'), ['int'])),
+                            ('vni_range8_min', (YLeaf(YType.uint32, 'vni-range8-min'), ['int'])),
+                            ('vni_range8_max', (YLeaf(YType.uint32, 'vni-range8-max'), ['int'])),
+                            ('vni_range9_min', (YLeaf(YType.uint32, 'vni-range9-min'), ['int'])),
+                            ('vni_range9_max', (YLeaf(YType.uint32, 'vni-range9-max'), ['int'])),
+                        ])
+                        self.vni_range1_min = None
+                        self.vni_range1_max = None
+                        self.vni_range2_min = None
+                        self.vni_range2_max = None
+                        self.vni_range3_min = None
+                        self.vni_range3_max = None
+                        self.vni_range4_min = None
+                        self.vni_range4_max = None
+                        self.vni_range5_min = None
+                        self.vni_range5_max = None
+                        self.vni_range6_min = None
+                        self.vni_range6_max = None
+                        self.vni_range7_min = None
+                        self.vni_range7_max = None
+                        self.vni_range8_min = None
+                        self.vni_range8_max = None
+                        self.vni_range9_min = None
+                        self.vni_range9_max = None
+                        self._segment_path = lambda: "vni-ranges"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VniRanges, ['vni_range1_min', 'vni_range1_max', 'vni_range2_min', 'vni_range2_max', 'vni_range3_min', 'vni_range3_max', 'vni_range4_min', 'vni_range4_max', 'vni_range5_min', 'vni_range5_max', 'vni_range6_min', 'vni_range6_max', 'vni_range7_min', 'vni_range7_max', 'vni_range8_min', 'vni_range8_max', 'vni_range9_min', 'vni_range9_max'], name, value)
+
+
+                class VlanRanges(Entity):
+                    """
+                    Configure VLAN Switch VLAN ranges
+                    
+                    .. attribute:: vlan_range1_min
+                    
+                    	Minimum value of VLAN range #1
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range1_max
+                    
+                    	Maximum value of VLAN range #1
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range2_min
+                    
+                    	Minimum value of VLAN range #2
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range2_max
+                    
+                    	Maximum value of VLAN range #2
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range3_min
+                    
+                    	Minimum value of VLAN range #3
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range3_max
+                    
+                    	Maximum value of VLAN range #3
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range4_min
+                    
+                    	Minimum value of VLAN range #4
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range4_max
+                    
+                    	Maximum value of VLAN range #4
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range5_min
+                    
+                    	Minimum value of VLAN range #5
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range5_max
+                    
+                    	Maximum value of VLAN range #5
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range6_min
+                    
+                    	Minimum value of VLAN range #6
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range6_max
+                    
+                    	Maximum value of VLAN range #6
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range7_min
+                    
+                    	Minimum value of VLAN range #7
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range7_max
+                    
+                    	Maximum value of VLAN range #7
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range8_min
+                    
+                    	Minimum value of VLAN range #8
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range8_max
+                    
+                    	Maximum value of VLAN range #8
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range9_min
+                    
+                    	Minimum value of VLAN range #9
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    .. attribute:: vlan_range9_max
+                    
+                    	Maximum value of VLAN range #9
+                    	**type**\: int
+                    
+                    	**range:** 1..4094
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, self).__init__()
+
+                        self.yang_name = "vlan-ranges"
+                        self.yang_parent_name = "vlan-switch"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('vlan_range1_min', (YLeaf(YType.uint32, 'vlan-range1-min'), ['int'])),
+                            ('vlan_range1_max', (YLeaf(YType.uint32, 'vlan-range1-max'), ['int'])),
+                            ('vlan_range2_min', (YLeaf(YType.uint32, 'vlan-range2-min'), ['int'])),
+                            ('vlan_range2_max', (YLeaf(YType.uint32, 'vlan-range2-max'), ['int'])),
+                            ('vlan_range3_min', (YLeaf(YType.uint32, 'vlan-range3-min'), ['int'])),
+                            ('vlan_range3_max', (YLeaf(YType.uint32, 'vlan-range3-max'), ['int'])),
+                            ('vlan_range4_min', (YLeaf(YType.uint32, 'vlan-range4-min'), ['int'])),
+                            ('vlan_range4_max', (YLeaf(YType.uint32, 'vlan-range4-max'), ['int'])),
+                            ('vlan_range5_min', (YLeaf(YType.uint32, 'vlan-range5-min'), ['int'])),
+                            ('vlan_range5_max', (YLeaf(YType.uint32, 'vlan-range5-max'), ['int'])),
+                            ('vlan_range6_min', (YLeaf(YType.uint32, 'vlan-range6-min'), ['int'])),
+                            ('vlan_range6_max', (YLeaf(YType.uint32, 'vlan-range6-max'), ['int'])),
+                            ('vlan_range7_min', (YLeaf(YType.uint32, 'vlan-range7-min'), ['int'])),
+                            ('vlan_range7_max', (YLeaf(YType.uint32, 'vlan-range7-max'), ['int'])),
+                            ('vlan_range8_min', (YLeaf(YType.uint32, 'vlan-range8-min'), ['int'])),
+                            ('vlan_range8_max', (YLeaf(YType.uint32, 'vlan-range8-max'), ['int'])),
+                            ('vlan_range9_min', (YLeaf(YType.uint32, 'vlan-range9-min'), ['int'])),
+                            ('vlan_range9_max', (YLeaf(YType.uint32, 'vlan-range9-max'), ['int'])),
+                        ])
+                        self.vlan_range1_min = None
+                        self.vlan_range1_max = None
+                        self.vlan_range2_min = None
+                        self.vlan_range2_max = None
+                        self.vlan_range3_min = None
+                        self.vlan_range3_max = None
+                        self.vlan_range4_min = None
+                        self.vlan_range4_max = None
+                        self.vlan_range5_min = None
+                        self.vlan_range5_max = None
+                        self.vlan_range6_min = None
+                        self.vlan_range6_max = None
+                        self.vlan_range7_min = None
+                        self.vlan_range7_max = None
+                        self.vlan_range8_min = None
+                        self.vlan_range8_max = None
+                        self.vlan_range9_min = None
+                        self.vlan_range9_max = None
+                        self._segment_path = lambda: "vlan-ranges"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.VlanRanges, ['vlan_range1_min', 'vlan_range1_max', 'vlan_range2_min', 'vlan_range2_max', 'vlan_range3_min', 'vlan_range3_max', 'vlan_range4_min', 'vlan_range4_max', 'vlan_range5_min', 'vlan_range5_max', 'vlan_range6_min', 'vlan_range6_max', 'vlan_range7_min', 'vlan_range7_max', 'vlan_range8_min', 'vlan_range8_max', 'vlan_range9_min', 'vlan_range9_max'], name, value)
+
+
+                class RoutedInterfaceRanges(Entity):
+                    """
+                    Configure VLAN Switch Routed BVI Interface
+                    ranges
+                    
+                    .. attribute:: interface_range1_min
+                    
+                    	Minimum value of Interface range #1
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range1_max
+                    
+                    	Maximum value of Interface range #1
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range2_min
+                    
+                    	Minimum value of Interface range #2
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range2_max
+                    
+                    	Maximum value of Interface range #2
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range3_min
+                    
+                    	Minimum value of Interface range #3
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range3_max
+                    
+                    	Maximum value of Interface range #3
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range4_min
+                    
+                    	Minimum value of Interface range #4
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range4_max
+                    
+                    	Maximum value of Interface range #4
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range5_min
+                    
+                    	Minimum value of Interface range #5
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range5_max
+                    
+                    	Maximum value of Interface range #5
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range6_min
+                    
+                    	Minimum value of Interface range #6
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range6_max
+                    
+                    	Maximum value of Interface range #6
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range7_min
+                    
+                    	Minimum value of Interface range #7
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range7_max
+                    
+                    	Maximum value of Interface range #7
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range8_min
+                    
+                    	Minimum value of Interface range #8
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range8_max
+                    
+                    	Maximum value of Interface range #8
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range9_min
+                    
+                    	Minimum value of Interface range #9
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: interface_range9_max
+                    
+                    	Maximum value of Interface range #9
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, self).__init__()
+
+                        self.yang_name = "routed-interface-ranges"
+                        self.yang_parent_name = "vlan-switch"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('interface_range1_min', (YLeaf(YType.uint32, 'interface-range1-min'), ['int'])),
+                            ('interface_range1_max', (YLeaf(YType.uint32, 'interface-range1-max'), ['int'])),
+                            ('interface_range2_min', (YLeaf(YType.uint32, 'interface-range2-min'), ['int'])),
+                            ('interface_range2_max', (YLeaf(YType.uint32, 'interface-range2-max'), ['int'])),
+                            ('interface_range3_min', (YLeaf(YType.uint32, 'interface-range3-min'), ['int'])),
+                            ('interface_range3_max', (YLeaf(YType.uint32, 'interface-range3-max'), ['int'])),
+                            ('interface_range4_min', (YLeaf(YType.uint32, 'interface-range4-min'), ['int'])),
+                            ('interface_range4_max', (YLeaf(YType.uint32, 'interface-range4-max'), ['int'])),
+                            ('interface_range5_min', (YLeaf(YType.uint32, 'interface-range5-min'), ['int'])),
+                            ('interface_range5_max', (YLeaf(YType.uint32, 'interface-range5-max'), ['int'])),
+                            ('interface_range6_min', (YLeaf(YType.uint32, 'interface-range6-min'), ['int'])),
+                            ('interface_range6_max', (YLeaf(YType.uint32, 'interface-range6-max'), ['int'])),
+                            ('interface_range7_min', (YLeaf(YType.uint32, 'interface-range7-min'), ['int'])),
+                            ('interface_range7_max', (YLeaf(YType.uint32, 'interface-range7-max'), ['int'])),
+                            ('interface_range8_min', (YLeaf(YType.uint32, 'interface-range8-min'), ['int'])),
+                            ('interface_range8_max', (YLeaf(YType.uint32, 'interface-range8-max'), ['int'])),
+                            ('interface_range9_min', (YLeaf(YType.uint32, 'interface-range9-min'), ['int'])),
+                            ('interface_range9_max', (YLeaf(YType.uint32, 'interface-range9-max'), ['int'])),
+                        ])
+                        self.interface_range1_min = None
+                        self.interface_range1_max = None
+                        self.interface_range2_min = None
+                        self.interface_range2_max = None
+                        self.interface_range3_min = None
+                        self.interface_range3_max = None
+                        self.interface_range4_min = None
+                        self.interface_range4_max = None
+                        self.interface_range5_min = None
+                        self.interface_range5_max = None
+                        self.interface_range6_min = None
+                        self.interface_range6_max = None
+                        self.interface_range7_min = None
+                        self.interface_range7_max = None
+                        self.interface_range8_min = None
+                        self.interface_range8_max = None
+                        self.interface_range9_min = None
+                        self.interface_range9_max = None
+                        self._segment_path = lambda: "routed-interface-ranges"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.RoutedInterfaceRanges, ['interface_range1_min', 'interface_range1_max', 'interface_range2_min', 'interface_range2_max', 'interface_range3_min', 'interface_range3_max', 'interface_range4_min', 'interface_range4_max', 'interface_range5_min', 'interface_range5_max', 'interface_range6_min', 'interface_range6_max', 'interface_range7_min', 'interface_range7_max', 'interface_range8_min', 'interface_range8_max', 'interface_range9_min', 'interface_range9_max'], name, value)
+
+
+                class BridgeDomains(Entity):
+                    """
+                    List of Bridge Domain
+                    
+                    .. attribute:: bridge_domain
+                    
+                    	bridge domain
+                    	**type**\: list of  		 :py:class:`BridgeDomain <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, self).__init__()
+
+                        self.yang_name = "bridge-domains"
+                        self.yang_parent_name = "vlan-switch"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("bridge-domain", ("bridge_domain", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain))])
+                        self._leafs = OrderedDict()
+
+                        self.bridge_domain = YList(self)
+                        self._segment_path = lambda: "bridge-domains"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains, [], name, value)
+
+
+                    class BridgeDomain(Entity):
+                        """
+                        bridge domain
+                        
+                        .. attribute:: name  (key)
+                        
+                        	Name of the bridge domain
+                        	**type**\: str
+                        
+                        	**length:** 1..27
+                        
+                        .. attribute:: bd_storm_controls
+                        
+                        	Storm Control
+                        	**type**\:  :py:class:`BdStormControls <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls>`
+                        
+                        .. attribute:: member_vnis
+                        
+                        	Bridge Domain VxLAN Network Identifier Table
+                        	**type**\:  :py:class:`MemberVnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis>`
+                        
+                        .. attribute:: bridge_domain_mac
+                        
+                        	MAC configuration commands
+                        	**type**\:  :py:class:`BridgeDomainMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac>`
+                        
+                        .. attribute:: nv_satellite
+                        
+                        	nV Satellite
+                        	**type**\:  :py:class:`NvSatellite <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite>`
+                        
+                        .. attribute:: bridge_domain_pbb
+                        
+                        	Bridge Domain PBB
+                        	**type**\:  :py:class:`BridgeDomainPbb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb>`
+                        
+                        .. attribute:: bridge_domain_evis
+                        
+                        	Bridge Domain EVI Table
+                        	**type**\:  :py:class:`BridgeDomainEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis>`
+                        
+                        .. attribute:: access_vfis
+                        
+                        	Specify the access virtual forwarding interface name
+                        	**type**\:  :py:class:`AccessVfis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis>`
+                        
+                        .. attribute:: bd_pseudowires
+                        
+                        	List of pseudowires
+                        	**type**\:  :py:class:`BdPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires>`
+                        
+                        .. attribute:: vfis
+                        
+                        	Specify the virtual forwarding interface name
+                        	**type**\:  :py:class:`Vfis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis>`
+                        
+                        .. attribute:: bridge_domainvnis
+                        
+                        	Bridge Domain EVPN VxLAN Network Identifier Table
+                        	**type**\:  :py:class:`BridgeDomainvnis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis>`
+                        
+                        .. attribute:: bd_attachment_circuits
+                        
+                        	Attachment Circuit table
+                        	**type**\:  :py:class:`BdAttachmentCircuits <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits>`
+                        
+                        .. attribute:: bd_pseudowire_evpns
+                        
+                        	List of EVPN pseudowires
+                        	**type**\:  :py:class:`BdPseudowireEvpns <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns>`
+                        
+                        .. attribute:: ip_source_guard
+                        
+                        	IP Source Guard
+                        	**type**\:  :py:class:`IpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard>`
+                        
+                        .. attribute:: dai
+                        
+                        	Dynamic ARP Inspection
+                        	**type**\:  :py:class:`Dai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai>`
+                        
+                        .. attribute:: routed_interfaces
+                        
+                        	Bridge Domain Routed Interface Table
+                        	**type**\:  :py:class:`RoutedInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces>`
+                        
+                        .. attribute:: coupled_mode
+                        
+                        	Coupled\-mode configuration
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: shutdown
+                        
+                        	shutdown the Bridge Domain
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: flooding_unknown_unicast
+                        
+                        	Disable Unknown Unicast flooding
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: igmp_snooping_disable
+                        
+                        	Disable IGMP Snooping
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        .. attribute:: transport_mode
+                        
+                        	Bridge Domain Transport mode
+                        	**type**\:  :py:class:`BridgeDomainTransportMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BridgeDomainTransportMode>`
+                        
+                        .. attribute:: mld_snooping
+                        
+                        	Attach MLD Snooping Profile Name
+                        	**type**\: str
+                        
+                        	**length:** 1..32
+                        
+                        .. attribute:: bridge_domain_mtu
+                        
+                        	Maximum transmission unit for this Bridge Domain
+                        	**type**\: int
+                        
+                        	**range:** 46..65535
+                        
+                        	**units**\: byte
+                        
+                        .. attribute:: dhcp
+                        
+                        	DHCPv4 Snooping profile name
+                        	**type**\: str
+                        
+                        	**length:** 1..32
+                        
+                        .. attribute:: bridge_description
+                        
+                        	Bridge\-domain description Name
+                        	**type**\: str
+                        
+                        	**length:** 1..64
+                        
+                        .. attribute:: igmp_snooping
+                        
+                        	Attach IGMP Snooping Profile Name
+                        	**type**\: str
+                        
+                        	**length:** 1..32
+                        
+                        .. attribute:: flooding
+                        
+                        	Disable flooding
+                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2vpn-cfg'
+                        _revision = '2017-06-26'
+
+                        def __init__(self):
+                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, self).__init__()
+
+                            self.yang_name = "bridge-domain"
+                            self.yang_parent_name = "bridge-domains"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = ['name']
+                            self._child_classes = OrderedDict([("bd-storm-controls", ("bd_storm_controls", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls)), ("member-vnis", ("member_vnis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis)), ("bridge-domain-mac", ("bridge_domain_mac", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac)), ("nv-satellite", ("nv_satellite", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite)), ("bridge-domain-pbb", ("bridge_domain_pbb", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb)), ("bridge-domain-evis", ("bridge_domain_evis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis)), ("access-vfis", ("access_vfis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis)), ("bd-pseudowires", ("bd_pseudowires", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires)), ("vfis", ("vfis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis)), ("bridge-domainvnis", ("bridge_domainvnis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis)), ("bd-attachment-circuits", ("bd_attachment_circuits", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits)), ("bd-pseudowire-evpns", ("bd_pseudowire_evpns", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns)), ("ip-source-guard", ("ip_source_guard", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard)), ("dai", ("dai", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai)), ("routed-interfaces", ("routed_interfaces", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces))])
+                            self._leafs = OrderedDict([
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('coupled_mode', (YLeaf(YType.empty, 'coupled-mode'), ['Empty'])),
+                                ('shutdown', (YLeaf(YType.empty, 'shutdown'), ['Empty'])),
+                                ('flooding_unknown_unicast', (YLeaf(YType.empty, 'flooding-unknown-unicast'), ['Empty'])),
+                                ('igmp_snooping_disable', (YLeaf(YType.empty, 'igmp-snooping-disable'), ['Empty'])),
+                                ('transport_mode', (YLeaf(YType.enumeration, 'transport-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BridgeDomainTransportMode', '')])),
+                                ('mld_snooping', (YLeaf(YType.str, 'mld-snooping'), ['str'])),
+                                ('bridge_domain_mtu', (YLeaf(YType.uint32, 'bridge-domain-mtu'), ['int'])),
+                                ('dhcp', (YLeaf(YType.str, 'dhcp'), ['str'])),
+                                ('bridge_description', (YLeaf(YType.str, 'bridge-description'), ['str'])),
+                                ('igmp_snooping', (YLeaf(YType.str, 'igmp-snooping'), ['str'])),
+                                ('flooding', (YLeaf(YType.empty, 'flooding'), ['Empty'])),
+                            ])
+                            self.name = None
+                            self.coupled_mode = None
+                            self.shutdown = None
+                            self.flooding_unknown_unicast = None
+                            self.igmp_snooping_disable = None
+                            self.transport_mode = None
+                            self.mld_snooping = None
+                            self.bridge_domain_mtu = None
+                            self.dhcp = None
+                            self.bridge_description = None
+                            self.igmp_snooping = None
+                            self.flooding = None
+
+                            self.bd_storm_controls = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls()
+                            self.bd_storm_controls.parent = self
+                            self._children_name_map["bd_storm_controls"] = "bd-storm-controls"
+
+                            self.member_vnis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis()
+                            self.member_vnis.parent = self
+                            self._children_name_map["member_vnis"] = "member-vnis"
+
+                            self.bridge_domain_mac = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac()
+                            self.bridge_domain_mac.parent = self
+                            self._children_name_map["bridge_domain_mac"] = "bridge-domain-mac"
+
+                            self.nv_satellite = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite()
+                            self.nv_satellite.parent = self
+                            self._children_name_map["nv_satellite"] = "nv-satellite"
+
+                            self.bridge_domain_pbb = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb()
+                            self.bridge_domain_pbb.parent = self
+                            self._children_name_map["bridge_domain_pbb"] = "bridge-domain-pbb"
+
+                            self.bridge_domain_evis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis()
+                            self.bridge_domain_evis.parent = self
+                            self._children_name_map["bridge_domain_evis"] = "bridge-domain-evis"
+
+                            self.access_vfis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis()
+                            self.access_vfis.parent = self
+                            self._children_name_map["access_vfis"] = "access-vfis"
+
+                            self.bd_pseudowires = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires()
+                            self.bd_pseudowires.parent = self
+                            self._children_name_map["bd_pseudowires"] = "bd-pseudowires"
+
+                            self.vfis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis()
+                            self.vfis.parent = self
+                            self._children_name_map["vfis"] = "vfis"
+
+                            self.bridge_domainvnis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis()
+                            self.bridge_domainvnis.parent = self
+                            self._children_name_map["bridge_domainvnis"] = "bridge-domainvnis"
+
+                            self.bd_attachment_circuits = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits()
+                            self.bd_attachment_circuits.parent = self
+                            self._children_name_map["bd_attachment_circuits"] = "bd-attachment-circuits"
+
+                            self.bd_pseudowire_evpns = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns()
+                            self.bd_pseudowire_evpns.parent = self
+                            self._children_name_map["bd_pseudowire_evpns"] = "bd-pseudowire-evpns"
+
+                            self.ip_source_guard = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard()
+                            self.ip_source_guard.parent = self
+                            self._children_name_map["ip_source_guard"] = "ip-source-guard"
+
+                            self.dai = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai()
+                            self.dai.parent = self
+                            self._children_name_map["dai"] = "dai"
+
+                            self.routed_interfaces = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces()
+                            self.routed_interfaces.parent = self
+                            self._children_name_map["routed_interfaces"] = "routed-interfaces"
+                            self._segment_path = lambda: "bridge-domain" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain, ['name', 'coupled_mode', 'shutdown', 'flooding_unknown_unicast', 'igmp_snooping_disable', 'transport_mode', 'mld_snooping', 'bridge_domain_mtu', 'dhcp', 'bridge_description', 'igmp_snooping', 'flooding'], name, value)
+
+
+                        class BdStormControls(Entity):
+                            """
+                            Storm Control
+                            
+                            .. attribute:: bd_storm_control
+                            
+                            	Storm Control Type
+                            	**type**\: list of  		 :py:class:`BdStormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, self).__init__()
+
+                                self.yang_name = "bd-storm-controls"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bd-storm-control", ("bd_storm_control", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl))])
+                                self._leafs = OrderedDict()
+
+                                self.bd_storm_control = YList(self)
+                                self._segment_path = lambda: "bd-storm-controls"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls, [], name, value)
+
+
+                            class BdStormControl(Entity):
+                                """
+                                Storm Control Type
+                                
+                                .. attribute:: sctype  (key)
+                                
+                                	Storm Control Type
+                                	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
+                                
+                                .. attribute:: storm_control_unit
+                                
+                                	Specify units for Storm Control Configuration
+                                	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, self).__init__()
+
+                                    self.yang_name = "bd-storm-control"
+                                    self.yang_parent_name = "bd-storm-controls"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['sctype']
+                                    self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit))])
+                                    self._leafs = OrderedDict([
+                                        ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
+                                    ])
+                                    self.sctype = None
+
+                                    self.storm_control_unit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit()
+                                    self.storm_control_unit.parent = self
+                                    self._children_name_map["storm_control_unit"] = "storm-control-unit"
+                                    self._segment_path = lambda: "bd-storm-control" + "[sctype='" + str(self.sctype) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl, ['sctype'], name, value)
+
+
+                                class StormControlUnit(Entity):
+                                    """
+                                    Specify units for Storm Control Configuration
+                                    
+                                    .. attribute:: kbits_per_sec
+                                    
+                                    	Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                    	**type**\: int
+                                    
+                                    	**range:** 64..1280000
+                                    
+                                    	**units**\: kbit/s
+                                    
+                                    .. attribute:: pkts_per_sec
+                                    
+                                    	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                    	**type**\: int
+                                    
+                                    	**range:** 1..160000
+                                    
+                                    	**units**\: packet/s
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, self).__init__()
+
+                                        self.yang_name = "storm-control-unit"
+                                        self.yang_parent_name = "bd-storm-control"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                            ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
+                                        ])
+                                        self.kbits_per_sec = None
+                                        self.pkts_per_sec = None
+                                        self._segment_path = lambda: "storm-control-unit"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdStormControls.BdStormControl.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
+
+
+                        class MemberVnis(Entity):
+                            """
+                            Bridge Domain VxLAN Network Identifier Table
+                            
+                            .. attribute:: member_vni
+                            
+                            	Bridge Domain Member VxLAN Network Identifier
+                            	**type**\: list of  		 :py:class:`MemberVni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, self).__init__()
+
+                                self.yang_name = "member-vnis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("member-vni", ("member_vni", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni))])
+                                self._leafs = OrderedDict()
+
+                                self.member_vni = YList(self)
+                                self._segment_path = lambda: "member-vnis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis, [], name, value)
+
+
+                            class MemberVni(Entity):
+                                """
+                                Bridge Domain Member VxLAN Network Identifier
+                                
+                                .. attribute:: vni  (key)
+                                
+                                	VxLAN Network Identifier number
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                .. attribute:: member_vni_static_mac_addresses
+                                
+                                	Static Mac Address Table
+                                	**type**\:  :py:class:`MemberVniStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, self).__init__()
+
+                                    self.yang_name = "member-vni"
+                                    self.yang_parent_name = "member-vnis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vni']
+                                    self._child_classes = OrderedDict([("member-vni-static-mac-addresses", ("member_vni_static_mac_addresses", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses))])
+                                    self._leafs = OrderedDict([
+                                        ('vni', (YLeaf(YType.uint32, 'vni'), ['int'])),
+                                    ])
+                                    self.vni = None
+
+                                    self.member_vni_static_mac_addresses = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses()
+                                    self.member_vni_static_mac_addresses.parent = self
+                                    self._children_name_map["member_vni_static_mac_addresses"] = "member-vni-static-mac-addresses"
+                                    self._segment_path = lambda: "member-vni" + "[vni='" + str(self.vni) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni, ['vni'], name, value)
+
+
+                                class MemberVniStaticMacAddresses(Entity):
+                                    """
+                                    Static Mac Address Table
+                                    
+                                    .. attribute:: member_vni_static_mac_address
+                                    
+                                    	Static Mac Address Configuration
+                                    	**type**\: list of  		 :py:class:`MemberVniStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, self).__init__()
+
+                                        self.yang_name = "member-vni-static-mac-addresses"
+                                        self.yang_parent_name = "member-vni"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("member-vni-static-mac-address", ("member_vni_static_mac_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress))])
+                                        self._leafs = OrderedDict()
+
+                                        self.member_vni_static_mac_address = YList(self)
+                                        self._segment_path = lambda: "member-vni-static-mac-addresses"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses, [], name, value)
+
+
+                                    class MemberVniStaticMacAddress(Entity):
+                                        """
+                                        Static Mac Address Configuration
+                                        
+                                        .. attribute:: mac_address  (key)
+                                        
+                                        	Static MAC address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                        
+                                        .. attribute:: next_hop_ip
+                                        
+                                        	Enable Static Mac Address Configuration
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, self).__init__()
+
+                                            self.yang_name = "member-vni-static-mac-address"
+                                            self.yang_parent_name = "member-vni-static-mac-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['mac_address']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                                ('next_hop_ip', (YLeaf(YType.str, 'next-hop-ip'), ['str'])),
+                                            ])
+                                            self.mac_address = None
+                                            self.next_hop_ip = None
+                                            self._segment_path = lambda: "member-vni-static-mac-address" + "[mac-address='" + str(self.mac_address) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.MemberVnis.MemberVni.MemberVniStaticMacAddresses.MemberVniStaticMacAddress, ['mac_address', 'next_hop_ip'], name, value)
+
+
+                        class BridgeDomainMac(Entity):
+                            """
+                            MAC configuration commands
+                            
+                            .. attribute:: bd_mac_limit
+                            
+                            	MAC\-Limit configuration commands
+                            	**type**\:  :py:class:`BdMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit>`
+                            
+                            .. attribute:: bd_mac_filters
+                            
+                            	Filter Mac Address
+                            	**type**\:  :py:class:`BdMacFilters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters>`
+                            
+                            .. attribute:: mac_secure
+                            
+                            	MAC Secure
+                            	**type**\:  :py:class:`MacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure>`
+                            
+                            .. attribute:: bd_mac_aging
+                            
+                            	MAC\-Aging configuration commands
+                            	**type**\:  :py:class:`BdMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging>`
+                            
+                            .. attribute:: bd_mac_withdraw_relay
+                            
+                            	Mac withdraw sent from access PW to access PW
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: bd_mac_withdraw_access_pw_disable
+                            
+                            	MAC withdraw on Access PW
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: bd_mac_port_down_flush
+                            
+                            	Disable MAC Flush when Port goes Down
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: bd_mac_withdraw
+                            
+                            	Disable Mac Withdraw
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: bd_mac_withdraw_behavior
+                            
+                            	MAC withdraw sent on bridge port down
+                            	**type**\:  :py:class:`MacWithdrawBehavior <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacWithdrawBehavior>`
+                            
+                            .. attribute:: bd_mac_learn
+                            
+                            	Mac Learning Type
+                            	**type**\:  :py:class:`BdmacLearn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BdmacLearn>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, self).__init__()
+
+                                self.yang_name = "bridge-domain-mac"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bd-mac-limit", ("bd_mac_limit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit)), ("bd-mac-filters", ("bd_mac_filters", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters)), ("mac-secure", ("mac_secure", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure)), ("bd-mac-aging", ("bd_mac_aging", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging))])
+                                self._leafs = OrderedDict([
+                                    ('bd_mac_withdraw_relay', (YLeaf(YType.empty, 'bd-mac-withdraw-relay'), ['Empty'])),
+                                    ('bd_mac_withdraw_access_pw_disable', (YLeaf(YType.empty, 'bd-mac-withdraw-access-pw-disable'), ['Empty'])),
+                                    ('bd_mac_port_down_flush', (YLeaf(YType.empty, 'bd-mac-port-down-flush'), ['Empty'])),
+                                    ('bd_mac_withdraw', (YLeaf(YType.empty, 'bd-mac-withdraw'), ['Empty'])),
+                                    ('bd_mac_withdraw_behavior', (YLeaf(YType.enumeration, 'bd-mac-withdraw-behavior'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacWithdrawBehavior', '')])),
+                                    ('bd_mac_learn', (YLeaf(YType.enumeration, 'bd-mac-learn'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BdmacLearn', '')])),
+                                ])
+                                self.bd_mac_withdraw_relay = None
+                                self.bd_mac_withdraw_access_pw_disable = None
+                                self.bd_mac_port_down_flush = None
+                                self.bd_mac_withdraw = None
+                                self.bd_mac_withdraw_behavior = None
+                                self.bd_mac_learn = None
+
+                                self.bd_mac_limit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit()
+                                self.bd_mac_limit.parent = self
+                                self._children_name_map["bd_mac_limit"] = "bd-mac-limit"
+
+                                self.bd_mac_filters = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters()
+                                self.bd_mac_filters.parent = self
+                                self._children_name_map["bd_mac_filters"] = "bd-mac-filters"
+
+                                self.mac_secure = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure()
+                                self.mac_secure.parent = self
+                                self._children_name_map["mac_secure"] = "mac-secure"
+
+                                self.bd_mac_aging = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging()
+                                self.bd_mac_aging.parent = self
+                                self._children_name_map["bd_mac_aging"] = "bd-mac-aging"
+                                self._segment_path = lambda: "bridge-domain-mac"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac, ['bd_mac_withdraw_relay', 'bd_mac_withdraw_access_pw_disable', 'bd_mac_port_down_flush', 'bd_mac_withdraw', 'bd_mac_withdraw_behavior', 'bd_mac_learn'], name, value)
+
+
+                            class BdMacLimit(Entity):
+                                """
+                                MAC\-Limit configuration commands
+                                
+                                .. attribute:: bd_mac_limit_action
+                                
+                                	MAC address limit enforcement action
+                                	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction>`
+                                
+                                .. attribute:: bd_mac_limit_notif
+                                
+                                	Mac Address Limit Notification
+                                	**type**\:  :py:class:`MacNotification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotification>`
+                                
+                                .. attribute:: bd_mac_limit_max
+                                
+                                	Number of MAC addresses after which MAC limit action is taken
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, self).__init__()
+
+                                    self.yang_name = "bd-mac-limit"
+                                    self.yang_parent_name = "bridge-domain-mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('bd_mac_limit_action', (YLeaf(YType.enumeration, 'bd-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                        ('bd_mac_limit_notif', (YLeaf(YType.enumeration, 'bd-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                        ('bd_mac_limit_max', (YLeaf(YType.uint32, 'bd-mac-limit-max'), ['int'])),
+                                    ])
+                                    self.bd_mac_limit_action = None
+                                    self.bd_mac_limit_notif = None
+                                    self.bd_mac_limit_max = None
+                                    self._segment_path = lambda: "bd-mac-limit"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacLimit, ['bd_mac_limit_action', 'bd_mac_limit_notif', 'bd_mac_limit_max'], name, value)
+
+
+                            class BdMacFilters(Entity):
+                                """
+                                Filter Mac Address
+                                
+                                .. attribute:: bd_mac_filter
+                                
+                                	Static MAC address
+                                	**type**\: list of  		 :py:class:`BdMacFilter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, self).__init__()
+
+                                    self.yang_name = "bd-mac-filters"
+                                    self.yang_parent_name = "bridge-domain-mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("bd-mac-filter", ("bd_mac_filter", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter))])
+                                    self._leafs = OrderedDict()
+
+                                    self.bd_mac_filter = YList(self)
+                                    self._segment_path = lambda: "bd-mac-filters"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters, [], name, value)
+
+
+                                class BdMacFilter(Entity):
+                                    """
+                                    Static MAC address
+                                    
+                                    .. attribute:: address  (key)
+                                    
+                                    	Static MAC address
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    .. attribute:: drop
+                                    
+                                    	MAC address for filtering
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, self).__init__()
+
+                                        self.yang_name = "bd-mac-filter"
+                                        self.yang_parent_name = "bd-mac-filters"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['address']
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('drop', (YLeaf(YType.empty, 'drop'), ['Empty'])),
+                                        ])
+                                        self.address = None
+                                        self.drop = None
+                                        self._segment_path = lambda: "bd-mac-filter" + "[address='" + str(self.address) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacFilters.BdMacFilter, ['address', 'drop'], name, value)
+
+
+                            class MacSecure(Entity):
+                                """
+                                MAC Secure
+                                
+                                .. attribute:: logging
+                                
+                                	MAC Secure Logging
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: action
+                                
+                                	MAC secure enforcement action
+                                	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                
+                                .. attribute:: enable
+                                
+                                	Enable MAC Secure
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: threshold
+                                
+                                	MAC Secure Threshold
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, self).__init__()
+
+                                    self.yang_name = "mac-secure"
+                                    self.yang_parent_name = "bridge-domain-mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ('threshold', (YLeaf(YType.empty, 'threshold'), ['Empty'])),
+                                    ])
+                                    self.logging = None
+                                    self.action = None
+                                    self.enable = None
+                                    self.threshold = None
+                                    self._segment_path = lambda: "mac-secure"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.MacSecure, ['logging', 'action', 'enable', 'threshold'], name, value)
+
+
+                            class BdMacAging(Entity):
+                                """
+                                MAC\-Aging configuration commands
+                                
+                                .. attribute:: bd_mac_aging_type
+                                
+                                	MAC address aging type
+                                	**type**\:  :py:class:`MacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAging>`
+                                
+                                .. attribute:: bd_mac_aging_time
+                                
+                                	Mac Aging Time
+                                	**type**\: int
+                                
+                                	**range:** 300..30000
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, self).__init__()
+
+                                    self.yang_name = "bd-mac-aging"
+                                    self.yang_parent_name = "bridge-domain-mac"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('bd_mac_aging_type', (YLeaf(YType.enumeration, 'bd-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                        ('bd_mac_aging_time', (YLeaf(YType.uint32, 'bd-mac-aging-time'), ['int'])),
+                                    ])
+                                    self.bd_mac_aging_type = None
+                                    self.bd_mac_aging_time = None
+                                    self._segment_path = lambda: "bd-mac-aging"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainMac.BdMacAging, ['bd_mac_aging_type', 'bd_mac_aging_time'], name, value)
+
+
+                        class NvSatellite(Entity):
+                            """
+                            nV Satellite
+                            
+                            .. attribute:: offload_ipv4_multicast_enable
+                            
+                            	Enable IPv4 Multicast Offload to Satellite Nodes
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: enable
+                            
+                            	Enable nV Satellite Settings
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, self).__init__()
+
+                                self.yang_name = "nv-satellite"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('offload_ipv4_multicast_enable', (YLeaf(YType.empty, 'offload-ipv4-multicast-enable'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ])
+                                self.offload_ipv4_multicast_enable = None
+                                self.enable = None
+                                self._segment_path = lambda: "nv-satellite"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.NvSatellite, ['offload_ipv4_multicast_enable', 'enable'], name, value)
+
+
+                        class BridgeDomainPbb(Entity):
+                            """
+                            Bridge Domain PBB
+                            
+                            .. attribute:: pbb_edges
+                            
+                            	PBB Edge
+                            	**type**\:  :py:class:`PbbEdges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges>`
+                            
+                            .. attribute:: pbb_core
+                            
+                            	PBB Core
+                            	**type**\:  :py:class:`PbbCore <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, self).__init__()
+
+                                self.yang_name = "bridge-domain-pbb"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("pbb-edges", ("pbb_edges", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges)), ("pbb-core", ("pbb_core", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore))])
+                                self._leafs = OrderedDict()
+
+                                self.pbb_edges = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges()
+                                self.pbb_edges.parent = self
+                                self._children_name_map["pbb_edges"] = "pbb-edges"
+
+                                self.pbb_core = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore()
+                                self.pbb_core.parent = self
+                                self._children_name_map["pbb_core"] = "pbb-core"
+                                self._segment_path = lambda: "bridge-domain-pbb"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb, [], name, value)
+
+
+                            class PbbEdges(Entity):
+                                """
+                                PBB Edge
+                                
+                                .. attribute:: pbb_edge
+                                
+                                	Configure BD as PBB Edge with ISID and associated PBB Core BD
+                                	**type**\: list of  		 :py:class:`PbbEdge <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, self).__init__()
+
+                                    self.yang_name = "pbb-edges"
+                                    self.yang_parent_name = "bridge-domain-pbb"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("pbb-edge", ("pbb_edge", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge))])
+                                    self._leafs = OrderedDict()
+
+                                    self.pbb_edge = YList(self)
+                                    self._segment_path = lambda: "pbb-edges"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges, [], name, value)
+
+
+                                class PbbEdge(Entity):
+                                    """
+                                    Configure BD as PBB Edge with ISID and
+                                    associated PBB Core BD
+                                    
+                                    .. attribute:: isid  (key)
+                                    
+                                    	ISID
+                                    	**type**\: int
+                                    
+                                    	**range:** 256..16777214
+                                    
+                                    .. attribute:: core_bd_name  (key)
+                                    
+                                    	Core BD Name
+                                    	**type**\: str
+                                    
+                                    	**length:** 1..27
+                                    
+                                    .. attribute:: pbb_edge_split_horizon_group
+                                    
+                                    	Split Horizon Group
+                                    	**type**\:  :py:class:`PbbEdgeSplitHorizonGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup>`
+                                    
+                                    .. attribute:: pbb_static_mac_mappings
+                                    
+                                    	PBB Static Mac Address Mapping Table
+                                    	**type**\:  :py:class:`PbbStaticMacMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings>`
+                                    
+                                    .. attribute:: pbb_edge_dhcp_profile
+                                    
+                                    	Attach a DHCP profile
+                                    	**type**\:  :py:class:`PbbEdgeDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile>`
+                                    
+                                    .. attribute:: pbb_edge_mac
+                                    
+                                    	MAC configuration commands
+                                    	**type**\:  :py:class:`PbbEdgeMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac>`
+                                    
+                                    .. attribute:: pbb_edge_igmp_profile
+                                    
+                                    	Attach a IGMP Snooping profile
+                                    	**type**\: str
+                                    
+                                    	**length:** 1..32
+                                    
+                                    .. attribute:: unknown_unicast_bmac
+                                    
+                                    	Configure Unknown Unicast BMAC address for PBB Edge Port
+                                    	**type**\: str
+                                    
+                                    	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, self).__init__()
+
+                                        self.yang_name = "pbb-edge"
+                                        self.yang_parent_name = "pbb-edges"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = ['isid','core_bd_name']
+                                        self._child_classes = OrderedDict([("pbb-edge-split-horizon-group", ("pbb_edge_split_horizon_group", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup)), ("pbb-static-mac-mappings", ("pbb_static_mac_mappings", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings)), ("pbb-edge-dhcp-profile", ("pbb_edge_dhcp_profile", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile)), ("pbb-edge-mac", ("pbb_edge_mac", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac))])
+                                        self._leafs = OrderedDict([
+                                            ('isid', (YLeaf(YType.uint32, 'isid'), ['int'])),
+                                            ('core_bd_name', (YLeaf(YType.str, 'core-bd-name'), ['str'])),
+                                            ('pbb_edge_igmp_profile', (YLeaf(YType.str, 'pbb-edge-igmp-profile'), ['str'])),
+                                            ('unknown_unicast_bmac', (YLeaf(YType.str, 'unknown-unicast-bmac'), ['str'])),
+                                        ])
+                                        self.isid = None
+                                        self.core_bd_name = None
+                                        self.pbb_edge_igmp_profile = None
+                                        self.unknown_unicast_bmac = None
+
+                                        self.pbb_edge_split_horizon_group = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup()
+                                        self.pbb_edge_split_horizon_group.parent = self
+                                        self._children_name_map["pbb_edge_split_horizon_group"] = "pbb-edge-split-horizon-group"
+
+                                        self.pbb_static_mac_mappings = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings()
+                                        self.pbb_static_mac_mappings.parent = self
+                                        self._children_name_map["pbb_static_mac_mappings"] = "pbb-static-mac-mappings"
+
+                                        self.pbb_edge_dhcp_profile = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile()
+                                        self.pbb_edge_dhcp_profile.parent = self
+                                        self._children_name_map["pbb_edge_dhcp_profile"] = "pbb-edge-dhcp-profile"
+
+                                        self.pbb_edge_mac = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac()
+                                        self.pbb_edge_mac.parent = self
+                                        self._children_name_map["pbb_edge_mac"] = "pbb-edge-mac"
+                                        self._segment_path = lambda: "pbb-edge" + "[isid='" + str(self.isid) + "']" + "[core-bd-name='" + str(self.core_bd_name) + "']"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge, ['isid', 'core_bd_name', 'pbb_edge_igmp_profile', 'unknown_unicast_bmac'], name, value)
+
+
+                                    class PbbEdgeSplitHorizonGroup(Entity):
+                                        """
+                                        Split Horizon Group
+                                        
+                                        .. attribute:: disable
+                                        
+                                        	Disable split horizon group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, self).__init__()
+
+                                            self.yang_name = "pbb-edge-split-horizon-group"
+                                            self.yang_parent_name = "pbb-edge"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ])
+                                            self.disable = None
+                                            self._segment_path = lambda: "pbb-edge-split-horizon-group"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeSplitHorizonGroup, ['disable'], name, value)
+
+
+                                    class PbbStaticMacMappings(Entity):
+                                        """
+                                        PBB Static Mac Address Mapping Table
+                                        
+                                        .. attribute:: pbb_static_mac_mapping
+                                        
+                                        	PBB Static Mac Address Mapping Configuration
+                                        	**type**\: list of  		 :py:class:`PbbStaticMacMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, self).__init__()
+
+                                            self.yang_name = "pbb-static-mac-mappings"
+                                            self.yang_parent_name = "pbb-edge"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("pbb-static-mac-mapping", ("pbb_static_mac_mapping", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping))])
+                                            self._leafs = OrderedDict()
+
+                                            self.pbb_static_mac_mapping = YList(self)
+                                            self._segment_path = lambda: "pbb-static-mac-mappings"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings, [], name, value)
+
+
+                                        class PbbStaticMacMapping(Entity):
+                                            """
+                                            PBB Static Mac Address Mapping
+                                            Configuration
+                                            
+                                            .. attribute:: address  (key)
+                                            
+                                            	Static MAC address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                            
+                                            .. attribute:: pbb_static_mac_mapping_bmac
+                                            
+                                            	Static backbone MAC address to map with
+                                            	**type**\: str
+                                            
+                                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, self).__init__()
+
+                                                self.yang_name = "pbb-static-mac-mapping"
+                                                self.yang_parent_name = "pbb-static-mac-mappings"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['address']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('pbb_static_mac_mapping_bmac', (YLeaf(YType.str, 'pbb-static-mac-mapping-bmac'), ['str'])),
+                                                ])
+                                                self.address = None
+                                                self.pbb_static_mac_mapping_bmac = None
+                                                self._segment_path = lambda: "pbb-static-mac-mapping" + "[address='" + str(self.address) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbStaticMacMappings.PbbStaticMacMapping, ['address', 'pbb_static_mac_mapping_bmac'], name, value)
+
+
+                                    class PbbEdgeDhcpProfile(Entity):
+                                        """
+                                        Attach a DHCP profile
+                                        
+                                        .. attribute:: profile_id
+                                        
+                                        	Set the snooping profile
+                                        	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile>`
+                                        
+                                        .. attribute:: dhcp_snooping_id
+                                        
+                                        	Disable DHCP snooping
+                                        	**type**\: str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, self).__init__()
+
+                                            self.yang_name = "pbb-edge-dhcp-profile"
+                                            self.yang_parent_name = "pbb-edge"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                                ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
+                                            ])
+                                            self.profile_id = None
+                                            self.dhcp_snooping_id = None
+                                            self._segment_path = lambda: "pbb-edge-dhcp-profile"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+                                    class PbbEdgeMac(Entity):
+                                        """
+                                        MAC configuration commands
+                                        
+                                        .. attribute:: pbb_edge_mac_limit
+                                        
+                                        	MAC\-Limit configuration commands
+                                        	**type**\:  :py:class:`PbbEdgeMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit>`
+                                        
+                                        .. attribute:: pbb_edge_mac_aging
+                                        
+                                        	MAC\-Aging configuration commands
+                                        	**type**\:  :py:class:`PbbEdgeMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging>`
+                                        
+                                        .. attribute:: pbb_edge_mac_secure
+                                        
+                                        	MAC Secure
+                                        	**type**\:  :py:class:`PbbEdgeMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure>`
+                                        
+                                        .. attribute:: pbb_edge_mac_learning
+                                        
+                                        	Enable Mac Learning
+                                        	**type**\:  :py:class:`MacLearn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearn>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, self).__init__()
+
+                                            self.yang_name = "pbb-edge-mac"
+                                            self.yang_parent_name = "pbb-edge"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("pbb-edge-mac-limit", ("pbb_edge_mac_limit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit)), ("pbb-edge-mac-aging", ("pbb_edge_mac_aging", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging)), ("pbb-edge-mac-secure", ("pbb_edge_mac_secure", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure))])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_edge_mac_learning', (YLeaf(YType.enumeration, 'pbb-edge-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
+                                            ])
+                                            self.pbb_edge_mac_learning = None
+
+                                            self.pbb_edge_mac_limit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit()
+                                            self.pbb_edge_mac_limit.parent = self
+                                            self._children_name_map["pbb_edge_mac_limit"] = "pbb-edge-mac-limit"
+
+                                            self.pbb_edge_mac_aging = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging()
+                                            self.pbb_edge_mac_aging.parent = self
+                                            self._children_name_map["pbb_edge_mac_aging"] = "pbb-edge-mac-aging"
+
+                                            self.pbb_edge_mac_secure = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure()
+                                            self.pbb_edge_mac_secure.parent = self
+                                            self._children_name_map["pbb_edge_mac_secure"] = "pbb-edge-mac-secure"
+                                            self._segment_path = lambda: "pbb-edge-mac"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac, ['pbb_edge_mac_learning'], name, value)
+
+
+                                        class PbbEdgeMacLimit(Entity):
+                                            """
+                                            MAC\-Limit configuration commands
+                                            
+                                            .. attribute:: pbb_edge_mac_limit_action
+                                            
+                                            	MAC address limit enforcement action
+                                            	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction>`
+                                            
+                                            .. attribute:: pbb_edge_mac_limit_max
+                                            
+                                            	Number of MAC addresses after which MAC limit action is taken
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: pbb_edge_mac_limit_notif
+                                            
+                                            	MAC address limit notification action
+                                            	**type**\:  :py:class:`MacNotification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotification>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, self).__init__()
+
+                                                self.yang_name = "pbb-edge-mac-limit"
+                                                self.yang_parent_name = "pbb-edge-mac"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('pbb_edge_mac_limit_action', (YLeaf(YType.enumeration, 'pbb-edge-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                                    ('pbb_edge_mac_limit_max', (YLeaf(YType.uint32, 'pbb-edge-mac-limit-max'), ['int'])),
+                                                    ('pbb_edge_mac_limit_notif', (YLeaf(YType.enumeration, 'pbb-edge-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ])
+                                                self.pbb_edge_mac_limit_action = None
+                                                self.pbb_edge_mac_limit_max = None
+                                                self.pbb_edge_mac_limit_notif = None
+                                                self._segment_path = lambda: "pbb-edge-mac-limit"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacLimit, ['pbb_edge_mac_limit_action', 'pbb_edge_mac_limit_max', 'pbb_edge_mac_limit_notif'], name, value)
+
+
+                                        class PbbEdgeMacAging(Entity):
+                                            """
+                                            MAC\-Aging configuration commands
+                                            
+                                            .. attribute:: pbb_edge_mac_aging_type
+                                            
+                                            	MAC address aging type
+                                            	**type**\:  :py:class:`MacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAging>`
+                                            
+                                            .. attribute:: pbb_edge_mac_aging_time
+                                            
+                                            	Mac Aging Time
+                                            	**type**\: int
+                                            
+                                            	**range:** 300..30000
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, self).__init__()
+
+                                                self.yang_name = "pbb-edge-mac-aging"
+                                                self.yang_parent_name = "pbb-edge-mac"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('pbb_edge_mac_aging_type', (YLeaf(YType.enumeration, 'pbb-edge-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                    ('pbb_edge_mac_aging_time', (YLeaf(YType.uint32, 'pbb-edge-mac-aging-time'), ['int'])),
+                                                ])
+                                                self.pbb_edge_mac_aging_type = None
+                                                self.pbb_edge_mac_aging_time = None
+                                                self._segment_path = lambda: "pbb-edge-mac-aging"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacAging, ['pbb_edge_mac_aging_type', 'pbb_edge_mac_aging_time'], name, value)
+
+
+                                        class PbbEdgeMacSecure(Entity):
+                                            """
+                                            MAC Secure
+                                            
+                                            .. attribute:: logging
+                                            
+                                            	MAC Secure Logging
+                                            	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                            
+                                            .. attribute:: disable
+                                            
+                                            	Disable Virtual instance port MAC Secure
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: action
+                                            
+                                            	MAC secure enforcement action
+                                            	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                            
+                                            .. attribute:: enable
+                                            
+                                            	Enable MAC Secure
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            .. attribute:: accept_shutdown
+                                            
+                                            	Accept Virtual instance port to be shutdown on mac violation
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, self).__init__()
+
+                                                self.yang_name = "pbb-edge-mac-secure"
+                                                self.yang_parent_name = "pbb-edge-mac"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                                    ('accept_shutdown', (YLeaf(YType.empty, 'accept-shutdown'), ['Empty'])),
+                                                ])
+                                                self.logging = None
+                                                self.disable = None
+                                                self.action = None
+                                                self.enable = None
+                                                self.accept_shutdown = None
+                                                self._segment_path = lambda: "pbb-edge-mac-secure"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbEdges.PbbEdge.PbbEdgeMac.PbbEdgeMacSecure, ['logging', 'disable', 'action', 'enable', 'accept_shutdown'], name, value)
+
+
+                            class PbbCore(Entity):
+                                """
+                                PBB Core
+                                
+                                .. attribute:: pbb_core_mac
+                                
+                                	MAC configuration commands
+                                	**type**\:  :py:class:`PbbCoreMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac>`
+                                
+                                .. attribute:: pbb_core_evis
+                                
+                                	PBB Core EVI Table
+                                	**type**\:  :py:class:`PbbCoreEvis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis>`
+                                
+                                .. attribute:: pbb_core_dhcp_profile
+                                
+                                	Attach a DHCP profile
+                                	**type**\:  :py:class:`PbbCoreDhcpProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile>`
+                                
+                                .. attribute:: pbb_core_mmrp_flood_optimization
+                                
+                                	Enabling MMRP PBB\-VPLS Flood Optimization
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN ID to push
+                                	**type**\: int
+                                
+                                	**range:** 1..4094
+                                
+                                .. attribute:: pbb_core_igmp_profile
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: enable
+                                
+                                	Enable Bridge Domain PBB Core Configuration
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, self).__init__()
+
+                                    self.yang_name = "pbb-core"
+                                    self.yang_parent_name = "bridge-domain-pbb"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("pbb-core-mac", ("pbb_core_mac", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac)), ("pbb-core-evis", ("pbb_core_evis", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis)), ("pbb-core-dhcp-profile", ("pbb_core_dhcp_profile", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile))])
+                                    self._leafs = OrderedDict([
+                                        ('pbb_core_mmrp_flood_optimization', (YLeaf(YType.empty, 'pbb-core-mmrp-flood-optimization'), ['Empty'])),
+                                        ('vlan_id', (YLeaf(YType.uint32, 'vlan-id'), ['int'])),
+                                        ('pbb_core_igmp_profile', (YLeaf(YType.str, 'pbb-core-igmp-profile'), ['str'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ])
+                                    self.pbb_core_mmrp_flood_optimization = None
+                                    self.vlan_id = None
+                                    self.pbb_core_igmp_profile = None
+                                    self.enable = None
+
+                                    self.pbb_core_mac = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac()
+                                    self.pbb_core_mac.parent = self
+                                    self._children_name_map["pbb_core_mac"] = "pbb-core-mac"
+
+                                    self.pbb_core_evis = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis()
+                                    self.pbb_core_evis.parent = self
+                                    self._children_name_map["pbb_core_evis"] = "pbb-core-evis"
+
+                                    self.pbb_core_dhcp_profile = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile()
+                                    self.pbb_core_dhcp_profile.parent = self
+                                    self._children_name_map["pbb_core_dhcp_profile"] = "pbb-core-dhcp-profile"
+                                    self._segment_path = lambda: "pbb-core"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore, ['pbb_core_mmrp_flood_optimization', 'vlan_id', 'pbb_core_igmp_profile', 'enable'], name, value)
+
+
+                                class PbbCoreMac(Entity):
+                                    """
+                                    MAC configuration commands
+                                    
+                                    .. attribute:: pbb_core_mac_aging
+                                    
+                                    	MAC\-Aging configuration commands
+                                    	**type**\:  :py:class:`PbbCoreMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging>`
+                                    
+                                    .. attribute:: pbb_core_mac_limit
+                                    
+                                    	MAC\-Limit configuration commands
+                                    	**type**\:  :py:class:`PbbCoreMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit>`
+                                    
+                                    .. attribute:: pbb_core_mac_learning
+                                    
+                                    	Enable Mac Learning
+                                    	**type**\:  :py:class:`MacLearn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearn>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, self).__init__()
+
+                                        self.yang_name = "pbb-core-mac"
+                                        self.yang_parent_name = "pbb-core"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pbb-core-mac-aging", ("pbb_core_mac_aging", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging)), ("pbb-core-mac-limit", ("pbb_core_mac_limit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit))])
+                                        self._leafs = OrderedDict([
+                                            ('pbb_core_mac_learning', (YLeaf(YType.enumeration, 'pbb-core-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
+                                        ])
+                                        self.pbb_core_mac_learning = None
+
+                                        self.pbb_core_mac_aging = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging()
+                                        self.pbb_core_mac_aging.parent = self
+                                        self._children_name_map["pbb_core_mac_aging"] = "pbb-core-mac-aging"
+
+                                        self.pbb_core_mac_limit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit()
+                                        self.pbb_core_mac_limit.parent = self
+                                        self._children_name_map["pbb_core_mac_limit"] = "pbb-core-mac-limit"
+                                        self._segment_path = lambda: "pbb-core-mac"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac, ['pbb_core_mac_learning'], name, value)
+
+
+                                    class PbbCoreMacAging(Entity):
+                                        """
+                                        MAC\-Aging configuration commands
+                                        
+                                        .. attribute:: pbb_core_mac_aging_type
+                                        
+                                        	MAC address aging type
+                                        	**type**\:  :py:class:`MacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAging>`
+                                        
+                                        .. attribute:: pbb_core_mac_aging_time
+                                        
+                                        	Mac Aging Time
+                                        	**type**\: int
+                                        
+                                        	**range:** 300..30000
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, self).__init__()
+
+                                            self.yang_name = "pbb-core-mac-aging"
+                                            self.yang_parent_name = "pbb-core-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_core_mac_aging_type', (YLeaf(YType.enumeration, 'pbb-core-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                ('pbb_core_mac_aging_time', (YLeaf(YType.uint32, 'pbb-core-mac-aging-time'), ['int'])),
+                                            ])
+                                            self.pbb_core_mac_aging_type = None
+                                            self.pbb_core_mac_aging_time = None
+                                            self._segment_path = lambda: "pbb-core-mac-aging"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacAging, ['pbb_core_mac_aging_type', 'pbb_core_mac_aging_time'], name, value)
+
+
+                                    class PbbCoreMacLimit(Entity):
+                                        """
+                                        MAC\-Limit configuration commands
+                                        
+                                        .. attribute:: pbb_core_mac_limit_max
+                                        
+                                        	Number of MAC addresses after which MAC limit action is taken
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: pbb_core_mac_limit_notif
+                                        
+                                        	MAC address limit notification action
+                                        	**type**\:  :py:class:`MacNotification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotification>`
+                                        
+                                        .. attribute:: pbb_core_mac_limit_action
+                                        
+                                        	MAC address limit enforcement action
+                                        	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, self).__init__()
+
+                                            self.yang_name = "pbb-core-mac-limit"
+                                            self.yang_parent_name = "pbb-core-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pbb_core_mac_limit_max', (YLeaf(YType.uint32, 'pbb-core-mac-limit-max'), ['int'])),
+                                                ('pbb_core_mac_limit_notif', (YLeaf(YType.enumeration, 'pbb-core-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('pbb_core_mac_limit_action', (YLeaf(YType.enumeration, 'pbb-core-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                            ])
+                                            self.pbb_core_mac_limit_max = None
+                                            self.pbb_core_mac_limit_notif = None
+                                            self.pbb_core_mac_limit_action = None
+                                            self._segment_path = lambda: "pbb-core-mac-limit"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreMac.PbbCoreMacLimit, ['pbb_core_mac_limit_max', 'pbb_core_mac_limit_notif', 'pbb_core_mac_limit_action'], name, value)
+
+
+                                class PbbCoreEvis(Entity):
+                                    """
+                                    PBB Core EVI Table
+                                    
+                                    .. attribute:: pbb_core_evi
+                                    
+                                    	PBB Core EVI
+                                    	**type**\: list of  		 :py:class:`PbbCoreEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, self).__init__()
+
+                                        self.yang_name = "pbb-core-evis"
+                                        self.yang_parent_name = "pbb-core"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pbb-core-evi", ("pbb_core_evi", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi))])
+                                        self._leafs = OrderedDict()
+
+                                        self.pbb_core_evi = YList(self)
+                                        self._segment_path = lambda: "pbb-core-evis"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis, [], name, value)
+
+
+                                    class PbbCoreEvi(Entity):
+                                        """
+                                        PBB Core EVI
+                                        
+                                        .. attribute:: eviid  (key)
+                                        
+                                        	Ethernet VPN ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, self).__init__()
+
+                                            self.yang_name = "pbb-core-evi"
+                                            self.yang_parent_name = "pbb-core-evis"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['eviid']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                                            ])
+                                            self.eviid = None
+                                            self._segment_path = lambda: "pbb-core-evi" + "[eviid='" + str(self.eviid) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreEvis.PbbCoreEvi, ['eviid'], name, value)
+
+
+                                class PbbCoreDhcpProfile(Entity):
+                                    """
+                                    Attach a DHCP profile
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile>`
+                                    
+                                    .. attribute:: dhcp_snooping_id
+                                    
+                                    	Disable DHCP snooping
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, self).__init__()
+
+                                        self.yang_name = "pbb-core-dhcp-profile"
+                                        self.yang_parent_name = "pbb-core"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
+                                        self._segment_path = lambda: "pbb-core-dhcp-profile"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainPbb.PbbCore.PbbCoreDhcpProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+                        class BridgeDomainEvis(Entity):
+                            """
+                            Bridge Domain EVI Table
+                            
+                            .. attribute:: bridge_domain_evi
+                            
+                            	Bridge Domain MPLS EVPN
+                            	**type**\: list of  		 :py:class:`BridgeDomainEvi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, self).__init__()
+
+                                self.yang_name = "bridge-domain-evis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bridge-domain-evi", ("bridge_domain_evi", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi))])
+                                self._leafs = OrderedDict()
+
+                                self.bridge_domain_evi = YList(self)
+                                self._segment_path = lambda: "bridge-domain-evis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis, [], name, value)
+
+
+                            class BridgeDomainEvi(Entity):
+                                """
+                                Bridge Domain MPLS EVPN
+                                
+                                .. attribute:: vpn_id  (key)
+                                
+                                	MPLS Ethernet VPN\-ID
+                                	**type**\: int
+                                
+                                	**range:** 1..65534
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, self).__init__()
+
+                                    self.yang_name = "bridge-domain-evi"
+                                    self.yang_parent_name = "bridge-domain-evis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vpn_id']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
+                                    ])
+                                    self.vpn_id = None
+                                    self._segment_path = lambda: "bridge-domain-evi" + "[vpn-id='" + str(self.vpn_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainEvis.BridgeDomainEvi, ['vpn_id'], name, value)
+
+
+                        class AccessVfis(Entity):
+                            """
+                            Specify the access virtual forwarding
+                            interface name
+                            
+                            .. attribute:: access_vfi
+                            
+                            	Name of the Acess Virtual Forwarding Interface
+                            	**type**\: list of  		 :py:class:`AccessVfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, self).__init__()
+
+                                self.yang_name = "access-vfis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("access-vfi", ("access_vfi", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi))])
+                                self._leafs = OrderedDict()
+
+                                self.access_vfi = YList(self)
+                                self._segment_path = lambda: "access-vfis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis, [], name, value)
+
+
+                            class AccessVfi(Entity):
+                                """
+                                Name of the Acess Virtual Forwarding
+                                Interface
+                                
+                                .. attribute:: name  (key)
+                                
+                                	Name of the AccessVirtual Forwarding Interface
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: access_vfi_pseudowires
+                                
+                                	List of pseudowires
+                                	**type**\:  :py:class:`AccessVfiPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires>`
+                                
+                                .. attribute:: access_vfi_shutdown
+                                
+                                	shutdown the AccessVfi
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, self).__init__()
+
+                                    self.yang_name = "access-vfi"
+                                    self.yang_parent_name = "access-vfis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['name']
+                                    self._child_classes = OrderedDict([("access-vfi-pseudowires", ("access_vfi_pseudowires", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires))])
+                                    self._leafs = OrderedDict([
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('access_vfi_shutdown', (YLeaf(YType.empty, 'access-vfi-shutdown'), ['Empty'])),
+                                    ])
+                                    self.name = None
+                                    self.access_vfi_shutdown = None
+
+                                    self.access_vfi_pseudowires = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires()
+                                    self.access_vfi_pseudowires.parent = self
+                                    self._children_name_map["access_vfi_pseudowires"] = "access-vfi-pseudowires"
+                                    self._segment_path = lambda: "access-vfi" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi, ['name', 'access_vfi_shutdown'], name, value)
+
+
+                                class AccessVfiPseudowires(Entity):
+                                    """
+                                    List of pseudowires
+                                    
+                                    .. attribute:: access_vfi_pseudowire
+                                    
+                                    	Pseudowire configuration
+                                    	**type**\: list of  		 :py:class:`AccessVfiPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, self).__init__()
+
+                                        self.yang_name = "access-vfi-pseudowires"
+                                        self.yang_parent_name = "access-vfi"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("access-vfi-pseudowire", ("access_vfi_pseudowire", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire))])
+                                        self._leafs = OrderedDict()
+
+                                        self.access_vfi_pseudowire = YList(self)
+                                        self._segment_path = lambda: "access-vfi-pseudowires"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires, [], name, value)
+
+
+                                    class AccessVfiPseudowire(Entity):
+                                        """
+                                        Pseudowire configuration
+                                        
+                                        .. attribute:: neighbor  (key)
+                                        
+                                        	Neighbor IP address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: pseudowire_id  (key)
+                                        
+                                        	Pseudowire ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..4294967295
+                                        
+                                        .. attribute:: access_vfi_pseudowire_static_mac_addresses
+                                        
+                                        	Static Mac Address Table
+                                        	**type**\:  :py:class:`AccessVfiPseudowireStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses>`
+                                        
+                                        .. attribute:: access_vfi_pw_class
+                                        
+                                        	Pseudowire class template name to use for this pseudowire
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..32
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, self).__init__()
+
+                                            self.yang_name = "access-vfi-pseudowire"
+                                            self.yang_parent_name = "access-vfi-pseudowires"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_classes = OrderedDict([("access-vfi-pseudowire-static-mac-addresses", ("access_vfi_pseudowire_static_mac_addresses", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses))])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('access_vfi_pw_class', (YLeaf(YType.str, 'access-vfi-pw-class'), ['str'])),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.access_vfi_pw_class = None
+
+                                            self.access_vfi_pseudowire_static_mac_addresses = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses()
+                                            self.access_vfi_pseudowire_static_mac_addresses.parent = self
+                                            self._children_name_map["access_vfi_pseudowire_static_mac_addresses"] = "access-vfi-pseudowire-static-mac-addresses"
+                                            self._segment_path = lambda: "access-vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire, ['neighbor', 'pseudowire_id', 'access_vfi_pw_class'], name, value)
+
+
+                                        class AccessVfiPseudowireStaticMacAddresses(Entity):
+                                            """
+                                            Static Mac Address Table
+                                            
+                                            .. attribute:: access_vfi_pseudowire_static_mac_address
+                                            
+                                            	Static Mac Address Configuration
+                                            	**type**\: list of  		 :py:class:`AccessVfiPseudowireStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, self).__init__()
+
+                                                self.yang_name = "access-vfi-pseudowire-static-mac-addresses"
+                                                self.yang_parent_name = "access-vfi-pseudowire"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([("access-vfi-pseudowire-static-mac-address", ("access_vfi_pseudowire_static_mac_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress))])
+                                                self._leafs = OrderedDict()
+
+                                                self.access_vfi_pseudowire_static_mac_address = YList(self)
+                                                self._segment_path = lambda: "access-vfi-pseudowire-static-mac-addresses"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses, [], name, value)
+
+
+                                            class AccessVfiPseudowireStaticMacAddress(Entity):
+                                                """
+                                                Static Mac Address Configuration
+                                                
+                                                .. attribute:: address  (key)
+                                                
+                                                	Static MAC address
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'l2vpn-cfg'
+                                                _revision = '2017-06-26'
+
+                                                def __init__(self):
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, self).__init__()
+
+                                                    self.yang_name = "access-vfi-pseudowire-static-mac-address"
+                                                    self.yang_parent_name = "access-vfi-pseudowire-static-mac-addresses"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = ['address']
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ])
+                                                    self.address = None
+                                                    self._segment_path = lambda: "access-vfi-pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.AccessVfis.AccessVfi.AccessVfiPseudowires.AccessVfiPseudowire.AccessVfiPseudowireStaticMacAddresses.AccessVfiPseudowireStaticMacAddress, ['address'], name, value)
+
+
+                        class BdPseudowires(Entity):
+                            """
+                            List of pseudowires
+                            
+                            .. attribute:: bd_pseudowire
+                            
+                            	Pseudowire configuration
+                            	**type**\: list of  		 :py:class:`BdPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, self).__init__()
+
+                                self.yang_name = "bd-pseudowires"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bd-pseudowire", ("bd_pseudowire", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire))])
+                                self._leafs = OrderedDict()
+
+                                self.bd_pseudowire = YList(self)
+                                self._segment_path = lambda: "bd-pseudowires"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires, [], name, value)
+
+
+                            class BdPseudowire(Entity):
+                                """
+                                Pseudowire configuration
+                                
+                                .. attribute:: neighbor  (key)
+                                
+                                	Neighbor IP address
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: pseudowire_id  (key)
+                                
+                                	Pseudowire ID
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
+                                
+                                .. attribute:: pseudowire_dai
+                                
+                                	Access Pseudowire Dynamic ARP Inspection
+                                	**type**\:  :py:class:`PseudowireDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai>`
+                                
+                                .. attribute:: bdpw_storm_control_types
+                                
+                                	Storm Control
+                                	**type**\:  :py:class:`BdpwStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes>`
+                                
+                                .. attribute:: pseudowire_profile
+                                
+                                	Attach a DHCP profile
+                                	**type**\:  :py:class:`PseudowireProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile>`
+                                
+                                .. attribute:: bd_pw_static_mac_addresses
+                                
+                                	Static Mac Address Table
+                                	**type**\:  :py:class:`BdPwStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses>`
+                                
+                                .. attribute:: pseudowire_ip_source_guard
+                                
+                                	IP Source Guard
+                                	**type**\:  :py:class:`PseudowireIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard>`
+                                
+                                .. attribute:: pseudowire_mac
+                                
+                                	Bridge\-domain Pseudowire MAC configuration commands
+                                	**type**\:  :py:class:`PseudowireMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac>`
+                                
+                                .. attribute:: bd_pw_split_horizon
+                                
+                                	Split Horizon
+                                	**type**\:  :py:class:`BdPwSplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon>`
+                                
+                                .. attribute:: bd_pw_mpls_static_labels
+                                
+                                	MPLS static labels
+                                	**type**\:  :py:class:`BdPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels>`
+                                
+                                .. attribute:: bridge_domain_backup_pseudowires
+                                
+                                	List of pseudowires
+                                	**type**\:  :py:class:`BridgeDomainBackupPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires>`
+                                
+                                .. attribute:: pseudowire_mld_snoop
+                                
+                                	Attach a MLD Snooping profile
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: pseudowire_igmp_snoop
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: pseudowire_flooding
+                                
+                                	Bridge\-domain Pseudowire flooding
+                                	**type**\:  :py:class:`InterfaceTrafficFlood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood>`
+                                
+                                .. attribute:: bd_pw_class
+                                
+                                	PW class template name to use for this pseudowire
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: pseudowire_flooding_unknown_unicast
+                                
+                                	Bridge\-domain Pseudowire flooding Unknown Unicast
+                                	**type**\:  :py:class:`InterfaceTrafficFlood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, self).__init__()
+
+                                    self.yang_name = "bd-pseudowire"
+                                    self.yang_parent_name = "bd-pseudowires"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['neighbor','pseudowire_id']
+                                    self._child_classes = OrderedDict([("pseudowire-dai", ("pseudowire_dai", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai)), ("bdpw-storm-control-types", ("bdpw_storm_control_types", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes)), ("pseudowire-profile", ("pseudowire_profile", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile)), ("bd-pw-static-mac-addresses", ("bd_pw_static_mac_addresses", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses)), ("pseudowire-ip-source-guard", ("pseudowire_ip_source_guard", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard)), ("pseudowire-mac", ("pseudowire_mac", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac)), ("bd-pw-split-horizon", ("bd_pw_split_horizon", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon)), ("bd-pw-mpls-static-labels", ("bd_pw_mpls_static_labels", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels)), ("bridge-domain-backup-pseudowires", ("bridge_domain_backup_pseudowires", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires))])
+                                    self._leafs = OrderedDict([
+                                        ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                        ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                        ('pseudowire_mld_snoop', (YLeaf(YType.str, 'pseudowire-mld-snoop'), ['str'])),
+                                        ('pseudowire_igmp_snoop', (YLeaf(YType.str, 'pseudowire-igmp-snoop'), ['str'])),
+                                        ('pseudowire_flooding', (YLeaf(YType.enumeration, 'pseudowire-flooding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('bd_pw_class', (YLeaf(YType.str, 'bd-pw-class'), ['str'])),
+                                        ('pseudowire_flooding_unknown_unicast', (YLeaf(YType.enumeration, 'pseudowire-flooding-unknown-unicast'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                    ])
+                                    self.neighbor = None
+                                    self.pseudowire_id = None
+                                    self.pseudowire_mld_snoop = None
+                                    self.pseudowire_igmp_snoop = None
+                                    self.pseudowire_flooding = None
+                                    self.bd_pw_class = None
+                                    self.pseudowire_flooding_unknown_unicast = None
+
+                                    self.pseudowire_dai = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai()
+                                    self.pseudowire_dai.parent = self
+                                    self._children_name_map["pseudowire_dai"] = "pseudowire-dai"
+
+                                    self.bdpw_storm_control_types = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes()
+                                    self.bdpw_storm_control_types.parent = self
+                                    self._children_name_map["bdpw_storm_control_types"] = "bdpw-storm-control-types"
+
+                                    self.pseudowire_profile = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile()
+                                    self.pseudowire_profile.parent = self
+                                    self._children_name_map["pseudowire_profile"] = "pseudowire-profile"
+
+                                    self.bd_pw_static_mac_addresses = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses()
+                                    self.bd_pw_static_mac_addresses.parent = self
+                                    self._children_name_map["bd_pw_static_mac_addresses"] = "bd-pw-static-mac-addresses"
+
+                                    self.pseudowire_ip_source_guard = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard()
+                                    self.pseudowire_ip_source_guard.parent = self
+                                    self._children_name_map["pseudowire_ip_source_guard"] = "pseudowire-ip-source-guard"
+
+                                    self.pseudowire_mac = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac()
+                                    self.pseudowire_mac.parent = self
+                                    self._children_name_map["pseudowire_mac"] = "pseudowire-mac"
+
+                                    self.bd_pw_split_horizon = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon()
+                                    self.bd_pw_split_horizon.parent = self
+                                    self._children_name_map["bd_pw_split_horizon"] = "bd-pw-split-horizon"
+
+                                    self.bd_pw_mpls_static_labels = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels()
+                                    self.bd_pw_mpls_static_labels.parent = self
+                                    self._children_name_map["bd_pw_mpls_static_labels"] = "bd-pw-mpls-static-labels"
+
+                                    self.bridge_domain_backup_pseudowires = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires()
+                                    self.bridge_domain_backup_pseudowires.parent = self
+                                    self._children_name_map["bridge_domain_backup_pseudowires"] = "bridge-domain-backup-pseudowires"
+                                    self._segment_path = lambda: "bd-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire, ['neighbor', 'pseudowire_id', 'pseudowire_mld_snoop', 'pseudowire_igmp_snoop', 'pseudowire_flooding', 'bd_pw_class', 'pseudowire_flooding_unknown_unicast'], name, value)
+
+
+                                class PseudowireDai(Entity):
+                                    """
+                                    Access Pseudowire Dynamic ARP Inspection
+                                    
+                                    .. attribute:: pseudowire_dai_address_validation
+                                    
+                                    	Address Validation
+                                    	**type**\:  :py:class:`PseudowireDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation>`
+                                    
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable Dynamic ARP Inspection
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable Access Pseudowire Dynamic ARP Inspection
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, self).__init__()
+
+                                        self.yang_name = "pseudowire-dai"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pseudowire-dai-address-validation", ("pseudowire_dai_address_validation", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation))])
+                                        self._leafs = OrderedDict([
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
+
+                                        self.pseudowire_dai_address_validation = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation()
+                                        self.pseudowire_dai_address_validation.parent = self
+                                        self._children_name_map["pseudowire_dai_address_validation"] = "pseudowire-dai-address-validation"
+                                        self._segment_path = lambda: "pseudowire-dai"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai, ['logging', 'disable', 'enable'], name, value)
+
+
+                                    class PseudowireDaiAddressValidation(Entity):
+                                        """
+                                        Address Validation
+                                        
+                                        .. attribute:: ipv4_verification
+                                        
+                                        	IPv4 Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        .. attribute:: destination_mac_verification
+                                        
+                                        	Destination MAC Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        .. attribute:: source_mac_verification
+                                        
+                                        	Source MAC Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, self).__init__()
+
+                                            self.yang_name = "pseudowire-dai-address-validation"
+                                            self.yang_parent_name = "pseudowire-dai"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ipv4_verification', (YLeaf(YType.enumeration, 'ipv4-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('destination_mac_verification', (YLeaf(YType.enumeration, 'destination-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('source_mac_verification', (YLeaf(YType.enumeration, 'source-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                            ])
+                                            self.ipv4_verification = None
+                                            self.destination_mac_verification = None
+                                            self.source_mac_verification = None
+                                            self._segment_path = lambda: "pseudowire-dai-address-validation"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireDai.PseudowireDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification'], name, value)
+
+
+                                class BdpwStormControlTypes(Entity):
+                                    """
+                                    Storm Control
+                                    
+                                    .. attribute:: bdpw_storm_control_type
+                                    
+                                    	Storm Control Type
+                                    	**type**\: list of  		 :py:class:`BdpwStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, self).__init__()
+
+                                        self.yang_name = "bdpw-storm-control-types"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("bdpw-storm-control-type", ("bdpw_storm_control_type", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType))])
+                                        self._leafs = OrderedDict()
+
+                                        self.bdpw_storm_control_type = YList(self)
+                                        self._segment_path = lambda: "bdpw-storm-control-types"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes, [], name, value)
+
+
+                                    class BdpwStormControlType(Entity):
+                                        """
+                                        Storm Control Type
+                                        
+                                        .. attribute:: sctype  (key)
+                                        
+                                        	Storm Control Type
+                                        	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
+                                        
+                                        .. attribute:: storm_control_unit
+                                        
+                                        	Specify units for Storm Control Configuration
+                                        	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, self).__init__()
+
+                                            self.yang_name = "bdpw-storm-control-type"
+                                            self.yang_parent_name = "bdpw-storm-control-types"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['sctype']
+                                            self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit))])
+                                            self._leafs = OrderedDict([
+                                                ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
+                                            ])
+                                            self.sctype = None
+
+                                            self.storm_control_unit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit()
+                                            self.storm_control_unit.parent = self
+                                            self._children_name_map["storm_control_unit"] = "storm-control-unit"
+                                            self._segment_path = lambda: "bdpw-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType, ['sctype'], name, value)
+
+
+                                        class StormControlUnit(Entity):
+                                            """
+                                            Specify units for Storm Control Configuration
+                                            
+                                            .. attribute:: kbits_per_sec
+                                            
+                                            	Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                            	**type**\: int
+                                            
+                                            	**range:** 64..1280000
+                                            
+                                            	**units**\: kbit/s
+                                            
+                                            .. attribute:: pkts_per_sec
+                                            
+                                            	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                            	**type**\: int
+                                            
+                                            	**range:** 1..160000
+                                            
+                                            	**units**\: packet/s
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, self).__init__()
+
+                                                self.yang_name = "storm-control-unit"
+                                                self.yang_parent_name = "bdpw-storm-control-type"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                                    ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
+                                                ])
+                                                self.kbits_per_sec = None
+                                                self.pkts_per_sec = None
+                                                self._segment_path = lambda: "storm-control-unit"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdpwStormControlTypes.BdpwStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
+
+
+                                class PseudowireProfile(Entity):
+                                    """
+                                    Attach a DHCP profile
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile>`
+                                    
+                                    .. attribute:: dhcp_snooping_id
+                                    
+                                    	Disable DHCP snooping
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, self).__init__()
+
+                                        self.yang_name = "pseudowire-profile"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
+                                        self._segment_path = lambda: "pseudowire-profile"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+                                class BdPwStaticMacAddresses(Entity):
+                                    """
+                                    Static Mac Address Table
+                                    
+                                    .. attribute:: bd_pw_static_mac_address
+                                    
+                                    	Static Mac Address Configuration
+                                    	**type**\: list of  		 :py:class:`BdPwStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, self).__init__()
+
+                                        self.yang_name = "bd-pw-static-mac-addresses"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("bd-pw-static-mac-address", ("bd_pw_static_mac_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress))])
+                                        self._leafs = OrderedDict()
+
+                                        self.bd_pw_static_mac_address = YList(self)
+                                        self._segment_path = lambda: "bd-pw-static-mac-addresses"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses, [], name, value)
+
+
+                                    class BdPwStaticMacAddress(Entity):
+                                        """
+                                        Static Mac Address Configuration
+                                        
+                                        .. attribute:: address  (key)
+                                        
+                                        	Static MAC address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, self).__init__()
+
+                                            self.yang_name = "bd-pw-static-mac-address"
+                                            self.yang_parent_name = "bd-pw-static-mac-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['address']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ])
+                                            self.address = None
+                                            self._segment_path = lambda: "bd-pw-static-mac-address" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwStaticMacAddresses.BdPwStaticMacAddress, ['address'], name, value)
+
+
+                                class PseudowireIpSourceGuard(Entity):
+                                    """
+                                    IP Source Guard
+                                    
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable Dynamic IP source guard
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable IP Source Guard
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, self).__init__()
+
+                                        self.yang_name = "pseudowire-ip-source-guard"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
+                                        self._segment_path = lambda: "pseudowire-ip-source-guard"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
+
+
+                                class PseudowireMac(Entity):
+                                    """
+                                    Bridge\-domain Pseudowire MAC configuration
+                                    commands
+                                    
+                                    .. attribute:: pseudowire_mac_secure
+                                    
+                                    	MAC Secure
+                                    	**type**\:  :py:class:`PseudowireMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure>`
+                                    
+                                    .. attribute:: pseudowire_mac_aging
+                                    
+                                    	MAC\-Aging configuration commands
+                                    	**type**\:  :py:class:`PseudowireMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging>`
+                                    
+                                    .. attribute:: pseudowire_mac_limit
+                                    
+                                    	MAC\-Limit configuration commands
+                                    	**type**\:  :py:class:`PseudowireMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit>`
+                                    
+                                    .. attribute:: pseudowire_mac_port_down_flush
+                                    
+                                    	Enable/Disable MAC Flush When Port goes down
+                                    	**type**\:  :py:class:`PortDownFlush <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlush>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Bridge\-domain Pseudowire MAC configuration mode
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: pseudowire_mac_learning
+                                    
+                                    	Enable MAC Learning
+                                    	**type**\:  :py:class:`MacLearn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearn>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, self).__init__()
+
+                                        self.yang_name = "pseudowire-mac"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("pseudowire-mac-secure", ("pseudowire_mac_secure", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure)), ("pseudowire-mac-aging", ("pseudowire_mac_aging", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging)), ("pseudowire-mac-limit", ("pseudowire_mac_limit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit))])
+                                        self._leafs = OrderedDict([
+                                            ('pseudowire_mac_port_down_flush', (YLeaf(YType.enumeration, 'pseudowire-mac-port-down-flush'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PortDownFlush', '')])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ('pseudowire_mac_learning', (YLeaf(YType.enumeration, 'pseudowire-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
+                                        ])
+                                        self.pseudowire_mac_port_down_flush = None
+                                        self.enable = None
+                                        self.pseudowire_mac_learning = None
+
+                                        self.pseudowire_mac_secure = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure()
+                                        self.pseudowire_mac_secure.parent = self
+                                        self._children_name_map["pseudowire_mac_secure"] = "pseudowire-mac-secure"
+
+                                        self.pseudowire_mac_aging = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging()
+                                        self.pseudowire_mac_aging.parent = self
+                                        self._children_name_map["pseudowire_mac_aging"] = "pseudowire-mac-aging"
+
+                                        self.pseudowire_mac_limit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit()
+                                        self.pseudowire_mac_limit.parent = self
+                                        self._children_name_map["pseudowire_mac_limit"] = "pseudowire-mac-limit"
+                                        self._segment_path = lambda: "pseudowire-mac"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac, ['pseudowire_mac_port_down_flush', 'enable', 'pseudowire_mac_learning'], name, value)
+
+
+                                    class PseudowireMacSecure(Entity):
+                                        """
+                                        MAC Secure
+                                        
+                                        .. attribute:: logging
+                                        
+                                        	MAC Secure Logging
+                                        	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                        
+                                        .. attribute:: disable
+                                        
+                                        	Disable L2 Pseudowire MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: action
+                                        
+                                        	MAC secure enforcement action
+                                        	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, self).__init__()
+
+                                            self.yang_name = "pseudowire-mac-secure"
+                                            self.yang_parent_name = "pseudowire-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.logging = None
+                                            self.disable = None
+                                            self.action = None
+                                            self.enable = None
+                                            self._segment_path = lambda: "pseudowire-mac-secure"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+
+
+                                    class PseudowireMacAging(Entity):
+                                        """
+                                        MAC\-Aging configuration commands
+                                        
+                                        .. attribute:: pseudowire_mac_aging_type
+                                        
+                                        	MAC address aging type
+                                        	**type**\:  :py:class:`MacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAging>`
+                                        
+                                        .. attribute:: pseudowire_mac_aging_time
+                                        
+                                        	MAC Aging Time
+                                        	**type**\: int
+                                        
+                                        	**range:** 300..30000
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, self).__init__()
+
+                                            self.yang_name = "pseudowire-mac-aging"
+                                            self.yang_parent_name = "pseudowire-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pseudowire_mac_aging_type', (YLeaf(YType.enumeration, 'pseudowire-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                                ('pseudowire_mac_aging_time', (YLeaf(YType.uint32, 'pseudowire-mac-aging-time'), ['int'])),
+                                            ])
+                                            self.pseudowire_mac_aging_type = None
+                                            self.pseudowire_mac_aging_time = None
+                                            self._segment_path = lambda: "pseudowire-mac-aging"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacAging, ['pseudowire_mac_aging_type', 'pseudowire_mac_aging_time'], name, value)
+
+
+                                    class PseudowireMacLimit(Entity):
+                                        """
+                                        MAC\-Limit configuration commands
+                                        
+                                        .. attribute:: pseudowire_mac_limit_action
+                                        
+                                        	Bridge Access Pseudowire MAC address limit enforcement action
+                                        	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction>`
+                                        
+                                        .. attribute:: pseudowire_mac_limit_notif
+                                        
+                                        	MAC address limit notification action in a Bridge Access Pseudowire
+                                        	**type**\:  :py:class:`MacNotification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotification>`
+                                        
+                                        .. attribute:: pseudowire_mac_limit_max
+                                        
+                                        	Number of MAC addresses on a Bridge Access Pseudowire after which MAC limit action is taken
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, self).__init__()
+
+                                            self.yang_name = "pseudowire-mac-limit"
+                                            self.yang_parent_name = "pseudowire-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('pseudowire_mac_limit_action', (YLeaf(YType.enumeration, 'pseudowire-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                                ('pseudowire_mac_limit_notif', (YLeaf(YType.enumeration, 'pseudowire-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('pseudowire_mac_limit_max', (YLeaf(YType.uint32, 'pseudowire-mac-limit-max'), ['int'])),
+                                            ])
+                                            self.pseudowire_mac_limit_action = None
+                                            self.pseudowire_mac_limit_notif = None
+                                            self.pseudowire_mac_limit_max = None
+                                            self._segment_path = lambda: "pseudowire-mac-limit"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.PseudowireMac.PseudowireMacLimit, ['pseudowire_mac_limit_action', 'pseudowire_mac_limit_notif', 'pseudowire_mac_limit_max'], name, value)
+
+
+                                class BdPwSplitHorizon(Entity):
+                                    """
+                                    Split Horizon
+                                    
+                                    .. attribute:: bd_pw_split_horizon_group
+                                    
+                                    	Split Horizon Group
+                                    	**type**\:  :py:class:`BdPwSplitHorizonGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, self).__init__()
+
+                                        self.yang_name = "bd-pw-split-horizon"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("bd-pw-split-horizon-group", ("bd_pw_split_horizon_group", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup))])
+                                        self._leafs = OrderedDict()
+
+                                        self.bd_pw_split_horizon_group = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup()
+                                        self.bd_pw_split_horizon_group.parent = self
+                                        self._children_name_map["bd_pw_split_horizon_group"] = "bd-pw-split-horizon-group"
+                                        self._segment_path = lambda: "bd-pw-split-horizon"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon, [], name, value)
+
+
+                                    class BdPwSplitHorizonGroup(Entity):
+                                        """
+                                        Split Horizon Group
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable split horizon group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, self).__init__()
+
+                                            self.yang_name = "bd-pw-split-horizon-group"
+                                            self.yang_parent_name = "bd-pw-split-horizon"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.enable = None
+                                            self._segment_path = lambda: "bd-pw-split-horizon-group"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwSplitHorizon.BdPwSplitHorizonGroup, ['enable'], name, value)
+
+
+                                class BdPwMplsStaticLabels(Entity):
+                                    """
+                                    MPLS static labels
+                                    
+                                    .. attribute:: local_static_label
+                                    
+                                    	Pseudowire local static label
+                                    	**type**\: int
+                                    
+                                    	**range:** 16..1048575
+                                    
+                                    .. attribute:: remote_static_label
+                                    
+                                    	Pseudowire remote static label
+                                    	**type**\: int
+                                    
+                                    	**range:** 16..1048575
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, self).__init__()
+
+                                        self.yang_name = "bd-pw-mpls-static-labels"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                            ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
+                                        ])
+                                        self.local_static_label = None
+                                        self.remote_static_label = None
+                                        self._segment_path = lambda: "bd-pw-mpls-static-labels"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BdPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
+
+                                class BridgeDomainBackupPseudowires(Entity):
+                                    """
+                                    List of pseudowires
+                                    
+                                    .. attribute:: bridge_domain_backup_pseudowire
+                                    
+                                    	Backup pseudowire configuration
+                                    	**type**\: list of  		 :py:class:`BridgeDomainBackupPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, self).__init__()
+
+                                        self.yang_name = "bridge-domain-backup-pseudowires"
+                                        self.yang_parent_name = "bd-pseudowire"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("bridge-domain-backup-pseudowire", ("bridge_domain_backup_pseudowire", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire))])
+                                        self._leafs = OrderedDict()
+
+                                        self.bridge_domain_backup_pseudowire = YList(self)
+                                        self._segment_path = lambda: "bridge-domain-backup-pseudowires"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires, [], name, value)
+
+
+                                    class BridgeDomainBackupPseudowire(Entity):
+                                        """
+                                        Backup pseudowire configuration
+                                        
+                                        .. attribute:: neighbor  (key)
+                                        
+                                        	Neighbor IP address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: pseudowire_id  (key)
+                                        
+                                        	Pseudowire ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..4294967295
+                                        
+                                        .. attribute:: bridge_domain_backup_pw_class
+                                        
+                                        	PW class template name to use for this pseudowire
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..32
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, self).__init__()
+
+                                            self.yang_name = "bridge-domain-backup-pseudowire"
+                                            self.yang_parent_name = "bridge-domain-backup-pseudowires"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('bridge_domain_backup_pw_class', (YLeaf(YType.str, 'bridge-domain-backup-pw-class'), ['str'])),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.bridge_domain_backup_pw_class = None
+                                            self._segment_path = lambda: "bridge-domain-backup-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowires.BdPseudowire.BridgeDomainBackupPseudowires.BridgeDomainBackupPseudowire, ['neighbor', 'pseudowire_id', 'bridge_domain_backup_pw_class'], name, value)
+
+
+                        class Vfis(Entity):
+                            """
+                            Specify the virtual forwarding interface name
+                            
+                            .. attribute:: vfi
+                            
+                            	Name of the Virtual Forwarding Interface
+                            	**type**\: list of  		 :py:class:`Vfi <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, self).__init__()
+
+                                self.yang_name = "vfis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("vfi", ("vfi", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi))])
+                                self._leafs = OrderedDict()
+
+                                self.vfi = YList(self)
+                                self._segment_path = lambda: "vfis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis, [], name, value)
+
+
+                            class Vfi(Entity):
+                                """
+                                Name of the Virtual Forwarding Interface
+                                
+                                .. attribute:: name  (key)
+                                
+                                	Name of the Virtual Forwarding Interface
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: multicast_p2mp
+                                
+                                	Enable Multicast P2MP in this VFI
+                                	**type**\:  :py:class:`MulticastP2mp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp>`
+                                
+                                .. attribute:: vfi_pseudowires
+                                
+                                	List of pseudowires
+                                	**type**\:  :py:class:`VfiPseudowires <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires>`
+                                
+                                .. attribute:: bgp_auto_discovery
+                                
+                                	Enable Autodiscovery BGP in this VFI
+                                	**type**\:  :py:class:`BgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery>`
+                                
+                                .. attribute:: vfi_shutdown
+                                
+                                	Enabling Shutdown
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: vpnid
+                                
+                                	VPN Identifier
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, self).__init__()
+
+                                    self.yang_name = "vfi"
+                                    self.yang_parent_name = "vfis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['name']
+                                    self._child_classes = OrderedDict([("multicast-p2mp", ("multicast_p2mp", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp)), ("vfi-pseudowires", ("vfi_pseudowires", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires)), ("bgp-auto-discovery", ("bgp_auto_discovery", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery))])
+                                    self._leafs = OrderedDict([
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('vfi_shutdown', (YLeaf(YType.empty, 'vfi-shutdown'), ['Empty'])),
+                                        ('vpnid', (YLeaf(YType.uint32, 'vpnid'), ['int'])),
+                                    ])
+                                    self.name = None
+                                    self.vfi_shutdown = None
+                                    self.vpnid = None
+
+                                    self.multicast_p2mp = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp()
+                                    self.multicast_p2mp.parent = self
+                                    self._children_name_map["multicast_p2mp"] = "multicast-p2mp"
+
+                                    self.vfi_pseudowires = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires()
+                                    self.vfi_pseudowires.parent = self
+                                    self._children_name_map["vfi_pseudowires"] = "vfi-pseudowires"
+
+                                    self.bgp_auto_discovery = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery()
+                                    self.bgp_auto_discovery.parent = self
+                                    self._children_name_map["bgp_auto_discovery"] = "bgp-auto-discovery"
+                                    self._segment_path = lambda: "vfi" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi, ['name', 'vfi_shutdown', 'vpnid'], name, value)
+
+
+                                class MulticastP2mp(Entity):
+                                    """
+                                    Enable Multicast P2MP in this VFI
+                                    
+                                    .. attribute:: transports
+                                    
+                                    	Multicast P2MP Transport
+                                    	**type**\:  :py:class:`Transports <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports>`
+                                    
+                                    .. attribute:: signalings
+                                    
+                                    	Multicast P2MP Signaling Type
+                                    	**type**\:  :py:class:`Signalings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable Autodiscovery P2MP
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, self).__init__()
+
+                                        self.yang_name = "multicast-p2mp"
+                                        self.yang_parent_name = "vfi"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("transports", ("transports", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports)), ("signalings", ("signalings", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings))])
+                                        self._leafs = OrderedDict([
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.enable = None
+
+                                        self.transports = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports()
+                                        self.transports.parent = self
+                                        self._children_name_map["transports"] = "transports"
+
+                                        self.signalings = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings()
+                                        self.signalings.parent = self
+                                        self._children_name_map["signalings"] = "signalings"
+                                        self._segment_path = lambda: "multicast-p2mp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp, ['enable'], name, value)
+
+
+                                    class Transports(Entity):
+                                        """
+                                        Multicast P2MP Transport
+                                        
+                                        .. attribute:: transport
+                                        
+                                        	Multicast P2MP Transport Type
+                                        	**type**\: list of  		 :py:class:`Transport <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, self).__init__()
+
+                                            self.yang_name = "transports"
+                                            self.yang_parent_name = "multicast-p2mp"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("transport", ("transport", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport))])
+                                            self._leafs = OrderedDict()
+
+                                            self.transport = YList(self)
+                                            self._segment_path = lambda: "transports"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports, [], name, value)
+
+
+                                        class Transport(Entity):
+                                            """
+                                            Multicast P2MP Transport Type
+                                            
+                                            .. attribute:: transport_name  (key)
+                                            
+                                            	Transport Type
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (RSVP\_TE)
+                                            
+                                            .. attribute:: attribute_set_name
+                                            
+                                            	Multicast P2MP TE Attribute Set Name
+                                            	**type**\: str
+                                            
+                                            	**length:** 1..64
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, self).__init__()
+
+                                                self.yang_name = "transport"
+                                                self.yang_parent_name = "transports"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['transport_name']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('transport_name', (YLeaf(YType.str, 'transport-name'), ['str'])),
+                                                    ('attribute_set_name', (YLeaf(YType.str, 'attribute-set-name'), ['str'])),
+                                                ])
+                                                self.transport_name = None
+                                                self.attribute_set_name = None
+                                                self._segment_path = lambda: "transport" + "[transport-name='" + str(self.transport_name) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Transports.Transport, ['transport_name', 'attribute_set_name'], name, value)
+
+
+                                    class Signalings(Entity):
+                                        """
+                                        Multicast P2MP Signaling Type
+                                        
+                                        .. attribute:: signaling
+                                        
+                                        	Multicast P2MP Signaling Type
+                                        	**type**\: list of  		 :py:class:`Signaling <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, self).__init__()
+
+                                            self.yang_name = "signalings"
+                                            self.yang_parent_name = "multicast-p2mp"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("signaling", ("signaling", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling))])
+                                            self._leafs = OrderedDict()
+
+                                            self.signaling = YList(self)
+                                            self._segment_path = lambda: "signalings"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings, [], name, value)
+
+
+                                        class Signaling(Entity):
+                                            """
+                                            Multicast P2MP Signaling Type
+                                            
+                                            .. attribute:: signaling_name  (key)
+                                            
+                                            	Signaling Type
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (BGP)
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, self).__init__()
+
+                                                self.yang_name = "signaling"
+                                                self.yang_parent_name = "signalings"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['signaling_name']
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('signaling_name', (YLeaf(YType.str, 'signaling-name'), ['str'])),
+                                                ])
+                                                self.signaling_name = None
+                                                self._segment_path = lambda: "signaling" + "[signaling-name='" + str(self.signaling_name) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.MulticastP2mp.Signalings.Signaling, ['signaling_name'], name, value)
+
+
+                                class VfiPseudowires(Entity):
+                                    """
+                                    List of pseudowires
+                                    
+                                    .. attribute:: vfi_pseudowire
+                                    
+                                    	Pseudowire configuration
+                                    	**type**\: list of  		 :py:class:`VfiPseudowire <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, self).__init__()
+
+                                        self.yang_name = "vfi-pseudowires"
+                                        self.yang_parent_name = "vfi"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("vfi-pseudowire", ("vfi_pseudowire", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire))])
+                                        self._leafs = OrderedDict()
+
+                                        self.vfi_pseudowire = YList(self)
+                                        self._segment_path = lambda: "vfi-pseudowires"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires, [], name, value)
+
+
+                                    class VfiPseudowire(Entity):
+                                        """
+                                        Pseudowire configuration
+                                        
+                                        .. attribute:: neighbor  (key)
+                                        
+                                        	Neighbor IP address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: pseudowire_id  (key)
+                                        
+                                        	Pseudowire ID
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..4294967295
+                                        
+                                        .. attribute:: vfi_pw_dhcp_snoop
+                                        
+                                        	Attach a DHCP Snooping profile
+                                        	**type**\:  :py:class:`VfiPwDhcpSnoop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop>`
+                                        
+                                        .. attribute:: vfi_pw_mpls_static_labels
+                                        
+                                        	MPLS static labels
+                                        	**type**\:  :py:class:`VfiPwMplsStaticLabels <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels>`
+                                        
+                                        .. attribute:: pseudowire_static_mac_addresses
+                                        
+                                        	Static Mac Address Table
+                                        	**type**\:  :py:class:`PseudowireStaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses>`
+                                        
+                                        .. attribute:: vfi_pw_class
+                                        
+                                        	PW class template name to use for this pseudowire
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..32
+                                        
+                                        .. attribute:: vfi_pw_igmp_snoop
+                                        
+                                        	Attach a IGMP Snooping profile
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..32
+                                        
+                                        .. attribute:: vfi_pw_mld_snoop
+                                        
+                                        	Attach a MLD Snooping profile
+                                        	**type**\: str
+                                        
+                                        	**length:** 1..32
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, self).__init__()
+
+                                            self.yang_name = "vfi-pseudowire"
+                                            self.yang_parent_name = "vfi-pseudowires"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['neighbor','pseudowire_id']
+                                            self._child_classes = OrderedDict([("vfi-pw-dhcp-snoop", ("vfi_pw_dhcp_snoop", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop)), ("vfi-pw-mpls-static-labels", ("vfi_pw_mpls_static_labels", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels)), ("pseudowire-static-mac-addresses", ("pseudowire_static_mac_addresses", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses))])
+                                            self._leafs = OrderedDict([
+                                                ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                                                ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
+                                                ('vfi_pw_class', (YLeaf(YType.str, 'vfi-pw-class'), ['str'])),
+                                                ('vfi_pw_igmp_snoop', (YLeaf(YType.str, 'vfi-pw-igmp-snoop'), ['str'])),
+                                                ('vfi_pw_mld_snoop', (YLeaf(YType.str, 'vfi-pw-mld-snoop'), ['str'])),
+                                            ])
+                                            self.neighbor = None
+                                            self.pseudowire_id = None
+                                            self.vfi_pw_class = None
+                                            self.vfi_pw_igmp_snoop = None
+                                            self.vfi_pw_mld_snoop = None
+
+                                            self.vfi_pw_dhcp_snoop = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop()
+                                            self.vfi_pw_dhcp_snoop.parent = self
+                                            self._children_name_map["vfi_pw_dhcp_snoop"] = "vfi-pw-dhcp-snoop"
+
+                                            self.vfi_pw_mpls_static_labels = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels()
+                                            self.vfi_pw_mpls_static_labels.parent = self
+                                            self._children_name_map["vfi_pw_mpls_static_labels"] = "vfi-pw-mpls-static-labels"
+
+                                            self.pseudowire_static_mac_addresses = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses()
+                                            self.pseudowire_static_mac_addresses.parent = self
+                                            self._children_name_map["pseudowire_static_mac_addresses"] = "pseudowire-static-mac-addresses"
+                                            self._segment_path = lambda: "vfi-pseudowire" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire, ['neighbor', 'pseudowire_id', 'vfi_pw_class', 'vfi_pw_igmp_snoop', 'vfi_pw_mld_snoop'], name, value)
+
+
+                                        class VfiPwDhcpSnoop(Entity):
+                                            """
+                                            Attach a DHCP Snooping profile
+                                            
+                                            .. attribute:: profile_id
+                                            
+                                            	Set the snooping profile
+                                            	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile>`
+                                            
+                                            .. attribute:: dhcp_snooping_id
+                                            
+                                            	Disable DHCP snooping
+                                            	**type**\: str
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, self).__init__()
+
+                                                self.yang_name = "vfi-pw-dhcp-snoop"
+                                                self.yang_parent_name = "vfi-pseudowire"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                                    ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
+                                                ])
+                                                self.profile_id = None
+                                                self.dhcp_snooping_id = None
+                                                self._segment_path = lambda: "vfi-pw-dhcp-snoop"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwDhcpSnoop, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+                                        class VfiPwMplsStaticLabels(Entity):
+                                            """
+                                            MPLS static labels
+                                            
+                                            .. attribute:: local_static_label
+                                            
+                                            	Pseudowire local static label
+                                            	**type**\: int
+                                            
+                                            	**range:** 16..1048575
+                                            
+                                            .. attribute:: remote_static_label
+                                            
+                                            	Pseudowire remote static label
+                                            	**type**\: int
+                                            
+                                            	**range:** 16..1048575
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, self).__init__()
+
+                                                self.yang_name = "vfi-pw-mpls-static-labels"
+                                                self.yang_parent_name = "vfi-pseudowire"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('local_static_label', (YLeaf(YType.uint32, 'local-static-label'), ['int'])),
+                                                    ('remote_static_label', (YLeaf(YType.uint32, 'remote-static-label'), ['int'])),
+                                                ])
+                                                self.local_static_label = None
+                                                self.remote_static_label = None
+                                                self._segment_path = lambda: "vfi-pw-mpls-static-labels"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.VfiPwMplsStaticLabels, ['local_static_label', 'remote_static_label'], name, value)
+
+
+                                        class PseudowireStaticMacAddresses(Entity):
+                                            """
+                                            Static Mac Address Table
+                                            
+                                            .. attribute:: pseudowire_static_mac_address
+                                            
+                                            	Static Mac Address Configuration
+                                            	**type**\: list of  		 :py:class:`PseudowireStaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, self).__init__()
+
+                                                self.yang_name = "pseudowire-static-mac-addresses"
+                                                self.yang_parent_name = "vfi-pseudowire"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([("pseudowire-static-mac-address", ("pseudowire_static_mac_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress))])
+                                                self._leafs = OrderedDict()
+
+                                                self.pseudowire_static_mac_address = YList(self)
+                                                self._segment_path = lambda: "pseudowire-static-mac-addresses"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses, [], name, value)
+
+
+                                            class PseudowireStaticMacAddress(Entity):
+                                                """
+                                                Static Mac Address Configuration
+                                                
+                                                .. attribute:: address  (key)
+                                                
+                                                	Static MAC address
+                                                	**type**\: str
+                                                
+                                                	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'l2vpn-cfg'
+                                                _revision = '2017-06-26'
+
+                                                def __init__(self):
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, self).__init__()
+
+                                                    self.yang_name = "pseudowire-static-mac-address"
+                                                    self.yang_parent_name = "pseudowire-static-mac-addresses"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = ['address']
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ])
+                                                    self.address = None
+                                                    self._segment_path = lambda: "pseudowire-static-mac-address" + "[address='" + str(self.address) + "']"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.VfiPseudowires.VfiPseudowire.PseudowireStaticMacAddresses.PseudowireStaticMacAddress, ['address'], name, value)
+
+
+                                class BgpAutoDiscovery(Entity):
+                                    """
+                                    Enable Autodiscovery BGP in this VFI
+                                    
+                                    .. attribute:: ldp_signaling_protocol
+                                    
+                                    	Signaling Protocol LDP in this VFI configuration
+                                    	**type**\:  :py:class:`LdpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol>`
+                                    
+                                    .. attribute:: bgp_route_policy
+                                    
+                                    	Route policy
+                                    	**type**\:  :py:class:`BgpRoutePolicy <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy>`
+                                    
+                                    .. attribute:: route_distinguisher
+                                    
+                                    	Route Distinguisher
+                                    	**type**\:  :py:class:`RouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher>`
+                                    
+                                    .. attribute:: bgp_signaling_protocol
+                                    
+                                    	Enable Signaling Protocol BGP in this VFI
+                                    	**type**\:  :py:class:`BgpSignalingProtocol <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol>`
+                                    
+                                    .. attribute:: route_targets
+                                    
+                                    	Route Target
+                                    	**type**\:  :py:class:`RouteTargets <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets>`
+                                    
+                                    .. attribute:: table_policy
+                                    
+                                    	Table Policy for installation of forwarding data to L2FIB
+                                    	**type**\: str
+                                    
+                                    .. attribute:: ad_control_word
+                                    
+                                    	Enable control\-word for this VFI
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable Autodiscovery BGP
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, self).__init__()
+
+                                        self.yang_name = "bgp-auto-discovery"
+                                        self.yang_parent_name = "vfi"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("ldp-signaling-protocol", ("ldp_signaling_protocol", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol)), ("bgp-route-policy", ("bgp_route_policy", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy)), ("route-distinguisher", ("route_distinguisher", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher)), ("bgp-signaling-protocol", ("bgp_signaling_protocol", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol)), ("route-targets", ("route_targets", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets))])
+                                        self._leafs = OrderedDict([
+                                            ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
+                                            ('ad_control_word', (YLeaf(YType.empty, 'ad-control-word'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.table_policy = None
+                                        self.ad_control_word = None
+                                        self.enable = None
+
+                                        self.ldp_signaling_protocol = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol()
+                                        self.ldp_signaling_protocol.parent = self
+                                        self._children_name_map["ldp_signaling_protocol"] = "ldp-signaling-protocol"
+
+                                        self.bgp_route_policy = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy()
+                                        self.bgp_route_policy.parent = self
+                                        self._children_name_map["bgp_route_policy"] = "bgp-route-policy"
+
+                                        self.route_distinguisher = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher()
+                                        self.route_distinguisher.parent = self
+                                        self._children_name_map["route_distinguisher"] = "route-distinguisher"
+
+                                        self.bgp_signaling_protocol = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol()
+                                        self.bgp_signaling_protocol.parent = self
+                                        self._children_name_map["bgp_signaling_protocol"] = "bgp-signaling-protocol"
+
+                                        self.route_targets = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets()
+                                        self.route_targets.parent = self
+                                        self._children_name_map["route_targets"] = "route-targets"
+                                        self._segment_path = lambda: "bgp-auto-discovery"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery, ['table_policy', 'ad_control_word', 'enable'], name, value)
+
+
+                                    class LdpSignalingProtocol(Entity):
+                                        """
+                                        Signaling Protocol LDP in this VFI
+                                        configuration
+                                        
+                                        .. attribute:: vpls_id
+                                        
+                                        	VPLS ID
+                                        	**type**\:  :py:class:`VplsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId>`
+                                        
+                                        .. attribute:: flow_label_load_balance
+                                        
+                                        	Enable Flow Label based load balancing
+                                        	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance>`
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable LDP as Signaling Protocol.Deletion of this object also causes deletion of all objects under LDPSignalingProtocol
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, self).__init__()
+
+                                            self.yang_name = "ldp-signaling-protocol"
+                                            self.yang_parent_name = "bgp-auto-discovery"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("vpls-id", ("vpls_id", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId)), ("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance))])
+                                            self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.enable = None
+
+                                            self.vpls_id = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId()
+                                            self.vpls_id.parent = self
+                                            self._children_name_map["vpls_id"] = "vpls-id"
+
+                                            self.flow_label_load_balance = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance()
+                                            self.flow_label_load_balance.parent = self
+                                            self._children_name_map["flow_label_load_balance"] = "flow-label-load-balance"
+                                            self._segment_path = lambda: "ldp-signaling-protocol"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol, ['enable'], name, value)
+
+
+                                        class VplsId(Entity):
+                                            """
+                                            VPLS ID
+                                            
+                                            .. attribute:: type
+                                            
+                                            	VPLS\-ID Type
+                                            	**type**\:  :py:class:`LdpVplsId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.LdpVplsId>`
+                                            
+                                            .. attribute:: as_
+                                            
+                                            	Two byte AS number
+                                            	**type**\: int
+                                            
+                                            	**range:** 1..65535
+                                            
+                                            .. attribute:: as_index
+                                            
+                                            	AS index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..4294967295
+                                            
+                                            .. attribute:: address
+                                            
+                                            	IPV4 address
+                                            	**type**\: str
+                                            
+                                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                            
+                                            .. attribute:: address_index
+                                            
+                                            	Address index
+                                            	**type**\: int
+                                            
+                                            	**range:** 0..32767
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, self).__init__()
+
+                                                self.yang_name = "vpls-id"
+                                                self.yang_parent_name = "ldp-signaling-protocol"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'LdpVplsId', '')])),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                    ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
+                                                ])
+                                                self.type = None
+                                                self.as_ = None
+                                                self.as_index = None
+                                                self.address = None
+                                                self.address_index = None
+                                                self._segment_path = lambda: "vpls-id"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.VplsId, ['type', 'as_', 'as_index', 'address', 'address_index'], name, value)
+
+
+                                        class FlowLabelLoadBalance(Entity):
+                                            """
+                                            Enable Flow Label based load balancing
+                                            
+                                            .. attribute:: flow_label
+                                            
+                                            	Flow Label load balance type
+                                            	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance>`
+                                            
+                                            .. attribute:: static
+                                            
+                                            	Static Flow Label
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+
+                                                self.yang_name = "flow-label-load-balance"
+                                                self.yang_parent_name = "ldp-signaling-protocol"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                                    ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
+                                                ])
+                                                self.flow_label = None
+                                                self.static = None
+                                                self._segment_path = lambda: "flow-label-load-balance"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.LdpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
+                                    class BgpRoutePolicy(Entity):
+                                        """
+                                        Route policy
+                                        
+                                        .. attribute:: export
+                                        
+                                        	Export route policy
+                                        	**type**\: str
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, self).__init__()
+
+                                            self.yang_name = "bgp-route-policy"
+                                            self.yang_parent_name = "bgp-auto-discovery"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('export', (YLeaf(YType.str, 'export'), ['str'])),
+                                            ])
+                                            self.export = None
+                                            self._segment_path = lambda: "bgp-route-policy"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpRoutePolicy, ['export'], name, value)
+
+
+                                    class RouteDistinguisher(Entity):
+                                        """
+                                        Route Distinguisher
+                                        
+                                        .. attribute:: type
+                                        
+                                        	Router Distinguisher Type
+                                        	**type**\:  :py:class:`BgpRouteDistinguisher <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteDistinguisher>`
+                                        
+                                        .. attribute:: as_
+                                        
+                                        	Two byte or 4 byte AS number
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..4294967295
+                                        
+                                        .. attribute:: as_index
+                                        
+                                        	AS\:nn (hex or decimal format)
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: address
+                                        
+                                        	IPV4 address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                        
+                                        .. attribute:: addr_index
+                                        
+                                        	Addr index
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..65535
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, self).__init__()
+
+                                            self.yang_name = "route-distinguisher"
+                                            self.yang_parent_name = "bgp-auto-discovery"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
+                                            ])
+                                            self.type = None
+                                            self.as_ = None
+                                            self.as_index = None
+                                            self.address = None
+                                            self.addr_index = None
+                                            self._segment_path = lambda: "route-distinguisher"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
+
+
+                                    class BgpSignalingProtocol(Entity):
+                                        """
+                                        Enable Signaling Protocol BGP in this VFI
+                                        
+                                        .. attribute:: flow_label_load_balance
+                                        
+                                        	Enable Flow Label based load balancing
+                                        	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance>`
+                                        
+                                        .. attribute:: ve_range
+                                        
+                                        	Local Virtual Edge Block Configurable Range
+                                        	**type**\: int
+                                        
+                                        	**range:** 11..100
+                                        
+                                        .. attribute:: veid
+                                        
+                                        	Local Virtual Edge Identifier
+                                        	**type**\: int
+                                        
+                                        	**range:** 1..16384
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable BGP as Signaling Protocol
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, self).__init__()
+
+                                            self.yang_name = "bgp-signaling-protocol"
+                                            self.yang_parent_name = "bgp-auto-discovery"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("flow-label-load-balance", ("flow_label_load_balance", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance))])
+                                            self._leafs = OrderedDict([
+                                                ('ve_range', (YLeaf(YType.uint32, 've-range'), ['int'])),
+                                                ('veid', (YLeaf(YType.uint32, 'veid'), ['int'])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.ve_range = None
+                                            self.veid = None
+                                            self.enable = None
+
+                                            self.flow_label_load_balance = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance()
+                                            self.flow_label_load_balance.parent = self
+                                            self._children_name_map["flow_label_load_balance"] = "flow-label-load-balance"
+                                            self._segment_path = lambda: "bgp-signaling-protocol"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol, ['ve_range', 'veid', 'enable'], name, value)
+
+
+                                        class FlowLabelLoadBalance(Entity):
+                                            """
+                                            Enable Flow Label based load balancing
+                                            
+                                            .. attribute:: flow_label
+                                            
+                                            	Flow Label load balance type
+                                            	**type**\:  :py:class:`FlowLabelLoadBalance <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.FlowLabelLoadBalance>`
+                                            
+                                            .. attribute:: static
+                                            
+                                            	Static Flow Label
+                                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, self).__init__()
+
+                                                self.yang_name = "flow-label-load-balance"
+                                                self.yang_parent_name = "bgp-signaling-protocol"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('flow_label', (YLeaf(YType.enumeration, 'flow-label'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'FlowLabelLoadBalance', '')])),
+                                                    ('static', (YLeaf(YType.empty, 'static'), ['Empty'])),
+                                                ])
+                                                self.flow_label = None
+                                                self.static = None
+                                                self._segment_path = lambda: "flow-label-load-balance"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.BgpSignalingProtocol.FlowLabelLoadBalance, ['flow_label', 'static'], name, value)
+
+
+                                    class RouteTargets(Entity):
+                                        """
+                                        Route Target
+                                        
+                                        .. attribute:: route_target
+                                        
+                                        	Name of the Route Target
+                                        	**type**\: list of  		 :py:class:`RouteTarget <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, self).__init__()
+
+                                            self.yang_name = "route-targets"
+                                            self.yang_parent_name = "bgp-auto-discovery"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([("route-target", ("route_target", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget))])
+                                            self._leafs = OrderedDict()
+
+                                            self.route_target = YList(self)
+                                            self._segment_path = lambda: "route-targets"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets, [], name, value)
+
+
+                                        class RouteTarget(Entity):
+                                            """
+                                            Name of the Route Target
+                                            
+                                            .. attribute:: role  (key)
+                                            
+                                            	Role of the router target type
+                                            	**type**\:  :py:class:`BgpRouteTargetRole <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetRole>`
+                                            
+                                            .. attribute:: format  (key)
+                                            
+                                            	Format of the route target
+                                            	**type**\:  :py:class:`BgpRouteTargetFormat <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.BgpRouteTargetFormat>`
+                                            
+                                            .. attribute:: two_byte_as_or_four_byte_as
+                                            
+                                            	two byte as or four byte as
+                                            	**type**\: list of  		 :py:class:`TwoByteAsOrFourByteAs <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs>`
+                                            
+                                            .. attribute:: ipv4_address
+                                            
+                                            	ipv4 address
+                                            	**type**\: list of  		 :py:class:`Ipv4Address <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address>`
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, self).__init__()
+
+                                                self.yang_name = "route-target"
+                                                self.yang_parent_name = "route-targets"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = ['role','format']
+                                                self._child_classes = OrderedDict([("two-byte-as-or-four-byte-as", ("two_byte_as_or_four_byte_as", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs)), ("ipv4-address", ("ipv4_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address))])
+                                                self._leafs = OrderedDict([
+                                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                                ])
+                                                self.role = None
+                                                self.format = None
+
+                                                self.two_byte_as_or_four_byte_as = YList(self)
+                                                self.ipv4_address = YList(self)
+                                                self._segment_path = lambda: "route-target" + "[role='" + str(self.role) + "']" + "[format='" + str(self.format) + "']"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget, ['role', 'format'], name, value)
+
+
+                                            class TwoByteAsOrFourByteAs(Entity):
+                                                """
+                                                two byte as or four byte as
+                                                
+                                                .. attribute:: as_  (key)
+                                                
+                                                	Two byte or 4 byte AS number
+                                                	**type**\: int
+                                                
+                                                	**range:** 1..4294967295
+                                                
+                                                .. attribute:: as_index  (key)
+                                                
+                                                	AS\:nn (hex or decimal format)
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..4294967295
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'l2vpn-cfg'
+                                                _revision = '2017-06-26'
+
+                                                def __init__(self):
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, self).__init__()
+
+                                                    self.yang_name = "two-byte-as-or-four-byte-as"
+                                                    self.yang_parent_name = "route-target"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = ['as_','as_index']
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                                    ])
+                                                    self.as_ = None
+                                                    self.as_index = None
+                                                    self._segment_path = lambda: "two-byte-as-or-four-byte-as" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.TwoByteAsOrFourByteAs, ['as_', 'as_index'], name, value)
+
+
+                                            class Ipv4Address(Entity):
+                                                """
+                                                ipv4 address
+                                                
+                                                .. attribute:: address  (key)
+                                                
+                                                	IPV4 address
+                                                	**type**\: str
+                                                
+                                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                                
+                                                .. attribute:: addr_index  (key)
+                                                
+                                                	Addr index
+                                                	**type**\: int
+                                                
+                                                	**range:** 0..65535
+                                                
+                                                
+
+                                                """
+
+                                                _prefix = 'l2vpn-cfg'
+                                                _revision = '2017-06-26'
+
+                                                def __init__(self):
+                                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, self).__init__()
+
+                                                    self.yang_name = "ipv4-address"
+                                                    self.yang_parent_name = "route-target"
+                                                    self.is_top_level_class = False
+                                                    self.has_list_ancestor = True
+                                                    self.ylist_key_names = ['address','addr_index']
+                                                    self._child_classes = OrderedDict([])
+                                                    self._leafs = OrderedDict([
+                                                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                                        ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
+                                                    ])
+                                                    self.address = None
+                                                    self.addr_index = None
+                                                    self._segment_path = lambda: "ipv4-address" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']"
+                                                    self._is_frozen = True
+
+                                                def __setattr__(self, name, value):
+                                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Vfis.Vfi.BgpAutoDiscovery.RouteTargets.RouteTarget.Ipv4Address, ['address', 'addr_index'], name, value)
+
+
+                        class BridgeDomainvnis(Entity):
+                            """
+                            Bridge Domain EVPN VxLAN Network Identifier
+                            Table
+                            
+                            .. attribute:: bridge_domainvni
+                            
+                            	Bridge Domain VxLAN EVPN
+                            	**type**\: list of  		 :py:class:`BridgeDomainvni <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, self).__init__()
+
+                                self.yang_name = "bridge-domainvnis"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bridge-domainvni", ("bridge_domainvni", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni))])
+                                self._leafs = OrderedDict()
+
+                                self.bridge_domainvni = YList(self)
+                                self._segment_path = lambda: "bridge-domainvnis"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis, [], name, value)
+
+
+                            class BridgeDomainvni(Entity):
+                                """
+                                Bridge Domain VxLAN EVPN
+                                
+                                .. attribute:: vpn_id  (key)
+                                
+                                	VxLAN Ethernet VPN\-ID
+                                	**type**\: int
+                                
+                                	**range:** 1..16777215
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, self).__init__()
+
+                                    self.yang_name = "bridge-domainvni"
+                                    self.yang_parent_name = "bridge-domainvnis"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['vpn_id']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
+                                    ])
+                                    self.vpn_id = None
+                                    self._segment_path = lambda: "bridge-domainvni" + "[vpn-id='" + str(self.vpn_id) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BridgeDomainvnis.BridgeDomainvni, ['vpn_id'], name, value)
+
+
+                        class BdAttachmentCircuits(Entity):
+                            """
+                            Attachment Circuit table
+                            
+                            .. attribute:: bd_attachment_circuit
+                            
+                            	Name of the Attachment Circuit
+                            	**type**\: list of  		 :py:class:`BdAttachmentCircuit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, self).__init__()
+
+                                self.yang_name = "bd-attachment-circuits"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bd-attachment-circuit", ("bd_attachment_circuit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit))])
+                                self._leafs = OrderedDict()
+
+                                self.bd_attachment_circuit = YList(self)
+                                self._segment_path = lambda: "bd-attachment-circuits"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits, [], name, value)
+
+
+                            class BdAttachmentCircuit(Entity):
+                                """
+                                Name of the Attachment Circuit
+                                
+                                .. attribute:: name  (key)
+                                
+                                	The name of the Attachment Circuit
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                .. attribute:: interface_ip_source_guard
+                                
+                                	IP Source Guard
+                                	**type**\:  :py:class:`InterfaceIpSourceGuard <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard>`
+                                
+                                .. attribute:: interface_dai
+                                
+                                	L2 Interface Dynamic ARP Inspection
+                                	**type**\:  :py:class:`InterfaceDai <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai>`
+                                
+                                .. attribute:: interface_profile
+                                
+                                	Attach a DHCP profile
+                                	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile>`
+                                
+                                .. attribute:: bdac_storm_control_types
+                                
+                                	Storm Control
+                                	**type**\:  :py:class:`BdacStormControlTypes <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes>`
+                                
+                                .. attribute:: split_horizon
+                                
+                                	Split Horizon
+                                	**type**\:  :py:class:`SplitHorizon <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon>`
+                                
+                                .. attribute:: static_mac_addresses
+                                
+                                	Static Mac Address Table
+                                	**type**\:  :py:class:`StaticMacAddresses <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses>`
+                                
+                                .. attribute:: interface_mac
+                                
+                                	MAC configuration commands
+                                	**type**\:  :py:class:`InterfaceMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac>`
+                                
+                                .. attribute:: interface_flooding
+                                
+                                	Enable or Disable Flooding
+                                	**type**\:  :py:class:`InterfaceTrafficFlood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood>`
+                                
+                                .. attribute:: interface_igmp_snoop
+                                
+                                	Attach a IGMP Snooping profile
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                .. attribute:: interface_flooding_unknown_unicast
+                                
+                                	Enable or Disable Unknown Unicast Flooding
+                                	**type**\:  :py:class:`InterfaceTrafficFlood <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceTrafficFlood>`
+                                
+                                .. attribute:: interface_mld_snoop
+                                
+                                	Attach a MLD Snooping profile
+                                	**type**\: str
+                                
+                                	**length:** 1..32
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, self).__init__()
+
+                                    self.yang_name = "bd-attachment-circuit"
+                                    self.yang_parent_name = "bd-attachment-circuits"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['name']
+                                    self._child_classes = OrderedDict([("interface-ip-source-guard", ("interface_ip_source_guard", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard)), ("interface-dai", ("interface_dai", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai)), ("interface-profile", ("interface_profile", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile)), ("bdac-storm-control-types", ("bdac_storm_control_types", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes)), ("split-horizon", ("split_horizon", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon)), ("static-mac-addresses", ("static_mac_addresses", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses)), ("interface-mac", ("interface_mac", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac))])
+                                    self._leafs = OrderedDict([
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('interface_flooding', (YLeaf(YType.enumeration, 'interface-flooding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('interface_igmp_snoop', (YLeaf(YType.str, 'interface-igmp-snoop'), ['str'])),
+                                        ('interface_flooding_unknown_unicast', (YLeaf(YType.enumeration, 'interface-flooding-unknown-unicast'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceTrafficFlood', '')])),
+                                        ('interface_mld_snoop', (YLeaf(YType.str, 'interface-mld-snoop'), ['str'])),
+                                    ])
+                                    self.name = None
+                                    self.interface_flooding = None
+                                    self.interface_igmp_snoop = None
+                                    self.interface_flooding_unknown_unicast = None
+                                    self.interface_mld_snoop = None
+
+                                    self.interface_ip_source_guard = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard()
+                                    self.interface_ip_source_guard.parent = self
+                                    self._children_name_map["interface_ip_source_guard"] = "interface-ip-source-guard"
+
+                                    self.interface_dai = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai()
+                                    self.interface_dai.parent = self
+                                    self._children_name_map["interface_dai"] = "interface-dai"
+
+                                    self.interface_profile = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile()
+                                    self.interface_profile.parent = self
+                                    self._children_name_map["interface_profile"] = "interface-profile"
+
+                                    self.bdac_storm_control_types = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes()
+                                    self.bdac_storm_control_types.parent = self
+                                    self._children_name_map["bdac_storm_control_types"] = "bdac-storm-control-types"
+
+                                    self.split_horizon = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon()
+                                    self.split_horizon.parent = self
+                                    self._children_name_map["split_horizon"] = "split-horizon"
+
+                                    self.static_mac_addresses = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses()
+                                    self.static_mac_addresses.parent = self
+                                    self._children_name_map["static_mac_addresses"] = "static-mac-addresses"
+
+                                    self.interface_mac = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac()
+                                    self.interface_mac.parent = self
+                                    self._children_name_map["interface_mac"] = "interface-mac"
+                                    self._segment_path = lambda: "bd-attachment-circuit" + "[name='" + str(self.name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit, ['name', 'interface_flooding', 'interface_igmp_snoop', 'interface_flooding_unknown_unicast', 'interface_mld_snoop'], name, value)
+
+
+                                class InterfaceIpSourceGuard(Entity):
+                                    """
+                                    IP Source Guard
+                                    
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable L2 Interface Dynamic IP source guard
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable IP Source Guard
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, self).__init__()
+
+                                        self.yang_name = "interface-ip-source-guard"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
+                                        self._segment_path = lambda: "interface-ip-source-guard"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceIpSourceGuard, ['logging', 'disable', 'enable'], name, value)
+
+
+                                class InterfaceDai(Entity):
+                                    """
+                                    L2 Interface Dynamic ARP Inspection
+                                    
+                                    .. attribute:: interface_dai_address_validation
+                                    
+                                    	Address Validation
+                                    	**type**\:  :py:class:`InterfaceDaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation>`
+                                    
+                                    .. attribute:: logging
+                                    
+                                    	Logging Type
+                                    	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                    
+                                    .. attribute:: disable
+                                    
+                                    	Disable L2 Interface Dynamic ARP Inspection
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    .. attribute:: enable
+                                    
+                                    	Enable L2 Interface Dynamic ARP Inspection
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, self).__init__()
+
+                                        self.yang_name = "interface-dai"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("interface-dai-address-validation", ("interface_dai_address_validation", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation))])
+                                        self._leafs = OrderedDict([
+                                            ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ])
+                                        self.logging = None
+                                        self.disable = None
+                                        self.enable = None
+
+                                        self.interface_dai_address_validation = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation()
+                                        self.interface_dai_address_validation.parent = self
+                                        self._children_name_map["interface_dai_address_validation"] = "interface-dai-address-validation"
+                                        self._segment_path = lambda: "interface-dai"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai, ['logging', 'disable', 'enable'], name, value)
+
+
+                                    class InterfaceDaiAddressValidation(Entity):
+                                        """
+                                        Address Validation
+                                        
+                                        .. attribute:: ipv4_verification
+                                        
+                                        	IPv4 Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        .. attribute:: destination_mac_verification
+                                        
+                                        	Destination MAC Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        .. attribute:: source_mac_verification
+                                        
+                                        	Source MAC Verification
+                                        	**type**\:  :py:class:`L2vpnVerification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnVerification>`
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable Address Validation
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, self).__init__()
+
+                                            self.yang_name = "interface-dai-address-validation"
+                                            self.yang_parent_name = "interface-dai"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('ipv4_verification', (YLeaf(YType.enumeration, 'ipv4-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('destination_mac_verification', (YLeaf(YType.enumeration, 'destination-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('source_mac_verification', (YLeaf(YType.enumeration, 'source-mac-verification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnVerification', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.ipv4_verification = None
+                                            self.destination_mac_verification = None
+                                            self.source_mac_verification = None
+                                            self.enable = None
+                                            self._segment_path = lambda: "interface-dai-address-validation"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceDai.InterfaceDaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
+
+
+                                class InterfaceProfile(Entity):
+                                    """
+                                    Attach a DHCP profile
+                                    
+                                    .. attribute:: profile_id
+                                    
+                                    	Set the snooping profile
+                                    	**type**\:  :py:class:`InterfaceProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.InterfaceProfile>`
+                                    
+                                    .. attribute:: dhcp_snooping_id
+                                    
+                                    	Disable DHCP snooping
+                                    	**type**\: str
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, self).__init__()
+
+                                        self.yang_name = "interface-profile"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('profile_id', (YLeaf(YType.enumeration, 'profile-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'InterfaceProfile', '')])),
+                                            ('dhcp_snooping_id', (YLeaf(YType.str, 'dhcp-snooping-id'), ['str'])),
+                                        ])
+                                        self.profile_id = None
+                                        self.dhcp_snooping_id = None
+                                        self._segment_path = lambda: "interface-profile"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceProfile, ['profile_id', 'dhcp_snooping_id'], name, value)
+
+
+                                class BdacStormControlTypes(Entity):
+                                    """
+                                    Storm Control
+                                    
+                                    .. attribute:: bdac_storm_control_type
+                                    
+                                    	Storm Control Type
+                                    	**type**\: list of  		 :py:class:`BdacStormControlType <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, self).__init__()
+
+                                        self.yang_name = "bdac-storm-control-types"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("bdac-storm-control-type", ("bdac_storm_control_type", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType))])
+                                        self._leafs = OrderedDict()
+
+                                        self.bdac_storm_control_type = YList(self)
+                                        self._segment_path = lambda: "bdac-storm-control-types"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes, [], name, value)
+
+
+                                    class BdacStormControlType(Entity):
+                                        """
+                                        Storm Control Type
+                                        
+                                        .. attribute:: sctype  (key)
+                                        
+                                        	Storm Control Type
+                                        	**type**\:  :py:class:`StormControl <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.StormControl>`
+                                        
+                                        .. attribute:: storm_control_unit
+                                        
+                                        	Specify units for Storm Control Configuration
+                                        	**type**\:  :py:class:`StormControlUnit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, self).__init__()
+
+                                            self.yang_name = "bdac-storm-control-type"
+                                            self.yang_parent_name = "bdac-storm-control-types"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['sctype']
+                                            self._child_classes = OrderedDict([("storm-control-unit", ("storm_control_unit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit))])
+                                            self._leafs = OrderedDict([
+                                                ('sctype', (YLeaf(YType.enumeration, 'sctype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'StormControl', '')])),
+                                            ])
+                                            self.sctype = None
+
+                                            self.storm_control_unit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit()
+                                            self.storm_control_unit.parent = self
+                                            self._children_name_map["storm_control_unit"] = "storm-control-unit"
+                                            self._segment_path = lambda: "bdac-storm-control-type" + "[sctype='" + str(self.sctype) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType, ['sctype'], name, value)
+
+
+                                        class StormControlUnit(Entity):
+                                            """
+                                            Specify units for Storm Control Configuration
+                                            
+                                            .. attribute:: kbits_per_sec
+                                            
+                                            	Kilobits Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                            	**type**\: int
+                                            
+                                            	**range:** 64..1280000
+                                            
+                                            	**units**\: kbit/s
+                                            
+                                            .. attribute:: pkts_per_sec
+                                            
+                                            	Packets Per Second, PktsPerSec and KbitsPerSec cannot be configured together
+                                            	**type**\: int
+                                            
+                                            	**range:** 1..160000
+                                            
+                                            	**units**\: packet/s
+                                            
+                                            
+
+                                            """
+
+                                            _prefix = 'l2vpn-cfg'
+                                            _revision = '2017-06-26'
+
+                                            def __init__(self):
+                                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, self).__init__()
+
+                                                self.yang_name = "storm-control-unit"
+                                                self.yang_parent_name = "bdac-storm-control-type"
+                                                self.is_top_level_class = False
+                                                self.has_list_ancestor = True
+                                                self.ylist_key_names = []
+                                                self._child_classes = OrderedDict([])
+                                                self._leafs = OrderedDict([
+                                                    ('kbits_per_sec', (YLeaf(YType.uint32, 'kbits-per-sec'), ['int'])),
+                                                    ('pkts_per_sec', (YLeaf(YType.uint32, 'pkts-per-sec'), ['int'])),
+                                                ])
+                                                self.kbits_per_sec = None
+                                                self.pkts_per_sec = None
+                                                self._segment_path = lambda: "storm-control-unit"
+                                                self._is_frozen = True
+
+                                            def __setattr__(self, name, value):
+                                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.BdacStormControlTypes.BdacStormControlType.StormControlUnit, ['kbits_per_sec', 'pkts_per_sec'], name, value)
+
+
+                                class SplitHorizon(Entity):
+                                    """
+                                    Split Horizon
+                                    
+                                    .. attribute:: split_horizon_group_id
+                                    
+                                    	Split Horizon Group ID
+                                    	**type**\:  :py:class:`SplitHorizonGroupId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, self).__init__()
+
+                                        self.yang_name = "split-horizon"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("split-horizon-group-id", ("split_horizon_group_id", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId))])
+                                        self._leafs = OrderedDict()
+
+                                        self.split_horizon_group_id = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId()
+                                        self.split_horizon_group_id.parent = self
+                                        self._children_name_map["split_horizon_group_id"] = "split-horizon-group-id"
+                                        self._segment_path = lambda: "split-horizon"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon, [], name, value)
+
+
+                                    class SplitHorizonGroupId(Entity):
+                                        """
+                                        Split Horizon Group ID
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable split horizon group
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, self).__init__()
+
+                                            self.yang_name = "split-horizon-group-id"
+                                            self.yang_parent_name = "split-horizon"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.enable = None
+                                            self._segment_path = lambda: "split-horizon-group-id"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.SplitHorizon.SplitHorizonGroupId, ['enable'], name, value)
+
+
+                                class StaticMacAddresses(Entity):
+                                    """
+                                    Static Mac Address Table
+                                    
+                                    .. attribute:: static_mac_address
+                                    
+                                    	Static Mac Address Configuration
+                                    	**type**\: list of  		 :py:class:`StaticMacAddress <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, self).__init__()
+
+                                        self.yang_name = "static-mac-addresses"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("static-mac-address", ("static_mac_address", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress))])
+                                        self._leafs = OrderedDict()
+
+                                        self.static_mac_address = YList(self)
+                                        self._segment_path = lambda: "static-mac-addresses"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses, [], name, value)
+
+
+                                    class StaticMacAddress(Entity):
+                                        """
+                                        Static Mac Address Configuration
+                                        
+                                        .. attribute:: address  (key)
+                                        
+                                        	Static MAC address
+                                        	**type**\: str
+                                        
+                                        	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, self).__init__()
+
+                                            self.yang_name = "static-mac-address"
+                                            self.yang_parent_name = "static-mac-addresses"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = ['address']
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ])
+                                            self.address = None
+                                            self._segment_path = lambda: "static-mac-address" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.StaticMacAddresses.StaticMacAddress, ['address'], name, value)
+
+
+                                class InterfaceMac(Entity):
+                                    """
+                                    MAC configuration commands
+                                    
+                                    .. attribute:: interface_mac_aging
+                                    
+                                    	MAC\-Aging configuration commands
+                                    	**type**\:  :py:class:`InterfaceMacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging>`
+                                    
+                                    .. attribute:: interface_mac_secure
+                                    
+                                    	MAC Secure
+                                    	**type**\:  :py:class:`InterfaceMacSecure <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure>`
+                                    
+                                    .. attribute:: interface_mac_limit
+                                    
+                                    	MAC\-Limit configuration commands
+                                    	**type**\:  :py:class:`InterfaceMacLimit <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit>`
+                                    
+                                    .. attribute:: interface_mac_port_down_flush
+                                    
+                                    	Enable/Disable MAC Flush When Port goes down
+                                    	**type**\:  :py:class:`PortDownFlush <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.PortDownFlush>`
+                                    
+                                    .. attribute:: interface_mac_learning
+                                    
+                                    	Enable Mac Learning
+                                    	**type**\:  :py:class:`MacLearn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLearn>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, self).__init__()
+
+                                        self.yang_name = "interface-mac"
+                                        self.yang_parent_name = "bd-attachment-circuit"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([("interface-mac-aging", ("interface_mac_aging", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging)), ("interface-mac-secure", ("interface_mac_secure", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure)), ("interface-mac-limit", ("interface_mac_limit", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit))])
+                                        self._leafs = OrderedDict([
+                                            ('interface_mac_port_down_flush', (YLeaf(YType.enumeration, 'interface-mac-port-down-flush'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'PortDownFlush', '')])),
+                                            ('interface_mac_learning', (YLeaf(YType.enumeration, 'interface-mac-learning'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLearn', '')])),
+                                        ])
+                                        self.interface_mac_port_down_flush = None
+                                        self.interface_mac_learning = None
+
+                                        self.interface_mac_aging = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging()
+                                        self.interface_mac_aging.parent = self
+                                        self._children_name_map["interface_mac_aging"] = "interface-mac-aging"
+
+                                        self.interface_mac_secure = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure()
+                                        self.interface_mac_secure.parent = self
+                                        self._children_name_map["interface_mac_secure"] = "interface-mac-secure"
+
+                                        self.interface_mac_limit = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit()
+                                        self.interface_mac_limit.parent = self
+                                        self._children_name_map["interface_mac_limit"] = "interface-mac-limit"
+                                        self._segment_path = lambda: "interface-mac"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac, ['interface_mac_port_down_flush', 'interface_mac_learning'], name, value)
+
+
+                                    class InterfaceMacAging(Entity):
+                                        """
+                                        MAC\-Aging configuration commands
+                                        
+                                        .. attribute:: interface_mac_aging_time
+                                        
+                                        	Mac Aging Time
+                                        	**type**\: int
+                                        
+                                        	**range:** 300..30000
+                                        
+                                        .. attribute:: interface_mac_aging_type
+                                        
+                                        	MAC address aging type
+                                        	**type**\:  :py:class:`MacAging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacAging>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, self).__init__()
+
+                                            self.yang_name = "interface-mac-aging"
+                                            self.yang_parent_name = "interface-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_mac_aging_time', (YLeaf(YType.uint32, 'interface-mac-aging-time'), ['int'])),
+                                                ('interface_mac_aging_type', (YLeaf(YType.enumeration, 'interface-mac-aging-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacAging', '')])),
+                                            ])
+                                            self.interface_mac_aging_time = None
+                                            self.interface_mac_aging_type = None
+                                            self._segment_path = lambda: "interface-mac-aging"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacAging, ['interface_mac_aging_time', 'interface_mac_aging_type'], name, value)
+
+
+                                    class InterfaceMacSecure(Entity):
+                                        """
+                                        MAC Secure
+                                        
+                                        .. attribute:: logging
+                                        
+                                        	MAC Secure Logging
+                                        	**type**\:  :py:class:`L2vpnLogging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpnLogging>`
+                                        
+                                        .. attribute:: disable
+                                        
+                                        	Disable L2 Interface MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        .. attribute:: action
+                                        
+                                        	MAC secure enforcement action
+                                        	**type**\:  :py:class:`MacSecureAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacSecureAction>`
+                                        
+                                        .. attribute:: enable
+                                        
+                                        	Enable MAC Secure
+                                        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, self).__init__()
+
+                                            self.yang_name = "interface-mac-secure"
+                                            self.yang_parent_name = "interface-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('logging', (YLeaf(YType.enumeration, 'logging'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'L2vpnLogging', '')])),
+                                                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                                                ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacSecureAction', '')])),
+                                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                            ])
+                                            self.logging = None
+                                            self.disable = None
+                                            self.action = None
+                                            self.enable = None
+                                            self._segment_path = lambda: "interface-mac-secure"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacSecure, ['logging', 'disable', 'action', 'enable'], name, value)
+
+
+                                    class InterfaceMacLimit(Entity):
+                                        """
+                                        MAC\-Limit configuration commands
+                                        
+                                        .. attribute:: interface_mac_limit_max
+                                        
+                                        	Number of MAC addresses on an Interface after which MAC limit action is taken
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..4294967295
+                                        
+                                        .. attribute:: interface_mac_limit_notif
+                                        
+                                        	MAC address limit notification action in a Interface
+                                        	**type**\:  :py:class:`MacNotification <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacNotification>`
+                                        
+                                        .. attribute:: interface_mac_limit_action
+                                        
+                                        	Interface MAC address limit enforcement action
+                                        	**type**\:  :py:class:`MacLimitAction <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.MacLimitAction>`
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'l2vpn-cfg'
+                                        _revision = '2017-06-26'
+
+                                        def __init__(self):
+                                            super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, self).__init__()
+
+                                            self.yang_name = "interface-mac-limit"
+                                            self.yang_parent_name = "interface-mac"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('interface_mac_limit_max', (YLeaf(YType.uint32, 'interface-mac-limit-max'), ['int'])),
+                                                ('interface_mac_limit_notif', (YLeaf(YType.enumeration, 'interface-mac-limit-notif'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacNotification', '')])),
+                                                ('interface_mac_limit_action', (YLeaf(YType.enumeration, 'interface-mac-limit-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacLimitAction', '')])),
+                                            ])
+                                            self.interface_mac_limit_max = None
+                                            self.interface_mac_limit_notif = None
+                                            self.interface_mac_limit_action = None
+                                            self._segment_path = lambda: "interface-mac-limit"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdAttachmentCircuits.BdAttachmentCircuit.InterfaceMac.InterfaceMacLimit, ['interface_mac_limit_max', 'interface_mac_limit_notif', 'interface_mac_limit_action'], name, value)
+
+
+                        class BdPseudowireEvpns(Entity):
+                            """
+                            List of EVPN pseudowires
+                            
+                            .. attribute:: bd_pseudowire_evpn
+                            
+                            	EVPN Pseudowire configuration
+                            	**type**\: list of  		 :py:class:`BdPseudowireEvpn <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, self).__init__()
+
+                                self.yang_name = "bd-pseudowire-evpns"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("bd-pseudowire-evpn", ("bd_pseudowire_evpn", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn))])
+                                self._leafs = OrderedDict()
+
+                                self.bd_pseudowire_evpn = YList(self)
+                                self._segment_path = lambda: "bd-pseudowire-evpns"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns, [], name, value)
+
+
+                            class BdPseudowireEvpn(Entity):
+                                """
+                                EVPN Pseudowire configuration
+                                
+                                .. attribute:: eviid  (key)
+                                
+                                	Ethernet VPN ID
+                                	**type**\: int
+                                
+                                	**range:** 1..65534
+                                
+                                .. attribute:: acid  (key)
+                                
+                                	AC ID
+                                	**type**\: int
+                                
+                                	**range:** 1..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, self).__init__()
+
+                                    self.yang_name = "bd-pseudowire-evpn"
+                                    self.yang_parent_name = "bd-pseudowire-evpns"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['eviid','acid']
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                                        ('acid', (YLeaf(YType.uint32, 'acid'), ['int'])),
+                                    ])
+                                    self.eviid = None
+                                    self.acid = None
+                                    self._segment_path = lambda: "bd-pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[acid='" + str(self.acid) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.BdPseudowireEvpns.BdPseudowireEvpn, ['eviid', 'acid'], name, value)
+
+
+                        class IpSourceGuard(Entity):
+                            """
+                            IP Source Guard
+                            
+                            .. attribute:: logging
+                            
+                            	Enable Logging
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: enable
+                            
+                            	Enable IP Source Guard
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, self).__init__()
+
+                                self.yang_name = "ip-source-guard"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ])
+                                self.logging = None
+                                self.enable = None
+                                self._segment_path = lambda: "ip-source-guard"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.IpSourceGuard, ['logging', 'enable'], name, value)
+
+
+                        class Dai(Entity):
+                            """
+                            Dynamic ARP Inspection
+                            
+                            .. attribute:: dai_address_validation
+                            
+                            	Address Validation
+                            	**type**\:  :py:class:`DaiAddressValidation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation>`
+                            
+                            .. attribute:: logging
+                            
+                            	Enable Logging
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            .. attribute:: enable
+                            
+                            	Enable Dynamic ARP Inspection
+                            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, self).__init__()
+
+                                self.yang_name = "dai"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("dai-address-validation", ("dai_address_validation", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation))])
+                                self._leafs = OrderedDict([
+                                    ('logging', (YLeaf(YType.empty, 'logging'), ['Empty'])),
+                                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ])
+                                self.logging = None
+                                self.enable = None
+
+                                self.dai_address_validation = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation()
+                                self.dai_address_validation.parent = self
+                                self._children_name_map["dai_address_validation"] = "dai-address-validation"
+                                self._segment_path = lambda: "dai"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai, ['logging', 'enable'], name, value)
+
+
+                            class DaiAddressValidation(Entity):
+                                """
+                                Address Validation
+                                
+                                .. attribute:: ipv4_verification
+                                
+                                	Enable IPv4 Verification
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: destination_mac_verification
+                                
+                                	Enable Destination MAC Verification
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: source_mac_verification
+                                
+                                	Enable Source MAC Verification
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                .. attribute:: enable
+                                
+                                	Enable Address Validation
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, self).__init__()
+
+                                    self.yang_name = "dai-address-validation"
+                                    self.yang_parent_name = "dai"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ipv4_verification', (YLeaf(YType.empty, 'ipv4-verification'), ['Empty'])),
+                                        ('destination_mac_verification', (YLeaf(YType.empty, 'destination-mac-verification'), ['Empty'])),
+                                        ('source_mac_verification', (YLeaf(YType.empty, 'source-mac-verification'), ['Empty'])),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                    ])
+                                    self.ipv4_verification = None
+                                    self.destination_mac_verification = None
+                                    self.source_mac_verification = None
+                                    self.enable = None
+                                    self._segment_path = lambda: "dai-address-validation"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.Dai.DaiAddressValidation, ['ipv4_verification', 'destination_mac_verification', 'source_mac_verification', 'enable'], name, value)
+
+
+                        class RoutedInterfaces(Entity):
+                            """
+                            Bridge Domain Routed Interface Table
+                            
+                            .. attribute:: routed_interface
+                            
+                            	Bridge Domain Routed Interface
+                            	**type**\: list of  		 :py:class:`RoutedInterface <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2vpn-cfg'
+                            _revision = '2017-06-26'
+
+                            def __init__(self):
+                                super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, self).__init__()
+
+                                self.yang_name = "routed-interfaces"
+                                self.yang_parent_name = "bridge-domain"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("routed-interface", ("routed_interface", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface))])
+                                self._leafs = OrderedDict()
+
+                                self.routed_interface = YList(self)
+                                self._segment_path = lambda: "routed-interfaces"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces, [], name, value)
+
+
+                            class RoutedInterface(Entity):
+                                """
+                                Bridge Domain Routed Interface
+                                
+                                .. attribute:: interface_name  (key)
+                                
+                                	The name of the Routed Interface
+                                	**type**\: str
+                                
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                                
+                                .. attribute:: routed_interface_split_horizon_group
+                                
+                                	Routed interface split horizon group
+                                	**type**\:  :py:class:`RoutedInterfaceSplitHorizonGroup <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2vpn-cfg'
+                                _revision = '2017-06-26'
+
+                                def __init__(self):
+                                    super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, self).__init__()
+
+                                    self.yang_name = "routed-interface"
+                                    self.yang_parent_name = "routed-interfaces"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = ['interface_name']
+                                    self._child_classes = OrderedDict([("routed-interface-split-horizon-group", ("routed_interface_split_horizon_group", L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup))])
+                                    self._leafs = OrderedDict([
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ])
+                                    self.interface_name = None
+
+                                    self.routed_interface_split_horizon_group = L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup()
+                                    self.routed_interface_split_horizon_group.parent = self
+                                    self._children_name_map["routed_interface_split_horizon_group"] = "routed-interface-split-horizon-group"
+                                    self._segment_path = lambda: "routed-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface, ['interface_name'], name, value)
+
+
+                                class RoutedInterfaceSplitHorizonGroup(Entity):
+                                    """
+                                    Routed interface split horizon group
+                                    
+                                    .. attribute:: routed_interface_split_horizon_group_core
+                                    
+                                    	Configure BVI under SHG 1
+                                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2vpn-cfg'
+                                    _revision = '2017-06-26'
+
+                                    def __init__(self):
+                                        super(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, self).__init__()
+
+                                        self.yang_name = "routed-interface-split-horizon-group"
+                                        self.yang_parent_name = "routed-interface"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('routed_interface_split_horizon_group_core', (YLeaf(YType.empty, 'routed-interface-split-horizon-group-core'), ['Empty'])),
+                                        ])
+                                        self.routed_interface_split_horizon_group_core = None
+                                        self._segment_path = lambda: "routed-interface-split-horizon-group"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(L2vpn.Database.VlanSwitches.VlanSwitch.BridgeDomains.BridgeDomain.RoutedInterfaces.RoutedInterface.RoutedInterfaceSplitHorizonGroup, ['routed_interface_split_horizon_group_core'], name, value)
 
 
         class FlexibleXconnectServiceTable(Entity):
@@ -11535,6 +18487,7 @@ class L2vpn(Entity):
                 self._children_name_map["vlan_aware_flexible_xconnect_services"] = "vlan-aware-flexible-xconnect-services"
                 self._segment_path = lambda: "flexible-xconnect-service-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable, [], name, value)
@@ -11571,6 +18524,7 @@ class L2vpn(Entity):
                     self.vlan_unaware_flexible_xconnect_service = YList(self)
                     self._segment_path = lambda: "vlan-unaware-flexible-xconnect-services"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices, [], name, value)
@@ -11614,7 +18568,7 @@ class L2vpn(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([("vlan-unaware-fxc-attachment-circuits", ("vlan_unaware_fxc_attachment_circuits", L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits)), ("vlan-unaware-fxc-pseudowire-evpns", ("vlan_unaware_fxc_pseudowire_evpns", L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns))])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
 
@@ -11627,9 +18581,10 @@ class L2vpn(Entity):
                         self._children_name_map["vlan_unaware_fxc_pseudowire_evpns"] = "vlan-unaware-fxc-pseudowire-evpns"
                         self._segment_path = lambda: "vlan-unaware-flexible-xconnect-service" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-unaware-flexible-xconnect-services/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, [u'name'], name, value)
+                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService, ['name'], name, value)
 
 
                     class VlanUnawareFxcAttachmentCircuits(Entity):
@@ -11661,6 +18616,7 @@ class L2vpn(Entity):
 
                             self.vlan_unaware_fxc_attachment_circuit = YList(self)
                             self._segment_path = lambda: "vlan-unaware-fxc-attachment-circuits"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits, [], name, value)
@@ -11675,7 +18631,7 @@ class L2vpn(Entity):
                             	Name of the attachment circuit interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -11694,13 +18650,14 @@ class L2vpn(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
                                 self._segment_path = lambda: "vlan-unaware-fxc-attachment-circuit" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, [u'name'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcAttachmentCircuits.VlanUnawareFxcAttachmentCircuit, ['name'], name, value)
 
 
                     class VlanUnawareFxcPseudowireEvpns(Entity):
@@ -11732,6 +18689,7 @@ class L2vpn(Entity):
 
                             self.vlan_unaware_fxc_pseudowire_evpn = YList(self)
                             self._segment_path = lambda: "vlan-unaware-fxc-pseudowire-evpns"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns, [], name, value)
@@ -11772,15 +18730,16 @@ class L2vpn(Entity):
                                 self.ylist_key_names = ['eviid','acid']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('eviid', YLeaf(YType.uint32, 'eviid')),
-                                    ('acid', YLeaf(YType.uint32, 'acid')),
+                                    ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                                    ('acid', (YLeaf(YType.uint32, 'acid'), ['int'])),
                                 ])
                                 self.eviid = None
                                 self.acid = None
                                 self._segment_path = lambda: "vlan-unaware-fxc-pseudowire-evpn" + "[eviid='" + str(self.eviid) + "']" + "[acid='" + str(self.acid) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, [u'eviid', u'acid'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanUnawareFlexibleXconnectServices.VlanUnawareFlexibleXconnectService.VlanUnawareFxcPseudowireEvpns.VlanUnawareFxcPseudowireEvpn, ['eviid', 'acid'], name, value)
 
 
             class VlanAwareFlexibleXconnectServices(Entity):
@@ -11813,6 +18772,7 @@ class L2vpn(Entity):
                     self.vlan_aware_flexible_xconnect_service = YList(self)
                     self._segment_path = lambda: "vlan-aware-flexible-xconnect-services"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices, [], name, value)
@@ -11851,7 +18811,7 @@ class L2vpn(Entity):
                         self.ylist_key_names = ['eviid']
                         self._child_classes = OrderedDict([("vlan-aware-fxc-attachment-circuits", ("vlan_aware_fxc_attachment_circuits", L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits))])
                         self._leafs = OrderedDict([
-                            ('eviid', YLeaf(YType.uint32, 'eviid')),
+                            ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
                         ])
                         self.eviid = None
 
@@ -11860,9 +18820,10 @@ class L2vpn(Entity):
                         self._children_name_map["vlan_aware_fxc_attachment_circuits"] = "vlan-aware-fxc-attachment-circuits"
                         self._segment_path = lambda: "vlan-aware-flexible-xconnect-service" + "[eviid='" + str(self.eviid) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/flexible-xconnect-service-table/vlan-aware-flexible-xconnect-services/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, [u'eviid'], name, value)
+                        self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService, ['eviid'], name, value)
 
 
                     class VlanAwareFxcAttachmentCircuits(Entity):
@@ -11894,6 +18855,7 @@ class L2vpn(Entity):
 
                             self.vlan_aware_fxc_attachment_circuit = YList(self)
                             self._segment_path = lambda: "vlan-aware-fxc-attachment-circuits"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits, [], name, value)
@@ -11908,7 +18870,7 @@ class L2vpn(Entity):
                             	Name of the attachment circuit interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -11927,13 +18889,14 @@ class L2vpn(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
                                 self._segment_path = lambda: "vlan-aware-fxc-attachment-circuit" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, [u'name'], name, value)
+                                self._perform_setattr(L2vpn.Database.FlexibleXconnectServiceTable.VlanAwareFlexibleXconnectServices.VlanAwareFlexibleXconnectService.VlanAwareFxcAttachmentCircuits.VlanAwareFxcAttachmentCircuit, ['name'], name, value)
 
 
         class Redundancy(Entity):
@@ -11967,7 +18930,7 @@ class L2vpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("iccp-redundancy-groups", ("iccp_redundancy_groups", L2vpn.Database.Redundancy.IccpRedundancyGroups))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
 
@@ -11976,9 +18939,10 @@ class L2vpn(Entity):
                 self._children_name_map["iccp_redundancy_groups"] = "iccp-redundancy-groups"
                 self._segment_path = lambda: "redundancy"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.Database.Redundancy, [u'enable'], name, value)
+                self._perform_setattr(L2vpn.Database.Redundancy, ['enable'], name, value)
 
 
             class IccpRedundancyGroups(Entity):
@@ -12012,6 +18976,7 @@ class L2vpn(Entity):
                     self.iccp_redundancy_group = YList(self)
                     self._segment_path = lambda: "iccp-redundancy-groups"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups, [], name, value)
@@ -12057,8 +19022,8 @@ class L2vpn(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([("iccp-interfaces", ("iccp_interfaces", L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.uint32, 'group-id')),
-                            ('multi_homing_node_id', YLeaf(YType.uint32, 'multi-homing-node-id')),
+                            ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                            ('multi_homing_node_id', (YLeaf(YType.uint32, 'multi-homing-node-id'), ['int'])),
                         ])
                         self.group_id = None
                         self.multi_homing_node_id = None
@@ -12068,9 +19033,10 @@ class L2vpn(Entity):
                         self._children_name_map["iccp_interfaces"] = "iccp-interfaces"
                         self._segment_path = lambda: "iccp-redundancy-group" + "[group-id='" + str(self.group_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/database/redundancy/iccp-redundancy-groups/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, [u'group_id', u'multi_homing_node_id'], name, value)
+                        self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup, ['group_id', 'multi_homing_node_id'], name, value)
 
 
                     class IccpInterfaces(Entity):
@@ -12102,6 +19068,7 @@ class L2vpn(Entity):
 
                             self.iccp_interface = YList(self)
                             self._segment_path = lambda: "iccp-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces, [], name, value)
@@ -12116,7 +19083,7 @@ class L2vpn(Entity):
                             	Interface name
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: secondary_vlan_range
                             
@@ -12159,11 +19126,11 @@ class L2vpn(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('secondary_vlan_range', YLeaf(YType.str, 'secondary-vlan-range')),
-                                    ('recovery_delay', YLeaf(YType.uint32, 'recovery-delay')),
-                                    ('primary_vlan_range', YLeaf(YType.str, 'primary-vlan-range')),
-                                    ('mac_flush_tcn', YLeaf(YType.empty, 'mac-flush-tcn')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('secondary_vlan_range', (YLeaf(YType.str, 'secondary-vlan-range'), ['str'])),
+                                    ('recovery_delay', (YLeaf(YType.uint32, 'recovery-delay'), ['int'])),
+                                    ('primary_vlan_range', (YLeaf(YType.str, 'primary-vlan-range'), ['str'])),
+                                    ('mac_flush_tcn', (YLeaf(YType.empty, 'mac-flush-tcn'), ['Empty'])),
                                 ])
                                 self.interface_name = None
                                 self.secondary_vlan_range = None
@@ -12171,9 +19138,10 @@ class L2vpn(Entity):
                                 self.primary_vlan_range = None
                                 self.mac_flush_tcn = None
                                 self._segment_path = lambda: "iccp-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, [u'interface_name', u'secondary_vlan_range', u'recovery_delay', u'primary_vlan_range', u'mac_flush_tcn'], name, value)
+                                self._perform_setattr(L2vpn.Database.Redundancy.IccpRedundancyGroups.IccpRedundancyGroup.IccpInterfaces.IccpInterface, ['interface_name', 'secondary_vlan_range', 'recovery_delay', 'primary_vlan_range', 'mac_flush_tcn'], name, value)
 
 
     class Pbb(Entity):
@@ -12204,14 +19172,15 @@ class L2vpn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('backbone_source_mac', YLeaf(YType.str, 'backbone-source-mac')),
+                ('backbone_source_mac', (YLeaf(YType.str, 'backbone-source-mac'), ['str'])),
             ])
             self.backbone_source_mac = None
             self._segment_path = lambda: "pbb"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2vpn.Pbb, [u'backbone_source_mac'], name, value)
+            self._perform_setattr(L2vpn.Pbb, ['backbone_source_mac'], name, value)
 
 
     class AutoDiscovery(Entity):
@@ -12246,6 +19215,7 @@ class L2vpn(Entity):
             self._children_name_map["bgp_signaling"] = "bgp-signaling"
             self._segment_path = lambda: "auto-discovery"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.AutoDiscovery, [], name, value)
@@ -12277,14 +19247,15 @@ class L2vpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mtu_mismatch_ignore', YLeaf(YType.empty, 'mtu-mismatch-ignore')),
+                    ('mtu_mismatch_ignore', (YLeaf(YType.empty, 'mtu-mismatch-ignore'), ['Empty'])),
                 ])
                 self.mtu_mismatch_ignore = None
                 self._segment_path = lambda: "bgp-signaling"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/auto-discovery/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, [u'mtu_mismatch_ignore'], name, value)
+                self._perform_setattr(L2vpn.AutoDiscovery.BgpSignaling, ['mtu_mismatch_ignore'], name, value)
 
 
     class Utility(Entity):
@@ -12319,6 +19290,7 @@ class L2vpn(Entity):
             self._children_name_map["logging"] = "logging"
             self._segment_path = lambda: "utility"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Utility, [], name, value)
@@ -12370,11 +19342,11 @@ class L2vpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('bridge_domain_state_change', YLeaf(YType.empty, 'bridge-domain-state-change')),
-                    ('pseudowire_state_change', YLeaf(YType.empty, 'pseudowire-state-change')),
-                    ('vfi', YLeaf(YType.empty, 'vfi')),
-                    ('nsr_state_change', YLeaf(YType.empty, 'nsr-state-change')),
-                    ('pwhe_replication_state_change', YLeaf(YType.empty, 'pwhe-replication-state-change')),
+                    ('bridge_domain_state_change', (YLeaf(YType.empty, 'bridge-domain-state-change'), ['Empty'])),
+                    ('pseudowire_state_change', (YLeaf(YType.empty, 'pseudowire-state-change'), ['Empty'])),
+                    ('vfi', (YLeaf(YType.empty, 'vfi'), ['Empty'])),
+                    ('nsr_state_change', (YLeaf(YType.empty, 'nsr-state-change'), ['Empty'])),
+                    ('pwhe_replication_state_change', (YLeaf(YType.empty, 'pwhe-replication-state-change'), ['Empty'])),
                 ])
                 self.bridge_domain_state_change = None
                 self.pseudowire_state_change = None
@@ -12383,9 +19355,10 @@ class L2vpn(Entity):
                 self.pwhe_replication_state_change = None
                 self._segment_path = lambda: "logging"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/utility/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2vpn.Utility.Logging, [u'bridge_domain_state_change', u'pseudowire_state_change', u'vfi', u'nsr_state_change', u'pwhe_replication_state_change'], name, value)
+                self._perform_setattr(L2vpn.Utility.Logging, ['bridge_domain_state_change', 'pseudowire_state_change', 'vfi', 'nsr_state_change', 'pwhe_replication_state_change'], name, value)
 
 
     class Snmp(Entity):
@@ -12420,6 +19393,7 @@ class L2vpn(Entity):
             self._children_name_map["mib"] = "mib"
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2vpn.Snmp, [], name, value)
@@ -12466,6 +19440,7 @@ class L2vpn(Entity):
                 self._children_name_map["mib_pseudowire"] = "mib-pseudowire"
                 self._segment_path = lambda: "mib"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2vpn.Snmp.Mib, [], name, value)
@@ -12503,6 +19478,7 @@ class L2vpn(Entity):
                     self._children_name_map["format"] = "format"
                     self._segment_path = lambda: "mib-interface"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2vpn.Snmp.Mib.MibInterface, [], name, value)
@@ -12534,14 +19510,15 @@ class L2vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('external_interface_format', YLeaf(YType.empty, 'external-interface-format')),
+                            ('external_interface_format', (YLeaf(YType.empty, 'external-interface-format'), ['Empty'])),
                         ])
                         self.external_interface_format = None
                         self._segment_path = lambda: "format"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/mib-interface/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, [u'external_interface_format'], name, value)
+                        self._perform_setattr(L2vpn.Snmp.Mib.MibInterface.Format, ['external_interface_format'], name, value)
 
 
             class MibPseudowire(Entity):
@@ -12570,14 +19547,15 @@ class L2vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('statistics', YLeaf(YType.empty, 'statistics')),
+                        ('statistics', (YLeaf(YType.empty, 'statistics'), ['Empty'])),
                     ])
                     self.statistics = None
                     self._segment_path = lambda: "mib-pseudowire"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:l2vpn/snmp/mib/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, [u'statistics'], name, value)
+                    self._perform_setattr(L2vpn.Snmp.Mib.MibPseudowire, ['statistics'], name, value)
 
     def clone_ptr(self):
         self._top_entity = L2vpn()
@@ -12613,6 +19591,7 @@ class GenericInterfaceLists(Entity):
 
         self.generic_interface_list = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(GenericInterfaceLists, [], name, value)
@@ -12656,8 +19635,8 @@ class GenericInterfaceLists(Entity):
             self.ylist_key_names = ['generic_interface_list_name']
             self._child_classes = OrderedDict([("interfaces", ("interfaces", GenericInterfaceLists.GenericInterfaceList.Interfaces))])
             self._leafs = OrderedDict([
-                ('generic_interface_list_name', YLeaf(YType.str, 'generic-interface-list-name')),
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('generic_interface_list_name', (YLeaf(YType.str, 'generic-interface-list-name'), ['str'])),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.generic_interface_list_name = None
             self.enable = None
@@ -12667,9 +19646,10 @@ class GenericInterfaceLists(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "generic-interface-list" + "[generic-interface-list-name='" + str(self.generic_interface_list_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:generic-interface-lists/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, [u'generic_interface_list_name', u'enable'], name, value)
+            self._perform_setattr(GenericInterfaceLists.GenericInterfaceList, ['generic_interface_list_name', 'enable'], name, value)
 
 
         class Interfaces(Entity):
@@ -12701,6 +19681,7 @@ class GenericInterfaceLists(Entity):
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces, [], name, value)
@@ -12715,7 +19696,7 @@ class GenericInterfaceLists(Entity):
                 	Name of the interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: enable
                 
@@ -12739,15 +19720,16 @@ class GenericInterfaceLists(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.interface_name = None
                     self.enable = None
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, [u'interface_name', u'enable'], name, value)
+                    self._perform_setattr(GenericInterfaceLists.GenericInterfaceList.Interfaces.Interface, ['interface_name', 'enable'], name, value)
 
     def clone_ptr(self):
         self._top_entity = GenericInterfaceLists()
@@ -12785,7 +19767,7 @@ class Evpn(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("evpn-tables", ("evpn_tables", Evpn.EvpnTables))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
         ])
         self.enable = None
 
@@ -12793,9 +19775,10 @@ class Evpn(Entity):
         self.evpn_tables.parent = self
         self._children_name_map["evpn_tables"] = "evpn-tables"
         self._segment_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Evpn, [u'enable'], name, value)
+        self._perform_setattr(Evpn, ['enable'], name, value)
 
 
     class EvpnTables(Entity):
@@ -12872,7 +19855,7 @@ class Evpn(Entity):
         	Configure EVPN router\-id implicitly through Loopback Interface
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         .. attribute:: evpn_cost_in_startup
         
@@ -12900,9 +19883,9 @@ class Evpn(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("evpn-timers", ("evpn_timers", Evpn.EvpnTables.EvpnTimers)), ("evpnmac", ("evpnmac", Evpn.EvpnTables.Evpnmac)), ("evpn-evis", ("evpn_evis", Evpn.EvpnTables.EvpnEvis)), ("evpn-virtual-access-vfis", ("evpn_virtual_access_vfis", Evpn.EvpnTables.EvpnVirtualAccessVfis)), ("evpn-load-balancing", ("evpn_load_balancing", Evpn.EvpnTables.EvpnLoadBalancing)), ("evpn-bgp-auto-discovery", ("evpn_bgp_auto_discovery", Evpn.EvpnTables.EvpnBgpAutoDiscovery)), ("evpn-groups", ("evpn_groups", Evpn.EvpnTables.EvpnGroups)), ("evpn-instances", ("evpn_instances", Evpn.EvpnTables.EvpnInstances)), ("evpn-logging", ("evpn_logging", Evpn.EvpnTables.EvpnLogging)), ("evpn-interfaces", ("evpn_interfaces", Evpn.EvpnTables.EvpnInterfaces)), ("evpn-virtual-access-pws", ("evpn_virtual_access_pws", Evpn.EvpnTables.EvpnVirtualAccessPws)), ("evpn-ethernet-segment", ("evpn_ethernet_segment", Evpn.EvpnTables.EvpnEthernetSegment))])
             self._leafs = OrderedDict([
-                ('evi_cost_out', YLeaf(YType.empty, 'evi-cost-out')),
-                ('evpn_source_interface', YLeaf(YType.str, 'evpn-source-interface')),
-                ('evpn_cost_in_startup', YLeaf(YType.uint32, 'evpn-cost-in-startup')),
+                ('evi_cost_out', (YLeaf(YType.empty, 'evi-cost-out'), ['Empty'])),
+                ('evpn_source_interface', (YLeaf(YType.str, 'evpn-source-interface'), ['str'])),
+                ('evpn_cost_in_startup', (YLeaf(YType.uint32, 'evpn-cost-in-startup'), ['int'])),
             ])
             self.evi_cost_out = None
             self.evpn_source_interface = None
@@ -12957,9 +19940,10 @@ class Evpn(Entity):
             self._children_name_map["evpn_ethernet_segment"] = "evpn-ethernet-segment"
             self._segment_path = lambda: "evpn-tables"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Evpn.EvpnTables, [u'evi_cost_out', u'evpn_source_interface', u'evpn_cost_in_startup'], name, value)
+            self._perform_setattr(Evpn.EvpnTables, ['evi_cost_out', 'evpn_source_interface', 'evpn_cost_in_startup'], name, value)
 
 
         class EvpnTimers(Entity):
@@ -13015,10 +19999,10 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('evpn_carving', YLeaf(YType.uint32, 'evpn-carving')),
-                    ('evpn_recovery', YLeaf(YType.uint32, 'evpn-recovery')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('evpn_peering', YLeaf(YType.uint32, 'evpn-peering')),
+                    ('evpn_carving', (YLeaf(YType.uint32, 'evpn-carving'), ['int'])),
+                    ('evpn_recovery', (YLeaf(YType.uint32, 'evpn-recovery'), ['int'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('evpn_peering', (YLeaf(YType.uint32, 'evpn-peering'), ['int'])),
                 ])
                 self.evpn_carving = None
                 self.evpn_recovery = None
@@ -13026,9 +20010,10 @@ class Evpn(Entity):
                 self.evpn_peering = None
                 self._segment_path = lambda: "evpn-timers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, [u'evpn_carving', u'evpn_recovery', u'enable', u'evpn_peering'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnTimers, ['evpn_carving', 'evpn_recovery', 'enable', 'evpn_peering'], name, value)
 
 
         class Evpnmac(Entity):
@@ -13062,7 +20047,7 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("evpnmac-secure", ("evpnmac_secure", Evpn.EvpnTables.Evpnmac.EvpnmacSecure))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
 
@@ -13071,9 +20056,10 @@ class Evpn(Entity):
                 self._children_name_map["evpnmac_secure"] = "evpnmac-secure"
                 self._segment_path = lambda: "evpnmac"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.Evpnmac, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.Evpnmac, ['enable'], name, value)
 
 
             class EvpnmacSecure(Entity):
@@ -13130,11 +20116,11 @@ class Evpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('evpnmac_secure_freeze_time', YLeaf(YType.uint32, 'evpnmac-secure-freeze-time')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('evpnmac_secure_retry_count', YLeaf(YType.uint32, 'evpnmac-secure-retry-count')),
-                        ('evpnmac_secure_move_count', YLeaf(YType.uint32, 'evpnmac-secure-move-count')),
-                        ('evpnmac_secure_move_interval', YLeaf(YType.uint32, 'evpnmac-secure-move-interval')),
+                        ('evpnmac_secure_freeze_time', (YLeaf(YType.uint32, 'evpnmac-secure-freeze-time'), ['int'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('evpnmac_secure_retry_count', (YLeaf(YType.uint32, 'evpnmac-secure-retry-count'), ['int'])),
+                        ('evpnmac_secure_move_count', (YLeaf(YType.uint32, 'evpnmac-secure-move-count'), ['int'])),
+                        ('evpnmac_secure_move_interval', (YLeaf(YType.uint32, 'evpnmac-secure-move-interval'), ['int'])),
                     ])
                     self.evpnmac_secure_freeze_time = None
                     self.enable = None
@@ -13143,9 +20129,10 @@ class Evpn(Entity):
                     self.evpnmac_secure_move_interval = None
                     self._segment_path = lambda: "evpnmac-secure"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpnmac/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, [u'evpnmac_secure_freeze_time', u'enable', u'evpnmac_secure_retry_count', u'evpnmac_secure_move_count', u'evpnmac_secure_move_interval'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.Evpnmac.EvpnmacSecure, ['evpnmac_secure_freeze_time', 'enable', 'evpnmac_secure_retry_count', 'evpnmac_secure_move_count', 'evpnmac_secure_move_interval'], name, value)
 
 
         class EvpnEvis(Entity):
@@ -13178,6 +20165,7 @@ class Evpn(Entity):
                 self.evpn_evi = YList(self)
                 self._segment_path = lambda: "evpn-evis"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnEvis, [], name, value)
@@ -13203,6 +20191,11 @@ class Evpn(Entity):
                 
                 	Enable Autodiscovery BGP in EVPN Instance
                 	**type**\:  :py:class:`EvpnEviBgpAutoDiscovery <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery>`
+                
+                .. attribute:: evi_multicast
+                
+                	Enter Multicast configuration submode
+                	**type**\:  :py:class:`EviMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast>`
                 
                 .. attribute:: evi_advertise_mac
                 
@@ -13256,15 +20249,15 @@ class Evpn(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['eviid']
-                    self._child_classes = OrderedDict([("evi-load-balancing", ("evi_load_balancing", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing)), ("evpn-evi-bgp-auto-discovery", ("evpn_evi_bgp_auto_discovery", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery)), ("evi-advertise-mac", ("evi_advertise_mac", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac))])
+                    self._child_classes = OrderedDict([("evi-load-balancing", ("evi_load_balancing", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing)), ("evpn-evi-bgp-auto-discovery", ("evpn_evi_bgp_auto_discovery", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery)), ("evi-multicast", ("evi_multicast", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast)), ("evi-advertise-mac", ("evi_advertise_mac", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac))])
                     self._leafs = OrderedDict([
-                        ('eviid', YLeaf(YType.uint32, 'eviid')),
-                        ('evi_reorig_disable', YLeaf(YType.empty, 'evi-reorig-disable')),
-                        ('evi_advertise_mac_deprecated', YLeaf(YType.empty, 'evi-advertise-mac-deprecated')),
-                        ('evpn_evi_description', YLeaf(YType.str, 'evpn-evi-description')),
-                        ('evi_ecmp_disable', YLeaf(YType.empty, 'evi-ecmp-disable')),
-                        ('evi_unknown_unicast_flooding_disable', YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable')),
-                        ('evpn_evi_cw_disable', YLeaf(YType.empty, 'evpn-evi-cw-disable')),
+                        ('eviid', (YLeaf(YType.uint32, 'eviid'), ['int'])),
+                        ('evi_reorig_disable', (YLeaf(YType.empty, 'evi-reorig-disable'), ['Empty'])),
+                        ('evi_advertise_mac_deprecated', (YLeaf(YType.empty, 'evi-advertise-mac-deprecated'), ['Empty'])),
+                        ('evpn_evi_description', (YLeaf(YType.str, 'evpn-evi-description'), ['str'])),
+                        ('evi_ecmp_disable', (YLeaf(YType.empty, 'evi-ecmp-disable'), ['Empty'])),
+                        ('evi_unknown_unicast_flooding_disable', (YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable'), ['Empty'])),
+                        ('evpn_evi_cw_disable', (YLeaf(YType.empty, 'evpn-evi-cw-disable'), ['Empty'])),
                     ])
                     self.eviid = None
                     self.evi_reorig_disable = None
@@ -13282,14 +20275,19 @@ class Evpn(Entity):
                     self.evpn_evi_bgp_auto_discovery.parent = self
                     self._children_name_map["evpn_evi_bgp_auto_discovery"] = "evpn-evi-bgp-auto-discovery"
 
+                    self.evi_multicast = Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast()
+                    self.evi_multicast.parent = self
+                    self._children_name_map["evi_multicast"] = "evi-multicast"
+
                     self.evi_advertise_mac = Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac()
                     self.evi_advertise_mac.parent = self
                     self._children_name_map["evi_advertise_mac"] = "evi-advertise-mac"
                     self._segment_path = lambda: "evpn-evi" + "[eviid='" + str(self.eviid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-evis/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi, [u'eviid', u'evi_reorig_disable', u'evi_advertise_mac_deprecated', u'evpn_evi_description', u'evi_ecmp_disable', u'evi_unknown_unicast_flooding_disable', u'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi, ['eviid', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EviLoadBalancing(Entity):
@@ -13323,15 +20321,16 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evi_static_flow_label', YLeaf(YType.empty, 'evi-static-flow-label')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_static_flow_label', (YLeaf(YType.empty, 'evi-static-flow-label'), ['Empty'])),
                         ])
                         self.enable = None
                         self.evi_static_flow_label = None
                         self._segment_path = lambda: "evi-load-balancing"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, [u'enable', u'evi_static_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
                 class EvpnEviBgpAutoDiscovery(Entity):
@@ -13375,8 +20374,8 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher)), ("evpn-route-targets", ("evpn_route_targets", Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets))])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('table_policy', YLeaf(YType.str, 'table-policy')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
                         ])
                         self.enable = None
                         self.table_policy = None
@@ -13389,9 +20388,10 @@ class Evpn(Entity):
                         self.evpn_route_targets.parent = self
                         self._children_name_map["evpn_route_targets"] = "evpn-route-targets"
                         self._segment_path = lambda: "evpn-evi-bgp-auto-discovery"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, [u'enable', u'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery, ['enable', 'table_policy'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):
@@ -13448,11 +20448,11 @@ class Evpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('as_', YLeaf(YType.uint32, 'as')),
-                                ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                             ])
                             self.type = None
                             self.as_ = None
@@ -13460,9 +20460,10 @@ class Evpn(Entity):
                             self.address = None
                             self.addr_index = None
                             self._segment_path = lambda: "evpn-route-distinguisher"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
                     class EvpnRouteTargets(Entity):
@@ -13506,6 +20507,7 @@ class Evpn(Entity):
                             self.evpn_route_target_none = YList(self)
                             self.evpn_route_target_ipv4_address = YList(self)
                             self._segment_path = lambda: "evpn-route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets, [], name, value)
@@ -13561,11 +20563,11 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','as_','as_index','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                    ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
@@ -13573,9 +20575,10 @@ class Evpn(Entity):
                                 self.as_index = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-as" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, [u'format', u'role', u'as_', u'as_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
                         class EvpnRouteTargetNone(Entity):
@@ -13614,17 +20617,18 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-none" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, [u'format', u'role', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
 
                         class EvpnRouteTargetIpv4Address(Entity):
@@ -13677,11 +20681,11 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','address','addr_index','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('addr_index', YLeaf(YType.uint32, 'addr-index')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
@@ -13689,9 +20693,53 @@ class Evpn(Entity):
                                 self.addr_index = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, [u'format', u'role', u'address', u'addr_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EvpnEviBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
+
+
+                class EviMulticast(Entity):
+                    """
+                    Enter Multicast configuration submode
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Multicast
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: evi_mcast_source_connected
+                    
+                    	Enable Multicast source connectivity
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, self).__init__()
+
+                        self.yang_name = "evi-multicast"
+                        self.yang_parent_name = "evpn-evi"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_mcast_source_connected', (YLeaf(YType.empty, 'evi-mcast-source-connected'), ['Empty'])),
+                        ])
+                        self.enable = None
+                        self.evi_mcast_source_connected = None
+                        self._segment_path = lambda: "evi-multicast"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
 
                 class EviAdvertiseMac(Entity):
@@ -13726,15 +20774,16 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evi_advertise_mac_bvi', YLeaf(YType.empty, 'evi-advertise-mac-bvi')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_advertise_mac_bvi', (YLeaf(YType.empty, 'evi-advertise-mac-bvi'), ['Empty'])),
                         ])
                         self.enable = None
                         self.evi_advertise_mac_bvi = None
                         self._segment_path = lambda: "evi-advertise-mac"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, [u'enable', u'evi_advertise_mac_bvi'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEvis.EvpnEvi.EviAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
 
 
         class EvpnVirtualAccessVfis(Entity):
@@ -13767,6 +20816,7 @@ class Evpn(Entity):
                 self.evpn_virtual_access_vfi = YList(self)
                 self._segment_path = lambda: "evpn-virtual-access-vfis"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis, [], name, value)
@@ -13810,7 +20860,7 @@ class Evpn(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("evpn-virtual-access-vfi-timers", ("evpn_virtual_access_vfi_timers", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers)), ("evpn-virtual-ethernet-segment", ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -13823,9 +20873,10 @@ class Evpn(Entity):
                     self._children_name_map["evpn_virtual_ethernet_segment"] = "evpn-virtual-ethernet-segment"
                     self._segment_path = lambda: "evpn-virtual-access-vfi" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-vfis/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, [u'name'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi, ['name'], name, value)
 
 
                 class EvpnVirtualAccessVfiTimers(Entity):
@@ -13882,19 +20933,20 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('evpn_virtual_access_vfi_recovery', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-recovery')),
-                            ('evpn_virtual_access_vfi_peering', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-peering')),
-                            ('evpn_virtual_access_vfi_carving', YLeaf(YType.uint32, 'evpn-virtual-access-vfi-carving')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('evpn_virtual_access_vfi_recovery', (YLeaf(YType.uint32, 'evpn-virtual-access-vfi-recovery'), ['int'])),
+                            ('evpn_virtual_access_vfi_peering', (YLeaf(YType.uint32, 'evpn-virtual-access-vfi-peering'), ['int'])),
+                            ('evpn_virtual_access_vfi_carving', (YLeaf(YType.uint32, 'evpn-virtual-access-vfi-carving'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.evpn_virtual_access_vfi_recovery = None
                         self.evpn_virtual_access_vfi_peering = None
                         self.evpn_virtual_access_vfi_carving = None
                         self.enable = None
                         self._segment_path = lambda: "evpn-virtual-access-vfi-timers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, [u'evpn_virtual_access_vfi_recovery', u'evpn_virtual_access_vfi_peering', u'evpn_virtual_access_vfi_carving', u'enable'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualAccessVfiTimers, ['evpn_virtual_access_vfi_recovery', 'evpn_virtual_access_vfi_peering', 'evpn_virtual_access_vfi_carving', 'enable'], name, value)
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -13912,6 +20964,11 @@ class Evpn(Entity):
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: service_carving_type
+                    
+                    	Ethernet\-Segment Service Carving mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarving <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarving>`
                     
                     .. attribute:: identifier
                     
@@ -13942,11 +20999,13 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving))])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
+                            ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
                         self.enable = None
                         self.es_import_route_target = None
+                        self.service_carving_type = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -13955,9 +21014,10 @@ class Evpn(Entity):
                         self.manual_service_carving.parent = self
                         self._children_name_map["manual_service_carving"] = "manual-service-carving"
                         self._segment_path = lambda: "evpn-virtual-ethernet-segment"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, [u'enable', u'es_import_route_target'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -14044,12 +21104,12 @@ class Evpn(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bytes01', YLeaf(YType.str, 'bytes01')),
-                                ('bytes23', YLeaf(YType.str, 'bytes23')),
-                                ('bytes45', YLeaf(YType.str, 'bytes45')),
-                                ('bytes67', YLeaf(YType.str, 'bytes67')),
-                                ('bytes89', YLeaf(YType.str, 'bytes89')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('bytes01', (YLeaf(YType.str, 'bytes01'), ['str'])),
+                                ('bytes23', (YLeaf(YType.str, 'bytes23'), ['str'])),
+                                ('bytes45', (YLeaf(YType.str, 'bytes45'), ['str'])),
+                                ('bytes67', (YLeaf(YType.str, 'bytes67'), ['str'])),
+                                ('bytes89', (YLeaf(YType.str, 'bytes89'), ['str'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifier', '')])),
                             ])
                             self.bytes01 = None
                             self.bytes23 = None
@@ -14058,9 +21118,10 @@ class Evpn(Entity):
                             self.bytes89 = None
                             self.type = None
                             self._segment_path = lambda: "identifier"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
                     class ManualServiceCarving(Entity):
@@ -14095,7 +21156,7 @@ class Evpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
 
@@ -14103,9 +21164,10 @@ class Evpn(Entity):
                             self.service_list.parent = self
                             self._children_name_map["service_list"] = "service-list"
                             self._segment_path = lambda: "manual-service-carving"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -14143,15 +21205,16 @@ class Evpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('primary', YLeaf(YType.str, 'primary')),
-                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                    ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                    ('secondary', (YLeaf(YType.str, 'secondary'), ['str'])),
                                 ])
                                 self.primary = None
                                 self.secondary = None
                                 self._segment_path = lambda: "service-list"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessVfis.EvpnVirtualAccessVfi.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
         class EvpnLoadBalancing(Entity):
@@ -14185,16 +21248,17 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('evpn_static_flow_label', YLeaf(YType.empty, 'evpn-static-flow-label')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('evpn_static_flow_label', (YLeaf(YType.empty, 'evpn-static-flow-label'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.evpn_static_flow_label = None
                 self.enable = None
                 self._segment_path = lambda: "evpn-load-balancing"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, [u'evpn_static_flow_label', u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnLoadBalancing, ['evpn_static_flow_label', 'enable'], name, value)
 
 
         class EvpnBgpAutoDiscovery(Entity):
@@ -14228,7 +21292,7 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
 
@@ -14237,9 +21301,10 @@ class Evpn(Entity):
                 self._children_name_map["evpn_route_distinguisher"] = "evpn-route-distinguisher"
                 self._segment_path = lambda: "evpn-bgp-auto-discovery"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery, ['enable'], name, value)
 
 
             class EvpnRouteDistinguisher(Entity):
@@ -14296,11 +21361,11 @@ class Evpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('as_', YLeaf(YType.uint32, 'as')),
-                        ('as_index', YLeaf(YType.uint32, 'as-index')),
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                        ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                        ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                     ])
                     self.type = None
                     self.as_ = None
@@ -14309,9 +21374,10 @@ class Evpn(Entity):
                     self.addr_index = None
                     self._segment_path = lambda: "evpn-route-distinguisher"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-bgp-auto-discovery/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
         class EvpnGroups(Entity):
@@ -14344,6 +21410,7 @@ class Evpn(Entity):
                 self.evpn_group = YList(self)
                 self._segment_path = lambda: "evpn-groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnGroups, [], name, value)
@@ -14382,7 +21449,7 @@ class Evpn(Entity):
                     self.ylist_key_names = ['group_id']
                     self._child_classes = OrderedDict([("evpn-group-core-interfaces", ("evpn_group_core_interfaces", Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces))])
                     self._leafs = OrderedDict([
-                        ('group_id', YLeaf(YType.uint32, 'group-id')),
+                        ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
                     ])
                     self.group_id = None
 
@@ -14391,9 +21458,10 @@ class Evpn(Entity):
                     self._children_name_map["evpn_group_core_interfaces"] = "evpn-group-core-interfaces"
                     self._segment_path = lambda: "evpn-group" + "[group-id='" + str(self.group_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup, [u'group_id'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup, ['group_id'], name, value)
 
 
                 class EvpnGroupCoreInterfaces(Entity):
@@ -14425,6 +21493,7 @@ class Evpn(Entity):
 
                         self.evpn_group_core_interface = YList(self)
                         self._segment_path = lambda: "evpn-group-core-interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces, [], name, value)
@@ -14439,7 +21508,7 @@ class Evpn(Entity):
                         	Name of the EVPN Group core interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         
 
@@ -14458,13 +21527,14 @@ class Evpn(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
                             self._segment_path = lambda: "evpn-group-core-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, [u'interface_name'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnGroups.EvpnGroup.EvpnGroupCoreInterfaces.EvpnGroupCoreInterface, ['interface_name'], name, value)
 
 
         class EvpnInstances(Entity):
@@ -14497,6 +21567,7 @@ class Evpn(Entity):
                 self.evpn_instance = YList(self)
                 self._segment_path = lambda: "evpn-instances"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnInstances, [], name, value)
@@ -14506,12 +21577,12 @@ class Evpn(Entity):
                 """
                 Enter EVPN Instance configuration submode
                 
-                .. attribute:: eviid  (key)
+                .. attribute:: vpn_id  (key)
                 
                 	EVPN Instance ID
                 	**type**\: int
                 
-                	**range:** 1..65534
+                	**range:** 1..4294967295
                 
                 .. attribute:: encapsulation  (key)
                 
@@ -14532,6 +21603,11 @@ class Evpn(Entity):
                 
                 	Enter Advertise local MAC\-only routes configuration submode
                 	**type**\:  :py:class:`EvpnInstanceAdvertiseMac <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac>`
+                
+                .. attribute:: evpn_instance_multicast
+                
+                	Enter Multicast configuration submode
+                	**type**\:  :py:class:`EvpnInstanceMulticast <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast>`
                 
                 .. attribute:: evpn_instance_load_balancing
                 
@@ -14584,20 +21660,20 @@ class Evpn(Entity):
                     self.yang_parent_name = "evpn-instances"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['eviid','encapsulation','side']
-                    self._child_classes = OrderedDict([("evpn-instance-bgp-auto-discovery", ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery)), ("evpn-instance-advertise-mac", ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac)), ("evpn-instance-load-balancing", ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing))])
+                    self.ylist_key_names = ['vpn_id','encapsulation','side']
+                    self._child_classes = OrderedDict([("evpn-instance-bgp-auto-discovery", ("evpn_instance_bgp_auto_discovery", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery)), ("evpn-instance-advertise-mac", ("evpn_instance_advertise_mac", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac)), ("evpn-instance-multicast", ("evpn_instance_multicast", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast)), ("evpn-instance-load-balancing", ("evpn_instance_load_balancing", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing))])
                     self._leafs = OrderedDict([
-                        ('eviid', YLeaf(YType.uint32, 'eviid')),
-                        ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
-                        ('side', YLeaf(YType.enumeration, 'side')),
-                        ('evi_reorig_disable', YLeaf(YType.empty, 'evi-reorig-disable')),
-                        ('evi_advertise_mac_deprecated', YLeaf(YType.empty, 'evi-advertise-mac-deprecated')),
-                        ('evpn_evi_description', YLeaf(YType.str, 'evpn-evi-description')),
-                        ('evi_ecmp_disable', YLeaf(YType.empty, 'evi-ecmp-disable')),
-                        ('evi_unknown_unicast_flooding_disable', YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable')),
-                        ('evpn_evi_cw_disable', YLeaf(YType.empty, 'evpn-evi-cw-disable')),
+                        ('vpn_id', (YLeaf(YType.uint32, 'vpn-id'), ['int'])),
+                        ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EvpnEncapsulation', '')])),
+                        ('side', (YLeaf(YType.enumeration, 'side'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EvpnSide', '')])),
+                        ('evi_reorig_disable', (YLeaf(YType.empty, 'evi-reorig-disable'), ['Empty'])),
+                        ('evi_advertise_mac_deprecated', (YLeaf(YType.empty, 'evi-advertise-mac-deprecated'), ['Empty'])),
+                        ('evpn_evi_description', (YLeaf(YType.str, 'evpn-evi-description'), ['str'])),
+                        ('evi_ecmp_disable', (YLeaf(YType.empty, 'evi-ecmp-disable'), ['Empty'])),
+                        ('evi_unknown_unicast_flooding_disable', (YLeaf(YType.empty, 'evi-unknown-unicast-flooding-disable'), ['Empty'])),
+                        ('evpn_evi_cw_disable', (YLeaf(YType.empty, 'evpn-evi-cw-disable'), ['Empty'])),
                     ])
-                    self.eviid = None
+                    self.vpn_id = None
                     self.encapsulation = None
                     self.side = None
                     self.evi_reorig_disable = None
@@ -14615,14 +21691,19 @@ class Evpn(Entity):
                     self.evpn_instance_advertise_mac.parent = self
                     self._children_name_map["evpn_instance_advertise_mac"] = "evpn-instance-advertise-mac"
 
+                    self.evpn_instance_multicast = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast()
+                    self.evpn_instance_multicast.parent = self
+                    self._children_name_map["evpn_instance_multicast"] = "evpn-instance-multicast"
+
                     self.evpn_instance_load_balancing = Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing()
                     self.evpn_instance_load_balancing.parent = self
                     self._children_name_map["evpn_instance_load_balancing"] = "evpn-instance-load-balancing"
-                    self._segment_path = lambda: "evpn-instance" + "[eviid='" + str(self.eviid) + "']" + "[encapsulation='" + str(self.encapsulation) + "']" + "[side='" + str(self.side) + "']"
+                    self._segment_path = lambda: "evpn-instance" + "[vpn-id='" + str(self.vpn_id) + "']" + "[encapsulation='" + str(self.encapsulation) + "']" + "[side='" + str(self.side) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-instances/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, [u'eviid', u'encapsulation', u'side', u'evi_reorig_disable', u'evi_advertise_mac_deprecated', u'evpn_evi_description', u'evi_ecmp_disable', u'evi_unknown_unicast_flooding_disable', u'evpn_evi_cw_disable'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance, ['vpn_id', 'encapsulation', 'side', 'evi_reorig_disable', 'evi_advertise_mac_deprecated', 'evpn_evi_description', 'evi_ecmp_disable', 'evi_unknown_unicast_flooding_disable', 'evpn_evi_cw_disable'], name, value)
 
 
                 class EvpnInstanceBgpAutoDiscovery(Entity):
@@ -14666,8 +21747,8 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("evpn-route-distinguisher", ("evpn_route_distinguisher", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher)), ("evpn-route-targets", ("evpn_route_targets", Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets))])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('table_policy', YLeaf(YType.str, 'table-policy')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('table_policy', (YLeaf(YType.str, 'table-policy'), ['str'])),
                         ])
                         self.enable = None
                         self.table_policy = None
@@ -14680,9 +21761,10 @@ class Evpn(Entity):
                         self.evpn_route_targets.parent = self
                         self._children_name_map["evpn_route_targets"] = "evpn-route-targets"
                         self._segment_path = lambda: "evpn-instance-bgp-auto-discovery"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, [u'enable', u'table_policy'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery, ['enable', 'table_policy'], name, value)
 
 
                     class EvpnRouteDistinguisher(Entity):
@@ -14739,11 +21821,11 @@ class Evpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('as_', YLeaf(YType.uint32, 'as')),
-                                ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('addr_index', YLeaf(YType.uint32, 'addr-index')),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteDistinguisher', '')])),
+                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
                             ])
                             self.type = None
                             self.as_ = None
@@ -14751,9 +21833,10 @@ class Evpn(Entity):
                             self.address = None
                             self.addr_index = None
                             self._segment_path = lambda: "evpn-route-distinguisher"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, [u'type', u'as_', u'as_index', u'address', u'addr_index'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteDistinguisher, ['type', 'as_', 'as_index', 'address', 'addr_index'], name, value)
 
 
                     class EvpnRouteTargets(Entity):
@@ -14797,6 +21880,7 @@ class Evpn(Entity):
                             self.evpn_route_target_none = YList(self)
                             self.evpn_route_target_ipv4_address = YList(self)
                             self._segment_path = lambda: "evpn-route-targets"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets, [], name, value)
@@ -14852,11 +21936,11 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','as_','as_index','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                    ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                    ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
@@ -14864,9 +21948,10 @@ class Evpn(Entity):
                                 self.as_index = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-as" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[as='" + str(self.as_) + "']" + "[as-index='" + str(self.as_index) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, [u'format', u'role', u'as_', u'as_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetAs, ['format', 'role', 'as_', 'as_index', 'stitching'], name, value)
 
 
                         class EvpnRouteTargetNone(Entity):
@@ -14905,17 +21990,18 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-none" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, [u'format', u'role', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetNone, ['format', 'role', 'stitching'], name, value)
 
 
                         class EvpnRouteTargetIpv4Address(Entity):
@@ -14968,11 +22054,11 @@ class Evpn(Entity):
                                 self.ylist_key_names = ['format','role','address','addr_index','stitching']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('format', YLeaf(YType.enumeration, 'format')),
-                                    ('role', YLeaf(YType.enumeration, 'role')),
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('addr_index', YLeaf(YType.uint32, 'addr-index')),
-                                    ('stitching', YLeaf(YType.enumeration, 'stitching')),
+                                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetFormat', '')])),
+                                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTargetRole', '')])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('addr_index', (YLeaf(YType.uint32, 'addr-index'), ['int'])),
+                                    ('stitching', (YLeaf(YType.enumeration, 'stitching'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'BgpRouteTarget', '')])),
                                 ])
                                 self.format = None
                                 self.role = None
@@ -14980,9 +22066,10 @@ class Evpn(Entity):
                                 self.addr_index = None
                                 self.stitching = None
                                 self._segment_path = lambda: "evpn-route-target-ipv4-address" + "[format='" + str(self.format) + "']" + "[role='" + str(self.role) + "']" + "[address='" + str(self.address) + "']" + "[addr-index='" + str(self.addr_index) + "']" + "[stitching='" + str(self.stitching) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, [u'format', u'role', u'address', u'addr_index', u'stitching'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceBgpAutoDiscovery.EvpnRouteTargets.EvpnRouteTargetIpv4Address, ['format', 'role', 'address', 'addr_index', 'stitching'], name, value)
 
 
                 class EvpnInstanceAdvertiseMac(Entity):
@@ -15017,15 +22104,59 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evi_advertise_mac_bvi', YLeaf(YType.empty, 'evi-advertise-mac-bvi')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_advertise_mac_bvi', (YLeaf(YType.empty, 'evi-advertise-mac-bvi'), ['Empty'])),
                         ])
                         self.enable = None
                         self.evi_advertise_mac_bvi = None
                         self._segment_path = lambda: "evpn-instance-advertise-mac"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, [u'enable', u'evi_advertise_mac_bvi'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceAdvertiseMac, ['enable', 'evi_advertise_mac_bvi'], name, value)
+
+
+                class EvpnInstanceMulticast(Entity):
+                    """
+                    Enter Multicast configuration submode
+                    
+                    .. attribute:: enable
+                    
+                    	Enable Multicast
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    .. attribute:: evi_mcast_source_connected
+                    
+                    	Enable Multicast source connectivity
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'l2vpn-cfg'
+                    _revision = '2017-06-26'
+
+                    def __init__(self):
+                        super(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, self).__init__()
+
+                        self.yang_name = "evpn-instance-multicast"
+                        self.yang_parent_name = "evpn-instance"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_mcast_source_connected', (YLeaf(YType.empty, 'evi-mcast-source-connected'), ['Empty'])),
+                        ])
+                        self.enable = None
+                        self.evi_mcast_source_connected = None
+                        self._segment_path = lambda: "evpn-instance-multicast"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceMulticast, ['enable', 'evi_mcast_source_connected'], name, value)
 
 
                 class EvpnInstanceLoadBalancing(Entity):
@@ -15059,15 +22190,16 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evi_static_flow_label', YLeaf(YType.empty, 'evi-static-flow-label')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evi_static_flow_label', (YLeaf(YType.empty, 'evi-static-flow-label'), ['Empty'])),
                         ])
                         self.enable = None
                         self.evi_static_flow_label = None
                         self._segment_path = lambda: "evpn-instance-load-balancing"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, [u'enable', u'evi_static_flow_label'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInstances.EvpnInstance.EvpnInstanceLoadBalancing, ['enable', 'evi_static_flow_label'], name, value)
 
 
         class EvpnLogging(Entity):
@@ -15101,16 +22233,17 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('evpn_df_election', YLeaf(YType.empty, 'evpn-df-election')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('evpn_df_election', (YLeaf(YType.empty, 'evpn-df-election'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.evpn_df_election = None
                 self.enable = None
                 self._segment_path = lambda: "evpn-logging"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnLogging, [u'evpn_df_election', u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnLogging, ['evpn_df_election', 'enable'], name, value)
 
 
         class EvpnInterfaces(Entity):
@@ -15143,6 +22276,7 @@ class Evpn(Entity):
                 self.evpn_interface = YList(self)
                 self._segment_path = lambda: "evpn-interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces, [], name, value)
@@ -15157,7 +22291,7 @@ class Evpn(Entity):
                 	Name of the attachment circuit interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: evpnac_timers
                 
@@ -15198,9 +22332,9 @@ class Evpn(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("evpnac-timers", ("evpnac_timers", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers)), ("ethernet-segment", ("ethernet_segment", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('evpn_core_isolation_group', YLeaf(YType.uint32, 'evpn-core-isolation-group')),
-                        ('mac_flush', YLeaf(YType.enumeration, 'mac-flush')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('evpn_core_isolation_group', (YLeaf(YType.uint32, 'evpn-core-isolation-group'), ['int'])),
+                        ('mac_flush', (YLeaf(YType.enumeration, 'mac-flush'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'MacFlushMode', '')])),
                     ])
                     self.interface_name = None
                     self.evpn_core_isolation_group = None
@@ -15215,9 +22349,10 @@ class Evpn(Entity):
                     self._children_name_map["ethernet_segment"] = "ethernet-segment"
                     self._segment_path = lambda: "evpn-interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, [u'interface_name', u'evpn_core_isolation_group', u'mac_flush'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface, ['interface_name', 'evpn_core_isolation_group', 'mac_flush'], name, value)
 
 
                 class EvpnacTimers(Entity):
@@ -15274,19 +22409,20 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('evpnac_peering', YLeaf(YType.uint32, 'evpnac-peering')),
-                            ('evpnac_carving', YLeaf(YType.uint32, 'evpnac-carving')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evpnac_recovery', YLeaf(YType.uint32, 'evpnac-recovery')),
+                            ('evpnac_peering', (YLeaf(YType.uint32, 'evpnac-peering'), ['int'])),
+                            ('evpnac_carving', (YLeaf(YType.uint32, 'evpnac-carving'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evpnac_recovery', (YLeaf(YType.uint32, 'evpnac-recovery'), ['int'])),
                         ])
                         self.evpnac_peering = None
                         self.evpnac_carving = None
                         self.enable = None
                         self.evpnac_recovery = None
                         self._segment_path = lambda: "evpnac-timers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, [u'evpnac_peering', u'evpnac_carving', u'enable', u'evpnac_recovery'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EvpnacTimers, ['evpnac_peering', 'evpnac_carving', 'enable', 'evpnac_recovery'], name, value)
 
 
                 class EthernetSegment(Entity):
@@ -15322,6 +22458,11 @@ class Evpn(Entity):
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
                     
+                    .. attribute:: service_carving_type
+                    
+                    	Ethernet\-Segment Service Carving mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarving <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarving>`
+                    
                     .. attribute:: identifier
                     
                     	Ethernet segment identifier
@@ -15351,17 +22492,19 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving))])
                         self._leafs = OrderedDict([
-                            ('force_single_homed', YLeaf(YType.empty, 'force-single-homed')),
-                            ('load_balancing_mode', YLeaf(YType.enumeration, 'load-balancing-mode')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('backbone_source_mac', YLeaf(YType.str, 'backbone-source-mac')),
-                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                            ('force_single_homed', (YLeaf(YType.empty, 'force-single-homed'), ['Empty'])),
+                            ('load_balancing_mode', (YLeaf(YType.enumeration, 'load-balancing-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentLoadBalance', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('backbone_source_mac', (YLeaf(YType.str, 'backbone-source-mac'), ['str'])),
+                            ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
+                            ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
                         self.force_single_homed = None
                         self.load_balancing_mode = None
                         self.enable = None
                         self.backbone_source_mac = None
                         self.es_import_route_target = None
+                        self.service_carving_type = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -15370,9 +22513,10 @@ class Evpn(Entity):
                         self.manual_service_carving.parent = self
                         self._children_name_map["manual_service_carving"] = "manual-service-carving"
                         self._segment_path = lambda: "ethernet-segment"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, [u'force_single_homed', u'load_balancing_mode', u'enable', u'backbone_source_mac', u'es_import_route_target'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment, ['force_single_homed', 'load_balancing_mode', 'enable', 'backbone_source_mac', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -15459,12 +22603,12 @@ class Evpn(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bytes01', YLeaf(YType.str, 'bytes01')),
-                                ('bytes23', YLeaf(YType.str, 'bytes23')),
-                                ('bytes45', YLeaf(YType.str, 'bytes45')),
-                                ('bytes67', YLeaf(YType.str, 'bytes67')),
-                                ('bytes89', YLeaf(YType.str, 'bytes89')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('bytes01', (YLeaf(YType.str, 'bytes01'), ['str'])),
+                                ('bytes23', (YLeaf(YType.str, 'bytes23'), ['str'])),
+                                ('bytes45', (YLeaf(YType.str, 'bytes45'), ['str'])),
+                                ('bytes67', (YLeaf(YType.str, 'bytes67'), ['str'])),
+                                ('bytes89', (YLeaf(YType.str, 'bytes89'), ['str'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifier', '')])),
                             ])
                             self.bytes01 = None
                             self.bytes23 = None
@@ -15473,9 +22617,10 @@ class Evpn(Entity):
                             self.bytes89 = None
                             self.type = None
                             self._segment_path = lambda: "identifier"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
                     class ManualServiceCarving(Entity):
@@ -15510,7 +22655,7 @@ class Evpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
 
@@ -15518,9 +22663,10 @@ class Evpn(Entity):
                             self.service_list.parent = self
                             self._children_name_map["service_list"] = "service-list"
                             self._segment_path = lambda: "manual-service-carving"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -15558,15 +22704,16 @@ class Evpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('primary', YLeaf(YType.str, 'primary')),
-                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                    ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                    ('secondary', (YLeaf(YType.str, 'secondary'), ['str'])),
                                 ])
                                 self.primary = None
                                 self.secondary = None
                                 self._segment_path = lambda: "service-list"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnInterfaces.EvpnInterface.EthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
         class EvpnVirtualAccessPws(Entity):
@@ -15599,6 +22746,7 @@ class Evpn(Entity):
                 self.evpn_virtual_access_pw = YList(self)
                 self._segment_path = lambda: "evpn-virtual-access-pws"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws, [], name, value)
@@ -15649,8 +22797,8 @@ class Evpn(Entity):
                     self.ylist_key_names = ['neighbor','pseudowire_id']
                     self._child_classes = OrderedDict([("evpn-virtual-access-pw-timers", ("evpn_virtual_access_pw_timers", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers)), ("evpn-virtual-ethernet-segment", ("evpn_virtual_ethernet_segment", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment))])
                     self._leafs = OrderedDict([
-                        ('neighbor', YLeaf(YType.str, 'neighbor')),
-                        ('pseudowire_id', YLeaf(YType.uint32, 'pseudowire-id')),
+                        ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
+                        ('pseudowire_id', (YLeaf(YType.uint32, 'pseudowire-id'), ['int'])),
                     ])
                     self.neighbor = None
                     self.pseudowire_id = None
@@ -15664,9 +22812,10 @@ class Evpn(Entity):
                     self._children_name_map["evpn_virtual_ethernet_segment"] = "evpn-virtual-ethernet-segment"
                     self._segment_path = lambda: "evpn-virtual-access-pw" + "[neighbor='" + str(self.neighbor) + "']" + "[pseudowire-id='" + str(self.pseudowire_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-virtual-access-pws/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, [u'neighbor', u'pseudowire_id'], name, value)
+                    self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw, ['neighbor', 'pseudowire_id'], name, value)
 
 
                 class EvpnVirtualAccessPwTimers(Entity):
@@ -15723,19 +22872,20 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('evpn_virtual_access_pw_recovery', YLeaf(YType.uint32, 'evpn-virtual-access-pw-recovery')),
-                            ('evpn_virtual_access_pw_peering', YLeaf(YType.uint32, 'evpn-virtual-access-pw-peering')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('evpn_virtual_access_pw_carving', YLeaf(YType.uint32, 'evpn-virtual-access-pw-carving')),
+                            ('evpn_virtual_access_pw_recovery', (YLeaf(YType.uint32, 'evpn-virtual-access-pw-recovery'), ['int'])),
+                            ('evpn_virtual_access_pw_peering', (YLeaf(YType.uint32, 'evpn-virtual-access-pw-peering'), ['int'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('evpn_virtual_access_pw_carving', (YLeaf(YType.uint32, 'evpn-virtual-access-pw-carving'), ['int'])),
                         ])
                         self.evpn_virtual_access_pw_recovery = None
                         self.evpn_virtual_access_pw_peering = None
                         self.enable = None
                         self.evpn_virtual_access_pw_carving = None
                         self._segment_path = lambda: "evpn-virtual-access-pw-timers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, [u'evpn_virtual_access_pw_recovery', u'evpn_virtual_access_pw_peering', u'enable', u'evpn_virtual_access_pw_carving'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualAccessPwTimers, ['evpn_virtual_access_pw_recovery', 'evpn_virtual_access_pw_peering', 'enable', 'evpn_virtual_access_pw_carving'], name, value)
 
 
                 class EvpnVirtualEthernetSegment(Entity):
@@ -15753,6 +22903,11 @@ class Evpn(Entity):
                     	**type**\: str
                     
                     	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                    
+                    .. attribute:: service_carving_type
+                    
+                    	Ethernet\-Segment Service Carving mode
+                    	**type**\:  :py:class:`EthernetSegmentServiceCarving <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg.EthernetSegmentServiceCarving>`
                     
                     .. attribute:: identifier
                     
@@ -15783,11 +22938,13 @@ class Evpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("identifier", ("identifier", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier)), ("manual-service-carving", ("manual_service_carving", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving))])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('es_import_route_target', YLeaf(YType.str, 'es-import-route-target')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('es_import_route_target', (YLeaf(YType.str, 'es-import-route-target'), ['str'])),
+                            ('service_carving_type', (YLeaf(YType.enumeration, 'service-carving-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentServiceCarving', '')])),
                         ])
                         self.enable = None
                         self.es_import_route_target = None
+                        self.service_carving_type = None
 
                         self.identifier = None
                         self._children_name_map["identifier"] = "identifier"
@@ -15796,9 +22953,10 @@ class Evpn(Entity):
                         self.manual_service_carving.parent = self
                         self._children_name_map["manual_service_carving"] = "manual-service-carving"
                         self._segment_path = lambda: "evpn-virtual-ethernet-segment"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, [u'enable', u'es_import_route_target'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment, ['enable', 'es_import_route_target', 'service_carving_type'], name, value)
 
 
                     class Identifier(Entity):
@@ -15885,12 +23043,12 @@ class Evpn(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bytes01', YLeaf(YType.str, 'bytes01')),
-                                ('bytes23', YLeaf(YType.str, 'bytes23')),
-                                ('bytes45', YLeaf(YType.str, 'bytes45')),
-                                ('bytes67', YLeaf(YType.str, 'bytes67')),
-                                ('bytes89', YLeaf(YType.str, 'bytes89')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('bytes01', (YLeaf(YType.str, 'bytes01'), ['str'])),
+                                ('bytes23', (YLeaf(YType.str, 'bytes23'), ['str'])),
+                                ('bytes45', (YLeaf(YType.str, 'bytes45'), ['str'])),
+                                ('bytes67', (YLeaf(YType.str, 'bytes67'), ['str'])),
+                                ('bytes89', (YLeaf(YType.str, 'bytes89'), ['str'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg', 'EthernetSegmentIdentifier', '')])),
                             ])
                             self.bytes01 = None
                             self.bytes23 = None
@@ -15899,9 +23057,10 @@ class Evpn(Entity):
                             self.bytes89 = None
                             self.type = None
                             self._segment_path = lambda: "identifier"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, [u'bytes01', u'bytes23', u'bytes45', u'bytes67', u'bytes89', u'type'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.Identifier, ['bytes01', 'bytes23', 'bytes45', 'bytes67', 'bytes89', 'type'], name, value)
 
 
                     class ManualServiceCarving(Entity):
@@ -15936,7 +23095,7 @@ class Evpn(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("service-list", ("service_list", Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList))])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
 
@@ -15944,9 +23103,10 @@ class Evpn(Entity):
                             self.service_list.parent = self
                             self._children_name_map["service_list"] = "service-list"
                             self._segment_path = lambda: "manual-service-carving"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, [u'enable'], name, value)
+                            self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving, ['enable'], name, value)
 
 
                         class ServiceList(Entity):
@@ -15984,15 +23144,16 @@ class Evpn(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('primary', YLeaf(YType.str, 'primary')),
-                                    ('secondary', YLeaf(YType.str, 'secondary')),
+                                    ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                    ('secondary', (YLeaf(YType.str, 'secondary'), ['str'])),
                                 ])
                                 self.primary = None
                                 self.secondary = None
                                 self._segment_path = lambda: "service-list"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, [u'primary', u'secondary'], name, value)
+                                self._perform_setattr(Evpn.EvpnTables.EvpnVirtualAccessPws.EvpnVirtualAccessPw.EvpnVirtualEthernetSegment.ManualServiceCarving.ServiceList, ['primary', 'secondary'], name, value)
 
 
         class EvpnEthernetSegment(Entity):
@@ -16026,7 +23187,7 @@ class Evpn(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("evpn-esi-types", ("evpn_esi_types", Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.enable = None
 
@@ -16035,9 +23196,10 @@ class Evpn(Entity):
                 self._children_name_map["evpn_esi_types"] = "evpn-esi-types"
                 self._segment_path = lambda: "evpn-ethernet-segment"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment, [u'enable'], name, value)
+                self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment, ['enable'], name, value)
 
 
             class EvpnEsiTypes(Entity):
@@ -16070,6 +23232,7 @@ class Evpn(Entity):
                     self.evpn_esi_type = YList(self)
                     self._segment_path = lambda: "evpn-esi-types"
                     self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-ethernet-segment/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes, [], name, value)
@@ -16108,16 +23271,17 @@ class Evpn(Entity):
                         self.ylist_key_names = ['esi_type']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('esi_type', YLeaf(YType.uint32, 'esi-type')),
-                            ('disable_auto_generation', YLeaf(YType.empty, 'disable-auto-generation')),
+                            ('esi_type', (YLeaf(YType.uint32, 'esi-type'), ['int'])),
+                            ('disable_auto_generation', (YLeaf(YType.empty, 'disable-auto-generation'), ['Empty'])),
                         ])
                         self.esi_type = None
                         self.disable_auto_generation = None
                         self._segment_path = lambda: "evpn-esi-type" + "[esi-type='" + str(self.esi_type) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-l2vpn-cfg:evpn/evpn-tables/evpn-ethernet-segment/evpn-esi-types/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, [u'esi_type', u'disable_auto_generation'], name, value)
+                        self._perform_setattr(Evpn.EvpnTables.EvpnEthernetSegment.EvpnEsiTypes.EvpnEsiType, ['esi_type', 'disable_auto_generation'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Evpn()

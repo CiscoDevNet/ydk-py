@@ -20,6 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOPROCESSMIB(Entity):
     """
     
@@ -133,6 +134,7 @@ class CISCOPROCESSMIB(Entity):
         self.cpmvirtualprocesstable.parent = self
         self._children_name_map["cpmvirtualprocesstable"] = "cpmVirtualProcessTable"
         self._segment_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOPROCESSMIB, [], name, value)
@@ -173,13 +175,14 @@ class CISCOPROCESSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpmcpuhistorythreshold', YLeaf(YType.uint32, 'cpmCPUHistoryThreshold')),
-                ('cpmcpuhistorysize', YLeaf(YType.uint32, 'cpmCPUHistorySize')),
+                ('cpmcpuhistorythreshold', (YLeaf(YType.uint32, 'cpmCPUHistoryThreshold'), ['int'])),
+                ('cpmcpuhistorysize', (YLeaf(YType.uint32, 'cpmCPUHistorySize'), ['int'])),
             ])
             self.cpmcpuhistorythreshold = None
             self.cpmcpuhistorysize = None
             self._segment_path = lambda: "cpmCPUHistory"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistory, ['cpmcpuhistorythreshold', 'cpmcpuhistorysize'], name, value)
@@ -215,6 +218,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmcputotalentry = YList(self)
             self._segment_path = lambda: "cpmCPUTotalTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCPUTotalTable, [], name, value)
@@ -496,35 +500,35 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.uint32, 'cpmCPUTotalIndex')),
-                    ('cpmcputotalphysicalindex', YLeaf(YType.int32, 'cpmCPUTotalPhysicalIndex')),
-                    ('cpmcputotal5sec', YLeaf(YType.uint32, 'cpmCPUTotal5sec')),
-                    ('cpmcputotal1min', YLeaf(YType.uint32, 'cpmCPUTotal1min')),
-                    ('cpmcputotal5min', YLeaf(YType.uint32, 'cpmCPUTotal5min')),
-                    ('cpmcputotal5secrev', YLeaf(YType.uint32, 'cpmCPUTotal5secRev')),
-                    ('cpmcputotal1minrev', YLeaf(YType.uint32, 'cpmCPUTotal1minRev')),
-                    ('cpmcputotal5minrev', YLeaf(YType.uint32, 'cpmCPUTotal5minRev')),
-                    ('cpmcpumoninterval', YLeaf(YType.uint32, 'cpmCPUMonInterval')),
-                    ('cpmcputotalmonintervalvalue', YLeaf(YType.uint32, 'cpmCPUTotalMonIntervalValue')),
-                    ('cpmcpuinterruptmonintervalvalue', YLeaf(YType.uint32, 'cpmCPUInterruptMonIntervalValue')),
-                    ('cpmcpumemoryused', YLeaf(YType.uint32, 'cpmCPUMemoryUsed')),
-                    ('cpmcpumemoryfree', YLeaf(YType.uint32, 'cpmCPUMemoryFree')),
-                    ('cpmcpumemorykernelreserved', YLeaf(YType.uint32, 'cpmCPUMemoryKernelReserved')),
-                    ('cpmcpumemorylowest', YLeaf(YType.uint32, 'cpmCPUMemoryLowest')),
-                    ('cpmcpumemoryusedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryUsedOvrflw')),
-                    ('cpmcpumemoryhcused', YLeaf(YType.uint64, 'cpmCPUMemoryHCUsed')),
-                    ('cpmcpumemoryfreeovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryFreeOvrflw')),
-                    ('cpmcpumemoryhcfree', YLeaf(YType.uint64, 'cpmCPUMemoryHCFree')),
-                    ('cpmcpumemorykernelreservedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryKernelReservedOvrflw')),
-                    ('cpmcpumemoryhckernelreserved', YLeaf(YType.uint64, 'cpmCPUMemoryHCKernelReserved')),
-                    ('cpmcpumemorylowestovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryLowestOvrflw')),
-                    ('cpmcpumemoryhclowest', YLeaf(YType.uint64, 'cpmCPUMemoryHCLowest')),
-                    ('cpmcpuloadavg1min', YLeaf(YType.uint32, 'cpmCPULoadAvg1min')),
-                    ('cpmcpuloadavg5min', YLeaf(YType.uint32, 'cpmCPULoadAvg5min')),
-                    ('cpmcpuloadavg15min', YLeaf(YType.uint32, 'cpmCPULoadAvg15min')),
-                    ('cpmcpumemorycommitted', YLeaf(YType.uint32, 'cpmCPUMemoryCommitted')),
-                    ('cpmcpumemorycommittedovrflw', YLeaf(YType.uint32, 'cpmCPUMemoryCommittedOvrflw')),
-                    ('cpmcpumemoryhccommitted', YLeaf(YType.uint64, 'cpmCPUMemoryHCCommitted')),
+                    ('cpmcputotalindex', (YLeaf(YType.uint32, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmcputotalphysicalindex', (YLeaf(YType.int32, 'cpmCPUTotalPhysicalIndex'), ['int'])),
+                    ('cpmcputotal5sec', (YLeaf(YType.uint32, 'cpmCPUTotal5sec'), ['int'])),
+                    ('cpmcputotal1min', (YLeaf(YType.uint32, 'cpmCPUTotal1min'), ['int'])),
+                    ('cpmcputotal5min', (YLeaf(YType.uint32, 'cpmCPUTotal5min'), ['int'])),
+                    ('cpmcputotal5secrev', (YLeaf(YType.uint32, 'cpmCPUTotal5secRev'), ['int'])),
+                    ('cpmcputotal1minrev', (YLeaf(YType.uint32, 'cpmCPUTotal1minRev'), ['int'])),
+                    ('cpmcputotal5minrev', (YLeaf(YType.uint32, 'cpmCPUTotal5minRev'), ['int'])),
+                    ('cpmcpumoninterval', (YLeaf(YType.uint32, 'cpmCPUMonInterval'), ['int'])),
+                    ('cpmcputotalmonintervalvalue', (YLeaf(YType.uint32, 'cpmCPUTotalMonIntervalValue'), ['int'])),
+                    ('cpmcpuinterruptmonintervalvalue', (YLeaf(YType.uint32, 'cpmCPUInterruptMonIntervalValue'), ['int'])),
+                    ('cpmcpumemoryused', (YLeaf(YType.uint32, 'cpmCPUMemoryUsed'), ['int'])),
+                    ('cpmcpumemoryfree', (YLeaf(YType.uint32, 'cpmCPUMemoryFree'), ['int'])),
+                    ('cpmcpumemorykernelreserved', (YLeaf(YType.uint32, 'cpmCPUMemoryKernelReserved'), ['int'])),
+                    ('cpmcpumemorylowest', (YLeaf(YType.uint32, 'cpmCPUMemoryLowest'), ['int'])),
+                    ('cpmcpumemoryusedovrflw', (YLeaf(YType.uint32, 'cpmCPUMemoryUsedOvrflw'), ['int'])),
+                    ('cpmcpumemoryhcused', (YLeaf(YType.uint64, 'cpmCPUMemoryHCUsed'), ['int'])),
+                    ('cpmcpumemoryfreeovrflw', (YLeaf(YType.uint32, 'cpmCPUMemoryFreeOvrflw'), ['int'])),
+                    ('cpmcpumemoryhcfree', (YLeaf(YType.uint64, 'cpmCPUMemoryHCFree'), ['int'])),
+                    ('cpmcpumemorykernelreservedovrflw', (YLeaf(YType.uint32, 'cpmCPUMemoryKernelReservedOvrflw'), ['int'])),
+                    ('cpmcpumemoryhckernelreserved', (YLeaf(YType.uint64, 'cpmCPUMemoryHCKernelReserved'), ['int'])),
+                    ('cpmcpumemorylowestovrflw', (YLeaf(YType.uint32, 'cpmCPUMemoryLowestOvrflw'), ['int'])),
+                    ('cpmcpumemoryhclowest', (YLeaf(YType.uint64, 'cpmCPUMemoryHCLowest'), ['int'])),
+                    ('cpmcpuloadavg1min', (YLeaf(YType.uint32, 'cpmCPULoadAvg1min'), ['int'])),
+                    ('cpmcpuloadavg5min', (YLeaf(YType.uint32, 'cpmCPULoadAvg5min'), ['int'])),
+                    ('cpmcpuloadavg15min', (YLeaf(YType.uint32, 'cpmCPULoadAvg15min'), ['int'])),
+                    ('cpmcpumemorycommitted', (YLeaf(YType.uint32, 'cpmCPUMemoryCommitted'), ['int'])),
+                    ('cpmcpumemorycommittedovrflw', (YLeaf(YType.uint32, 'cpmCPUMemoryCommittedOvrflw'), ['int'])),
+                    ('cpmcpumemoryhccommitted', (YLeaf(YType.uint64, 'cpmCPUMemoryHCCommitted'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmcputotalphysicalindex = None
@@ -557,6 +561,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmcpumemoryhccommitted = None
                 self._segment_path = lambda: "cpmCPUTotalEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUTotalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmCPUTotalTable.CpmCPUTotalEntry, ['cpmcputotalindex', 'cpmcputotalphysicalindex', 'cpmcputotal5sec', 'cpmcputotal1min', 'cpmcputotal5min', 'cpmcputotal5secrev', 'cpmcputotal1minrev', 'cpmcputotal5minrev', 'cpmcpumoninterval', 'cpmcputotalmonintervalvalue', 'cpmcpuinterruptmonintervalvalue', 'cpmcpumemoryused', 'cpmcpumemoryfree', 'cpmcpumemorykernelreserved', 'cpmcpumemorylowest', 'cpmcpumemoryusedovrflw', 'cpmcpumemoryhcused', 'cpmcpumemoryfreeovrflw', 'cpmcpumemoryhcfree', 'cpmcpumemorykernelreservedovrflw', 'cpmcpumemoryhckernelreserved', 'cpmcpumemorylowestovrflw', 'cpmcpumemoryhclowest', 'cpmcpuloadavg1min', 'cpmcpuloadavg5min', 'cpmcpuloadavg15min', 'cpmcpumemorycommitted', 'cpmcpumemorycommittedovrflw', 'cpmcpumemoryhccommitted'], name, value)
@@ -592,6 +597,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmcoreentry = YList(self)
             self._segment_path = lambda: "cpmCoreTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCoreTable, [], name, value)
@@ -690,15 +696,15 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmcoreindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmcoreindex', YLeaf(YType.uint32, 'cpmCoreIndex')),
-                    ('cpmcorephysicalindex', YLeaf(YType.int32, 'cpmCorePhysicalIndex')),
-                    ('cpmcore5sec', YLeaf(YType.uint32, 'cpmCore5sec')),
-                    ('cpmcore1min', YLeaf(YType.uint32, 'cpmCore1min')),
-                    ('cpmcore5min', YLeaf(YType.uint32, 'cpmCore5min')),
-                    ('cpmcoreloadavg1min', YLeaf(YType.uint32, 'cpmCoreLoadAvg1min')),
-                    ('cpmcoreloadavg5min', YLeaf(YType.uint32, 'cpmCoreLoadAvg5min')),
-                    ('cpmcoreloadavg15min', YLeaf(YType.uint32, 'cpmCoreLoadAvg15min')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmcoreindex', (YLeaf(YType.uint32, 'cpmCoreIndex'), ['int'])),
+                    ('cpmcorephysicalindex', (YLeaf(YType.int32, 'cpmCorePhysicalIndex'), ['int'])),
+                    ('cpmcore5sec', (YLeaf(YType.uint32, 'cpmCore5sec'), ['int'])),
+                    ('cpmcore1min', (YLeaf(YType.uint32, 'cpmCore1min'), ['int'])),
+                    ('cpmcore5min', (YLeaf(YType.uint32, 'cpmCore5min'), ['int'])),
+                    ('cpmcoreloadavg1min', (YLeaf(YType.uint32, 'cpmCoreLoadAvg1min'), ['int'])),
+                    ('cpmcoreloadavg5min', (YLeaf(YType.uint32, 'cpmCoreLoadAvg5min'), ['int'])),
+                    ('cpmcoreloadavg15min', (YLeaf(YType.uint32, 'cpmCoreLoadAvg15min'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmcoreindex = None
@@ -711,6 +717,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmcoreloadavg15min = None
                 self._segment_path = lambda: "cpmCoreEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCoreIndex='" + str(self.cpmcoreindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCoreTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmCoreTable.CpmCoreEntry, ['cpmcputotalindex', 'cpmcoreindex', 'cpmcorephysicalindex', 'cpmcore5sec', 'cpmcore1min', 'cpmcore5min', 'cpmcoreloadavg1min', 'cpmcoreloadavg5min', 'cpmcoreloadavg15min'], name, value)
@@ -747,6 +754,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmprocessentry = YList(self)
             self._segment_path = lambda: "cpmProcessTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmProcessTable, [], name, value)
@@ -901,20 +909,20 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmprocesspid', YLeaf(YType.uint32, 'cpmProcessPID')),
-                    ('cpmprocessname', YLeaf(YType.str, 'cpmProcessName')),
-                    ('cpmprocessusecs', YLeaf(YType.uint32, 'cpmProcessuSecs')),
-                    ('cpmprocesstimecreated', YLeaf(YType.uint32, 'cpmProcessTimeCreated')),
-                    ('cpmprocessaverageusecs', YLeaf(YType.uint32, 'cpmProcessAverageUSecs')),
-                    ('cpmprocextmemallocated', YLeaf(YType.uint32, 'cpmProcExtMemAllocated')),
-                    ('cpmprocextmemfreed', YLeaf(YType.uint32, 'cpmProcExtMemFreed')),
-                    ('cpmprocextinvoked', YLeaf(YType.uint32, 'cpmProcExtInvoked')),
-                    ('cpmprocextruntime', YLeaf(YType.uint32, 'cpmProcExtRuntime')),
-                    ('cpmprocextutil5sec', YLeaf(YType.uint32, 'cpmProcExtUtil5Sec')),
-                    ('cpmprocextutil1min', YLeaf(YType.uint32, 'cpmProcExtUtil1Min')),
-                    ('cpmprocextutil5min', YLeaf(YType.uint32, 'cpmProcExtUtil5Min')),
-                    ('cpmprocextpriority', YLeaf(YType.enumeration, 'cpmProcExtPriority')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmprocesspid', (YLeaf(YType.uint32, 'cpmProcessPID'), ['int'])),
+                    ('cpmprocessname', (YLeaf(YType.str, 'cpmProcessName'), ['str'])),
+                    ('cpmprocessusecs', (YLeaf(YType.uint32, 'cpmProcessuSecs'), ['int'])),
+                    ('cpmprocesstimecreated', (YLeaf(YType.uint32, 'cpmProcessTimeCreated'), ['int'])),
+                    ('cpmprocessaverageusecs', (YLeaf(YType.uint32, 'cpmProcessAverageUSecs'), ['int'])),
+                    ('cpmprocextmemallocated', (YLeaf(YType.uint32, 'cpmProcExtMemAllocated'), ['int'])),
+                    ('cpmprocextmemfreed', (YLeaf(YType.uint32, 'cpmProcExtMemFreed'), ['int'])),
+                    ('cpmprocextinvoked', (YLeaf(YType.uint32, 'cpmProcExtInvoked'), ['int'])),
+                    ('cpmprocextruntime', (YLeaf(YType.uint32, 'cpmProcExtRuntime'), ['int'])),
+                    ('cpmprocextutil5sec', (YLeaf(YType.uint32, 'cpmProcExtUtil5Sec'), ['int'])),
+                    ('cpmprocextutil1min', (YLeaf(YType.uint32, 'cpmProcExtUtil1Min'), ['int'])),
+                    ('cpmprocextutil5min', (YLeaf(YType.uint32, 'cpmProcExtUtil5Min'), ['int'])),
+                    ('cpmprocextpriority', (YLeaf(YType.enumeration, 'cpmProcExtPriority'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmProcessTable.CpmProcessEntry.CpmProcExtPriority')])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmprocesspid = None
@@ -932,6 +940,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmprocextpriority = None
                 self._segment_path = lambda: "cpmProcessEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmProcessTable.CpmProcessEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocessname', 'cpmprocessusecs', 'cpmprocesstimecreated', 'cpmprocessaverageusecs', 'cpmprocextmemallocated', 'cpmprocextmemfreed', 'cpmprocextinvoked', 'cpmprocextruntime', 'cpmprocextutil5sec', 'cpmprocextutil1min', 'cpmprocextutil5min', 'cpmprocextpriority'], name, value)
@@ -1004,6 +1013,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmprocessextreventry = YList(self)
             self._segment_path = lambda: "cpmProcessExtRevTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmProcessExtRevTable, [], name, value)
@@ -1296,38 +1306,38 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
-                    ('cpmprocextmemallocatedrev', YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRev')),
-                    ('cpmprocextmemfreedrev', YLeaf(YType.uint32, 'cpmProcExtMemFreedRev')),
-                    ('cpmprocextinvokedrev', YLeaf(YType.uint32, 'cpmProcExtInvokedRev')),
-                    ('cpmprocextruntimerev', YLeaf(YType.uint32, 'cpmProcExtRuntimeRev')),
-                    ('cpmprocextutil5secrev', YLeaf(YType.uint32, 'cpmProcExtUtil5SecRev')),
-                    ('cpmprocextutil1minrev', YLeaf(YType.uint32, 'cpmProcExtUtil1MinRev')),
-                    ('cpmprocextutil5minrev', YLeaf(YType.uint32, 'cpmProcExtUtil5MinRev')),
-                    ('cpmprocextpriorityrev', YLeaf(YType.enumeration, 'cpmProcExtPriorityRev')),
-                    ('cpmprocesstype', YLeaf(YType.enumeration, 'cpmProcessType')),
-                    ('cpmprocessrespawn', YLeaf(YType.uint32, 'cpmProcessRespawn')),
-                    ('cpmprocessrespawncount', YLeaf(YType.uint32, 'cpmProcessRespawnCount')),
-                    ('cpmprocessrespawnafterlastpatch', YLeaf(YType.uint32, 'cpmProcessRespawnAfterLastPatch')),
-                    ('cpmprocessmemorycore', YLeaf(YType.enumeration, 'cpmProcessMemoryCore')),
-                    ('cpmprocesslastrestartuser', YLeaf(YType.str, 'cpmProcessLastRestartUser')),
-                    ('cpmprocesstextsegmentsize', YLeaf(YType.uint32, 'cpmProcessTextSegmentSize')),
-                    ('cpmprocessdatasegmentsize', YLeaf(YType.uint32, 'cpmProcessDataSegmentSize')),
-                    ('cpmprocessstacksize', YLeaf(YType.uint32, 'cpmProcessStackSize')),
-                    ('cpmprocessdynamicmemorysize', YLeaf(YType.uint32, 'cpmProcessDynamicMemorySize')),
-                    ('cpmprocextmemallocatedrevovrflw', YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRevOvrflw')),
-                    ('cpmprocexthcmemallocatedrev', YLeaf(YType.uint64, 'cpmProcExtHCMemAllocatedRev')),
-                    ('cpmprocextmemfreedrevovrflw', YLeaf(YType.uint32, 'cpmProcExtMemFreedRevOvrflw')),
-                    ('cpmprocexthcmemfreedrev', YLeaf(YType.uint64, 'cpmProcExtHCMemFreedRev')),
-                    ('cpmprocesstextsegmentsizeovrflw', YLeaf(YType.uint32, 'cpmProcessTextSegmentSizeOvrflw')),
-                    ('cpmprocesshctextsegmentsize', YLeaf(YType.uint64, 'cpmProcessHCTextSegmentSize')),
-                    ('cpmprocessdatasegmentsizeovrflw', YLeaf(YType.uint32, 'cpmProcessDataSegmentSizeOvrflw')),
-                    ('cpmprocesshcdatasegmentsize', YLeaf(YType.uint64, 'cpmProcessHCDataSegmentSize')),
-                    ('cpmprocessstacksizeovrflw', YLeaf(YType.uint32, 'cpmProcessStackSizeOvrflw')),
-                    ('cpmprocesshcstacksize', YLeaf(YType.uint64, 'cpmProcessHCStackSize')),
-                    ('cpmprocessdynamicmemorysizeovrflw', YLeaf(YType.uint32, 'cpmProcessDynamicMemorySizeOvrflw')),
-                    ('cpmprocesshcdynamicmemorysize', YLeaf(YType.uint64, 'cpmProcessHCDynamicMemorySize')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmprocesspid', (YLeaf(YType.str, 'cpmProcessPID'), ['int'])),
+                    ('cpmprocextmemallocatedrev', (YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRev'), ['int'])),
+                    ('cpmprocextmemfreedrev', (YLeaf(YType.uint32, 'cpmProcExtMemFreedRev'), ['int'])),
+                    ('cpmprocextinvokedrev', (YLeaf(YType.uint32, 'cpmProcExtInvokedRev'), ['int'])),
+                    ('cpmprocextruntimerev', (YLeaf(YType.uint32, 'cpmProcExtRuntimeRev'), ['int'])),
+                    ('cpmprocextutil5secrev', (YLeaf(YType.uint32, 'cpmProcExtUtil5SecRev'), ['int'])),
+                    ('cpmprocextutil1minrev', (YLeaf(YType.uint32, 'cpmProcExtUtil1MinRev'), ['int'])),
+                    ('cpmprocextutil5minrev', (YLeaf(YType.uint32, 'cpmProcExtUtil5MinRev'), ['int'])),
+                    ('cpmprocextpriorityrev', (YLeaf(YType.enumeration, 'cpmProcExtPriorityRev'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcExtPriorityRev')])),
+                    ('cpmprocesstype', (YLeaf(YType.enumeration, 'cpmProcessType'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcessType')])),
+                    ('cpmprocessrespawn', (YLeaf(YType.uint32, 'cpmProcessRespawn'), ['int'])),
+                    ('cpmprocessrespawncount', (YLeaf(YType.uint32, 'cpmProcessRespawnCount'), ['int'])),
+                    ('cpmprocessrespawnafterlastpatch', (YLeaf(YType.uint32, 'cpmProcessRespawnAfterLastPatch'), ['int'])),
+                    ('cpmprocessmemorycore', (YLeaf(YType.enumeration, 'cpmProcessMemoryCore'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmProcessExtRevTable.CpmProcessExtRevEntry.CpmProcessMemoryCore')])),
+                    ('cpmprocesslastrestartuser', (YLeaf(YType.str, 'cpmProcessLastRestartUser'), ['str'])),
+                    ('cpmprocesstextsegmentsize', (YLeaf(YType.uint32, 'cpmProcessTextSegmentSize'), ['int'])),
+                    ('cpmprocessdatasegmentsize', (YLeaf(YType.uint32, 'cpmProcessDataSegmentSize'), ['int'])),
+                    ('cpmprocessstacksize', (YLeaf(YType.uint32, 'cpmProcessStackSize'), ['int'])),
+                    ('cpmprocessdynamicmemorysize', (YLeaf(YType.uint32, 'cpmProcessDynamicMemorySize'), ['int'])),
+                    ('cpmprocextmemallocatedrevovrflw', (YLeaf(YType.uint32, 'cpmProcExtMemAllocatedRevOvrflw'), ['int'])),
+                    ('cpmprocexthcmemallocatedrev', (YLeaf(YType.uint64, 'cpmProcExtHCMemAllocatedRev'), ['int'])),
+                    ('cpmprocextmemfreedrevovrflw', (YLeaf(YType.uint32, 'cpmProcExtMemFreedRevOvrflw'), ['int'])),
+                    ('cpmprocexthcmemfreedrev', (YLeaf(YType.uint64, 'cpmProcExtHCMemFreedRev'), ['int'])),
+                    ('cpmprocesstextsegmentsizeovrflw', (YLeaf(YType.uint32, 'cpmProcessTextSegmentSizeOvrflw'), ['int'])),
+                    ('cpmprocesshctextsegmentsize', (YLeaf(YType.uint64, 'cpmProcessHCTextSegmentSize'), ['int'])),
+                    ('cpmprocessdatasegmentsizeovrflw', (YLeaf(YType.uint32, 'cpmProcessDataSegmentSizeOvrflw'), ['int'])),
+                    ('cpmprocesshcdatasegmentsize', (YLeaf(YType.uint64, 'cpmProcessHCDataSegmentSize'), ['int'])),
+                    ('cpmprocessstacksizeovrflw', (YLeaf(YType.uint32, 'cpmProcessStackSizeOvrflw'), ['int'])),
+                    ('cpmprocesshcstacksize', (YLeaf(YType.uint64, 'cpmProcessHCStackSize'), ['int'])),
+                    ('cpmprocessdynamicmemorysizeovrflw', (YLeaf(YType.uint32, 'cpmProcessDynamicMemorySizeOvrflw'), ['int'])),
+                    ('cpmprocesshcdynamicmemorysize', (YLeaf(YType.uint64, 'cpmProcessHCDynamicMemorySize'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmprocesspid = None
@@ -1363,6 +1373,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmprocesshcdynamicmemorysize = None
                 self._segment_path = lambda: "cpmProcessExtRevEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmProcessExtRevTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmProcessExtRevTable.CpmProcessExtRevEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmprocextmemallocatedrev', 'cpmprocextmemfreedrev', 'cpmprocextinvokedrev', 'cpmprocextruntimerev', 'cpmprocextutil5secrev', 'cpmprocextutil1minrev', 'cpmprocextutil5minrev', 'cpmprocextpriorityrev', 'cpmprocesstype', 'cpmprocessrespawn', 'cpmprocessrespawncount', 'cpmprocessrespawnafterlastpatch', 'cpmprocessmemorycore', 'cpmprocesslastrestartuser', 'cpmprocesstextsegmentsize', 'cpmprocessdatasegmentsize', 'cpmprocessstacksize', 'cpmprocessdynamicmemorysize', 'cpmprocextmemallocatedrevovrflw', 'cpmprocexthcmemallocatedrev', 'cpmprocextmemfreedrevovrflw', 'cpmprocexthcmemfreedrev', 'cpmprocesstextsegmentsizeovrflw', 'cpmprocesshctextsegmentsize', 'cpmprocessdatasegmentsizeovrflw', 'cpmprocesshcdatasegmentsize', 'cpmprocessstacksizeovrflw', 'cpmprocesshcstacksize', 'cpmprocessdynamicmemorysizeovrflw', 'cpmprocesshcdynamicmemorysize'], name, value)
@@ -1518,6 +1529,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmcputhresholdentry = YList(self)
             self._segment_path = lambda: "cpmCPUThresholdTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCPUThresholdTable, [], name, value)
@@ -1598,13 +1610,13 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmcputhresholdclass']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmcputhresholdclass', YLeaf(YType.enumeration, 'cpmCPUThresholdClass')),
-                    ('cpmcpurisingthresholdvalue', YLeaf(YType.uint32, 'cpmCPURisingThresholdValue')),
-                    ('cpmcpurisingthresholdperiod', YLeaf(YType.uint32, 'cpmCPURisingThresholdPeriod')),
-                    ('cpmcpufallingthresholdvalue', YLeaf(YType.uint32, 'cpmCPUFallingThresholdValue')),
-                    ('cpmcpufallingthresholdperiod', YLeaf(YType.uint32, 'cpmCPUFallingThresholdPeriod')),
-                    ('cpmcputhresholdentrystatus', YLeaf(YType.enumeration, 'cpmCPUThresholdEntryStatus')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmcputhresholdclass', (YLeaf(YType.enumeration, 'cpmCPUThresholdClass'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmCPUThresholdTable.CpmCPUThresholdEntry.CpmCPUThresholdClass')])),
+                    ('cpmcpurisingthresholdvalue', (YLeaf(YType.uint32, 'cpmCPURisingThresholdValue'), ['int'])),
+                    ('cpmcpurisingthresholdperiod', (YLeaf(YType.uint32, 'cpmCPURisingThresholdPeriod'), ['int'])),
+                    ('cpmcpufallingthresholdvalue', (YLeaf(YType.uint32, 'cpmCPUFallingThresholdValue'), ['int'])),
+                    ('cpmcpufallingthresholdperiod', (YLeaf(YType.uint32, 'cpmCPUFallingThresholdPeriod'), ['int'])),
+                    ('cpmcputhresholdentrystatus', (YLeaf(YType.enumeration, 'cpmCPUThresholdEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmcputhresholdclass = None
@@ -1615,6 +1627,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmcputhresholdentrystatus = None
                 self._segment_path = lambda: "cpmCPUThresholdEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUThresholdClass='" + str(self.cpmcputhresholdclass) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUThresholdTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmCPUThresholdTable.CpmCPUThresholdEntry, ['cpmcputotalindex', 'cpmcputhresholdclass', 'cpmcpurisingthresholdvalue', 'cpmcpurisingthresholdperiod', 'cpmcpufallingthresholdvalue', 'cpmcpufallingthresholdperiod', 'cpmcputhresholdentrystatus'], name, value)
@@ -1681,6 +1694,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmcpuhistoryentry = YList(self)
             self._segment_path = lambda: "cpmCPUHistoryTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistoryTable, [], name, value)
@@ -1759,12 +1773,12 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmcpuhistoryreportid', YLeaf(YType.uint32, 'cpmCPUHistoryReportId')),
-                    ('cpmcpuhistoryreportsize', YLeaf(YType.uint32, 'cpmCPUHistoryReportSize')),
-                    ('cpmcpuhistorytotalutil', YLeaf(YType.uint32, 'cpmCPUHistoryTotalUtil')),
-                    ('cpmcpuhistoryinterruptutil', YLeaf(YType.uint32, 'cpmCPUHistoryInterruptUtil')),
-                    ('cpmcpuhistorycreatedtime', YLeaf(YType.uint32, 'cpmCPUHistoryCreatedTime')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmcpuhistoryreportid', (YLeaf(YType.uint32, 'cpmCPUHistoryReportId'), ['int'])),
+                    ('cpmcpuhistoryreportsize', (YLeaf(YType.uint32, 'cpmCPUHistoryReportSize'), ['int'])),
+                    ('cpmcpuhistorytotalutil', (YLeaf(YType.uint32, 'cpmCPUHistoryTotalUtil'), ['int'])),
+                    ('cpmcpuhistoryinterruptutil', (YLeaf(YType.uint32, 'cpmCPUHistoryInterruptUtil'), ['int'])),
+                    ('cpmcpuhistorycreatedtime', (YLeaf(YType.uint32, 'cpmCPUHistoryCreatedTime'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmcpuhistoryreportid = None
@@ -1774,6 +1788,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmcpuhistorycreatedtime = None
                 self._segment_path = lambda: "cpmCPUHistoryEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + str(self.cpmcpuhistoryreportid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmCPUHistoryTable.CpmCPUHistoryEntry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuhistoryreportsize', 'cpmcpuhistorytotalutil', 'cpmcpuhistoryinterruptutil', 'cpmcpuhistorycreatedtime'], name, value)
@@ -1811,6 +1826,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmcpuprocesshistoryentry = YList(self)
             self._segment_path = lambda: "cpmCPUProcessHistoryTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmCPUProcessHistoryTable, [], name, value)
@@ -1895,13 +1911,13 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmcpuhistoryreportid','cpmcpuprocesshistoryindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmcpuhistoryreportid', YLeaf(YType.str, 'cpmCPUHistoryReportId')),
-                    ('cpmcpuprocesshistoryindex', YLeaf(YType.uint32, 'cpmCPUProcessHistoryIndex')),
-                    ('cpmcpuhistoryprocid', YLeaf(YType.uint32, 'cpmCPUHistoryProcId')),
-                    ('cpmcpuhistoryprocname', YLeaf(YType.str, 'cpmCPUHistoryProcName')),
-                    ('cpmcpuhistoryproccreated', YLeaf(YType.uint32, 'cpmCPUHistoryProcCreated')),
-                    ('cpmcpuhistoryprocutil', YLeaf(YType.uint32, 'cpmCPUHistoryProcUtil')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmcpuhistoryreportid', (YLeaf(YType.str, 'cpmCPUHistoryReportId'), ['int'])),
+                    ('cpmcpuprocesshistoryindex', (YLeaf(YType.uint32, 'cpmCPUProcessHistoryIndex'), ['int'])),
+                    ('cpmcpuhistoryprocid', (YLeaf(YType.uint32, 'cpmCPUHistoryProcId'), ['int'])),
+                    ('cpmcpuhistoryprocname', (YLeaf(YType.str, 'cpmCPUHistoryProcName'), ['str'])),
+                    ('cpmcpuhistoryproccreated', (YLeaf(YType.uint32, 'cpmCPUHistoryProcCreated'), ['int'])),
+                    ('cpmcpuhistoryprocutil', (YLeaf(YType.uint32, 'cpmCPUHistoryProcUtil'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmcpuhistoryreportid = None
@@ -1912,6 +1928,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmcpuhistoryprocutil = None
                 self._segment_path = lambda: "cpmCPUProcessHistoryEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmCPUHistoryReportId='" + str(self.cpmcpuhistoryreportid) + "']" + "[cpmCPUProcessHistoryIndex='" + str(self.cpmcpuprocesshistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmCPUProcessHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmCPUProcessHistoryTable.CpmCPUProcessHistoryEntry, ['cpmcputotalindex', 'cpmcpuhistoryreportid', 'cpmcpuprocesshistoryindex', 'cpmcpuhistoryprocid', 'cpmcpuhistoryprocname', 'cpmcpuhistoryproccreated', 'cpmcpuhistoryprocutil'], name, value)
@@ -1948,6 +1965,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmthreadentry = YList(self)
             self._segment_path = lambda: "cpmThreadTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmThreadTable, [], name, value)
@@ -2060,17 +2078,17 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmthreadid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
-                    ('cpmthreadid', YLeaf(YType.uint32, 'cpmThreadID')),
-                    ('cpmthreadname', YLeaf(YType.str, 'cpmThreadName')),
-                    ('cpmthreadpriority', YLeaf(YType.uint32, 'cpmThreadPriority')),
-                    ('cpmthreadstate', YLeaf(YType.enumeration, 'cpmThreadState')),
-                    ('cpmthreadblockingprocess', YLeaf(YType.str, 'cpmThreadBlockingProcess')),
-                    ('cpmthreadcpuutilization', YLeaf(YType.uint32, 'cpmThreadCpuUtilization')),
-                    ('cpmthreadstacksize', YLeaf(YType.uint32, 'cpmThreadStackSize')),
-                    ('cpmthreadstacksizeovrflw', YLeaf(YType.uint32, 'cpmThreadStackSizeOvrflw')),
-                    ('cpmthreadhcstacksize', YLeaf(YType.uint64, 'cpmThreadHCStackSize')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmprocesspid', (YLeaf(YType.str, 'cpmProcessPID'), ['int'])),
+                    ('cpmthreadid', (YLeaf(YType.uint32, 'cpmThreadID'), ['int'])),
+                    ('cpmthreadname', (YLeaf(YType.str, 'cpmThreadName'), ['str'])),
+                    ('cpmthreadpriority', (YLeaf(YType.uint32, 'cpmThreadPriority'), ['int'])),
+                    ('cpmthreadstate', (YLeaf(YType.enumeration, 'cpmThreadState'), [('ydk.models.cisco_ios_xe.CISCO_PROCESS_MIB', 'CISCOPROCESSMIB', 'CpmThreadTable.CpmThreadEntry.CpmThreadState')])),
+                    ('cpmthreadblockingprocess', (YLeaf(YType.str, 'cpmThreadBlockingProcess'), ['str'])),
+                    ('cpmthreadcpuutilization', (YLeaf(YType.uint32, 'cpmThreadCpuUtilization'), ['int'])),
+                    ('cpmthreadstacksize', (YLeaf(YType.uint32, 'cpmThreadStackSize'), ['int'])),
+                    ('cpmthreadstacksizeovrflw', (YLeaf(YType.uint32, 'cpmThreadStackSizeOvrflw'), ['int'])),
+                    ('cpmthreadhcstacksize', (YLeaf(YType.uint64, 'cpmThreadHCStackSize'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmprocesspid = None
@@ -2085,6 +2103,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmthreadhcstacksize = None
                 self._segment_path = lambda: "cpmThreadEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']" + "[cpmThreadID='" + str(self.cpmthreadid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmThreadTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmThreadTable.CpmThreadEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmthreadid', 'cpmthreadname', 'cpmthreadpriority', 'cpmthreadstate', 'cpmthreadblockingprocess', 'cpmthreadcpuutilization', 'cpmthreadstacksize', 'cpmthreadstacksizeovrflw', 'cpmthreadhcstacksize'], name, value)
@@ -2262,6 +2281,7 @@ class CISCOPROCESSMIB(Entity):
             self.cpmvirtualprocessentry = YList(self)
             self._segment_path = lambda: "cpmVirtualProcessTable"
             self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPROCESSMIB.CpmVirtualProcessTable, [], name, value)
@@ -2418,21 +2438,21 @@ class CISCOPROCESSMIB(Entity):
                 self.ylist_key_names = ['cpmcputotalindex','cpmprocesspid','cpmvirtualprocessid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpmcputotalindex', YLeaf(YType.str, 'cpmCPUTotalIndex')),
-                    ('cpmprocesspid', YLeaf(YType.str, 'cpmProcessPID')),
-                    ('cpmvirtualprocessid', YLeaf(YType.uint32, 'cpmVirtualProcessID')),
-                    ('cpmvirtualprocessname', YLeaf(YType.str, 'cpmVirtualProcessName')),
-                    ('cpmvirtualprocessutil5sec', YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Sec')),
-                    ('cpmvirtualprocessutil1min', YLeaf(YType.uint32, 'cpmVirtualProcessUtil1Min')),
-                    ('cpmvirtualprocessutil5min', YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Min')),
-                    ('cpmvirtualprocessmemallocated', YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocated')),
-                    ('cpmvirtualprocessmemfreed', YLeaf(YType.uint32, 'cpmVirtualProcessMemFreed')),
-                    ('cpmvirtualprocessinvokecount', YLeaf(YType.uint32, 'cpmVirtualProcessInvokeCount')),
-                    ('cpmvirtualprocessruntime', YLeaf(YType.uint32, 'cpmVirtualProcessRuntime')),
-                    ('cpmvirtualprocessmemallocatedovrflw', YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocatedOvrflw')),
-                    ('cpmvirtualprocesshcmemallocated', YLeaf(YType.uint64, 'cpmVirtualProcessHCMemAllocated')),
-                    ('cpmvirtualprocessmemfreedovrflw', YLeaf(YType.uint32, 'cpmVirtualProcessMemFreedOvrflw')),
-                    ('cpmvirtualprocesshcmemfreed', YLeaf(YType.uint64, 'cpmVirtualProcessHCMemFreed')),
+                    ('cpmcputotalindex', (YLeaf(YType.str, 'cpmCPUTotalIndex'), ['int'])),
+                    ('cpmprocesspid', (YLeaf(YType.str, 'cpmProcessPID'), ['int'])),
+                    ('cpmvirtualprocessid', (YLeaf(YType.uint32, 'cpmVirtualProcessID'), ['int'])),
+                    ('cpmvirtualprocessname', (YLeaf(YType.str, 'cpmVirtualProcessName'), ['str'])),
+                    ('cpmvirtualprocessutil5sec', (YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Sec'), ['int'])),
+                    ('cpmvirtualprocessutil1min', (YLeaf(YType.uint32, 'cpmVirtualProcessUtil1Min'), ['int'])),
+                    ('cpmvirtualprocessutil5min', (YLeaf(YType.uint32, 'cpmVirtualProcessUtil5Min'), ['int'])),
+                    ('cpmvirtualprocessmemallocated', (YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocated'), ['int'])),
+                    ('cpmvirtualprocessmemfreed', (YLeaf(YType.uint32, 'cpmVirtualProcessMemFreed'), ['int'])),
+                    ('cpmvirtualprocessinvokecount', (YLeaf(YType.uint32, 'cpmVirtualProcessInvokeCount'), ['int'])),
+                    ('cpmvirtualprocessruntime', (YLeaf(YType.uint32, 'cpmVirtualProcessRuntime'), ['int'])),
+                    ('cpmvirtualprocessmemallocatedovrflw', (YLeaf(YType.uint32, 'cpmVirtualProcessMemAllocatedOvrflw'), ['int'])),
+                    ('cpmvirtualprocesshcmemallocated', (YLeaf(YType.uint64, 'cpmVirtualProcessHCMemAllocated'), ['int'])),
+                    ('cpmvirtualprocessmemfreedovrflw', (YLeaf(YType.uint32, 'cpmVirtualProcessMemFreedOvrflw'), ['int'])),
+                    ('cpmvirtualprocesshcmemfreed', (YLeaf(YType.uint64, 'cpmVirtualProcessHCMemFreed'), ['int'])),
                 ])
                 self.cpmcputotalindex = None
                 self.cpmprocesspid = None
@@ -2451,6 +2471,7 @@ class CISCOPROCESSMIB(Entity):
                 self.cpmvirtualprocesshcmemfreed = None
                 self._segment_path = lambda: "cpmVirtualProcessEntry" + "[cpmCPUTotalIndex='" + str(self.cpmcputotalindex) + "']" + "[cpmProcessPID='" + str(self.cpmprocesspid) + "']" + "[cpmVirtualProcessID='" + str(self.cpmvirtualprocessid) + "']"
                 self._absolute_path = lambda: "CISCO-PROCESS-MIB:CISCO-PROCESS-MIB/cpmVirtualProcessTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPROCESSMIB.CpmVirtualProcessTable.CpmVirtualProcessEntry, ['cpmcputotalindex', 'cpmprocesspid', 'cpmvirtualprocessid', 'cpmvirtualprocessname', 'cpmvirtualprocessutil5sec', 'cpmvirtualprocessutil1min', 'cpmvirtualprocessutil5min', 'cpmvirtualprocessmemallocated', 'cpmvirtualprocessmemfreed', 'cpmvirtualprocessinvokecount', 'cpmvirtualprocessruntime', 'cpmvirtualprocessmemallocatedovrflw', 'cpmvirtualprocesshcmemallocated', 'cpmvirtualprocessmemfreedovrflw', 'cpmvirtualprocesshcmemfreed'], name, value)

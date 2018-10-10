@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   alarm\-logger\: Alarm Logger operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AlAlarmBistate(Enum):
@@ -151,6 +152,7 @@ class AlarmLogger(Entity):
         self.alarms.parent = self
         self._children_name_map["alarms"] = "alarms"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AlarmLogger, [], name, value)
@@ -217,11 +219,11 @@ class AlarmLogger(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('log_buffer_size', YLeaf(YType.uint32, 'log-buffer-size')),
-                ('max_log_buffer_size', YLeaf(YType.uint32, 'max-log-buffer-size')),
-                ('record_count', YLeaf(YType.uint32, 'record-count')),
-                ('capacity_threshold', YLeaf(YType.uint32, 'capacity-threshold')),
-                ('severity_filter', YLeaf(YType.enumeration, 'severity-filter')),
+                ('log_buffer_size', (YLeaf(YType.uint32, 'log-buffer-size'), ['int'])),
+                ('max_log_buffer_size', (YLeaf(YType.uint32, 'max-log-buffer-size'), ['int'])),
+                ('record_count', (YLeaf(YType.uint32, 'record-count'), ['int'])),
+                ('capacity_threshold', (YLeaf(YType.uint32, 'capacity-threshold'), ['int'])),
+                ('severity_filter', (YLeaf(YType.enumeration, 'severity-filter'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverity', '')])),
             ])
             self.log_buffer_size = None
             self.max_log_buffer_size = None
@@ -230,6 +232,7 @@ class AlarmLogger(Entity):
             self.severity_filter = None
             self._segment_path = lambda: "buffer-status"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmLogger.BufferStatus, ['log_buffer_size', 'max_log_buffer_size', 'record_count', 'capacity_threshold', 'severity_filter'], name, value)
@@ -266,6 +269,7 @@ class AlarmLogger(Entity):
             self.alarm = YList(self)
             self._segment_path = lambda: "alarms"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmLogger.Alarms, [], name, value)
@@ -355,17 +359,17 @@ class AlarmLogger(Entity):
                 self.ylist_key_names = ['event_id']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('event_id', YLeaf(YType.uint32, 'event-id')),
-                    ('source_id', YLeaf(YType.str, 'source-id')),
-                    ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                    ('category', YLeaf(YType.str, 'category')),
-                    ('group', YLeaf(YType.str, 'group')),
-                    ('code', YLeaf(YType.str, 'code')),
-                    ('severity', YLeaf(YType.enumeration, 'severity')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
-                    ('is_admin', YLeaf(YType.boolean, 'is-admin')),
-                    ('additional_text', YLeaf(YType.str, 'additional-text')),
+                    ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
+                    ('source_id', (YLeaf(YType.str, 'source-id'), ['str'])),
+                    ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                    ('category', (YLeaf(YType.str, 'category'), ['str'])),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                    ('code', (YLeaf(YType.str, 'code'), ['str'])),
+                    ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmSeverity', '')])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_alarm_logger_oper', 'AlAlarmBistate', '')])),
+                    ('correlation_id', (YLeaf(YType.uint32, 'correlation-id'), ['int'])),
+                    ('is_admin', (YLeaf(YType.boolean, 'is-admin'), ['bool'])),
+                    ('additional_text', (YLeaf(YType.str, 'additional-text'), ['str'])),
                 ])
                 self.event_id = None
                 self.source_id = None
@@ -380,6 +384,7 @@ class AlarmLogger(Entity):
                 self.additional_text = None
                 self._segment_path = lambda: "alarm" + "[event-id='" + str(self.event_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-alarm-logger-oper:alarm-logger/alarms/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmLogger.Alarms.Alarm, ['event_id', 'source_id', 'timestamp', 'category', 'group', 'code', 'severity', 'state', 'correlation_id', 'is_admin', 'additional_text'], name, value)

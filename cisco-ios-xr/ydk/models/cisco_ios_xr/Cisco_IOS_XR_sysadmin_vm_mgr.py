@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class VM(Entity):
     """
     VM Info
@@ -46,6 +47,7 @@ class VM(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-vm-mgr:VM"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(VM, [], name, value)
@@ -82,13 +84,14 @@ class VM(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([("all-uiids", ("all_uiids", VM.AllLocations.AllUiids))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
             ])
             self.location = None
 
             self.all_uiids = YList(self)
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-vm-mgr:VM/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(VM.AllLocations, ['location'], name, value)
@@ -160,15 +163,15 @@ class VM(Entity):
                 self.ylist_key_names = ['uiid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('uiid', YLeaf(YType.str, 'uiid')),
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('status', YLeaf(YType.str, 'status')),
-                    ('ipaddr', YLeaf(YType.str, 'ipaddr')),
-                    ('hb_interval_s', YLeaf(YType.str, 'hb_interval_s')),
-                    ('hb_interval_ns', YLeaf(YType.str, 'hb_interval_ns')),
-                    ('last_hb_sent', YLeaf(YType.str, 'last_hb_sent')),
-                    ('last_hb_rec', YLeaf(YType.str, 'last_hb_rec')),
-                    ('role', YLeaf(YType.str, 'role')),
+                    ('uiid', (YLeaf(YType.str, 'uiid'), ['str'])),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                    ('ipaddr', (YLeaf(YType.str, 'ipaddr'), ['str'])),
+                    ('hb_interval_s', (YLeaf(YType.str, 'hb_interval_s'), ['str'])),
+                    ('hb_interval_ns', (YLeaf(YType.str, 'hb_interval_ns'), ['str'])),
+                    ('last_hb_sent', (YLeaf(YType.str, 'last_hb_sent'), ['str'])),
+                    ('last_hb_rec', (YLeaf(YType.str, 'last_hb_rec'), ['str'])),
+                    ('role', (YLeaf(YType.str, 'role'), ['str'])),
                 ])
                 self.uiid = None
                 self.id = None
@@ -180,6 +183,7 @@ class VM(Entity):
                 self.last_hb_rec = None
                 self.role = None
                 self._segment_path = lambda: "all-uiids" + "[uiid='" + str(self.uiid) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VM.AllLocations.AllUiids, ['uiid', 'id', 'status', 'ipaddr', 'hb_interval_s', 'hb_interval_ns', 'last_hb_sent', 'last_hb_rec', 'role'], name, value)

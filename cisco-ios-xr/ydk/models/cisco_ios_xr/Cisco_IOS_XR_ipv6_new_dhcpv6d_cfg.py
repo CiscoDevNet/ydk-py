@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   dhcpv6\: None
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Action(Enum):
@@ -60,6 +61,10 @@ class Insert(Enum):
 
     	Insert received Interface ID value from SADB
 
+    .. data:: received_nodefault = 3
+
+    	No default Interface ID
+
     """
 
     local = Enum.YLeaf(0, "local")
@@ -67,6 +72,8 @@ class Insert(Enum):
     received = Enum.YLeaf(1, "received")
 
     pppoe = Enum.YLeaf(2, "pppoe")
+
+    received_nodefault = Enum.YLeaf(3, "received-nodefault")
 
 
 class LinkLayerAddr(Enum):
@@ -166,10 +173,10 @@ class Dhcpv6(Entity):
         self._child_classes = OrderedDict([("database", ("database", Dhcpv6.Database)), ("profiles", ("profiles", Dhcpv6.Profiles)), ("interfaces", ("interfaces", Dhcpv6.Interfaces))])
         self.is_presence_container = True
         self._leafs = OrderedDict([
-            ('inner_cos', YLeaf(YType.uint32, 'inner-cos')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('allow_duid_change', YLeaf(YType.empty, 'allow-duid-change')),
-            ('outer_cos', YLeaf(YType.uint32, 'outer-cos')),
+            ('inner_cos', (YLeaf(YType.uint32, 'inner-cos'), ['int'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('allow_duid_change', (YLeaf(YType.empty, 'allow-duid-change'), ['Empty'])),
+            ('outer_cos', (YLeaf(YType.uint32, 'outer-cos'), ['int'])),
         ])
         self.inner_cos = None
         self.enable = None
@@ -188,6 +195,7 @@ class Dhcpv6(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Dhcpv6, ['inner_cos', 'enable', 'allow_duid_change', 'outer_cos'], name, value)
@@ -248,11 +256,11 @@ class Dhcpv6(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('proxy', YLeaf(YType.empty, 'proxy')),
-                ('server', YLeaf(YType.empty, 'server')),
-                ('relay', YLeaf(YType.empty, 'relay')),
-                ('full_write_interval', YLeaf(YType.uint32, 'full-write-interval')),
-                ('incremental_write_interval', YLeaf(YType.uint32, 'incremental-write-interval')),
+                ('proxy', (YLeaf(YType.empty, 'proxy'), ['Empty'])),
+                ('server', (YLeaf(YType.empty, 'server'), ['Empty'])),
+                ('relay', (YLeaf(YType.empty, 'relay'), ['Empty'])),
+                ('full_write_interval', (YLeaf(YType.uint32, 'full-write-interval'), ['int'])),
+                ('incremental_write_interval', (YLeaf(YType.uint32, 'incremental-write-interval'), ['int'])),
             ])
             self.proxy = None
             self.server = None
@@ -261,6 +269,7 @@ class Dhcpv6(Entity):
             self.incremental_write_interval = None
             self._segment_path = lambda: "database"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.Database, ['proxy', 'server', 'relay', 'full_write_interval', 'incremental_write_interval'], name, value)
@@ -296,6 +305,7 @@ class Dhcpv6(Entity):
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.Profiles, [], name, value)
@@ -357,7 +367,7 @@ class Dhcpv6(Entity):
                 self.ylist_key_names = ['profile_name']
                 self._child_classes = OrderedDict([("relay", ("relay", Dhcpv6.Profiles.Profile.Relay)), ("base", ("base", Dhcpv6.Profiles.Profile.Base)), ("proxy", ("proxy", Dhcpv6.Profiles.Profile.Proxy)), ("server", ("server", Dhcpv6.Profiles.Profile.Server))])
                 self._leafs = OrderedDict([
-                    ('profile_name', YLeaf(YType.str, 'profile-name')),
+                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
                 ])
                 self.profile_name = None
 
@@ -374,6 +384,7 @@ class Dhcpv6(Entity):
                 self._children_name_map["server"] = "server"
                 self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/profiles/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Dhcpv6.Profiles.Profile, ['profile_name'], name, value)
@@ -398,7 +409,7 @@ class Dhcpv6(Entity):
                 	Relay profile Source Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: enable
                 
@@ -410,6 +421,11 @@ class Dhcpv6(Entity):
                 .. attribute:: iana_route_add
                 
                 	Enable route addition for IANA
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
+                .. attribute:: relay_route_add_disable
+                
+                	RouteDisable
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
                 
@@ -432,13 +448,15 @@ class Dhcpv6(Entity):
                     self._child_classes = OrderedDict([("helper-addresses", ("helper_addresses", Dhcpv6.Profiles.Profile.Relay.HelperAddresses)), ("option", ("option", Dhcpv6.Profiles.Profile.Relay.Option))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('src_intf_name', YLeaf(YType.str, 'src-intf-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('iana_route_add', YLeaf(YType.empty, 'iana-route-add')),
+                        ('src_intf_name', (YLeaf(YType.str, 'src-intf-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('iana_route_add', (YLeaf(YType.empty, 'iana-route-add'), ['Empty'])),
+                        ('relay_route_add_disable', (YLeaf(YType.empty, 'relay-route-add-disable'), ['Empty'])),
                     ])
                     self.src_intf_name = None
                     self.enable = None
                     self.iana_route_add = None
+                    self.relay_route_add_disable = None
 
                     self.helper_addresses = Dhcpv6.Profiles.Profile.Relay.HelperAddresses()
                     self.helper_addresses.parent = self
@@ -448,9 +466,10 @@ class Dhcpv6(Entity):
                     self.option.parent = self
                     self._children_name_map["option"] = "option"
                     self._segment_path = lambda: "relay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['src_intf_name', 'enable', 'iana_route_add'], name, value)
+                    self._perform_setattr(Dhcpv6.Profiles.Profile.Relay, ['src_intf_name', 'enable', 'iana_route_add', 'relay_route_add_disable'], name, value)
 
 
                 class HelperAddresses(Entity):
@@ -482,6 +501,7 @@ class Dhcpv6(Entity):
 
                         self.helper_address = YList(self)
                         self._segment_path = lambda: "helper-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses, [], name, value)
@@ -517,7 +537,7 @@ class Dhcpv6(Entity):
                         	Helper\-address Specific Source Interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         
 
@@ -536,16 +556,17 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['vrf_name','helper_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('helper_address', YLeaf(YType.str, 'helper-address')),
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('src_intf_name', YLeaf(YType.str, 'src-intf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('helper_address', (YLeaf(YType.str, 'helper-address'), ['str'])),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('src_intf_name', (YLeaf(YType.str, 'src-intf-name'), ['str'])),
                             ])
                             self.vrf_name = None
                             self.helper_address = None
                             self.enable = None
                             self.src_intf_name = None
                             self._segment_path = lambda: "helper-address" + "[vrf-name='" + str(self.vrf_name) + "']" + "[helper-address='" + str(self.helper_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address', 'enable', 'src_intf_name'], name, value)
@@ -579,10 +600,11 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('remote_id', YLeaf(YType.str, 'remote-id')),
+                            ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
                         ])
                         self.remote_id = None
                         self._segment_path = lambda: "option"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Relay.Option, ['remote_id'], name, value)
@@ -629,7 +651,7 @@ class Dhcpv6(Entity):
                     self._child_classes = OrderedDict([("default", ("default", Dhcpv6.Profiles.Profile.Base.Default)), ("match", ("match", Dhcpv6.Profiles.Profile.Base.Match))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.enable = None
 
@@ -641,6 +663,7 @@ class Dhcpv6(Entity):
                     self.match.parent = self
                     self._children_name_map["match"] = "match"
                     self._segment_path = lambda: "base"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Profiles.Profile.Base, ['enable'], name, value)
@@ -675,6 +698,7 @@ class Dhcpv6(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "default"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default, [], name, value)
@@ -718,14 +742,15 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['profile_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                ('server_mode', YLeaf(YType.empty, 'server-mode')),
-                                ('proxy_mode', YLeaf(YType.empty, 'proxy-mode')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('server_mode', (YLeaf(YType.empty, 'server-mode'), ['Empty'])),
+                                ('proxy_mode', (YLeaf(YType.empty, 'proxy-mode'), ['Empty'])),
                             ])
                             self.profile_name = None
                             self.server_mode = None
                             self.proxy_mode = None
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Default.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
@@ -762,6 +787,7 @@ class Dhcpv6(Entity):
                         self.mode_classes.parent = self
                         self._children_name_map["mode_classes"] = "mode-classes"
                         self._segment_path = lambda: "match"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match, [], name, value)
@@ -796,6 +822,7 @@ class Dhcpv6(Entity):
 
                             self.mode_class = YList(self)
                             self._segment_path = lambda: "mode-classes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses, [], name, value)
@@ -834,12 +861,13 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = ['class_name']
                                 self._child_classes = OrderedDict([("profile", ("profile", Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_))])
                                 self._leafs = OrderedDict([
-                                    ('class_name', YLeaf(YType.str, 'class-name')),
+                                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
                                 ])
                                 self.class_name = None
 
                                 self.profile = YList(self)
                                 self._segment_path = lambda: "mode-class" + "[class-name='" + str(self.class_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass, ['class_name'], name, value)
@@ -883,14 +911,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = ['profile_name']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                        ('server_mode', YLeaf(YType.empty, 'server-mode')),
-                                        ('proxy_mode', YLeaf(YType.empty, 'proxy-mode')),
+                                        ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                        ('server_mode', (YLeaf(YType.empty, 'server-mode'), ['Empty'])),
+                                        ('proxy_mode', (YLeaf(YType.empty, 'proxy-mode'), ['Empty'])),
                                     ])
                                     self.profile_name = None
                                     self.server_mode = None
                                     self.proxy_mode = None
                                     self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Base.Match.ModeClasses.ModeClass.Profile_, ['profile_name', 'server_mode', 'proxy_mode'], name, value)
@@ -958,7 +987,7 @@ class Dhcpv6(Entity):
                 	Create or enter proxy profile Source Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: enable
                 
@@ -987,11 +1016,11 @@ class Dhcpv6(Entity):
                     self._child_classes = OrderedDict([("interfaces", ("interfaces", Dhcpv6.Profiles.Profile.Proxy.Interfaces)), ("relay", ("relay", Dhcpv6.Profiles.Profile.Proxy.Relay)), ("vrfs", ("vrfs", Dhcpv6.Profiles.Profile.Proxy.Vrfs)), ("authentication", ("authentication", Dhcpv6.Profiles.Profile.Proxy.Authentication)), ("classes", ("classes", Dhcpv6.Profiles.Profile.Proxy.Classes)), ("sessions", ("sessions", Dhcpv6.Profiles.Profile.Proxy.Sessions))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('linkaddress_from_ra_enable', YLeaf(YType.empty, 'linkaddress-from-ra-enable')),
-                        ('route_add_disable', YLeaf(YType.empty, 'route-add-disable')),
-                        ('link_address', YLeaf(YType.str, 'link-address')),
-                        ('src_intf_name', YLeaf(YType.str, 'src-intf-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('linkaddress_from_ra_enable', (YLeaf(YType.empty, 'linkaddress-from-ra-enable'), ['Empty'])),
+                        ('route_add_disable', (YLeaf(YType.empty, 'route-add-disable'), ['Empty'])),
+                        ('link_address', (YLeaf(YType.str, 'link-address'), ['str','str'])),
+                        ('src_intf_name', (YLeaf(YType.str, 'src-intf-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.linkaddress_from_ra_enable = None
                     self.route_add_disable = None
@@ -1023,6 +1052,7 @@ class Dhcpv6(Entity):
                     self.sessions.parent = self
                     self._children_name_map["sessions"] = "sessions"
                     self._segment_path = lambda: "proxy"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy, ['linkaddress_from_ra_enable', 'route_add_disable', 'link_address', 'src_intf_name', 'enable'], name, value)
@@ -1057,6 +1087,7 @@ class Dhcpv6(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces, [], name, value)
@@ -1071,7 +1102,7 @@ class Dhcpv6(Entity):
                         	Interface to configure
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: interface_id
                         
@@ -1095,12 +1126,13 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface_id', YLeaf(YType.str, 'interface-id')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface_id', (YLeaf(YType.str, 'interface-id'), ['str'])),
                             ])
                             self.interface_name = None
                             self.interface_id = None
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)
@@ -1137,6 +1169,7 @@ class Dhcpv6(Entity):
                         self.option.parent = self
                         self._children_name_map["option"] = "option"
                         self._segment_path = lambda: "relay"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay, [], name, value)
@@ -1192,10 +1225,10 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("interface-id", ("interface_id", Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId))])
                             self._leafs = OrderedDict([
-                                ('subscriber_id', YLeaf(YType.enumeration, 'subscriber-id')),
-                                ('link_layer_addr', YLeaf(YType.enumeration, 'link-layer-addr')),
-                                ('remote_i_dreceived', YLeaf(YType.uint32, 'remote-i-dreceived')),
-                                ('remote_id', YLeaf(YType.str, 'remote-id')),
+                                ('subscriber_id', (YLeaf(YType.enumeration, 'subscriber-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'SubscriberId', '')])),
+                                ('link_layer_addr', (YLeaf(YType.enumeration, 'link-layer-addr'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'LinkLayerAddr', '')])),
+                                ('remote_i_dreceived', (YLeaf(YType.uint32, 'remote-i-dreceived'), ['int'])),
+                                ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
                             ])
                             self.subscriber_id = None
                             self.link_layer_addr = None
@@ -1206,6 +1239,7 @@ class Dhcpv6(Entity):
                             self.interface_id.parent = self
                             self._children_name_map["interface_id"] = "interface-id"
                             self._segment_path = lambda: "option"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option, ['subscriber_id', 'link_layer_addr', 'remote_i_dreceived', 'remote_id'], name, value)
@@ -1237,10 +1271,11 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('insert', YLeaf(YType.enumeration, 'insert')),
+                                    ('insert', (YLeaf(YType.enumeration, 'insert'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Insert', '')])),
                                 ])
                                 self.insert = None
                                 self._segment_path = lambda: "interface-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Relay.Option.InterfaceId, ['insert'], name, value)
@@ -1275,6 +1310,7 @@ class Dhcpv6(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs, [], name, value)
@@ -1313,7 +1349,7 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("helper-addresses", ("helper_addresses", Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -1321,6 +1357,7 @@ class Dhcpv6(Entity):
                             self.helper_addresses.parent = self
                             self._children_name_map["helper_addresses"] = "helper-addresses"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -1355,6 +1392,7 @@ class Dhcpv6(Entity):
 
                                 self.helper_address = YList(self)
                                 self._segment_path = lambda: "helper-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses, [], name, value)
@@ -1376,7 +1414,7 @@ class Dhcpv6(Entity):
                                 	DHCPv6 HelperAddress Specific Output Interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: any_out_interface
                                 
@@ -1400,14 +1438,15 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = ['helper_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('helper_address', YLeaf(YType.str, 'helper-address')),
-                                        ('out_interface', YLeaf(YType.str, 'out-interface')),
-                                        ('any_out_interface', YLeaf(YType.empty, 'any-out-interface')),
+                                        ('helper_address', (YLeaf(YType.str, 'helper-address'), ['str'])),
+                                        ('out_interface', (YLeaf(YType.str, 'out-interface'), ['str'])),
+                                        ('any_out_interface', (YLeaf(YType.empty, 'any-out-interface'), ['Empty'])),
                                     ])
                                     self.helper_address = None
                                     self.out_interface = None
                                     self.any_out_interface = None
                                     self._segment_path = lambda: "helper-address" + "[helper-address='" + str(self.helper_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Vrfs.Vrf.HelperAddresses.HelperAddress, ['helper_address', 'out_interface', 'any_out_interface'], name, value)
@@ -1439,10 +1478,11 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('username', YLeaf(YType.empty, 'username')),
+                            ('username', (YLeaf(YType.empty, 'username'), ['Empty'])),
                         ])
                         self.username = None
                         self._segment_path = lambda: "authentication"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Authentication, ['username'], name, value)
@@ -1477,6 +1517,7 @@ class Dhcpv6(Entity):
 
                         self.class_ = YList(self)
                         self._segment_path = lambda: "classes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes, [], name, value)
@@ -1528,8 +1569,8 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['class_name']
                             self._child_classes = OrderedDict([("helper-addresses", ("helper_addresses", Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses))])
                             self._leafs = OrderedDict([
-                                ('class_name', YLeaf(YType.str, 'class-name')),
-                                ('link_address', YLeaf(YType.str, 'link-address')),
+                                ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                ('link_address', (YLeaf(YType.str, 'link-address'), ['str','str'])),
                             ])
                             self.class_name = None
                             self.link_address = None
@@ -1538,6 +1579,7 @@ class Dhcpv6(Entity):
                             self.helper_addresses.parent = self
                             self._children_name_map["helper_addresses"] = "helper-addresses"
                             self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes.Class, ['class_name', 'link_address'], name, value)
@@ -1572,6 +1614,7 @@ class Dhcpv6(Entity):
 
                                 self.helper_address = YList(self)
                                 self._segment_path = lambda: "helper-addresses"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses, [], name, value)
@@ -1612,12 +1655,13 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = ['vrf_name','helper_address']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                        ('helper_address', YLeaf(YType.str, 'helper-address')),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('helper_address', (YLeaf(YType.str, 'helper-address'), ['str'])),
                                     ])
                                     self.vrf_name = None
                                     self.helper_address = None
                                     self._segment_path = lambda: "helper-address" + "[vrf-name='" + str(self.vrf_name) + "']" + "[helper-address='" + str(self.helper_address) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Classes.Class.HelperAddresses.HelperAddress, ['vrf_name', 'helper_address'], name, value)
@@ -1654,6 +1698,7 @@ class Dhcpv6(Entity):
                         self.mac.parent = self
                         self._children_name_map["mac"] = "mac"
                         self._segment_path = lambda: "sessions"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions, [], name, value)
@@ -1690,6 +1735,7 @@ class Dhcpv6(Entity):
                             self.throttle.parent = self
                             self._children_name_map["throttle"] = "throttle"
                             self._segment_path = lambda: "mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac, [], name, value)
@@ -1742,14 +1788,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request', YLeaf(YType.uint32, 'request')),
-                                    ('block', YLeaf(YType.uint32, 'block')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
+                                    ('block', (YLeaf(YType.uint32, 'block'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request = None
                                 self.block = None
                                 self._segment_path = lambda: "throttle"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Proxy.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
@@ -1866,13 +1913,13 @@ class Dhcpv6(Entity):
                     self._child_classes = OrderedDict([("sessions", ("sessions", Dhcpv6.Profiles.Profile.Server.Sessions)), ("dns-servers", ("dns_servers", Dhcpv6.Profiles.Profile.Server.DnsServers)), ("classes", ("classes", Dhcpv6.Profiles.Profile.Server.Classes)), ("lease", ("lease", Dhcpv6.Profiles.Profile.Server.Lease)), ("dhcpv6duid", ("dhcpv6duid", Dhcpv6.Profiles.Profile.Server.Dhcpv6duid)), ("aaa-server", ("aaa_server", Dhcpv6.Profiles.Profile.Server.AaaServer)), ("options", ("options", Dhcpv6.Profiles.Profile.Server.Options)), ("dhcpv6-options", ("dhcpv6_options", Dhcpv6.Profiles.Profile.Server.Dhcpv6Options))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('address_pool', YLeaf(YType.str, 'address-pool')),
-                        ('aftr_name', YLeaf(YType.str, 'aftr-name')),
-                        ('domain_name', YLeaf(YType.str, 'domain-name')),
-                        ('preference', YLeaf(YType.uint32, 'preference')),
-                        ('rapid_commit', YLeaf(YType.empty, 'rapid-commit')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('prefix_pool', YLeaf(YType.str, 'prefix-pool')),
+                        ('address_pool', (YLeaf(YType.str, 'address-pool'), ['str'])),
+                        ('aftr_name', (YLeaf(YType.str, 'aftr-name'), ['str'])),
+                        ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                        ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
+                        ('rapid_commit', (YLeaf(YType.empty, 'rapid-commit'), ['Empty'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('prefix_pool', (YLeaf(YType.str, 'prefix-pool'), ['str'])),
                     ])
                     self.address_pool = None
                     self.aftr_name = None
@@ -1914,6 +1961,7 @@ class Dhcpv6(Entity):
                     self.dhcpv6_options.parent = self
                     self._children_name_map["dhcpv6_options"] = "dhcpv6-options"
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server, ['address_pool', 'aftr_name', 'domain_name', 'preference', 'rapid_commit', 'enable', 'prefix_pool'], name, value)
@@ -1950,6 +1998,7 @@ class Dhcpv6(Entity):
                         self.mac.parent = self
                         self._children_name_map["mac"] = "mac"
                         self._segment_path = lambda: "sessions"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions, [], name, value)
@@ -1986,6 +2035,7 @@ class Dhcpv6(Entity):
                             self.throttle.parent = self
                             self._children_name_map["throttle"] = "throttle"
                             self._segment_path = lambda: "mac"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions.Mac, [], name, value)
@@ -2038,14 +2088,15 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('limit', YLeaf(YType.uint32, 'limit')),
-                                    ('request', YLeaf(YType.uint32, 'request')),
-                                    ('block', YLeaf(YType.uint32, 'block')),
+                                    ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                                    ('request', (YLeaf(YType.uint32, 'request'), ['int'])),
+                                    ('block', (YLeaf(YType.uint32, 'block'), ['int'])),
                                 ])
                                 self.limit = None
                                 self.request = None
                                 self.block = None
                                 self._segment_path = lambda: "throttle"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Sessions.Mac.Throttle, ['limit', 'request', 'block'], name, value)
@@ -2085,10 +2136,11 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('dns_server', YLeafList(YType.str, 'dns-server')),
+                            ('dns_server', (YLeafList(YType.str, 'dns-server'), ['str','str'])),
                         ])
                         self.dns_server = []
                         self._segment_path = lambda: "dns-servers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.DnsServers, ['dns_server'], name, value)
@@ -2123,6 +2175,7 @@ class Dhcpv6(Entity):
 
                         self.class_ = YList(self)
                         self._segment_path = lambda: "classes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes, [], name, value)
@@ -2194,11 +2247,11 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['class_name']
                             self._child_classes = OrderedDict([("dns-servers", ("dns_servers", Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers)), ("lease", ("lease", Dhcpv6.Profiles.Profile.Server.Classes.Class.Lease))])
                             self._leafs = OrderedDict([
-                                ('class_name', YLeaf(YType.str, 'class-name')),
-                                ('address_pool', YLeaf(YType.str, 'address-pool')),
-                                ('domain_name', YLeaf(YType.str, 'domain-name')),
-                                ('preference', YLeaf(YType.uint32, 'preference')),
-                                ('prefix_pool', YLeaf(YType.str, 'prefix-pool')),
+                                ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                ('address_pool', (YLeaf(YType.str, 'address-pool'), ['str'])),
+                                ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                                ('preference', (YLeaf(YType.uint32, 'preference'), ['int'])),
+                                ('prefix_pool', (YLeaf(YType.str, 'prefix-pool'), ['str'])),
                             ])
                             self.class_name = None
                             self.address_pool = None
@@ -2214,6 +2267,7 @@ class Dhcpv6(Entity):
                             self.lease.parent = self
                             self._children_name_map["lease"] = "lease"
                             self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class, ['class_name', 'address_pool', 'domain_name', 'preference', 'prefix_pool'], name, value)
@@ -2253,10 +2307,11 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('dns_server', YLeafList(YType.str, 'dns-server')),
+                                    ('dns_server', (YLeafList(YType.str, 'dns-server'), ['str','str'])),
                                 ])
                                 self.dns_server = []
                                 self._segment_path = lambda: "dns-servers"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class.DnsServers, ['dns_server'], name, value)
@@ -2294,7 +2349,7 @@ class Dhcpv6(Entity):
                             	Minutes
                             	**type**\: int
                             
-                            	**range:** 1..59
+                            	**range:** 0..59
                             
                             	**units**\: minute
                             
@@ -2315,16 +2370,17 @@ class Dhcpv6(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('infinite', YLeaf(YType.str, 'infinite')),
-                                    ('days', YLeaf(YType.uint32, 'days')),
-                                    ('hours', YLeaf(YType.uint32, 'hours')),
-                                    ('minutes', YLeaf(YType.uint32, 'minutes')),
+                                    ('infinite', (YLeaf(YType.str, 'infinite'), ['str'])),
+                                    ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                                    ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                                    ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
                                 ])
                                 self.infinite = None
                                 self.days = None
                                 self.hours = None
                                 self.minutes = None
                                 self._segment_path = lambda: "lease"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Classes.Class.Lease, ['infinite', 'days', 'hours', 'minutes'], name, value)
@@ -2357,7 +2413,7 @@ class Dhcpv6(Entity):
                     	Minutes
                     	**type**\: int
                     
-                    	**range:** 1..59
+                    	**range:** 0..59
                     
                     	**units**\: minute
                     
@@ -2383,16 +2439,17 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint32, 'hours')),
-                            ('minutes', YLeaf(YType.uint32, 'minutes')),
-                            ('infinite', YLeaf(YType.str, 'infinite')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint32, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint32, 'minutes'), ['int'])),
+                            ('infinite', (YLeaf(YType.str, 'infinite'), ['str'])),
                         ])
                         self.days = None
                         self.hours = None
                         self.minutes = None
                         self.infinite = None
                         self._segment_path = lambda: "lease"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Lease, ['days', 'hours', 'minutes', 'infinite'], name, value)
@@ -2426,10 +2483,11 @@ class Dhcpv6(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('allowed_type', YLeaf(YType.uint32, 'allowed-type')),
+                            ('allowed_type', (YLeaf(YType.uint32, 'allowed-type'), ['int'])),
                         ])
                         self.allowed_type = None
                         self._segment_path = lambda: "dhcpv6duid"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6duid, ['allowed_type'], name, value)
@@ -2466,6 +2524,7 @@ class Dhcpv6(Entity):
                         self.dhcpv6_option.parent = self
                         self._children_name_map["dhcpv6_option"] = "dhcpv6-option"
                         self._segment_path = lambda: "aaa-server"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.AaaServer, [], name, value)
@@ -2497,10 +2556,11 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('force_insert', YLeaf(YType.empty, 'force-insert')),
+                                ('force_insert', (YLeaf(YType.empty, 'force-insert'), ['Empty'])),
                             ])
                             self.force_insert = None
                             self._segment_path = lambda: "dhcpv6-option"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.AaaServer.Dhcpv6Option, ['force_insert'], name, value)
@@ -2535,6 +2595,7 @@ class Dhcpv6(Entity):
 
                         self.option = YList(self)
                         self._segment_path = lambda: "options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options, [], name, value)
@@ -2592,9 +2653,9 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = ['type','format','value']
                             self._child_classes = OrderedDict([("enterprise-id", ("enterprise_id", Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId)), ("vendor-class", ("vendor_class", Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass))])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.str, 'type')),
-                                ('format', YLeaf(YType.uint32, 'format')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                                ('format', (YLeaf(YType.uint32, 'format'), ['int'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.type = None
                             self.format = None
@@ -2608,6 +2669,7 @@ class Dhcpv6(Entity):
                             self.vendor_class.parent = self
                             self._children_name_map["vendor_class"] = "vendor-class"
                             self._segment_path = lambda: "option" + "[type='" + str(self.type) + "']" + "[format='" + str(self.format) + "']" + "[value='" + str(self.value) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option, ['type', 'format', 'value'], name, value)
@@ -2653,6 +2715,7 @@ class Dhcpv6(Entity):
                                 self.default_enterprise_id.parent = self
                                 self._children_name_map["default_enterprise_id"] = "default-enterprise-id"
                                 self._segment_path = lambda: "enterprise-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId, [], name, value)
@@ -2684,10 +2747,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('action', YLeaf(YType.enumeration, 'action')),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Action', '')])),
                                     ])
                                     self.action = None
                                     self._segment_path = lambda: "hex-enterprise-id"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId.HexEnterpriseId, ['action'], name, value)
@@ -2719,10 +2783,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('action', YLeaf(YType.enumeration, 'action')),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Action', '')])),
                                     ])
                                     self.action = None
                                     self._segment_path = lambda: "default-enterprise-id"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.EnterpriseId.DefaultEnterpriseId, ['action'], name, value)
@@ -2768,6 +2833,7 @@ class Dhcpv6(Entity):
                                 self.default_vendor_class.parent = self
                                 self._children_name_map["default_vendor_class"] = "default-vendor-class"
                                 self._segment_path = lambda: "vendor-class"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass, [], name, value)
@@ -2799,10 +2865,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('action', YLeaf(YType.enumeration, 'action')),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Action', '')])),
                                     ])
                                     self.action = None
                                     self._segment_path = lambda: "str-vendor-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass.StrVendorClass, ['action'], name, value)
@@ -2834,10 +2901,11 @@ class Dhcpv6(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('action', YLeaf(YType.enumeration, 'action')),
+                                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_new_dhcpv6d_cfg', 'Action', '')])),
                                     ])
                                     self.action = None
                                     self._segment_path = lambda: "default-vendor-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Options.Option.VendorClass.DefaultVendorClass, ['action'], name, value)
@@ -2874,6 +2942,7 @@ class Dhcpv6(Entity):
                         self.vendor_options.parent = self
                         self._children_name_map["vendor_options"] = "vendor-options"
                         self._segment_path = lambda: "dhcpv6-options"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6Options, [], name, value)
@@ -2912,12 +2981,13 @@ class Dhcpv6(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.str, 'type')),
-                                ('vendor_options', YLeaf(YType.str, 'vendor-options')),
+                                ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                                ('vendor_options', (YLeaf(YType.str, 'vendor-options'), ['str'])),
                             ])
                             self.type = None
                             self.vendor_options = None
                             self._segment_path = lambda: "vendor-options"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Dhcpv6.Profiles.Profile.Server.Dhcpv6Options.VendorOptions, ['type', 'vendor_options'], name, value)
@@ -2953,6 +3023,7 @@ class Dhcpv6(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Dhcpv6.Interfaces, [], name, value)
@@ -2967,7 +3038,7 @@ class Dhcpv6(Entity):
             	Interface to configure
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: pppoe
             
@@ -3011,7 +3082,7 @@ class Dhcpv6(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("pppoe", ("pppoe", Dhcpv6.Interfaces.Interface.Pppoe)), ("proxy", ("proxy", Dhcpv6.Interfaces.Interface.Proxy)), ("base", ("base", Dhcpv6.Interfaces.Interface.Base)), ("server", ("server", Dhcpv6.Interfaces.Interface.Server)), ("relay", ("relay", Dhcpv6.Interfaces.Interface.Relay))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -3036,6 +3107,7 @@ class Dhcpv6(Entity):
                 self._children_name_map["relay"] = "relay"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-new-dhcpv6d-cfg:dhcpv6/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Dhcpv6.Interfaces.Interface, ['interface_name'], name, value)
@@ -3069,10 +3141,11 @@ class Dhcpv6(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "pppoe"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Pppoe, ['profile'], name, value)
@@ -3106,10 +3179,11 @@ class Dhcpv6(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "proxy"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Proxy, ['profile'], name, value)
@@ -3143,10 +3217,11 @@ class Dhcpv6(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "base"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Base, ['profile'], name, value)
@@ -3180,10 +3255,11 @@ class Dhcpv6(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Server, ['profile'], name, value)
@@ -3217,10 +3293,11 @@ class Dhcpv6(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile', YLeaf(YType.str, 'profile')),
+                        ('profile', (YLeaf(YType.str, 'profile'), ['str'])),
                     ])
                     self.profile = None
                     self._segment_path = lambda: "relay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Dhcpv6.Interfaces.Interface.Relay, ['profile'], name, value)

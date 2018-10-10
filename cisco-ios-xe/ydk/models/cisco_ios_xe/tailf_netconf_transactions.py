@@ -47,6 +47,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class StartTransaction(Entity):
     """
     Starts a transaction towards a configuration datastore.  There
@@ -101,6 +102,7 @@ class StartTransaction(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "tailf-netconf-transactions:start-transaction"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -133,7 +135,7 @@ class StartTransaction(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("target", ("target", StartTransaction.Input.Target))])
             self._leafs = OrderedDict([
-                ('with_inactive', YLeaf(YType.empty, 'tailf-netconf-inactive:with-inactive')),
+                ('with_inactive', (YLeaf(YType.empty, 'tailf-netconf-inactive:with-inactive'), ['Empty'])),
             ])
             self.with_inactive = None
 
@@ -142,6 +144,7 @@ class StartTransaction(Entity):
             self._children_name_map["target"] = "target"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(StartTransaction.Input, ['with_inactive'], name, value)
@@ -183,18 +186,19 @@ class StartTransaction(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('startup', YLeaf(YType.empty, 'startup')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
                 ])
                 self.startup = None
                 self.running = None
                 self.candidate = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "tailf-netconf-transactions:start-transaction/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(StartTransaction.Input.Target, [u'startup', u'running', u'candidate'], name, value)
+                self._perform_setattr(StartTransaction.Input.Target, ['startup', 'running', 'candidate'], name, value)
 
     def clone_ptr(self):
         self._top_entity = StartTransaction()
@@ -241,6 +245,7 @@ class PrepareTransaction(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:prepare-transaction"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = PrepareTransaction()
@@ -273,6 +278,7 @@ class CommitTransaction(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:commit-transaction"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = CommitTransaction()
@@ -305,6 +311,7 @@ class AbortTransaction(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "tailf-netconf-transactions:abort-transaction"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = AbortTransaction()

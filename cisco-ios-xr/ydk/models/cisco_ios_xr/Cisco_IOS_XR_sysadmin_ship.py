@@ -19,6 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Stat(Entity):
     """
     SHIP Info
@@ -49,6 +50,7 @@ class Stat(Entity):
 
         self.ship_comp = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-ship:stat"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Stat, [], name, value)
@@ -85,13 +87,14 @@ class Stat(Entity):
             self.ylist_key_names = ['comp_name']
             self._child_classes = OrderedDict([("process", ("process", Stat.ShipComp.Process))])
             self._leafs = OrderedDict([
-                ('comp_name', YLeaf(YType.str, 'comp-name')),
+                ('comp_name', (YLeaf(YType.str, 'comp-name'), ['str'])),
             ])
             self.comp_name = None
 
             self.process = YList(self)
             self._segment_path = lambda: "ship_comp" + "[comp-name='" + str(self.comp_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ship:stat/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Stat.ShipComp, ['comp_name'], name, value)
@@ -128,12 +131,13 @@ class Stat(Entity):
                 self.ylist_key_names = ['process_name']
                 self._child_classes = OrderedDict([("client", ("client", Stat.ShipComp.Process.Client))])
                 self._leafs = OrderedDict([
-                    ('process_name', YLeaf(YType.str, 'process-name')),
+                    ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
                 ])
                 self.process_name = None
 
                 self.client = YList(self)
                 self._segment_path = lambda: "process" + "[process-name='" + str(self.process_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Stat.ShipComp.Process, ['process_name'], name, value)
@@ -170,12 +174,13 @@ class Stat(Entity):
                     self.ylist_key_names = ['client_name']
                     self._child_classes = OrderedDict([("cat", ("cat", Stat.ShipComp.Process.Client.Cat))])
                     self._leafs = OrderedDict([
-                        ('client_name', YLeaf(YType.str, 'client-name')),
+                        ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
                     ])
                     self.client_name = None
 
                     self.cat = YList(self)
                     self._segment_path = lambda: "client" + "[client-name='" + str(self.client_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Stat.ShipComp.Process.Client, ['client_name'], name, value)
@@ -212,12 +217,13 @@ class Stat(Entity):
                         self.ylist_key_names = ['cat_name']
                         self._child_classes = OrderedDict([("counter-32b", ("counter_32b", Stat.ShipComp.Process.Client.Cat.Counter32b))])
                         self._leafs = OrderedDict([
-                            ('cat_name', YLeaf(YType.enumeration, 'cat-name')),
+                            ('cat_name', (YLeaf(YType.enumeration, 'cat-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ship', 'Stat', 'ShipComp.Process.Client.Cat.CatName')])),
                         ])
                         self.cat_name = None
 
                         self.counter_32b = YList(self)
                         self._segment_path = lambda: "cat" + "[cat-name='" + str(self.cat_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Stat.ShipComp.Process.Client.Cat, ['cat_name'], name, value)
@@ -469,18 +475,18 @@ class Stat(Entity):
                             self.ylist_key_names = ['counter_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('counter_name', YLeaf(YType.str, 'counter-name')),
-                                ('counter_value', YLeaf(YType.uint32, 'counter-value')),
-                                ('watermark', YLeaf(YType.uint32, 'watermark')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('hist_info1', YLeaf(YType.uint32, 'hist-info1')),
-                                ('hist_info2', YLeaf(YType.uint32, 'hist-info2')),
-                                ('hist_info3', YLeaf(YType.uint32, 'hist-info3')),
-                                ('hist_info4', YLeaf(YType.uint32, 'hist-info4')),
-                                ('hist_info5', YLeaf(YType.uint32, 'hist-info5')),
-                                ('hist_info6', YLeaf(YType.uint32, 'hist-info6')),
-                                ('hist_info7', YLeaf(YType.uint32, 'hist-info7')),
-                                ('hist_info8', YLeaf(YType.uint32, 'hist-info8')),
+                                ('counter_name', (YLeaf(YType.str, 'counter-name'), ['str'])),
+                                ('counter_value', (YLeaf(YType.uint32, 'counter-value'), ['int'])),
+                                ('watermark', (YLeaf(YType.uint32, 'watermark'), ['int'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('hist_info1', (YLeaf(YType.uint32, 'hist-info1'), ['int'])),
+                                ('hist_info2', (YLeaf(YType.uint32, 'hist-info2'), ['int'])),
+                                ('hist_info3', (YLeaf(YType.uint32, 'hist-info3'), ['int'])),
+                                ('hist_info4', (YLeaf(YType.uint32, 'hist-info4'), ['int'])),
+                                ('hist_info5', (YLeaf(YType.uint32, 'hist-info5'), ['int'])),
+                                ('hist_info6', (YLeaf(YType.uint32, 'hist-info6'), ['int'])),
+                                ('hist_info7', (YLeaf(YType.uint32, 'hist-info7'), ['int'])),
+                                ('hist_info8', (YLeaf(YType.uint32, 'hist-info8'), ['int'])),
                             ])
                             self.counter_name = None
                             self.counter_value = None
@@ -495,6 +501,7 @@ class Stat(Entity):
                             self.hist_info7 = None
                             self.hist_info8 = None
                             self._segment_path = lambda: "counter-32b" + "[counter-name='" + str(self.counter_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Stat.ShipComp.Process.Client.Cat.Counter32b, ['counter_name', 'counter_value', 'watermark', 'time_stamp', 'hist_info1', 'hist_info2', 'hist_info3', 'hist_info4', 'hist_info5', 'hist_info6', 'hist_info7', 'hist_info8'], name, value)

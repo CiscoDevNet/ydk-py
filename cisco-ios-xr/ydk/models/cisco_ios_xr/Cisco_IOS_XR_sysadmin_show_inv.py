@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Inventory(Entity):
     """
     show inventory
@@ -78,6 +79,7 @@ class Inventory(Entity):
         self.fan = YList(self)
         self.raw = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Inventory, [], name, value)
@@ -141,13 +143,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['loc']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('loc', YLeaf(YType.str, 'loc')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('index', YLeaf(YType.uint32, 'index')),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
             ])
             self.loc = None
             self.name = None
@@ -158,6 +160,7 @@ class Inventory(Entity):
             self.index = None
             self._segment_path = lambda: "location" + "[loc='" + str(self.loc) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Location, ['loc', 'name', 'description', 'pid', 'vid', 'sn', 'index'], name, value)
@@ -221,13 +224,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['index']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('index', YLeaf(YType.uint32, 'index')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('loc', YLeaf(YType.str, 'loc')),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
             ])
             self.index = None
             self.name = None
@@ -238,6 +241,7 @@ class Inventory(Entity):
             self.loc = None
             self._segment_path = lambda: "all" + "[index='" + str(self.index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.All, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
@@ -301,13 +305,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['index']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('index', YLeaf(YType.uint32, 'index')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('loc', YLeaf(YType.str, 'loc')),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
             ])
             self.index = None
             self.name = None
@@ -318,6 +322,7 @@ class Inventory(Entity):
             self.loc = None
             self._segment_path = lambda: "chassis" + "[index='" + str(self.index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Chassis, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
@@ -381,13 +386,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['index']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('index', YLeaf(YType.uint32, 'index')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('loc', YLeaf(YType.str, 'loc')),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
             ])
             self.index = None
             self.name = None
@@ -398,6 +403,7 @@ class Inventory(Entity):
             self.loc = None
             self._segment_path = lambda: "power" + "[index='" + str(self.index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Power, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
@@ -461,13 +467,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['index']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('index', YLeaf(YType.uint32, 'index')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('loc', YLeaf(YType.str, 'loc')),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
             ])
             self.index = None
             self.name = None
@@ -478,6 +484,7 @@ class Inventory(Entity):
             self.loc = None
             self._segment_path = lambda: "fan" + "[index='" + str(self.index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Fan, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)
@@ -541,13 +548,13 @@ class Inventory(Entity):
             self.ylist_key_names = ['index']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('index', YLeaf(YType.uint32, 'index')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'Description')),
-                ('pid', YLeaf(YType.str, 'PID')),
-                ('vid', YLeaf(YType.str, 'VID')),
-                ('sn', YLeaf(YType.str, 'SN')),
-                ('loc', YLeaf(YType.str, 'loc')),
+                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'Description'), ['str'])),
+                ('pid', (YLeaf(YType.str, 'PID'), ['str'])),
+                ('vid', (YLeaf(YType.str, 'VID'), ['str'])),
+                ('sn', (YLeaf(YType.str, 'SN'), ['str'])),
+                ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
             ])
             self.index = None
             self.name = None
@@ -558,6 +565,7 @@ class Inventory(Entity):
             self.loc = None
             self._segment_path = lambda: "raw" + "[index='" + str(self.index) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-inv:inventory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Inventory.Raw, ['index', 'name', 'description', 'pid', 'vid', 'sn', 'loc'], name, value)

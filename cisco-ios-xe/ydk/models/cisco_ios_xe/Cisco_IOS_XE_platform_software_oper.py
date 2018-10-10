@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class BFru(Enum):
     """
     BFru (Enum Class)
@@ -42,6 +43,11 @@ class CiscoPlatformSoftware(Entity):
     """
     Cisco platform software information
     
+    .. attribute:: system_usages
+    
+    	Platform system usage information
+    	**type**\:  :py:class:`SystemUsages <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages>`
+    
     .. attribute:: control_processes
     
     	Information about control processes
@@ -57,7 +63,7 @@ class CiscoPlatformSoftware(Entity):
     """
 
     _prefix = 'platform-sw-ios-xe-oper'
-    _revision = '2017-10-10'
+    _revision = '2018-03-09'
 
     def __init__(self):
         super(CiscoPlatformSoftware, self).__init__()
@@ -68,8 +74,12 @@ class CiscoPlatformSoftware(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("control-processes", ("control_processes", CiscoPlatformSoftware.ControlProcesses)), ("q-filesystem", ("q_filesystem", CiscoPlatformSoftware.QFilesystem))])
+        self._child_classes = OrderedDict([("system-usages", ("system_usages", CiscoPlatformSoftware.SystemUsages)), ("control-processes", ("control_processes", CiscoPlatformSoftware.ControlProcesses)), ("q-filesystem", ("q_filesystem", CiscoPlatformSoftware.QFilesystem))])
         self._leafs = OrderedDict()
+
+        self.system_usages = CiscoPlatformSoftware.SystemUsages()
+        self.system_usages.parent = self
+        self._children_name_map["system_usages"] = "system-usages"
 
         self.control_processes = CiscoPlatformSoftware.ControlProcesses()
         self.control_processes.parent = self
@@ -77,9 +87,235 @@ class CiscoPlatformSoftware(Entity):
 
         self.q_filesystem = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CiscoPlatformSoftware, [], name, value)
+
+
+    class SystemUsages(Entity):
+        """
+        Platform system usage information
+        
+        .. attribute:: system_usage
+        
+        	The list of process system usage
+        	**type**\: list of  		 :py:class:`SystemUsage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage>`
+        
+        
+
+        """
+
+        _prefix = 'platform-sw-ios-xe-oper'
+        _revision = '2018-03-09'
+
+        def __init__(self):
+            super(CiscoPlatformSoftware.SystemUsages, self).__init__()
+
+            self.yang_name = "system-usages"
+            self.yang_parent_name = "cisco-platform-software"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("system-usage", ("system_usage", CiscoPlatformSoftware.SystemUsages.SystemUsage))])
+            self._leafs = OrderedDict()
+
+            self.system_usage = YList(self)
+            self._segment_path = lambda: "system-usages"
+            self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(CiscoPlatformSoftware.SystemUsages, [], name, value)
+
+
+        class SystemUsage(Entity):
+            """
+            The list of process system usage
+            
+            .. attribute:: fru  (key)
+            
+            	Field replaceable unit
+            	**type**\:  :py:class:`BFru <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.BFru>`
+            
+            .. attribute:: slotnum  (key)
+            
+            	Slot number
+            	**type**\: int
+            
+            	**range:** \-32768..32767
+            
+            .. attribute:: baynum  (key)
+            
+            	Bay number
+            	**type**\: int
+            
+            	**range:** \-32768..32767
+            
+            .. attribute:: chassisnum  (key)
+            
+            	Chassis number
+            	**type**\: int
+            
+            	**range:** \-32768..32767
+            
+            .. attribute:: process_system_usages
+            
+            	List of process system usage
+            	**type**\:  :py:class:`ProcessSystemUsages <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages>`
+            
+            
+
+            """
+
+            _prefix = 'platform-sw-ios-xe-oper'
+            _revision = '2018-03-09'
+
+            def __init__(self):
+                super(CiscoPlatformSoftware.SystemUsages.SystemUsage, self).__init__()
+
+                self.yang_name = "system-usage"
+                self.yang_parent_name = "system-usages"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['fru','slotnum','baynum','chassisnum']
+                self._child_classes = OrderedDict([("process-system-usages", ("process_system_usages", CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages))])
+                self._leafs = OrderedDict([
+                    ('fru', (YLeaf(YType.enumeration, 'fru'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper', 'BFru', '')])),
+                    ('slotnum', (YLeaf(YType.int16, 'slotnum'), ['int'])),
+                    ('baynum', (YLeaf(YType.int16, 'baynum'), ['int'])),
+                    ('chassisnum', (YLeaf(YType.int16, 'chassisnum'), ['int'])),
+                ])
+                self.fru = None
+                self.slotnum = None
+                self.baynum = None
+                self.chassisnum = None
+
+                self.process_system_usages = CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages()
+                self.process_system_usages.parent = self
+                self._children_name_map["process_system_usages"] = "process-system-usages"
+                self._segment_path = lambda: "system-usage" + "[fru='" + str(self.fru) + "']" + "[slotnum='" + str(self.slotnum) + "']" + "[baynum='" + str(self.baynum) + "']" + "[chassisnum='" + str(self.chassisnum) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/system-usages/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(CiscoPlatformSoftware.SystemUsages.SystemUsage, ['fru', 'slotnum', 'baynum', 'chassisnum'], name, value)
+
+
+            class ProcessSystemUsages(Entity):
+                """
+                List of process system usage
+                
+                .. attribute:: process_system_usage
+                
+                	Per\-process system usage
+                	**type**\: list of  		 :py:class:`ProcessSystemUsage <ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper.CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage>`
+                
+                
+
+                """
+
+                _prefix = 'platform-sw-ios-xe-oper'
+                _revision = '2018-03-09'
+
+                def __init__(self):
+                    super(CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages, self).__init__()
+
+                    self.yang_name = "process-system-usages"
+                    self.yang_parent_name = "system-usage"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("process-system-usage", ("process_system_usage", CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage))])
+                    self._leafs = OrderedDict()
+
+                    self.process_system_usage = YList(self)
+                    self._segment_path = lambda: "process-system-usages"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages, [], name, value)
+
+
+                class ProcessSystemUsage(Entity):
+                    """
+                    Per\-process system usage
+                    
+                    .. attribute:: pid  (key)
+                    
+                    	The pid of the process
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: name
+                    
+                    	Process name
+                    	**type**\: str
+                    
+                    .. attribute:: total_run_time
+                    
+                    	Total run time in seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: five_seconds
+                    
+                    	Busy percentage in last 5\-seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: allocated_memory
+                    
+                    	Memory allocated to this process in kB
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
+                    
+                    .. attribute:: allocated_memory_percent
+                    
+                    	Percentage of memory allocated to this process
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'platform-sw-ios-xe-oper'
+                    _revision = '2018-03-09'
+
+                    def __init__(self):
+                        super(CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage, self).__init__()
+
+                        self.yang_name = "process-system-usage"
+                        self.yang_parent_name = "process-system-usages"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = ['pid']
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('pid', (YLeaf(YType.uint32, 'pid'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('total_run_time', (YLeaf(YType.uint64, 'total-run-time'), ['int'])),
+                            ('five_seconds', (YLeaf(YType.uint64, 'five-seconds'), ['int'])),
+                            ('allocated_memory', (YLeaf(YType.uint64, 'allocated-memory'), ['int'])),
+                            ('allocated_memory_percent', (YLeaf(YType.uint32, 'allocated-memory-percent'), ['int'])),
+                        ])
+                        self.pid = None
+                        self.name = None
+                        self.total_run_time = None
+                        self.five_seconds = None
+                        self.allocated_memory = None
+                        self.allocated_memory_percent = None
+                        self._segment_path = lambda: "process-system-usage" + "[pid='" + str(self.pid) + "']"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(CiscoPlatformSoftware.SystemUsages.SystemUsage.ProcessSystemUsages.ProcessSystemUsage, ['pid', 'name', 'total_run_time', 'five_seconds', 'allocated_memory', 'allocated_memory_percent'], name, value)
 
 
     class ControlProcesses(Entity):
@@ -96,7 +332,7 @@ class CiscoPlatformSoftware(Entity):
         """
 
         _prefix = 'platform-sw-ios-xe-oper'
-        _revision = '2017-10-10'
+        _revision = '2018-03-09'
 
         def __init__(self):
             super(CiscoPlatformSoftware.ControlProcesses, self).__init__()
@@ -112,6 +348,7 @@ class CiscoPlatformSoftware(Entity):
             self.control_process = YList(self)
             self._segment_path = lambda: "control-processes"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CiscoPlatformSoftware.ControlProcesses, [], name, value)
@@ -184,7 +421,7 @@ class CiscoPlatformSoftware(Entity):
             """
 
             _prefix = 'platform-sw-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-03-09'
 
             def __init__(self):
                 super(CiscoPlatformSoftware.ControlProcesses.ControlProcess, self).__init__()
@@ -196,12 +433,12 @@ class CiscoPlatformSoftware(Entity):
                 self.ylist_key_names = ['fru','slotnum','baynum','chassisnum']
                 self._child_classes = OrderedDict([("load-average-stats", ("load_average_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats)), ("load-avg-minutes", ("load_avg_minutes", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes)), ("memory-stats", ("memory_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats)), ("per-core-stats", ("per_core_stats", CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats))])
                 self._leafs = OrderedDict([
-                    ('fru', YLeaf(YType.enumeration, 'fru')),
-                    ('slotnum', YLeaf(YType.int16, 'slotnum')),
-                    ('baynum', YLeaf(YType.int16, 'baynum')),
-                    ('chassisnum', YLeaf(YType.int16, 'chassisnum')),
-                    ('control_process_status', YLeaf(YType.str, 'control-process-status')),
-                    ('updated', YLeaf(YType.uint64, 'updated')),
+                    ('fru', (YLeaf(YType.enumeration, 'fru'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper', 'BFru', '')])),
+                    ('slotnum', (YLeaf(YType.int16, 'slotnum'), ['int'])),
+                    ('baynum', (YLeaf(YType.int16, 'baynum'), ['int'])),
+                    ('chassisnum', (YLeaf(YType.int16, 'chassisnum'), ['int'])),
+                    ('control_process_status', (YLeaf(YType.str, 'control-process-status'), ['str'])),
+                    ('updated', (YLeaf(YType.uint64, 'updated'), ['int'])),
                 ])
                 self.fru = None
                 self.slotnum = None
@@ -227,6 +464,7 @@ class CiscoPlatformSoftware(Entity):
                 self._children_name_map["per_core_stats"] = "per-core-stats"
                 self._segment_path = lambda: "control-process" + "[fru='" + str(self.fru) + "']" + "[slotnum='" + str(self.slotnum) + "']" + "[baynum='" + str(self.baynum) + "']" + "[chassisnum='" + str(self.chassisnum) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/control-processes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess, ['fru', 'slotnum', 'baynum', 'chassisnum', 'control_process_status', 'updated'], name, value)
@@ -246,7 +484,7 @@ class CiscoPlatformSoftware(Entity):
                 """
 
                 _prefix = 'platform-sw-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-03-09'
 
                 def __init__(self):
                     super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats, self).__init__()
@@ -258,10 +496,11 @@ class CiscoPlatformSoftware(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('load_average_status', YLeaf(YType.str, 'load-average-status')),
+                        ('load_average_status', (YLeaf(YType.str, 'load-average-status'), ['str'])),
                     ])
                     self.load_average_status = None
                     self._segment_path = lambda: "load-average-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAverageStats, ['load_average_status'], name, value)
@@ -281,7 +520,7 @@ class CiscoPlatformSoftware(Entity):
                 """
 
                 _prefix = 'platform-sw-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-03-09'
 
                 def __init__(self):
                     super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes, self).__init__()
@@ -296,6 +535,7 @@ class CiscoPlatformSoftware(Entity):
 
                     self.load_avg_minute = YList(self)
                     self._segment_path = lambda: "load-avg-minutes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes, [], name, value)
@@ -329,7 +569,7 @@ class CiscoPlatformSoftware(Entity):
                     """
 
                     _prefix = 'platform-sw-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-03-09'
 
                     def __init__(self):
                         super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute, self).__init__()
@@ -341,8 +581,8 @@ class CiscoPlatformSoftware(Entity):
                         self.ylist_key_names = ['number']
                         self._child_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status))])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint64, 'number')),
-                            ('average', YLeaf(YType.str, 'average')),
+                            ('number', (YLeaf(YType.uint64, 'number'), ['int'])),
+                            ('average', (YLeaf(YType.str, 'average'), ['Decimal64'])),
                         ])
                         self.number = None
                         self.average = None
@@ -351,6 +591,7 @@ class CiscoPlatformSoftware(Entity):
                         self.status.parent = self
                         self._children_name_map["status"] = "status"
                         self._segment_path = lambda: "load-avg-minute" + "[number='" + str(self.number) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute, ['number', 'average'], name, value)
@@ -382,7 +623,7 @@ class CiscoPlatformSoftware(Entity):
                         """
 
                         _prefix = 'platform-sw-ios-xe-oper'
-                        _revision = '2017-10-10'
+                        _revision = '2018-03-09'
 
                         def __init__(self):
                             super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status, self).__init__()
@@ -394,14 +635,15 @@ class CiscoPlatformSoftware(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('condition', YLeaf(YType.str, 'condition')),
-                                ('threshold_status', YLeaf(YType.str, 'threshold-status')),
-                                ('threshold_value', YLeaf(YType.str, 'threshold-value')),
+                                ('condition', (YLeaf(YType.str, 'condition'), ['str'])),
+                                ('threshold_status', (YLeaf(YType.str, 'threshold-status'), ['str'])),
+                                ('threshold_value', (YLeaf(YType.str, 'threshold-value'), ['Decimal64'])),
                             ])
                             self.condition = None
                             self.threshold_status = None
                             self.threshold_value = None
                             self._segment_path = lambda: "status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.LoadAvgMinutes.LoadAvgMinute.Status, ['condition', 'threshold_status', 'threshold_value'], name, value)
@@ -489,7 +731,7 @@ class CiscoPlatformSoftware(Entity):
                 """
 
                 _prefix = 'platform-sw-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-03-09'
 
                 def __init__(self):
                     super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats, self).__init__()
@@ -501,16 +743,16 @@ class CiscoPlatformSoftware(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("status", ("status", CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status))])
                     self._leafs = OrderedDict([
-                        ('memory_status', YLeaf(YType.str, 'memory-status')),
-                        ('total', YLeaf(YType.uint64, 'total')),
-                        ('used_number', YLeaf(YType.uint64, 'used-number')),
-                        ('used_percent', YLeaf(YType.uint64, 'used-percent')),
-                        ('free_number', YLeaf(YType.uint64, 'free-number')),
-                        ('free_percent', YLeaf(YType.uint64, 'free-percent')),
-                        ('available_number', YLeaf(YType.uint64, 'available-number')),
-                        ('available_percent', YLeaf(YType.uint64, 'available-percent')),
-                        ('committed_number', YLeaf(YType.uint64, 'committed-number')),
-                        ('committed_percent', YLeaf(YType.uint8, 'committed-percent')),
+                        ('memory_status', (YLeaf(YType.str, 'memory-status'), ['str'])),
+                        ('total', (YLeaf(YType.uint64, 'total'), ['int'])),
+                        ('used_number', (YLeaf(YType.uint64, 'used-number'), ['int'])),
+                        ('used_percent', (YLeaf(YType.uint64, 'used-percent'), ['int'])),
+                        ('free_number', (YLeaf(YType.uint64, 'free-number'), ['int'])),
+                        ('free_percent', (YLeaf(YType.uint64, 'free-percent'), ['int'])),
+                        ('available_number', (YLeaf(YType.uint64, 'available-number'), ['int'])),
+                        ('available_percent', (YLeaf(YType.uint64, 'available-percent'), ['int'])),
+                        ('committed_number', (YLeaf(YType.uint64, 'committed-number'), ['int'])),
+                        ('committed_percent', (YLeaf(YType.uint8, 'committed-percent'), ['int'])),
                     ])
                     self.memory_status = None
                     self.total = None
@@ -527,6 +769,7 @@ class CiscoPlatformSoftware(Entity):
                     self.status.parent = self
                     self._children_name_map["status"] = "status"
                     self._segment_path = lambda: "memory-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats, ['memory_status', 'total', 'used_number', 'used_percent', 'free_number', 'free_percent', 'available_number', 'available_percent', 'committed_number', 'committed_percent'], name, value)
@@ -555,7 +798,7 @@ class CiscoPlatformSoftware(Entity):
                     """
 
                     _prefix = 'platform-sw-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-03-09'
 
                     def __init__(self):
                         super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status, self).__init__()
@@ -567,12 +810,13 @@ class CiscoPlatformSoftware(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('warning_threshold_percent', YLeaf(YType.uint32, 'warning-threshold-percent')),
-                            ('critical_threshold_percent', YLeaf(YType.uint32, 'critical-threshold-percent')),
+                            ('warning_threshold_percent', (YLeaf(YType.uint32, 'warning-threshold-percent'), ['int'])),
+                            ('critical_threshold_percent', (YLeaf(YType.uint32, 'critical-threshold-percent'), ['int'])),
                         ])
                         self.warning_threshold_percent = None
                         self.critical_threshold_percent = None
                         self._segment_path = lambda: "status"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.MemoryStats.Status, ['warning_threshold_percent', 'critical_threshold_percent'], name, value)
@@ -592,7 +836,7 @@ class CiscoPlatformSoftware(Entity):
                 """
 
                 _prefix = 'platform-sw-ios-xe-oper'
-                _revision = '2017-10-10'
+                _revision = '2018-03-09'
 
                 def __init__(self):
                     super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats, self).__init__()
@@ -607,6 +851,7 @@ class CiscoPlatformSoftware(Entity):
 
                     self.per_core_stat = YList(self)
                     self._segment_path = lambda: "per-core-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats, [], name, value)
@@ -677,7 +922,7 @@ class CiscoPlatformSoftware(Entity):
                     """
 
                     _prefix = 'platform-sw-ios-xe-oper'
-                    _revision = '2017-10-10'
+                    _revision = '2018-03-09'
 
                     def __init__(self):
                         super(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat, self).__init__()
@@ -689,14 +934,14 @@ class CiscoPlatformSoftware(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.uint32, 'name')),
-                            ('user', YLeaf(YType.str, 'user')),
-                            ('system', YLeaf(YType.str, 'system')),
-                            ('nice', YLeaf(YType.str, 'nice')),
-                            ('idle', YLeaf(YType.str, 'idle')),
-                            ('irq', YLeaf(YType.str, 'irq')),
-                            ('sirq', YLeaf(YType.str, 'sirq')),
-                            ('io_wait', YLeaf(YType.str, 'io-wait')),
+                            ('name', (YLeaf(YType.uint32, 'name'), ['int'])),
+                            ('user', (YLeaf(YType.str, 'user'), ['Decimal64'])),
+                            ('system', (YLeaf(YType.str, 'system'), ['Decimal64'])),
+                            ('nice', (YLeaf(YType.str, 'nice'), ['Decimal64'])),
+                            ('idle', (YLeaf(YType.str, 'idle'), ['Decimal64'])),
+                            ('irq', (YLeaf(YType.str, 'irq'), ['Decimal64'])),
+                            ('sirq', (YLeaf(YType.str, 'sirq'), ['Decimal64'])),
+                            ('io_wait', (YLeaf(YType.str, 'io-wait'), ['Decimal64'])),
                         ])
                         self.name = None
                         self.user = None
@@ -707,6 +952,7 @@ class CiscoPlatformSoftware(Entity):
                         self.sirq = None
                         self.io_wait = None
                         self._segment_path = lambda: "per-core-stat" + "[name='" + str(self.name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CiscoPlatformSoftware.ControlProcesses.ControlProcess.PerCoreStats.PerCoreStat, ['name', 'user', 'system', 'nice', 'idle', 'irq', 'sirq', 'io_wait'], name, value)
@@ -757,7 +1003,7 @@ class CiscoPlatformSoftware(Entity):
         """
 
         _prefix = 'platform-sw-ios-xe-oper'
-        _revision = '2017-10-10'
+        _revision = '2018-03-09'
 
         def __init__(self):
             super(CiscoPlatformSoftware.QFilesystem, self).__init__()
@@ -769,10 +1015,10 @@ class CiscoPlatformSoftware(Entity):
             self.ylist_key_names = ['fru','slotnum','baynum','chassisnum']
             self._child_classes = OrderedDict([("partitions", ("partitions", CiscoPlatformSoftware.QFilesystem.Partitions)), ("core-files", ("core_files", CiscoPlatformSoftware.QFilesystem.CoreFiles))])
             self._leafs = OrderedDict([
-                ('fru', YLeaf(YType.enumeration, 'fru')),
-                ('slotnum', YLeaf(YType.int16, 'slotnum')),
-                ('baynum', YLeaf(YType.int16, 'baynum')),
-                ('chassisnum', YLeaf(YType.int16, 'chassisnum')),
+                ('fru', (YLeaf(YType.enumeration, 'fru'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_platform_software_oper', 'BFru', '')])),
+                ('slotnum', (YLeaf(YType.int16, 'slotnum'), ['int'])),
+                ('baynum', (YLeaf(YType.int16, 'baynum'), ['int'])),
+                ('chassisnum', (YLeaf(YType.int16, 'chassisnum'), ['int'])),
             ])
             self.fru = None
             self.slotnum = None
@@ -783,6 +1029,7 @@ class CiscoPlatformSoftware(Entity):
             self.core_files = YList(self)
             self._segment_path = lambda: "q-filesystem" + "[fru='" + str(self.fru) + "']" + "[slotnum='" + str(self.slotnum) + "']" + "[baynum='" + str(self.baynum) + "']" + "[chassisnum='" + str(self.chassisnum) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-platform-software-oper:cisco-platform-software/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CiscoPlatformSoftware.QFilesystem, ['fru', 'slotnum', 'baynum', 'chassisnum'], name, value)
@@ -816,7 +1063,7 @@ class CiscoPlatformSoftware(Entity):
             """
 
             _prefix = 'platform-sw-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-03-09'
 
             def __init__(self):
                 super(CiscoPlatformSoftware.QFilesystem.Partitions, self).__init__()
@@ -828,14 +1075,15 @@ class CiscoPlatformSoftware(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('total_size', YLeaf(YType.uint64, 'total-size')),
-                    ('used_size', YLeaf(YType.uint64, 'used-size')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('total_size', (YLeaf(YType.uint64, 'total-size'), ['int'])),
+                    ('used_size', (YLeaf(YType.uint64, 'used-size'), ['int'])),
                 ])
                 self.name = None
                 self.total_size = None
                 self.used_size = None
                 self._segment_path = lambda: "partitions" + "[name='" + str(self.name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CiscoPlatformSoftware.QFilesystem.Partitions, ['name', 'total_size', 'used_size'], name, value)
@@ -862,7 +1110,7 @@ class CiscoPlatformSoftware(Entity):
             """
 
             _prefix = 'platform-sw-ios-xe-oper'
-            _revision = '2017-10-10'
+            _revision = '2018-03-09'
 
             def __init__(self):
                 super(CiscoPlatformSoftware.QFilesystem.CoreFiles, self).__init__()
@@ -874,12 +1122,13 @@ class CiscoPlatformSoftware(Entity):
                 self.ylist_key_names = ['filename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('filename', YLeaf(YType.str, 'filename')),
-                    ('time', YLeaf(YType.str, 'time')),
+                    ('filename', (YLeaf(YType.str, 'filename'), ['str'])),
+                    ('time', (YLeaf(YType.str, 'time'), ['str'])),
                 ])
                 self.filename = None
                 self.time = None
                 self._segment_path = lambda: "core-files" + "[filename='" + str(self.filename) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CiscoPlatformSoftware.QFilesystem.CoreFiles, ['filename', 'time'], name, value)
