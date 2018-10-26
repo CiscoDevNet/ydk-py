@@ -4,8 +4,6 @@ matrix:
     include:
         - os: osx
           language: python
-          python:
-             - "3.6"
         - os: linux
           python: 3
           dist: trusty
@@ -13,6 +11,7 @@ matrix:
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
     allow_failures:
         - os: osx
+        - os: linux
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
