@@ -6,35 +6,42 @@ function print_msg {
 
 function test_python_installation {
   print_msg "Testing Python installation"
-  python --version &> _version
-  status=$?
-  if [ $status -ne 0 ]; then
+  if [[ $(uname) == "Darwin" ]]; then
+    PYTHON_BIN=python3
+    PIP_BIN=pip3
+  else
+    python --version &> _version
+    status=$?
+    if [ $status -ne 0 ]; then
+      MSG_COLOR=$RED
       print_msg "Could not locate Python"
       exit $status
-  fi
-  PYTHON_VERSION=`cat _version` && rm _version
-  print_msg "Retrieved Python version ${PYTHON_VERSION}"
+    fi
+    PYTHON_VERSION=`cat _version` && rm _version
+    print_msg "Retrieved Python version ${PYTHON_VERSION}"
 
-  PYTHON_BIN=python
-  PIP_BIN=pip
-  if [[ ${PYTHON_VERSION} = *"3."* ]]; then
+    PYTHON_BIN=python
+    PIP_BIN=pip
+    if [[ ${PYTHON_VERSION} = *"3."* ]]; then
       PYTHON_BIN=python3
       PIP_BIN=pip3
+    fi
   fi
-
   print_msg "Checking installation of ${PYTHON_BIN}"
   ${PYTHON_BIN} --version &> /dev/null
   status=$?
   if [ $status -ne 0 ]; then
-      print_msg "Could not locate ${PYTHON_BIN}"
-      exit $status
+    MSG_COLOR=$RED
+    print_msg "Could not locate ${PYTHON_BIN}"
+    exit $status
   fi
   print_msg "Checking installation of ${PIP_BIN}"
   ${PIP_BIN} -V &> /dev/null
   status=$?
   if [ $status -ne 0 ]; then
-      print_msg "Installing ${PIP_BIN}"
-      sudo easy_install ${PIP_BIN}
+    MSG_COLOR=$RED
+    print_msg "Could not locate ${PIP_BIN}"
+    exit $status
   fi
   print_msg "Python location: $(which ${PYTHON_BIN})"
   print_msg "Pip location: $(which ${PIP_BIN})"
