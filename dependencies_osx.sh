@@ -29,16 +29,21 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 brew install pybind11
-brew reinstall python@3
-#brew rm -f --ignore-dependencies python python3
 
 install_libssh
 
 install_libydk
 
+print_msg "Checking python3 and pip3 installation"
+python3 -V &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    print_msg "Installing python3"
+    brew install python@3
+fi
 pip3 -V &> /dev/null
 status=$?
 if [ $status -ne 0 ]; then
-    print_msg "Installing pip"
+    print_msg "Installing pip3"
     sudo easy_install pip3
 fi

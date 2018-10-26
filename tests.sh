@@ -102,4 +102,4 @@ pip_check_install  dist/*.tar.gz
 
 print_msg "Running codec sample"
 cd ../core/samples
-./bgp_codec.py
+${PYTHON_BIN} bgp_codec.py
