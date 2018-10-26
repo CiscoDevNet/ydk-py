@@ -29,10 +29,15 @@ YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
 brew install pybind11
-brew rm -f --ignore-dependencies python python3
+#brew rm -f --ignore-dependencies python python3
 
 install_libssh
 
 install_libydk
 
-sudo easy_install pip
+pip -V &> /dev/null
+status=$?
+if [ $status -ne 0 ]; then
+    print_msg "Installing pip"
+    sudo easy_install pip
+fi
