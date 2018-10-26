@@ -3,15 +3,14 @@ sudo: required
 matrix:
     include:
         - os: osx
-          language: python
-        - os: linux
-          python: 3
-          dist: trusty
+          language: generic
+#        - os: linux
+#          python: 3
+#          dist: trusty
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
     allow_failures:
         - os: osx
-        - os: linux
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi

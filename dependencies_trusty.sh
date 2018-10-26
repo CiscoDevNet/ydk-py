@@ -11,7 +11,7 @@ MSG_COLOR=$YELLOW
 
 print_msg "Installing Trusty OS dependencies"
 sudo apt-get update && apt-get install -y --no-install-recommends apt-utils > /dev/null
-sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev wget cmake3 -y > /dev/null
+sudo apt-get install libssh-dev libtool gdebi-core python3-dev python-dev wget -y > /dev/null
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y > /dev/null
 sudo apt-get update > /dev/null
 
@@ -24,7 +24,7 @@ print_msg "Installing YDK C++ core library"
 git clone https://github.com/ciscodevnet/ydk-cpp.git -b 0.7.3
 mkdir ydk-cpp/core/ydk/build
 cd ydk-cpp/core/ydk/build
-cmake3 -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release ..
 sudo make install
 cd -
 
