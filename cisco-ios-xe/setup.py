@@ -24,7 +24,7 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ydk>=0.7.3']
+INSTALL_REQUIREMENTS = ['ydk>=0.8.0']
 
 NMSP_PKG_NAME = "ydk-models-cisco-ios-xe"
 NMSP_PKG_VERSION = "16.9.1"

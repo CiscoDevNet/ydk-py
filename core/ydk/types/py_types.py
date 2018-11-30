@@ -289,8 +289,11 @@ class Entity(_Entity):
                 leaf_name_data.extend(l.get_name_leafdata())
         self.logger.debug('Get name leaf data for "%s". Count: %s'%(self.yang_name, len(leaf_name_data)))
         for l in leaf_name_data:
+            leaf_value = l[1].value
+            if "'" in leaf_value:
+                leaf_value.replace("'", "\'")
             self.logger.debug('Leaf data name: "%s", value: "%s", yfilter: "%s", is_set: "%s"' % (
-            l[0], l[1].value, l[1].yfilter, l[1].is_set))
+            l[0], leaf_value, l[1].yfilter, l[1].is_set))
         return leaf_name_data
 
     def get_segment_path(self):

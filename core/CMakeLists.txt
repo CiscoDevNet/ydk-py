@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.0.0)
 cmake_policy(SET CMP0048 NEW)
-project(path VERSION 0.7.3 LANGUAGES C CXX)
+
+project(path VERSION 0.8.0 LANGUAGES C CXX)
+
 set(CMAKE_MACOSX_RPATH 1)
 
 set(path_DESCRIPTION "Python wrapper around C++ path API using pybind11.")
@@ -17,6 +19,9 @@ if(COVERAGE STREQUAL True)
 else()
     set(CMAKE_CXX_FLAGS_DEBUG   "-g3 -O0")
 endif()
+
+# include custom Modules
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/CMakeModules/")
 
 if(PYTHON_VERSION)
     message( "python version: ${PYTHON_VERSION}" )

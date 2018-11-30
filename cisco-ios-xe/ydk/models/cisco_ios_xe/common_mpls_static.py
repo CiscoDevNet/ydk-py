@@ -2647,6 +2647,11 @@ class MplsStatic(Entity):
                 
                 	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
                 
+                .. attribute:: path
+                
+                	Fowarding path
+                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path>`
+                
                 .. attribute:: in_label
                 
                 	Value of the local label. Optional for ingress
@@ -2657,11 +2662,6 @@ class MplsStatic(Entity):
                 			**range:** 16..1048575
                 
                 		**type**\:  :py:class:`IetfMplsLabel <ydk.models.cisco_ios_xe.common_mpls_types.IetfMplsLabel>`
-                
-                .. attribute:: path
-                
-                	Fowarding path
-                	**type**\:  :py:class:`Path <ydk.models.cisco_ios_xe.common_mpls_static.MplsStatic.MplsStaticCfg.Ipv4IngressLsps.Ipv4IngressLsp.Path>`
                 
                 .. attribute:: name
                 
