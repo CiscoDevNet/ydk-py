@@ -21,7 +21,7 @@ sudo ln -f -s /usr/bin/g++-5 /usr/bin/c++
 sudo ln -f -s /usr/bin/gcc-5 /usr/bin/cc
 
 print_msg "Installing YDK C++ core library"
-git clone https://github.com/ciscodevnet/ydk-cpp.git -b 0.7.3
+git clone https://github.com/ciscodevnet/ydk-cpp.git -b 0.8.0
 mkdir ydk-cpp/core/ydk/build
 cd ydk-cpp/core/ydk/build
 cmake -DCMAKE_BUILD_TYPE=Release ..

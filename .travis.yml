@@ -9,6 +9,7 @@ matrix:
 #          dist: trusty
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
+        - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=bionic
     allow_failures:
         - os: osx
 
@@ -21,5 +22,6 @@ before_install:
 
 script:
      - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "centos" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_centos.sh && ./tests.sh" ; fi
-     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_TYPE" == "ubuntu" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_xenial.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_VERSION" == "xenial" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_xenial.sh && ./tests.sh" ; fi
+     - if [[ "$DOCKER" == "true" ]] && [[ "$OS_VERSION" == "bionic" ]]; then docker run -v `pwd`:/ydk-py ${OS_TYPE}:${OS_VERSION} bash -c "cd /ydk-py && ./dependencies_bionic.sh && ./tests.sh" ; fi
      - if [[ "$DOCKER" != "true" ]]; then ./tests.sh ; fi
