@@ -26,12 +26,12 @@ os_info=$(cat /etc/*-release)
 print_msg "OS info: $os_info"
 
 apt-get update -y > /dev/null
-apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo -y > /dev/null
-add-apt-repository ppa:ubuntu-toolchain-r/test -y
-apt-get update > /dev/null
+apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo -y
+
+print_msg "Installing C/C++ version 5"
 apt-get install gcc-5 g++-5 -y > /dev/null
-ln -f -s /usr/bin/g++-5 /usr/bin/c++
-ln -f -s /usr/bin/gcc-5 /usr/bin/cc
+ln -fs /usr/bin/g++-5 /usr/bin/c++
+ln -fs /usr/bin/gcc-5 /usr/bin/cc
 
 print_msg "Installing YDK 0.8.0 core library"
 if [[ $os_info == *"xenial"* ]]; then
@@ -44,7 +44,3 @@ else
     exit 1
 fi
 gdebi -n libydk_0.8.0-1_amd64.deb
-
-#wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.0/xenial/libydk_0.8.0-1_amd64.deb
-
-sudo easy_install pip
