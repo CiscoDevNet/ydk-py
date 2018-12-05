@@ -27,8 +27,6 @@ from ydk.ext.path import Statement
 from .sessions import NetconfSession
 from .sessions import RestconfSession
 
-
-
 __all__ = [ "Annotation",
             "Capability",
             "Codec",

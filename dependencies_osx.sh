@@ -4,6 +4,11 @@ function print_msg {
     echo -e "${MSG_COLOR}*** $(date): dependencies_osx.sh | $@ ${NOCOLOR}"
 }
 
+function install_os_dependencies {
+    brew install curl xml2 doxygen pybind11
+    brew rm -f --ignore-dependencies python python3
+}
+
 function install_libssh {
     print_msg "Installing libssh-0.7.6"
     brew reinstall openssl
@@ -14,12 +19,14 @@ function install_libssh {
     cmake ..
     sudo make install
     cd -
+#    wget https://devhub.cisco.com/artifactory/osx-ydk/third-party/libssh-0.7.5.pkg
+#    sudo installer -pkg libssh-0.7.5.pkg -target /
 }
 
 function install_libydk {
     print_msg "Installing YDK C++ core library"
-    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.7.3/libydk-0.7.3-Darwin.pkg
-    sudo installer -pkg libydk-0.7.3-Darwin.pkg -target /
+    curl -O https://devhub.cisco.com/artifactory/osx-ydk/0.8.0/libydk-0.8.0-Darwin.pkg
+    sudo installer -pkg libydk-0.8.0-Darwin.pkg -target /
 }
 
 # Terminal colors
@@ -28,7 +35,7 @@ NOCOLOR="\033[0m"
 YELLOW='\033[1;33m'
 MSG_COLOR=$YELLOW
 
-brew install pybind11
+install_os_dependencies
 
 install_libssh
 

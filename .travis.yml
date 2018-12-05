@@ -4,19 +4,15 @@ matrix:
     include:
         - os: osx
           language: generic
-#        - os: linux
-#          python: 3
-#          dist: trusty
         - env: DOCKER=true OS_TYPE=centos OS_VERSION=centos7
         - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=xenial
+        - env: DOCKER=true OS_TYPE=ubuntu OS_VERSION=bionic
     allow_failures:
         - os: osx
 
 before_install:
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install curl doxygen xml2 ; fi
     - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./dependencies_osx.sh          ; fi
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then ./dependencies_trusty.sh     ; fi
     - if [[ "$DOCKER" == "true" ]]; then docker pull ${OS_TYPE}:${OS_VERSION}  ; fi
 
 script:

@@ -25,4 +25,5 @@ __all__ = [ "ServiceProvider",
             "CodecServiceProvider",
             "NetconfServiceProvider",
             "RestconfServiceProvider",
-            "OpenDaylightServiceProvider" ]
+            "OpenDaylightServiceProvider",
+          ]

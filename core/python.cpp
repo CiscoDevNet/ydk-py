@@ -15,6 +15,7 @@
  ------------------------------------------------------------------*/
 #include <pybind11/operators.h>
 #include <pybind11/pybind11.h>
+#include <pybind11/functional.h>
 #include <pybind11/stl.h>
 #include <pybind11/stl_bind.h>
 
@@ -290,16 +291,24 @@ PYBIND11_MODULE(ydk_, ydk)
         .def(init<const string &, const string &, const string &>(),
             arg("namespace"), arg("name"), arg("value"));
 
-    class_<ydk::path::Session>(path, "Session")
+    class_<ydk::path::Session>(path, "Session", module_local())
         .def("get_root_schema", &ydk::path::Session::get_root_schema, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::Session::*)(ydk::path::Rpc& rpc) const) &ydk::path::Session::invoke, return_value_policy::reference)
         .def("invoke", (std::shared_ptr<ydk::path::DataNode> (ydk::path::Session::*)(ydk::path::DataNode& rpc) const) &ydk::path::Session::invoke, return_value_policy::reference);
 
     class_<ydk::path::NetconfSession, ydk::path::Session>(path, "NetconfSession")
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session, ydk::path::Repository& repo, const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(repo, address, username, password, port, protocol, on_demand, timeout);
-            },
+        .def(init([](ydk::path::Repository & repo,
+                     const string& address,
+                     const string& username,
+                     const string& password,
+                     int port,
+                     const string& protocol,
+                     bool on_demand,
+                     int timeout)
+                     {
+                         return new ydk::path::NetconfSession(repo, address, username, password, port, protocol, on_demand, timeout);
+                     }
+                 ),
             arg("repo"),
             arg("address"),
             arg("username"),
@@ -307,57 +316,41 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("port")=830,
             arg("protocol")=string("ssh"),
             arg("on_demand")=true,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session, ydk::path::Repository& repo, const string& address, const string& username, const string& password, void* port, const string& protocol, bool on_demand, int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(repo, address, username, password, 830, protocol, on_demand, timeout);
-            },
-            arg("repo"),
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=nullptr,
-            arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session, const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(address, username, password, port, protocol, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=830,
-            arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session, const string& address, const string& username, const string& password, void* port, const string& protocol, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(address, username, password, 830, protocol, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=nullptr,
-            arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("common_cache")=false,
             arg("timeout")=-1)
 
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session,
-                ydk::path::Repository& repo,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                int port,
-                bool on_demand,
-                int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(
-                        repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
-            },
+        .def(init([](const string& address,
+                     const string& username,
+                     const string& password,
+                     int port,
+                     const string& protocol,
+                     bool on_demand,
+                     bool common_cache,
+                     int timeout)
+                     {
+                         return new ydk::path::NetconfSession(address, username, password, port, protocol, on_demand, common_cache, timeout);
+                     }
+                 ),
+                arg("address"),
+                arg("username"),
+                arg("password"),
+                arg("port")=830,
+                arg("protocol")=string("ssh"),
+                arg("on_demand")=true,
+                arg("common_cache")=false,
+                arg("timeout")=-1)
+
+        .def(init([](ydk::path::Repository& repo,
+                     const string& address,
+                     const string& username,
+                     const string& private_key_path,
+                     const string& public_key_path,
+                     int port,
+                     bool on_demand,
+                     int timeout)
+                     {
+                         return new ydk::path::NetconfSession(repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
+                     }
+                 ),
             arg("repo"),
             arg("address"),
             arg("username"),
@@ -366,66 +359,24 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("port")=830,
             arg("on_demand")=true,
             arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session,
-                ydk::path::Repository& repo,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                void* port,
-                bool on_demand,
-                int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(
-                        repo, address, username, private_key_path,public_key_path , 830, on_demand, timeout);
-            },
-            arg("repo"),
-            arg("address"),
-            arg("username"),
-            arg("private_key_path"),
-            arg("public_key_path"),
-            arg("port")=nullptr,
-            arg("on_demand")=true,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                int port,
-                bool on_demand,
-                bool common_cache,
-                int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(
-                        address, username, private_key_path, public_key_path, port, on_demand, common_cache, timeout);
-            },
+
+        .def(init([](const string& address,
+                     const string& username,
+                     const string& private_key_path,
+                     const string& public_key_path,
+                     int port,
+                     bool on_demand,
+                     bool common_cache,
+                     int timeout)
+                     {
+                         return new ydk::path::NetconfSession(address, username, private_key_path, public_key_path, port, on_demand, common_cache, timeout);
+                     }
+                 ),
             arg("address"),
             arg("username"),
             arg("private_key_path"),
             arg("public_key_path"),
             arg("port")=830,
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::path::NetconfSession &nc_session,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                void* port,
-                bool on_demand,
-                bool common_cache,
-                int timeout) {
-                    new(&nc_session) ydk::path::NetconfSession(
-                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("private_key_path"),
-            arg("public_key_path"),
-            arg("port")=nullptr,
             arg("on_demand")=true,
             arg("common_cache")=false,
             arg("timeout")=-1)
@@ -436,17 +387,18 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("get_capabilities", &ydk::path::NetconfSession::get_capabilities, return_value_policy::reference);
 
     class_<ydk::path::RestconfSession, ydk::path::Session>(path, "RestconfSession")
-        .def("__init__",
-             [](ydk::path::RestconfSession &session, ydk::path::Repository& repo,
-                                                     const std::string& address,
-                                                     const std::string& username,
-                                                     const std::string& password,
-                                                     int port,
-                                                     ydk::EncodingFormat encoding,
-                                                     const std::string& config_url_root,
-                                                     const std::string& state_url_root) {
-                new(&session) ydk::path::RestconfSession(repo, address, username, password, port, encoding, config_url_root, state_url_root);
-             },
+        .def(init([](ydk::path::Repository& repo,
+                     const std::string& address,
+                     const std::string& username,
+                     const std::string& password,
+                     int port,
+                     ydk::EncodingFormat encoding,
+                     const std::string& config_url_root,
+                     const std::string& state_url_root)
+                     {
+                         return new ydk::path::RestconfSession(repo, address, username, password, port, encoding, config_url_root, state_url_root);
+                     }
+                 ),
              arg("repo"),
              arg("address"),
              arg("username"),
@@ -501,7 +453,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .def("create_datanode", (ydk::path::DataNode& (ydk::path::RootSchemaNode::*)(const string&, const string&)) &ydk::path::RootSchemaNode::create_datanode, return_value_policy::reference, arg("path"), arg("value"))
         .def("create_rpc", &ydk::path::RootSchemaNode::create_rpc, arg("path"), return_value_policy::reference);
 
-    class_<ydk::ServiceProvider>(providers, "ServiceProvider")
+    class_<ydk::ServiceProvider>(providers, "ServiceProvider", module_local())
         .def("get_encoding", &ydk::ServiceProvider::get_encoding, return_value_policy::reference)
         .def("get_session", &ydk::ServiceProvider::get_session, return_value_policy::reference);
 
@@ -552,6 +504,7 @@ PYBIND11_MODULE(ydk_, ydk)
         .value("delete", ydk::YFilter::delete_)
         .value("replace", ydk::YFilter::replace)
         .value("read", ydk::YFilter::read)
+        .value("update", ydk::YFilter::update)
         .value("not_set", ydk::YFilter::not_set);
 
     enum_<ydk::EncodingFormat>(types, "EncodingFormat")
@@ -763,10 +716,11 @@ PYBIND11_MODULE(ydk_, ydk)
         .def_readwrite("yfilter", &ydk::YLeafList::yfilter);
 
     class_<ydk::NetconfServiceProvider, ydk::ServiceProvider>(providers, "NetconfServiceProvider")
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, ydk::path::Repository& repo, const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(repo, address, username, password, port, protocol, on_demand, timeout);
-            },
+        .def(init(
+            [](ydk::path::Repository& repo, const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, int timeout)
+                {
+                    return new ydk::NetconfServiceProvider( repo, address, username, password, port, protocol, on_demand, timeout);
+                }),
             arg("repo"),
             arg("address"),
             arg("username"),
@@ -775,77 +729,33 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("protocol")=string("ssh"),
             arg("on_demand")=true,
             arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, ydk::path::Repository& repo, const string& address, const string& username, const string& password, void* port, const string& protocol, bool on_demand, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(repo, address, username, password, 830, protocol, on_demand, timeout);
-            },
-            arg("repo"),
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=nullptr,
-            arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(address, username, password, port, protocol, on_demand, common_cache, timeout);
-            },
+
+        .def(init(
+            [](const string& address, const string& username, const string& password, int port, const string& protocol, bool on_demand, bool common_cache, int timeout)
+                {
+                    return new ydk::NetconfServiceProvider( address, username, password, port, protocol, on_demand, common_cache, timeout);
+                }),
             arg("address"),
             arg("username"),
             arg("password"),
             arg("port")=830,
             arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, const string& address, const string& username, const string& password, void* port, const string& protocol, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(address, username, password, 830, protocol, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=nullptr,
-            arg("protocol")=string("ssh"),
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, const string& address, const string& username, const string& password, int port, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(address, username, password, port, "ssh", on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("password"),
-            arg("port")=830,
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider, const string& address, const string& username, const string& password, bool on_demand, bool common_cache, int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(address, username, password, 830, "ssh", on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("password"),
             arg("on_demand")=true,
             arg("common_cache")=false,
             arg("timeout")=-1)
 
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider,
-                ydk::path::Repository& repo,
+        .def(init(
+            [](ydk::path::Repository& repo,
                 const string& address,
                 const string& username,
                 const string& private_key_path,
                 const string& public_key_path,
                 int port,
                 bool on_demand,
-                int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(
-                        repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
-            },
+                int timeout)
+                {
+                    return new ydk::NetconfServiceProvider( repo, address, username, private_key_path, public_key_path, port, on_demand, timeout);
+                }),
             arg("repo"),
             arg("address"),
             arg("username"),
@@ -854,40 +764,20 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("port")=830,
             arg("on_demand")=true,
             arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider,
-                ydk::path::Repository& repo,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                void* port,
-                bool on_demand,
-                int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(
-                        repo, address, username, private_key_path, public_key_path, 830, on_demand, timeout);
-            },
-            arg("repo"),
-            arg("address"),
-            arg("username"),
-            arg("private_key_path"),
-            arg("public_key_path"),
-            arg("port")=nullptr,
-            arg("on_demand")=true,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider,
-                const string& address,
+
+        .def(init(
+            [](const string& address,
                 const string& username,
                 const string& private_key_path,
                 const string& public_key_path,
                 int port,
                 bool on_demand,
                 bool common_cache,
-                int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(
+                int timeout)
+                {
+                    return new ydk::NetconfServiceProvider(
                         address, username, private_key_path, public_key_path, port, on_demand, common_cache, timeout);
-            },
+                }),
             arg("address"),
             arg("username"),
             arg("private_key_path"),
@@ -896,46 +786,7 @@ PYBIND11_MODULE(ydk_, ydk)
             arg("on_demand")=true,
             arg("common_cache")=false,
             arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                void* port,
-                bool on_demand,
-                bool common_cache,
-                int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(
-                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("private_key_path"),
-            arg("public_key_path"),
-            arg("port")=nullptr,
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
-        .def("__init__",
-            [](ydk::NetconfServiceProvider &nc_provider,
-                const string& address,
-                const string& username,
-                const string& private_key_path,
-                const string& public_key_path,
-                bool on_demand,
-                bool common_cache,
-                int timeout) {
-                    new(&nc_provider) ydk::NetconfServiceProvider(
-                        address, username, private_key_path, public_key_path, 830, on_demand, common_cache, timeout);
-            },
-            arg("address"),
-            arg("username"),
-            arg("private_key_path"),
-            arg("public_key_path"),
-            arg("on_demand")=true,
-            arg("common_cache")=false,
-            arg("timeout")=-1)
+
         .def("get_encoding", &ydk::NetconfServiceProvider::get_encoding, return_value_policy::reference)
         .def("get_session", &ydk::NetconfServiceProvider::get_session, return_value_policy::reference)
         .def("get_capabilities", &ydk::NetconfServiceProvider::get_capabilities, return_value_policy::reference);
@@ -1101,3 +952,4 @@ PYBIND11_MODULE(ydk_, ydk)
     setup_logging();
 
 };
+
