@@ -2,7 +2,7 @@
 Read all data for model openconfig-bgp.
 usage: nc-read-oc-bgp-10-ydk.py [-h] [-v] device
 positional arguments:
-  device         NETCONF device (ssh://user:password@host:port)
+  device         gNMI device (ssh://user:password@host:port)
 optional arguments:
   -h, --help     show this help message and exit
   -v, --verbose  print debugging messages
@@ -13,8 +13,7 @@ from urllib.parse import urlparse
 from ydk.path import Repository
 from ydk.services import CRUDService
 from ydk.providers import gNMIServiceProvider
-from ydk.models.openconfig import openconfig_bgp \
-    as oc_bgp
+from ydk.models.openconfig import openconfig_bgp as oc_bgp
 from ydk.models.openconfig import openconfig_bgp_types
 import logging
 
@@ -56,9 +55,10 @@ if __name__ == "__main__":
         logger.addHandler(handler)
 
     # create gNMI provider
-    repository = Repository('/Users/abhirame/.ydk/pavarotti:830')
+    repository = Repository('/home/ygorelik/ydk-gen/scripts/samples/repository/192.168.122.107")
     provider = gNMIServiceProvider(repo=repository,
                                       address=device.hostname,
+                                      port=device.port,
                                       username=device.username,
                                       password=device.password)    
     # create CRUD service

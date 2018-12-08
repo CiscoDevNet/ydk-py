@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2016 Cisco Systems, Inc.
+# Copyright 2018 Cisco Systems, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,15 +14,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-# hello-ydk.py
+# hello_ydk_gnmi.py
 # Read all data for model Cisco-IOS-XR-shellutil-oper.yang and print system name and uptime.
 #
 import logging
 from datetime import timedelta
 
 # import providers, services and models
+from ydk.path import Repository
 from ydk.services import CRUDService
-from ydk.providers import NetconfServiceProvider
+from ydk.gnmi.providers import gNMIServiceProvider
 from ydk.models.cisco_ios_xr import Cisco_IOS_XR_shellutil_oper as xr_shellutil_oper
 
 def enable_logging(level):
@@ -39,11 +40,12 @@ if __name__ == "__main__":
     enable_logging(logging.INFO)
     
     # create NETCONF session
-    provider = NetconfServiceProvider(address="192.168.122.169",
-                                      port=830,
+    repo = Repository('/home/ygorelik/.ydk/192.168.122.169_830')
+    provider = gNMIServiceProvider(repo,
+                                      address="192.168.122.169",
+                                      port=57400,
                                       username="admin",
-                                      password="admin",
-                                      protocol="ssh")
+                                      password="admin")
     # create CRUD service
     crud = CRUDService()
 
