@@ -290,6 +290,21 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_cfgmgr_rollback_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationLast
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationTo
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationToExclude
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfiguration
+
+
+    def test_Cisco_IOS_XR_clear_counters_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clear_counters_act import ClearCounters
+
+
+    def test_Cisco_IOS_XR_cli_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cli_act import CliCommand
+
+
     def test_Cisco_IOS_XR_clns_isis_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisSnpAuth
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibMaxAreaAddressMismatchBoolean
@@ -509,6 +524,10 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_controller_ains_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_ains_act import ControllerAinsSoak
+
+
     def test_Cisco_IOS_XR_controller_odu_datatypes(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_odu_datatypes import OtnFlexMapping
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_odu_datatypes import OtnChildFlexControllerName
@@ -612,6 +631,26 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_controller_otu_oper_sub1(self):
         pass
+
+
+    def test_Cisco_IOS_XR_crypto_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsaGeneralKeys
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsaUsageKeys
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateDsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateEcdsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeRsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeDsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeEcdsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeAuthenticationRsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyImportAuthenticationRsa
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaAuthenticate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaEnroll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaImportCertificate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaCancelEnroll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaCrlRequest
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaTrustpoolImportUrl
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaTrustpoolImportUrlClean
 
 
     def test_Cisco_IOS_XR_crypto_macsec_mka_cfg(self):
@@ -1243,6 +1282,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg import EventManager
 
 
+    def test_Cisco_IOS_XR_hwmod_mpa_reload_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_hwmod_mpa_reload_act import HwModuleSubslot
+
+
     def test_Cisco_IOS_XR_icpe_infra_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg import NvSatelliteGlobal
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg import NvSatellites
@@ -1606,6 +1649,12 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_infra_sla_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper import Sla
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper import SlaNodes
+
+
+    def test_Cisco_IOS_XR_infra_statsd_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersController
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersInterface
 
 
     def test_Cisco_IOS_XR_infra_statsd_cfg(self):
@@ -2240,6 +2289,553 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ipv4_bgp_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import InstanceName
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv6Safi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Afi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import VrfName
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv4Safi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import AfiSafiType
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv4Safi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv6Safi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv4Safi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv6Safi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import L2vpnSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import LinkStateSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv4Safi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv6Safi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import L2vpnSafi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import LinkStateSafi_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAllGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddrGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampening
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsRegexp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsRoutePolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiSelfOriginated
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAsGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAs
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRtConstraintNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4TunnelNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiSrPolicyPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiMp2mpIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpExternalGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpExternal
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAllGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddrGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampening
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsRegexp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiSelfOriginated
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAsGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAs
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceExternalGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceExternal
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePeerDropsAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePeerDropsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerAllSerialQuery
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerRpkiServer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidationIpv4
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidationIpv6
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidation
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqProcess
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRtConstraintNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiSrPolicyPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAllGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddrGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAsGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAs
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfExternalGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfExternal
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampening
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiSelfOriginated
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPeerDropsAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPeerDropsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPeerDropsAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPeerDropsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerAllSerialQuery
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerRpkiServer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidationIpv4
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidationIpv6
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidation
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqProcess
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRtConstraintNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4TunnelNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiSrPolicyPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiMp2mpIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpAddrIpNetmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpPrefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiRdNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiVrfNetwork
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6Addr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiRd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiVrf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafi
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAllGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfRpkiValidationIpv4
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfRpkiValidationIpv6
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfRpkiValidation
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfRpkiValidationIpv4
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfRpkiValidationIpv6
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfRpkiValidation
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddrGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAsGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAs
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfExternalGraceful
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfExternal
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrLongLivedStale
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampeningIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampening
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftInPrefixFilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftIn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftOut
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoft
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsRegexp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiSelfOriginated
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampeningIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfNexthopPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfNexthopRegistrationIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPeerDropsAll
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPeerDropsIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPerformanceStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfShutdown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqAddressFamilyUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqAddressFamily
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrRefresh
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupUpdateParent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroup
+
+
     def test_Cisco_IOS_XR_ipv4_bgp_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg import BgpSiteOfOrigin
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg import BgpAsn
@@ -2497,6 +3093,16 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg import Msdp
 
 
+    def test_Cisco_IOS_XR_ipv4_ospf_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfRoutes
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfRedistribution
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatisticsNeighbor
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatisticsInterface
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfProcess
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfInstanceVrf
+
+
     def test_Cisco_IOS_XR_ipv4_ospf_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg import OspfFastRerouteTiebreakers
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_cfg import OspfFastReroute
@@ -2624,6 +3230,10 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ipv4_ping_act(self):
+        pass
+
+
     def test_Cisco_IOS_XR_ipv4_smiap_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg import Ipv4Virtual
 
@@ -2635,6 +3245,10 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_ipv4_telnet_mgmt_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg import Telnet
+
+
+    def test_Cisco_IOS_XR_ipv4_traceroute_act(self):
+        pass
 
 
     def test_Cisco_IOS_XR_ipv4_vrrp_cfg(self):
@@ -2790,6 +3404,15 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ipv6_ospfv3_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Routes
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Redistribution
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Process
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3StatisticsNeighbor
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Statistics
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3InstanceVrf
+
+
     def test_Cisco_IOS_XR_ipv6_ospfv3_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg import Ospfv3DomainId
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg import Ospfv3Network
@@ -2845,8 +3468,25 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ipv6_ping_act(self):
+        pass
+
+
     def test_Cisco_IOS_XR_ipv6_smiap_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg import Ipv6Virtual
+
+
+    def test_Cisco_IOS_XR_ipv6_traceroute_act(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_isis_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisProcess
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisRoute
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisStat
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisDist
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisLocalLsp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsis
 
 
     def test_Cisco_IOS_XR_kim_tpa_cfg(self):
@@ -3091,6 +3731,12 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_li_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_li_cfg import LawfulIntercept
+
+
+    def test_Cisco_IOS_XR_lib_keychain_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyAdd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyDelete
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyUpdate
 
 
     def test_Cisco_IOS_XR_lib_keychain_cfg(self):
@@ -4084,6 +4730,10 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ping_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act import Ping
+
+
     def test_Cisco_IOS_XR_plat_chas_invmgr_ng_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvAdminState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvResetReason
@@ -4605,8 +5255,63 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_snmp_test_trap_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SnmpColdStart
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SnmpWarmStart
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InterfaceLinkUp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InterfaceLinkDown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetSectionStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetLineStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetPathStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraSyslogMessageGenerated
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraFlashDeviceInserted
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraFlashDeviceRemoved
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraRedundancyProgression
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraRedundancySwitch
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraBridgeNewRoot
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraBridgeTopologyChange
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraConfigEvent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntitySensorThresholdNotification
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruPowerStatusChangeFailed
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruModuleStatusChangeUp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruModuleStatusChangeDown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayOperStatusUp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayInserted
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayRemoved
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrBundleDownedLink
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrBundleState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrPlaneState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpEstablished
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpEstablishedRemotePeer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpStateChange
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpStateChangeRemotePeer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingOspfNeighborStateChange
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingOspfNeighborStateChangeAddress
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsLdpSessionDown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsLdpSessionDownEntityId
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReRouted
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReRoutedIndex
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReOptimized
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReOptimizedIndex
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelDown
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelDownIndex
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import All
+
+
     def test_Cisco_IOS_XR_spirit_corehelper_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg import Exception
+
+
+    def test_Cisco_IOS_XR_spirit_install_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallAdd
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallCommit
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallRemove
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallPrepare
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallActivate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallDeactivate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallExtract
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallVerify
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_act import InstallUpdate
 
 
     def test_Cisco_IOS_XR_spirit_install_instmgr_oper(self):
@@ -5113,6 +5818,14 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysdb_oper import Sysdb
 
 
+    def test_Cisco_IOS_XR_syslog_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act import Logmsg
+
+
+    def test_Cisco_IOS_XR_sysmgr_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_act import SysmgrProcessRestart
+
+
     def test_Cisco_IOS_XR_sysmgr_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_cfg import ProcessMandatory
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_cfg import ProcessSingleCrash
@@ -5165,6 +5878,10 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_terminal_device_oper_sub1(self):
         pass
+
+
+    def test_Cisco_IOS_XR_traceroute_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act import Traceroute
 
 
     def test_Cisco_IOS_XR_traffmon_netflow_cfg(self):
@@ -5301,6 +6018,10 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_types(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_types import EncryptionType
+
+
+    def test_Cisco_IOS_XR_upgrade_fpd_ng_act(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_ng_act import UpgradeFpd
 
 
     def test_Cisco_IOS_XR_vservice_cfg(self):

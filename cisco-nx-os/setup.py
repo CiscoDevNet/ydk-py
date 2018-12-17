@@ -24,7 +24,7 @@ from setuptools import setup, find_packages
 
 HERE = path.abspath(path.dirname(__file__))
 
-INSTALL_REQUIREMENTS = ['ydk>=0.8.0']
+INSTALL_REQUIREMENTS = ['ydk>=0.7.3']
 
 NMSP_PKG_NAME = "ydk-models-cisco-nx-os"
 NMSP_PKG_VERSION = "9.2.2"
