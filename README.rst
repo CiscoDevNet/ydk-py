@@ -14,11 +14,14 @@ YANG Development Kit (Python)
 Overview
 --------
 
-The YANG Development Kit (YDK) is a Software Development Kit that provides API's that are modeled in YANG. The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.
+The YANG Development Kit (YDK) is a Software Development Kit that provides API's that are modeled in YANG. 
+The main goal of YDK is to reduce the learning curve of YANG data models by expressing the model semantics in an API and abstracting protocol/encoding details.  
+YDK is composed of a core package that defines services and providers, plus one or more module bundles that are based on YANG models.
 
 Backward Compatibility
 ----------------------
-Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ for details on some backward incompatible changes introduced as part of the 0.6.0 release.
+Please see `the release notes <https://github.com/CiscoDevNet/ydk-py/releases/tag/0.6.0>`_ and `documentation <http://ydk.cisco.com/py/docs/backward_compatibility.html>`_ 
+for details on some backward incompatible changes introduced as part of the 0.6.0 release.
 
 Docker
 ------
@@ -26,8 +29,6 @@ Docker
 A `docker image <https://docs.docker.com/engine/reference/run/>`_ is automatically built with the latest ydk-py installed. This be used to run ydk-py without installing anything natively on your machine.
 
 To use the docker image, `install docker <https://docs.docker.com/install/>`_ on your system and run the below command. See the `docker documentation <https://docs.docker.com/engine/reference/run/>`_ for more details::
-
-.. code-block:: sh
 
   docker run -it ydkdev/ydk-py
 
@@ -43,8 +44,6 @@ Linux
 **Ubuntu (Debian-based)**
 
 The following packages must be present in your system before installing YDK-Py::
-
-.. code-block:: sh
 
    $ sudo apt-get update > /dev/null
    $ sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -72,8 +71,6 @@ For Bionic (Ubuntu 18.04.1)::
 
 The following packages must be present in your system before installing YDK-Py. Currently, only Centos7/RHEL7 are known to work::
 
-.. code-block:: sh
-
    # The below may not be required on Fedora27
    $ sudo yum install epel-release
    $ sudo yum install libssh-devel gcc-c++ python-devel
@@ -92,9 +89,8 @@ MacOS
 
 It is required to install Xcode command line tools, `homebrew <http://brew.sh>`_ and the following homebrew packages on your system before installing YDK-Py.
 
-You can download the latest python package from `here <https://www.python.org/downloads/>`_. Please do not use the homebrew version of python as it causes issues with installing ydk packages. Please execute ``brew rm python python3`` to remove any homebrew python packages::
-
-.. code-block:: sh
+You can download the latest python package from `here <https://www.python.org/downloads/>`_. 
+Please do not use the homebrew version of python as it causes issues with installing ydk packages. Please execute ``brew rm python python3`` to remove any homebrew python packages::
 
    $ xcode-select --install
    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -148,23 +144,19 @@ Install gRPC
 Instal YDK gNMI library
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Ubuntu
+**Ubuntu**
 
-For Xenial (Ubuntu 16.04.4):
-
-.. code-block:: sh
+For Xenial (Ubuntu 16.04.4)::
 
    wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.0/xenial/libydk_gnmi_0.4.0-1_amd64.deb
    sudo gdebi libydk_gnmi_0.4.0-1_amd64.deb
 
-For Bionic (Ubuntu 18.04.1):
-
-.. code-block:: sh
+For Bionic (Ubuntu 18.04.1)::
 
    wget https://devhub.cisco.com/artifactory/debian-ydk/0.8.0/bionic/libydk_gnmi_0.4.0-1_amd64.deb
    sudo gdebi libydk_gnmi_0.4.0-1_amd64.deb
 
-CentOS
+**CentOS**
 
 .. code-block:: sh
 
@@ -174,9 +166,7 @@ Runtime environment
 ~~~~~~~~~~~~~~~~~~~
 
 There is an open issue with gRPC on Centos/Fedora, which requires an extra step before running any YDK gNMI application. See this issue on `GRPC GitHub <https://github.com/grpc/grpc/issues/10942#issuecomment-312565041>`_ 
-for details. As a workaround, the YDK based application runtime environment must include setting of `LD_LIBRARY_PATH` variable:
-
-.. code-block:: sh
+for details. As a workaround, the YDK based application runtime environment must include setting of `LD_LIBRARY_PATH` variable::
 
     $ PROTO="/Your-Protobuf-and-Grpc-installation-directory"
     $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PROTO/grpc/libs/opt:$PROTO/protobuf-3.5.0/src/.libs:/usr/local/lib64
@@ -187,9 +177,9 @@ How to install
 Quick Install
 ~~~~~~~~~~~~~
 
-You can install the latest model packages from the Python package index.  Note that, in some systems, you need to install the new package as root.  You get a fully operational YDK environment by installing the ``cisco-ios-xr`` and/or ``cisco-ios-xe`` bundle(s) (depending on whether you're developing for an IOS XR or IOS XE platform) which automatically installs all other YDK-related packages (``ydk``, ``openconfig`` and ``ietf`` packages)::
-
-.. code-block:: sh
+You can install the latest model packages from the Python package index.  Note that, in some systems, you need to install the new package as root.  
+You get a fully operational YDK environment by installing the ``cisco-ios-xr`` and/or ``cisco-ios-xe`` bundle(s) (depending on whether you're developing for an IOS XR or IOS XE platform), 
+which automatically installs all other YDK-related packages (``ydk``, ``openconfig`` and ``ietf`` packages)::
 
   $ pip install ydk-models-cisco-ios-xr
   $ pip install ydk-models-cisco-ios-xe
@@ -200,15 +190,11 @@ Alternatively, you can perform a partial installation.  If you only want to inst
 
 If you only want to install the ``ietf`` bundle and its dependencies (``ydk`` package), execute::
 
-.. code-block:: sh
-
   $ pip install ydk-models-ietf
 
 To installation of model bundles on CentOS/RedHat platforms require special handling; please follow the below steps.
 
-**Python2.7:**
-
-.. code-block:: sh
+**Python2.7**::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-ietf
@@ -216,9 +202,7 @@ To installation of model bundles on CentOS/RedHat platforms require special hand
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-cisco-ios-xr
     pip install --install-option="--install-purelib=/usr/lib64/python2.7/site-packages" --no-deps ydk-models-cisco-ios-xe
 
-**Python3.4:**
-
-.. code-block:: sh
+**Python3.4**::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-ietf
@@ -226,9 +210,7 @@ To installation of model bundles on CentOS/RedHat platforms require special hand
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-cisco-ios-xr
     pip install --install-option="--install-purelib=/usr/lib64/python3.4/site-packages" --no-deps ydk-models-cisco-ios-xe
 
-**Python3.6:**
-
-.. code-block:: sh
+**Python3.6**::
 
     pip install ydk
     pip install --install-option="--install-purelib=/usr/lib64/python3.6/site-packages" --no-deps ydk-models-ietf
@@ -239,17 +221,15 @@ To installation of model bundles on CentOS/RedHat platforms require special hand
 Installing from Source
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If you prefer not to use the YDK packages in the Python package index, you need to install manually the ``ydk`` core package and then the model bundles you plan to use.  To install the ``ydk`` core package, execute::
-
-.. code-block:: sh
+If you prefer not to use the YDK packages in the Python package index, you need to install manually the ``ydk`` core package and then the model bundles you plan to use.  
+To install the ``ydk`` core package, execute::
 
   $ cd core
   core$ python setup.py sdist
   core$ pip install dist/ydk*.gz
 
-Once you have installed the ``ydk`` core package, you can install one more model bundles.  Note that some bundles have dependencies on other bundles.  Those dependencies are already captured in the bundle package.  Make sure you install the desired bundles in the order below.  To install the ``ietf`` bundle, execute::
-
-.. code-block:: sh
+Once you have installed the ``ydk`` core package, you can install one more model bundles.  Note that some bundles have dependencies on other bundles.  
+Those dependencies are already captured in the bundle package.  Make sure you install the desired bundles in the order below.  To install the ``ietf`` bundle, execute::
 
   core$ cd ../ietf
   ietf$ python setup.py sdist
@@ -257,15 +237,11 @@ Once you have installed the ``ydk`` core package, you can install one more model
 
 To install the ``openconfig`` bundle, execute::
 
-.. code-block:: sh
-
   ietf$ cd ../openconfig
   openconfig$ python setup.py sdist
   openconfig$ pip install dist/ydk*.gz
 
 To install the ``cisco-ios-xr`` bundle, execute::
-
-.. code-block:: sh
 
   openconfig$ cd ../cisco-ios-xr
   cisco-ios-xr$ python setup.py sdist
@@ -274,25 +250,20 @@ To install the ``cisco-ios-xr`` bundle, execute::
 
 Using a Virtual Environment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You may want to perform the installation under a Python virtual environment (`virtualenv <https://pypi.python.org/pypi/virtualenv/>`_/`virtualenvwrapper  <https://pypi.python.org/pypi/virtualenvwrapper>`_).  A virtual environment allows you to install multiple versions of YDK if needed.  In addition, it prevents any potential conflicts between package dependencies in your system.
+You may want to perform the installation under a Python virtual environment (`virtualenv <https://pypi.python.org/pypi/virtualenv/>`_/`virtualenvwrapper  <https://pypi.python.org/pypi/virtualenvwrapper>`_).  
+A virtual environment allows you to install multiple versions of YDK if needed.  In addition, it prevents any potential conflicts between package dependencies in your system.
 
 To install virtual environment support in your system, execute::
-
-.. code-block:: sh
 
   $ pip install virtualenv virtualenvwrapper
   $ source /usr/local/bin/virtualenvwrapper.sh
 
 In some systems (e.g. Debian-based Linux), you need to install support for Python virtual environments as root::
 
-.. code-block:: sh
-
   $ sudo pip install virtualenv virtualenvwrapper
   $ source /usr/local/bin/virtualenvwrapper.sh
 
 Create a new virtual environment::
-
-.. code-block:: sh
 
   $ mkvirtualenv -p python2.7 ydk-py
 
