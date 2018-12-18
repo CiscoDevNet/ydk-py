@@ -1,6 +1,53 @@
+### 2018-12-17 version 0.8.0
+
+#### Python
+  * Introduced YDK support for gNMI protocol (protobuf version 0.4.0) including CRUD service with gNMI Service Provider.
+  * Added Netconf support for certificate-based authentication for multiple servers
+
+### Bundle improvements
+  * Updated cisco-ios-xr bundle to include previously missing action models in Cisco IOS XR 6.5.1 release
+  * Released cisco-nx-os bundle to support Cisco NX OS 9.2.2 release
+
+### 2018-10-02 version 0.7.3
+
+#### Resolved issues
+
+    Introduced Codec feature to decode multiple JSON payload. (#812)
+    Improved support for YList (#811)
+    Improve handling of python native types in model API. (#733)
+    Validate leaf values based on python type of model API. (#739)
+    Improve checking of invalid attributes for model API objects. (#815)
+
+### Bundle improvements
+
+    Updated cisco-ios-xr bundle to support Cisco IOS XR 6.5.1 release.
+    Updated cisco-ios-xe bundle to support Cisco IOS XE 16.9.1 release.
+    Released cisco-nx-os bundle to support Cisco NX OS 9.2.1 release.
+    Updated openconfig to to make it compatible with ydk core version 0.7.3.
+    Also updated ietf bundle to make it compatible with ydk core version 0.7.3.
+
+**Note**
+
+    The cisco-ios-xr 6.5.1 bundle excludes the following files due to duplicate namespaces:
+
+    Cisco-IOS-XR-sysadmin-clear-ncs5500.yang
+    Cisco-IOS-XR-sysadmin-clear-ncs5502.yang
+    Cisco-IOS-XR-sysadmin-clear-ncs55A1.yang
+    Cisco-IOS-XR-sysadmin-controllers-ncs5500.yang
+    Cisco-IOS-XR-sysadmin-controllers-ncs5501.yang
+    Cisco-IOS-XR-sysadmin-controllers-ncs5502.yang
+    Cisco-IOS-XR-sysadmin-controllers-ncs55A1.yang
+    Cisco-IOS-XR-sysadmin-fabric-mgr-fsdb-aggregator-ncs5500.yang
+    Cisco-IOS-XR-sysadmin-fabric-mgr-fsdb-aggregator-ncs5502.yang
+    Cisco-IOS-XR-sysadmin-fabric-mgr-fsdb-server-ncs5500.yang
+    Cisco-IOS-XR-sysadmin-fabric-mgr-fsdb-server-ncs5502.yang
+    Cisco-IOS-XR-sysadmin-fabric-ncs5500.yang
+    Cisco-IOS-XR-sysadmin-fabric-ncs5501.yang
+    Cisco-IOS-XR-sysadmin-fabric-ncs5502.yang
+
 ### 2018-07-02 version 0.7.2
 
-#### Python, C++ & Go
+#### Python
 
 ##### Bundle improvements
 * Released [`cisco-nx-os`](https://github.com/CiscoDevNet/ydk-gen/blob/master/profiles/bundles/cisco-nx-os-0_7_4.json) bundle to support Cisco NX OS 7.0-3-I7-4 release
