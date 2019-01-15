@@ -7,6 +7,8 @@ function print_msg {
 function install_os_dependencies {
     brew install curl xml2 doxygen pybind11
     brew rm -f --ignore-dependencies python python3
+
+    ./dependencies_gnmi.sh
 }
 
 function install_libssh {
@@ -19,8 +21,6 @@ function install_libssh {
     cmake ..
     sudo make install
     cd -
-#    wget https://devhub.cisco.com/artifactory/osx-ydk/third-party/libssh-0.7.5.pkg
-#    sudo installer -pkg libssh-0.7.5.pkg -target /
 }
 
 function install_libydk {

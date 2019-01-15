@@ -75,6 +75,11 @@ cd core
 ${PYTHON_BIN} setup.py sdist
 sudo ${PIP_BIN} install  dist/ydk*.tar.gz
 
+print_msg "Installing YDK gNMI package"
+cd ../gnmi
+${PYTHON_BIN} setup.py sdist
+sudo ${PIP_BIN} install  dist/ydk*.tar.gz
+
 print_msg "Installing ietf bundle package"
 cd ../ietf
 ${PYTHON_BIN} setup.py  sdist

@@ -36,20 +36,19 @@ function install_protobuf {
     make > /dev/null
     print_msg "Installing protobuf and protoc"
     sudo make install
-    sudo ldconfig
+#    sudo ldconfig
     cd -
 }
 
 function install_grpc {
     print_msg "Installing grpc"
-
     git clone -b v1.9.1 https://github.com/grpc/grpc
     cd grpc
     git submodule update --init
     sudo ldconfig
     make > /dev/null
     sudo make install
-    sudo ldconfig
+#    sudo ldconfig
     cd -
 }
 
