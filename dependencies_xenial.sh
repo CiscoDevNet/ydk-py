@@ -26,7 +26,7 @@ os_info=$(cat /etc/*-release)
 print_msg "OS info: $os_info"
 
 apt-get update -y > /dev/null
-apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo -y
+apt-get install gdebi-core python-dev python-pip libtool-bin wget sudo unzip -y
 
 print_msg "Installing C/C++ version 5"
 apt-get install gcc-5 g++-5 -y > /dev/null
